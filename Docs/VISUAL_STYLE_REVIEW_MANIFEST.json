@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-07-14",
+  "visualBible": "Docs/VISUAL_STYLE_BIBLE.md",
+  "minimumPassingScore": 14,
+  "maximumScore": 16,
+  "canonicalAnchors": [
+    "Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png",
+    "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+    "Assets/Sprites/Ryu/ryu_higgsfield_v4_sheet.png",
+    "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+    "Assets/Sprites/Goku/goku_astral_higgsfield_v1_sheet.png",
+    "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+  ],
+  "reviews": [
+    {
+      "id": "canonical_runtime_characters",
+      "category": "character",
+      "status": "approved_anchor",
+      "assets": [
+        "Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_higgsfield_v4_sheet.png",
+        "Assets/Sprites/Goku/goku_astral_higgsfield_v1_sheet.png"
+      ],
+      "score": 16,
+      "automaticFailure": false,
+      "reviewDate": "2026-07-14",
+      "notes": "User-confirmed source of truth for the unified modern 2.5D anime/cel-shaded fighting-game rendering grammar."
+    },
+    {
+      "id": "archive_stage_2_to_4_environment_pass_v1",
+      "category": "stage",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_floor_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_floor_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_floor_higgsfield_v1.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "failureReasons": [
+        "Photorealistic/dense hard-surface sci-fi drift",
+        "Excessive microtexture and equal-frequency detail behind fighters",
+        "Insufficient cohesion with mannequin, Ryu, and Goku contours/value planes",
+        "Generated without the now-mandatory canonical multi-reference stack"
+      ],
+      "functionalCaptures": [
+        "Artifacts/ArchiveArtPass/index_vaults_runtime_calibrated.png",
+        "Artifacts/ArchiveArtPass/corruption_repository_runtime_calibrated.png"
+      ],
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_gameplay_objects_v1",
+      "category": "prop_pickup",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/Sprites/Props/Archive/archive_health_cache_higgsfield_v1.png",
+        "Assets/Sprites/Props/Archive/archive_meter_cache_higgsfield_v1.png",
+        "Assets/Sprites/Props/Archive/archive_data_cache_higgsfield_v1.png",
+        "Assets/Sprites/Props/Archive/archive_volatile_canister_higgsfield_v1.png",
+        "Assets/Sprites/Pickups/Archive/archive_health_pickup_higgsfield_v1.png",
+        "Assets/Sprites/Pickups/Archive/archive_meter_pickup_higgsfield_v1.png",
+        "Assets/Sprites/Pickups/Archive/archive_data_pickup_higgsfield_v1.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "failureReasons": [
+        "Realistic product/hard-surface rendering rather than broad character-matched cel planes",
+        "Dense bevel/greeble detail dominates at gameplay size",
+        "Generic sci-fi loot treatment",
+        "Generated without the now-mandatory canonical multi-reference stack"
+      ],
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "current_hud_frame_v1",
+      "category": "hud",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "failureReasons": [
+        "Glossy realistic metal/glass treatment conflicts with character cel shading",
+        "Does not derive strongly enough from mannequin porcelain plates and joint seams"
+      ],
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_map_current_skin",
+      "category": "ui_screen",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Scripts/UI/MainMenu.cs",
+        "Artifacts/Phase0Smoke/archive_map_1280x720.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "failureReasons": [
+        "Reads as a flat enterprise/database dashboard",
+        "Insufficient illustrated realm art, character identity, fighting-game asymmetry, and dimensional Archive material language"
+      ],
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_enemy_family_current",
+      "category": "enemy",
+      "status": "review_and_restyle_required",
+      "assets": [
+        "Assets/Sprites/Enemies/archive_scout_higgsfield_v1.png",
+        "Assets/Sprites/Enemies/archive_raider_higgsfield_v1.png",
+        "Assets/Sprites/Enemies/archive_bruiser_higgsfield_v1.png"
+      ],
+      "score": null,
+      "automaticFailure": false,
+      "failureReasons": [
+        "Raider and Bruiser show realistic armor/rust treatment that should not seed named elites",
+        "All three require side-by-side rubric review against canonical characters"
+      ],
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_health_cache_style_pilot_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_cache_style_pilot_v1.png",
+        "Assets/Sprites/Props/Archive/archive_health_cache_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_health_cache_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_health_cache_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Sprites/Props/Archive/archive_health_cache_higgsfield_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_health_cache_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_health_cache_runtime_1920x1080.png"
+      ],
+      "nextAction": "Use this approved visual grammar for meter/data cache pilots before replacing those runtime assets.",
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_index_vaults_style_pilot_v1",
+      "category": "stage",
+      "status": "revision_superseded",
+      "assets": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_index_vaults_job.json",
+      "score": 14,
+      "automaticFailure": false,
+      "finalApproval": false,
+      "failureReasons": [
+        "Rendering grammar improved, but corridor perspective and strong depth tunnel did not satisfy lateral belt-scroll composition"
+      ],
+      "supersededBy": "archive_index_vaults_style_pilot_v2",
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_index_vaults_style_pilot_v2",
+      "category": "stage",
+      "status": "style_direction_approved_production_layers_pending",
+      "assets": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_index_vaults_v2_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_higgsfield_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": false,
+      "nextAction": "Derive separate lateral backdrop, low-frequency floor, midground landmark, and foreground layers; then capture beside approved characters.",
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "project_mannequin_hud_style_pilot_v1",
+      "category": "hud",
+      "status": "style_direction_approved_component_extraction_pending",
+      "assets": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_hud_style_pilot_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_hud_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png",
+        "Artifacts/ArchiveArtPass/index_vaults_runtime_calibrated.png",
+        "Artifacts/Phase0Smoke/archive_map_1280x720.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": false,
+      "nextAction": "Extract and rebuild modular nine-slice/texture components, preserve blank text regions, wire responsive layouts, and validate 1–4-player captures.",
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_raider_style_pilot_v1",
+      "category": "enemy",
+      "status": "style_direction_approved_animation_batch_pending",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_style_pilot_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_raider_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Sprites/Enemies/archive_raider_higgsfield_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 1
+      },
+      "automaticFailure": false,
+      "finalApproval": false,
+      "nextAction": "Generate six identity-locked animation sub-sheets, compose the 10x9 runtime atlas, and validate grounding/animation continuity before replacing the current Raider.",
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_health_pickup_style_pilot_v1",
+      "category": "pickup",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Pickups/Archive/archive_health_pickup_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_health_pickup_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_health_pickup_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_cache_style_pilot_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Sprites/Pickups/Archive/archive_health_pickup_higgsfield_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_health_pickup_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_health_pickup_runtime_1920x1080.png"
+      ],
+      "notes": "Final runtime SpritePixelSize is 0.00038 with ground offset 672; the real drop is isolated from the defeated cache during review capture only.",
+      "nextAction": "Use this approved grammar for meter/data pickup pilots before replacing those runtime assets.",
+      "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "combat_strike_vfx_style_pilot_v1",
+      "category": "vfx",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/combat_strike_vfx_style_pilot_v1.png",
+        "Assets/Vfx/Combat/project_mannequin_strike_burst_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_strike_vfx_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/combat_strike_vfx_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png",
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_astral_kamehameha_fx_higgsfield_v1_sheet.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/authored_strike_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/authored_strike_runtime_1920x1080.png"
+      ],
+      "notes": "Authored sprite is pooled and presentation-only; missing texture falls back to the existing procedural strike renderer.",
+      "reviewDate": "2026-07-14"
+    }
+  ]
+}

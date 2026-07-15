@@ -1,0 +1,89 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Core/MvpCombatBootstrap.cs" id="1_bootstrap"]
+[ext_resource type="Script" path="res://Scripts/Core/GameSimulation.cs" id="2_simulation"]
+[ext_resource type="Script" path="res://Scripts/Input/LocalInputManager.cs" id="3_input"]
+[ext_resource type="Script" path="res://Scripts/Content/ContentManager.cs" id="4_content"]
+[ext_resource type="Script" path="res://Scripts/Debug/DebugOverlay.cs" id="5_debug"]
+[ext_resource type="Script" path="res://Scripts/Presentation/PrototypeStageView.cs" id="6_stage"]
+
+[ext_resource type="Script" path="res://Scripts/Presentation/CombatAudioManager.cs" id="10_audio"]
+[ext_resource type="Script" path="res://Scripts/Debug/CombatBoxViewer.cs" id="7_boxes"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu.cs" id="8_pause"]
+[ext_resource type="Script" path="res://Scripts/UI/MvpHud.cs" id="9_hud"]
+[ext_resource type="Script" path="res://Scripts/Debug/StageDebugDrawer.cs" id="11_stagedebug"]
+[ext_resource type="Script" path="res://Scripts/Presentation/BossIntroSequencer.cs" id="12_bossintro"]
+[ext_resource type="Script" path="res://Scripts/UI/FormSelectOverlay.cs" id="13_formselect"]
+[ext_resource type="Script" path="res://Scripts/Presentation/CombatVfxManager.cs" id="14_combatvfx"]
+[ext_resource type="Script" path="res://Scripts/Presentation/StageIntroSequencer.cs" id="15_stageintro"]
+[ext_resource type="Script" path="res://Scripts/Presentation/StageHazardPresentation.cs" id="16_stagehazards"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_bootstrap")
+SimulationPath = NodePath("GameSimulation")
+ContentManagerPath = NodePath("ContentManager")
+ActorRootPath = NodePath("Actors")
+
+[node name="LocalInputManager" type="Node" parent="."]
+script = ExtResource("3_input")
+
+[node name="ContentManager" type="Node" parent="."]
+script = ExtResource("4_content")
+
+[node name="GameSimulation" type="Node" parent="."]
+script = ExtResource("2_simulation")
+
+[node name="CombatAudioManager" type="Node" parent="."]
+script = ExtResource("10_audio")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="PrototypeStage" type="Node3D" parent="."]
+script = ExtResource("6_stage")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="StageHazardPresentation" type="Node3D" parent="."]
+script = ExtResource("16_stagehazards")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="CombatBoxViewer" type="Node3D" parent="."]
+script = ExtResource("7_boxes")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="StageDebugDrawer" type="Node3D" parent="."]
+script = ExtResource("11_stagedebug")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="MvpHud" type="CanvasLayer" parent="."]
+script = ExtResource("9_hud")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="CombatVfxManager" type="CanvasLayer" parent="."]
+script = ExtResource("14_combatvfx")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="StageIntroSequencer" type="CanvasLayer" parent="."]
+layer = 18
+script = ExtResource("15_stageintro")
+SimulationPath = NodePath("../GameSimulation")
+
+[node name="BossIntroSequencer" type="CanvasLayer" parent="."]
+layer = 20
+script = ExtResource("12_bossintro")
+SimulationPath = NodePath("../GameSimulation")
+HudPath = NodePath("../MvpHud")
+
+[node name="DebugOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("5_debug")
+SimulationPath = NodePath("../GameSimulation")
+LocalInputManagerPath = NodePath("../LocalInputManager")
+VisibleOnStart = false
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("8_pause")
+
+[node name="FormSelectOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("13_formselect")
+SimulationPath = NodePath("../GameSimulation")
+

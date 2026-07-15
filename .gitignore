@@ -1,0 +1,100 @@
+# Godot generated state and exports
+/.godot/
+/.mono/
+/.import/
+/export_presets.cfg
+
+# .NET / IDE state
+**/bin/
+**/obj/
+/.vs/
+*.csproj.user
+*.suo
+*.user
+ProjectMannequin.csproj.old*
+/.vscode/settings.json
+/.vscode/launch.json
+
+# Local dependency environments
+/.venv/
+/venv/
+/node_modules/
+**/__pycache__/
+*.py[cod]
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+appsettings.Development.json
+*.local.json
+*.local.ps1
+
+# Runtime output and downloaded research media
+*.log
+/cmd_output.txt
+/run_game_log.txt
+/video_info.json
+/_video_analysis/
+/higgsfield-cli-*.tgz
+/install.sh
+
+# Generated test/art output. Keep only curated style provenance and captures.
+/Artifacts/**
+!/Artifacts/
+!/Artifacts/style_calibration_*_job.json
+!/Artifacts/StyleCalibration/
+!/Artifacts/StyleCalibration/*_job.json
+!/Artifacts/StyleCalibration/*.png
+!/Artifacts/ArchiveArtPass/
+!/Artifacts/ArchiveArtPass/*.png
+!/Artifacts/Phase0Smoke/
+!/Artifacts/Phase0Smoke/archive_map_1280x720.png
+
+# Local creator content; keep only its checked-in documentation.
+/UserContent/*
+!/UserContent/README.md
+
+# Regenerable/raw art sources; runtime sheets and approved pilots stay tracked.
+/Assets/Sprites/Enemies/Source/
+/Assets/Sprites/Enemies/_preview_*.png*
+/Assets/Sprites/Concepts/Ryu/
+/Assets/Sprites/Concepts/*.zip
+/Assets/Sprites/Concepts/*.7z
+/Assets/Sprites/Ryu/Higgsfield/
+/Assets/Sprites/Ryu/MugenAudit/
+/Assets/Sprites/Ryu/Diagnostics/**
+!/Assets/Sprites/Ryu/Diagnostics/ryu_move_scale_comparison_v3.png
+!/Assets/Sprites/Ryu/Diagnostics/ryu_move_scale_comparison_v3.png.import
+/Assets/Sprites/Ryu/ryu_higgsfield_v2_sheet.png*
+/Assets/Sprites/Ryu/ryu_higgsfield_v3_sheet.png*
+/Assets/Sprites/Ryu/ryu_mvc2_prototype_sheet.png*
+/Assets/Sprites/Mannequin/Higgsfield/
+/Assets/Sprites/Mannequin/Diagnostics/**
+!/Assets/Sprites/Mannequin/Diagnostics/mannequin_scale_comparison.png
+!/Assets/Sprites/Mannequin/Diagnostics/mannequin_scale_comparison.png.import
+/Assets/Sprites/Mannequin/row*.png*
+/Assets/Sprites/Mannequin/better_idle.png*
+/Assets/Sprites/Mannequin/mannequin_sheet.png*
+/Assets/Sprites/Goku/Diagnostics/
+/Assets/Sprites/Goku/Reference*/
+/Assets/Sprites/Goku/*.png
+/Assets/Sprites/Goku/*.png.import
+!/Assets/Sprites/Goku/goku_astral*_sheet.png
+!/Assets/Sprites/Goku/goku_astral*_sheet.png.import
+!/Assets/Sprites/Goku/goku_intro_higgsfield_v1.png
+!/Assets/Sprites/Goku/goku_intro_higgsfield_v1.png.import
+
+# General temporary/editor files
+*.tmp
+*.cache
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

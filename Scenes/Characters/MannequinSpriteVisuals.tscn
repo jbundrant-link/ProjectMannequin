@@ -1,0 +1,11 @@
+[gd_scene format=3]
+
+[node name="MannequinSpriteVisuals" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.018
+hframes = 10
+vframes = 9
+shaded = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
