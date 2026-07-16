@@ -1,0 +1,195 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (63 steps)
+[   0% ] update_scripts_classes | 
+[   1% ] update_scripts_classes | 
+[   3% ] update_scripts_classes | 
+[   4% ] update_scripts_classes | 
+[   6% ] update_scripts_classes | 
+[   7% ] update_scripts_classes | 
+[   9% ] update_scripts_classes | 
+[  10% ] update_scripts_classes | 
+[  12% ] update_scripts_classes | 
+[  14% ] update_scripts_classes | 
+[  15% ] update_scripts_classes | 
+[  17% ] update_scripts_classes | 
+[  18% ] update_scripts_classes | 
+[  20% ] update_scripts_classes | 
+[  21% ] update_scripts_classes | 
+[  23% ] update_scripts_classes | 
+[  25% ] update_scripts_classes | 
+[  26% ] update_scripts_classes | 
+[  28% ] update_scripts_classes | 
+[  29% ] update_scripts_classes | 
+[  31% ] update_scripts_classes | 
+[  32% ] update_scripts_classes | 
+[  34% ] update_scripts_classes | 
+[  35% ] update_scripts_classes | 
+[  37% ] update_scripts_classes | 
+[  39% ] update_scripts_classes | 
+[  40% ] update_scripts_classes | 
+[  42% ] update_scripts_classes | 
+[  43% ] update_scripts_classes | 
+[  45% ] update_scripts_classes | 
+[  46% ] update_scripts_classes | 
+[  48% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  51% ] update_scripts_classes | 
+[  53% ] update_scripts_classes | 
+[  54% ] update_scripts_classes | 
+[  56% ] update_scripts_classes | 
+[  57% ] update_scripts_classes | 
+[  59% ] update_scripts_classes | 
+[  60% ] update_scripts_classes | 
+[  62% ] update_scripts_classes | 
+[  64% ] update_scripts_classes | 
+[  65% ] update_scripts_classes | 
+[  67% ] update_scripts_classes | 
+[  68% ] update_scripts_classes | 
+[  70% ] update_scripts_classes | 
+[  71% ] update_scripts_classes | 
+[  73% ] update_scripts_classes | 
+[  75% ] update_scripts_classes | 
+[  76% ] update_scripts_classes | 
+[  78% ] update_scripts_classes | 
+[  79% ] update_scripts_classes | 
+[  81% ] update_scripts_classes | 
+[  82% ] update_scripts_classes | 
+[  84% ] update_scripts_classes | 
+[  85% ] update_scripts_classes | 
+[  87% ] update_scripts_classes | 
+[  89% ] update_scripts_classes | 
+[  90% ] update_scripts_classes | 
+[  92% ] update_scripts_classes | 
+[  93% ] update_scripts_classes | 
+[  95% ] update_scripts_classes | 
+[  96% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started Scanning actions... (32 steps)
+[   0% ] _update_scan_actions | archive_raider_attack_component_review.png
+[   3% ] _update_scan_actions | archive_raider_style_v2_atlas_preview.png
+[   6% ] _update_scan_actions | styled_data_cache_runtime_1280x720.png
+[   9% ] _update_scan_actions | styled_data_cache_runtime_1920x1080.png
+[  12% ] _update_scan_actions | styled_data_pickup_runtime_1280x720.png
+[  15% ] _update_scan_actions | styled_data_pickup_runtime_1920x1080.png
+[  18% ] _update_scan_actions | styled_health_cache_runtime_1280x720.png
+[  21% ] _update_scan_actions | styled_health_cache_runtime_1920x1080.png
+[  24% ] _update_scan_actions | styled_health_pickup_runtime_1280x720.png
+[  27% ] _update_scan_actions | styled_health_pickup_runtime_1920x1080.png
+[  30% ] _update_scan_actions | styled_meter_cache_runtime_1280x720.png
+[  33% ] _update_scan_actions | styled_meter_cache_runtime_1920x1080.png
+[  36% ] _update_scan_actions | styled_meter_pickup_runtime_1280x720.png
+[  39% ] _update_scan_actions | styled_meter_pickup_runtime_1920x1080.png
+[  42% ] _update_scan_actions | styled_volatile_canister_explosion_runtime_1280x720.png
+[  45% ] _update_scan_actions | styled_volatile_canister_explosion_runtime_1920x1080.png
+[  48% ] _update_scan_actions | styled_volatile_canister_runtime_1280x720.png
+[  51% ] _update_scan_actions | styled_volatile_canister_runtime_1920x1080.png
+[  54% ] _update_scan_actions | archive_raider_attacks_sheet_style_v1.png
+[  57% ] _update_scan_actions | archive_raider_dash_sheet_style_v1.png
+[  60% ] _update_scan_actions | archive_raider_dash_sheet_style_v2.png
+[  63% ] _update_scan_actions | archive_raider_idle_sheet_style_pilot_v1.png
+[  66% ] _update_scan_actions | archive_raider_idle_sheet_style_pilot_v2.png
+[  69% ] _update_scan_actions | archive_raider_jump_sheet_style_v1.png
+[  72% ] _update_scan_actions | archive_raider_jump_sheet_style_v2.png
+[  75% ] _update_scan_actions | archive_raider_jump_sheet_style_v3.png
+[  78% ] _update_scan_actions | archive_raider_misc_sheet_style_v1.png
+[  81% ] _update_scan_actions | archive_raider_misc_sheet_style_v2.png
+[  84% ] _update_scan_actions | archive_raider_misc_sheet_style_v3.png
+[  87% ] _update_scan_actions | archive_raider_walk_sheet_style_v1.png
+[  90% ] _update_scan_actions | archive_raider_walk_sheet_style_v2.png
+[  93% ] _update_scan_actions | archive_raider_style_v2.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started (Re)Importing Assets (32 steps)
+[   0% ] reimport | Preparing files to reimport...
+[   3% ] reimport | Preparing files to reimport...
+[   6% ] reimport | Preparing files to reimport...
+[   9% ] reimport | Preparing files to reimport...
+[  12% ] reimport | Preparing files to reimport...
+[  15% ] reimport | Preparing files to reimport...
+[  18% ] reimport | Preparing files to reimport...
+[  21% ] reimport | Preparing files to reimport...
+[  24% ] reimport | Preparing files to reimport...
+[  27% ] reimport | Preparing files to reimport...
+[  30% ] reimport | Preparing files to reimport...
+[  33% ] reimport | Preparing files to reimport...
+[  36% ] reimport | Preparing files to reimport...
+[  39% ] reimport | Preparing files to reimport...
+[  42% ] reimport | Preparing files to reimport...
+[  45% ] reimport | Preparing files to reimport...
+[  48% ] reimport | Preparing files to reimport...
+[  51% ] reimport | Preparing files to reimport...
+[  54% ] reimport | Preparing files to reimport...
+[  57% ] reimport | Preparing files to reimport...
+[  60% ] reimport | Preparing files to reimport...
+[  63% ] reimport | Preparing files to reimport...
+[  66% ] reimport | Preparing files to reimport...
+[  69% ] reimport | Preparing files to reimport...
+[  72% ] reimport | Preparing files to reimport...
+[  75% ] reimport | Preparing files to reimport...
+[  78% ] reimport | Preparing files to reimport...
+[  81% ] reimport | Preparing files to reimport...
+[  84% ] reimport | Preparing files to reimport...
+[  87% ] reimport | Preparing files to reimport...
+[  90% ] reimport | Preparing files to reimport...
+[  93% ] reimport | Preparing files to reimport...
+[   0% ] reimport | Executing pre-reimport operations...
+[   0% ] reimport | archive_raider_style_v2.png
+[   0% ] reimport | archive_raider_style_v2.png
+[   3% ] reimport | archive_raider_walk_sheet_style_v2.png
+[   6% ] reimport | archive_raider_walk_sheet_style_v1.png
+[   9% ] reimport | archive_raider_misc_sheet_style_v3.png
+[  12% ] reimport | archive_raider_misc_sheet_style_v2.png
+[  15% ] reimport | archive_raider_misc_sheet_style_v1.png
+[  18% ] reimport | archive_raider_jump_sheet_style_v3.png
+[  21% ] reimport | archive_raider_jump_sheet_style_v2.png
+[  24% ] reimport | archive_raider_jump_sheet_style_v1.png
+[  27% ] reimport | archive_raider_idle_sheet_style_pilot_v2.png
+[  30% ] reimport | archive_raider_idle_sheet_style_pilot_v1.png
+[  33% ] reimport | archive_raider_dash_sheet_style_v2.png
+[  36% ] reimport | archive_raider_dash_sheet_style_v1.png
+[  39% ] reimport | archive_raider_attacks_sheet_style_v1.png
+[  42% ] reimport | styled_volatile_canister_runtime_1920x1080.png
+[  45% ] reimport | styled_volatile_canister_runtime_1280x720.png
+[  48% ] reimport | styled_volatile_canister_explosion_runtime_1920x1080.png
+[  51% ] reimport | styled_volatile_canister_explosion_runtime_1280x720.png
+[  54% ] reimport | styled_meter_pickup_runtime_1920x1080.png
+[  57% ] reimport | styled_meter_pickup_runtime_1280x720.png
+[  60% ] reimport | styled_meter_cache_runtime_1920x1080.png
+[  63% ] reimport | styled_meter_cache_runtime_1280x720.png
+[  66% ] reimport | styled_health_pickup_runtime_1920x1080.png
+[  69% ] reimport | styled_health_pickup_runtime_1280x720.png
+[  72% ] reimport | styled_health_cache_runtime_1920x1080.png
+[  75% ] reimport | styled_health_cache_runtime_1280x720.png
+[  78% ] reimport | styled_data_pickup_runtime_1920x1080.png
+[  81% ] reimport | styled_data_pickup_runtime_1280x720.png
+[  84% ] reimport | styled_data_cache_runtime_1920x1080.png
+[  87% ] reimport | styled_data_cache_runtime_1280x720.png
+[  90% ] reimport | archive_raider_style_v2_atlas_preview.png
+[  93% ] reimport | archive_raider_attack_component_review.png
+[  96% ] reimport | Finalizing Asset Import...
+[ DONE ] reimport
+
+[   0% ] reimport | Started (Re)Importing Assets (32 steps)
+[   0% ] reimport | Executing post-reimport operations...
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[  33% ] loading_editor_layout | Reopening scenes...
+[  50% ] loading_editor_layout | Loading central editor layout...
+[  66% ] loading_editor_layout | Loading plugin window layout...
+[  83% ] loading_editor_layout | Editor layout ready.
+[ DONE ] loading_editor_layout
+

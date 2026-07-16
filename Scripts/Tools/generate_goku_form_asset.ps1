@@ -20,8 +20,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$cliCommand = Get-Command higgsfield -ErrorAction Stop
-$cli = $cliCommand.Source
+$cli = "C:\Users\Joseph Bundrant\AppData\Local\Programs\higgsfield\higgsfield.exe"
 $resolvedSource = (Resolve-Path -LiteralPath $SourcePath).Path
 $resolvedOutput = [System.IO.Path]::GetFullPath(
     (Join-Path (Get-Location) $OutputPath)

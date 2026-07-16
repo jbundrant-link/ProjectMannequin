@@ -12,6 +12,8 @@ namespace ProjectMannequin.DebugTools;
 
 public sealed class WorldLadderSmokeScenario
 {
+    private const int EnemyCaptureMinimumWarmupFrames = 30;
+
     private readonly GameSimulation _simulation;
     private readonly MvpHud? _hud;
     private int _nextDefeatTick = 80;
@@ -43,6 +45,14 @@ public sealed class WorldLadderSmokeScenario
     private int _pickupObservedTick = -1;
     private string _pickupCaptureActorId = "";
     private Vector3 _pickupCapturePosition;
+    private string _raiderCaptureActorId = "";
+    private int _raiderCaptureStartedTick = -1;
+    private int _raiderCaptureArmedTick = -1;
+    private int _raiderAttackHoldStartedTick = -1;
+    private bool _raiderCaptureFinished;
+    private bool _raiderOriginalAiEnabled;
+    private bool _raiderOriginalVulnerable;
+    private readonly HashSet<string> _raiderHiddenActorIds = new();
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private readonly HashSet<string> _clearedEncounterIds = new();
@@ -52,6 +62,9 @@ public sealed class WorldLadderSmokeScenario
     {
         _simulation = simulation;
         _hud = simulation.GetNodeOrNull<MvpHud>("../MvpHud");
+        PrepareEnemyCaptureOutput(EnemyIdleCaptureVariable());
+        PrepareEnemyCaptureOutput(EnemyAttackCaptureVariable());
+        OS.SetEnvironment(EnemyActorIdVariable(), "");
         GD.Print("[LadderSmoke] Driver active.");
     }
 
@@ -116,12 +129,20 @@ public sealed class WorldLadderSmokeScenario
             _encounterActiveStartedTick = tick;
         }
 
+        if (TryDriveRaiderCapture(tick, director, player))
+        {
+            return;
+        }
+
         var wantsStyledPropCapture = director.Mission.WorldId == "archive_nexus"
             && !string.IsNullOrWhiteSpace(
                 OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CACHE_CAPTURE"));
         var wantsStyledPickupCapture = director.Mission.WorldId == "archive_nexus"
             && !string.IsNullOrWhiteSpace(
                 OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_PICKUP_CAPTURE"));
+        var wantsExplosionCapture = director.Mission.WorldId == "archive_nexus"
+            && !string.IsNullOrWhiteSpace(
+                OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_EXPLOSION_CAPTURE"));
         var propCaptureSuffix = ResolvePropCaptureSuffix();
         var pickupCaptureSuffix = ResolvePickupCaptureSuffix();
         if ((wantsStyledPropCapture || wantsStyledPickupCapture) && !_cacheCaptureSaved)
@@ -133,11 +154,19 @@ public sealed class WorldLadderSmokeScenario
             if (liveStyledCache is not null)
             {
                 _cacheObservedTick = _cacheObservedTick < 0 ? tick : _cacheObservedTick;
-                player.SimPosition = new Vector3(
-                    liveStyledCache.SimPosition.X,
-                    player.SimPosition.Y,
-                    liveStyledCache.SimPosition.Z);
-                player.Velocity = Vector3.Zero;
+                if (wantsExplosionCapture
+                    && liveStyledCache.CurrentForm.RoleTags.Contains("explosive"))
+                {
+                    StageExplosionCaptureActors(director, liveStyledCache, player);
+                }
+                else
+                {
+                    player.SimPosition = new Vector3(
+                        liveStyledCache.SimPosition.X,
+                        player.SimPosition.Y,
+                        liveStyledCache.SimPosition.Z);
+                    player.Velocity = Vector3.Zero;
+                }
                 if (tick <= _cacheObservedTick + 24)
                 {
                     return;
@@ -240,6 +269,236 @@ public sealed class WorldLadderSmokeScenario
         _nextDefeatTick = tick + 32;
     }
 
+    private bool TryDriveRaiderCapture(
+        int tick,
+        ArcadeEncounterDirector director,
+        CombatActor player)
+    {
+        var idleCapturePath = OS.GetEnvironment(EnemyIdleCaptureVariable());
+        var attackCapturePath = OS.GetEnvironment(EnemyAttackCaptureVariable());
+        var targetStage = CapturedEnemyStageNumber();
+        var captureRequested = director.Mission.StageNumber == targetStage
+            && (!string.IsNullOrWhiteSpace(idleCapturePath)
+                || !string.IsNullOrWhiteSpace(attackCapturePath));
+        if (!captureRequested || _raiderCaptureFinished)
+        {
+            return false;
+        }
+
+        var raider = string.IsNullOrWhiteSpace(_raiderCaptureActorId)
+            ? _simulation.Actors.FirstOrDefault(actor =>
+                !actor.IsDead
+                && actor.CurrentForm.Id == CapturedEnemyFormId()
+                && actor.ArcadeBrain?.IsEnteringStage == false)
+            : _simulation.Actors.FirstOrDefault(actor =>
+                actor.ActorId == _raiderCaptureActorId
+                && !actor.IsDead);
+        if (raider is null)
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(_raiderCaptureActorId))
+        {
+            _raiderCaptureActorId = raider.ActorId;
+            _raiderCaptureStartedTick = tick;
+            _raiderOriginalAiEnabled = raider.IsAiEnabled;
+            _raiderOriginalVulnerable = raider.IsVulnerable;
+            GD.Print(
+                $"[LadderSmoke] Staging live {raider.CurrentForm.DisplayName} "
+                + $"{_raiderCaptureActorId} for runtime captures.");
+        }
+
+        StageRaiderCaptureActors(director, raider, player);
+        raider.IsAiEnabled = false;
+        raider.IsVulnerable = false;
+        raider.FacingRight = true;
+
+        if (_raiderCaptureArmedTick < 0)
+        {
+            raider.ClearCurrentMove();
+            raider.State = CombatActorState.Idle;
+            var captureWarmup = tick - _raiderCaptureStartedTick;
+            if (captureWarmup < EnemyCaptureMinimumWarmupFrames
+                || (_hud?.CenterNotificationVisible == true && captureWarmup < 120))
+            {
+                return true;
+            }
+
+            _raiderCaptureArmedTick = tick;
+            OS.SetEnvironment(EnemyActorIdVariable(), _raiderCaptureActorId);
+            GD.Print(
+                $"[LadderSmoke] {raider.CurrentForm.DisplayName} capture armed "
+                + "after encounter overlays cleared.");
+        }
+
+        var idleCaptureReady = string.IsNullOrWhiteSpace(idleCapturePath)
+            || CaptureFileExists(idleCapturePath);
+        if (_raiderAttackHoldStartedTick < 0 && !idleCaptureReady)
+        {
+            raider.ClearCurrentMove();
+            raider.State = CombatActorState.Idle;
+            if (tick - _raiderCaptureArmedTick <= 120)
+            {
+                return true;
+            }
+
+            GD.PushError(
+                $"[LadderSmoke] Timed out waiting for "
+                + $"{raider.CurrentForm.DisplayName} idle capture '{idleCapturePath}'.");
+        }
+
+        var attack = raider.CurrentForm.FindMove(CapturedEnemyMoveId());
+        if (attack is null)
+        {
+            GD.PushError(
+                $"[LadderSmoke] {raider.CurrentForm.DisplayName} capture could not find "
+                + $"move '{CapturedEnemyMoveId()}'.");
+            FinishRaiderCapture(tick, raider);
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(attackCapturePath))
+        {
+            FinishRaiderCapture(tick, raider);
+            return false;
+        }
+
+        if (raider.CurrentMove?.Id != attack.Id)
+        {
+            raider.ClearCurrentMove();
+            raider.Velocity = Vector3.Zero;
+            if (!raider.TryStartMove(attack, tick))
+            {
+                GD.PushError(
+                    $"[LadderSmoke] {raider.CurrentForm.DisplayName} capture could not "
+                    + $"start '{attack.DisplayName}'.");
+                FinishRaiderCapture(tick, raider);
+                return false;
+            }
+
+            return true;
+        }
+
+        var captureFrame = CapturedEnemyMoveFrame();
+        if (raider.CurrentMoveFrame < captureFrame)
+        {
+            return true;
+        }
+
+        _raiderAttackHoldStartedTick = _raiderAttackHoldStartedTick < 0
+            ? tick
+            : _raiderAttackHoldStartedTick;
+        raider.CurrentMoveFrame = captureFrame;
+        raider.Velocity = Vector3.Zero;
+
+        if (CaptureFileExists(attackCapturePath))
+        {
+            FinishRaiderCapture(tick, raider);
+            return false;
+        }
+
+        if (tick - _raiderAttackHoldStartedTick <= 120)
+        {
+            return true;
+        }
+
+        GD.PushError(
+            $"[LadderSmoke] Timed out waiting for "
+            + $"{raider.CurrentForm.DisplayName} attack capture '{attackCapturePath}'.");
+        FinishRaiderCapture(tick, raider);
+        return false;
+    }
+
+    private void StageRaiderCaptureActors(
+        ArcadeEncounterDirector director,
+        CombatActor raider,
+        CombatActor player)
+    {
+        var encounter = director.CurrentEncounter;
+        var center = new Vector3(
+            (encounter.ArenaMinX + encounter.ArenaMaxX) * 0.5f,
+            0.0f,
+            Mathf.Clamp(0.0f, director.CurrentLaneMinZ, director.CurrentLaneMaxZ));
+        raider.SimPosition = center + new Vector3(-1.45f, 0.0f, 0.0f);
+        raider.Velocity = Vector3.Zero;
+        player.SimPosition = center + new Vector3(1.55f, 0.0f, 0.0f);
+        player.Velocity = Vector3.Zero;
+        player.FacingRight = false;
+
+        foreach (var actor in _simulation.Actors.Where(actor =>
+            actor != raider
+            && actor != player))
+        {
+            actor.Visible = false;
+            _raiderHiddenActorIds.Add(actor.ActorId);
+        }
+    }
+
+    private void FinishRaiderCapture(int tick, CombatActor raider)
+    {
+        raider.IsAiEnabled = _raiderOriginalAiEnabled;
+        raider.IsVulnerable = _raiderOriginalVulnerable;
+        foreach (var actor in _simulation.Actors.Where(actor =>
+            _raiderHiddenActorIds.Contains(actor.ActorId)
+            && !actor.IsDead))
+        {
+            actor.Visible = true;
+        }
+
+        _raiderCaptureFinished = true;
+        _nextDefeatTick = Mathf.Max(_nextDefeatTick, tick + 12);
+        GD.Print(
+            $"[LadderSmoke] Live {raider.CurrentForm.DisplayName} runtime captures completed.");
+    }
+
+    private static bool CaptureFileExists(string path)
+    {
+        return !string.IsNullOrWhiteSpace(path)
+            && File.Exists(path)
+            && new FileInfo(path).Length > 0;
+    }
+
+    private static void PrepareEnemyCaptureOutput(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    private void StageExplosionCaptureActors(
+        ArcadeEncounterDirector director,
+        CombatActor explosive,
+        CombatActor player)
+    {
+        var encounter = director.CurrentEncounter;
+        var center = new Vector3(
+            (encounter.ArenaMinX + encounter.ArenaMaxX) * 0.5f,
+            0.0f,
+            Mathf.Clamp(0.0f, director.CurrentLaneMinZ, director.CurrentLaneMaxZ));
+        explosive.SimPosition = center;
+        explosive.Velocity = Vector3.Zero;
+        player.SimPosition = center + new Vector3(2.6f, 0.0f, 0.7f);
+        player.Velocity = Vector3.Zero;
+
+        var supportingActors = _simulation.Actors
+            .Where(actor => actor != explosive && actor != player && !actor.IsDead)
+            .OrderBy(actor => actor.ActorId)
+            .ToArray();
+        for (var index = 0; index < supportingActors.Length; index++)
+        {
+            var column = index % 3;
+            var row = index / 3;
+            supportingActors[index].SimPosition = center + new Vector3(
+                -2.8f + column * 1.25f,
+                0.0f,
+                -1.0f + row * 1.1f);
+            supportingActors[index].Velocity = Vector3.Zero;
+        }
+    }
+
     public void CaptureAfterSimulation(
         int tick,
         ArcadeEncounterDirector director,
@@ -295,6 +554,7 @@ public sealed class WorldLadderSmokeScenario
             .Any(prop => prop.ExplodesOnBreak);
         var laneRhythmPassed = director.Mission.StageNumber != 2
             || (_sawNarrowVaultLane && _sawWideVaultLane && _sawNarrowLaneClamp);
+        var enemyCapturePassed = EnemyCapturePassed(director);
         var passed = director.Mission.StageNumber is >= 1 and <= 3
             && !director.Mission.IsFinalStage
             && _hordesCleared == 2
@@ -311,6 +571,7 @@ public sealed class WorldLadderSmokeScenario
             && _sawEliteIntroReady
             && _sawEliteIntroFight
             && _sawEliteLifeBar
+            && enemyCapturePassed
             && !_sawFormUnlock
             && !_sawAwaitingFormSwap;
         GD.Print(
@@ -322,6 +583,7 @@ public sealed class WorldLadderSmokeScenario
             + $"eliteBar={_sawEliteLifeBar} hazards={_hazardWarnings.Count}/{expectedHazards} "
             + $"explosion={_sawPropExplosion}/{_sawPropExplosionDamage}/{expectsPropExplosion} "
             + $"lanes={_sawNarrowVaultLane}/{_sawWideVaultLane}/{_sawNarrowLaneClamp} "
+            + $"enemyCapture={enemyCapturePassed} "
             + $"awaitSwap={_sawAwaitingFormSwap} tick={tick}");
         if (!passed)
         {
@@ -330,6 +592,92 @@ public sealed class WorldLadderSmokeScenario
 
 
         _simulation.GetTree().Quit();
+    }
+
+    private static bool EnemyCapturePassed(ArcadeEncounterDirector director)
+    {
+        var targetStage = CapturedEnemyStageNumber();
+        if (director.Mission.StageNumber != targetStage)
+        {
+            return true;
+        }
+
+        var idleCapturePath = OS.GetEnvironment(EnemyIdleCaptureVariable());
+        var attackCapturePath = OS.GetEnvironment(EnemyAttackCaptureVariable());
+        return (string.IsNullOrWhiteSpace(idleCapturePath)
+                || CaptureFileExists(idleCapturePath))
+            && (string.IsNullOrWhiteSpace(attackCapturePath)
+                || CaptureFileExists(attackCapturePath));
+    }
+
+    private static string CapturedEnemyFormId()
+    {
+        var value = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_FORM_ID");
+        return string.IsNullOrWhiteSpace(value) ? "archive_raider" : value;
+    }
+
+    private static string CapturedEnemyMoveId()
+    {
+        var value = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_MOVE_ID");
+        return string.IsNullOrWhiteSpace(value) ? "archive_raider_attack" : value;
+    }
+
+    private static int CapturedEnemyStageNumber()
+    {
+        return CapturedEnemyFormId() switch
+        {
+            "index_warden_veyra" => 1,
+            "archive_scout" => 1,
+            "cipher_captain_rhune" => 2,
+            "overseer_basalt" => 3,
+            "archive_bruiser" => 3,
+            _ => 2,
+        };
+    }
+
+    private static int CapturedEnemyMoveFrame()
+    {
+        var value = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_MOVE_FRAME");
+        return int.TryParse(value, out var frame) ? Mathf.Max(0, frame) : 17;
+    }
+
+    private static string EnemyIdleCaptureVariable()
+    {
+        return CapturedEnemyFormId() switch
+        {
+            "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_IDLE_CAPTURE",
+            "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_IDLE_CAPTURE",
+            "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_IDLE_CAPTURE",
+            "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_IDLE_CAPTURE",
+            "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_IDLE_CAPTURE",
+            _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_IDLE_CAPTURE",
+        };
+    }
+
+    private static string EnemyAttackCaptureVariable()
+    {
+        return CapturedEnemyFormId() switch
+        {
+            "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ATTACK_CAPTURE",
+            "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ATTACK_CAPTURE",
+            "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ATTACK_CAPTURE",
+            "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ATTACK_CAPTURE",
+            "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ATTACK_CAPTURE",
+            _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_ATTACK_CAPTURE",
+        };
+    }
+
+    private static string EnemyActorIdVariable()
+    {
+        return CapturedEnemyFormId() switch
+        {
+            "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ACTOR_ID",
+            "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ACTOR_ID",
+            "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ACTOR_ID",
+            "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ACTOR_ID",
+            "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ACTOR_ID",
+            _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_ACTOR_ID",
+        };
     }
 
     private void CapturePublishedEvents()

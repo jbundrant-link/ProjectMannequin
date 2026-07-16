@@ -1,0 +1,20 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+Vulkan 1.3.280 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 SUPER
+
+[CombatSmoke] Mobility and combo scenario initialized.
+[CombatSmoke] tick 31: MoveStarted Air Template Tap
+[CombatSmoke] tick 40: MoveStarted Air Template Cross
+[CombatSmoke] tick 55: MoveStarted Air Template Spike
+[CombatSmoke] tick 105: MoveStarted Template Jab
+[CombatSmoke] tick 116: MoveStarted Template Cross
+[CombatSmoke] tick 129: MoveStarted Template Smash
+[CombatSmoke] tick 175: MoveStarted Crouching Shin Kick
+[CombatSmoke] tick 215: MoveStarted Blank Launcher
+[CombatSmoke] Authored impact capture saved: C:\Users\Joseph Bundrant\Code Projects\SideScroller\Artifacts\StyleCalibration\authored_strike_runtime_1280x720.png
+[CombatSmoke] tick 238: MoveStarted Air Template Tap
+[CombatSmoke] tick 249: MoveStarted Air Template Spike
+[CombatSmoke] tick 324: MoveStarted Template Uppercut
+[CombatSmoke] tick 405: MoveStarted Standing Jab
+[CombatSmoke] tick 414: MoveStarted Standing Strong
+[CombatSmoke] tick 426: MoveStarted Medium Hadouken
+[CombatSmoke] SUMMARY passed=True dash=True height=2.85 air=True/True/True crouch=True combo3=True launcherJump=True uppercut=True ryuRoute=True/True/True ryuProjectile=True landing=True

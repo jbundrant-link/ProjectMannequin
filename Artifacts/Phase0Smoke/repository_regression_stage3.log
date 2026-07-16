@@ -1,0 +1,7 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[LadderSmoke] Driver active.
+[LadderSmoke] tick=300 state=EncounterActive encounter=breach_05 remaining=1
+[LadderSmoke] tick=600 state=EncounterActive encounter=breach_06 remaining=3
+[LadderSmoke] tick=900 state=Traveling encounter=archive_nexus_stage_3_elite remaining=4
+[LadderSmoke] SUMMARY passed=True stage=3 hordes=2 elite=True brain=True completed=True results=True hazard=True unlock=False eliteIntro=True/True/True eliteBar=True hazards=4/4 explosion=True/True/True lanes=False/False/False awaitSwap=False tick=1079

@@ -4,6 +4,11 @@
 
 This document operationalizes the visual direction in [MasterPrompt.md](MasterPrompt.md), especially Section 4. It is mandatory for every generated or procedural character, enemy, stage, prop, pickup, hazard, VFX, HUD, menu, map, portrait, icon, and cinematic asset.
 
+Within the roadmap hierarchy, [MASTER_IMPLEMENTATION_PLAN.md](MASTER_IMPLEMENTATION_PLAN.md)
+owns product scope and sequencing while this document has final authority over
+visual language and style approval. A tactical plan, backlog, audit, successful
+import, or passing mechanics test cannot waive this rubric.
+
 The accepted runtime look of the mannequin, Ryu, and Goku is the source of truth. New assets must look as though they belong in the same game when placed beside those characters. An asset can be unique, technically correct, and attractive while still failing the Project Mannequin style.
 
 ## One-sentence target
@@ -60,7 +65,7 @@ These are closer environment references because they use visible linework, simpl
 Do not use these current assets as the sole style reference for new work:
 
 - the dense-metal Archive Stage 2–4 environment pass;
-- the current Archive cache, canister, and pickup pass;
+- the legacy `*_higgsfield_v1` Archive cache, canister, and pickup pass;
 - the glossy metallic HUD frame;
 - the flat Archive Map dashboard skin;
 - rusted/PBR enemy or prop art that conflicts with the accepted characters.
@@ -248,16 +253,16 @@ A batch derived from an unapproved pilot is invalid even if every file imports s
 
 Score each criterion from 0–2:
 
-| Criterion | 0 | 1 | 2 |
-|---|---|---|---|
-| Cohesion with mannequin/Ryu/Goku | different game | partial resemblance | immediately cohesive |
-| Contour language | absent/noisy/wrong | inconsistent | clean and matched |
-| Cel/value structure | photoreal/flat/muddy | mixed | broad deliberate planes |
-| Silhouette/readability | unclear | adequate | strong at gameplay size |
-| Detail density | micro-noise dominates | some clutter | large forms dominate |
-| Material/lighting | PBR/photo drift | mixed | stylized fighting-game volume |
-| Color/focal hierarchy | uncontrolled/flat | usable | world-specific and intentional |
-| Runtime/category fitness | unusable/concept-only | revision needed | production-ready |
+| Criterion                        | 0                     | 1                   | 2                              |
+| -------------------------------- | --------------------- | ------------------- | ------------------------------ |
+| Cohesion with mannequin/Ryu/Goku | different game        | partial resemblance | immediately cohesive           |
+| Contour language                 | absent/noisy/wrong    | inconsistent        | clean and matched              |
+| Cel/value structure              | photoreal/flat/muddy  | mixed               | broad deliberate planes        |
+| Silhouette/readability           | unclear               | adequate            | strong at gameplay size        |
+| Detail density                   | micro-noise dominates | some clutter        | large forms dominate           |
+| Material/lighting                | PBR/photo drift       | mixed               | stylized fighting-game volume  |
+| Color/focal hierarchy            | uncontrolled/flat     | usable              | world-specific and intentional |
+| Runtime/category fitness         | unusable/concept-only | revision needed     | production-ready               |
 
 Passing requirements:
 
@@ -277,11 +282,17 @@ Automatic failures include photoreal/PBR drift, no canonical reference used, unr
 - Goku runtime character art and transformations.
 - Archive health cache V2 runtime art.
 - Archive health pickup V2 runtime art.
+- Archive meter/data cache V2 runtime art.
+- Archive meter/data pickup V2 runtime art.
+- Archive volatile canister V2 runtime art and graphic cel detonation.
+- Archive Scout V2 animated runtime atlas and Scout Jab sequence.
+- Archive Raider V2 animated runtime atlas and Raider Cross sequence.
+- Archive Bruiser V2 animated runtime atlas and Bruiser Hammer sequence.
+- Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt unique animated elite atlases and signature attacks.
 - Authored Project Mannequin strike-impact runtime VFX.
 
 ### Approved direction / runtime completion pending
 
-- Archive Raider redesign pilot; animation-sheet production pending.
 - Index Vaults lateral environment pilot V2; production layers pending.
 - Living Archive HUD kit pilot; modular extraction/wiring pending.
 
@@ -292,32 +303,29 @@ The following are unique, imported, and mechanically wired, but drift toward pho
 - Archive Index Vaults backdrop/floor.
 - Archive Corruption Repository backdrop/floor.
 - Archive Knight’s Reliquary backdrop/floor.
-- Legacy Archive health cache V1 plus current meter/data caches.
-- Archive volatile canister.
-- Legacy Archive health pickup V1 plus current meter/data pickups.
+- Legacy Archive V1 cache, canister, and pickup family (`*_higgsfield_v1`); these are retained for provenance only and are no longer runtime-selected.
 - Current glossy metallic lifebar frame.
 - Current flat Archive Map skin.
-- Archive Raider and Archive Bruiser material/rendering treatment.
 
 ### Pending explicit review
 
-- Archive Stage 1 and Archive Scout.
+- Archive Stage 1 environment and Archive Knight.
 - Archive Knight and other non-anchor bosses.
 - World Warrior enemies and remaining stages.
 - Astral enemies and stages.
-- Combat VFX, reward icons, portraits, menus, pause UI, results UI, and form-select UI.
+- Remaining combat/hazard VFX, reward icons, portraits, menus, pause UI, results UI, and form-select UI.
 
 Pending means unapproved—not implicitly accepted.
 
 ## Replacement order
 
-1. Produce one cross-category calibration set: Archive enemy, cache, pickup, stage panel/floor pair, HUD plate, and VFX burst.
-2. Approve the pilots beside mannequin/Ryu/Goku.
-3. Replace Archive Raider/Bruiser and create three unique named elites.
-4. Restyle Archive caches, canister, and pickups.
-5. Restyle Archive Stages 1–4 with layered cel-painted subzones and lower surface noise.
+1. **DONE:** Produce one cross-category calibration set: Archive enemy, cache, pickup, stage panel/floor pair, HUD plate, and VFX burst.
+2. **DONE:** Approve the pilots beside mannequin/Ryu/Goku.
+3. **DONE:** Restyle and dual-resolution validate all Archive caches, the volatile canister, pickups, and the canister detonation.
+4. **DONE:** Replace Archive Scout, Raider, and Bruiser and create unique animation-ready Veyra, Rhune, and Basalt elites.
+5. **IN PROGRESS:** Restyle Archive Stages 1–4 with layered cel-painted subzones and lower surface noise, beginning with themed hazard set pieces.
 6. Replace lifebar art and reskin HUD/map/results/pause/form-select around one fighting-game UI kit.
-7. Complete themed hazard art and VFX.
+7. Complete the remaining themed hazard art and VFX.
 8. Apply the approved grammar—without copying Archive motifs—to World Warrior and Astral.
 
 ## Definition of visually complete

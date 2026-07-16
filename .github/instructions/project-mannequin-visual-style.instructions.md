@@ -1,7 +1,16 @@
 ---
 name: "Project Mannequin Visual Style"
 description: "Use when generating, editing, reviewing, importing, wiring, or planning Project Mannequin character sprites, enemies, bosses, stages, props, pickups, hazards, VFX, HUD, UI, menus, maps, portraits, icons, or art prompts."
-applyTo: ["Assets/**", "Artifacts/**", "Docs/**/*ART*.md", "Docs/MasterPrompt.md", "Scripts/Presentation/**", "Scripts/UI/**", "Scripts/Data/**"]
+applyTo:
+  [
+    "Assets/**",
+    "Artifacts/**",
+    "Docs/**/*ART*.md",
+    "Docs/MasterPrompt.md",
+    "Scripts/Presentation/**",
+    "Scripts/UI/**",
+    "Scripts/Data/**",
+  ]
 ---
 
 # Project Mannequin Visual Style

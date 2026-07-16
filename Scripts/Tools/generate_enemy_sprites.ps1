@@ -20,8 +20,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$cliCommand = Get-Command higgsfield -ErrorAction Stop
-$cli  = $cliCommand.Source
+$cli  = 'C:\Users\Joseph Bundrant\AppData\Local\Programs\higgsfield\higgsfield.exe'
 $root = 'Assets/Sprites/Enemies'
 $mannequin = 'Assets/Sprites/Mannequin'
 $style = (Resolve-Path "$mannequin/mannequin_master_higgsfield_v1.png").Path

@@ -1,0 +1,12 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+Vulkan 1.3.280 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 SUPER
+
+[LadderSmoke] Driver active.
+[LadderSmoke] tick=300 state=Intermission encounter=breach_01 remaining=1
+[LadderSmoke] tick=600 state=Traveling encounter=archive_nexus_stage_1_elite remaining=2
+[LadderSmoke] Staging live Index Warden Veyra archive_nexus_stage_1_elite_7 for runtime captures.
+[LadderSmoke] Index Warden Veyra capture armed after encounter overlays cleared.
+[CharacterVisual] Index Warden Veyra idle capture saved: C:\Users\Joseph Bundrant\Code Projects\SideScroller\Artifacts\StyleCalibration\index_warden_veyra_idle_runtime_1280x720.png
+[CharacterVisual] Index Warden Veyra active Warden Decree capture saved: C:\Users\Joseph Bundrant\Code Projects\SideScroller\Artifacts\StyleCalibration\index_warden_veyra_decree_runtime_1280x720.png
+[LadderSmoke] Live Index Warden Veyra runtime captures completed.
+[LadderSmoke] SUMMARY passed=True stage=1 hordes=2 elite=True brain=True completed=True results=True hazard=True unlock=False eliteIntro=True/True/True eliteBar=True hazards=1/1 explosion=False/False/False lanes=False/False/False enemyCapture=True awaitSwap=False tick=870

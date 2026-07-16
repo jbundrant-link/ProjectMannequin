@@ -1,0 +1,179 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (66 steps)
+[   0% ] update_scripts_classes | 
+[   1% ] update_scripts_classes | 
+[   2% ] update_scripts_classes | 
+[   4% ] update_scripts_classes | 
+[   5% ] update_scripts_classes | 
+[   7% ] update_scripts_classes | 
+[   8% ] update_scripts_classes | 
+[  10% ] update_scripts_classes | 
+[  11% ] update_scripts_classes | 
+[  13% ] update_scripts_classes | 
+[  14% ] update_scripts_classes | 
+[  16% ] update_scripts_classes | 
+[  17% ] update_scripts_classes | 
+[  19% ] update_scripts_classes | 
+[  20% ] update_scripts_classes | 
+[  22% ] update_scripts_classes | 
+[  23% ] update_scripts_classes | 
+[  25% ] update_scripts_classes | 
+[  26% ] update_scripts_classes | 
+[  28% ] update_scripts_classes | 
+[  29% ] update_scripts_classes | 
+[  31% ] update_scripts_classes | 
+[  32% ] update_scripts_classes | 
+[  34% ] update_scripts_classes | 
+[  35% ] update_scripts_classes | 
+[  37% ] update_scripts_classes | 
+[  38% ] update_scripts_classes | 
+[  40% ] update_scripts_classes | 
+[  41% ] update_scripts_classes | 
+[  43% ] update_scripts_classes | 
+[  44% ] update_scripts_classes | 
+[  46% ] update_scripts_classes | 
+[  47% ] update_scripts_classes | 
+[  49% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  52% ] update_scripts_classes | 
+[  53% ] update_scripts_classes | 
+[  55% ] update_scripts_classes | 
+[  56% ] update_scripts_classes | 
+[  58% ] update_scripts_classes | 
+[  59% ] update_scripts_classes | 
+[  61% ] update_scripts_classes | 
+[  62% ] update_scripts_classes | 
+[  64% ] update_scripts_classes | 
+[  65% ] update_scripts_classes | 
+[  67% ] update_scripts_classes | 
+[  68% ] update_scripts_classes | 
+[  70% ] update_scripts_classes | 
+[  71% ] update_scripts_classes | 
+[  73% ] update_scripts_classes | 
+[  74% ] update_scripts_classes | 
+[  76% ] update_scripts_classes | 
+[  77% ] update_scripts_classes | 
+[  79% ] update_scripts_classes | 
+[  80% ] update_scripts_classes | 
+[  82% ] update_scripts_classes | 
+[  83% ] update_scripts_classes | 
+[  85% ] update_scripts_classes | 
+[  86% ] update_scripts_classes | 
+[  88% ] update_scripts_classes | 
+[  89% ] update_scripts_classes | 
+[  91% ] update_scripts_classes | 
+[  92% ] update_scripts_classes | 
+[  94% ] update_scripts_classes | 
+[  95% ] update_scripts_classes | 
+[  97% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started Scanning actions... (26 steps)
+[   0% ] _update_scan_actions | ck_car_scan.jpg
+[   3% ] _update_scan_actions | ck_stage1_scan.jpg
+[   7% ] _update_scan_actions | tf2_detail.jpg
+[  11% ] _update_scan_actions | tf2_overview_01.jpg
+[  14% ] _update_scan_actions | tf2_overview_02.jpg
+[  18% ] _update_scan_actions | tf2_overview_03.jpg
+[  22% ] _update_scan_actions | tf_detail.jpg
+[  25% ] _update_scan_actions | tf_overview_01.jpg
+[  29% ] _update_scan_actions | tf_overview_02.jpg
+[  33% ] _update_scan_actions | archive_map_1280x720.png
+[  37% ] _update_scan_actions | corruption_repository_debris_1280x720.png
+[  40% ] _update_scan_actions | index_vaults_scan_chamber_1280x720.png
+[  44% ] _update_scan_actions | results_stage_clear_1280x720.png
+[  48% ] _update_scan_actions | archive_data_pickup_higgsfield_v1.png
+[  51% ] _update_scan_actions | archive_health_pickup_higgsfield_v1.png
+[  55% ] _update_scan_actions | archive_meter_pickup_higgsfield_v1.png
+[  59% ] _update_scan_actions | archive_data_cache_higgsfield_v1.png
+[  62% ] _update_scan_actions | archive_health_cache_higgsfield_v1.png
+[  66% ] _update_scan_actions | archive_meter_cache_higgsfield_v1.png
+[  70% ] _update_scan_actions | archive_volatile_canister_higgsfield_v1.png
+[  74% ] _update_scan_actions | archive_corruption_repository_backdrop_higgsfield_v1.png
+[  77% ] _update_scan_actions | archive_corruption_repository_floor_higgsfield_v1.png
+[  81% ] _update_scan_actions | archive_index_vaults_backdrop_higgsfield_v1.png
+[  85% ] _update_scan_actions | archive_index_vaults_floor_higgsfield_v1.png
+[  88% ] _update_scan_actions | archive_knights_reliquary_backdrop_higgsfield_v1.png
+[  92% ] _update_scan_actions | archive_knights_reliquary_floor_higgsfield_v1.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started (Re)Importing Assets (26 steps)
+[   0% ] reimport | Preparing files to reimport...
+[   3% ] reimport | Preparing files to reimport...
+[   7% ] reimport | Preparing files to reimport...
+[  11% ] reimport | Preparing files to reimport...
+[  14% ] reimport | Preparing files to reimport...
+[  18% ] reimport | Preparing files to reimport...
+[  22% ] reimport | Preparing files to reimport...
+[  25% ] reimport | Preparing files to reimport...
+[  29% ] reimport | Preparing files to reimport...
+[  33% ] reimport | Preparing files to reimport...
+[  37% ] reimport | Preparing files to reimport...
+[  40% ] reimport | Preparing files to reimport...
+[  44% ] reimport | Preparing files to reimport...
+[  48% ] reimport | Preparing files to reimport...
+[  51% ] reimport | Preparing files to reimport...
+[  55% ] reimport | Preparing files to reimport...
+[  59% ] reimport | Preparing files to reimport...
+[  62% ] reimport | Preparing files to reimport...
+[  66% ] reimport | Preparing files to reimport...
+[  70% ] reimport | Preparing files to reimport...
+[  74% ] reimport | Preparing files to reimport...
+[  77% ] reimport | Preparing files to reimport...
+[  81% ] reimport | Preparing files to reimport...
+[  85% ] reimport | Preparing files to reimport...
+[  88% ] reimport | Preparing files to reimport...
+[  92% ] reimport | Preparing files to reimport...
+[   0% ] reimport | Executing pre-reimport operations...
+[   0% ] reimport | archive_knights_reliquary_floor_higgsfield_v1.png
+[   3% ] reimport | archive_knights_reliquary_backdrop_higgsfield_v1.png
+[   7% ] reimport | archive_index_vaults_floor_higgsfield_v1.png
+[  11% ] reimport | archive_index_vaults_backdrop_higgsfield_v1.png
+[  14% ] reimport | archive_corruption_repository_floor_higgsfield_v1.png
+[  18% ] reimport | archive_corruption_repository_backdrop_higgsfield_v1.png
+[  22% ] reimport | archive_volatile_canister_higgsfield_v1.png
+[  25% ] reimport | archive_meter_cache_higgsfield_v1.png
+[  29% ] reimport | archive_health_cache_higgsfield_v1.png
+[  33% ] reimport | archive_data_cache_higgsfield_v1.png
+[  37% ] reimport | archive_meter_pickup_higgsfield_v1.png
+[  40% ] reimport | archive_health_pickup_higgsfield_v1.png
+[  44% ] reimport | archive_data_pickup_higgsfield_v1.png
+[  48% ] reimport | results_stage_clear_1280x720.png
+[  51% ] reimport | index_vaults_scan_chamber_1280x720.png
+[  55% ] reimport | corruption_repository_debris_1280x720.png
+[  59% ] reimport | archive_map_1280x720.png
+[  62% ] reimport | tf_overview_02.jpg
+[  66% ] reimport | tf_overview_01.jpg
+[  70% ] reimport | tf_detail.jpg
+[  74% ] reimport | tf2_overview_03.jpg
+[  77% ] reimport | tf2_overview_02.jpg
+[  81% ] reimport | tf2_overview_01.jpg
+[  85% ] reimport | tf2_detail.jpg
+[  88% ] reimport | ck_stage1_scan.jpg
+[  92% ] reimport | ck_car_scan.jpg
+[  96% ] reimport | Finalizing Asset Import...
+[ DONE ] reimport
+
+[   0% ] reimport | Started (Re)Importing Assets (26 steps)
+[   0% ] reimport | Executing post-reimport operations...
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[  33% ] loading_editor_layout | Reopening scenes...
+[  50% ] loading_editor_layout | Loading central editor layout...
+[  66% ] loading_editor_layout | Loading plugin window layout...
+[  83% ] loading_editor_layout | Editor layout ready.
+[ DONE ] loading_editor_layout
+

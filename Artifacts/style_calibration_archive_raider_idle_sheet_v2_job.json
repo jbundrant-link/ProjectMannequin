@@ -1,0 +1,49 @@
+[
+  {
+    "created_at": "2026-07-15T05:04:35.410286Z",
+    "display_name": "Nano Banana Pro",
+    "id": "a16405a2-f297-4a63-9969-2a26dcf264a8",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_050435_a16405a2-f297-4a63-9969-2a26dcf264a8_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "f9881511-56bc-4ed2-9d16-60a17dc27156",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f9881511-56bc-4ed2-9d16-60a17dc27156.png"
+        },
+        {
+          "id": "88dbd135-a0a9-4daa-8bcd-703e0a6c7828",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/88dbd135-a0a9-4daa-8bcd-703e0a6c7828.png"
+        },
+        {
+          "id": "eaa59d6f-318c-49a2-b6e4-52150023a6d7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/eaa59d6f-318c-49a2-b6e4-52150023a6d7.png"
+        },
+        {
+          "id": "d9c015a7-aec2-46cf-951a-efd6c89f6429",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d9c015a7-aec2-46cf-951a-efd6c89f6429.png"
+        },
+        {
+          "id": "09095b0c-6c76-4120-aa44-8aa3e876163d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/09095b0c-6c76-4120-aa44-8aa3e876163d.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK ΓÇö ARCHIVE RAIDER IDLE SUB-SHEET REVISION 2.\n\nThe first image is the prior idle-sheet pilot. Preserve its exact excellent Archive Raider identity, warm ivory porcelain armor, dark indigo/plum understructure, smooth black visor with cyan light, cyan-violet chest core, paired tapered back fins, forearm blade shapes, clean dark contours, broad anime cel shading, palette, camera, and overall rendering. The second image is the authoritative single-character identity reference. The mannequin, Ryu, and Goku references remain authoritative finish anchors.\n\nFIX ONLY THE SPRITE-SHEET LAYOUT AND IDLE MOTION:\n- Exact 2 columns by 2 rows, four full-body right-facing three-quarter idle frames.\n- Scale every figure to approximately 70ΓÇô74 percent of its implied quarter-cell height.\n- Center each figure independently inside its quarter.\n- Preserve at least 12 percent clear green margin above, below, left, and right of every figure. Feet must never touch the image edge or implied cell edge.\n- Keep one identical foot baseline within each row and identical character scale/camera across all cells.\n- Make the four animation beats visibly but subtly distinct: 1 guarded neutral, 2 chest/shoulders rise with inhale, 3 weight settles onto rear leg with hands shifting a few centimeters, 4 return-ready stance. No attack action.\n- Exact same identity, proportions, armor construction, back fins, forearm blades, core, lighting, line weight, and right-facing direction in all cells.\n\nFlat pure chroma-key green #00FF00 across the entire square image. No divider lines, guides, labels, borders, numbers, floor, shadows, gradients, glow spill, text, UI, or scenery.\n\nReject any rusty armor, PBR metal, realistic weathering, spikes, medieval knight features, red visor, brown palette, identity drift, cropped/touching parts, cell overlap, duplicated or missing limbs, anatomy errors, motion blur, active attacks, effects, or projectiles.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_050435_a16405a2-f297-4a63-9969-2a26dcf264a8.png",
+    "status": "completed"
+  }
+]

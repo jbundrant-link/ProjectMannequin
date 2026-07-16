@@ -1,0 +1,390 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Input Grammar Tests ===
+  PASS 236LP beats LP
+  PASS neutral LP resolves to LP
+  PASS 236HP resolves to qcf_heavy
+  PASS 236HK beats HK by priority
+  PASS neutral HK resolves to HK
+  PASS 22HP beats HP
+  PASS 2LP beats LP
+  PASS consumed press not re-matched
+=== 8 passed, 0 failed ===
+
+=== Defensive Mechanics Tests ===
+  PASS dead/invulnerable beats everything
+  PASS armor beats instinct/parry/block
+  PASS instinct-evade beats parry
+  PASS parry beats block
+  PASS block beats hit
+  PASS undefended resolves to hit
+  PASS canonical order has 6 stages
+  PASS armor chip is a fraction of base
+  PASS armor chip is at least 1
+  PASS weak-point multiplier scales damage
+  PASS weak-point 1.0 leaves damage
+  PASS soft knockdown default
+  PASS hard knockdown default
+  PASS authored knockdown overrides
+  PASS ground bounce has a floor
+  PASS ground bounce scales with fall speed
+  PASS wall bounce reverses rightward speed
+  PASS wall bounce reverses leftward speed
+  PASS wall bounce has a floor
+  PASS reflect derives non-boss default
+  PASS reflect derives boss default
+  PASS authored reflect overrides derived
+=== 22 passed, 0 failed ===
+
+=== Combo Rules Tests ===
+  PASS starter is full scale
+  PASS second hit decays 10%
+  PASS third hit decays 20%
+  PASS deep combo hits floor
+  PASS super uses raised floor
+  PASS proration spares the starter
+  PASS proration scales the follow-up
+  PASS one repeat subtracts 0.05
+  PASS repeat decay stacks
+  PASS repeat decay respects floor
+  PASS BnB route scale is non-increasing
+  PASS BnB route stays at or above floor
+=== 12 passed, 0 failed ===
+
+=== Boss Duel Mode Tests ===
+  PASS target to the right is pushed right
+  PASS target to the left is pushed left
+  PASS target on the boss is pushed right (tie)
+  PASS authored magnitude is honored
+  PASS negative magnitude is clamped to zero
+  PASS faces right toward a boss on the right
+  PASS faces left toward a boss on the left
+  PASS lane depth clamps beyond the band
+  PASS lane depth leaves in-band positions
+  PASS non-positive half-depth is a no-op
+=== 10 passed, 0 failed ===
+
+=== AI Modules Tests ===
+  PASS rush throw at zero block equals base
+  PASS rush throw ramps to base plus bonus
+  PASS rush throw ramp saturates
+  PASS rush throw clamps at one
+  PASS rush throw with zero ramp is immediate
+  PASS phase neutral adds transition and recovery
+  PASS phase neutral clamps negative recovery
+  PASS empty phase pool allows any move
+  PASS move in phase pool is legal
+  PASS move outside phase pool is illegal
+  PASS no disabled list enables every module
+  PASS empty disabled list enables every module
+  PASS listed module is disabled
+  PASS unlisted module stays enabled
+=== 14 passed, 0 failed ===
+
+=== Combo Route Tests ===
+  PASS BnB starter deals full damage
+  PASS BnB scaling is non-increasing
+  PASS BnB total is below the raw sum
+  PASS repeated jab decays below positional-only
+  PASS repeat route is strictly decreasing
+  PASS super ender stays at or above the super floor
+  PASS deep combo last hit reaches the floor
+=== 7 passed, 0 failed ===
+
+=== Replay Tests ===
+  PASS serializer round-trips exactly
+  PASS header fields survive round-trip
+  PASS form entries survive round-trip
+  PASS input samples survive round-trip
+  PASS state checks survive round-trip
+  PASS playback reproduces recorded inputs
+  PASS playback returns neutral for unknown ticks
+  PASS playback returns neutral for unknown players
+  PASS fingerprint is deterministic
+  PASS fingerprint reacts to state change
+  PASS fingerprint quantizes sub-quantum float noise
+  PASS fingerprint separates real float drift
+  PASS parses a hand-authored canonical replay
+  PASS empty recording round-trips and plays back safely
+=== 14 passed, 0 failed ===
+=== Training Dummy Tests ===
+  PASS stand holds neutral
+  PASS crouch holds down
+  PASS jump presses on the beat while grounded
+  PASS jump is neutral off the beat
+  PASS jump does not re-press while airborne
+  PASS guard all holds block
+  PASS mash jab taps on the beat
+  PASS mash jab waits while not actionable
+  PASS parry attempt presses both mediums on the beat
+  PASS guard-after-first-hit stands before any hit
+  PASS guard-after-first-hit blocks once hit
+  PASS guard-after-first-hit keeps guard held through hitstun
+  PASS reversal is idle before knockdown
+  PASS reversal fires the instant it recovers
+  PASS reversal fires only on the recovery frame
+  PASS setting parsing accepts known keys and rejects unknown ones
+=== 16 passed, 0 failed ===
+[FormSelectTests] SUMMARY passed=True (4/4)
+  [PASS] Selector opens with 3 equipped forms
+  [PASS] Baseline: next equipped form is Ryu
+  [PASS] Swapped to explicit non-next form (Goku)
+  [PASS] Rejected swap to a non-equipped form
+
+[AssistTests] SUMMARY passed=True (7/7)
+  [PASS] Ryu assist data exists
+  [PASS] Assist call accepted
+  [PASS] No damage before active window (startup)
+  [PASS] Assist dealt damage to enemy
+  [PASS] Assist connected during active window
+  [PASS] Assist struck the target exactly once
+  [PASS] Assist damage in expected range (~18)
+=== 7 passed, 0 failed ===
+
+=== Designer Tooling Tests ===
+  PASS timeline spans startup+active+recovery
+  PASS startup frames are classified
+  PASS active frames are classified
+  PASS recovery frames are classified
+  PASS hit window matches active hitbox frames
+  PASS armor window matches armor box frames
+  PASS throw window matches grab box frames
+  PASS invulnerability covers the first N frames only
+  PASS cancel window is honored
+  PASS phase strip renders S/A/R per frame
+  PASS window rows list only the windows that appear
+  PASS cursor strip marks exactly the current frame
+  PASS zero-length move produces an empty timeline safely
+  PASS F1 toggles the overlay
+  PASS F2 toggles the frame inspector
+  PASS Key 4 refills resources
+  PASS Key 6 advances the boss phase
+  PASS unmapped keys resolve to None
+  PASS only the overlay toggle is available while hidden
+=== 19 passed, 0 failed ===
+=== Animation Driver Tests ===
+  PASS combat states map to the right clips
+  PASS attack clip passes through the authoritative move frame
+  PASS no freeze without hitstop or super pause
+  PASS hitstop freezes the driver
+  PASS super pause freezes the driver
+  PASS state-clip elapsed starts at zero
+  PASS elapsed holds while the clock is frozen
+  PASS elapsed resumes once the clock advances
+  PASS changing clip resets the state-clip elapsed
+  PASS rising from knockdown plays the wake-up clip
+  PASS wake-up returns to idle after the window
+  PASS facing passes through
+=== 12 passed, 0 failed ===
+=== Determinism Tests ===
+  PASS audit covers every authoritative subsystem
+  PASS all simulation subsystems are marked deterministic
+  PASS presentation is flagged as non-authoritative
+  PASS audit report builds
+  PASS identical snapshots match with no diff
+  PASS detects health divergence
+  PASS detects meter divergence
+  PASS detects state divergence
+  PASS detects position divergence
+  PASS detects combo-count divergence
+  PASS detects boss-phase divergence
+  PASS detects rng-state divergence
+  PASS detects tick and hitstop divergence
+  PASS detects a missing actor
+  PASS sub-epsilon position noise is not a divergence
+=== 15 passed, 0 failed ===
+=== Run Reward Tests ===
+  PASS move card catalog is populated
+  PASS artifact catalog is populated
+  PASS offer returns three options
+  PASS offer options are distinct
+  PASS offer options have display names
+  PASS offer options have icon keys
+  PASS same seed reproduces the offer
+  PASS owned move cards are excluded
+  PASS offer clamps to remaining pool
+  PASS count zero yields empty offer
+  PASS large count yields whole pool
+  PASS options resolve to catalog entries
+  PASS procedural icons rasterize for every category
+=== 13 passed, 0 failed ===
+
+=== Run Build Tests ===
+  PASS two cells share one edge
+  PASS a full row has two horizontal edges
+  PASS row wrap adds a vertical edge
+  PASS launcher next to combo yields Juggle
+  PASS special next to ultimate yields Overdrive
+  PASS basic pair has no synergy
+  PASS synergy is order-independent
+  PASS artifact library expanded
+  PASS artifact pool is deep
+  PASS has cursed artifacts
+  PASS has a heal-on-acquire artifact
+  PASS has multiple themes
+  PASS cursed artifacts carry a real drawback
+  PASS curses come in varied shapes (drain / meter / defense)
+  PASS empty roster has a fallback name
+  PASS single form names the squad
+  PASS squad name is order-independent
+  PASS lore catalog is authored
+  PASS each boss drops lore
+  PASS lore fragments resolve with titles
+  PASS lore fragments have authored bodies (shown in the Codex)
+  PASS unknown boss yields no lore
+  PASS boss move maps to its specific tip
+  PASS regular enemy move has an authored tip
+  PASS unknown projectile falls back to the zoning tip
+  PASS unknown reversal falls back to the anti-air tip
+  PASS empty move id still yields a usable tip
+=== 27 passed, 0 failed ===
+
+=== Acceptance Tests ===
+  PASS Archive Knight is duel-ready (kit/phases/super/guard/AI)
+  PASS Ryu is duel-ready (kit/phases/super/guard/AI)
+  PASS Goku is duel-ready (kit/phases/super/guard/AI)
+  PASS Reflect Guard produces outward pushback
+  PASS Phase Burst pushes targets outward on transition
+  PASS Rush Throw chance rises against passive blocking
+  PASS Animation Driver maps combat state deterministically
+  PASS reference roster move data is within game-feel ranges
+  PASS Archive Knight has readable neutral/pressure/super beats
+  PASS Ryu has readable neutral/pressure/super beats
+  PASS Goku has readable neutral/pressure/super beats
+  PASS acceptance audit report builds
+=== 12 passed, 0 failed ===
+=== World Run Tests ===
+  PASS archive_nexus has exactly four stages
+  PASS archive_nexus stage 1 number metadata
+  PASS archive_nexus stage 1 unique ID
+  PASS archive_nexus stage 1 normalized encounter bounds
+  PASS archive_nexus stage 1 mission validation
+  PASS archive_nexus stage 1 is non-final
+  PASS archive_nexus stage 1 grants no form
+  PASS archive_nexus stage 1 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 2 number metadata
+  PASS archive_nexus stage 2 unique ID
+  PASS archive_nexus stage 2 normalized encounter bounds
+  PASS archive_nexus stage 2 mission validation
+  PASS archive_nexus stage 2 is non-final
+  PASS archive_nexus stage 2 grants no form
+  PASS archive_nexus stage 2 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 3 number metadata
+  PASS archive_nexus stage 3 unique ID
+  PASS archive_nexus stage 3 normalized encounter bounds
+  PASS archive_nexus stage 3 mission validation
+  PASS archive_nexus stage 3 is non-final
+  PASS archive_nexus stage 3 grants no form
+  PASS archive_nexus stage 3 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 4 number metadata
+  PASS archive_nexus stage 4 unique ID
+  PASS archive_nexus stage 4 normalized encounter bounds
+  PASS archive_nexus stage 4 mission validation
+  PASS archive_nexus final stage requires inheritance
+  PASS archive_nexus final stage owns form reward
+  PASS archive_nexus final stage owns one major boss
+  PASS archive_nexus run derivation does not mutate legacy mission
+  PASS world_warrior_sector has exactly four stages
+  PASS world_warrior_sector stage 1 number metadata
+  PASS world_warrior_sector stage 1 unique ID
+  PASS world_warrior_sector stage 1 normalized encounter bounds
+  PASS world_warrior_sector stage 1 mission validation
+  PASS world_warrior_sector stage 1 is non-final
+  PASS world_warrior_sector stage 1 grants no form
+  PASS world_warrior_sector stage 1 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 2 number metadata
+  PASS world_warrior_sector stage 2 unique ID
+  PASS world_warrior_sector stage 2 normalized encounter bounds
+  PASS world_warrior_sector stage 2 mission validation
+  PASS world_warrior_sector stage 2 is non-final
+  PASS world_warrior_sector stage 2 grants no form
+  PASS world_warrior_sector stage 2 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 3 number metadata
+  PASS world_warrior_sector stage 3 unique ID
+  PASS world_warrior_sector stage 3 normalized encounter bounds
+  PASS world_warrior_sector stage 3 mission validation
+  PASS world_warrior_sector stage 3 is non-final
+  PASS world_warrior_sector stage 3 grants no form
+  PASS world_warrior_sector stage 3 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 4 number metadata
+  PASS world_warrior_sector stage 4 unique ID
+  PASS world_warrior_sector stage 4 normalized encounter bounds
+  PASS world_warrior_sector stage 4 mission validation
+  PASS world_warrior_sector final stage requires inheritance
+  PASS world_warrior_sector final stage owns form reward
+  PASS world_warrior_sector final stage owns one major boss
+  PASS world_warrior_sector run derivation does not mutate legacy mission
+  PASS astral_battlefront has exactly four stages
+  PASS astral_battlefront stage 1 number metadata
+  PASS astral_battlefront stage 1 unique ID
+  PASS astral_battlefront stage 1 normalized encounter bounds
+  PASS astral_battlefront stage 1 mission validation
+  PASS astral_battlefront stage 1 is non-final
+  PASS astral_battlefront stage 1 grants no form
+  PASS astral_battlefront stage 1 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 2 number metadata
+  PASS astral_battlefront stage 2 unique ID
+  PASS astral_battlefront stage 2 normalized encounter bounds
+  PASS astral_battlefront stage 2 mission validation
+  PASS astral_battlefront stage 2 is non-final
+  PASS astral_battlefront stage 2 grants no form
+  PASS astral_battlefront stage 2 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 3 number metadata
+  PASS astral_battlefront stage 3 unique ID
+  PASS astral_battlefront stage 3 normalized encounter bounds
+  PASS astral_battlefront stage 3 mission validation
+  PASS astral_battlefront stage 3 is non-final
+  PASS astral_battlefront stage 3 grants no form
+  PASS astral_battlefront stage 3 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 4 number metadata
+  PASS astral_battlefront stage 4 unique ID
+  PASS astral_battlefront stage 4 normalized encounter bounds
+  PASS astral_battlefront stage 4 mission validation
+  PASS astral_battlefront final stage requires inheritance
+  PASS astral_battlefront final stage owns form reward
+  PASS astral_battlefront final stage owns one major boss
+  PASS astral_battlefront run derivation does not mutate legacy mission
+=== 90 passed, 0 failed ===
+=== Run Checkpoint Tests ===
+  PASS restores world ID
+  PASS restores stage index
+  PASS restores stage-entry lives
+  PASS rolls back uncommitted move cards
+  PASS rolls back uncommitted artifacts
+  PASS rolls back uncommitted score
+  PASS hydrates committed health
+  PASS hydrates committed meter
+  PASS advances to next stage
+  PASS commits next stage index
+  PASS next-stage checkpoint carries health and meter unchanged
+  PASS next-stage actor hydrates committed resources
+  PASS completing run clears active session
+=== 13 passed, 0 failed ===
+=== Run Score Tests ===
+  PASS timer excludes stage intro and counts gameplay frames
+  PASS stage completion produces immutable results
+  PASS results capture combo, parry, and elite defeat telemetry
+  PASS clear time under par awards deterministic time and clear bonuses
+  PASS rank thresholds resolve S boundary
+  PASS stage bonuses accumulate into run total
+  PASS crossing score threshold awards exactly one extra life
+  PASS results-ready presentation event emitted
+  PASS extra-life presentation emitted once
+  PASS same tick cannot duplicate score or extra life
+=== 10 passed, 0 failed ===
+=== Stage Hazard Tests ===
+  PASS activation delay remains dormant
+  PASS warning phase telegraphs authored start bounds
+  PASS active window resolves deterministically
+  PASS linear sweep reaches authored end offset
+  PASS post-active interval is safe cooldown
+  PASS repeat cadence returns to warning phase
+  PASS neutral hazard targets both teams
+  PASS Archive Stage 1 authors intake tram set piece
+  PASS intake tram is a neutral moving sweeper
+  PASS intake tram leaves near/far safe lanes
+  PASS authored stage passes hazard safety validation
+  PASS Archive Stage 1 authors health and score cache decisions
+  PASS health pickup restores player and consumes itself
+  PASS score pickup adds deterministic archive points
+=== 14 passed, 0 failed ===

@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-15T05:37:25.425042Z",
+    "display_name": "Nano Banana Pro",
+    "id": "ae3c40dc-6932-4e76-8d40-05d827ff7ebc",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_053725_ae3c40dc-6932-4e76-8d40-05d827ff7ebc_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "66bce86e-88fb-4bfb-a66c-c137df6d9928",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/66bce86e-88fb-4bfb-a66c-c137df6d9928.png"
+        },
+        {
+          "id": "82bd5b62-6144-4afc-a7da-2eb507dabeba",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/82bd5b62-6144-4afc-a7da-2eb507dabeba.png"
+        },
+        {
+          "id": "bbdccedd-0709-4aa1-b3b9-11c9002255ff",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bbdccedd-0709-4aa1-b3b9-11c9002255ff.png"
+        },
+        {
+          "id": "e0224438-d1c6-42cd-a7e5-560eeec40f96",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e0224438-d1c6-42cd-a7e5-560eeec40f96.png"
+        },
+        {
+          "id": "6bd55b81-f673-4bf2-86e3-633e2bfdc7d5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6bd55b81-f673-4bf2-86e3-633e2bfdc7d5.png"
+        },
+        {
+          "id": "87252366-3e42-4035-8a93-027b08290b1d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/87252366-3e42-4035-8a93-027b08290b1d.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK ΓÇö ARCHIVE RAIDER  SUB-SHEET REVISION 2.\n\nThe first image is the prior generated walk sheet. Preserve its exact grid size, frame count, row-major action order, poses, camera, scale, and clean cel-shaded finish. The second image is the authoritative approved Raider idle identity and the third is the authoritative full-character design. Mannequin, Ryu, and Goku remain finish anchors.\n\nMANDATORY IDENTITY CONTINUITY FIX IN EVERY CELL: the exact same smooth black visor helmet with one cyan light; warm-ivory porcelain armor; dark indigo/plum understructure; cyan-violet oval chest core; one consistently visible long tapered ivory/indigo back fin in the three-quarter view; the same large angular ivory forearm blade/guard on BOTH forearms with cyan/plum inset; same armor seam layout, proportions, palette, dark contour weight, and lighting. Do not omit, shrink away, duplicate, or redesign any of these features in any frame. Keep the eight-step walk cycle visibly phased with alternating foot contacts and natural opposing arm swing; no repeated idle poses.\n\nFlat pure chroma-key green #00FF00. Every complete figure independently contained in its implied cell with safe green margins and no boundary crossing. No grid lines, borders, labels, numbers, floor, shadows, scenery, gradients, text, UI, or logos. Reject rust/PBR/grit, spikes, red visor, medieval design, generic mannequin drift, changed core/fins/forearm blades, anatomy errors, duplicated/missing limbs, cropped parts, motion blur, projectiles, or baked VFX.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_053725_ae3c40dc-6932-4e76-8d40-05d827ff7ebc.png",
+    "status": "completed"
+  }
+]

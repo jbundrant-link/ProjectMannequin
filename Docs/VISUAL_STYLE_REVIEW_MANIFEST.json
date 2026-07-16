@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-14",
+  "updated": "2026-07-16",
   "visualBible": "Docs/VISUAL_STYLE_BIBLE.md",
   "minimumPassingScore": 14,
   "maximumScore": 16,
@@ -108,21 +108,21 @@
       "reviewDate": "2026-07-14"
     },
     {
-      "id": "archive_enemy_family_current",
+      "id": "archive_enemy_family_legacy_and_pending",
       "category": "enemy",
-      "status": "review_and_restyle_required",
+      "status": "partial_replacement_required",
       "assets": [
         "Assets/Sprites/Enemies/archive_scout_higgsfield_v1.png",
-        "Assets/Sprites/Enemies/archive_raider_higgsfield_v1.png",
         "Assets/Sprites/Enemies/archive_bruiser_higgsfield_v1.png"
       ],
       "score": null,
       "automaticFailure": false,
       "failureReasons": [
-        "Raider and Bruiser show realistic armor/rust treatment that should not seed named elites",
-        "All three require side-by-side rubric review against canonical characters"
+        "Bruiser shows realistic armor/rust treatment that should not seed named elites",
+        "Scout and Bruiser require side-by-side rubric review against canonical characters"
       ],
-      "reviewDate": "2026-07-14"
+      "notes": "The legacy Raider V1 is retained only as a rejected structure/provenance reference and has been superseded at runtime by archive_raider_style_v2.png.",
+      "reviewDate": "2026-07-15"
     },
     {
       "id": "archive_health_cache_style_pilot_v1",
@@ -160,7 +160,7 @@
         "Artifacts/StyleCalibration/styled_health_cache_runtime_1280x720.png",
         "Artifacts/StyleCalibration/styled_health_cache_runtime_1920x1080.png"
       ],
-      "nextAction": "Use this approved visual grammar for meter/data cache pilots before replacing those runtime assets.",
+      "nextAction": "Retain as the health-function anchor for the completed Archive style-v2 object family.",
       "reviewDate": "2026-07-14"
     },
     {
@@ -253,12 +253,30 @@
     {
       "id": "archive_raider_style_pilot_v1",
       "category": "enemy",
-      "status": "style_direction_approved_animation_batch_pending",
+      "status": "runtime_approved",
       "assets": [
-        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_style_pilot_v1.png"
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_idle_sheet_style_pilot_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_walk_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_dash_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_jump_sheet_style_v3.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_attacks_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_raider_misc_sheet_style_v3.png",
+        "Assets/Sprites/Enemies/archive_raider_style_v2.png"
       ],
       "model": "nano_banana_pro",
-      "jobMetadata": "Artifacts/style_calibration_archive_raider_job.json",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_raider_job.json",
+        "Artifacts/style_calibration_archive_raider_idle_sheet_v2_job.json",
+        "Artifacts/style_calibration_archive_raider_walk_sheet_v2_job.json",
+        "Artifacts/style_calibration_archive_raider_dash_sheet_v2_job.json",
+        "Artifacts/style_calibration_archive_raider_jump_sheet_v3_job.json",
+        "Artifacts/style_calibration_archive_raider_attacks_sheet_job.json",
+        "Artifacts/style_calibration_archive_raider_misc_sheet_v3_job.json"
+      ],
+      "compositionManifest": "Assets/Sprites/Concepts/StyleCalibration/archive_raider_animation_sources_v2.json",
+      "compositionReport": "Artifacts/StyleCalibration/archive_raider_style_v2_composition_report.json",
+      "atlasPreview": "Artifacts/StyleCalibration/archive_raider_style_v2_atlas_preview.png",
       "canonicalReferencesUsed": [
         "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
         "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
@@ -267,7 +285,7 @@
       "structureOnlyReferences": [
         "Assets/Sprites/Enemies/archive_raider_higgsfield_v1.png"
       ],
-      "score": 15,
+      "score": 16,
       "scoreBreakdown": {
         "cohesion": 2,
         "contour": 2,
@@ -276,12 +294,25 @@
         "detailDensity": 2,
         "materialLighting": 2,
         "colorHierarchy": 2,
-        "runtimeFitness": 1
+        "runtimeFitness": 2
       },
       "automaticFailure": false,
-      "finalApproval": false,
-      "nextAction": "Generate six identity-locked animation sub-sheets, compose the 10x9 runtime atlas, and validate grounding/animation continuity before replacing the current Raider.",
-      "reviewDate": "2026-07-14"
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_raider_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_raider_cross_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_raider_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_raider_cross_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_raider_static_tests.log",
+        "Artifacts/StyleCalibration/archive_raider_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_raider_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The imported 2560x2304 real-alpha 10x9 atlas contains 40 authored poses normalized to baseline 248, uses SpritePixelSize 0.018 and ground offset 120 without tinting, and has transparent unused rows 6-8. Raider Cross consumes frames 40-49 with durations aligned to 15 startup, 5 active, and 28 recovery frames. Live Index Vaults captures prove matched mannequin scale, grounding, clean identity, idle readability, and active straight-punch readability at both target resolutions. Atlas SHA-256: e4f2b76f531a748a23f8a2f5eb7c70873e3f4a072faf5b7a97301537fa0beb9a.",
+      "nextAction": "Retain as the approved base Raider; replace the Archive Bruiser and produce distinct animation-ready named elites without tint-only reuse.",
+      "reviewDate": "2026-07-15"
     },
     {
       "id": "archive_health_pickup_style_pilot_v1",
@@ -321,9 +352,333 @@
         "Artifacts/StyleCalibration/styled_health_pickup_runtime_1280x720.png",
         "Artifacts/StyleCalibration/styled_health_pickup_runtime_1920x1080.png"
       ],
-      "notes": "Final runtime SpritePixelSize is 0.00038 with ground offset 672; the real drop is isolated from the defeated cache during review capture only.",
-      "nextAction": "Use this approved grammar for meter/data pickup pilots before replacing those runtime assets.",
+      "notes": "Final runtime SpritePixelSize is 0.00038 with ground offset 672; refreshed dual-resolution captures show the real drop after its defeated source cache disappears immediately.",
+      "nextAction": "Retain as the health-function anchor for the completed Archive style-v2 object family.",
       "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "archive_meter_cache_style_pilot_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_meter_cache_style_pilot_v1.png",
+        "Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_meter_cache_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_meter_cache_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_cache_style_pilot_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_meter_cache_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_meter_cache_runtime_1920x1080.png"
+      ],
+      "notes": "Final runtime SpritePixelSize is 0.00103 with ground offset 788; the cyan-violet coil and upward fins remain distinct from health and data at both target resolutions.",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "archive_data_cache_style_pilot_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_data_cache_style_pilot_v1.png",
+        "Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_data_cache_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_data_cache_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_cache_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_meter_cache_style_pilot_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_data_cache_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_data_cache_runtime_1920x1080.png"
+      ],
+      "notes": "Final runtime SpritePixelSize is 0.00136 with ground offset 674; the low coffer silhouette and amber data prism read independently from health and meter.",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "archive_meter_pickup_style_pilot_v1",
+      "category": "pickup",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_meter_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Pickups/Archive/archive_meter_pickup_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_meter_pickup_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_meter_pickup_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_meter_cache_style_pilot_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_meter_pickup_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_meter_pickup_runtime_1920x1080.png"
+      ],
+      "notes": "Final runtime SpritePixelSize is 0.00028 with ground offset 876; refreshed captures show the narrow cyan-violet shard as a real isolated drop after source-cache cleanup.",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "archive_data_pickup_style_pilot_v1",
+      "category": "pickup",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_data_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Pickups/Archive/archive_data_pickup_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_data_pickup_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_data_pickup_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_data_cache_style_pilot_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_data_pickup_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_data_pickup_runtime_1920x1080.png"
+      ],
+      "notes": "Final runtime SpritePixelSize is 0.00036 with ground offset 698; refreshed captures show the wide amber data prism as a real isolated drop after source-cache cleanup.",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "archive_volatile_canister_style_pilot_v1",
+      "category": "hazard_prop",
+      "status": "revision_rejected",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_volatile_canister_style_pilot_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_canister_job.json",
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "failureReasons": [
+        "The cyan four-arm seal read as health iconography on an explosive hazard",
+        "Function ambiguity failed the hazard-prop readability gate despite otherwise cohesive rendering"
+      ],
+      "supersededBy": "archive_volatile_canister_style_pilot_v2",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "archive_volatile_canister_style_pilot_v2",
+      "category": "hazard_prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_volatile_canister_style_pilot_v2.png",
+        "Assets/Sprites/Props/Archive/archive_volatile_canister_style_v2.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_canister_v2_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_canister_style_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png"
+      ],
+      "revisionReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_volatile_canister_style_pilot_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_volatile_canister_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_volatile_canister_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/styled_volatile_canister_explosion_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_volatile_canister_explosion_runtime_1920x1080.png"
+      ],
+      "notes": "Final runtime SpritePixelSize is 0.00143 with ground offset 854. The shattered hex seal, red warning fins, immediate destruction cleanup, real radial damage, and cel-impact detonation pass at both resolutions.",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "archive_canister_explosion_vfx_v1",
+      "category": "vfx",
+      "status": "runtime_approved",
+      "assets": [
+        "Scripts/Presentation/CombatVfxManager.cs"
+      ],
+      "styleReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/styled_volatile_canister_explosion_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/styled_volatile_canister_explosion_runtime_1920x1080.png"
+      ],
+      "notes": "Presentation-only pooled effect uses an irregular cel impact star, tapered rays, shaped debris, and controlled ember/gold accents. Render-time evidence is sampled at a stable normalized lifetime and shows real -55 gameplay damage.",
+      "reviewDate": "2026-07-15"
+    },
+    {
+      "id": "overseer_basalt_style_pilot_v1",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_idle_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_walk_sheet_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_dash_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_jump_sheet_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_attack_startup_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_attack_recovery_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_reactions_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_knockdown_v1_normalized.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_defeated_v1_normalized.png",
+        "Assets/Sprites/Enemies/overseer_basalt_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_overseer_basalt_job.json",
+        "Artifacts/style_calibration_overseer_basalt_idle_sheet_job.json",
+        "Artifacts/style_calibration_overseer_basalt_walk_sheet_v2_job.json",
+        "Artifacts/style_calibration_overseer_basalt_dash_sheet_job.json",
+        "Artifacts/style_calibration_overseer_basalt_jump_sheet_v2_job.json",
+        "Artifacts/style_calibration_overseer_basalt_attack_startup_job.json",
+        "Artifacts/style_calibration_overseer_basalt_attack_recovery_job.json",
+        "Artifacts/style_calibration_overseer_basalt_reactions_job.json",
+        "Artifacts/style_calibration_overseer_basalt_knockdown_job.json",
+        "Artifacts/style_calibration_overseer_basalt_defeated_job.json",
+        "Artifacts/StyleCalibration/overseer_basalt_knockdown_cutout_job.json",
+        "Artifacts/StyleCalibration/overseer_basalt_defeated_cutout_job.json"
+      ],
+      "compositionManifest": "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_animation_sources_v1.json",
+      "compositionReport": "Artifacts/StyleCalibration/overseer_basalt_style_v1_composition_report.json",
+      "atlasPreview": "Artifacts/StyleCalibration/overseer_basalt_style_v1_atlas_preview.png",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_style_pilot_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_walk_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_jump_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_followthrough_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_followthrough_v2.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/overseer_basalt_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/overseer_basalt_faultline_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/overseer_basalt_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/overseer_basalt_faultline_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/overseer_basalt_static_tests.log",
+        "Artifacts/StyleCalibration/overseer_basalt_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/overseer_basalt_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The imported 2560x2304 real-alpha 10x9 atlas contains 60 populated runtime cells and uses SpritePixelSize 0.0205 with ground offset 120 without tinting. Matte obsidian cel planes, wedge helmet, split amber-magenta fault core, cyan restraint ring, asymmetric shoulder, and stepped seismic gauntlet remain distinct from the base Bruiser. Faultline Driver uses frames 40-49 and durations [5,5,5,5,5,5,6,7,8,8], exactly preserving 20 startup, 5 active, and 34 recovery frames. Walk V1 and jump V1 were rejected for ivory Bruiser identity regression; follow-through V1 swapped arm functions and V2 moved the slab gauntlet onto the leg, so the accepted row uses four clean recovery poses and repeats the final guard. Violet-white Stage 3 light preserves the authored palette. Dual-resolution Stage 3 captures pass with 4/4 hazards, real canister damage, elite intro/lifebar, results, and no form unlock. Atlas SHA-256: 4002d41eaa09263b5c1cb90ae9deadaa9b3514c4975f92e1b3861834dec83200.",
+      "nextAction": "Retain as the approved Stage 3 named elite; continue with remaining Archive environments, hazards, HUD, and Archive Knight review.",
+      "reviewDate": "2026-07-16"
     },
     {
       "id": "combat_strike_vfx_style_pilot_v1",

@@ -98,3 +98,6 @@ appsettings.Development.json
 *~
 .DS_Store
 Thumbs.db
+
+#Video Analysis
+/_video_analysis

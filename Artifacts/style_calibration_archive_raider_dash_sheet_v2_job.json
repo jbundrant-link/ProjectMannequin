@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-15T05:43:11.405056Z",
+    "display_name": "Nano Banana Pro",
+    "id": "3167c78c-b0f0-4445-b86e-4dafe022c718",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_054311_3167c78c-b0f0-4445-b86e-4dafe022c718_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "d1a920c2-79e9-4100-9675-6945959ee47e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d1a920c2-79e9-4100-9675-6945959ee47e.png"
+        },
+        {
+          "id": "3e0b5faa-dcc1-4169-8d55-27e9e99ab324",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3e0b5faa-dcc1-4169-8d55-27e9e99ab324.png"
+        },
+        {
+          "id": "269df80f-0ba7-4cca-9698-dafaa575b130",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/269df80f-0ba7-4cca-9698-dafaa575b130.png"
+        },
+        {
+          "id": "5d3ee8a4-f60f-4335-b34f-a5a7b2d55fa1",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5d3ee8a4-f60f-4335-b34f-a5a7b2d55fa1.png"
+        },
+        {
+          "id": "fbd2e10b-269d-4710-afe1-a99af647b051",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fbd2e10b-269d-4710-afe1-a99af647b051.png"
+        },
+        {
+          "id": "27e0a066-8ab0-4b8b-b5a4-f99e85c3cbfa",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/27e0a066-8ab0-4b8b-b5a4-f99e85c3cbfa.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK ΓÇö ARCHIVE RAIDER DASH SUB-SHEET REVISION 2.\n\nThe first image is the prior 3x2 dash sheet. Preserve its exact 3-columns-by-2-rows grid, six row-major running poses, strong forward momentum, full-body framing, scale, and clean cel finish. The second image is the authoritative approved Raider identity and the third is the authoritative full design. Mannequin, Ryu, and Goku remain finish anchors.\n\nRESTORE THE EXACT RAIDER SILHOUETTE IN ALL SIX FRAMES: smooth black visor helmet with one cyan eye-light; warm-ivory porcelain armor; dark indigo/plum understructure; large cyan-violet OVAL chest core in its indigo ring; one consistently visible long tapered ivory-and-indigo back fin in this three-quarter view; the same large angular ivory forearm blade/guard on BOTH forearms with cyan/plum inset. The prior dash lost these features and became a generic runnerΓÇöcorrect that. Keep the six beats as forward lean/load, push-off, long stride A, passing compression, long stride B, loop recovery. Exact same identity, armor seams, proportions, camera, line weight, palette, and lighting in every cell.\n\nFlat pure green #00FF00. Complete independently contained figures with safe margins; no crossing cells. No grid lines, labels, floor, shadows, text, UI, or effects. Reject rust/PBR, spikes, red visor, generic mannequin drift, altered/missing/duplicated fins or forearm blades, small geometric chest gem, anatomy errors, cropped parts, blur, projectiles, or logos.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_054311_3167c78c-b0f0-4445-b86e-4dafe022c718.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,18 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Stage Hazard Tests ===
+  PASS activation delay remains dormant
+  PASS warning phase telegraphs authored start bounds
+  PASS active window resolves deterministically
+  PASS linear sweep reaches authored end offset
+  PASS post-active interval is safe cooldown
+  PASS repeat cadence returns to warning phase
+  PASS neutral hazard targets both teams
+  PASS Archive Stage 1 authors intake tram set piece
+  PASS intake tram is a neutral moving sweeper
+  PASS intake tram leaves near/far safe lanes
+  PASS authored stage passes hazard safety validation
+  PASS Archive Stage 1 authors health and score cache decisions
+  PASS health pickup restores player and consumes itself
+  PASS score pickup adds deterministic archive points
+=== 14 passed, 0 failed ===

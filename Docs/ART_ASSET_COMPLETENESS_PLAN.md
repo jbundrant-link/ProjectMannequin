@@ -1,5 +1,13 @@
 # Art Asset Completeness Plan
 
+## Roadmap Authority
+
+This document is a mandatory completion gate under
+[MASTER_IMPLEMENTATION_PLAN.md](MASTER_IMPLEMENTATION_PLAN.md). The master plan
+owns product scope and sequencing; this document determines whether a content
+slice is technically and artistically complete. Neither a tactical plan nor a
+backlog can waive these gates by omitting them.
+
 ## Purpose
 
 A mechanics-complete stage is not art-complete. A stage, enemy, prop, obstacle, pickup, or hazard cannot be called finished while it relies on a missing path, procedural fallback, unrelated reused sprite, or tint-only identity.
@@ -10,13 +18,13 @@ This plan is a release gate for every remaining content phase. Art direction, pi
 
 ## Completion states
 
-| State | Meaning |
-|---|---|
-| Mechanics pending | Layout, combat, hazard, or progression behavior is incomplete. |
-| Mechanics complete / art pending | Gameplay is deterministic and tested, but one or more art gates below fail. |
-| Art technically integrated / style pending | Bespoke assets are imported and wired, but the style rubric has not passed. This is the current state of the latest Archive environment/prop pass. |
-| Style approved / capture pending | Raw assets pass the visual bible, but runtime composition has not passed final QA. |
-| Slice complete | Mechanics, technical art gates, style review, runtime capture, and readability checks all pass. |
+| State                                      | Meaning                                                                                                                                    |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Mechanics pending                          | Layout, combat, hazard, or progression behavior is incomplete.                                                                             |
+| Mechanics complete / art pending           | Gameplay is deterministic and tested, but one or more art gates below fail.                                                                |
+| Art technically integrated / style pending | Bespoke assets are imported and wired, but the style rubric has not passed. This remains the state of the latest Archive environment pass. |
+| Style approved / capture pending           | Raw assets pass the visual bible, but runtime composition has not passed final QA.                                                         |
+| Slice complete                             | Mechanics, technical art gates, style review, runtime capture, and readability checks all pass.                                            |
 
 ## Hard art gates
 
@@ -49,21 +57,21 @@ A stage or phase is complete only when every applicable requirement passes:
 - Archive Nexus previously derived four ladder stages from one district art source.
 - World Warrior Sector currently derives four ladder stages from the same tournament art source.
 - Astral Battlefront has four route paintings, but repeats route images and uses hero imagery as its floor fallback.
-- Named elites currently reuse their base archetype sheets and receive a gold tint/stat boost.
+- Archive named elites previously reused base archetype sheets with a gold tint/stat boost; Veyra, Rhune, and Basalt now use distinct animation-ready atlases. Other worlds remain pending.
 - The prior boulder, crate, and meter-pickup paths were missing.
 - Health, meter, and score pickups previously referenced the same missing image and differed by tint.
 - Hazard presentation currently relies mainly on procedural strips/discs.
-- The latest Archive environments and gameplay objects solved missing/reused-path problems but drifted toward dense realistic hard-surface sci-fi rather than the accepted anime/cel-shaded fighting-game style.
+- The first Archive environment and gameplay-object replacement pass solved missing/reused-path problems but drifted toward dense realistic hard-surface sci-fi. The seven gameplay objects have since been superseded at runtime by the approved style-v2 family; the Stage 2–4 environments still require replacement.
 - The current HUD frame uses glossy realistic metal, while the Archive Map reads as a software dashboard rather than a Living Archive fighting-game interface.
 
 ## Current Archive status
 
-| Slice | Mechanics | Environment | Props/pickups | Elite | Hazard set-piece art | Capture | Status |
-|---|---|---|---|---|---|---|---|
-| Intake Boulevard | Complete | Explicit style review pending | Health cache approved; data object family pending | Reused Scout sheet | Tram art pending | Object capture passes; stage re-capture pending | Mechanics complete / style pending |
-| Index Vaults | Complete | Style pilot approved; production layers pending | Health cache approved; health pickup integrated; meter family pending | Cipher Captain sheet pending | Scan-emitter/beam art pending | Object flow passes at 720p/1080p; environment still fails | Mechanics complete / style pending |
-| Corruption Repository | Complete | Technically wired; style replacement required | Technically wired; style replacement required | Overseer Basalt sheet pending | Falling shelf/debris and security-emitter art pending | Functional capture exists; style failed | Mechanics complete / style pending |
-| Knight's Reliquary | Existing boss loop | Technically wired; style replacement required | Not applicable yet | Archive Knight review pending | Localized destruction/spectacle art pending | Pending | Mechanics complete / style pending |
+| Slice                 | Mechanics          | Environment                                     | Props/pickups                                                   | Elite                                            | Hazard set-piece art                                              | Capture                                                                                               | Status                             |
+| --------------------- | ------------------ | ----------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| Intake Boulevard      | Complete           | Explicit style review pending                   | Health and data caches/pickups runtime approved                 | Scout and Index Warden Veyra runtime approved    | Tram art pending                                                  | Scout/Jab, Veyra/Decree, and real cache/drop flows pass at 720p/1080p; environment still pending      | Mechanics complete / style pending |
+| Index Vaults          | Complete           | Style pilot approved; production layers pending | Health and meter caches/pickups runtime approved                | Raider and Cipher Captain Rhune runtime approved | Scan-emitter/beam art pending                                     | Raider/Cross, Rhune/Cipher Cross, and cache/drop flows pass at 720p/1080p; environment still fails    | Mechanics complete / style pending |
+| Corruption Repository | Complete           | Technically wired; style replacement required   | Health/meter/data family and volatile canister runtime approved | Bruiser and Overseer Basalt runtime approved     | Falling shelf/debris, security emitter, and aftermath art pending | Bruiser/Hammer, Basalt/Faultline, and canister detonation pass at 720p/1080p; environment still fails | Mechanics complete / style pending |
+| Knight's Reliquary    | Existing boss loop | Technically wired; style replacement required   | Not applicable yet                                              | Archive Knight review pending                    | Localized destruction/spectacle art pending                       | Pending                                                                                               | Mechanics complete / style pending |
 
 ## Technically integrated Archive assets requiring style review/replacement
 
@@ -76,25 +84,49 @@ A stage or phase is complete only when every applicable requirement passes:
 - `archive_knights_reliquary_backdrop_higgsfield_v1.png`
 - `archive_knights_reliquary_floor_higgsfield_v1.png`
 
-### Legacy props and pickups still requiring replacement
+### Superseded legacy props and pickups
 
+- `archive_health_cache_higgsfield_v1.png`
 - `archive_meter_cache_higgsfield_v1.png`
 - `archive_data_cache_higgsfield_v1.png`
 - `archive_volatile_canister_higgsfield_v1.png`
+- `archive_health_pickup_higgsfield_v1.png`
 - `archive_meter_pickup_higgsfield_v1.png`
 - `archive_data_pickup_higgsfield_v1.png`
+
+These remain only as provenance/structure references and are not selected by the runtime Archive catalog or hazard factory.
 
 ### First style-calibrated runtime replacements
 
 - `archive_health_cache_style_v2.png` — 16/16, runtime approved at 1280×720 and 1920×1080.
-- `archive_health_pickup_style_v2.png` — 16/16, runtime approved at 1280×720 and 1920×1080 with isolated real-drop captures.
+- `archive_meter_cache_style_v2.png` — 16/16, runtime approved with `SpritePixelSize=0.00103` and ground offset `788`.
+- `archive_data_cache_style_v2.png` — 16/16, runtime approved with `SpritePixelSize=0.00136` and ground offset `674`.
+- `archive_volatile_canister_style_v2.png` — V1 rejected for health-like iconography; revised V2 is 16/16 with `SpritePixelSize=0.00143`, ground offset `854`, and real pre-break/detonation captures.
+- `archive_health_pickup_style_v2.png` — 16/16, runtime approved with `SpritePixelSize=0.00038`, ground offset `672`, and refreshed isolated real-drop captures.
+- `archive_meter_pickup_style_v2.png` — 16/16, runtime approved with `SpritePixelSize=0.00028`, ground offset `876`, and isolated real-drop captures.
+- `archive_data_pickup_style_v2.png` — 16/16, runtime approved with `SpritePixelSize=0.00036`, ground offset `698`, and isolated real-drop captures.
 - `project_mannequin_strike_burst_style_v1.png` — 16/16, pooled authored strike VFX with procedural fallback; runtime approved at both target resolutions.
+- Archive canister detonation — 16/16 pooled graphic cel effect with tapered rays, impact-star cores, shaped debris, immediate intact-sprite cleanup, readable damage text, and render-timed captures at both target resolutions.
+- `archive_raider_style_v2.png` — 16/16 imported 2560×2304 real-alpha 10×9 atlas with 40 authored poses, stable baseline/scale, untinted porcelain colors, phase-aligned ten-frame Raider Cross, and live idle/attack captures at both target resolutions.
+- `archive_scout_style_v2.png` — 16/16 lightweight 10×9 atlas with phase-aligned Scout Jab and dual-resolution live captures.
+- `archive_bruiser_style_v2.png` — 16/16 heavyweight 10×9 atlas with phase-aligned Bruiser Hammer and dual-resolution live captures.
+- `index_warden_veyra_style_v1.png` — 16/16 unique Stage 1 elite atlas with Warden Decree, halo-preserving pose extraction, authored cyan-white room light, and dual-resolution live captures.
+- `cipher_captain_rhune_style_v1.png` — 16/16 unique Stage 2 elite atlas with Cipher Cross, authored cool-white room light, and dual-resolution live captures.
+- `overseer_basalt_style_v1.png` — 16/16 unique Stage 3 elite atlas with Faultline Driver, authored violet-white room light, and dual-resolution live captures.
 
-The legacy gameplay sprites remain independent real-alpha images and no longer use tinting to distinguish gameplay identity. That technical improvement remains valid, but the remaining images are not final because their dense realistic hard-surface treatment fails the style gate.
+All seven style-v2 objects are independent real-alpha images with function-specific silhouettes and no tint-only identity. The legacy images remain in the repository for provenance but no longer seed or supply runtime presentation.
+
+Final Archive enemy/object verification on 2026-07-16: clean build, 124/124 world-run assertions, 32/32 stage-hazard assertions, Stage 1/2/3 ladder summaries passing, and dual-resolution captures for all object functions, base enemies, and named elites.
+
+### Completed animated enemy and elite replacement
+
+- Archive Raider — 16/16 runtime approved. Six identity-locked final source sheets compose through authored connected-silhouette anchors into `archive_raider_style_v2.png`; rejected rusty sources and failed revisions remain provenance only.
+- Archive Scout and Bruiser — 16/16 runtime approved at lightweight/heavyweight scales with phase-aligned Scout Jab and Bruiser Hammer rows.
+- Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt — 16/16 unique named-elite atlases with distinct silhouettes, attacks, room lights, hashes, and dual-resolution runtime evidence; no tint-only identity remains in Archive Stages 1–3.
+- Atlas contract — 10×9 at 256-pixel cells; rows 0–5 map locomotion, signature attack, and defensive/defeat states; rows 6–8 remain transparent.
 
 ### Approved calibration directions awaiting production
 
-- Archive Raider concept — 15/16; six animation sub-sheets and composed 10×9 atlas pending.
 - Index Vaults lateral stage concept V2 — 15/16; separate backdrop/floor/midground/foreground production layers pending.
 - Living Archive HUD kit concept — 15/16; modular component extraction and responsive runtime wiring pending.
 
@@ -103,10 +135,10 @@ The legacy gameplay sprites remain independent real-alpha images and no longer u
 ### Archive quality bar
 
 1. **DONE:** Produce and approve the cross-category style calibration pilots beside mannequin/Ryu/Goku: Raider, health cache, health pickup, Index Vaults lateral set, HUD kit, and strike VFX.
-2. **IN PROGRESS:** Complete the runtime calibration set. Health cache and strike VFX pass; health pickup needs isolated capture; Raider sheet, stage layers, and HUD components remain.
-3. Expand approved cache/pickup grammar to meter/data and the volatile canister; never use the realistic pass as a style source.
-4. Build the approved Raider 10×9 sheet, then produce unique animation-ready sheets for Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt.
-5. Produce Intake Tram, scan emitter/beam, falling shelf/data debris, security sweep emitter, explosion decal, and impact fragments in graphic anime/cel-shaded treatment.
+2. **DONE:** Complete the first runtime calibration set with the strike VFX and all seven Archive caches, pickups, and canister assets at both target resolutions.
+3. **DONE:** Expand the approved health-family grammar to meter/data and revise the volatile canister until its explosive identity is unambiguous.
+4. **DONE:** Replace all three base Archive enemies and produce unique animation-ready sheets for Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt.
+5. **IN PROGRESS:** Produce Intake Tram, scan emitter/beam, falling shelf/data debris, security sweep emitter, explosion decal, and impact fragments in graphic anime/cel-shaded treatment.
 6. Add foreground/subzone variants and landmarks where a single backdrop still reads as repetition during traversal.
 7. Replace the lifebar frame and reskin HUD, Archive Map, results, pause, and form-select around the approved illustrated fighting-game Archive UI kit.
 8. Add localized Reliquary destruction variants and boss-phase spectacle.
@@ -133,8 +165,10 @@ The legacy gameplay sprites remain independent real-alpha images and no longer u
 - `StageMissionValidator` rejects missing stage, floor, background-panel, and prop paths.
 - World-run tests require four distinct existing Archive backdrop paths and four distinct existing floor paths.
 - World-run tests require all four authored Archive prop sprites and three independent pickup sprites.
-- World-run tests lock the approved health cache/pickup paths and measured runtime metrics.
+- World-run tests lock all seven approved style-v2 object paths and measured runtime metrics.
+- World-run tests lock the Raider atlas path, imported dimensions, 10×9 layout, calibrated metrics, no-tint contract, frames 40–49, and exact startup/active/recovery animation-duration sums.
 - World-run tests require the authored strike VFX resource to exist.
+- Stage-hazard tests lock the real all-team canister radius/mask/knockback behavior; Stage 3 smoke additionally requires both `PropExploded` and real explosion-damage evidence.
 - Add hash-based duplicate checks for all uniqueness-required stage, elite, prop, and pickup groups.
 - Add sprite-sheet frame/metric validation when named-elite sheets are integrated.
 - Keep visual approval manual and explicit: hashes, paths, dimensions, and imports cannot prove style.

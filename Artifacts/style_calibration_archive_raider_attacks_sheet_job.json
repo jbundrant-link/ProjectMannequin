@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-15T05:30:06.790819Z",
+    "display_name": "Nano Banana Pro",
+    "id": "217ce21a-859f-40fb-b426-463327459e84",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_053006_217ce21a-859f-40fb-b426-463327459e84_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "7e55300c-caee-403f-8084-03eb6ffcaa82",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7e55300c-caee-403f-8084-03eb6ffcaa82_resize.jpg"
+        },
+        {
+          "id": "47657b0e-7d29-4e30-9853-536c30a8a33c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/47657b0e-7d29-4e30-9853-536c30a8a33c.png"
+        },
+        {
+          "id": "f09eebee-659c-4069-a0d2-19263b2d93e7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f09eebee-659c-4069-a0d2-19263b2d93e7.png"
+        },
+        {
+          "id": "a85ec8ea-43d2-4da5-8424-a3d9d91aad18",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a85ec8ea-43d2-4da5-8424-a3d9d91aad18.png"
+        },
+        {
+          "id": "6c17b5ed-0096-4fa5-ab8a-8d7a319a12c4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6c17b5ed-0096-4fa5-ab8a-8d7a319a12c4.png"
+        },
+        {
+          "id": "c6de48ef-2f11-4ca8-a7cf-f35b3ff658b7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c6de48ef-2f11-4ca8-a7cf-f35b3ff658b7.png"
+        },
+        {
+          "id": "fcb284b1-4c58-4c52-92ba-fe09884780bd",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fcb284b1-4c58-4c52-92ba-fe09884780bd.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. The first image is STRUCTURE/POSE-TIMING ONLY; completely reject its rusty realistic armor, brown palette, spikes, medieval helmet, red visor, texture, and materials. The approved Raider idle, walk, and single-character references define the exact identity: warm-ivory porcelain armor, dark indigo/plum understructure, smooth black visor with one cyan light, cyan-violet chest core, paired tapered back fins, forearm blade shapes, athletic proportions, clean controlled dark contours, broad two-to-four-step anime cel shading, designed highlights, and modern 2.5D fighting-game finish. Mannequin, Ryu, and Goku are authoritative finish anchors. Preserve one exact right-facing three-quarter identity, scale, camera, line weight, light direction, and palette across every frame. Flat pure chroma green #00FF00. Implied cells only; no divider lines, borders, labels, numbers, guides, floor, shadows, scenery, gradients, glow spill, text, or UI. Every full figure complete, independently contained, same baseline where grounded, at least 8 percent safe margin, no overlap or boundary crossing. Reject PBR/rust/grit, identity drift, anatomy errors, duplicated/missing limbs, motion blur, cropped parts, effects, projectiles, or logos.\nCreate EXACTLY 5 columns by 2 rows, TEN row-major sequential frames of ONE coherent Raider Cross punch animation, not ten unrelated moves: 1 guarded start, 2 shoulder rotation and fist cock, 3 full wind-up, 4 extension begins, 5 first active impact silhouette with straight cross fully extended, 6 active follow-through, 7 recoil, 8 recovery, 9 guard return, 10 neutral-ready settle. Strong fighting-game arcs and readable weight, but no impact VFX, projectile, kick, teleport, extra weapon, or unrelated attack. Keep both feet grounded to one baseline and the exact forearm-blade/back-fin identity in every frame.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_053006_217ce21a-859f-40fb-b426-463327459e84.png",
+    "status": "completed"
+  }
+]

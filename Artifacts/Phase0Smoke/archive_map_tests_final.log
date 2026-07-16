@@ -1,0 +1,20 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Archive Map Tests ===
+  PASS fresh playable world is available
+  PASS core world projects four map stages
+  PASS fresh route exposes stage one and locks later stages
+  PASS matching committed run marks world active
+  PASS active stage two route resolves cleared active locked sequence
+  PASS active checkpoint implies prior stage clear
+  PASS stage record projects rank score and time
+  PASS world summary resolves highest rank and cleared count
+  PASS completed world receives completed badge
+  PASS completed route exposes all stages as replay history
+  PASS completed world reports four cleared stages
+  PASS locked realm locks every route node
+  PASS starting without active run needs no overwrite confirmation
+  PASS continuing selected active world needs no overwrite confirmation
+  PASS switching worlds requires overwrite confirmation
+  PASS restarting active world requires overwrite confirmation
+=== 16 passed, 0 failed ===

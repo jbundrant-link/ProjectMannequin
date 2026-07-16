@@ -1,0 +1,14 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[WorldWarriorSmoke] Boss profile initialized.
+[WorldWarriorSmoke] SUMMARY passed=False profile=True projectile=True/False shoryuken=True unlock=True complete=False
+ERROR: [WorldWarriorSmoke] World Warrior boss loop failed.
+   at: void ProjectMannequin.DebugTools.WorldWarriorBossSmokeScenario.CaptureAfterSimulation(int, System.Collections.Generic.IReadOnlyCollection`1[ProjectMannequin.Core.CombatPresentationEvent], ProjectMannequin.Stage.ArcadeEncounterDirector) (res://Scripts/Debug/WorldWarriorBossSmokeScenario.cs:204)
+   C# backtrace (most recent call first):
+       [0] void Godot.GD.PushError(string) (/root/godot/modules/mono/glue/GodotSharp/GodotSharp/Core/GD.cs:366)
+       [1] void ProjectMannequin.DebugTools.WorldWarriorBossSmokeScenario.CaptureAfterSimulation(int, System.Collections.Generic.IReadOnlyCollection`1[ProjectMannequin.Core.CombatPresentationEvent], ProjectMannequin.Stage.ArcadeEncounterDirector) (C:\Users\Joseph Bundrant\Code Projects\SideScroller\Scripts\Debug\WorldWarriorBossSmokeScenario.cs:204)
+       [2] void ProjectMannequin.Core.GameSimulation.StepSimulation() (C:\Users\Joseph Bundrant\Code Projects\SideScroller\Scripts\Core\GameSimulation.cs:432)
+       [3] void ProjectMannequin.Core.GameSimulation._PhysicsProcess(double) (C:\Users\Joseph Bundrant\Code Projects\SideScroller\Scripts\Core\GameSimulation.cs:225)
+       [4] bool Godot.Node.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name&, Godot.NativeInterop.NativeVariantPtrArgs, Godot.NativeInterop.godot_variant&) (/root/godot/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Node.cs:2648)
+       [5] bool ProjectMannequin.Core.GameSimulation.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name&, Godot.NativeInterop.NativeVariantPtrArgs, Godot.NativeInterop.godot_variant&) (C:\Users\Joseph Bundrant\Code Projects\SideScroller\.godot\mono\temp\obj\Debug\Godot.SourceGenerators\Godot.SourceGenerators.ScriptMethodsGenerator\ProjectMannequin.Core.GameSimulation_ScriptMethods.generated.cs:190)
+       [6] Godot.NativeInterop.godot_bool Godot.Bridge.CSharpInstanceBridge.Call(nint, Godot.NativeInterop.godot_string_name*, Godot.NativeInterop.godot_variant**, int, Godot.NativeInterop.godot_variant_call_error*, Godot.NativeInterop.godot_variant*) (/root/godot/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/CSharpInstanceBridge.cs:24)

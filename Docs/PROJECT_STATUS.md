@@ -6,9 +6,13 @@ This document tracks progress against the original MVP prompt.
 
 The project is currently a playable arcade combat MVP with a startup Archive Map, a pause menu, three selectable six-screen missions, fixed-tick combat logic, custom combat boxes, six-button ground/crouch/air combat, mixed guard rules, parries, counters, combo scaling, projectile attacks, CPU fighter bosses, gameplay HUD, damage numbers, debug overlays, saved boss-form unlocks, shapeshift completion, and sprite-sheet presentation support.
 
-Reviewed near-term planning for gamepad-as-P1 QA closure, combat spectacle polish,
-Hollow Archive expansion, and the reserved Iron Fist Foundry branch lives in
-[Next Implementation Plan](NEXT_IMPLEMENTATION_PLAN.md).
+The canonical Phase 0-7 product scope, locked decisions, completion gates, and
+roadmap precedence live in the
+[Master Implementation Plan](MASTER_IMPLEMENTATION_PLAN.md). Near-term sequencing
+for gamepad-as-P1 QA closure, combat spectacle polish, Hollow Archive expansion,
+and the reserved Iron Fist Foundry branch lives in the
+[Next Implementation Plan](NEXT_IMPLEMENTATION_PLAN.md); it does not replace the
+master plan.
 
 The playable routes are:
 

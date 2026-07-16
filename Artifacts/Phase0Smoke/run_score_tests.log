@@ -1,0 +1,14 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Run Score Tests ===
+  PASS timer excludes stage intro and counts gameplay frames
+  PASS stage completion produces immutable results
+  PASS results capture combo, parry, and elite defeat telemetry
+  PASS clear time under par awards deterministic time and clear bonuses
+  PASS rank thresholds resolve S boundary
+  PASS stage bonuses accumulate into run total
+  PASS crossing score threshold awards exactly one extra life
+  PASS results-ready presentation event emitted
+  PASS extra-life presentation emitted once
+  PASS same tick cannot duplicate score or extra life
+=== 10 passed, 0 failed ===

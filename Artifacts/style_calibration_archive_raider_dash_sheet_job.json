@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-15T05:27:36.28264Z",
+    "display_name": "Nano Banana Pro",
+    "id": "555ddeb1-5879-43da-91b8-d26b166a92f7",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_052736_555ddeb1-5879-43da-91b8-d26b166a92f7_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "93000d33-90f9-447a-93b4-02a445ce57b8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/93000d33-90f9-447a-93b4-02a445ce57b8_resize.jpg"
+        },
+        {
+          "id": "f95b310c-ea9a-4522-ab8a-5d2202861d05",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f95b310c-ea9a-4522-ab8a-5d2202861d05.png"
+        },
+        {
+          "id": "43743732-2708-4269-ae48-9faea19ec206",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/43743732-2708-4269-ae48-9faea19ec206.png"
+        },
+        {
+          "id": "e9eb7b4d-cd80-421b-9c70-44809f2f7a70",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e9eb7b4d-cd80-421b-9c70-44809f2f7a70.png"
+        },
+        {
+          "id": "39e81b02-ab90-4738-9dff-f32729913f8d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/39e81b02-ab90-4738-9dff-f32729913f8d.png"
+        },
+        {
+          "id": "d479f735-a382-4393-a6d4-f44573e06668",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d479f735-a382-4393-a6d4-f44573e06668.png"
+        },
+        {
+          "id": "c427c18e-3821-4bec-a129-ea53b967cc01",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c427c18e-3821-4bec-a129-ea53b967cc01.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. The first image is STRUCTURE/POSE-TIMING ONLY; completely reject its rusty realistic armor, brown palette, spikes, medieval helmet, red visor, texture, and materials. The approved Raider idle, walk, and single-character references define the exact identity: warm-ivory porcelain armor, dark indigo/plum understructure, smooth black visor with one cyan light, cyan-violet chest core, paired tapered back fins, forearm blade shapes, athletic proportions, clean controlled dark contours, broad two-to-four-step anime cel shading, designed highlights, and modern 2.5D fighting-game finish. Mannequin, Ryu, and Goku are authoritative finish anchors. Preserve one exact right-facing three-quarter identity, scale, camera, line weight, light direction, and palette across every frame. Flat pure chroma green #00FF00. Implied cells only; no divider lines, borders, labels, numbers, guides, floor, shadows, scenery, gradients, glow spill, text, or UI. Every full figure complete, independently contained, same baseline where grounded, at least 8 percent safe margin, no overlap or boundary crossing. Reject PBR/rust/grit, identity drift, anatomy errors, duplicated/missing limbs, motion blur, cropped parts, effects, projectiles, or logos.\nCreate EXACTLY 3 columns by 2 rows, SIX row-major frames of a seamless right-facing combat dash/run cycle: 1 forward lean and rear-foot load, 2 explosive push-off, 3 first long stride, 4 passing compression, 5 opposite long stride, 6 recovery that loops into frame 1. Natural opposing arm action while retaining guarded combat intent. Feet and hips must clearly change phase; no repeated idle poses and no active attack.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_052736_555ddeb1-5879-43da-91b8-d26b166a92f7.png",
+    "status": "completed"
+  }
+]

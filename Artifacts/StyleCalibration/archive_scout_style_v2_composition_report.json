@@ -1,0 +1,383 @@
+{
+  "manifest": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_animation_sources_v2.json",
+  "output": "Assets/Sprites/Enemies/archive_scout_style_v2.png",
+  "rows": [
+    {
+      "name": "idle",
+      "target_row": 0,
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.241343,
+      "source_bboxes": [
+        [
+          183,
+          83,
+          857,
+          1006
+        ],
+        [
+          1199,
+          65,
+          1894,
+          1006
+        ],
+        [
+          178,
+          1080,
+          916,
+          2032
+        ],
+        [
+          1170,
+          1080,
+          1875,
+          2032
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_idle_sheet_style_v1.png"
+    },
+    {
+      "name": "walk",
+      "target_row": 1,
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.264064,
+      "source_bboxes": [
+        [
+          31,
+          159,
+          538,
+          975
+        ],
+        [
+          537,
+          233,
+          1019,
+          981
+        ],
+        [
+          1008,
+          159,
+          1460,
+          979
+        ],
+        [
+          1477,
+          102,
+          2026,
+          973
+        ],
+        [
+          29,
+          1113,
+          556,
+          1949
+        ],
+        [
+          541,
+          1198,
+          1036,
+          1962
+        ],
+        [
+          1017,
+          1110,
+          1476,
+          1959
+        ],
+        [
+          1478,
+          1074,
+          2021,
+          1940
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_walk_sheet_style_v1.png"
+    },
+    {
+      "name": "sprint",
+      "target_row": 2,
+      "discovered_components": 5,
+      "selected_components": 5,
+      "scale": 0.241343,
+      "source_bboxes": [
+        [
+          29,
+          224,
+          642,
+          1007
+        ],
+        [
+          717,
+          94,
+          1282,
+          1010
+        ],
+        [
+          1272,
+          80,
+          2018,
+          1002
+        ],
+        [
+          113,
+          1080,
+          857,
+          2005
+        ],
+        [
+          1170,
+          1080,
+          1875,
+          2032
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_dash_sheet_style_v1.png"
+    },
+    {
+      "name": "agile_jump",
+      "target_row": 3,
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.245989,
+      "source_bboxes": [
+        [
+          185,
+          213,
+          862,
+          1005
+        ],
+        [
+          1205,
+          74,
+          1880,
+          1009
+        ],
+        [
+          185,
+          1076,
+          851,
+          1871
+        ],
+        [
+          1193,
+          1175,
+          1840,
+          2014
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_jump_sheet_style_v1.png"
+    },
+    {
+      "name": "scout_jab",
+      "target_row": 4,
+      "discovered_components": 10,
+      "selected_components": 10,
+      "scale": 0.238095,
+      "source_bboxes": [
+        [
+          61,
+          159,
+          634,
+          981
+        ],
+        [
+          726,
+          161,
+          1380,
+          980
+        ],
+        [
+          1393,
+          159,
+          1970,
+          980
+        ],
+        [
+          221,
+          1113,
+          928,
+          1963
+        ],
+        [
+          1120,
+          1114,
+          1889,
+          1958
+        ],
+        [
+          62,
+          161,
+          649,
+          981
+        ],
+        [
+          731,
+          164,
+          1316,
+          978
+        ],
+        [
+          1380,
+          164,
+          1975,
+          978
+        ],
+        [
+          175,
+          1075,
+          940,
+          2033
+        ],
+        [
+          1147,
+          1070,
+          1828,
+          2033
+        ]
+      ],
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_attack_startup_cutout_v2.png",
+          "background": "alpha",
+          "discovered_components": 5,
+          "selected_components": 5,
+          "source_bboxes": [
+            [
+              61,
+              159,
+              634,
+              981
+            ],
+            [
+              726,
+              161,
+              1380,
+              980
+            ],
+            [
+              1393,
+              159,
+              1970,
+              980
+            ],
+            [
+              221,
+              1113,
+              928,
+              1963
+            ],
+            [
+              1120,
+              1114,
+              1889,
+              1958
+            ]
+          ]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_attack_recovery_cutout_v2.png",
+          "background": "alpha",
+          "discovered_components": 5,
+          "selected_components": 5,
+          "source_bboxes": [
+            [
+              62,
+              161,
+              649,
+              981
+            ],
+            [
+              731,
+              164,
+              1316,
+              978
+            ],
+            [
+              1380,
+              164,
+              1975,
+              978
+            ],
+            [
+              175,
+              1075,
+              940,
+              2033
+            ],
+            [
+              1147,
+              1070,
+              1828,
+              2033
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "defense_and_defeat",
+      "target_row": 5,
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.278221,
+      "source_bboxes": [
+        [
+          117,
+          201,
+          513,
+          957
+        ],
+        [
+          585,
+          218,
+          1006,
+          957
+        ],
+        [
+          1033,
+          214,
+          1521,
+          957
+        ],
+        [
+          1539,
+          212,
+          2013,
+          957
+        ],
+        [
+          87,
+          1038,
+          582,
+          1647
+        ],
+        [
+          1273,
+          1119,
+          1777,
+          1543
+        ],
+        [
+          152,
+          1604,
+          1029,
+          1991
+        ],
+        [
+          1139,
+          1677,
+          1952,
+          1982
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_scout_misc_sheet_style_v1.png"
+    }
+  ],
+  "sha256": "cdf06a62f9434fdcaa2c9d9164cab50dba56b0912cf82cbd65d56cac2879bcbe",
+  "size": [
+    2560,
+    2304
+  ],
+  "nonempty_frames": 60
+}

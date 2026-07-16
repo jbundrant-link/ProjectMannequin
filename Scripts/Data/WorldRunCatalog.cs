@@ -22,9 +22,9 @@ public static class WorldRunCatalog
     {
         ["archive_nexus"] = new[]
         {
-            new StageBlueprint("Intake Boulevard", "The Archive opens its outer gates", "archive_scout", "Index Warden Veyra", 210.0f),
-            new StageBlueprint("Index Vaults", "Raiders hold the catalog stacks", "archive_raider", "Cipher Captain Rhune", 225.0f),
-            new StageBlueprint("Corruption Repository", "The deepest records fight back", "archive_bruiser", "Overseer Basalt", 240.0f),
+            new StageBlueprint("Intake Boulevard", "The Archive opens its outer gates", "index_warden_veyra", "Index Warden Veyra", 210.0f),
+            new StageBlueprint("Index Vaults", "Raiders hold the catalog stacks", "cipher_captain_rhune", "Cipher Captain Rhune", 225.0f),
+            new StageBlueprint("Corruption Repository", "The deepest records fight back", "overseer_basalt", "Overseer Basalt", 240.0f),
             new StageBlueprint("Knight's Reliquary", "Champion record: Archive Knight", "", "", 420.0f),
         },
         ["world_warrior_sector"] = new[]
@@ -305,6 +305,11 @@ public static class WorldRunCatalog
             return;
         }
 
+        eliteEncounter.LightColorR = 0.72f;
+        eliteEncounter.LightColorG = 0.92f;
+        eliteEncounter.LightColorB = 1.0f;
+        eliteEncounter.LightEnergyMultiplier = 1.08f;
+
         firstEncounter.Props.Add(new StagePropData
         {
             Id = "archive_intake_health_cache",
@@ -361,6 +366,11 @@ public static class WorldRunCatalog
         StageEncounterData secondEncounter,
         StageEncounterData eliteEncounter)
     {
+        eliteEncounter.LightColorR = 0.86f;
+        eliteEncounter.LightColorG = 0.92f;
+        eliteEncounter.LightColorB = 1.0f;
+        eliteEncounter.LightEnergyMultiplier = 1.10f;
+
         // Compressed catalog stacks teach close-range crowd control, then open
         // into a wider scan chamber with risky cache pockets.
         firstEncounter.UsesLaneBounds = true;
@@ -459,6 +469,11 @@ public static class WorldRunCatalog
         StageEncounterData secondEncounter,
         StageEncounterData eliteEncounter)
     {
+        eliteEncounter.LightColorR = 0.92f;
+        eliteEncounter.LightColorG = 0.80f;
+        eliteEncounter.LightColorB = 1.0f;
+        eliteEncounter.LightEnergyMultiplier = 1.12f;
+
         firstEncounter.UsesLaneBounds = true;
         firstEncounter.LaneMinZ = -2.60f;
         firstEncounter.LaneMaxZ = 2.60f;

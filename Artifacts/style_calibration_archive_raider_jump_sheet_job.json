@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-15T05:28:51.342538Z",
+    "display_name": "Nano Banana Pro",
+    "id": "71730d8b-616a-4d3c-8ea9-1f08c1d9654c",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_052851_71730d8b-616a-4d3c-8ea9-1f08c1d9654c_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "12a2eb23-8f10-4c59-afeb-355c2c40930c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/12a2eb23-8f10-4c59-afeb-355c2c40930c.png"
+        },
+        {
+          "id": "9ebb18d2-036f-408e-9040-0ad7990a9a08",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9ebb18d2-036f-408e-9040-0ad7990a9a08.png"
+        },
+        {
+          "id": "a2074583-0d15-4f85-86fb-c3e3cf463e8d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a2074583-0d15-4f85-86fb-c3e3cf463e8d.png"
+        },
+        {
+          "id": "cdbe4c9e-b9ff-4c45-8f9f-013622bc7648",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cdbe4c9e-b9ff-4c45-8f9f-013622bc7648.png"
+        },
+        {
+          "id": "5320168a-befa-4f38-9785-b29296e86f58",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5320168a-befa-4f38-9785-b29296e86f58.png"
+        },
+        {
+          "id": "9b96a97c-0253-4240-8d61-9e93530282a3",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9b96a97c-0253-4240-8d61-9e93530282a3.png"
+        },
+        {
+          "id": "7324d082-690e-4ec0-8a97-782f0b9daab0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7324d082-690e-4ec0-8a97-782f0b9daab0.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. The first image is STRUCTURE/POSE-TIMING ONLY; completely reject its rusty realistic armor, brown palette, spikes, medieval helmet, red visor, texture, and materials. The approved Raider idle, walk, and single-character references define the exact identity: warm-ivory porcelain armor, dark indigo/plum understructure, smooth black visor with one cyan light, cyan-violet chest core, paired tapered back fins, forearm blade shapes, athletic proportions, clean controlled dark contours, broad two-to-four-step anime cel shading, designed highlights, and modern 2.5D fighting-game finish. Mannequin, Ryu, and Goku are authoritative finish anchors. Preserve one exact right-facing three-quarter identity, scale, camera, line weight, light direction, and palette across every frame. Flat pure chroma green #00FF00. Implied cells only; no divider lines, borders, labels, numbers, guides, floor, shadows, scenery, gradients, glow spill, text, or UI. Every full figure complete, independently contained, same baseline where grounded, at least 8 percent safe margin, no overlap or boundary crossing. Reject PBR/rust/grit, identity drift, anatomy errors, duplicated/missing limbs, motion blur, cropped parts, effects, projectiles, or logos.\nCreate EXACTLY 2 columns by 2 rows, FOUR row-major jump-state frames mapped to gameplay: 1 grounded jump-start crouch/compression, 2 rising airborne extension, 3 compact apex/fall pose, 4 grounded landing recovery/ready stance. Keep one consistent body scale; airborne frames have clear empty green below both feet, while frames 1 and 4 share one ground baseline. No attack and no flight effects.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_052851_71730d8b-616a-4d3c-8ea9-1f08c1d9654c.png",
+    "status": "completed"
+  }
+]

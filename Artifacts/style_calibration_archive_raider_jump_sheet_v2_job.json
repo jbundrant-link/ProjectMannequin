@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-15T05:50:30.645661Z",
+    "display_name": "Nano Banana Pro",
+    "id": "9cdd8696-a1de-49ac-b73a-37da615227c7",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_055030_9cdd8696-a1de-49ac-b73a-37da615227c7_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "cecad0a5-38a8-4055-a8be-80894324734b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cecad0a5-38a8-4055-a8be-80894324734b.png"
+        },
+        {
+          "id": "c5c3b320-9d45-4719-a995-ba38b4cac50e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c5c3b320-9d45-4719-a995-ba38b4cac50e.png"
+        },
+        {
+          "id": "86253033-c6d7-4e63-a4a6-397ae94c883e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/86253033-c6d7-4e63-a4a6-397ae94c883e.png"
+        },
+        {
+          "id": "fc02e7cf-b2da-460a-8fae-3106a3bbc135",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fc02e7cf-b2da-460a-8fae-3106a3bbc135.png"
+        },
+        {
+          "id": "dc621a09-ff92-4d90-bf22-b6eca70c9213",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/dc621a09-ff92-4d90-bf22-b6eca70c9213.png"
+        },
+        {
+          "id": "afc4d58f-0d40-4b5b-a51a-828c44f34f8b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/afc4d58f-0d40-4b5b-a51a-828c44f34f8b.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK ΓÇö ARCHIVE RAIDER JUMP SUB-SHEET REVISION 2.\n\nThe first image is the prior exact 2x2 jump sheet. Preserve its grid and four row-major state beats: grounded compression, rising airborne, compact apex/fall, grounded landing-ready recovery. The second image is the approved Raider identity and the third is the full design; mannequin, Ryu, and Goku remain finish anchors.\n\nMANDATORY IN EVERY FRAME: exact warm-ivory porcelain Raider, dark indigo/plum understructure, smooth black visor with one cyan light, large cyan-violet OVAL chest core, one consistently visible long tapered ivory/indigo back fin in this view, and identical large angular ivory forearm blade/guard on BOTH forearms with cyan/plum insets. Keep exact proportions, armor seams, camera, scale, dark contour weight, broad cel shading, palette, and lighting. The prior sheet lost these anchors in airborne/landing framesΓÇörestore them. Frame 1 crouches on one baseline; frames 2 and 3 are clearly airborne with green below both feet; frame 4 lands on the same baseline and visibly compresses into ready stance.\n\nFlat pure green #00FF00. Complete independently contained figures with safe margins; no cell crossing. No grid lines, floor, shadows, text, UI, effects, or projectiles. Reject rust/PBR, spikes, red visor, generic drift, changed/missing/duplicated fin/core/forearm guards, anatomy errors, cropped parts, or blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_055030_9cdd8696-a1de-49ac-b73a-37da615227c7.png",
+    "status": "completed"
+  }
+]

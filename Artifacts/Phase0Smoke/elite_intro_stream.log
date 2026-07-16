@@ -1,0 +1,12 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[LadderSmoke] Driver active.
+[LadderSmoke] tick=300 state=Intermission encounter=breach_01 remaining=1
+[LadderSmoke] tick=600 state=Traveling encounter=archive_nexus_stage_1_elite remaining=2
+[LadderSmoke] Freeze tick=678 events=FightRoomLocked,WaveStarted,EliteEnemySpawned,EnemyEntered,EliteIntroStarted
+[LadderSmoke] Published seq=51 tick=678 type=EliteEnemySpawned source=archive_nexus_stage_1_elite_7
+[LadderSmoke] Published seq=53 tick=678 type=EliteIntroStarted source=archive_nexus_stage_1_elite_7
+[LadderSmoke] Freeze tick=714 events=EliteIntroReady
+[LadderSmoke] Published seq=54 tick=714 type=EliteIntroReady source=archive_nexus_stage_1_elite_7
+[LadderSmoke] Published seq=55 tick=750 type=EliteIntroFight source=archive_nexus_stage_1_elite
+[LadderSmoke] SUMMARY passed=True stage=1 hordes=2 elite=True brain=True completed=True results=True hazard=True unlock=False eliteIntro=True/True/True eliteBar=True awaitSwap=False tick=811

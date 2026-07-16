@@ -1,0 +1,105 @@
+{
+  "enemyId": "cipher_captain_rhune",
+  "background": "green",
+  "minimum_component_area": 5000,
+  "output": "Assets/Sprites/Enemies/cipher_captain_rhune_style_v1.png",
+  "preview": "Artifacts/StyleCalibration/cipher_captain_rhune_style_v1_atlas_preview.png",
+  "report": "Artifacts/StyleCalibration/cipher_captain_rhune_style_v1_composition_report.json",
+  "animations": [
+    {
+      "name": "cipher_guard_idle",
+      "target_row": 0,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_idle_sheet_v2.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024], [1024, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "tactical_walk",
+      "target_row": 1,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_walk_sheet_v1.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 512, 1024], [512, 0, 1024, 1024], [1024, 0, 1536, 1024], [1536, 0, 2048, 1024], [0, 1024, 512, 2048], [512, 1024, 1024, 2048], [1024, 1024, 1536, 2048], [1536, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "cipher_rush",
+      "target_row": 2,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_dash_sheet_v1.png",
+          "background": "green",
+          "anchors": [[312, 594], [950, 536], [1610, 578], [508, 1552], [986, 1550], [1540, 1551]]
+        }
+      ]
+    },
+    {
+      "name": "captain_jump",
+      "target_row": 3,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_jump_sheet_v3.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024], [1024, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "cipher_cross",
+      "target_row": 4,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_attack_startup_v1.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 683, 1024], [683, 0, 1365, 1024], [1365, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_attack_recovery_v1.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 683, 1024], [683, 0, 1365, 1024], [1365, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "defense_and_defeat",
+      "target_row": 5,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_reactions_sheet_v1.png",
+          "background": "green",
+          "anchors": [[393, 539], [1046, 550], [1672, 540], [366, 1566], [1092, 1537], [1715, 1649]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_knockdown_pose_v2_normalized.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 572]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_defeated_pose_v1_normalized.png",
+          "background": "green",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 572]]
+        }
+      ]
+    }
+  ]
+}

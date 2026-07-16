@@ -1,0 +1,462 @@
+{
+  "manifest": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_animation_sources_v1.json",
+  "output": "Assets/Sprites/Enemies/cipher_captain_rhune_style_v1.png",
+  "rows": [
+    {
+      "name": "cipher_guard_idle",
+      "target_row": 0,
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.246517,
+      "source_bboxes": [
+        [
+          0,
+          0,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          0,
+          2048,
+          1024
+        ],
+        [
+          0,
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          2048,
+          2048
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_idle_sheet_v2.png"
+    },
+    {
+      "name": "tactical_walk",
+      "target_row": 1,
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.248918,
+      "source_bboxes": [
+        [
+          0,
+          0,
+          512,
+          1024
+        ],
+        [
+          512,
+          0,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          0,
+          1536,
+          1024
+        ],
+        [
+          1536,
+          0,
+          2048,
+          1024
+        ],
+        [
+          0,
+          1024,
+          512,
+          2048
+        ],
+        [
+          512,
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          1536,
+          2048
+        ],
+        [
+          1536,
+          1024,
+          2048,
+          2048
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_walk_sheet_v1.png"
+    },
+    {
+      "name": "cipher_rush",
+      "target_row": 2,
+      "discovered_components": 6,
+      "selected_components": 6,
+      "scale": 0.241597,
+      "source_bboxes": [
+        [
+          62,
+          192,
+          561,
+          997
+        ],
+        [
+          611,
+          85,
+          1290,
+          986
+        ],
+        [
+          1233,
+          181,
+          1986,
+          975
+        ],
+        [
+          170,
+          1089,
+          847,
+          2015
+        ],
+        [
+          762,
+          1075,
+          1210,
+          2026
+        ],
+        [
+          1207,
+          1084,
+          1873,
+          2018
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_dash_sheet_v1.png"
+    },
+    {
+      "name": "captain_jump",
+      "target_row": 3,
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.239833,
+      "source_bboxes": [
+        [
+          0,
+          0,
+          1024,
+          1024
+        ],
+        [
+          1024,
+          0,
+          2048,
+          1024
+        ],
+        [
+          0,
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          2048,
+          2048
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_jump_sheet_v3.png"
+    },
+    {
+      "name": "cipher_cross",
+      "target_row": 4,
+      "discovered_components": 10,
+      "selected_components": 10,
+      "scale": 0.246517,
+      "source_bboxes": [
+        [
+          0,
+          0,
+          683,
+          1024
+        ],
+        [
+          683,
+          0,
+          1365,
+          1024
+        ],
+        [
+          1365,
+          0,
+          2048,
+          1024
+        ],
+        [
+          0,
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          2048,
+          2048
+        ],
+        [
+          0,
+          0,
+          683,
+          1024
+        ],
+        [
+          683,
+          0,
+          1365,
+          1024
+        ],
+        [
+          1365,
+          0,
+          2048,
+          1024
+        ],
+        [
+          0,
+          1024,
+          1024,
+          2048
+        ],
+        [
+          1024,
+          1024,
+          2048,
+          2048
+        ]
+      ],
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_attack_startup_v1.png",
+          "background": "green",
+          "discovered_components": 5,
+          "selected_components": 5,
+          "source_bboxes": [
+            [
+              0,
+              0,
+              683,
+              1024
+            ],
+            [
+              683,
+              0,
+              1365,
+              1024
+            ],
+            [
+              1365,
+              0,
+              2048,
+              1024
+            ],
+            [
+              0,
+              1024,
+              1024,
+              2048
+            ],
+            [
+              1024,
+              1024,
+              2048,
+              2048
+            ]
+          ]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_attack_recovery_v1.png",
+          "background": "green",
+          "discovered_components": 5,
+          "selected_components": 5,
+          "source_bboxes": [
+            [
+              0,
+              0,
+              683,
+              1024
+            ],
+            [
+              683,
+              0,
+              1365,
+              1024
+            ],
+            [
+              1365,
+              0,
+              2048,
+              1024
+            ],
+            [
+              0,
+              1024,
+              1024,
+              2048
+            ],
+            [
+              1024,
+              1024,
+              2048,
+              2048
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "defense_and_defeat",
+      "target_row": 5,
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.252747,
+      "source_bboxes": [
+        [
+          105,
+          84,
+          681,
+          994
+        ],
+        [
+          761,
+          107,
+          1330,
+          994
+        ],
+        [
+          1358,
+          86,
+          1986,
+          994
+        ],
+        [
+          84,
+          1117,
+          648,
+          2015
+        ],
+        [
+          718,
+          1233,
+          1465,
+          1841
+        ],
+        [
+          1430,
+          1290,
+          2000,
+          2008
+        ],
+        [
+          0,
+          0,
+          1024,
+          572
+        ],
+        [
+          0,
+          0,
+          1024,
+          572
+        ]
+      ],
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_reactions_sheet_v1.png",
+          "background": "green",
+          "discovered_components": 6,
+          "selected_components": 6,
+          "source_bboxes": [
+            [
+              105,
+              84,
+              681,
+              994
+            ],
+            [
+              761,
+              107,
+              1330,
+              994
+            ],
+            [
+              1358,
+              86,
+              1986,
+              994
+            ],
+            [
+              84,
+              1117,
+              648,
+              2015
+            ],
+            [
+              718,
+              1233,
+              1465,
+              1841
+            ],
+            [
+              1430,
+              1290,
+              2000,
+              2008
+            ]
+          ]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_knockdown_pose_v2_normalized.png",
+          "background": "green",
+          "discovered_components": 1,
+          "selected_components": 1,
+          "source_bboxes": [
+            [
+              0,
+              0,
+              1024,
+              572
+            ]
+          ]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/cipher_captain_rhune_defeated_pose_v1_normalized.png",
+          "background": "green",
+          "discovered_components": 1,
+          "selected_components": 1,
+          "source_bboxes": [
+            [
+              0,
+              0,
+              1024,
+              572
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "sha256": "0671b58311333eabeec4da1ee7a7952da8a1aa583d230c8360b1f3e603926a8b",
+  "size": [
+    2560,
+    2304
+  ],
+  "nonempty_frames": 60
+}

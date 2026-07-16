@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Godot;
 using ProjectMannequin.Combat;
 using ProjectMannequin.Core;
@@ -103,6 +104,11 @@ public partial class CharacterVisualComponent : Node3D
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private float _impactFlashSeconds;
     private Color _impactFlashColor = Colors.White;
+    private int _raiderIdleCaptureFrame = -1;
+    private int _raiderIdleCaptureStableRenderFrames;
+    private int _raiderAttackCaptureStableRenderFrames;
+    private bool _raiderIdleCaptureSaved;
+    private bool _raiderAttackCaptureSaved;
 
     private readonly AnimationDriver _driver = new();
     private GameSimulation? _simulation;
@@ -172,6 +178,76 @@ public partial class CharacterVisualComponent : Node3D
         _impactFlashSeconds = Mathf.Max(0.0f, _impactFlashSeconds - (float)delta);
         UpdateScale();
         UpdateHud();
+        CaptureRaiderFrameIfRequested();
+    }
+
+    private void CaptureRaiderFrameIfRequested()
+    {
+        if (_actor is null
+            || _actor.CurrentForm.Id != "archive_raider"
+            || _actor.ActorId != OS.GetEnvironment(
+                "PROJECT_MANNEQUIN_LADDER_RAIDER_ACTOR_ID"))
+        {
+            return;
+        }
+
+        var idlePath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_RAIDER_IDLE_CAPTURE");
+        if (!_raiderIdleCaptureSaved
+            && !string.IsNullOrWhiteSpace(idlePath)
+            && _actor.State == CombatActorState.Idle)
+        {
+            if (_raiderIdleCaptureFrame != _sprite.Frame)
+            {
+                _raiderIdleCaptureFrame = _sprite.Frame;
+                _raiderIdleCaptureStableRenderFrames = 1;
+            }
+            else
+            {
+                _raiderIdleCaptureStableRenderFrames++;
+            }
+
+            if (_raiderIdleCaptureStableRenderFrames >= 3)
+            {
+                _raiderIdleCaptureSaved = SaveRaiderCapture(idlePath, "idle");
+            }
+        }
+
+        var attackPath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_RAIDER_ATTACK_CAPTURE");
+        var isStableActivePose = _actor.State == CombatActorState.Attacking
+            && _actor.CurrentMove?.Id == "archive_raider_attack"
+            && _actor.CurrentMoveFrame is >= 17 and <= 19
+            && _sprite.Frame == 44;
+        _raiderAttackCaptureStableRenderFrames = isStableActivePose
+            ? _raiderAttackCaptureStableRenderFrames + 1
+            : 0;
+        if (!_raiderAttackCaptureSaved
+            && !string.IsNullOrWhiteSpace(attackPath)
+            && _raiderAttackCaptureStableRenderFrames >= 3)
+        {
+            _raiderAttackCaptureSaved = SaveRaiderCapture(attackPath, "active Raider Cross");
+        }
+    }
+
+    private bool SaveRaiderCapture(string path, string poseLabel)
+    {
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError(
+                $"[CharacterVisual] Could not save Raider {poseLabel} capture '{path}' ({error}).");
+            return false;
+        }
+
+        GD.Print($"[CharacterVisual] Raider {poseLabel} capture saved: {path}");
+        return true;
     }
 
     private Node3D InstantiateVisualRoot()

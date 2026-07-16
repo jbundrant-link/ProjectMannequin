@@ -1,0 +1,77 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+.NET: Initializing module...
+Found hostfxr: C:/Program Files/dotnet/host/fxr/9.0.17/hostfxr.dll
+.NET: hostfxr initialized
+.NET: GodotPlugins initialized
+CORE API HASH: 3727971243
+EDITOR API HASH: 352756578
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Loading resource: res://Scenes/Main.tscn remapped: res://Scenes/Main.tscn
+Loading resource: res://Scripts/Core/MvpCombatBootstrap.cs remapped: res://Scripts/Core/MvpCombatBootstrap.cs
+Completed load for: 'res://Scripts/Core/MvpCombatBootstrap.cs' remapped 'res://Scripts/Core/MvpCombatBootstrap.cs' at thread -1
+Loading resource: res://Scripts/Core/GameSimulation.cs remapped: res://Scripts/Core/GameSimulation.cs
+Completed load for: 'res://Scripts/Core/GameSimulation.cs' remapped 'res://Scripts/Core/GameSimulation.cs' at thread -1
+Loading resource: res://Scripts/Input/LocalInputManager.cs remapped: res://Scripts/Input/LocalInputManager.cs
+Completed load for: 'res://Scripts/Input/LocalInputManager.cs' remapped 'res://Scripts/Input/LocalInputManager.cs' at thread -1
+Loading resource: res://Scripts/Content/ContentManager.cs remapped: res://Scripts/Content/ContentManager.cs
+Completed load for: 'res://Scripts/Content/ContentManager.cs' remapped 'res://Scripts/Content/ContentManager.cs' at thread -1
+Loading resource: res://Scripts/Debug/DebugOverlay.cs remapped: res://Scripts/Debug/DebugOverlay.cs
+Completed load for: 'res://Scripts/Debug/DebugOverlay.cs' remapped 'res://Scripts/Debug/DebugOverlay.cs' at thread -1
+Loading resource: res://Scripts/Presentation/PrototypeStageView.cs remapped: res://Scripts/Presentation/PrototypeStageView.cs
+Completed load for: 'res://Scripts/Presentation/PrototypeStageView.cs' remapped 'res://Scripts/Presentation/PrototypeStageView.cs' at thread -1
+Loading resource: res://Scripts/Presentation/CombatAudioManager.cs remapped: res://Scripts/Presentation/CombatAudioManager.cs
+Completed load for: 'res://Scripts/Presentation/CombatAudioManager.cs' remapped 'res://Scripts/Presentation/CombatAudioManager.cs' at thread -1
+Loading resource: res://Scripts/Debug/CombatBoxViewer.cs remapped: res://Scripts/Debug/CombatBoxViewer.cs
+Completed load for: 'res://Scripts/Debug/CombatBoxViewer.cs' remapped 'res://Scripts/Debug/CombatBoxViewer.cs' at thread -1
+Loading resource: res://Scripts/UI/PauseMenu.cs remapped: res://Scripts/UI/PauseMenu.cs
+Completed load for: 'res://Scripts/UI/PauseMenu.cs' remapped 'res://Scripts/UI/PauseMenu.cs' at thread -1
+Loading resource: res://Scripts/UI/MvpHud.cs remapped: res://Scripts/UI/MvpHud.cs
+Completed load for: 'res://Scripts/UI/MvpHud.cs' remapped 'res://Scripts/UI/MvpHud.cs' at thread -1
+Loading resource: res://Scripts/Debug/StageDebugDrawer.cs remapped: res://Scripts/Debug/StageDebugDrawer.cs
+Completed load for: 'res://Scripts/Debug/StageDebugDrawer.cs' remapped 'res://Scripts/Debug/StageDebugDrawer.cs' at thread -1
+Loading resource: res://Scripts/Presentation/BossIntroSequencer.cs remapped: res://Scripts/Presentation/BossIntroSequencer.cs
+Completed load for: 'res://Scripts/Presentation/BossIntroSequencer.cs' remapped 'res://Scripts/Presentation/BossIntroSequencer.cs' at thread -1
+Loading resource: res://Scripts/UI/FormSelectOverlay.cs remapped: res://Scripts/UI/FormSelectOverlay.cs
+Completed load for: 'res://Scripts/UI/FormSelectOverlay.cs' remapped 'res://Scripts/UI/FormSelectOverlay.cs' at thread -1
+Loading resource: res://Scripts/Presentation/CombatVfxManager.cs remapped: res://Scripts/Presentation/CombatVfxManager.cs
+Completed load for: 'res://Scripts/Presentation/CombatVfxManager.cs' remapped 'res://Scripts/Presentation/CombatVfxManager.cs' at thread -1
+Completed load for: 'res://Scenes/Main.tscn' remapped 'res://Scenes/Main.tscn' at thread -1
+Loading resource: res://Assets/Stages/ArchiveDistrict/archive_district_backdrop_band_higgsfield_v1.png remapped: res://Assets/Stages/ArchiveDistrict/archive_district_backdrop_band_higgsfield_v1.png
+Loading resource: res://.godot/imported/archive_district_backdrop_band_higgsfield_v1.png-dedd6d4d571e784d3644e52abef20579.ctex remapped: res://.godot/imported/archive_district_backdrop_band_higgsfield_v1.png-dedd6d4d571e784d3644e52abef20579.ctex
+Completed load for: 'res://Assets/Stages/ArchiveDistrict/archive_district_backdrop_band_higgsfield_v1.png' remapped 'res://Assets/Stages/ArchiveDistrict/archive_district_backdrop_band_higgsfield_v1.png' at thread -1
+Loading resource: res://Assets/Stages/ArchiveDistrict/archive_district_floor_higgsfield_v1.png remapped: res://Assets/Stages/ArchiveDistrict/archive_district_floor_higgsfield_v1.png
+Loading resource: res://.godot/imported/archive_district_floor_higgsfield_v1.png-1947ddffa97cb76e4d9351d9ce966c40.ctex remapped: res://.godot/imported/archive_district_floor_higgsfield_v1.png-1947ddffa97cb76e4d9351d9ce966c40.ctex
+Completed load for: 'res://Assets/Stages/ArchiveDistrict/archive_district_floor_higgsfield_v1.png' remapped 'res://Assets/Stages/ArchiveDistrict/archive_district_floor_higgsfield_v1.png' at thread -1
+Loading resource: res://Scripts/Presentation/SplitScreenOverlay.cs remapped: res://Scripts/Presentation/SplitScreenOverlay.cs
+Completed load for: 'res://Scripts/Presentation/SplitScreenOverlay.cs' remapped 'res://Scripts/Presentation/SplitScreenOverlay.cs' at thread -1
+Loading resource: res://Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png remapped: res://Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png
+Loading resource: res://.godot/imported/project_mannequin_lifebar_frame_higgsfield_v1.png-06c8410f09a9b28c52803fe93452d9b7.ctex remapped: res://.godot/imported/project_mannequin_lifebar_frame_higgsfield_v1.png-06c8410f09a9b28c52803fe93452d9b7.ctex
+Completed load for: 'res://Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png' remapped 'res://Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png' at thread -1
+Loading resource: res://Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png remapped: res://Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png
+Loading resource: res://.godot/imported/mannequin_master_higgsfield_v1_transparent.png-d4298e39752dd83e64888103a8c1054a.ctex remapped: res://.godot/imported/mannequin_master_higgsfield_v1_transparent.png-d4298e39752dd83e64888103a8c1054a.ctex
+Completed load for: 'res://Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png' remapped 'res://Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png' at thread -1
+Loading resource: res://Scripts/Debug/FrameTimelineView.cs remapped: res://Scripts/Debug/FrameTimelineView.cs
+Completed load for: 'res://Scripts/Debug/FrameTimelineView.cs' remapped 'res://Scripts/Debug/FrameTimelineView.cs' at thread -1
+Loading resource: res://Scripts/Combat/CombatActor.cs remapped: res://Scripts/Combat/CombatActor.cs
+Completed load for: 'res://Scripts/Combat/CombatActor.cs' remapped 'res://Scripts/Combat/CombatActor.cs' at thread -1
+Loading resource: res://Scripts/Presentation/CharacterVisualComponent.cs remapped: res://Scripts/Presentation/CharacterVisualComponent.cs
+Completed load for: 'res://Scripts/Presentation/CharacterVisualComponent.cs' remapped 'res://Scripts/Presentation/CharacterVisualComponent.cs' at thread -1
+Loading resource: res://Scenes/Characters/MannequinSpriteVisuals.tscn remapped: res://Scenes/Characters/MannequinSpriteVisuals.tscn
+Completed load for: 'res://Scenes/Characters/MannequinSpriteVisuals.tscn' remapped 'res://Scenes/Characters/MannequinSpriteVisuals.tscn' at thread -1
+Loading resource: res://Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png remapped: res://Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png
+Loading resource: res://.godot/imported/mannequin_sheet_higgsfield_v1.png-942783985a39a47bd7b379b9552f0dd8.ctex remapped: res://.godot/imported/mannequin_sheet_higgsfield_v1.png-942783985a39a47bd7b379b9552f0dd8.ctex
+Completed load for: 'res://Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png' remapped 'res://Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png' at thread -1
+Loading resource: res://Assets/Sprites/Enemies/archive_scout_higgsfield_v1.png remapped: res://Assets/Sprites/Enemies/archive_scout_higgsfield_v1.png
+Loading resource: res://.godot/imported/archive_scout_higgsfield_v1.png-0a0e55064222d551704ad19109905b30.ctex remapped: res://.godot/imported/archive_scout_higgsfield_v1.png-0a0e55064222d551704ad19109905b30.ctex
+Completed load for: 'res://Assets/Sprites/Enemies/archive_scout_higgsfield_v1.png' remapped 'res://Assets/Sprites/Enemies/archive_scout_higgsfield_v1.png' at thread -1
+[StageSmoke] Spawned breach_01_1 from Right at (17.80,-1.15), tick=1.
+[StageSmoke] Started breach_01: active=1, queued=0, camera=8.00, tick=1.
+Loading resource: res://Scenes/Characters/MannequinSpriteVisuals.tscn remapped: res://Scenes/Characters/MannequinSpriteVisuals.tscn
+Completed load for: 'res://Scenes/Characters/MannequinSpriteVisuals.tscn' remapped 'res://Scenes/Characters/MannequinSpriteVisuals.tscn' at thread -1
+[StageSmoke] Spawned breach_01_2 from FarLane at (13.10,-4.80), tick=116.

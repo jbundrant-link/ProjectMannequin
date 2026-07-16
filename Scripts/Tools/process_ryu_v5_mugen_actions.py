@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import gc
 import json
-import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -22,12 +21,7 @@ from process_higgsfield_sprites import remove_green_background
 ROOT = Path("Assets/Sprites/Ryu")
 GENERATED_ROOT = ROOT / "Higgsfield/V5Generated"
 PROCESSED_ROOT = ROOT / "Higgsfield/ProcessedV5"
-MUGEN_AIR = Path(
-    os.environ.get(
-        "PROJECT_MANNEQUIN_RYU_AIR",
-        "Assets/Sprites/Ryu/MugenSource/sf3_ryu.air",
-    )
-)
+MUGEN_AIR = Path(r"C:/Users/Joseph Bundrant/Downloads/sf3_ryu/sf3_ryu.air")
 V4_ATLAS = ROOT / "ryu_higgsfield_v4_sheet.png"
 OUTPUT_ATLAS = ROOT / "ryu_higgsfield_v5_actions.png"
 OUTPUT_MAP = ROOT / "ryu_higgsfield_v5_animation_map.json"

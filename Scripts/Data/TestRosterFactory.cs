@@ -523,7 +523,7 @@ public static class TestRosterFactory
 
     public static CharacterData CreateArchiveScout()
     {
-        return CreateArchiveMinion(
+        var scout = CreateArchiveMinion(
             "archive_scout",
             "Archive Scout",
             CharacterRole.Rushdown,
@@ -534,11 +534,33 @@ public static class TestRosterFactory
             recoveryFrames: 24,
             damage: 7,
             pushbackX: 1.25f);
+        scout.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/archive_scout_style_v2.png";
+        scout.SpriteSheetColumns = 10;
+        scout.SpriteSheetRows = 9;
+        scout.SpritePixelSize = 0.0166f;
+        scout.SpriteGroundOffsetPixels = 120.0f;
+        scout.TintSpriteSheet = false;
+
+        var attack = scout.FindMove("archive_scout_attack");
+        if (attack is not null)
+        {
+            attack.AnimationFrameSequence = new List<int>
+            {
+                40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            };
+            attack.AnimationFrameDurations = new List<int>
+            {
+                3, 3, 3, 3, 5, 4, 4, 4, 4, 8,
+            };
+        }
+
+        return scout;
     }
 
     public static CharacterData CreateArchiveRaider()
     {
-        return CreateArchiveMinion(
+        var raider = CreateArchiveMinion(
             "archive_raider",
             "Archive Raider",
             CharacterRole.Striker,
@@ -549,11 +571,81 @@ public static class TestRosterFactory
             recoveryFrames: 28,
             damage: 9,
             pushbackX: 1.7f);
+        raider.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/archive_raider_style_v2.png";
+        raider.SpriteSheetColumns = 10;
+        raider.SpriteSheetRows = 9;
+        raider.SpritePixelSize = 0.018f;
+        raider.SpriteGroundOffsetPixels = 120.0f;
+        raider.TintSpriteSheet = false;
+
+        var attack = raider.FindMove("archive_raider_attack");
+        if (attack is not null)
+        {
+            attack.AnimationFrameSequence = new List<int>
+            {
+                40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            };
+            attack.AnimationFrameDurations = new List<int>
+            {
+                5, 5, 5, 2, 3, 4, 5, 5, 6, 8,
+            };
+        }
+
+        return raider;
+    }
+
+    public static CharacterData CreateCipherCaptainRhune()
+    {
+        var rhune = CreateArchiveRaider();
+        rhune.Id = "cipher_captain_rhune";
+        rhune.DisplayName = "Cipher Captain Rhune";
+        rhune.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/cipher_captain_rhune_style_v1.png";
+        rhune.SpriteSheetColumns = 10;
+        rhune.SpriteSheetRows = 9;
+        rhune.SpritePixelSize = 0.0190f;
+        rhune.SpriteGroundOffsetPixels = 120.0f;
+        rhune.TintSpriteSheet = false;
+        rhune.RoleTags.Add("named_elite");
+
+        var attack = rhune.FindMove("archive_raider_attack");
+        if (attack is not null)
+        {
+            attack.Id = "cipher_captain_rhune_attack";
+            attack.DisplayName = "Cipher Cross";
+        }
+
+        return rhune;
+    }
+
+    public static CharacterData CreateIndexWardenVeyra()
+    {
+        var veyra = CreateArchiveScout();
+        veyra.Id = "index_warden_veyra";
+        veyra.DisplayName = "Index Warden Veyra";
+        veyra.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/index_warden_veyra_style_v1.png";
+        veyra.SpriteSheetColumns = 10;
+        veyra.SpriteSheetRows = 9;
+        veyra.SpritePixelSize = 0.0190f;
+        veyra.SpriteGroundOffsetPixels = 120.0f;
+        veyra.TintSpriteSheet = false;
+        veyra.RoleTags.Add("named_elite");
+
+        var attack = veyra.FindMove("archive_scout_attack");
+        if (attack is not null)
+        {
+            attack.Id = "index_warden_veyra_attack";
+            attack.DisplayName = "Warden Decree";
+        }
+
+        return veyra;
     }
 
     public static CharacterData CreateArchiveBruiser()
     {
-        return CreateArchiveMinion(
+        var bruiser = CreateArchiveMinion(
             "archive_bruiser",
             "Archive Bruiser",
             CharacterRole.Grappler,
@@ -564,6 +656,52 @@ public static class TestRosterFactory
             recoveryFrames: 34,
             damage: 14,
             pushbackX: 2.8f);
+        bruiser.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/archive_bruiser_style_v2.png";
+        bruiser.SpriteSheetColumns = 10;
+        bruiser.SpriteSheetRows = 9;
+        bruiser.SpritePixelSize = 0.0205f;
+        bruiser.SpriteGroundOffsetPixels = 120.0f;
+        bruiser.TintSpriteSheet = false;
+
+        var attack = bruiser.FindMove("archive_bruiser_attack");
+        if (attack is not null)
+        {
+            attack.AnimationFrameSequence = new List<int>
+            {
+                40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            };
+            attack.AnimationFrameDurations = new List<int>
+            {
+                5, 5, 5, 5, 5, 5, 6, 7, 8, 8,
+            };
+        }
+
+        return bruiser;
+    }
+
+    public static CharacterData CreateOverseerBasalt()
+    {
+        var basalt = CreateArchiveBruiser();
+        basalt.Id = "overseer_basalt";
+        basalt.DisplayName = "Overseer Basalt";
+        basalt.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/overseer_basalt_style_v1.png";
+        basalt.SpriteSheetColumns = 10;
+        basalt.SpriteSheetRows = 9;
+        basalt.SpritePixelSize = 0.0205f;
+        basalt.SpriteGroundOffsetPixels = 120.0f;
+        basalt.TintSpriteSheet = false;
+        basalt.RoleTags.Add("named_elite");
+
+        var attack = basalt.FindMove("archive_bruiser_attack");
+        if (attack is not null)
+        {
+            attack.Id = "overseer_basalt_attack";
+            attack.DisplayName = "Faultline Driver";
+        }
+
+        return basalt;
     }
 
     public static CharacterData CreateTestBoss()

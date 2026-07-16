@@ -1,0 +1,6 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[LadderSmoke] Driver active.
+[LadderSmoke] tick=300 state=Intermission encounter=breach_03 remaining=3
+[LadderSmoke] tick=600 state=Intermission encounter=breach_04 remaining=3
+[LadderSmoke] SUMMARY passed=True stage=2 hordes=2 elite=True brain=True completed=True results=True hazard=True unlock=False eliteIntro=True/True/True eliteBar=True hazards=2/2 lanes=True/True/True awaitSwap=False tick=888

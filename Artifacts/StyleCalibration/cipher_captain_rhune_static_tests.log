@@ -1,0 +1,124 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== World Run Tests ===
+  PASS archive_nexus has exactly four stages
+  PASS archive_nexus stage 1 number metadata
+  PASS archive_nexus stage 1 unique ID
+  PASS archive_nexus stage 1 normalized encounter bounds
+  PASS archive_nexus stage 1 mission validation
+  PASS archive_nexus stage 1 is non-final
+  PASS archive_nexus stage 1 grants no form
+  PASS archive_nexus stage 1 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 2 number metadata
+  PASS archive_nexus stage 2 unique ID
+  PASS archive_nexus stage 2 normalized encounter bounds
+  PASS archive_nexus stage 2 mission validation
+  PASS archive_nexus stage 2 is non-final
+  PASS archive_nexus stage 2 grants no form
+  PASS archive_nexus stage 2 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 3 number metadata
+  PASS archive_nexus stage 3 unique ID
+  PASS archive_nexus stage 3 normalized encounter bounds
+  PASS archive_nexus stage 3 mission validation
+  PASS archive_nexus stage 3 is non-final
+  PASS archive_nexus stage 3 grants no form
+  PASS archive_nexus stage 3 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 4 number metadata
+  PASS archive_nexus stage 4 unique ID
+  PASS archive_nexus stage 4 normalized encounter bounds
+  PASS archive_nexus stage 4 mission validation
+  PASS archive_nexus final stage requires inheritance
+  PASS archive_nexus final stage owns form reward
+  PASS archive_nexus final stage owns one major boss
+  PASS archive_nexus run derivation does not mutate legacy mission
+  PASS Archive stages use four existing bespoke backdrops
+  PASS Archive stage backdrops have distinct content hashes
+  PASS Archive stages use four existing bespoke floors
+  PASS Archive stage floors have distinct content hashes
+  PASS Archive caches and canister use four existing authored sprites
+  PASS Archive caches and canister have distinct content hashes
+  PASS Archive health caches use the calibrated style-approved runtime asset
+  PASS Archive meter caches use the calibrated style-approved runtime asset
+  PASS Archive data caches use the calibrated style-approved runtime asset
+  PASS Archive volatile canister uses the calibrated style-approved runtime asset
+  PASS Archive pickup types use three existing independent sprites
+  PASS Archive pickup types have distinct content hashes
+  PASS Archive health pickup uses the calibrated style-approved runtime asset
+  PASS Archive Scout uses the lightweight identity-locked 10x9 style-v2 atlas
+  PASS Archive Scout Jab animation timing matches startup active and recovery phases
+  PASS Archive Stage 1 elite selects Veyra and her cyan-white arena light
+  PASS Index Warden Veyra uses a unique untinted animation-ready atlas
+  PASS Veyra Warden Decree preserves Scout combat timing on unique frames
+  PASS Veyra atlas content is distinct from the base Scout
+  PASS Archive meter pickup uses the calibrated style-approved runtime asset
+  PASS Archive data pickup uses the calibrated style-approved runtime asset
+  PASS Archive Raider uses the identity-locked calibrated 10x9 style-v2 atlas
+  PASS Archive Raider Cross animation timing matches startup active and recovery phases
+  PASS Archive Stage 2 elite selects Rhune and his cool-white arena light
+  PASS Cipher Captain Rhune uses a unique untinted animation-ready atlas
+  PASS Rhune Cipher Cross preserves Raider combat timing on unique frames
+  PASS Rhune atlas content is distinct from the base Raider
+  PASS Archive Bruiser uses the heavyweight identity-locked 10x9 style-v2 atlas
+  PASS Archive Bruiser Hammer animation timing matches startup active and recovery phases
+  PASS authored Project Mannequin strike VFX exists
+  PASS world_warrior_sector has exactly four stages
+  PASS world_warrior_sector stage 1 number metadata
+  PASS world_warrior_sector stage 1 unique ID
+  PASS world_warrior_sector stage 1 normalized encounter bounds
+  PASS world_warrior_sector stage 1 mission validation
+  PASS world_warrior_sector stage 1 is non-final
+  PASS world_warrior_sector stage 1 grants no form
+  PASS world_warrior_sector stage 1 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 2 number metadata
+  PASS world_warrior_sector stage 2 unique ID
+  PASS world_warrior_sector stage 2 normalized encounter bounds
+  PASS world_warrior_sector stage 2 mission validation
+  PASS world_warrior_sector stage 2 is non-final
+  PASS world_warrior_sector stage 2 grants no form
+  PASS world_warrior_sector stage 2 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 3 number metadata
+  PASS world_warrior_sector stage 3 unique ID
+  PASS world_warrior_sector stage 3 normalized encounter bounds
+  PASS world_warrior_sector stage 3 mission validation
+  PASS world_warrior_sector stage 3 is non-final
+  PASS world_warrior_sector stage 3 grants no form
+  PASS world_warrior_sector stage 3 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 4 number metadata
+  PASS world_warrior_sector stage 4 unique ID
+  PASS world_warrior_sector stage 4 normalized encounter bounds
+  PASS world_warrior_sector stage 4 mission validation
+  PASS world_warrior_sector final stage requires inheritance
+  PASS world_warrior_sector final stage owns form reward
+  PASS world_warrior_sector final stage owns one major boss
+  PASS world_warrior_sector run derivation does not mutate legacy mission
+  PASS astral_battlefront has exactly four stages
+  PASS astral_battlefront stage 1 number metadata
+  PASS astral_battlefront stage 1 unique ID
+  PASS astral_battlefront stage 1 normalized encounter bounds
+  PASS astral_battlefront stage 1 mission validation
+  PASS astral_battlefront stage 1 is non-final
+  PASS astral_battlefront stage 1 grants no form
+  PASS astral_battlefront stage 1 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 2 number metadata
+  PASS astral_battlefront stage 2 unique ID
+  PASS astral_battlefront stage 2 normalized encounter bounds
+  PASS astral_battlefront stage 2 mission validation
+  PASS astral_battlefront stage 2 is non-final
+  PASS astral_battlefront stage 2 grants no form
+  PASS astral_battlefront stage 2 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 3 number metadata
+  PASS astral_battlefront stage 3 unique ID
+  PASS astral_battlefront stage 3 normalized encounter bounds
+  PASS astral_battlefront stage 3 mission validation
+  PASS astral_battlefront stage 3 is non-final
+  PASS astral_battlefront stage 3 grants no form
+  PASS astral_battlefront stage 3 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 4 number metadata
+  PASS astral_battlefront stage 4 unique ID
+  PASS astral_battlefront stage 4 normalized encounter bounds
+  PASS astral_battlefront stage 4 mission validation
+  PASS astral_battlefront final stage requires inheritance
+  PASS astral_battlefront final stage owns form reward
+  PASS astral_battlefront final stage owns one major boss
+  PASS astral_battlefront run derivation does not mutate legacy mission
+=== 120 passed, 0 failed ===

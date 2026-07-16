@@ -2,8 +2,7 @@
 # Robust driver: run as a file (avoids inline multi-line interleaving).
 # Each enemy: 6 animation sub-sheets via gpt_image_2, then composite + preview.
 $ErrorActionPreference = 'Continue'
-$cliCommand = Get-Command higgsfield -ErrorAction Stop
-$cli   = $cliCommand.Source
+$cli   = 'C:\Users\Joseph Bundrant\AppData\Local\Programs\higgsfield\higgsfield.exe'
 $style = (Resolve-Path "Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1.png").Path
 $base  = "CRITICAL RULES: (1) Each figure COMPLETELY contained in its own cell, ZERO parts crossing into neighboring cells. (2) VISIBLE background margin of at least 12 percent of cell width on ALL FOUR sides of every figure. (3) Preserve the identical grid, identical pose per cell, identical left-to-right top-to-bottom order. (4) Match ONLY the rendering finish of the second image: bold clean black outlines, smooth cel-shaded coloring with crisp highlight and shadow banding, polished modern 2.5D fighting-game sprite look. (5) Each figure has a clear head/face and complete correctly connected limbs. No motion blur, no duplicated limbs, no text, no projectiles."
 

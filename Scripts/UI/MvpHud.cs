@@ -107,6 +107,9 @@ public partial class MvpHud : CanvasLayer
         && _bossHealthBar?.Visible == true;
     public double PlayerHealthBarValue => _playerHealthBar?.Value ?? 0.0;
     public double BossHealthBarValue => _bossHealthBar?.Value ?? 0.0;
+    public bool CenterNotificationVisible => _notificationTimer > 0.0f
+        || _notifications.Count > 0
+        || !string.IsNullOrWhiteSpace(_notificationLabel?.Text);
     public bool ResultsPanelVisible => _missionPanel?.Visible == true;
     public ResultsFlowMode ResultsMode => _resultsMode;
     public string ResultsRankText => _missionRankLabel?.Text ?? "";
@@ -1441,7 +1444,11 @@ public partial class MvpHud : CanvasLayer
                 var hazardTarget = FindActor(presentationEvent.TargetActorId);
                 if (hazardTarget != null)
                 {
-                    SpawnFloatingText(presentationEvent.Payload, hazardTarget, new Color(1.0f, 0.2f, 0.2f));
+                    var hazardDamage = ParseDamage(presentationEvent.Payload);
+                    SpawnFloatingText(
+                        hazardDamage != 0 ? hazardDamage.ToString() : "HAZARD",
+                        hazardTarget,
+                        new Color(1.0f, 0.2f, 0.2f));
                 }
                 break;
             case CombatPresentationEventType.EncounterStarted:

@@ -1,0 +1,306 @@
+{
+  "manifest": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_animation_sources_v2.json",
+  "output": "Assets/Sprites/Enemies/archive_bruiser_style_v2.png",
+  "rows": [
+    {
+      "name": "idle",
+      "target_row": 0,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_idle_sheet_style_v1.png",
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.250771,
+      "source_bboxes": [
+        [
+          39,
+          80,
+          1012,
+          991
+        ],
+        [
+          1053,
+          84,
+          2008,
+          994
+        ],
+        [
+          44,
+          1087,
+          993,
+          1998
+        ],
+        [
+          1050,
+          1084,
+          1994,
+          1991
+        ]
+      ]
+    },
+    {
+      "name": "walk",
+      "target_row": 1,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_walk_sheet_style_v1.png",
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.358255,
+      "source_bboxes": [
+        [
+          9,
+          62,
+          462,
+          680
+        ],
+        [
+          512,
+          74,
+          971,
+          678
+        ],
+        [
+          1024,
+          56,
+          1486,
+          684
+        ],
+        [
+          1535,
+          43,
+          2002,
+          683
+        ],
+        [
+          5,
+          1471,
+          516,
+          1998
+        ],
+        [
+          511,
+          1472,
+          1022,
+          2007
+        ],
+        [
+          1022,
+          1470,
+          1537,
+          2006
+        ],
+        [
+          1531,
+          1471,
+          2047,
+          1998
+        ]
+      ]
+    },
+    {
+      "name": "charge",
+      "target_row": 2,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_dash_sheet_style_v1.png",
+      "discovered_components": 7,
+      "selected_components": 6,
+      "scale": 0.269316,
+      "source_bboxes": [
+        [
+          16,
+          54,
+          691,
+          684
+        ],
+        [
+          696,
+          53,
+          1364,
+          667
+        ],
+        [
+          1381,
+          57,
+          2039,
+          674
+        ],
+        [
+          97,
+          759,
+          1002,
+          1364
+        ],
+        [
+          1139,
+          720,
+          1982,
+          1359
+        ],
+        [
+          1405,
+          1401,
+          1998,
+          2044
+        ]
+      ]
+    },
+    {
+      "name": "heavy_hop",
+      "target_row": 3,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_jump_sheet_style_v1.png",
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.252747,
+      "source_bboxes": [
+        [
+          85,
+          166,
+          968,
+          985
+        ],
+        [
+          1080,
+          87,
+          1962,
+          997
+        ],
+        [
+          101,
+          1066,
+          987,
+          1886
+        ],
+        [
+          1058,
+          1098,
+          1974,
+          1967
+        ]
+      ]
+    },
+    {
+      "name": "bruiser_hammer",
+      "target_row": 4,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_attacks_sheet_style_v1.png",
+      "discovered_components": 9,
+      "selected_components": 9,
+      "scale": 0.346386,
+      "source_bboxes": [
+        [
+          30,
+          63,
+          670,
+          667
+        ],
+        [
+          754,
+          137,
+          1291,
+          657
+        ],
+        [
+          1410,
+          25,
+          2010,
+          668
+        ],
+        [
+          35,
+          691,
+          654,
+          1353
+        ],
+        [
+          690,
+          765,
+          1304,
+          1341
+        ],
+        [
+          1371,
+          725,
+          1977,
+          1341
+        ],
+        [
+          111,
+          1379,
+          653,
+          2026
+        ],
+        [
+          700,
+          1416,
+          1339,
+          2026
+        ],
+        [
+          1386,
+          1410,
+          2033,
+          2024
+        ]
+      ]
+    },
+    {
+      "name": "defense_and_defeat",
+      "target_row": 5,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/archive_bruiser_misc_sheet_style_v2.png",
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.262648,
+      "source_bboxes": [
+        [
+          12,
+          84,
+          703,
+          741
+        ],
+        [
+          797,
+          107,
+          1253,
+          740
+        ],
+        [
+          1338,
+          78,
+          1996,
+          740
+        ],
+        [
+          19,
+          807,
+          682,
+          1437
+        ],
+        [
+          691,
+          845,
+          1357,
+          1418
+        ],
+        [
+          1412,
+          894,
+          2004,
+          1436
+        ],
+        [
+          68,
+          1616,
+          996,
+          1953
+        ],
+        [
+          1096,
+          1676,
+          1939,
+          1959
+        ]
+      ]
+    }
+  ],
+  "sha256": "4572e8a94d1ef377b7f327b540f6811dea97cd35669c7848f9c1828a191ddb97",
+  "size": [
+    2560,
+    2304
+  ],
+  "nonempty_frames": 60
+}

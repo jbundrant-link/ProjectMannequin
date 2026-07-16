@@ -1,0 +1,4 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[ResultsFlowSmoke] Driver active mode=WorldComplete variant=world_map.
+[ResultsFlowSmoke] SUMMARY passed=True mode=WorldComplete variant=world_map visible=True modeOk=True rank=True buttons=True focus=True route=True confirm=True cancel=True unlock=True

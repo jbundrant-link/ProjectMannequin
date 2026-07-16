@@ -1,0 +1,27 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Input Grammar Tests ===
+  PASS 236LP beats LP
+  PASS neutral LP resolves to LP
+  PASS 236HP resolves to qcf_heavy
+  PASS 236HK beats HK by priority
+  PASS neutral HK resolves to HK
+  PASS 22HP beats HP
+  PASS 2LP beats LP
+  PASS consumed press not re-matched
+=== 8 passed, 0 failed ===
+
+=== Acceptance Tests ===
+  PASS Archive Knight is duel-ready (kit/phases/super/guard/AI)
+  PASS Ryu is duel-ready (kit/phases/super/guard/AI)
+  PASS Goku is duel-ready (kit/phases/super/guard/AI)
+  PASS Reflect Guard produces outward pushback
+  PASS Phase Burst pushes targets outward on transition
+  PASS Rush Throw chance rises against passive blocking
+  PASS Animation Driver maps combat state deterministically
+  PASS reference roster move data is within game-feel ranges
+  PASS Archive Knight has readable neutral/pressure/super beats
+  PASS Ryu has readable neutral/pressure/super beats
+  PASS Goku has readable neutral/pressure/super beats
+  PASS acceptance audit report builds
+=== 12 passed, 0 failed ===

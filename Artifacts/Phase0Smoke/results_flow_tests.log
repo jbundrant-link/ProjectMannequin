@@ -1,0 +1,16 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Results Flow Tests ===
+  PASS stage clear exposes next retry and map actions
+  PASS next stage is the stage-clear default
+  PASS stage-clear map exit commits the next checkpoint
+  PASS world complete exposes map and replay actions
+  PASS archive map is the safe world-complete default
+  PASS world replay requires confirmation
+  PASS final results immediately retire the committed run checkpoint
+  PASS game over exposes retry restart and map actions
+  PASS retry stage is the game-over default
+  PASS restart world requires confirmation
+  PASS game-over map exit preserves current stage checkpoint
+  PASS hidden state exposes no actions
+=== 12 passed, 0 failed ===

@@ -3,6 +3,19 @@
 Original plan: 2026-07-09  
 Reviewed against the current codebase: 2026-07-14
 
+## Authority And Scope
+
+This is the near-term tactical plan subordinate to
+[MASTER_IMPLEMENTATION_PLAN.md](MASTER_IMPLEMENTATION_PLAN.md). It refines what
+to do next but does not replace, narrow, or waive the master Phase 0-7 scope,
+locked decisions, current Phase 5 work, or verification contract. Content must
+also pass [ART_ASSET_COMPLETENESS_PLAN.md](ART_ASSET_COMPLETENESS_PLAN.md) and
+[VISUAL_STYLE_BIBLE.md](VISUAL_STYLE_BIBLE.md) before it is considered complete.
+
+The active master-plan phase remains Phase 5. The remaining Archive hazard,
+environment, interface, and Reliquary gates
+continue even where this shorter tactical plan does not repeat them.
+
 ## Review Outcome
 
 The original order was sound, but implementation has moved on:
@@ -33,7 +46,10 @@ Revised order:
 2. Ship one complete combat-spectacle vertical slice.
 3. Convert Hollow Archive into a real multi-boss mode and use it to prove the
    spectacle/readability systems.
-4. Begin full Iron Fist Foundry production only after the content gate passes.
+4. Prepare the Iron Fist Foundry contract and pilots only after the tactical
+   content gate passes. Begin full production only after the master plan's
+   stricter gate also passes: all three current worlds must reach console-demo
+   quality.
 
 ## 1. Gamepad-as-P1 Input — IMPLEMENTED, QA SIGN-OFF PENDING
 
@@ -203,7 +219,7 @@ Revised order:
 
 - Core playable worlds now use four-stage runs. The verified structure is three
   horde/horde/elite stages followed by one final-boss/inheritance stage.
-- `WorldRunTests` currently pass 101/101, including Archive uniqueness and
+- `WorldRunTests` currently pass 124/124, including Archive uniqueness and
   resource-path checks.
 - Hollow Archive is a secret mission with a branch to an aerial spire or directly
   to one champion boss. Calling it a boss-rush currently overstates the content.
@@ -314,6 +330,12 @@ Start full Iron Fist Foundry production only when these are true:
 - The first Foundry environment and enemy pilots pass the visual-style gate before
   batch production begins.
 
+These conditions are necessary but not sufficient. The locked master-plan gate
+also requires Archive Nexus, World Warrior Sector, and Astral Battlefront to reach
+console-demo quality before full fourth-world production. A passing Foundry pilot
+does not override unfinished current-world mechanics, art, UI, accessibility, or
+QA obligations.
+
 ## Validation Matrix
 
 Every slice keeps these baselines green:
@@ -323,7 +345,7 @@ Every slice keeps these baselines green:
 - `PROJECT_MANNEQUIN_FORM_SELECT_TEST=1`.
 - `PROJECT_MANNEQUIN_DEFENSE_TEST=1`.
 - `PROJECT_MANNEQUIN_BOSS_MODE_TEST=1`.
-- `PROJECT_MANNEQUIN_WORLD_RUN_TEST=1` — currently 101/101.
+- `PROJECT_MANNEQUIN_WORLD_RUN_TEST=1` — currently 124/124.
 - Results-flow and boss-intro HUD smoke scenarios.
 
 New suites or focused scenarios required by this plan:

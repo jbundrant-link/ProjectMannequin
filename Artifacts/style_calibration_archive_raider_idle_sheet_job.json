@@ -1,0 +1,49 @@
+[
+  {
+    "created_at": "2026-07-15T04:59:37.830072Z",
+    "display_name": "Nano Banana Pro",
+    "id": "42ee5bc0-7cef-4668-a93c-f9f3437cb37e",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_045937_42ee5bc0-7cef-4668-a93c-f9f3437cb37e_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "cee797b3-7bef-46c3-82e8-4ca1e4f124ae",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cee797b3-7bef-46c3-82e8-4ca1e4f124ae.png"
+        },
+        {
+          "id": "309c6e41-0a06-41cc-92cb-cdeb96128f76",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/309c6e41-0a06-41cc-92cb-cdeb96128f76.png"
+        },
+        {
+          "id": "a9a81c35-657e-46e7-bd99-bb7d1e1cc984",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a9a81c35-657e-46e7-bd99-bb7d1e1cc984.png"
+        },
+        {
+          "id": "ea37ae88-f73c-4200-9dae-933da4a95c1e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ea37ae88-f73c-4200-9dae-933da4a95c1e.png"
+        },
+        {
+          "id": "3c774d4d-ddaf-4520-828b-e602e83be20c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3c774d4d-ddaf-4520-828b-e602e83be20c.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK ΓÇö ARCHIVE RAIDER IDLE ANIMATION PILOT.\n\nREFERENCE ROLES, IN ORDER:\n1. The first image is STRUCTURE ONLY: copy only its 2-by-2 sheet organization and four subtle idle-pose beats. Its rusty realistic armor, spikes, helmet, color, texture, materials, and character identity are explicitly rejected. Do not reproduce them.\n2. The second image is the authoritative ARCHIVE RAIDER identity and rendering reference. Preserve this exact warm-ivory porcelain armor design, dark indigo/plum understructure, smooth black visor, single cyan visor light, cyan-violet chest core, paired tapered back fins, forearm blade shapes, athletic proportions, and clean silhouette in every cell.\n3ΓÇô5. The mannequin, Ryu, and Goku images are authoritative Project Mannequin finish anchors: confident controlled dark contours, broad two-to-four-step anime cel-shaded value planes, clean designed highlights, simplified materials, saturated focal accents, modern 2.5D fighting-game polish, and arcade-readable anatomy.\n\nCreate ONE production-oriented 2 columns by 2 rows sprite sub-sheet containing FOUR distinct but subtle full-body idle animation frames of the exact same Archive Raider. Side-on three-quarter fighting-game view facing screen-right. Frame beats: guarded neutral; slight inhale/weight rise; subtle rear-leg/shoulder settle; return-ready stance. Keep the same identity, armor construction, limb length, proportions, scale, camera, line weight, light direction, palette, and right-facing orientation in all four cells. Both feet visible and grounded to one identical baseline in every cell. Entire figure fully contained in each quarter with at least 12 percent empty margin on all four sides; no part may cross a cell boundary.\n\nLAYOUT REQUIREMENTS: exact evenly spaced 2x2 arrangement on one square 2048 image; each quarter is an implied cell but there are NO divider lines, borders, labels, numbers, guides, or UI. Flat pure chroma-key green #00FF00 background across the entire image. No floor, cast shadow, scenery, glow spill into the green, or gradients.\n\nReject: rusty/gritty armor, realistic PBR metal, rivet noise, medieval knight design, shoulder spikes, red visor, brown palette, photorealism, dense greebles, painterly blur, generic robot drift, identity changes, mismatched fins/core/helmet, cropped parts, overlapping cells, duplicated or missing limbs, extra fingers, motion blur, perspective changes, text, logos, projectiles, effects, or active attacks.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_045937_42ee5bc0-7cef-4668-a93c-f9f3437cb37e.png",
+    "status": "completed"
+  }
+]

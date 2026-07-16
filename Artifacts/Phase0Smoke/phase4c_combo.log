@@ -1,0 +1,28 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+[CombatSmoke] Mobility and combo scenario initialized.
+[CombatSmoke] tick 31: MoveStarted Air Template Tap
+[CombatSmoke] tick 40: MoveStarted Air Template Cross
+[CombatSmoke] tick 55: MoveStarted Air Template Spike
+[CombatSmoke] tick 105: MoveStarted Template Jab
+[CombatSmoke] tick 116: MoveStarted Template Cross
+[CombatSmoke] tick 129: MoveStarted Template Smash
+[CombatSmoke] tick 175: MoveStarted Crouching Shin Kick
+[CombatSmoke] tick 215: MoveStarted Blank Launcher
+[CombatSmoke] tick 238: MoveStarted Air Template Tap
+[CombatSmoke] tick 249: MoveStarted Air Template Spike
+[CombatSmoke] tick 324: MoveStarted Template Uppercut
+[CombatSmoke] tick 405: MoveStarted Standing Jab
+[CombatSmoke] tick 414: MoveStarted Standing Strong
+[CombatSmoke] tick 426: MoveStarted Medium Hadouken
+[CombatSmoke] SUMMARY passed=False dash=True height=2.85 air=True/True/True crouch=True combo3=True launcherJump=True uppercut=True ryuRoute=True/True/True ryuProjectile=False landing=True
+ERROR: [CombatSmoke] One or more mobility/combo behaviors were not observed.
+   at: void ProjectMannequin.DebugTools.CombatFeatureSmokeScenario.CaptureAfterSimulation(int, System.Collections.Generic.IReadOnlyCollection`1[ProjectMannequin.Core.CombatPresentationEvent]) (res://Scripts/Debug/CombatFeatureSmokeScenario.cs:173)
+   C# backtrace (most recent call first):
+       [0] void Godot.GD.PushError(string) (/root/godot/modules/mono/glue/GodotSharp/GodotSharp/Core/GD.cs:366)
+       [1] void ProjectMannequin.DebugTools.CombatFeatureSmokeScenario.CaptureAfterSimulation(int, System.Collections.Generic.IReadOnlyCollection`1[ProjectMannequin.Core.CombatPresentationEvent]) (C:\Users\Joseph Bundrant\Code Projects\SideScroller\Scripts\Debug\CombatFeatureSmokeScenario.cs:173)
+       [2] void ProjectMannequin.Core.GameSimulation.StepSimulation() (C:\Users\Joseph Bundrant\Code Projects\SideScroller\Scripts\Core\GameSimulation.cs:497)
+       [3] void ProjectMannequin.Core.GameSimulation._PhysicsProcess(double) (C:\Users\Joseph Bundrant\Code Projects\SideScroller\Scripts\Core\GameSimulation.cs:262)
+       [4] bool Godot.Node.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name&, Godot.NativeInterop.NativeVariantPtrArgs, Godot.NativeInterop.godot_variant&) (/root/godot/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/Node.cs:2648)
+       [5] bool ProjectMannequin.Core.GameSimulation.InvokeGodotClassMethod(Godot.NativeInterop.godot_string_name&, Godot.NativeInterop.NativeVariantPtrArgs, Godot.NativeInterop.godot_variant&) (C:\Users\Joseph Bundrant\Code Projects\SideScroller\.godot\mono\temp\obj\Debug\Godot.SourceGenerators\Godot.SourceGenerators.ScriptMethodsGenerator\ProjectMannequin.Core.GameSimulation_ScriptMethods.generated.cs:200)
+       [6] Godot.NativeInterop.godot_bool Godot.Bridge.CSharpInstanceBridge.Call(nint, Godot.NativeInterop.godot_string_name*, Godot.NativeInterop.godot_variant**, int, Godot.NativeInterop.godot_variant_call_error*, Godot.NativeInterop.godot_variant*) (/root/godot/modules/mono/glue/GodotSharp/GodotSharp/Core/Bridge/CSharpInstanceBridge.cs:24)

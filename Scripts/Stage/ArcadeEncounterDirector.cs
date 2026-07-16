@@ -1082,8 +1082,11 @@ public sealed class ArcadeEncounterDirector
         var form = archetypeId switch
         {
             "archive_scout" => TestRosterFactory.CreateArchiveScout(),
+            "index_warden_veyra" => TestRosterFactory.CreateIndexWardenVeyra(),
             "archive_raider" => TestRosterFactory.CreateArchiveRaider(),
+            "cipher_captain_rhune" => TestRosterFactory.CreateCipherCaptainRhune(),
             "archive_bruiser" => TestRosterFactory.CreateArchiveBruiser(),
+            "overseer_basalt" => TestRosterFactory.CreateOverseerBasalt(),
             "archive_knight_boss" => TestRosterFactory.CreateTestBoss(),
             "world_warrior_rookie" => TestRosterFactory.CreateWorldWarriorRookie(),
             "world_warrior_striker" => TestRosterFactory.CreateWorldWarriorStriker(),
@@ -1101,8 +1104,11 @@ public sealed class ArcadeEncounterDirector
         var tint = archetypeId switch
         {
             "archive_scout" => new Color(0.92f, 0.42f, 0.34f),
+            "index_warden_veyra" => Colors.White,
             "archive_raider" => new Color(0.78f, 0.30f, 0.42f),
+            "cipher_captain_rhune" => Colors.White,
             "archive_bruiser" => new Color(0.98f, 0.66f, 0.24f),
+            "overseer_basalt" => Colors.White,
             "archive_knight_boss" => new Color(0.68f, 0.46f, 0.92f),
             "world_warrior_rookie" => new Color(0.92f, 0.64f, 0.30f),
             "world_warrior_striker" => new Color(0.36f, 0.72f, 0.96f),
@@ -1136,7 +1142,9 @@ public sealed class ArcadeEncounterDirector
         {
             form.MaxHealth = Mathf.RoundToInt(form.MaxHealth * 1.8f);
             displayName = isAuthoredElite ? spawn.DisplayName : $"Elite {displayName}";
-            tint = new Color(1.0f, 0.84f, 0.32f);
+            tint = isAuthoredElite && form.RoleTags.Contains("named_elite")
+                ? Colors.White
+                : new Color(1.0f, 0.84f, 0.32f);
         }
 
         var actor = CombatActorFactory.CreateAndRegister(
@@ -1703,6 +1711,10 @@ public sealed class ArcadeEncounterDirector
 
             if (actor.CurrentForm.RoleTags.Contains("breakable"))
             {
+                // Props do not have a death animation. Hide the intact sprite as
+                // soon as it breaks while retaining the actor briefly for event
+                // consumers and deterministic cleanup.
+                actor.Visible = false;
                 if (_propDataByActorId.TryGetValue(actor.ActorId, out var propData))
                 {
                     if (propData.ExplodesOnBreak)

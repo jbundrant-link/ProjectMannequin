@@ -1,0 +1,17 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== Run Checkpoint Tests ===
+  PASS restores world ID
+  PASS restores stage index
+  PASS restores stage-entry lives
+  PASS rolls back uncommitted move cards
+  PASS rolls back uncommitted artifacts
+  PASS rolls back uncommitted score
+  PASS hydrates committed health
+  PASS hydrates committed meter
+  PASS advances to next stage
+  PASS commits next stage index
+  PASS next-stage checkpoint carries health and meter unchanged
+  PASS next-stage actor hydrates committed resources
+  PASS completing run clears active session
+=== 13 passed, 0 failed ===

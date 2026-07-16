@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-15T05:20:04.170795Z",
+    "display_name": "Nano Banana Pro",
+    "id": "4e9121fd-23d5-4a46-be87-dcebc7e88158",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_052004_4e9121fd-23d5-4a46-be87-dcebc7e88158_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "7672267f-86a2-4598-9601-6c3bc684271b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7672267f-86a2-4598-9601-6c3bc684271b_resize.jpg"
+        },
+        {
+          "id": "be788f94-dbd4-493a-a5bf-8f1c5748b77c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/be788f94-dbd4-493a-a5bf-8f1c5748b77c.png"
+        },
+        {
+          "id": "ad27ca58-b4ad-4529-afba-319efce26b3b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ad27ca58-b4ad-4529-afba-319efce26b3b.png"
+        },
+        {
+          "id": "ddcc3051-0fc4-4b64-ae12-e3bcc4b65746",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ddcc3051-0fc4-4b64-ae12-e3bcc4b65746.png"
+        },
+        {
+          "id": "a7c5e22d-d4db-433e-8b6b-2553d2c49735",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a7c5e22d-d4db-433e-8b6b-2553d2c49735.png"
+        },
+        {
+          "id": "546ffc31-cba8-4d33-be4c-cf5aff5715f4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/546ffc31-cba8-4d33-be4c-cf5aff5715f4.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK ΓÇö ARCHIVE RAIDER 8-FRAME WALK CYCLE.\n\nREFERENCE ROLES:\n1. First image is STRUCTURE ONLY: use only its 4-columns-by-2-rows organization and eight walk-cycle beats. Completely reject its rusty realistic armor, brown palette, spikes, medieval helmet, red visor, texture, and materials.\n2. Second image is the approved Archive Raider idle sub-sheet and authoritative animation identity: preserve the exact warm-ivory porcelain armor, dark indigo/plum understructure, smooth black visor with cyan light, cyan-violet chest core, paired tapered back fins, forearm blade shapes, proportions, right-facing camera, dark contour weight, broad anime cel shading, palette, and lighting.\n3. Third image is the authoritative single-character Raider design.\n4ΓÇô6. Mannequin, Ryu, and Goku are authoritative Project Mannequin finish anchors.\n\nCreate ONE production-oriented sprite sub-sheet with EXACTLY 4 columns by 2 rows: EIGHT sequential full-body frames of one seamless right-facing walk cycle. Row-major order. Beats: 1 left-foot contact, 2 left down/compression, 3 left passing, 4 left rise, 5 right-foot contact, 6 right down/compression, 7 right passing, 8 right rise. Side-on three-quarter fighting-game view facing screen-right. Animate natural opposing arm swing while keeping the guarded combat posture, forearm blades, chest core, back fins, armor construction, body proportions, camera, scale, line weight, light direction, and identity identical in every cell.\n\nEvery figure must be complete and independently contained in its implied cell with at least 10 percent empty margin on all four sides. Same scale and one identical ground baseline in every cell. No anatomy drift, no crossing cell boundaries, and no attack pose.\n\nExact evenly spaced 4x2 arrangement on one square 2048 image. Implied cells only: NO grid/divider lines, borders, labels, numbers, guides, or UI. Flat pure chroma-key green #00FF00 across the full image. No floor, cast shadow, scenery, gradients, or glow spill.\n\nReject rusty/PBR metal, realistic weathering, spikes, medieval knight identity, red visor, brown palette, photorealism, dense greebles, generic robot drift, changed fins/core/helmet/forearm blades, cropped parts, overlap, duplicated or missing limbs, extra fingers, sliding feet, motion blur, effects, projectiles, text, or logos.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260715_052004_4e9121fd-23d5-4a46-be87-dcebc7e88158.png",
+    "status": "completed"
+  }
+]

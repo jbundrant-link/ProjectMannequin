@@ -1,0 +1,13 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+Vulkan 1.3.280 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 2080 SUPER
+
+[LadderSmoke] Driver active.
+[LadderSmoke] Staging live Archive Raider breach_03_2 for runtime captures.
+[LadderSmoke] Archive Raider capture armed after encounter overlays cleared.
+[CharacterVisual] Archive Raider idle capture saved: C:\Users\Joseph Bundrant\Code Projects\SideScroller\Artifacts\StyleCalibration\archive_raider_regression_idle_1280x720.png
+[CharacterVisual] Archive Raider active Raider Cross capture saved: C:\Users\Joseph Bundrant\Code Projects\SideScroller\Artifacts\StyleCalibration\archive_raider_regression_cross_1280x720.png
+[LadderSmoke] Live Archive Raider runtime captures completed.
+[LadderSmoke] tick=300 state=EncounterActive encounter=breach_03 remaining=1
+[LadderSmoke] tick=600 state=Intermission encounter=breach_04 remaining=3
+[LadderSmoke] tick=900 state=EncounterActive encounter=archive_nexus_stage_2_elite remaining=1
+[LadderSmoke] SUMMARY passed=True stage=2 hordes=2 elite=True brain=True completed=True results=True hazard=True unlock=False eliteIntro=True/True/True eliteBar=True hazards=2/2 explosion=False/False/False lanes=True/True/True enemyCapture=True awaitSwap=False tick=944

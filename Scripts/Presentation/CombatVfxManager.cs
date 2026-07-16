@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Godot;
 using ProjectMannequin.Combat;
@@ -35,6 +36,8 @@ public partial class CombatVfxManager : CanvasLayer
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private int _recycleCursor;
+    private CombatImpactBurst? _explosionCaptureBurst;
+    private bool _explosionCaptureSaved;
 
     public override void _Ready()
     {
@@ -78,6 +81,8 @@ public partial class CombatVfxManager : CanvasLayer
         {
             HandleEvent(presentationEvent);
         }
+
+        CaptureExplosionFrameIfRequested();
     }
 
     private void HandleEvent(CombatPresentationEvent presentationEvent)
@@ -158,7 +163,7 @@ public partial class CombatVfxManager : CanvasLayer
                     1.55f);
                 break;
             case CombatPresentationEventType.PropExploded:
-                SpawnAtActor(
+                _explosionCaptureBurst = SpawnAtActor(
                     presentationEvent.SourceActorId,
                     CombatImpactStyle.Explosion,
                     new Color(1.0f, 0.34f, 0.08f),
@@ -168,7 +173,7 @@ public partial class CombatVfxManager : CanvasLayer
         }
     }
 
-    private void SpawnAtActor(
+    private CombatImpactBurst? SpawnAtActor(
         string actorId,
         CombatImpactStyle style,
         Color color,
@@ -177,20 +182,49 @@ public partial class CombatVfxManager : CanvasLayer
     {
         if (_simulation is null)
         {
-            return;
+            return null;
         }
 
         var actor = _simulation.Actors.FirstOrDefault(candidate => candidate.ActorId == actorId);
         if (actor is null)
         {
-            return;
+            return null;
         }
 
         var camera = GetViewport().GetCamera3D();
         var screenPosition = camera is null
             ? GetViewport().GetVisibleRect().Size * 0.5f
             : camera.UnprojectPosition(actor.GlobalPosition + new Vector3(0.0f, heightOffset, 0.0f));
-        AcquireBurst().Activate(screenPosition, style, color, Mathf.Clamp(strength, 0.45f, 1.8f));
+        var burst = AcquireBurst();
+        burst.Activate(screenPosition, style, color, Mathf.Clamp(strength, 0.45f, 1.8f));
+        return burst;
+    }
+
+    private void CaptureExplosionFrameIfRequested()
+    {
+        var path = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_EXPLOSION_CAPTURE");
+        if (_explosionCaptureSaved
+            || string.IsNullOrWhiteSpace(path)
+            || _explosionCaptureBurst is not { IsActive: true, Progress: >= 0.32f })
+        {
+            return;
+        }
+
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError($"[CombatVfx] Could not save canister explosion capture '{path}' ({error}).");
+            return;
+        }
+
+        _explosionCaptureSaved = true;
+        GD.Print($"[CombatVfx] Styled canister explosion capture saved: {path}");
     }
 
     private CombatImpactBurst AcquireBurst()
@@ -232,6 +266,9 @@ public partial class CombatImpactBurst : Node2D
 
     public Texture2D? AuthoredStrikeTexture { get; set; }
     public bool IsActive { get; private set; }
+    public float Progress => _duration <= 0.0f
+        ? 0.0f
+        : Mathf.Clamp(_elapsed / _duration, 0.0f, 1.0f);
 
     public override void _Ready()
     {
@@ -298,6 +335,10 @@ public partial class CombatImpactBurst : Node2D
         var color = new Color(_color.R, _color.G, _color.B, alpha);
         var white = new Color(1.0f, 1.0f, 1.0f, alpha * 0.92f);
         var radius = Mathf.Lerp(8.0f, 34.0f, ease) * _strength;
+        if (_style == CombatImpactStyle.Explosion)
+        {
+            radius *= 4.0f;
+        }
 
         if (_style == CombatImpactStyle.Strike && AuthoredStrikeTexture is not null)
         {
@@ -328,11 +369,16 @@ public partial class CombatImpactBurst : Node2D
             return;
         }
 
+        if (_style == CombatImpactStyle.Explosion)
+        {
+            DrawExplosion(radius, alpha);
+            return;
+        }
+
         var rayCount = _style switch
         {
             CombatImpactStyle.Parry => 16,
             CombatImpactStyle.Knockout => 20,
-            CombatImpactStyle.Explosion => 24,
             CombatImpactStyle.Armor => 12,
             _ => 10,
         };
@@ -351,5 +397,76 @@ public partial class CombatImpactBurst : Node2D
         {
             DrawArc(Vector2.Zero, radius * 0.76f, 0.0f, Mathf.Tau, 24, white, 2.0f * _strength, true);
         }
+    }
+
+    private void DrawExplosion(float radius, float alpha)
+    {
+        var ember = new Color(0.94f, 0.12f, 0.035f, alpha * 0.82f);
+        var orange = new Color(1.0f, 0.38f, 0.035f, alpha * 0.92f);
+        var gold = new Color(1.0f, 0.78f, 0.12f, alpha * 0.96f);
+        var white = new Color(1.0f, 0.98f, 0.82f, alpha);
+
+        const int rayCount = 12;
+        for (var index = 0; index < rayCount; index++)
+        {
+            var angle = Mathf.Tau * index / rayCount + (index % 2) * 0.08f;
+            var direction = Vector2.FromAngle(angle);
+            var tangent = new Vector2(-direction.Y, direction.X);
+            var baseRadius = radius * (0.42f + (index % 3) * 0.04f);
+            var tipRadius = radius * (0.88f + (index % 4) * 0.12f);
+            var halfWidth = radius * (0.055f + (index % 2) * 0.025f);
+            DrawColoredPolygon(
+                new[]
+                {
+                    direction * baseRadius - tangent * halfWidth,
+                    direction * tipRadius,
+                    direction * baseRadius + tangent * halfWidth,
+                },
+                index % 3 == 0 ? gold : orange);
+        }
+
+        DrawColoredPolygon(BuildImpactStar(24, radius * 0.56f, radius * 0.35f, 0.06f), ember);
+        DrawColoredPolygon(BuildImpactStar(20, radius * 0.40f, radius * 0.22f, 0.19f), gold);
+        DrawColoredPolygon(BuildImpactStar(16, radius * 0.23f, radius * 0.13f, 0.0f), white);
+
+        for (var index = 0; index < 8; index++)
+        {
+            var angle = Mathf.Tau * index / 8.0f + 0.27f;
+            var direction = Vector2.FromAngle(angle);
+            var tangent = new Vector2(-direction.Y, direction.X);
+            var center = direction * radius * (0.70f + (index % 3) * 0.10f);
+            var shardLength = radius * (0.08f + (index % 2) * 0.035f);
+            var shardWidth = radius * 0.035f;
+            DrawColoredPolygon(
+                new[]
+                {
+                    center + direction * shardLength,
+                    center + tangent * shardWidth,
+                    center - direction * shardLength * 0.65f,
+                    center - tangent * shardWidth,
+                },
+                index % 2 == 0 ? gold : ember);
+        }
+
+        DrawArc(Vector2.Zero, radius * 0.66f, -0.42f, 0.62f, 10, gold, 3.5f * _strength, true);
+        DrawArc(Vector2.Zero, radius * 0.72f, 2.36f, 3.64f, 10, orange, 3.0f * _strength, true);
+    }
+
+    private static Vector2[] BuildImpactStar(
+        int pointCount,
+        float outerRadius,
+        float innerRadius,
+        float phase)
+    {
+        var points = new Vector2[pointCount];
+        for (var index = 0; index < pointCount; index++)
+        {
+            var angle = Mathf.Tau * index / pointCount + phase;
+            var irregularity = 0.88f + (index % 5) * 0.035f;
+            var radius = (index % 2 == 0 ? outerRadius : innerRadius) * irregularity;
+            points[index] = Vector2.FromAngle(angle) * radius;
+        }
+
+        return points;
     }
 }

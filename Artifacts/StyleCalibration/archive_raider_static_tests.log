@@ -1,0 +1,146 @@
+Godot Engine v4.7.stable.mono.official.5b4e0cb0f - https://godotengine.org
+
+=== World Run Tests ===
+  PASS archive_nexus has exactly four stages
+  PASS archive_nexus stage 1 number metadata
+  PASS archive_nexus stage 1 unique ID
+  PASS archive_nexus stage 1 normalized encounter bounds
+  PASS archive_nexus stage 1 mission validation
+  PASS archive_nexus stage 1 is non-final
+  PASS archive_nexus stage 1 grants no form
+  PASS archive_nexus stage 1 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 2 number metadata
+  PASS archive_nexus stage 2 unique ID
+  PASS archive_nexus stage 2 normalized encounter bounds
+  PASS archive_nexus stage 2 mission validation
+  PASS archive_nexus stage 2 is non-final
+  PASS archive_nexus stage 2 grants no form
+  PASS archive_nexus stage 2 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 3 number metadata
+  PASS archive_nexus stage 3 unique ID
+  PASS archive_nexus stage 3 normalized encounter bounds
+  PASS archive_nexus stage 3 mission validation
+  PASS archive_nexus stage 3 is non-final
+  PASS archive_nexus stage 3 grants no form
+  PASS archive_nexus stage 3 uses horde/horde/elite rhythm
+  PASS archive_nexus stage 4 number metadata
+  PASS archive_nexus stage 4 unique ID
+  PASS archive_nexus stage 4 normalized encounter bounds
+  PASS archive_nexus stage 4 mission validation
+  PASS archive_nexus final stage requires inheritance
+  PASS archive_nexus final stage owns form reward
+  PASS archive_nexus final stage owns one major boss
+  PASS archive_nexus run derivation does not mutate legacy mission
+  PASS Archive stages use four existing bespoke backdrops
+  PASS Archive stage backdrops have distinct content hashes
+  PASS Archive stages use four existing bespoke floors
+  PASS Archive stage floors have distinct content hashes
+  PASS Archive caches and canister use four existing authored sprites
+  PASS Archive caches and canister have distinct content hashes
+  PASS Archive health caches use the calibrated style-approved runtime asset
+  PASS Archive meter caches use the calibrated style-approved runtime asset
+  PASS Archive data caches use the calibrated style-approved runtime asset
+  PASS Archive volatile canister uses the calibrated style-approved runtime asset
+  PASS Archive pickup types use three existing independent sprites
+  PASS Archive pickup types have distinct content hashes
+  PASS Archive health pickup uses the calibrated style-approved runtime asset
+  PASS Archive meter pickup uses the calibrated style-approved runtime asset
+  PASS Archive data pickup uses the calibrated style-approved runtime asset
+  PASS Archive Raider uses the identity-locked calibrated 10x9 style-v2 atlas
+  PASS Archive Raider Cross animation timing matches startup active and recovery phases
+  PASS authored Project Mannequin strike VFX exists
+  PASS world_warrior_sector has exactly four stages
+  PASS world_warrior_sector stage 1 number metadata
+  PASS world_warrior_sector stage 1 unique ID
+  PASS world_warrior_sector stage 1 normalized encounter bounds
+  PASS world_warrior_sector stage 1 mission validation
+  PASS world_warrior_sector stage 1 is non-final
+  PASS world_warrior_sector stage 1 grants no form
+  PASS world_warrior_sector stage 1 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 2 number metadata
+  PASS world_warrior_sector stage 2 unique ID
+  PASS world_warrior_sector stage 2 normalized encounter bounds
+  PASS world_warrior_sector stage 2 mission validation
+  PASS world_warrior_sector stage 2 is non-final
+  PASS world_warrior_sector stage 2 grants no form
+  PASS world_warrior_sector stage 2 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 3 number metadata
+  PASS world_warrior_sector stage 3 unique ID
+  PASS world_warrior_sector stage 3 normalized encounter bounds
+  PASS world_warrior_sector stage 3 mission validation
+  PASS world_warrior_sector stage 3 is non-final
+  PASS world_warrior_sector stage 3 grants no form
+  PASS world_warrior_sector stage 3 uses horde/horde/elite rhythm
+  PASS world_warrior_sector stage 4 number metadata
+  PASS world_warrior_sector stage 4 unique ID
+  PASS world_warrior_sector stage 4 normalized encounter bounds
+  PASS world_warrior_sector stage 4 mission validation
+  PASS world_warrior_sector final stage requires inheritance
+  PASS world_warrior_sector final stage owns form reward
+  PASS world_warrior_sector final stage owns one major boss
+  PASS world_warrior_sector run derivation does not mutate legacy mission
+  PASS astral_battlefront has exactly four stages
+  PASS astral_battlefront stage 1 number metadata
+  PASS astral_battlefront stage 1 unique ID
+  PASS astral_battlefront stage 1 normalized encounter bounds
+  PASS astral_battlefront stage 1 mission validation
+  PASS astral_battlefront stage 1 is non-final
+  PASS astral_battlefront stage 1 grants no form
+  PASS astral_battlefront stage 1 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 2 number metadata
+  PASS astral_battlefront stage 2 unique ID
+  PASS astral_battlefront stage 2 normalized encounter bounds
+  PASS astral_battlefront stage 2 mission validation
+  PASS astral_battlefront stage 2 is non-final
+  PASS astral_battlefront stage 2 grants no form
+  PASS astral_battlefront stage 2 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 3 number metadata
+  PASS astral_battlefront stage 3 unique ID
+  PASS astral_battlefront stage 3 normalized encounter bounds
+  PASS astral_battlefront stage 3 mission validation
+  PASS astral_battlefront stage 3 is non-final
+  PASS astral_battlefront stage 3 grants no form
+  PASS astral_battlefront stage 3 uses horde/horde/elite rhythm
+  PASS astral_battlefront stage 4 number metadata
+  PASS astral_battlefront stage 4 unique ID
+  PASS astral_battlefront stage 4 normalized encounter bounds
+  PASS astral_battlefront stage 4 mission validation
+  PASS astral_battlefront final stage requires inheritance
+  PASS astral_battlefront final stage owns form reward
+  PASS astral_battlefront final stage owns one major boss
+  PASS astral_battlefront run derivation does not mutate legacy mission
+=== 108 passed, 0 failed ===
+=== Stage Hazard Tests ===
+  PASS activation delay remains dormant
+  PASS warning phase telegraphs authored start bounds
+  PASS active window resolves deterministically
+  PASS linear sweep reaches authored end offset
+  PASS post-active interval is safe cooldown
+  PASS repeat cadence returns to warning phase
+  PASS neutral hazard targets both teams
+  PASS Archive Stage 1 authors intake tram set piece
+  PASS intake tram is a neutral moving sweeper
+  PASS intake tram leaves near/far safe lanes
+  PASS authored stage passes hazard safety validation
+  PASS Archive Stage 1 authors health and score cache decisions
+  PASS Index Vaults authors narrow wide and elite lane rhythm
+  PASS encounter lane funnel interpolates deterministically
+  PASS Index Vaults authors two neutral pulse scans
+  PASS Index Vault scans alternate without simultaneous activation
+  PASS Index Vault scans preserve a center or opposite-lane response
+  PASS Index Vaults authors risky health and meter caches
+  PASS Index Vault Raider captain emerges from background stacks
+  PASS Index Vaults passes lane hazard prop and spawn validation
+  PASS Corruption Repository authors three neutral falling strikes
+  PASS falling debris teaches staggered non-overlapping impacts
+  PASS Corruption Repository remixes a neutral security sweep
+  PASS repository security sweep crosses its chamber deterministically
+  PASS Corruption Repository authors asymmetric score health and meter caches
+  PASS repository canister is an all-team explosive breakable
+  PASS explosion mask and radius target both teams without leaking outward
+  PASS explosive canister pushes targets radially outward
+  PASS Corruption Repository Bruiser overseer drops into the elite arena
+  PASS Corruption Repository passes hazard prop lane and spawn validation
+  PASS health pickup restores player and consumes itself
+  PASS score pickup adds deterministic archive points
+=== 32 passed, 0 failed ===
