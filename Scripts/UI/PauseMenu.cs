@@ -14,6 +14,8 @@ public partial class PauseMenu : CanvasLayer
 {
     [Export] public string MainMenuScenePath { get; set; } = "res://Scenes/UI/MainMenu.tscn";
     [Export] public NodePath SimulationPath { get; set; } = "../GameSimulation";
+    [Export] public string PausePlatePath { get; set; } =
+        "res://Assets/UI/Pause/project_mannequin_pause_plate_style_v1.png";
 
     private static readonly string[] MoveListCategoryOrder =
     {
@@ -40,6 +42,12 @@ public partial class PauseMenu : CanvasLayer
     private VBoxContainer _artifactsList = null!;
     private Label _artifactsSummaryLabel = null!;
     private Button _resumeButton = null!;
+    private Button _quitButton = null!;
+    private Control _pausePlateRoot = null!;
+    private Control _pauseRecordContent = null!;
+    private TextureRect _pausePortrait = null!;
+    private Label _pauseFormLabel = null!;
+    private Label _pauseRecordLabel = null!;
     private bool _paused;
 
     public override void _Ready()
@@ -106,33 +114,48 @@ public partial class PauseMenu : CanvasLayer
         dim.SetAnchorsPreset(Control.LayoutPreset.FullRect);
         _panel.AddChild(dim);
 
-        var margin = new MarginContainer
+        _pausePlateRoot = new Control
         {
-            Name = "Margin",
+            Name = "PausePlateRoot",
+            CustomMinimumSize = new Vector2(1010.0f, 678.0f),
+            Size = new Vector2(1010.0f, 678.0f),
         };
-        margin.SetAnchorsPreset(Control.LayoutPreset.Center);
-        margin.CustomMinimumSize = new Vector2(380, 560);
-        margin.OffsetLeft = -190;
-        margin.OffsetTop = -280;
-        margin.OffsetRight = 190;
-        margin.OffsetBottom = 280;
-        _panel.AddChild(margin);
+        _panel.AddChild(_pausePlateRoot);
 
-        var box = new VBoxContainer
+        if (ResourceLoader.Exists(PausePlatePath))
         {
-            Name = "PauseButtons",
-            Alignment = BoxContainer.AlignmentMode.Center,
-        };
-        box.AddThemeConstantOverride("separation", 12);
-        margin.AddChild(box);
+            var plate = new TextureRect
+            {
+                Name = "PausePlate",
+                Texture = GD.Load<Texture2D>(PausePlatePath),
+                ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+                StretchMode = TextureRect.StretchModeEnum.Scale,
+                MouseFilter = Control.MouseFilterEnum.Ignore,
+            };
+            plate.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+            _pausePlateRoot.AddChild(plate);
+        }
 
         var title = new Label
         {
             Text = "PAUSED",
             HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Position = new Vector2(110.0f, 62.0f),
+            Size = new Vector2(235.0f, 88.0f),
         };
-        title.AddThemeFontSizeOverride("font_size", 34);
-        box.AddChild(title);
+        title.AddThemeFontSizeOverride("font_size", 27);
+        title.AddThemeColorOverride("font_color", new Color(0.08f, 0.06f, 0.11f));
+        _pausePlateRoot.AddChild(title);
+
+        var box = new VBoxContainer
+        {
+            Name = "PauseButtons",
+            Position = new Vector2(148.0f, 214.0f),
+            Size = new Vector2(160.0f, 352.0f),
+        };
+        box.AddThemeConstantOverride("separation", 5);
+        _pausePlateRoot.AddChild(box);
 
         _resumeButton = MakeButton("Resume");
         _resumeButton.Pressed += () => SetPaused(false);
@@ -142,7 +165,7 @@ public partial class PauseMenu : CanvasLayer
         moveList.Pressed += () => ToggleMoveList(true);
         box.AddChild(moveList);
 
-        var loadout = MakeButton("Move Card Loadout");
+        var loadout = MakeButton("Move Cards");
         loadout.Pressed += () => ToggleLoadout(true);
         box.AddChild(loadout);
 
@@ -150,7 +173,7 @@ public partial class PauseMenu : CanvasLayer
         formLoadout.Pressed += () => ToggleFormLoadout(true);
         box.AddChild(formLoadout);
 
-        var artifacts = MakeButton("Active Artifacts");
+        var artifacts = MakeButton("Artifacts");
         artifacts.Pressed += () => ToggleArtifacts(true);
         box.AddChild(artifacts);
 
@@ -158,13 +181,19 @@ public partial class PauseMenu : CanvasLayer
         restart.Pressed += RestartScene;
         box.AddChild(restart);
 
-        var mainMenu = MakeButton("Main Menu");
+        var mainMenu = MakeButton("Archive Map");
         mainMenu.Pressed += ReturnToMainMenu;
         box.AddChild(mainMenu);
 
-        var quit = MakeButton("Quit");
-        quit.Pressed += () => GetTree().Quit();
-        box.AddChild(quit);
+        _quitButton = MakeButton("Quit");
+        _quitButton.Position = new Vector2(754.0f, 591.0f);
+        _quitButton.Size = new Vector2(150.0f, 38.0f);
+        _quitButton.CustomMinimumSize = new Vector2(150.0f, 38.0f);
+        _quitButton.Pressed += () => GetTree().Quit();
+        _pausePlateRoot.AddChild(_quitButton);
+
+        BuildPauseRecord();
+        PositionPausePlate();
 
         BuildLoadoutPanel();
         BuildFormLoadoutPanel();
@@ -172,15 +201,101 @@ public partial class PauseMenu : CanvasLayer
         BuildArtifactsPanel();
     }
 
+    private void BuildPauseRecord()
+    {
+        _pauseRecordContent = new HBoxContainer
+        {
+            Name = "PauseRecordContent",
+            Position = new Vector2(420.0f, 174.0f),
+            Size = new Vector2(470.0f, 350.0f),
+        };
+        _pauseRecordContent.AddThemeConstantOverride("separation", 18);
+        _pausePlateRoot.AddChild(_pauseRecordContent);
+
+        _pausePortrait = new TextureRect
+        {
+            ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+            StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
+            CustomMinimumSize = new Vector2(190.0f, 320.0f),
+        };
+        _pauseRecordContent.AddChild(_pausePortrait);
+
+        var record = new VBoxContainer
+        {
+            Alignment = BoxContainer.AlignmentMode.Center,
+            SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+        };
+        record.AddThemeConstantOverride("separation", 9);
+        _pauseRecordContent.AddChild(record);
+
+        var eyebrow = new Label
+        {
+            Text = "ACTIVE ARCHIVE RECORD",
+            Modulate = new Color(0.42f, 0.94f, 0.92f),
+        };
+        eyebrow.AddThemeFontSizeOverride("font_size", 13);
+        record.AddChild(eyebrow);
+
+        _pauseFormLabel = new Label
+        {
+            Text = "BLANK MANNEQUIN",
+            AutowrapMode = TextServer.AutowrapMode.WordSmart,
+        };
+        _pauseFormLabel.AddThemeFontSizeOverride("font_size", 27);
+        record.AddChild(_pauseFormLabel);
+        record.AddChild(new HSeparator());
+
+        _pauseRecordLabel = new Label
+        {
+            Text = "",
+            AutowrapMode = TextServer.AutowrapMode.WordSmart,
+            Modulate = new Color(0.82f, 0.88f, 0.94f),
+            SizeFlagsVertical = Control.SizeFlags.ExpandFill,
+        };
+        _pauseRecordLabel.AddThemeFontSizeOverride("font_size", 15);
+        record.AddChild(_pauseRecordLabel);
+    }
+
+    private void RefreshPauseRecord()
+    {
+        var player = GetPlayerActor();
+        if (player is null)
+        {
+            _pausePortrait.Texture = null;
+            _pauseFormLabel.Text = "NO ACTIVE FIGHTER";
+            _pauseRecordLabel.Text = "Return to the Archive Map to deploy a fighter.";
+            return;
+        }
+
+        _pausePortrait.Texture = FormSelectPortraitResolver.Resolve(player.CurrentForm);
+        _pauseFormLabel.Text = player.CurrentForm.DisplayName.ToUpperInvariant();
+        var session = RunSessionManager.Instance;
+        _pauseRecordLabel.Text =
+            $"HEALTH  {player.Health}/{player.CurrentForm.MaxHealth}\n"
+            + $"METER   {player.Meter}/{player.CurrentForm.MaxMeter}\n"
+            + $"FORMS   {player.FormArchive.ActiveLoadout.Count}/{player.FormArchive.ActiveFormLimit}\n"
+            + $"CARDS   {session.EquippedMoveCards.Count}\n\n"
+            + $"LIVES   {session.RemainingLives}\n"
+            + $"RUN SCORE  {session.RunScore:000000}";
+    }
+
+    private void PositionPausePlate()
+    {
+        var viewportSize = GetViewport().GetVisibleRect().Size;
+        var scale = Mathf.Clamp(
+            Mathf.Min(viewportSize.X / 1280.0f, viewportSize.Y / 720.0f),
+            0.85f,
+            1.35f);
+        _pausePlateRoot.Scale = Vector2.One * scale;
+        var scaledSize = _pausePlateRoot.Size * scale;
+        _pausePlateRoot.Position = (viewportSize - scaledSize) * 0.5f;
+    }
+
     private void BuildLoadoutPanel()
     {
         _loadoutPanel = new PanelContainer { Name = "LoadoutPanel", Visible = false };
-        _loadoutPanel.SetAnchorsPreset(Control.LayoutPreset.Center);
-        _loadoutPanel.OffsetLeft = -340;
-        _loadoutPanel.OffsetTop = -220;
-        _loadoutPanel.OffsetRight = 340;
-        _loadoutPanel.OffsetBottom = 220;
-        _panel.AddChild(_loadoutPanel);
+        ConfigureNestedPanel(_loadoutPanel);
+        _pausePlateRoot.AddChild(_loadoutPanel);
 
         var margin = new MarginContainer();
         margin.AddThemeConstantOverride("margin_top", 18);
@@ -213,9 +328,11 @@ public partial class PauseMenu : CanvasLayer
         _loadoutGrid = new GridContainer { Columns = 3 };
         _loadoutGrid.AddThemeConstantOverride("h_separation", 10);
         _loadoutGrid.AddThemeConstantOverride("v_separation", 10);
+        _loadoutGrid.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
         loadoutBox.AddChild(_loadoutGrid);
 
         var closeLoadout = MakeButton("Close");
+        closeLoadout.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
         closeLoadout.Pressed += () => ToggleLoadout(false);
         loadoutBox.AddChild(closeLoadout);
     }
@@ -223,6 +340,8 @@ public partial class PauseMenu : CanvasLayer
     private void ToggleLoadout(bool show)
     {
         _loadoutPanel.Visible = show;
+        _pauseRecordContent.Visible = !show;
+        _quitButton.Visible = !show;
         if (show)
         {
             _formLoadoutPanel.Visible = false;
@@ -323,18 +442,14 @@ public partial class PauseMenu : CanvasLayer
     private void BuildMoveListPanel()
     {
         _moveListPanel = new PanelContainer { Name = "MoveListPanel", Visible = false };
-        _moveListPanel.SetAnchorsPreset(Control.LayoutPreset.Center);
-        _moveListPanel.OffsetLeft = -390;
-        _moveListPanel.OffsetTop = -290;
-        _moveListPanel.OffsetRight = 390;
-        _moveListPanel.OffsetBottom = 290;
-        _panel.AddChild(_moveListPanel);
+        ConfigureNestedPanel(_moveListPanel);
+        _pausePlateRoot.AddChild(_moveListPanel);
 
         var margin = new MarginContainer();
-        margin.AddThemeConstantOverride("margin_top", 16);
-        margin.AddThemeConstantOverride("margin_left", 24);
-        margin.AddThemeConstantOverride("margin_right", 24);
-        margin.AddThemeConstantOverride("margin_bottom", 16);
+        margin.AddThemeConstantOverride("margin_top", 8);
+        margin.AddThemeConstantOverride("margin_left", 12);
+        margin.AddThemeConstantOverride("margin_right", 30);
+        margin.AddThemeConstantOverride("margin_bottom", 8);
         _moveListPanel.AddChild(margin);
 
         var box = new VBoxContainer();
@@ -346,7 +461,7 @@ public partial class PauseMenu : CanvasLayer
             Text = "MOVE LIST",
             HorizontalAlignment = HorizontalAlignment.Center,
         };
-        _moveListTitle.AddThemeFontSizeOverride("font_size", 26);
+        _moveListTitle.AddThemeFontSizeOverride("font_size", 22);
         box.AddChild(_moveListTitle);
 
         foreach (var legend in new[]
@@ -364,7 +479,7 @@ public partial class PauseMenu : CanvasLayer
                 Modulate = new Color(0.75f, 0.85f, 0.95f),
             };
             legendLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-            legendLabel.AddThemeFontSizeOverride("font_size", 13);
+            legendLabel.AddThemeFontSizeOverride("font_size", 11);
             box.AddChild(legendLabel);
         }
 
@@ -372,7 +487,7 @@ public partial class PauseMenu : CanvasLayer
 
         var scroll = new ScrollContainer
         {
-            CustomMinimumSize = new Vector2(710, 384),
+            CustomMinimumSize = new Vector2(420, 270),
             HorizontalScrollMode = ScrollContainer.ScrollMode.Disabled,
         };
         scroll.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
@@ -384,6 +499,7 @@ public partial class PauseMenu : CanvasLayer
         scroll.AddChild(_moveListContent);
 
         var close = MakeButton("Close");
+        close.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
         close.Pressed += () => ToggleMoveList(false);
         box.AddChild(close);
     }
@@ -391,6 +507,8 @@ public partial class PauseMenu : CanvasLayer
     private void ToggleMoveList(bool show)
     {
         _moveListPanel.Visible = show;
+        _pauseRecordContent.Visible = !show;
+        _quitButton.Visible = !show;
         if (show)
         {
             _formLoadoutPanel.Visible = false;
@@ -487,7 +605,7 @@ public partial class PauseMenu : CanvasLayer
         var name = new Label
         {
             Text = "   " + move.DisplayName,
-            CustomMinimumSize = new Vector2(300, 0),
+            CustomMinimumSize = new Vector2(215, 0),
         };
         name.AddThemeFontSizeOverride("font_size", 15);
         name.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
@@ -497,7 +615,7 @@ public partial class PauseMenu : CanvasLayer
         {
             Text = KeyboardCommandFormatter.ToKeyboard(move.InputCommand),
             HorizontalAlignment = HorizontalAlignment.Right,
-            CustomMinimumSize = new Vector2(280, 0),
+            CustomMinimumSize = new Vector2(115, 0),
             Modulate = new Color(0.82f, 1.0f, 0.82f),
         };
         input.AddThemeFontSizeOverride("font_size", 15);
@@ -541,12 +659,8 @@ public partial class PauseMenu : CanvasLayer
     private void BuildFormLoadoutPanel()
     {
         _formLoadoutPanel = new PanelContainer { Name = "FormLoadoutPanel", Visible = false };
-        _formLoadoutPanel.SetAnchorsPreset(Control.LayoutPreset.Center);
-        _formLoadoutPanel.OffsetLeft = -320;
-        _formLoadoutPanel.OffsetTop = -230;
-        _formLoadoutPanel.OffsetRight = 320;
-        _formLoadoutPanel.OffsetBottom = 230;
-        _panel.AddChild(_formLoadoutPanel);
+        ConfigureNestedPanel(_formLoadoutPanel);
+        _pausePlateRoot.AddChild(_formLoadoutPanel);
 
         var margin = new MarginContainer();
         margin.AddThemeConstantOverride("margin_top", 18);
@@ -579,9 +693,11 @@ public partial class PauseMenu : CanvasLayer
         _formLoadoutGrid = new GridContainer { Columns = 3 };
         _formLoadoutGrid.AddThemeConstantOverride("h_separation", 12);
         _formLoadoutGrid.AddThemeConstantOverride("v_separation", 12);
+        _formLoadoutGrid.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
         box.AddChild(_formLoadoutGrid);
 
         var close = MakeButton("Close");
+        close.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
         close.Pressed += () => ToggleFormLoadout(false);
         box.AddChild(close);
     }
@@ -589,6 +705,8 @@ public partial class PauseMenu : CanvasLayer
     private void ToggleFormLoadout(bool show)
     {
         _formLoadoutPanel.Visible = show;
+        _pauseRecordContent.Visible = !show;
+        _quitButton.Visible = !show;
         if (show)
         {
             _loadoutPanel.Visible = false;
@@ -714,12 +832,8 @@ public partial class PauseMenu : CanvasLayer
     private void BuildArtifactsPanel()
     {
         _artifactsPanel = new PanelContainer { Name = "ArtifactsPanel", Visible = false };
-        _artifactsPanel.SetAnchorsPreset(Control.LayoutPreset.Center);
-        _artifactsPanel.OffsetLeft = -340;
-        _artifactsPanel.OffsetTop = -220;
-        _artifactsPanel.OffsetRight = 340;
-        _artifactsPanel.OffsetBottom = 220;
-        _panel.AddChild(_artifactsPanel);
+        ConfigureNestedPanel(_artifactsPanel);
+        _pausePlateRoot.AddChild(_artifactsPanel);
 
         var margin = new MarginContainer();
         margin.AddThemeConstantOverride("margin_top", 18);
@@ -751,7 +865,7 @@ public partial class PauseMenu : CanvasLayer
 
         var scroll = new ScrollContainer
         {
-            CustomMinimumSize = new Vector2(600, 280),
+            CustomMinimumSize = new Vector2(440, 270),
             HorizontalScrollMode = ScrollContainer.ScrollMode.Disabled,
         };
         artifactsBox.AddChild(scroll);
@@ -761,6 +875,7 @@ public partial class PauseMenu : CanvasLayer
         scroll.AddChild(_artifactsList);
 
         var close = MakeButton("Close");
+        close.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
         close.Pressed += () => ToggleArtifacts(false);
         artifactsBox.AddChild(close);
     }
@@ -768,6 +883,8 @@ public partial class PauseMenu : CanvasLayer
     private void ToggleArtifacts(bool show)
     {
         _artifactsPanel.Visible = show;
+        _pauseRecordContent.Visible = !show;
+        _quitButton.Visible = !show;
         if (show)
         {
             _loadoutPanel.Visible = false;
@@ -870,6 +987,14 @@ public partial class PauseMenu : CanvasLayer
         return value >= 0 ? $"+{value}" : value.ToString();
     }
 
+    private static void ConfigureNestedPanel(PanelContainer panel)
+    {
+        panel.Position = new Vector2(405.0f, 146.0f);
+        panel.Size = new Vector2(480.0f, 420.0f);
+        panel.CustomMinimumSize = new Vector2(480.0f, 420.0f);
+        panel.AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
+    }
+
     private void SetPaused(bool paused)
     {
         _paused = paused;
@@ -885,6 +1010,10 @@ public partial class PauseMenu : CanvasLayer
         GetTree().Paused = paused;
         if (paused)
         {
+            _pauseRecordContent.Visible = true;
+            _quitButton.Visible = true;
+            RefreshPauseRecord();
+            PositionPausePlate();
             _resumeButton.CallDeferred("grab_focus");
         }
     }
@@ -911,10 +1040,48 @@ public partial class PauseMenu : CanvasLayer
         var button = new Button
         {
             Text = text,
-            CustomMinimumSize = new Vector2(300, 44),
+            CustomMinimumSize = new Vector2(160, 42),
+            FocusMode = Control.FocusModeEnum.All,
         };
-        button.AddThemeFontSizeOverride("font_size", 18);
+        button.AddThemeFontSizeOverride("font_size", 13);
+        button.AddThemeStyleboxOverride("normal", PauseButtonStyle(
+            new Color(0.06f, 0.045f, 0.075f, 0.72f),
+            new Color(0.30f, 0.56f, 0.62f, 0.52f),
+            1));
+        button.AddThemeStyleboxOverride("hover", PauseButtonStyle(
+            new Color(0.10f, 0.07f, 0.13f, 0.92f),
+            new Color(0.42f, 0.94f, 0.92f),
+            2));
+        button.AddThemeStyleboxOverride("focus", PauseButtonStyle(
+            new Color(0.13f, 0.085f, 0.15f, 0.98f),
+            new Color(1.0f, 0.78f, 0.28f),
+            3));
+        button.AddThemeStyleboxOverride("pressed", PauseButtonStyle(
+            new Color(0.16f, 0.10f, 0.18f, 1.0f),
+            new Color(1.0f, 0.48f, 0.32f),
+            2));
         return button;
+    }
+
+    private static StyleBoxFlat PauseButtonStyle(Color background, Color border, int width)
+    {
+        return new StyleBoxFlat
+        {
+            BgColor = background,
+            BorderColor = border,
+            BorderWidthLeft = width,
+            BorderWidthTop = width,
+            BorderWidthRight = width,
+            BorderWidthBottom = width,
+            CornerRadiusTopLeft = 3,
+            CornerRadiusTopRight = 3,
+            CornerRadiusBottomLeft = 3,
+            CornerRadiusBottomRight = 3,
+            ContentMarginLeft = 8.0f,
+            ContentMarginTop = 5.0f,
+            ContentMarginRight = 8.0f,
+            ContentMarginBottom = 5.0f,
+        };
     }
 
     private static bool FocusFirstButton(Node root)

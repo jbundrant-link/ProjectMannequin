@@ -108,6 +108,140 @@ public static class WorldRunTests
                 Check(HaveDistinctContent(floorArtPaths),
                     "Archive stage floors have distinct content hashes");
 
+                var indexVaults = run.Stages[1];
+                var indexVaultLayerPaths = indexVaults.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(indexVaults.StageTexturePath.EndsWith(
+                          "archive_index_vaults_backdrop_style_v2.png")
+                      && indexVaults.FloorTexturePath.EndsWith(
+                          "archive_index_vaults_floor_style_v2.png")
+                                            && indexVaultLayerPaths.Length == 4
+                      && indexVaultLayerPaths.All(path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(indexVaultLayerPaths),
+                                        "Index Vaults uses independent style-approved production layers");
+                var indexVaultFar = indexVaults.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Far);
+                var indexVaultMidground = indexVaults.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Midground);
+                var indexVaultForeground = indexVaults.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(indexVaultFar.ParallaxFactorX < indexVaultMidground.ParallaxFactorX
+                      && indexVaultForeground.Length == 2
+                      && indexVaultForeground.All(panel =>
+                          indexVaultMidground.ParallaxFactorX < panel.ParallaxFactorX)
+                      && indexVaultFar.PositionZ < indexVaultMidground.PositionZ
+                      && indexVaultForeground.All(panel =>
+                          indexVaultMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 5.5f),
+                    "Index Vaults production layers preserve ordered depth and restrained foreground opacity");
+
+                var intakeBoulevard = run.Stages[0];
+                var intakeLayerPaths = intakeBoulevard.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(intakeBoulevard.StageTexturePath.EndsWith(
+                          "archive_intake_boulevard_backdrop_style_v1.png")
+                      && intakeBoulevard.FloorTexturePath.EndsWith(
+                          "archive_intake_boulevard_floor_style_v1.png")
+                      && intakeLayerPaths.Length == 4
+                      && intakeLayerPaths.All(path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(intakeLayerPaths),
+                    "Intake Boulevard uses independent style-approved production layers");
+                var intakeFar = intakeBoulevard.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Far);
+                var intakeMidground = intakeBoulevard.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Midground);
+                var intakeForeground = intakeBoulevard.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(intakeFar.ParallaxFactorX < intakeMidground.ParallaxFactorX
+                      && intakeForeground.Length == 2
+                      && intakeForeground.All(panel =>
+                          intakeMidground.ParallaxFactorX < panel.ParallaxFactorX
+                          && intakeMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 5.0f),
+                    "Intake Boulevard production layers preserve ordered depth and edge-bound foreground");
+
+                var corruptionRepository = run.Stages[2];
+                var repositoryLayerPaths = corruptionRepository.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(corruptionRepository.StageTexturePath.EndsWith(
+                          "archive_corruption_repository_backdrop_style_v1.png")
+                      && corruptionRepository.FloorTexturePath.EndsWith(
+                          "archive_corruption_repository_floor_style_v1.png")
+                      && repositoryLayerPaths.Length == 4
+                      && repositoryLayerPaths.All(path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(repositoryLayerPaths),
+                    "Corruption Repository uses independent style-approved production layers");
+                var repositoryFar = corruptionRepository.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Far);
+                var repositoryMidground = corruptionRepository.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Midground);
+                var repositoryForeground = corruptionRepository.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(repositoryFar.ParallaxFactorX < repositoryMidground.ParallaxFactorX
+                      && repositoryForeground.Length == 2
+                      && repositoryForeground.All(panel =>
+                          repositoryMidground.ParallaxFactorX < panel.ParallaxFactorX
+                          && repositoryMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 5.0f),
+                    "Corruption Repository production layers preserve ordered depth and edge-bound foreground");
+
+                var knightsReliquary = run.Stages[3];
+                var reliquaryLayerPaths = knightsReliquary.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(knightsReliquary.StageTexturePath.EndsWith(
+                          "archive_knights_reliquary_backdrop_style_v1.png")
+                      && knightsReliquary.FloorTexturePath.EndsWith(
+                          "archive_knights_reliquary_floor_style_v1.png")
+                      && reliquaryLayerPaths.Length == 4
+                      && reliquaryLayerPaths.All(path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(reliquaryLayerPaths),
+                    "Knight's Reliquary uses independent style-approved production layers");
+                var reliquaryFar = knightsReliquary.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Far);
+                var reliquaryMidground = knightsReliquary.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Midground);
+                var reliquaryForeground = knightsReliquary.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(reliquaryFar.ParallaxFactorX < reliquaryMidground.ParallaxFactorX
+                      && reliquaryForeground.Length == 2
+                      && reliquaryForeground.All(panel =>
+                          reliquaryMidground.ParallaxFactorX < panel.ParallaxFactorX
+                          && reliquaryMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 4.8f),
+                    "Knight's Reliquary production layers preserve ordered depth and edge-bound foreground");
+                Check(reliquaryMidground.DestructionTexturePaths.Count == 2
+                      && reliquaryMidground.DestructionTexturePaths.All(
+                          path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(
+                          reliquaryMidground.DestructionTexturePaths),
+                    "Knight's Reliquary authors two progressive persistent destruction states");
+                Check(reliquaryMidground.DestructionBurstTexturePaths.Count == 2
+                      && reliquaryMidground.DestructionBurstTexturePaths.All(
+                          path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(
+                          reliquaryMidground.DestructionBurstTexturePaths)
+                      && reliquaryMidground.DestructionBurstAnchorXs.SequenceEqual(
+                          new[] { 0.22f, 0.78f })
+                      && System.Math.Abs(
+                          reliquaryMidground.DestructionBurstPixelSize - 0.0040f)
+                          < 0.00001f
+                      && System.Math.Abs(
+                          reliquaryMidground.DestructionOverlayPixelSize - 0.0055f)
+                          < 0.00001f,
+                    "Knight's Reliquary authors distinct localized phase bursts");
+
                 var propSpritePaths = run.Stages
                     .SelectMany(stage => stage.Encounters)
                     .SelectMany(encounter => encounter.Props)
@@ -414,9 +548,145 @@ public static class WorldRunTests
                         basalt.SpriteSheetPath,
                     }),
                     "Basalt atlas content is distinct from the base Bruiser");
+                var archiveKnight = TestRosterFactory.CreateTestBoss();
+                var archiveKnightForm = TestRosterFactory.CreateArchiveKnightForm();
+                var archiveKnightTexture = ResourceLoader.Exists(
+                        archiveKnight.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(archiveKnight.SpriteSheetPath)
+                    : null;
+                Check(archiveKnight.SpriteSheetPath.EndsWith(
+                          "archive_knight_style_v1.png")
+                      && archiveKnightTexture is not null
+                      && archiveKnightTexture.GetWidth() == 2560
+                      && archiveKnightTexture.GetHeight() == 2304
+                      && archiveKnight.SpriteSheetColumns == 10
+                      && archiveKnight.SpriteSheetRows == 9
+                      && System.Math.Abs(archiveKnight.SpritePixelSize - 0.018f)
+                          < 0.00001f
+                      && System.Math.Abs(
+                          archiveKnight.SpriteGroundOffsetPixels - 120.0f) < 0.01f
+                      && !archiveKnight.TintSpriteSheet,
+                    "Archive Knight uses a unique untinted animation-ready atlas");
+                Check(archiveKnightForm.SpriteSheetPath
+                          == archiveKnight.SpriteSheetPath
+                      && archiveKnightForm.SpriteSheetColumns
+                          == archiveKnight.SpriteSheetColumns
+                      && archiveKnightForm.SpriteSheetRows
+                          == archiveKnight.SpriteSheetRows
+                      && !archiveKnightForm.TintSpriteSheet,
+                    "Archive Knight inherited form preserves the boss visual identity");
+                var archiveKnightIntro = archiveKnight.IntroAnimation is not null
+                    && ResourceLoader.Exists(archiveKnight.IntroAnimation.AtlasPath)
+                    ? GD.Load<Texture2D>(archiveKnight.IntroAnimation.AtlasPath)
+                    : null;
+                Check(archiveKnight.IntroAnimation is not null
+                      && archiveKnight.IntroAnimation.AtlasPath.EndsWith(
+                          "archive_knight_intro_style_v1.png")
+                      && archiveKnightIntro is not null
+                      && archiveKnightIntro.GetWidth() == 1024
+                      && archiveKnightIntro.GetHeight() == 512
+                      && archiveKnight.IntroAnimation.AtlasColumns == 4
+                      && archiveKnight.IntroAnimation.AtlasRows == 2
+                      && System.Math.Abs(
+                          archiveKnight.IntroAnimation.PixelSize - 0.017f) < 0.00001f
+                      && System.Math.Abs(
+                          archiveKnight.IntroAnimation.GroundOffsetPixels - 122.0f) < 0.01f,
+                    "Archive Knight uses the identity-matched eight-frame intro atlas");
+                Check(archiveKnight.SelectPortraitPath.EndsWith(
+                          "archive_knight_portrait_style_v1.png")
+                      && ResourceLoader.Exists(archiveKnight.SelectPortraitPath)
+                      && archiveKnightForm.SelectPortraitPath
+                          == archiveKnight.SelectPortraitPath,
+                    "Archive Knight boss and inherited form share the approved portrait");
+                var blankMannequin = TestRosterFactory.CreateBlankMannequin();
+                Check(blankMannequin.SelectPortraitPath.EndsWith(
+                          "mannequin_portrait_style_v1.png")
+                      && ResourceLoader.Exists(blankMannequin.SelectPortraitPath),
+                    "Blank Mannequin uses the canonical illustrated matchup portrait");
+                Check(HaveDistinctContent(new[]
+                    {
+                        archiveKnight.SpriteSheetPath,
+                        "res://Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png",
+                    }),
+                    "Archive Knight atlas content is distinct from the base mannequin");
                 Check(ResourceLoader.Exists(
                         "res://Assets/Vfx/Combat/project_mannequin_strike_burst_style_v1.png"),
                     "authored Project Mannequin strike VFX exists");
+            }
+
+            if (worldId == "world_warrior_sector")
+            {
+                var dojoApproach = run.Stages[0];
+                var dojoLayerPaths = dojoApproach.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(dojoApproach.StageTexturePath.EndsWith(
+                          "world_warrior_dojo_backdrop_style_v1.png")
+                      && dojoApproach.FloorTexturePath.EndsWith(
+                          "world_warrior_dojo_floor_style_v1.png")
+                      && dojoLayerPaths.Length == 4
+                      && dojoLayerPaths.All(path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(dojoLayerPaths),
+                    "Dojo Approach uses independent style-approved production layers");
+                var dojoFar = dojoApproach.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Far);
+                var dojoMidground = dojoApproach.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Midground);
+                var dojoForeground = dojoApproach.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(dojoFar.ParallaxFactorX < dojoMidground.ParallaxFactorX
+                      && dojoForeground.Length == 2
+                      && dojoForeground.All(panel =>
+                          dojoMidground.ParallaxFactorX < panel.ParallaxFactorX
+                          && dojoMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 4.6f),
+                    "Dojo Approach production layers preserve ordered depth and edge-bound foreground");
+                var rookie = TestRosterFactory.CreateWorldWarriorRookie();
+                var rookieTexture = ResourceLoader.Exists(rookie.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(rookie.SpriteSheetPath)
+                    : null;
+                Check(rookie.SpriteSheetPath.EndsWith(
+                          "world_warrior_rookie_style_v2.png")
+                      && rookieTexture is not null
+                      && rookieTexture.GetWidth() == 2560
+                      && rookieTexture.GetHeight() == 2304
+                      && rookie.SpriteSheetColumns == 10
+                      && rookie.SpriteSheetRows == 9
+                      && !rookie.TintSpriteSheet,
+                    "Dojo Rookie uses the original identity-locked 10x9 style-v2 atlas");
+                var quickPalm = rookie.FindMove("world_warrior_rookie_attack");
+                Check(quickPalm is not null
+                      && quickPalm.AnimationFrameSequence.SequenceEqual(
+                          new[] { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 })
+                      && quickPalm.AnimationFrameDurations.SequenceEqual(
+                          new[] { 3, 3, 3, 3, 5, 4, 4, 4, 4, 7 })
+                      && quickPalm.AnimationFrameDurations.Sum()
+                          == quickPalm.TotalFrames,
+                    "Dojo Rookie Quick Palm animation timing matches startup active and recovery phases");
+                var striker = TestRosterFactory.CreateWorldWarriorStriker();
+                var strikerTexture = ResourceLoader.Exists(striker.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(striker.SpriteSheetPath)
+                    : null;
+                Check(striker.SpriteSheetPath.EndsWith(
+                          "world_warrior_striker_style_v2.png")
+                      && strikerTexture is not null
+                      && strikerTexture.GetWidth() == 2560
+                      && strikerTexture.GetHeight() == 2304
+                      && striker.SpriteSheetColumns == 10
+                      && striker.SpriteSheetRows == 9
+                      && !striker.TintSpriteSheet,
+                    "Pavilion Striker uses the original identity-locked 10x9 style-v2 atlas");
+                var turningKick = striker.FindMove("world_warrior_striker_attack");
+                Check(turningKick is not null
+                      && turningKick.AnimationFrameSequence.SequenceEqual(
+                          new[] { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 })
+                      && turningKick.AnimationFrameDurations.SequenceEqual(
+                          new[] { 4, 4, 4, 4, 5, 4, 5, 5, 6, 7 })
+                      && turningKick.AnimationFrameDurations.Sum()
+                          == turningKick.TotalFrames,
+                    "Pavilion Striker Turning Kick timing matches startup active and recovery phases");
             }
         }
 

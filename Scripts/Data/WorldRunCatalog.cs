@@ -176,15 +176,47 @@ public static class WorldRunCatalog
 
     private static void ApplyBespokeStageArt(StageMissionData stage)
     {
-        if (stage.WorldId != "archive_nexus" || stage.StageNumber == 1)
+        if (stage.WorldId == "world_warrior_sector")
         {
+            if (stage.StageNumber == 1)
+            {
+                ApplyDojoApproachProductionArt(stage);
+            }
+
+            return;
+        }
+
+        if (stage.WorldId != "archive_nexus")
+        {
+            return;
+        }
+
+        if (stage.StageNumber == 1)
+        {
+            ApplyIntakeBoulevardProductionArt(stage);
+            return;
+        }
+
+        if (stage.StageNumber == 2)
+        {
+            ApplyIndexVaultsProductionArt(stage);
+            return;
+        }
+
+        if (stage.StageNumber == 3)
+        {
+            ApplyCorruptionRepositoryProductionArt(stage);
+            return;
+        }
+
+        if (stage.StageNumber == 4)
+        {
+            ApplyKnightsReliquaryProductionArt(stage);
             return;
         }
 
         var artStem = stage.StageNumber switch
         {
-            2 => "archive_index_vaults",
-            3 => "archive_corruption_repository",
             4 => "archive_knights_reliquary",
             _ => "",
         };
@@ -209,6 +241,313 @@ public static class WorldRunCatalog
                 PositionY = 4.55f,
                 PositionZ = -6.0f,
                 ScaleYMultiplier = stage.StageNumber == 4 ? 0.90f : 0.95f,
+            },
+        };
+    }
+
+    private static void ApplyDojoApproachProductionArt(StageMissionData stage)
+    {
+        stage.StageTexturePath = WorldWarriorDojoBackdropTexture;
+        stage.FloorTexturePath = WorldWarriorDojoFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 18.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = WorldWarriorDojoBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 4.9f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.62f,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorDojoMidgroundTexture,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 2.35f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 0.94f,
+                ScaleYMultiplier = 0.52f,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorDojoForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 4.6f,
+                PositionY = 0.85f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.32f,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorDojoForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 4.6f,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.85f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.32f,
+            },
+        };
+    }
+
+    private static void ApplyIntakeBoulevardProductionArt(StageMissionData stage)
+    {
+        stage.StageTexturePath = ArchiveIntakeBoulevardBackdropTexture;
+        stage.FloorTexturePath = ArchiveIntakeBoulevardFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 18.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = ArchiveIntakeBoulevardBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 4.9f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.62f,
+            },
+            new()
+            {
+                TexturePath = ArchiveIntakeBoulevardMidgroundTexture,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 2.5f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 0.95f,
+                ScaleYMultiplier = 0.58f,
+            },
+            new()
+            {
+                TexturePath = ArchiveIntakeBoulevardForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 5.0f,
+                PositionY = 1.15f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.70f,
+                ScaleYMultiplier = 0.40f,
+            },
+            new()
+            {
+                TexturePath = ArchiveIntakeBoulevardForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 5.0f,
+                MaxX = stage.StageMaxX,
+                PositionY = 1.15f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.70f,
+                ScaleYMultiplier = 0.40f,
+            },
+        };
+    }
+
+    private static void ApplyIndexVaultsProductionArt(StageMissionData stage)
+    {
+        stage.StageTexturePath = ArchiveIndexVaultsBackdropTexture;
+        stage.FloorTexturePath = ArchiveIndexVaultsFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 18.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = ArchiveIndexVaultsBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 4.9f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.62f,
+            },
+            new()
+            {
+                TexturePath = ArchiveIndexVaultsMidgroundTexture,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 2.6f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 0.95f,
+                ScaleYMultiplier = 0.56f,
+            },
+            new()
+            {
+                TexturePath = ArchiveIndexVaultsForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 5.5f,
+                PositionY = 1.3f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.72f,
+                ScaleYMultiplier = 0.42f,
+            },
+            new()
+            {
+                TexturePath = ArchiveIndexVaultsForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 5.5f,
+                MaxX = stage.StageMaxX,
+                PositionY = 1.3f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.72f,
+                ScaleYMultiplier = 0.42f,
+            },
+        };
+    }
+
+    private static void ApplyCorruptionRepositoryProductionArt(StageMissionData stage)
+    {
+        stage.StageTexturePath = ArchiveCorruptionRepositoryBackdropTexture;
+        stage.FloorTexturePath = ArchiveCorruptionRepositoryFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 18.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = ArchiveCorruptionRepositoryBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 4.9f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.62f,
+            },
+            new()
+            {
+                TexturePath = ArchiveCorruptionRepositoryMidgroundTexture,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 2.5f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 0.95f,
+                ScaleYMultiplier = 0.58f,
+            },
+            new()
+            {
+                TexturePath = ArchiveCorruptionRepositoryForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 5.0f,
+                PositionY = 1.05f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.70f,
+                ScaleYMultiplier = 0.36f,
+            },
+            new()
+            {
+                TexturePath = ArchiveCorruptionRepositoryForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 5.0f,
+                MaxX = stage.StageMaxX,
+                PositionY = 1.05f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.70f,
+                ScaleYMultiplier = 0.36f,
+            },
+        };
+    }
+
+    private static void ApplyKnightsReliquaryProductionArt(StageMissionData stage)
+    {
+        stage.StageTexturePath = ArchiveKnightsReliquaryBackdropTexture;
+        stage.FloorTexturePath = ArchiveKnightsReliquaryFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 18.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = ArchiveKnightsReliquaryBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 4.9f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.62f,
+            },
+            new()
+            {
+                TexturePath = ArchiveKnightsReliquaryMidgroundTexture,
+                DestructionTexturePaths = new List<string>
+                {
+                    ArchiveReliquaryPhase2MidgroundTexture,
+                    ArchiveReliquaryPhase3MidgroundTexture,
+                },
+                DestructionBurstTexturePaths = new List<string>
+                {
+                    ArchiveReliquaryPhase2BurstTexture,
+                    ArchiveReliquaryPhase3BurstTexture,
+                },
+                DestructionBurstAnchorXs = new List<float> { 0.22f, 0.78f },
+                DestructionBurstPositionY = 1.2f,
+                DestructionBurstPositionZ = -4.1f,
+                DestructionBurstPixelSize = 0.0040f,
+                DestructionOverlayPositionY = 1.45f,
+                DestructionOverlayPositionZ = -4.3f,
+                DestructionOverlayPixelSize = 0.0055f,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 2.35f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 0.95f,
+                ScaleYMultiplier = 0.52f,
+            },
+            new()
+            {
+                TexturePath = ArchiveKnightsReliquaryForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 4.8f,
+                PositionY = 1.0f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.34f,
+            },
+            new()
+            {
+                TexturePath = ArchiveKnightsReliquaryForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 4.8f,
+                MaxX = stage.StageMaxX,
+                PositionY = 1.0f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.34f,
             },
         };
     }
@@ -344,15 +683,18 @@ public static class WorldRunCatalog
             Id = "archive_intake_tram",
             Behavior = StageHazardBehavior.LinearSweep,
             Targets = StageHazardTargetMask.All,
+            SpritePath = ArchiveIntakeTramSprite,
+            SpritePixelSize = ArchiveIntakeTramPixelSize,
+            SpriteGroundOffsetPixels = 419.5f,
             MinX = secondEncounter.ArenaMinX + 0.6f,
-            MaxX = secondEncounter.ArenaMinX + 2.6f,
+            MaxX = secondEncounter.ArenaMinX + 4.6f,
             MinZ = -0.72f,
             MaxZ = 0.72f,
             ActivationDelayFrames = 24,
             WarningLeadFrames = 72,
             ActiveFrames = 96,
             RepeatIntervalFrames = 264,
-            MovementOffsetX = 10.0f,
+            MovementOffsetX = 8.0f,
             WarningText = "INTAKE TRAM — CLEAR THE CENTER LANE",
             DamagePerSecond = 90.0f,
             KnockbackX = 9.0f,
@@ -422,6 +764,12 @@ public static class WorldRunCatalog
             Id = "index_vault_far_scan",
             Behavior = StageHazardBehavior.StaticPulse,
             Targets = StageHazardTargetMask.All,
+            SpritePath = ArchiveIndexScanEmitterSprite,
+            SpritePixelSize = ArchiveIndexScanEmitterPixelSize,
+            SpriteGroundOffsetPixels = 935.0f,
+            SpriteAnchorX = 0.08f,
+            SpriteAnchorZ = 0.5f,
+            FieldTexturePath = ArchiveIndexScanFieldTexture,
             MinX = secondEncounter.ArenaMinX + 0.8f,
             MaxX = secondEncounter.ArenaMaxX - 0.8f,
             MinZ = -2.55f,
@@ -441,6 +789,14 @@ public static class WorldRunCatalog
             Id = "index_vault_near_scan",
             Behavior = StageHazardBehavior.StaticPulse,
             Targets = StageHazardTargetMask.All,
+            SpritePath = ArchiveIndexScanEmitterSprite,
+            SpritePixelSize = ArchiveIndexScanEmitterPixelSize,
+            SpriteGroundOffsetPixels = 935.0f,
+            SpriteAnchorX = 0.92f,
+            SpriteAnchorZ = 0.5f,
+            SpriteFlipH = true,
+            FieldTexturePath = ArchiveIndexScanFieldTexture,
+            FieldFlipH = true,
             MinX = secondEncounter.ArenaMinX + 0.8f,
             MaxX = secondEncounter.ArenaMaxX - 0.8f,
             MinZ = 0.45f,
@@ -519,6 +875,7 @@ public static class WorldRunCatalog
             SpritePath = ArchiveVolatileCanisterSprite,
             SpritePixelSize = ArchiveVolatileCanisterPixelSize,
             SpriteGroundOffsetPixels = 854.0f,
+            AftermathVisual = CreateRepositoryAftermathVisual(4.0f, 3.4f),
         });
         secondEncounter.Props.Add(new StagePropData
         {
@@ -555,27 +912,42 @@ public static class WorldRunCatalog
             centerX: firstEncounter.ArenaMinX + 3.0f,
             centerZ: -1.55f,
             delay: 20,
-            warning: "FALLING SHELF — FAR POCKET");
+            warning: "FALLING SHELF — FAR POCKET",
+            spritePath: ArchiveRepositoryFallingShelfSprite,
+            spritePixelSize: ArchiveRepositoryFallingShelfPixelSize,
+            spriteGroundOffsetPixels: 546.5f);
         AddRepositoryFallingStrike(
             firstEncounter,
             "repository_debris_near",
             centerX: firstEncounter.ArenaMinX + 8.0f,
             centerZ: 1.50f,
             delay: 65,
-            warning: "FALLING SHELF — NEAR POCKET");
+            warning: "FALLING SHELF — NEAR POCKET",
+            spritePath: ArchiveRepositoryFallingShelfSprite,
+            spritePixelSize: ArchiveRepositoryFallingShelfPixelSize,
+            spriteGroundOffsetPixels: 546.5f,
+            spriteFlipH: true);
         AddRepositoryFallingStrike(
             firstEncounter,
             "repository_debris_center",
             centerX: firstEncounter.ArenaMaxX - 2.4f,
             centerZ: 0.0f,
             delay: 110,
-            warning: "DATA DEBRIS — CENTER IMPACT");
+            warning: "DATA DEBRIS — CENTER IMPACT",
+            spritePath: ArchiveRepositoryDataDebrisSprite,
+            spritePixelSize: ArchiveRepositoryDataDebrisPixelSize,
+            spriteGroundOffsetPixels: 747.0f);
 
         secondEncounter.HazardZones.Add(new StageHazardZoneData
         {
             Id = "repository_security_sweep",
             Behavior = StageHazardBehavior.LinearSweep,
             Targets = StageHazardTargetMask.All,
+            SpritePath = ArchiveRepositorySecuritySweepSprite,
+            SpritePixelSize = ArchiveRepositorySecuritySweepPixelSize,
+            SpriteGroundOffsetPixels = 300.5f,
+            SpriteAnchorX = 0.85f,
+            SpriteFlipH = true,
             MinX = secondEncounter.ArenaMinX + 0.7f,
             MaxX = secondEncounter.ArenaMinX + 2.5f,
             MinZ = -0.70f,
@@ -606,13 +978,26 @@ public static class WorldRunCatalog
         float centerX,
         float centerZ,
         int delay,
-        string warning)
+        string warning,
+        string spritePath,
+        float spritePixelSize,
+        float spriteGroundOffsetPixels,
+        bool spriteFlipH = false)
     {
         encounter.HazardZones.Add(new StageHazardZoneData
         {
             Id = id,
             Behavior = StageHazardBehavior.FallingStrike,
             Targets = StageHazardTargetMask.All,
+            SpritePath = spritePath,
+            SpritePixelSize = spritePixelSize,
+            SpriteGroundOffsetPixels = spriteGroundOffsetPixels,
+            SpriteTravelHeight = 4.4f,
+            SpriteFlipH = spriteFlipH,
+            AftermathVisual = CreateRepositoryAftermathVisual(
+                2.6f,
+                2.2f,
+                spriteFlipH),
             MinX = centerX - 1.2f,
             MaxX = centerX + 1.2f,
             MinZ = centerZ - 1.0f,
@@ -627,6 +1012,26 @@ public static class WorldRunCatalog
             HitstunFrames = 24,
             ActiveDuringBoss = false,
         });
+    }
+
+    private static StageAftermathVisualData CreateRepositoryAftermathVisual(
+        float decalSizeX,
+        float decalSizeZ,
+        bool fragmentFlipH = false)
+    {
+        return new StageAftermathVisualData
+        {
+            DecalTexturePath = ArchiveRepositoryExplosionDecalTexture,
+            DecalSizeX = decalSizeX,
+            DecalSizeZ = decalSizeZ,
+            DecalOpacity = 0.72f,
+            FragmentSpritePath = ArchiveRepositoryImpactFragmentsSprite,
+            FragmentPixelSize = 0.00068f,
+            FragmentGroundOffsetPixels = 432.5f,
+            FragmentOffsetX = 0.22f,
+            FragmentOffsetZ = 0.12f,
+            FragmentFlipH = fragmentFlipH,
+        };
     }
 
     private static T Clone<T>(T source)
@@ -645,10 +1050,89 @@ public static class WorldRunCatalog
         "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png";
     private const string ArchiveVolatileCanisterSprite =
         "res://Assets/Sprites/Props/Archive/archive_volatile_canister_style_v2.png";
+    private const string ArchiveIntakeTramSprite =
+        "res://Assets/Sprites/Hazards/Archive/archive_intake_tram_style_v1.png";
+    private const string ArchiveIndexScanEmitterSprite =
+        "res://Assets/Sprites/Hazards/Archive/archive_index_scan_emitter_style_v1.png";
+    private const string ArchiveIndexScanFieldTexture =
+        "res://Assets/Sprites/Hazards/Archive/archive_index_scan_field_style_v1.png";
+    private const string ArchiveRepositoryFallingShelfSprite =
+        "res://Assets/Sprites/Hazards/Archive/archive_repository_falling_shelf_style_v1.png";
+    private const string ArchiveRepositoryDataDebrisSprite =
+        "res://Assets/Sprites/Hazards/Archive/archive_repository_data_debris_style_v1.png";
+    private const string ArchiveRepositorySecuritySweepSprite =
+        "res://Assets/Sprites/Hazards/Archive/archive_repository_security_sweep_style_v1.png";
+    private const string ArchiveRepositoryExplosionDecalTexture =
+        "res://Assets/Sprites/Hazards/Archive/archive_repository_explosion_decal_style_v1.png";
+    private const string ArchiveRepositoryImpactFragmentsSprite =
+        "res://Assets/Sprites/Hazards/Archive/archive_repository_impact_fragments_style_v1.png";
+    private const string ArchiveIndexVaultsBackdropTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_style_v2.png";
+    private const string ArchiveIndexVaultsFloorTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_index_vaults_floor_style_v2.png";
+    private const string ArchiveIndexVaultsMidgroundTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_index_vaults_midground_style_v2.png";
+    private const string ArchiveIndexVaultsForegroundLeftTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_index_vaults_foreground_left_style_v2.png";
+    private const string ArchiveIndexVaultsForegroundRightTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_index_vaults_foreground_right_style_v2.png";
+    private const string ArchiveIntakeBoulevardBackdropTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_intake_boulevard_backdrop_style_v1.png";
+    private const string ArchiveIntakeBoulevardFloorTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_intake_boulevard_floor_style_v1.png";
+    private const string ArchiveIntakeBoulevardMidgroundTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_intake_boulevard_midground_style_v1.png";
+    private const string ArchiveIntakeBoulevardForegroundLeftTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_intake_boulevard_foreground_left_style_v1.png";
+    private const string ArchiveIntakeBoulevardForegroundRightTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_intake_boulevard_foreground_right_style_v1.png";
+    private const string ArchiveCorruptionRepositoryBackdropTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_corruption_repository_backdrop_style_v1.png";
+    private const string ArchiveCorruptionRepositoryFloorTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_corruption_repository_floor_style_v1.png";
+    private const string ArchiveCorruptionRepositoryMidgroundTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_corruption_repository_midground_style_v1.png";
+    private const string ArchiveCorruptionRepositoryForegroundLeftTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_corruption_repository_foreground_left_style_v1.png";
+    private const string ArchiveCorruptionRepositoryForegroundRightTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_corruption_repository_foreground_right_style_v1.png";
+    private const string ArchiveKnightsReliquaryBackdropTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_style_v1.png";
+    private const string ArchiveKnightsReliquaryFloorTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_knights_reliquary_floor_style_v1.png";
+    private const string ArchiveKnightsReliquaryMidgroundTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_knights_reliquary_midground_style_v1.png";
+    private const string ArchiveKnightsReliquaryForegroundLeftTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_knights_reliquary_foreground_left_style_v1.png";
+    private const string ArchiveKnightsReliquaryForegroundRightTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_knights_reliquary_foreground_right_style_v1.png";
+    private const string ArchiveReliquaryPhase2MidgroundTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_reliquary_phase2_midground_style_v1.png";
+    private const string ArchiveReliquaryPhase3MidgroundTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_reliquary_phase3_midground_style_v1.png";
+    private const string ArchiveReliquaryPhase2BurstTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_reliquary_phase2_burst_style_v1.png";
+    private const string ArchiveReliquaryPhase3BurstTexture =
+        "res://Assets/Stages/ArchiveDistrict/archive_reliquary_phase3_burst_style_v1.png";
+    private const string WorldWarriorDojoBackdropTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png";
+    private const string WorldWarriorDojoFloorTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_dojo_floor_style_v1.png";
+    private const string WorldWarriorDojoMidgroundTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_dojo_midground_style_v1.png";
+    private const string WorldWarriorDojoForegroundLeftTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_left_style_v1.png";
+    private const string WorldWarriorDojoForegroundRightTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_right_style_v1.png";
     private const float ArchiveHealthCachePixelSize = 0.00114f;
     private const float ArchiveMeterCachePixelSize = 0.00103f;
     private const float ArchiveDataCachePixelSize = 0.00136f;
     private const float ArchiveVolatileCanisterPixelSize = 0.00143f;
+    private const float ArchiveIntakeTramPixelSize = 0.00220f;
+    private const float ArchiveIndexScanEmitterPixelSize = 0.00090f;
+    private const float ArchiveRepositoryFallingShelfPixelSize = 0.00150f;
+    private const float ArchiveRepositoryDataDebrisPixelSize = 0.00170f;
+    private const float ArchiveRepositorySecuritySweepPixelSize = 0.00125f;
 
     private readonly record struct StageBlueprint(
         string Title,

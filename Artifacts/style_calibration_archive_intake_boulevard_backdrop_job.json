@@ -1,0 +1,49 @@
+﻿[
+  {
+    "created_at": "2026-07-17T12:26:24.667566Z",
+    "display_name": "Nano Banana Pro",
+    "id": "c62a8d2b-9e31-4d40-99bd-c3736d15952e",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_122624_c62a8d2b-9e31-4d40-99bd-c3736d15952e_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "64b1f7a8-bd19-4c0d-9aab-e557099eb498",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/64b1f7a8-bd19-4c0d-9aab-e557099eb498_resize.jpg"
+        },
+        {
+          "id": "d2694601-1eee-4fb5-8c7f-d2ad1a11204b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d2694601-1eee-4fb5-8c7f-d2ad1a11204b.png"
+        },
+        {
+          "id": "9f1f5535-e836-4ff7-8ff0-da6b4a3dcdc5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9f1f5535-e836-4ff7-8ff0-da6b4a3dcdc5.png"
+        },
+        {
+          "id": "f2dc2f3f-8184-434c-b05d-76a8d9042c6a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f2dc2f3f-8184-434c-b05d-76a8d9042c6a.png"
+        },
+        {
+          "id": "4f50a3e5-ed8f-4a3b-aabd-c2f61f177f77",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4f50a3e5-ed8f-4a3b-aabd-c2f61f177f77.png"
+        }
+      ],
+      "prompt": "Using the approved Index Vaults environment as shared Archive rendering grammar, the Intake Tram as Stage 1 identity, and the three fighters as style/readability anchors, create the FAR BACKDROP BAND for Intake Boulevard, a 2.5D belt-scroll fighting stage outside the Living Archive outer gates. Wide flat side-on lateral composition: monumental warm-porcelain record gatehouses, deep-indigo intake towers, broad suspended archive conduits, distant stacked catalog silhouettes, sparse cyan/violet route lights and restrained amber windows. Controlled dark ink contours, broad anime cel-shaded planes, simplified distant detail, low contrast behind fighters. Unique civic Archive architecture, not a generic cyberpunk city. No floor, foreground rail, characters, human faces, billboards, readable text, props, hazards, one-point corridor, photoreal materials, rust, or dense greebles. Full-bleed 21:9 backdrop band.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_122624_c62a8d2b-9e31-4d40-99bd-c3736d15952e.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "created_at": "2026-07-17T16:52:06.419879Z",
+    "display_name": "Nano Banana Pro",
+    "id": "52ee56bf-2a19-4960-8031-62e46fc0af92",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_165206_52ee56bf-2a19-4960-8031-62e46fc0af92_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "3:4",
+      "batch_size": 1,
+      "height": 2400,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "a4aa79dc-344f-4f2a-bba1-94ca02ff9097",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a4aa79dc-344f-4f2a-bba1-94ca02ff9097_resize.jpg"
+        },
+        {
+          "id": "b3730353-18e0-438c-a2e2-ac30911343f0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b3730353-18e0-438c-a2e2-ac30911343f0.png"
+        },
+        {
+          "id": "4958e11c-0bc3-4f5f-b817-60807f8171ba",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4958e11c-0bc3-4f5f-b817-60807f8171ba.png"
+        }
+      ],
+      "prompt": "Create ONE complete full-body Archive Knight guarded BRAKING DASH pose. References 1 and 2 are absolute identity authorities; reference 3 supplies the accepted dash rendering, scale and movement context.\r\n\r\nExact identity: faceless ivory crested helm, narrow cyan visor, enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam fully visible, small RIGHT shoulder, violet sternum core, porcelain plates, deep-plum joints, short rigid split tabards, heavy boots, integrated cyan-edged archive blade attached along the RIGHT forearm at constant length. Never mirror, swap, omit, duplicate or redesign asymmetrical features.\r\n\r\nScreen-right three-quarter pose at the end of an armored dash: forward foot planted, rear foot skidding into recovery, torso upright with slight backward check, free fist guarding, blade arm held outward under control. Same full standing scale, camera and light as accepted dash source. Entire crest, arch pauldron, blade and both boots visible with generous clearance.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad cel shading, clean highlights, fighting-game anatomy, polished anime finish. One character only on perfectly uniform pure white background. No text, border, floor, shadow, scenery, extra limbs, detached/second blade, shield, cape, long robe, floating parts, crop, photorealism, PBR, rust, grime, microtexture, or painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 1792
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_165206_52ee56bf-2a19-4960-8031-62e46fc0af92.png",
+    "status": "completed"
+  }
+]

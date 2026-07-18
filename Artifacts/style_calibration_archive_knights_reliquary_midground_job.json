@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T15:04:38.597674Z",
+    "display_name": "Nano Banana Pro",
+    "id": "b73d440c-aca0-442b-b205-2d1a50650f22",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_150438_b73d440c-aca0-442b-b205-2d1a50650f22_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "a334d847-2881-4fe6-9579-f9e7f30ef542",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a334d847-2881-4fe6-9579-f9e7f30ef542.png"
+        },
+        {
+          "id": "0da82520-1225-418c-a319-ab0eb3fc9ee8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0da82520-1225-418c-a319-ab0eb3fc9ee8.png"
+        },
+        {
+          "id": "db8e77bd-38e7-4ba2-993b-63c51607bee3",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/db8e77bd-38e7-4ba2-993b-63c51607bee3.png"
+        },
+        {
+          "id": "2236e8d6-93bf-41ea-a3f3-125d2a2716e0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2236e8d6-93bf-41ea-a3f3-125d2a2716e0.png"
+        },
+        {
+          "id": "b5d7f634-6068-4b9e-8023-260048a7db3a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b5d7f634-6068-4b9e-8023-260048a7db3a_resize.jpg"
+        },
+        {
+          "id": "d4ef4612-b62d-4bc4-84d2-bf37e03d0917",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d4ef4612-b62d-4bc4-84d2-bf37e03d0917.png"
+        },
+        {
+          "id": "c2782811-3c76-4261-aae7-05ff648910cb",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c2782811-3c76-4261-aae7-05ff648910cb.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one WIDE MIDGROUND LANDMARK STRIP for KNIGHT'S RELIQUARY, the final boss arena of the Living Archive. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, and polished anime fighting-game readability. Characters define rendering grammar and scale only; DO NOT include characters. The accepted Reliquary backdrop and floor define ceremonial deep-plum, warm-ivory, violet, cyan, and tiny-gold identity. The approved Repository midground defines separated cutout spacing. The purple Knight intro defines only restrained warden energy.\n\nOn one perfectly uniform neutral medium-gray background, place exactly THREE separated, non-overlapping, fully visible side-on midground landmarks across a 21:9 canvas with generous empty gray gaps. LEFT: a compact broken oath-tablet triptych, three blank warm-ivory slabs on a low deep-plum base with one violet seam; no writing or symbols. CENTER: a broad but low faceless champion-seal plinth with one simple angular helm-shaped recess, two stepped ivory braces, and a dim violet core; keep its overall height under half the canvas. RIGHT: an asymmetric memory-crystal cradle with one small faceted cyan-violet crystal held by two dark-indigo arms and one cracked ivory plate. All three share one stable scale and side-on three-quarter fighting-stage perspective. Large broad planes dominate and detail is sparse. Keep the entire lower 28 percent of the canvas empty uniform gray so fighters, feet, boss effects, and form-swap energy remain unobstructed. Keep a wide empty gap around the center of the combat arena. Entire silhouettes visible with no cropping.\n\nNo backdrop wall, floor, foreground rail, characters, knights, armor figures, portraits, holograms, banners, text, letters, numbers, glyphs, signs, labels, checkerboard, transparency grid, gradients or shadows on the gray background, gameplay props, hazards, debris, photorealism, PBR, rust, grime, cables, dense greebles, microtexture, or painterly blur. Do not connect the three landmarks. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_150438_b73d440c-aca0-442b-b205-2d1a50650f22.png",
+    "status": "completed"
+  }
+]

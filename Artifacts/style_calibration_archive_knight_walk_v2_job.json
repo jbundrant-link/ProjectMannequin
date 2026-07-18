@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-17T16:24:44.976667Z",
+    "display_name": "Nano Banana Pro",
+    "id": "74a1bb87-b9bc-4a0f-862c-87e9cef5bb0c",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_162444_74a1bb87-b9bc-4a0f-862c-87e9cef5bb0c_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "30166398-0684-44da-8a1f-cbd1c3f8fa3d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/30166398-0684-44da-8a1f-cbd1c3f8fa3d.png"
+        },
+        {
+          "id": "89003634-e09e-49f6-be02-374f378a28eb",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/89003634-e09e-49f6-be02-374f378a28eb_resize.jpg"
+        },
+        {
+          "id": "38d92362-c5b3-4fef-9afd-a717a86ee9e8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/38d92362-c5b3-4fef-9afd-a717a86ee9e8.png"
+        },
+        {
+          "id": "e4904cd9-7b69-4ba6-a74f-f703744dd558",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e4904cd9-7b69-4ba6-a74f-f703744dd558.png"
+        },
+        {
+          "id": "33bab07f-a514-4317-a424-375b9e02c5d5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/33bab07f-a514-4317-a424-375b9e02c5d5.png"
+        },
+        {
+          "id": "fefed29a-fc91-4024-a3b9-3defef1ec80d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fefed29a-fc91-4024-a3b9-3defef1ec80d.png"
+        }
+      ],
+      "prompt": "Revise the supplied Archive Knight 4x2 walk sheet for strict identity consistency. Preserve its eight full-body walk poses, clean 4 columns x 2 rows layout, alternating leg cycle, screen-right three-quarter orientation, scale, baseline, white background, and exact porcelain/plum/cyan/violet rendering. The approved Archive Knight pilot and idle sheet are absolute identity authorities.\r\n\r\nCRITICAL FIX: every one of the eight poses must retain the same enormous broken-archive-arch pauldron on the character's LEFT shoulder, matching the pilot exactly. It is the tall ivory horseshoe/arch armor with an open dark-indigo center and cyan inner seam. It must remain on the same body side in every pose, at the same relative size and shape. Never replace it with a rounded shoulder cap, never move it to the other shoulder, never omit its open center, and never mirror the character. The opposite RIGHT shoulder remains the small rounded articulated plate. Also preserve the exact faceless crested helm, cyan slit, violet sternum core, rigid split tabards, heavy boots, and cyan-edged archive blade attached along the RIGHT forearm at one constant length.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK. Match mannequin/Ryu/Goku controlled dark contours, broad two-to-four-step cel shading, clean highlights, fighting-game anatomy, and polished anime finish. Exactly eight separated complete poses, no cropped crest/blade/feet, no overlaps, no extra limbs, no detached blade, no shield, no cape, no floating parts, no text, grid, borders, floor, shadows, scenery, photorealism, PBR, rust, grime, microtexture, or painterly blur. Perfectly uniform pure white background edge to edge with generous clearance.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_162444_74a1bb87-b9bc-4a0f-862c-87e9cef5bb0c.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "created_at": "2026-07-17T15:09:34.022317Z",
+    "display_name": "Nano Banana Pro",
+    "id": "77a8ae96-e008-4220-8a1a-3de9c63bd56e",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_150934_77a8ae96-e008-4220-8a1a-3de9c63bd56e_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "a89709bb-a23e-4090-8883-5f0fd86ec5ea",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a89709bb-a23e-4090-8883-5f0fd86ec5ea.png"
+        },
+        {
+          "id": "015fb27d-3e12-4979-a868-d94e79f66216",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/015fb27d-3e12-4979-a868-d94e79f66216.png"
+        },
+        {
+          "id": "a8fcf18c-60f6-4601-8e11-7886d9883f7b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a8fcf18c-60f6-4601-8e11-7886d9883f7b.png"
+        },
+        {
+          "id": "dce608c6-8a5d-413a-946e-6066a1f297c0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/dce608c6-8a5d-413a-946e-6066a1f297c0.png"
+        },
+        {
+          "id": "8eaa453c-2efb-4419-9b6b-1683dfe648b5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8eaa453c-2efb-4419-9b6b-1683dfe648b5_resize.jpg"
+        },
+        {
+          "id": "b4242a60-6188-439a-ae71-9b01ada286db",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b4242a60-6188-439a-ae71-9b01ada286db.png"
+        },
+        {
+          "id": "0b3bcee8-c854-40d0-ad6e-cb58b6517ed5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0b3bcee8-c854-40d0-ad6e-cb58b6517ed5.png"
+        },
+        {
+          "id": "33b613fc-506a-43ee-ab3d-e4005cfb8900",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/33b613fc-506a-43ee-ab3d-e4005cfb8900.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one WIDE FOREGROUND EDGE SOURCE for KNIGHT'S RELIQUARY, the final boss arena of the Living Archive. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, and polished anime fighting-game readability. Characters define rendering grammar and scale only; DO NOT include characters. The accepted Reliquary backdrop, floor, and midground define ceremonial deep-plum, warm-ivory, violet, cyan, and tiny-gold identity. The approved Repository foreground demonstrates low edge-bound pieces that never cross the gameplay center.\n\nOn one perfectly uniform neutral medium-gray background, place exactly TWO disconnected low foreground remnants at the extreme sides of a 21:9 canvas. LEFT piece: a short broken oath-gallery balustrade entering from the lower-left edge, deep plum with one warm-ivory cap, a blank inset plate, and one short violet seam. RIGHT piece: a different short fractured memory-vault guard entering from the lower-right edge, midnight indigo with one small ivory brace, one short cyan seam, and a tiny faceted violet shard held below knee height. Both are side-on three-quarter fighting-stage objects, knee height relative to a fighter, broad simple silhouettes, and fully visible except where intentionally entering from the outer canvas edge. Keep the central 65 percent completely empty uniform gray. Keep the upper 58 percent empty uniform gray. The pieces must never touch or share a shadow.\n\nNo continuous rail, bridge, full-width strip, center object, floor, wall, backdrop, characters, knights, armor figures, portraits, gameplay props, hazards, warning marks, debris shower, text, letters, numbers, glyphs, signs, labels, checkerboard, transparency grid, gradients or shadows on the gray background, photorealism, PBR, rust, grime, cables, dense greebles, microtexture, or painterly blur. Production cutout source only; clean separated silhouettes.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_150934_77a8ae96-e008-4220-8a1a-3de9c63bd56e.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T16:46:41.597731Z",
+    "display_name": "Nano Banana Pro",
+    "id": "38a382e9-8d5a-41e9-b642-794fb9a975d4",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_164641_38a382e9-8d5a-41e9-b642-794fb9a975d4_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "22c5f1b8-86b5-49b0-9c3c-cdb529f95402",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/22c5f1b8-86b5-49b0-9c3c-cdb529f95402_resize.jpg"
+        },
+        {
+          "id": "84f92fd7-ae53-4438-af20-3acdaae460a7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/84f92fd7-ae53-4438-af20-3acdaae460a7.png"
+        },
+        {
+          "id": "0913d7d6-54de-43e9-8f47-d2fe76e3b20b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0913d7d6-54de-43e9-8f47-d2fe76e3b20b_resize.jpg"
+        },
+        {
+          "id": "d5ff4d9c-def1-45f0-a1a8-4b52f1e19faf",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d5ff4d9c-def1-45f0-a1a8-4b52f1e19faf.png"
+        }
+      ],
+      "prompt": "Create a new 3x2 DASH ANIMATION SOURCE SHEET. Reference roles are strict: references 1 and 2 are the approved Archive Knight identity and idle authorities; reference 3 supplies only the exact six-pose dash cadence and 3x2 spacing; reference 4 supplies canonical contour/cel-shading quality.\r\n\r\nPreserve the approved Knight exactly in all six poses: faceless ivory helmet with curved crest; narrow cyan visor slit; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder plate; faceted violet sternum core; warm-ivory plates; deep-plum joints; short rigid dark-indigo split tabards; gold fasteners; heavy boots; one cyan-edged archive blade integrated along the RIGHT forearm at constant length. The arch stays on the same body side and the blade on the opposite forearm. Never mirror, swap, omit, duplicate or redesign them.\r\n\r\nExactly six separated complete full-body screen-right three-quarter dash poses arranged 3 columns x 2 rows: upright launch, acceleration, forward drive, opposite-leg drive, braking step, guarded recovery. Athletic armored burst with slight torso lean, head high, same standing scale as idle, clear leg alternation, constant camera/light/baseline. Every figure fits fully inside one third-column and half-row with generous clearance; no squat or giant close-up.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, fighting-game anatomy, polished anime finish. Perfectly uniform pure white background. No grid, text, labels, border, floor, shadows, scenery, extra figures/limbs, detached or second blade, shield, cape, long robe, floating parts, cropped crest/blade/feet, overlap, photorealism, PBR, rust, grime, microtexture, or painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_164641_38a382e9-8d5a-41e9-b642-794fb9a975d4.png",
+    "status": "completed"
+  }
+]

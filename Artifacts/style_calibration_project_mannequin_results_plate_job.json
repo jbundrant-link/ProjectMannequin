@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-18T01:37:03.166795Z",
+    "display_name": "Nano Banana Pro",
+    "id": "4784231e-e6b1-4c98-a13f-53a67d65f1d3",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_013703_4784231e-e6b1-4c98-a13f-53a67d65f1d3_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "3:2",
+      "batch_size": 1,
+      "height": 1696,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "99657aac-16d1-4309-be68-eac74704dfe5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/99657aac-16d1-4309-be68-eac74704dfe5.png"
+        },
+        {
+          "id": "81b5c571-fedf-4e49-bb82-dde366b9ef0c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/81b5c571-fedf-4e49-bb82-dde366b9ef0c.png"
+        },
+        {
+          "id": "1fed75cc-9bf1-45ed-9180-d0e740169c87",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1fed75cc-9bf1-45ed-9180-d0e740169c87.png"
+        },
+        {
+          "id": "c121618c-d4c7-4179-b3d4-c43d335b35cd",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c121618c-d4c7-4179-b3d4-c43d335b35cd_resize.jpg"
+        },
+        {
+          "id": "daf3b51d-6e80-4341-8667-28213049cb00",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/daf3b51d-6e80-4341-8667-28213049cb00_resize.jpg"
+        },
+        {
+          "id": "1d554af1-00da-46f3-a426-cc0104ba6e2e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1d554af1-00da-46f3-a426-cc0104ba6e2e.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one reusable RESULTS PLATE for Project Mannequin that supports Stage Clear, World Complete, and Game Over. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, and polished modern fighting-game broadcast presentation. Characters define rendering grammar only; DO NOT include characters. The approved Living Archive HUD frame and Archive Map define warm-ivory porcelain plates, deep-plum joints, cyan Archive energy, restrained gold/coral accents, faceted keystones, and dimensional cel-painted UI materials. The supplied legacy Stage Clear screenshot is STRUCTURE ONLY: preserve its information capacity and command safety, but do not copy its flat dark rectangle or software-panel look.\n\nOn one perfectly uniform neutral medium-gray background, create a single complete 3:2 RESULTS RECORD PLATE, fully visible with generous gray margin and no cropping. Strong asymmetric fighting-game composition: a broad faceted warm-ivory and dark-plum outer silhouette; TOP, one blank title rail with a compact cyan archive keystone and open center for native title text; LEFT-CENTER, a large empty faceted rank medallion/aperture with dark blank interior, sized for a single native S/A/KO glyph; RIGHT-CENTER, one broad blank tally chamber with dark low-contrast interior and subtle two-column porcelain separators for native score/stat text; BELOW, one narrow blank archive/unlock ribbon; BOTTOM, one shallow command ledge with open space for two or three native buttons. Use cyan seams for archive continuity, restrained gold for success emphasis, and tiny coral accents that can support failure mode without dominating. Large forms, clean contours, broad cel planes, sparse detail, strong hierarchy. The plate must remain readable over a dimmed gameplay scene.\n\nNO text, letters, numbers, rank glyphs, words, logos, icons, portraits, characters, faces, health bars, progress fills, buttons, cursor, checkerboard, transparency grid, screen border, full-canvas frame, photorealism, PBR metal, chrome, rust, grime, dense greebles, microtexture, enterprise dashboard styling, rounded software card, flat vector art, gradients, or decorative orbs. No shadows or reflections on the neutral background. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2528
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_013703_4784231e-e6b1-4c98-a13f-53a67d65f1d3.png",
+    "status": "completed"
+  }
+]

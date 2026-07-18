@@ -13,6 +13,8 @@ public partial class MainMenu : Control
 {
     [Export] public string CombatScenePath { get; set; } = "res://Scenes/Main.tscn";
     [Export] public string ArchiveHubScenePath { get; set; } = "res://Scenes/UI/ArchiveHub.tscn";
+    [Export] public string ArchiveMapBackgroundPath { get; set; } =
+        "res://Assets/UI/ArchiveMap/project_mannequin_archive_map_background_style_v1.png";
 
     private readonly Dictionary<string, Button> _worldButtons = new();
     private MvpProgressData _progress = new();
@@ -45,6 +47,7 @@ public partial class MainMenu : Control
 
     public override void _Ready()
     {
+        ConfigureCaptureViewport();
         if (OS.GetEnvironment("PROJECT_MANNEQUIN_ARCHIVE_MAP_SMOKE_TEST") != "1"
             && OS.GetEnvironment("PROJECT_MANNEQUIN_SCENE_FLOW_SMOKE_TEST") != "1")
         {
@@ -67,6 +70,26 @@ public partial class MainMenu : Control
             smoke.Initialize(this);
             AddChild(smoke);
         }
+    }
+
+    private void ConfigureCaptureViewport()
+    {
+        var widthText = OS.GetEnvironment("PROJECT_MANNEQUIN_VIEWPORT_WIDTH");
+        var heightText = OS.GetEnvironment("PROJECT_MANNEQUIN_VIEWPORT_HEIGHT");
+        if (!int.TryParse(widthText, out var width)
+            || !int.TryParse(heightText, out var height)
+            || width <= 0
+            || height <= 0)
+        {
+            return;
+        }
+
+        var window = GetWindow();
+        window.Mode = Window.ModeEnum.Windowed;
+        window.Borderless = true;
+        window.ContentScaleSize = new Vector2I(width, height);
+        window.ContentScaleAspect = Window.ContentScaleAspectEnum.Ignore;
+        window.Size = new Vector2I(width, height);
     }
 
     public override void _Process(double delta)
@@ -94,30 +117,6 @@ public partial class MainMenu : Control
         GetViewport().SetInputAsHandled();
     }
 
-    public override void _Draw()
-    {
-        var rect = GetViewportRect();
-        DrawRect(rect, new Color(0.022f, 0.028f, 0.043f), true);
-        var grid = new Color(0.18f, 0.27f, 0.35f, 0.20f);
-        const float step = 52.0f;
-        for (var x = 0.0f; x < rect.Size.X; x += step)
-        {
-            DrawLine(new Vector2(x, 0.0f), new Vector2(x, rect.Size.Y), grid, 1.0f);
-        }
-
-        for (var y = 0.0f; y < rect.Size.Y; y += step)
-        {
-            DrawLine(new Vector2(0.0f, y), new Vector2(rect.Size.X, y), grid, 1.0f);
-        }
-
-        var horizon = rect.Size.Y * 0.78f;
-        DrawLine(
-            new Vector2(0.0f, horizon),
-            new Vector2(rect.Size.X, horizon),
-            new Color(0.42f, 0.94f, 0.92f, 0.26f),
-            2.0f);
-    }
-
     public void SelectWorld(string worldId)
     {
         var world = CoreWorlds().FirstOrDefault(candidate => candidate.Id == worldId);
@@ -134,6 +133,8 @@ public partial class MainMenu : Control
 
     private void BuildInterface()
     {
+        AddArchiveMapBackground();
+
         var rootMargin = new MarginContainer { Name = "ArchiveMapMargin" };
         rootMargin.SetAnchorsPreset(LayoutPreset.FullRect);
         rootMargin.AddThemeConstantOverride("margin_left", 38);
@@ -158,6 +159,32 @@ public partial class MainMenu : Control
         body.AddChild(BuildRoutePanel());
         body.AddChild(BuildOperationsPanel());
         BuildConfirmationOverlay();
+    }
+
+    private void AddArchiveMapBackground()
+    {
+        if (ResourceLoader.Exists(ArchiveMapBackgroundPath))
+        {
+            var background = new TextureRect
+            {
+                Name = "ArchiveMapBackground",
+                Texture = GD.Load<Texture2D>(ArchiveMapBackgroundPath),
+                ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+                StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered,
+                MouseFilter = MouseFilterEnum.Ignore,
+            };
+            background.SetAnchorsPreset(LayoutPreset.FullRect);
+            AddChild(background);
+        }
+
+        var wash = new ColorRect
+        {
+            Name = "ArchiveMapReadabilityWash",
+            Color = new Color(0.025f, 0.018f, 0.040f, 0.46f),
+            MouseFilter = MouseFilterEnum.Ignore,
+        };
+        wash.SetAnchorsPreset(LayoutPreset.FullRect);
+        AddChild(wash);
     }
 
     private Control BuildHeader()
@@ -195,8 +222,9 @@ public partial class MainMenu : Control
     {
         var panel = MakePanel(
             "RealmRail",
-            new Color(0.035f, 0.047f, 0.068f, 0.96f),
-            new Color(0.20f, 0.34f, 0.44f, 0.85f));
+            Colors.Transparent,
+            Colors.Transparent,
+            borderWidth: 0);
         panel.CustomMinimumSize = new Vector2(300.0f, 0.0f);
         var margin = AddPanelMargin(panel, 16);
         var box = new VBoxContainer();
@@ -229,8 +257,9 @@ public partial class MainMenu : Control
     {
         var panel = MakePanel(
             "RoutePanel",
-            new Color(0.028f, 0.038f, 0.057f, 0.97f),
-            new Color(0.24f, 0.48f, 0.58f, 0.88f));
+            Colors.Transparent,
+            Colors.Transparent,
+            borderWidth: 0);
         panel.SizeFlagsHorizontal = SizeFlags.ExpandFill;
         panel.CustomMinimumSize = new Vector2(560.0f, 0.0f);
         var margin = AddPanelMargin(panel, 20);
@@ -246,13 +275,27 @@ public partial class MainMenu : Control
         box.AddChild(_worldIdentity);
         box.AddChild(_worldProgress);
         box.AddChild(new HSeparator());
+        var routeCanvas = new Control
+        {
+            Name = "RouteCanvas",
+            CustomMinimumSize = new Vector2(0.0f, 330.0f),
+            SizeFlagsVertical = SizeFlags.ExpandFill,
+        };
+        box.AddChild(routeCanvas);
+        var spine = new ArchiveMapRouteSpine
+        {
+            MouseFilter = MouseFilterEnum.Ignore,
+        };
+        spine.SetAnchorsPreset(LayoutPreset.FullRect);
+        routeCanvas.AddChild(spine);
         _stageRoute = new VBoxContainer
         {
             Name = "StageRoute",
-            SizeFlagsVertical = SizeFlags.ExpandFill,
         };
+        _stageRoute.SetAnchorsPreset(LayoutPreset.FullRect);
+        _stageRoute.OffsetLeft = 24.0f;
         _stageRoute.AddThemeConstantOverride("separation", 6);
-        box.AddChild(_stageRoute);
+        routeCanvas.AddChild(_stageRoute);
         return panel;
     }
 
@@ -260,8 +303,9 @@ public partial class MainMenu : Control
     {
         var panel = MakePanel(
             "OperationsPanel",
-            new Color(0.035f, 0.047f, 0.068f, 0.96f),
-            new Color(0.20f, 0.34f, 0.44f, 0.85f));
+            Colors.Transparent,
+            Colors.Transparent,
+            borderWidth: 0);
         panel.CustomMinimumSize = new Vector2(310.0f, 0.0f);
         var margin = AddPanelMargin(panel, 16);
         var box = new VBoxContainer();
@@ -800,5 +844,45 @@ public partial class MainMenu : Control
         margin.AddThemeConstantOverride("margin_bottom", marginSize);
         panel.AddChild(margin);
         return margin;
+    }
+}
+
+public partial class ArchiveMapRouteSpine : Control
+{
+    public override void _Draw()
+    {
+        var top = 38.0f;
+        var bottom = Mathf.Max(top, Size.Y - 38.0f);
+        var x = 10.0f;
+        DrawLine(
+            new Vector2(x, top),
+            new Vector2(x, bottom),
+            new Color(0.24f, 0.98f, 0.95f, 0.20f),
+            8.0f,
+            true);
+        DrawLine(
+            new Vector2(x, top),
+            new Vector2(x, bottom),
+            new Color(0.42f, 0.94f, 0.92f, 0.88f),
+            2.0f,
+            true);
+
+        for (var index = 0; index < 4; index++)
+        {
+            var y = Mathf.Lerp(top, bottom, index / 3.0f);
+            var points = new Vector2[]
+            {
+                new(x, y - 7.0f),
+                new(x + 7.0f, y),
+                new(x, y + 7.0f),
+                new(x - 7.0f, y),
+            };
+            DrawColoredPolygon(points, new Color(0.12f, 0.08f, 0.16f, 1.0f));
+            DrawPolyline(
+                new Vector2[] { points[0], points[1], points[2], points[3], points[0] },
+                new Color(1.0f, 0.82f, 0.36f, 0.96f),
+                2.0f,
+                true);
+        }
     }
 }

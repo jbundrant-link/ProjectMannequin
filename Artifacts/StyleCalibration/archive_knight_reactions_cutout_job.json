@@ -1,0 +1,23 @@
+[
+  {
+    "created_at": "2026-07-17T17:43:07.990778Z",
+    "display_name": "Image Background Remover",
+    "id": "641073a2-d3ff-4c63-9ba0-faea9e886ae1",
+    "job_type": "image_background_remover",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_174307_641073a2-d3ff-4c63-9ba0-faea9e886ae1_min.png",
+    "params": {
+      "medias": [
+        {
+          "data": {
+            "id": "f5c6df98-eca8-4964-bb63-b8cd37d9a386",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f5c6df98-eca8-4964-bb63-b8cd37d9a386.png"
+          },
+          "role": "image"
+        }
+      ]
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_174307_641073a2-d3ff-4c63-9ba0-faea9e886ae1.png",
+    "status": "completed"
+  }
+]

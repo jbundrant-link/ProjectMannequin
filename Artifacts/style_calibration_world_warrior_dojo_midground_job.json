@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-18T04:17:17.371825Z",
+    "display_name": "Nano Banana Pro",
+    "id": "0521a4ef-982d-45f8-a743-43430ce35572",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_041717_0521a4ef-982d-45f8-a743-43430ce35572_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "f63f67d3-0d8e-49ac-ad9c-4bc94053ae11",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f63f67d3-0d8e-49ac-ad9c-4bc94053ae11.png"
+        },
+        {
+          "id": "33ef33c6-646b-4abc-8132-5a6c46605a49",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/33ef33c6-646b-4abc-8132-5a6c46605a49.png"
+        },
+        {
+          "id": "db15b13e-4139-4d81-842e-911bd02be0dc",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/db15b13e-4139-4d81-842e-911bd02be0dc.png"
+        },
+        {
+          "id": "fee8ab5f-a5b6-4ed7-91d4-f3e6a029d015",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fee8ab5f-a5b6-4ed7-91d4-f3e6a029d015_resize.jpg"
+        },
+        {
+          "id": "205126f1-e6cd-4016-8567-99b4976344c8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/205126f1-e6cd-4016-8567-99b4976344c8.png"
+        },
+        {
+          "id": "1e0236a9-e3cb-4aa0-b7e1-e23aed30f008",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1e0236a9-e3cb-4aa0-b7e1-e23aed30f008_resize.jpg"
+        },
+        {
+          "id": "7addb6dd-a122-4ae6-9928-6f19de2580f0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7addb6dd-a122-4ae6-9928-6f19de2580f0.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one WIDE MIDGROUND LANDMARK STRIP for DOJO APPROACH, Stage 1 of World Warrior Sector. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel shading, simplified stylized materials, clean highlights, and polished anime fighting-game readability. Characters define rendering grammar and scale only; DO NOT include characters. The approved Dojo backdrop and packed-earth floor define warm ivory plaster, charcoal timber, vermilion cloth, muted jade foliage, cool dusk rim light, and restrained gold lanterns. The Tournament District supplies World Warrior architecture only. The approved Index Vaults midground supplies only separated-cutout spacing; do not copy Archive motifs.\n\nOn one perfectly uniform neutral medium-gray background, place exactly THREE separated, non-overlapping, fully visible side-on midground landmarks across a 21:9 canvas with generous empty gray gaps. LEFT: a low asymmetrical stone lantern and windswept dwarf pine planter on a compact dark timber base. CENTER: a broad but low open practice shelter with two wrapped wooden striking posts and a small hanging bell, no platform extending sideways; this is background dressing, not a gameplay object. RIGHT: a narrow challenge-gong arch with one blank vermilion cloth tie and a compact stone base. All share one consistent scale and side-on three-quarter fighting-stage perspective. Large broad planes dominate; detail is sparse. Keep the entire lower 28 percent empty uniform gray so fighters, feet, pickups, and future hazards remain unobstructed. Entire silhouettes visible with no cropping.\n\nNo connected fence, backdrop wall, floor, foreground rail, characters, spectators, enemies, words, signs, letters, glyphs, logos, warning marks, active hazards, loose weapons, crates, text, checkerboard, transparency grid, gradients, or shadows on the gray background. No photorealism, PBR, rust, grime, dense wood grain, roof-tile noise, greebles, or painterly blur. Do not connect the three landmarks. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_041717_0521a4ef-982d-45f8-a743-43430ce35572.png",
+    "status": "completed"
+  }
+]

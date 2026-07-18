@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T16:32:44.075573Z",
+    "display_name": "Nano Banana Pro",
+    "id": "8a5aed12-c8c6-4308-bdd9-79d9dc8ab9e3",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_163244_8a5aed12-c8c6-4308-bdd9-79d9dc8ab9e3_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "7b7f0c3a-f77b-4ee4-a244-e9b930393de8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7b7f0c3a-f77b-4ee4-a244-e9b930393de8_resize.jpg"
+        },
+        {
+          "id": "78967dcb-113c-4c90-b118-f15e804fae4f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/78967dcb-113c-4c90-b118-f15e804fae4f.png"
+        },
+        {
+          "id": "985c36f0-78e2-445b-8f6d-b3027c089e05",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/985c36f0-78e2-445b-8f6d-b3027c089e05_resize.jpg"
+        },
+        {
+          "id": "9ac995e7-0345-4fbf-a10d-994d1a92ad55",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9ac995e7-0345-4fbf-a10d-994d1a92ad55.png"
+        }
+      ],
+      "prompt": "Create a new 4x2 WALK-CYCLE SOURCE SHEET. Reference roles are strict: references 1 and 2 are the approved Archive Knight identity and idle authority; reference 3 supplies only the exact eight-pose walking cadence and 4x2 spacing; reference 4 supplies only canonical contour/cel-shading quality. Do not copy any rejected Archive Knight walk revision.\r\n\r\nPreserve the approved Knight exactly in all eight poses: faceless ivory helmet with the same curved crest; narrow cyan visor slit; one enormous broken-archive-arch pauldron with open dark-indigo center and cyan inner seam on the character's LEFT shoulder; small rounded armor on the RIGHT shoulder; faceted violet sternum core; warm-ivory porcelain plates; deep-plum joints; short rigid dark-indigo split tabards; gold fasteners; heavy boots; one cyan-edged archive blade physically integrated along the RIGHT forearm at constant length. The arch pauldron stays on the same body side, open and fully visible in every frame. The blade remains on the opposite forearm. Never mirror, swap, omit, duplicate, or redesign those asymmetrical features.\r\n\r\nExactly eight complete full-body screen-right profile/three-quarter walk poses, arranged 4 columns x 2 rows like reference 3. Top row is one left-leg-leading half-cycle; bottom row is the opposite right-leg-leading half-cycle. Natural armored walk, consistent camera, body scale, head size, lighting and foot baseline; clear leg and arm alternation. Every figure must fit completely inside its quarter-column and half-row with generous clearance. No giant close-ups.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, fighting-game anatomy, polished anime finish. Perfectly uniform pure white background. No grid, dividers, text, labels, logos, border, floor, shadows, scenery, extra figures, extra limbs, detached or second blade, shield, cape, long robe, floating parts, cropped crest/blade/feet, overlapping cells, photorealism, PBR, rust, grime, microtexture, or painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_163244_8a5aed12-c8c6-4308-bdd9-79d9dc8ab9e3.png",
+    "status": "completed"
+  }
+]

@@ -74,6 +74,12 @@ public static class StageHazardTests
         Check(tram is { Behavior: StageHazardBehavior.LinearSweep, Targets: StageHazardTargetMask.All },
             "intake tram is a neutral moving sweeper");
         Check(tram is not null
+              && tram.SpritePath.EndsWith("archive_intake_tram_style_v1.png")
+              && ResourceLoader.Exists(tram.SpritePath)
+              && System.Math.Abs(tram.SpritePixelSize - 0.00220f) < 0.00001f
+              && System.Math.Abs(tram.SpriteGroundOffsetPixels - 419.5f) < 0.01f,
+            "intake tram uses its calibrated authored hazard sprite");
+        Check(tram is not null
               && tram.MinZ > archiveStage.LaneMinZ
               && tram.MaxZ < archiveStage.LaneMaxZ,
             "intake tram leaves near/far safe lanes");
@@ -125,10 +131,22 @@ public static class StageHazardTests
               && vaultScans.All(hazard => hazard.Behavior == StageHazardBehavior.StaticPulse)
               && vaultScans.All(hazard => hazard.Targets == StageHazardTargetMask.All),
             "Index Vaults authors two neutral pulse scans");
-        var farAtNinety = StageHazardRuntime.Resolve(vaultScans.Single(hazard => hazard.Id.EndsWith("far_scan")), 90);
-        var nearAtNinety = StageHazardRuntime.Resolve(vaultScans.Single(hazard => hazard.Id.EndsWith("near_scan")), 90);
-          var farAtTwoForty = StageHazardRuntime.Resolve(vaultScans.Single(hazard => hazard.Id.EndsWith("far_scan")), 240);
-          var nearAtTwoForty = StageHazardRuntime.Resolve(vaultScans.Single(hazard => hazard.Id.EndsWith("near_scan")), 240);
+          var farScan = vaultScans.Single(hazard => hazard.Id.EndsWith("far_scan"));
+          var nearScan = vaultScans.Single(hazard => hazard.Id.EndsWith("near_scan"));
+          Check(vaultScans.All(hazard =>
+                  hazard.SpritePath.EndsWith("archive_index_scan_emitter_style_v1.png")
+                  && hazard.FieldTexturePath.EndsWith("archive_index_scan_field_style_v1.png")
+                  && ResourceLoader.Exists(hazard.SpritePath)
+                  && ResourceLoader.Exists(hazard.FieldTexturePath)
+                  && System.Math.Abs(hazard.SpritePixelSize - 0.00090f) < 0.00001f
+                  && System.Math.Abs(hazard.SpriteGroundOffsetPixels - 935.0f) < 0.01f)
+              && farScan is { SpriteAnchorX: 0.08f, SpriteFlipH: false, FieldFlipH: false }
+              && nearScan is { SpriteAnchorX: 0.92f, SpriteFlipH: true, FieldFlipH: true },
+            "Index Vault scans use mirrored authored emitters and directional field art");
+          var farAtNinety = StageHazardRuntime.Resolve(farScan, 90);
+          var nearAtNinety = StageHazardRuntime.Resolve(nearScan, 90);
+          var farAtTwoForty = StageHazardRuntime.Resolve(farScan, 240);
+          var nearAtTwoForty = StageHazardRuntime.Resolve(nearScan, 240);
         Check(farAtNinety.IsActive && nearAtNinety.Phase == StageHazardPhase.Dormant
               && farAtTwoForty.Phase == StageHazardPhase.Cooldown && nearAtTwoForty.IsActive,
             "Index Vault scans alternate without simultaneous activation");
@@ -161,6 +179,21 @@ public static class StageHazardTests
         Check(fallingStrikes.Length == 3
               && fallingStrikes.All(hazard => hazard.Targets == StageHazardTargetMask.All),
             "Corruption Repository authors three neutral falling strikes");
+        Check(fallingStrikes.Take(2).All(hazard =>
+                    hazard.SpritePath.EndsWith("archive_repository_falling_shelf_style_v1.png")
+                    && ResourceLoader.Exists(hazard.SpritePath)
+                    && System.Math.Abs(hazard.SpritePixelSize - 0.00150f) < 0.00001f
+                    && System.Math.Abs(hazard.SpriteGroundOffsetPixels - 546.5f) < 0.01f)
+              && !fallingStrikes[0].SpriteFlipH
+              && fallingStrikes[1].SpriteFlipH
+              && fallingStrikes[2].SpritePath.EndsWith(
+                  "archive_repository_data_debris_style_v1.png")
+              && ResourceLoader.Exists(fallingStrikes[2].SpritePath)
+              && System.Math.Abs(fallingStrikes[2].SpritePixelSize - 0.00170f) < 0.00001f
+              && System.Math.Abs(fallingStrikes[2].SpriteGroundOffsetPixels - 747.0f) < 0.01f
+              && fallingStrikes.All(hazard =>
+                  System.Math.Abs(hazard.SpriteTravelHeight - 4.4f) < 0.01f),
+            "Repository falling strikes use distinct calibrated shelf and data-debris art");
         Check(StageHazardRuntime.Resolve(fallingStrikes[0], 70).IsActive
               && StageHazardRuntime.Resolve(fallingStrikes[1], 70).IsWarning
               && StageHazardRuntime.Resolve(fallingStrikes[2], 70).Phase == StageHazardPhase.Dormant
@@ -175,6 +208,15 @@ public static class StageHazardTests
                 Behavior: StageHazardBehavior.LinearSweep,
                 Targets: StageHazardTargetMask.All,
             }, "Corruption Repository remixes a neutral security sweep");
+        Check(securitySweep is not null
+              && securitySweep.SpritePath.EndsWith(
+                  "archive_repository_security_sweep_style_v1.png")
+              && ResourceLoader.Exists(securitySweep.SpritePath)
+              && System.Math.Abs(securitySweep.SpritePixelSize - 0.00125f) < 0.00001f
+                            && System.Math.Abs(securitySweep.SpriteGroundOffsetPixels - 300.5f) < 0.01f
+                            && System.Math.Abs(securitySweep.SpriteAnchorX - 0.85f) < 0.01f
+                            && securitySweep.SpriteFlipH,
+            "repository security sweep uses its calibrated authored emitter");
         var sweepStart = StageHazardRuntime.Resolve(securitySweep!, 84);
         var sweepEnd = StageHazardRuntime.Resolve(securitySweep!, 173);
         Check(sweepStart.IsActive && sweepEnd.IsActive && sweepStart.MinX < sweepEnd.MinX,
@@ -183,6 +225,26 @@ public static class StageHazardTests
             .SelectMany(encounter => encounter.Props)
             .ToArray();
         var explosive = repositoryProps.Single(prop => prop.ExplodesOnBreak);
+        Check(fallingStrikes.All(hazard =>
+                    hazard.AftermathVisual is
+                    {
+                        DecalSizeX: 2.6f,
+                        DecalSizeZ: 2.2f,
+                        FragmentPixelSize: 0.00068f,
+                    }
+                    && hazard.AftermathVisual.DecalTexturePath.EndsWith(
+                        "archive_repository_explosion_decal_style_v1.png")
+                    && hazard.AftermathVisual.FragmentSpritePath.EndsWith(
+                        "archive_repository_impact_fragments_style_v1.png")
+                    && ResourceLoader.Exists(hazard.AftermathVisual.DecalTexturePath)
+                    && ResourceLoader.Exists(hazard.AftermathVisual.FragmentSpritePath))
+              && explosive.AftermathVisual is
+              {
+                  DecalSizeX: 4.0f,
+                  DecalSizeZ: 3.4f,
+                  FragmentPixelSize: 0.00068f,
+              },
+            "Repository impacts and explosion author persistent decal/fragment aftermath");
         Check(repositoryProps.Any(prop => prop.DropType == StagePickupType.Score)
               && repositoryProps.Any(prop => prop.DropType == StagePickupType.Health)
               && repositoryProps.Any(prop => prop.DropType == StagePickupType.Meter),

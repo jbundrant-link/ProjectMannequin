@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T21:25:09.191583Z",
+    "display_name": "Nano Banana Pro",
+    "id": "5de69eda-5dfb-4192-afaa-88be2ea915d8",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_212509_5de69eda-5dfb-4192-afaa-88be2ea915d8_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "d984aee2-8074-4394-a625-3bb8bd387ad3",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d984aee2-8074-4394-a625-3bb8bd387ad3_resize.jpg"
+        },
+        {
+          "id": "abc86d38-b5c5-4d44-ac22-0c885232e39f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/abc86d38-b5c5-4d44-ac22-0c885232e39f.png"
+        },
+        {
+          "id": "0fc068ae-2fc2-4771-9a54-9b3a5b2c8105",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0fc068ae-2fc2-4771-9a54-9b3a5b2c8105_resize.jpg"
+        },
+        {
+          "id": "ceada12b-e235-4fde-9824-ddaae1fc0bc4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ceada12b-e235-4fde-9824-ddaae1fc0bc4.png"
+        },
+        {
+          "id": "5ba391e0-5b18-4f93-83ab-1a304a1fce22",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5ba391e0-5b18-4f93-83ab-1a304a1fce22.png"
+        },
+        {
+          "id": "3f44db24-2109-432f-bc3f-93c8c825f5e1",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3f44db24-2109-432f-bc3f-93c8c825f5e1.png"
+        },
+        {
+          "id": "1dc2c5c8-95e9-4755-99e7-8faf4b59d7dd",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1dc2c5c8-95e9-4755-99e7-8faf4b59d7dd_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create ONE production TOP HUD ORNAMENT OVERLAY for Project Mannequin, derived from the approved Living Archive HUD kit. Match the supplied mannequin, Ryu, and Goku character references with confident dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified warm-ivory porcelain and deep-plum joint materials, cyan Archive energy, restrained red opponent accent, and polished modern 2.5D fighting-game broadcast presentation. The approved HUD kit is the authoritative material and shape language. The current runtime screenshot and old HUD overlay are STRUCTURE ONLY: preserve their compact top-screen footprint and live-control seats, but do not copy glossy/PBR metal or old portraits.\n\nFull canvas 21:9. All ornament must fit entirely inside the TOP 24 PERCENT of the canvas; the lower 76 percent must be one perfectly uniform neutral medium-gray background for cutout. Build one continuous but visually light top HUD frame sized for a 1280x720 game view. LEFT side: an empty square portrait well at the outer 2-11 percent width, followed by a long blank angular health-bar window spanning roughly 12-46 percent width, plus one thinner blank meter window underneath. RIGHT side mirrors the information hierarchy at 54-88 percent width with a blank health window and thinner guard window, ending in an empty square portrait well at 89-98 percent width. CENTER: one compact faceted Archive diamond/keystone from 47-53 percent width, no text. Keep the central top title area and all bar interiors dark, flat, and blank so Godot renders names, bars, details, and score over them. Use cyan trim on player side and restrained coral-red trim on boss side; shared ivory/plum shell language around both.\n\nCRITICAL: portrait wells must be completely EMPTY dark recesses with no face, mannequin, silhouette, icon, or placeholder. No baked health fills, meter fills, words, letters, numbers, glyphs, labels, logos, UI text, checkerboard, reflections on background, lower panels, menu cards, decorative wings extending below 24 percent, photorealism, chrome, glossy PBR glass, rust, dense greebles, or microtexture. Keep slim contours and generous blank interior space. One uniform gray background behind the ornament from top to bottom; no cast shadow on it. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_212509_5de69eda-5dfb-4192-afaa-88be2ea915d8.png",
+    "status": "completed"
+  }
+]

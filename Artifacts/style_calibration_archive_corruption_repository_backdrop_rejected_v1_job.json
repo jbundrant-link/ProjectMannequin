@@ -1,0 +1,54 @@
+﻿[
+  {
+    "created_at": "2026-07-17T13:49:17.846765Z",
+    "display_name": "Nano Banana Pro",
+    "id": "90c9c4c2-83a5-4428-9713-7129e7c43fcc",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_134917_90c9c4c2-83a5-4428-9713-7129e7c43fcc_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "22726fca-4f78-4e32-81e6-76ba3b076634",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/22726fca-4f78-4e32-81e6-76ba3b076634.png"
+        },
+        {
+          "id": "2a2598d3-7e5e-409a-a0bd-495e20b879d2",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2a2598d3-7e5e-409a-a0bd-495e20b879d2.png"
+        },
+        {
+          "id": "bc62adb6-0c50-4576-a18d-c6626f79a2e2",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bc62adb6-0c50-4576-a18d-c6626f79a2e2.png"
+        },
+        {
+          "id": "7a94ae78-667e-4e75-8b17-d3ef617970ed",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7a94ae78-667e-4e75-8b17-d3ef617970ed_resize.jpg"
+        },
+        {
+          "id": "43abfcac-695d-4b10-9ccd-f11dd74a350c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/43abfcac-695d-4b10-9ccd-f11dd74a350c.png"
+        },
+        {
+          "id": "63245a97-806c-4612-98f9-e3e1b32a5221",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/63245a97-806c-4612-98f9-e3e1b32a5221_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the FAR BACKDROP ONLY for CORRUPTION REPOSITORY, a damaged data-vault district inside the Living Archive. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident controlled dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable shapes, and polished anime fighting-game lighting. The character references define rendering grammar only; DO NOT include any characters. The approved Index Vaults backdrop defines the side-on layered stage grammar. The hovering security emitter defines the Corruption Repository's magenta/cyan/ivory accent language. The old repository image is STRUCTURE ONLY - DO NOT copy its photoreal rendering, dense greebles, texture noise, or perspective.\n\nCompose a full-bleed 21:9 SIDE-ON LATERAL BELT-SCROLL BAND with one consistent horizon and no central vanishing point. Build three adjacent asymmetric subzone motifs at one stable scale: LEFT, a quarantined shelf canyon with broad tilted archive slabs and a broken seal arch; CENTER, a fractured repository vault wall split by one restrained branching magenta corruption scar and suspended ivory data plates; RIGHT, a collapsed catalog bridge and quarantine machinery with cyan recovery lights. Use deep indigo and dark plum architectural masses, ivory porcelain plates, controlled magenta corruption, cyan route lights, and only tiny amber accents. Keep the lower backdrop band simple and lower contrast behind gameplay. High fidelity comes from composition, lighting, and broad designed planes, not microdetail.\n\nBACKDROP ONLY: no floor, road, foreground railing, freestanding gameplay props, caches, canisters, hazards, warning circles, fighters, enemies, UI, text, signs, logos, border, frame, centered corridor, symmetry, tunnel, one-point perspective, photorealism, PBR metal, rust, grime, dense kit-bash greebles, microtexture, painterly blur, flat vector art, or baked effects. Flat traversal elevation, clean lateral continuity, sharp production finish.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_134917_90c9c4c2-83a5-4428-9713-7129e7c43fcc.png",
+    "status": "completed"
+  }
+]

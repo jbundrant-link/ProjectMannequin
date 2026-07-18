@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-18T03:58:37.597141Z",
+    "display_name": "Nano Banana Pro",
+    "id": "92d58a31-aaf6-4875-b977-479a4b9d6edb",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_035837_92d58a31-aaf6-4875-b977-479a4b9d6edb_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "efe470e2-a70e-41f6-b99f-16b2e54f1aaf",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/efe470e2-a70e-41f6-b99f-16b2e54f1aaf.png"
+        },
+        {
+          "id": "161a4a05-fc4a-4958-b67f-110f8c3701db",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/161a4a05-fc4a-4958-b67f-110f8c3701db.png"
+        },
+        {
+          "id": "ff308025-2734-44ba-ad85-0216ab8f8040",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ff308025-2734-44ba-ad85-0216ab8f8040.png"
+        },
+        {
+          "id": "15b692bf-fcb7-4993-9394-ef47348b6db4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/15b692bf-fcb7-4993-9394-ef47348b6db4_resize.jpg"
+        },
+        {
+          "id": "16194620-a028-4c6b-a0df-37da01d1f410",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/16194620-a028-4c6b-a0df-37da01d1f410_resize.jpg"
+        },
+        {
+          "id": "b3e6c874-cb5f-455d-a3e0-cd5c073f4afb",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b3e6c874-cb5f-455d-a3e0-cd5c073f4afb.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the FAR BACKDROP PILOT for DOJO APPROACH, Stage 1 of World Warrior Sector in a modern 2.5D belt-scroll fighting game. Match the supplied mannequin, Ryu, and Goku references as one cohesive production: confident controlled dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable shapes, and polished anime fighting-game lighting. Characters define rendering grammar only; DO NOT include characters. The supplied Tournament District image is the authoritative World Warrior palette/architecture reference only: warm dojo lantern light, dark timber, pale plaster, vermilion accents, tiled roofs, distant tournament silhouettes. It is NOT a composition reference and its giant masonry floor must not be copied. The approved Intake Boulevard backdrop defines only the flat lateral belt-scroll layering grammar; do not copy Archive motifs. The legacy runtime capture is STRUCTURE ONLY and demonstrates failures to avoid.\n\nBuild one continuous asymmetric full-bleed 21:9 SIDE-ON LATERAL BACKDROP BAND with one consistent horizon and no central vanishing point. Three adjacent traversal identities at one stable scale: LEFT, an outer hillside dojo gate profile with pale plaster wall, dark timber eaves, one vermilion cloth banner with no symbols, and sparse pines behind it; CENTER, a low open practice-yard facade with broad timber beams, warm lantern alcoves, and visible empty training terraces behind a waist-high boundary; RIGHT, a stepped challenger pavilion exterior with tiled roof silhouettes, a restrained tournament lantern arch, and distant mountain/temple shapes. Keep the lower 25 percent simple and lower contrast behind fighters. Use warm ivory plaster, charcoal timber, muted jade foliage, vermilion/coral accents, cyan-white moon or dawn rim light, and restrained gold lanterns. Large architectural masses and broad cel-painted planes dominate; sparse roof/timber detail only.\n\nBACKDROP ONLY. No floor, road, giant masonry, foreground railing, freestanding gameplay props, practice dummies, crates, hazards, fighters, spectators, human silhouettes, portraits, UI, text, letters, numbers, glyphs, logos, signs, centered gate, symmetry, corridor, tunnel, one-point perspective, photorealism, PBR wood/stone, rust, grime, dense roof tiles, microtexture, greebles, painterly blur, or baked borders. No repeated identical buildings. Clean lateral continuity and sharp production finish.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_035837_92d58a31-aaf6-4875-b977-479a4b9d6edb.png",
+    "status": "completed"
+  }
+]

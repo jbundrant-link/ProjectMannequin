@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Godot;
 using ProjectMannequin.Combat;
@@ -29,6 +30,9 @@ public partial class BossIntroHudSmokeScenario : Node
     private bool _barsVisibleAfterReady;
     private int _framesAfterFight;
     private int _processFrames;
+    private int _cutsceneCaptureStableFrames;
+    private bool _cutsceneCaptureSaved;
+    private bool _hudCaptureSaved;
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
 
@@ -41,6 +45,9 @@ public partial class BossIntroHudSmokeScenario : Node
         _hud = hud;
         _sequencer = sequencer;
         ProcessMode = ProcessModeEnum.Always;
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_BOSS_CUTSCENE_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_BOSS_INTRO_POSE_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_HUD_FRAME_CAPTURE");
         GD.Print("[BossIntroHudSmoke] Driver active.");
     }
 
@@ -53,6 +60,7 @@ public partial class BossIntroHudSmokeScenario : Node
 
         _processFrames++;
         CapturePreviousStep();
+        CaptureCutsceneIfRequested();
 
         var director = _simulation.EncounterDirector;
         var player = _simulation.Actors.FirstOrDefault(actor => actor.IsPlayerControlled);
@@ -79,6 +87,7 @@ public partial class BossIntroHudSmokeScenario : Node
                 && _hud.BossLifeBarVisible
                 && _hud.PlayerHealthBarValue > 0.0
                 && _hud.BossHealthBarValue > 0.0;
+            CaptureHudIfRequested();
             if (_framesAfterFight >= 45)
             {
                 Finish();
@@ -126,6 +135,29 @@ public partial class BossIntroHudSmokeScenario : Node
 
     private void Finish()
     {
+        var cutsceneCapturePath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_BOSS_CUTSCENE_CAPTURE");
+        var introCapturePath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_BOSS_INTRO_POSE_CAPTURE");
+        var hudCapturePath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_HUD_FRAME_CAPTURE");
+        var cutsceneCapturePassed = string.IsNullOrWhiteSpace(cutsceneCapturePath)
+            || File.Exists(cutsceneCapturePath);
+        var introCapturePassed = string.IsNullOrWhiteSpace(introCapturePath)
+            || File.Exists(introCapturePath);
+        var hudCapturePassed = string.IsNullOrWhiteSpace(hudCapturePath)
+            || File.Exists(hudCapturePath);
+        var styledHudFrame = _hud!.HudFramePath.EndsWith(
+                "project_mannequin_hud_frame_style_v2.png")
+            && ResourceLoader.Exists(_hud.HudFramePath);
+        var activePlayer = _simulation!.Actors.FirstOrDefault(actor =>
+            actor.IsPlayerControlled);
+        var activeBoss = _simulation.Actors.FirstOrDefault(actor =>
+            (actor.IsBoss || actor.IsElite) && !actor.IsDead);
+        var currentPortraits = activePlayer is not null
+            && activeBoss is not null
+            && _hud.PlayerPortraitFormId == activePlayer.CurrentForm.Id
+            && _hud.BossPortraitFormId == activeBoss.CurrentForm.Id;
         var passed = _sawCutscene
             && _sawStarted
             && _sawReady
@@ -133,12 +165,21 @@ public partial class BossIntroHudSmokeScenario : Node
             && _hudHiddenDuringIntro
             && _readyMessageVisible
             && _fightMessageVisible
-            && _barsVisibleAfterReady;
+            && _barsVisibleAfterReady
+            && cutsceneCapturePassed
+            && introCapturePassed
+            && hudCapturePassed
+            && styledHudFrame
+            && currentPortraits;
         GD.Print(
             $"[BossIntroHudSmoke] SUMMARY passed={passed} "
             + $"cutscene={_sawCutscene} started={_sawStarted} ready={_sawReady} fight={_sawFight} "
             + $"hidden={_hudHiddenDuringIntro} readyMsg={_readyMessageVisible} "
             + $"fightMsg={_fightMessageVisible} bars={_barsVisibleAfterReady} "
+            + $"cutsceneCapture={cutsceneCapturePassed} "
+            + $"introCapture={introCapturePassed} "
+            + $"hudCapture={hudCapturePassed} styledFrame={styledHudFrame} "
+            + $"currentPortraits={currentPortraits} "
             + $"opacity={_hud!.HudOpacity:0.00} phase={_sequencer!.Phase}");
         if (!passed)
         {
@@ -146,5 +187,78 @@ public partial class BossIntroHudSmokeScenario : Node
         }
 
         GetTree().Quit();
+    }
+
+    private void CaptureCutsceneIfRequested()
+    {
+        var path = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_BOSS_CUTSCENE_CAPTURE");
+        if (_cutsceneCaptureSaved
+            || string.IsNullOrWhiteSpace(path)
+            || _sequencer?.IsCutsceneVisible != true)
+        {
+            return;
+        }
+
+        _cutsceneCaptureStableFrames++;
+        if (_cutsceneCaptureStableFrames < 90)
+        {
+            return;
+        }
+
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError(
+                $"[BossIntroHudSmoke] Could not save matchup cutscene capture '{path}' ({error}).");
+            return;
+        }
+
+        _cutsceneCaptureSaved = true;
+        GD.Print($"[BossIntroHudSmoke] Matchup cutscene capture saved: {path}");
+    }
+
+    private void CaptureHudIfRequested()
+    {
+        var path = OS.GetEnvironment("PROJECT_MANNEQUIN_HUD_FRAME_CAPTURE");
+        if (_hudCaptureSaved
+            || string.IsNullOrWhiteSpace(path)
+            || _framesAfterFight < 30
+            || !_barsVisibleAfterReady)
+        {
+            return;
+        }
+
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError(
+                $"[BossIntroHudSmoke] Could not save HUD frame capture '{path}' ({error}).");
+            return;
+        }
+
+        _hudCaptureSaved = true;
+        GD.Print($"[BossIntroHudSmoke] HUD frame capture saved: {path}");
+    }
+
+    private static void PrepareCaptureOutput(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+        {
+            File.Delete(path);
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-16",
+  "updated": "2026-07-17",
   "visualBible": "Docs/VISUAL_STYLE_BIBLE.md",
   "minimumPassingScore": 14,
   "maximumScore": 16,
@@ -54,6 +54,60 @@
       "reviewDate": "2026-07-14"
     },
     {
+      "id": "archive_intake_boulevard_legacy_environment_v1",
+      "category": "stage",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/Stages/ArchiveDistrict/archive_district_backdrop_band_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_district_floor_higgsfield_v1.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "archive_intake_boulevard_layers_style_v1",
+      "failureReasons": [
+        "Generic neon-city identity instead of a distinctive Living Archive intake district",
+        "Unrelated human billboard imagery and repeated city panels weaken world cohesion",
+        "Dense equal-frequency architecture competes with fighters and stage objectives",
+        "Cracked realistic floor tiles dominate the frame and reduce ivory fighter separation",
+        "Generated without the mandatory mannequin/Ryu/Goku multi-reference stack"
+      ],
+      "functionalCaptures": [
+        "Artifacts/StyleCalibration/archive_intake_boulevard_review_clear_1280x720.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_review_live_1280x720.png"
+      ],
+      "notes": "Stage visual and full Stage 1 ladder smokes pass mechanically, but technical validity does not satisfy the visual-style gate. Replace rather than restyle in place.",
+      "nextAction": "Produce a unique layered Intake Boulevard environment with quiet dark gameplay floor, Archive gate landmarks, and restrained edge foreground.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "archive_knights_reliquary_legacy_environment_v1",
+      "category": "stage",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_floor_higgsfield_v1.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "archive_knights_reliquary_layers_style_v1",
+      "failureReasons": [
+        "Dense realistic hard-surface rendering and microdetail conflict with the canonical character value planes",
+        "Symmetric shrine wall and repeated holographic pseudo-figures compete with the boss and HUD",
+        "Floor-wide concentric rings and hard tile seams project as giant disconnected platforms",
+        "Single backdrop panel provides no layered parallax or restrained foreground depth",
+        "Generated without the mandatory mannequin/Ryu/Goku multi-reference stack"
+      ],
+      "functionalCaptures": [
+        "Artifacts/StyleCalibration/archive_knights_reliquary_legacy_clear_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_legacy_live_1280x720.png"
+      ],
+      "notes": "The repaired full Stage 4 ladder completes at tick 813 with Archive Knight defeat, form unlock, inheritance wait, form application, Stage Complete, and results. The legacy visual smoke still fails with roots=4, panels=1, floor=true, parallax=false. Environment replacement does not approve the separate procedural Archive Knight combat visual, pixel-art boss-intro cards, or missing localized destruction spectacle.",
+      "nextAction": "Produce a layered lateral Reliquary arena first, then separately runtime-approve a unique Archive Knight atlas, boss-intro presentation, and localized phase-destruction family.",
+      "reviewDate": "2026-07-17"
+    },
+    {
       "id": "archive_gameplay_objects_v1",
       "category": "prop_pickup",
       "status": "functional_replacement_required",
@@ -85,6 +139,8 @@
       ],
       "score": null,
       "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "project_mannequin_hud_style_pilot_v1",
       "failureReasons": [
         "Glossy realistic metal/glass treatment conflicts with character cel shading",
         "Does not derive strongly enough from mannequin porcelain plates and joint seams"
@@ -101,11 +157,655 @@
       ],
       "score": null,
       "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "project_mannequin_archive_map_style_v1",
       "failureReasons": [
         "Reads as a flat enterprise/database dashboard",
         "Insufficient illustrated realm art, character identity, fighting-game asymmetry, and dimensional Archive material language"
       ],
       "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "project_mannequin_archive_map_style_v1",
+      "category": "ui_screen",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_archive_map_background_style_pilot_v1.png",
+        "Assets/UI/ArchiveMap/project_mannequin_archive_map_background_style_v1.png",
+        "Scripts/UI/MainMenu.cs",
+        "Scripts/Debug/ArchiveMapSmokeScenario.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_project_mannequin_archive_map_background_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/UI/Hud/project_mannequin_hud_frame_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png",
+        "Assets/Stages/AstralBattlefront/astral_route_04_tournament_summit_higgsfield_v2.png"
+      ],
+      "structureOnlyReferences": [
+        "Artifacts/Phase0Smoke/archive_map_1280x720.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_world_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_confirm_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_world_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_confirm_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_runtime_1920x810.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_world_runtime_1920x810.png",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_confirm_runtime_1920x810.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_import.log",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_tests.log",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_runtime_1920x810.log",
+        "Artifacts/StyleCalibration/project_mannequin_archive_map_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The production Archive Map replaces the procedural dashboard grid with a 2752x1536 illustrated Living Archive navigation chamber containing distinct Archive, tournament, and astral portal motifs. Native controls remain authoritative and interactive. The three structural columns are unframed overlays instead of nested cards; only realm buttons, four repeated stage nodes, commands, and the overwrite modal retain intentional frames. A custom cyan route spine connects four gold diamond nodes behind the stage cards. Realm selection updates accent/status/route content, and the overwrite modal retains KEEP CURRENT RUN as the safe focused default. Exact initial, selected-World-Warrior, and confirmation captures at 1280x720, 1920x1080, and 1920x810 prove readable hierarchy, realm differentiation, responsive use of ultrawide space, safe focus, four-stage route state, and zero runtime errors. One point is withheld because chamber detail plus four route cards approaches the upper acceptable density at 720p. Runtime background SHA-256: adc7648341a7b323ef868d145f426153978b5c01743a3d5a0ccf7cc8df02fe79.",
+      "nextAction": "Retain as the approved Archive Map screen; restyle results, pause, and form-select around the approved Living Archive UI grammar.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "project_mannequin_results_style_v1",
+      "category": "ui_screen",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_results_plate_style_pilot_v1.png",
+        "Assets/UI/Results/project_mannequin_results_plate_style_v1.png",
+        "Scripts/UI/MvpHud.cs",
+        "Scripts/Debug/ResultsFlowSmokeScenario.cs",
+        "Scripts/Presentation/CombatAudioManager.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_project_mannequin_results_plate_job.json",
+        "Artifacts/StyleCalibration/project_mannequin_results_plate_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/UI/Hud/project_mannequin_hud_frame_style_v2.png",
+        "Assets/UI/ArchiveMap/project_mannequin_archive_map_background_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Artifacts/Phase0Smoke/results_stage_clear_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_legacy_stage_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_legacy_world_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_legacy_gameover_1280x720.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/project_mannequin_results_stage_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_world_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_gameover_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_confirm_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_stage_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_world_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_gameover_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_confirm_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_results_stage_runtime_1920x810.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/project_mannequin_results_plate_import.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_tests.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_stage.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_stage_map.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_stage_retry.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_world.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_world_map.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_gameover.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_route_gameover_retry.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_stage_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_world_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_gameover_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_stage_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_world_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_gameover_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_stage_runtime_1920x810.log",
+        "Artifacts/StyleCalibration/project_mannequin_results_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "One 2048x1373 real-alpha results plate serves Stage Clear, World Complete, and Game Over through native title, rank, identity, telemetry, unlock, and action data. The asymmetric plate uses a left rank medallion, right tally chamber, top title rail, lower archive ribbon, and command ledge in the approved porcelain/plum/cyan grammar. Runtime layout keeps all text inside authored dark regions, gives KO a mode-specific size, shows the real Stage 4 Reliquary identity in World Complete debug evidence, and scales proportionally from 720p through 1080p and 21:9. The replay/restart confirmation remains a subordinate modal with KEEP CHECKPOINT focused by default. All seven route variants pass double-action protection, checkpoint advancement/preservation, final-run retirement, confirmation, cancel, and focus contracts; pure results actions pass 12/12. Capture-only logic waits for stage-intro removal plus full root/modal opacity. CombatAudioManager now owns and disposes only its procedural AudioStreamWAV fallbacks, fixing a reproducible Mono unsafe-reference shutdown crash without touching authored audio. Exact Stage Clear, World Complete, Game Over, and confirmation captures pass at 720p/1080p; Stage Clear also passes exact 1920x810. Runtime plate SHA-256: ff9a4a54fed50dc53946b8070f0fd6c4d56c72a4d992c3b7080f3f6b4d972794.",
+      "nextAction": "Retain as the approved results family; restyle pause next, then form-select, around the same Living Archive UI grammar.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "project_mannequin_pause_legacy_v1",
+      "category": "ui_screen",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Scripts/UI/PauseMenu.cs",
+        "Artifacts/StyleCalibration/project_mannequin_pause_legacy_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_list_legacy_runtime_1280x720.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "project_mannequin_pause_style_v1",
+      "failureReasons": [
+        "Bare default-button column has no authored fighting-game frame or active-form identity",
+        "Nested Move List is a generic software rectangle layered over visible root controls",
+        "Default panel and button styling does not share the approved Living Archive material grammar"
+      ],
+      "notes": "The functional Move List labels, nested Escape behavior, and resume path pass, but technical validity does not satisfy the visual-style gate.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "project_mannequin_pause_style_v1",
+      "category": "ui_screen",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_pause_plate_style_pilot_v1.png",
+        "Assets/UI/Pause/project_mannequin_pause_plate_style_v1.png",
+        "Scripts/UI/PauseMenu.cs",
+        "Scripts/Debug/MoveListSmokeScenario.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_project_mannequin_pause_plate_job.json",
+        "Artifacts/StyleCalibration/project_mannequin_pause_plate_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/UI/Hud/project_mannequin_hud_frame_style_v2.png",
+        "Assets/UI/ArchiveMap/project_mannequin_archive_map_background_style_v1.png",
+        "Assets/UI/Results/project_mannequin_results_plate_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Artifacts/StyleCalibration/project_mannequin_pause_legacy_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_list_legacy_runtime_1280x720.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/project_mannequin_pause_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_list_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_cards_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_loadout_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_artifacts_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_pause_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_list_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_cards_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_loadout_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_artifacts_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_pause_runtime_1920x810.png",
+        "Artifacts/StyleCalibration/project_mannequin_move_list_runtime_1920x810.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/project_mannequin_pause_plate_import.log",
+        "Artifacts/StyleCalibration/project_mannequin_pause_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_pause_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_pause_runtime_1920x810.log",
+        "Artifacts/StyleCalibration/project_mannequin_pause_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "One 2048x1373 real-alpha pause plate uses a seven-slot left navigation record, separate title tab, large right document chamber, and lower status ribbon in the approved porcelain/plum/cyan grammar. The root view shows the active form portrait and run record; Move List, Move Cards, Form Loadout, and Artifacts replace only the right document content while left navigation remains stable. Native actions and data remain authoritative. Move List preserves the verified Ryu motion/crouch command labels, confines names and inputs inside the chamber, and places Close on the lower ribbon. Empty card/artifact states and one-form loadout remain intentional. The smoke traverses all four nested views, captures each, returns with Escape, and finally resumes combat. Exact five-view sets pass at 1280x720 and 1920x1080; root and dense Move List also pass exact 1920x810. Runtime plate SHA-256: 803671f77593ac892d3b1ada26e56853e01ac6442e53fd7d0bfcb24523cdc4f5.",
+      "nextAction": "Retain as the approved pause family; complete form-select as the final Archive shared-UI gate.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "project_mannequin_form_select_legacy_v1",
+      "category": "ui_screen",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Scripts/UI/FormSelectOverlay.cs",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_legacy_current_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_legacy_goku_1280x720.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "project_mannequin_form_select_style_v1",
+      "failureReasons": [
+        "Generic translucent preview and grid cards do not share the approved Living Archive material grammar",
+        "Full-screen software-layout treatment lacks a distinctive inheritance/archive selector silhouette",
+        "Selection hierarchy is functional but visually interchangeable with a generic character picker"
+      ],
+      "notes": "The UI-to-state-machine flow opens, navigates to explicit Goku, cancels, reopens, confirms, and swaps deterministically, but technical validity does not satisfy the visual-style gate.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "project_mannequin_form_select_style_v1",
+      "category": "ui_screen",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_form_select_frame_style_pilot_v1.png",
+        "Assets/UI/FormSelect/project_mannequin_form_select_frame_style_v1.png",
+        "Scripts/UI/FormSelectOverlay.cs",
+        "Scripts/Debug/FormSelectUiSmokeScenario.cs",
+        "Scripts/Core/MvpCombatBootstrap.cs",
+        "Scripts/Progression/MvpProgressStore.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_project_mannequin_form_select_frame_job.json",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_frame_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/UI/Hud/project_mannequin_hud_frame_style_v2.png",
+        "Assets/UI/Results/project_mannequin_results_plate_style_v1.png",
+        "Assets/UI/Pause/project_mannequin_pause_plate_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Artifacts/StyleCalibration/project_mannequin_form_select_legacy_goku_1280x720.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/project_mannequin_form_select_current_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_goku_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_current_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_goku_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_current_1920x810.png",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_goku_1920x810.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/project_mannequin_form_select_frame_import.log",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_tests.log",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_runtime_1920x810.log",
+        "Artifacts/StyleCalibration/project_mannequin_form_select_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "One 2048x1143 real-alpha inheritance selector uses a dominant left champion aperture, six-window 3x2 archive vault, top crystal title rail, and lower loadout ribbon in the approved porcelain/plum/cyan grammar. Native portraits, names, roles, stats, tags, equipped badge, and selection borders remain authoritative. The current form is ordered into the baked cyan center-top vault while the native cyan cursor moves independently to Ryu/Goku; selected Goku updates the full-body preview without obscuring the current equipped identity. Preview copy uses fixed authored positions inside the portrait and data shelves. A new nonpersistent UI smoke equips Blank/Ryu/Goku, opens with Q, captures current and Goku states, cancels, reopens, confirms explicit Goku, and resolves the request through the real deterministic CombatStateMachine path. Pure selector rules pass 4/4. Exact current/Goku pairs pass at 1280x720, 1920x1080, and 1920x810 with clean exits. FormSelectOverlay now disposes its four owned procedural UI streams on exit. Runtime frame SHA-256: 063f0674e65b9b6d42b8c805592082280081342554c9fc5f7d59a1405f50cc63.",
+      "nextAction": "Retain as the approved form-select family; Archive stage art and shared UI are complete, so begin the World Warrior content-art pass next.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_environment_legacy_v2",
+      "category": "stage",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+      ],
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "supersededBy": "world_warrior_dojo_approach_layers_style_v1",
+      "failureReasons": [
+        "One composite tournament source is reused across all four World Warrior ladder stages, so Dojo Approach has no unique identity",
+        "The same hero composition falls back as the floor texture and projects into giant repeated masonry rows that dominate most of the viewport",
+        "Repeated 17-unit panels and floor detail remain at competing frequencies instead of creating distinct layered traversal subzones",
+        "The composite source cannot satisfy separate far-backdrop, low-frequency floor, midground landmark, and restrained foreground contracts"
+      ],
+      "functionalCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_legacy_clear_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_legacy_live_1280x720.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_legacy_clear_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_legacy_live_1280x720.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The upper tournament architecture remains a useful World Warrior palette and contour reference, but the runtime composition fails category fitness. StageVisualSmoke passes roots=4, panels=5, floor=true, parallax=true, lighting=true, and sharp=true; the complete Stage 1 horde/horde/elite/results ladder passes at tick 820 with zero errors. Technical validity does not satisfy unique-stage or floor-projection art gates.",
+      "nextAction": "Produce a unique layered Dojo Approach environment with a quiet top-down training-stone floor, side-on outer-dojo backdrop, separated practice landmarks, and shallow edge foreground; review the tinted mannequin base enemy presentation in the same slice.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_dojo_approach_layers_style_v1",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_backdrop_style_pilot_v3.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_floor_style_pilot_v4.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_midground_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_foreground_style_pilot_v2.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_floor_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_midground_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_left_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_right_style_v1.png",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_dojo_backdrop_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_floor_v4_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_midground_job.json",
+        "Artifacts/StyleCalibration/world_warrior_dojo_midground_cutout_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_foreground_v2_job.json",
+        "Artifacts/StyleCalibration/world_warrior_dojo_foreground_v2_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_floor_style_v2.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_legacy_clear_1280x720.png"
+      ],
+      "rejectedSources": [
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_backdrop_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_backdrop_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_floor_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_floor_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_floor_style_pilot_v3.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_midground_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/world_warrior_dojo_foreground_style_pilot_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_import.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_world_tests.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_layers_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Dojo Approach now uses five independent selected textures across four depth layers: a 3168x1344 opaque seamless dusk backdrop, 2048x2048 packed-earth floor, 2048x868 real-alpha three-landmark midground, and separate 474x700/455x593 real-alpha shallow edge remnants. Parallax factors 0.72/0.90/1.12 preserve ordered depth; foreground opacity is 0.68. Backdrop V1 was rejected for black triptych bars and centered stairs; V2 for stitched one-third exposure transitions. Floor V1 used continuous masonry courses/edge bars, V2 a perimeter frame/grid, and V3 a perimeter outline with symmetric edge markers; accepted packed-earth V4 has 0.04 percent light occupancy and no seam network or edge treatment. Midground V1 generated four Goku figures in its lower band; V2 deterministically replaces only that contamination with source gray, and the cutout keeps exactly three major components. Foreground V1's right lantern was too tall; accepted V2 keeps both pieces shallow. Exact calm/live 720p and 1080p captures prove no masonry repetition, no projected rails/platforms, strong fighter separation, ordered parallax, four visual roots, four panels, sharp sampling, full horde/horde/elite/results progression at tick 820, and zero errors. One point is withheld because the fixed combat camera/HUD leaves the decorative landmark strip near the upper visibility limit. Runtime hashes: backdrop 23838fa2696d53d758f1a8d608690b7d4c1323f1e96db54cfe6094724a504075; floor 9592fd1fac79f7e529f4adc035811d9365b7c888aa07e60c102d1d2d1fadbd5d; midground 0463035b570e15c54f6d54843ddc7961ffe7850899a1b17b78bf01cdd1bee116; foreground left 0a68ffd52bbc5e5198cb1b7637367092ebac50b15d5649457291f7b0fd73e11f; foreground right af08fcbed73db5b65fb647abb4710bffbc21e8f23287dd5afcfe261d62432d6d.",
+      "nextAction": "Retain as the approved Dojo Approach environment; explicitly review the World Warrior Rookie/Striker/Grappler runtime atlases next, then produce Pavilion Circuit layers.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_base_enemy_family_legacy_v1",
+      "category": "enemy",
+      "status": "functional_replacement_required",
+      "assets": [
+        "Assets/Sprites/Enemies/world_warrior_rookie_higgsfield_v1.png",
+        "Assets/Sprites/Enemies/world_warrior_striker_higgsfield_v1.png",
+        "Assets/Sprites/Enemies/world_warrior_grappler_higgsfield_v1.png",
+        "Scripts/Tools/generate_enemy_sprites.ps1",
+        "Scripts/Tools/_batch_remaining_enemies.ps1"
+      ],
+      "model": "gpt_image_2",
+      "score": null,
+      "automaticFailure": true,
+      "finalApproval": false,
+      "partialSupersession": {
+        "Assets/Sprites/Enemies/world_warrior_rookie_higgsfield_v1.png": "world_warrior_rookie_style_v2",
+        "Assets/Sprites/Enemies/world_warrior_striker_higgsfield_v1.png": "world_warrior_striker_style_v2"
+      },
+      "failureReasons": [
+        "Rookie is recognizable Ryu-derivative art: white torn gi, red headband, bare feet, shoto proportions, and matching stance fail the original-character requirement",
+        "Striker uses a generic modern tracksuit fighter and a noticeably different anime rendering finish, so it does not read as part of the same tournament roster",
+        "Grappler's olive tactical vest, suspenders, cargo trousers, knee pads, and combat boots trigger the military/hard-surface visual rejection rule",
+        "The three designs share animation-grid structure but not one coherent World Warrior costume, material, accent, or silhouette language",
+        "Legacy generation used only mannequin choreography/style inputs instead of the mandatory mannequin, Ryu, and Goku canonical reference stack",
+        "Grappler's authored Shoulder Throw resolves visually as a standing punch, weakening role and move readability"
+      ],
+      "functionalCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_rookie_legacy_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_rookie_legacy_attack_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_legacy_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_legacy_attack_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_legacy_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_legacy_attack_runtime_1280x720.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_rookie_legacy_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_striker_legacy_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_grappler_legacy_runtime_1280x720.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "All three 2560x2304 real-alpha atlases are imported, content-distinct, and mechanically valid. Exact staged idle/active captures pass their complete Stage 1, Stage 2, and Stage 3 ladders at ticks 1058, 1231, and 1363 respectively. Source hashes: Rookie afa845c13c66cd0d9bc9ca085f84f3703e471864bb67d25ea1f3211c49e54b62; Striker ebd998033c2f6b4cd7a21e9c47c2d13c0ab9847bc52d0ccceaf85197aac1da6a; Grappler 49c87fb78fc902ac880eae578257edde3e4b81fe653aad1b16dc80c7aafb1b4f. Technical atlas validity does not satisfy originality, family cohesion, role readability, or canonical-style provenance. Rookie and Striker are now superseded at runtime by approved style-v2 atlases; only Grappler remains a rejected legacy base-enemy asset.",
+      "nextAction": "Replace Grappler with an original non-military tournament-wrestling design whose signature move reads as a real throw or shoulder drive.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_rookie_style_v2",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_idle_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_walk_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_dash_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_jump_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_attack_startup_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_attack_recovery_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_misc_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_animation_sources_v2.json",
+        "Assets/Sprites/Enemies/world_warrior_rookie_style_v2.png",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_atlas_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_pilot_v1_prompt.txt",
+        "Scripts/Tools/generate_world_warrior_rookie_sources.ps1",
+        "Scripts/Tools/compose_enemy_sheet.py",
+        "Scripts/Data/TestRosterFactory.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_rookie_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_idle_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_walk_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_dash_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_jump_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_attack_startup_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_attack_recovery_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_rookie_misc_sheet_v1_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png"
+      ],
+      "choreographyReferences": [
+        "Assets/Sprites/Mannequin/higgsfield_idle_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_walk_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_dash_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_jump_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_attacks_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_misc_sheet_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Enemies/world_warrior_rookie_higgsfield_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_quick_palm_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_quick_palm_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_import.log",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_world_tests.log",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "One original young rushdown fighter replaces the legacy Ryu-derived Rookie with a repeatable indigo crossover vest, saffron placket/sash, vermilion trouser panel and wraps, charcoal trousers, ivory shoes, bronze hair clasp, and lacquer waist token. The pilot and seven identity-locked 2048x2048 contact sheets contain exact separated component counts of 4 idle, 8 walk, 6 dash, 4 jump, 5 Quick Palm startup/active, 5 recovery, and 8 defense/hit/defeat poses. Deterministic composition normalizes one scale per row into a 2560x2304 real-alpha 10x9 atlas with 60 populated frames and no clipped cell bounds. The ten Quick Palm columns use exact durations 3/3/3/3/5/4/4/4/4/7, totaling the authored 12 startup, 5 active, and 23 recovery frames; runtime move frame 14 visibly resolves to the fully extended open palm. Exact idle/active 720p and 1080p captures pass complete Stage 1 ladders at tick 1058 with elite/results and zero errors. Focused world tests pass 144/144 and aggregate world/hazard tests pass 181/181. Atlas SHA-256: 01dbae3b513e36cca4000b366e96c9f15bc8c81432760e57cd10f8e01ffc2453.",
+      "nextAction": "Retain as the approved World Warrior rushdown and roster-style anchor; generate one original Striker pilot next, using Rookie for family grammar while preserving a distinct kick-focused silhouette.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_striker_style_v2",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_idle_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_walk_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_dash_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_jump_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_attack_startup_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_attack_recovery_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_misc_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_animation_sources_v2.json",
+        "Assets/Sprites/Enemies/world_warrior_striker_style_v2.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_atlas_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_pilot_v1_prompt.txt",
+        "Scripts/Tools/generate_world_warrior_striker_sources.ps1",
+        "Scripts/Tools/compose_enemy_sheet.py",
+        "Scripts/Data/TestRosterFactory.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_striker_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_idle_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_walk_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_dash_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_jump_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_attack_startup_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_attack_recovery_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_striker_misc_sheet_v1_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png"
+      ],
+      "choreographyReferences": [
+        "Assets/Sprites/Mannequin/higgsfield_idle_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_walk_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_dash_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_jump_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_attacks_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_misc_sheet_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Enemies/world_warrior_striker_higgsfield_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_turning_kick_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_turning_kick_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_import.log",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_world_tests.log",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_striker_style_v2_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "One original tall kick specialist replaces the generic tracksuit Striker with rust-auburn swept hair, a muted-vermilion pavilion jacket, indigo collar/calf wraps, saffron piping, charcoal trousers, ivory shoes, plum wrist wraps, and a lacquer hip token. The pilot and seven 2048x2048 contact sheets preserve a distinct long-legged silhouette. Idle generated a black quadrant cross plus a floating shoe, and Turning Kick startup generated one detached shoe; deterministic composition uses an 80000-pixel component floor that selects exactly 4/8/6/4/5/5/8 complete intended figures and excludes only those contaminants. The resulting 2560x2304 real-alpha 10x9 atlas has 60 populated frames, zero residual green pixels, and no clipped cell bounds. Turning Kick durations 4/4/4/4/5/4/5/5/6/7 exactly total 16 startup, 5 active, and 27 recovery frames; runtime move frame 18 resolves to a fully extended horizontal kick. Exact idle/active 720p and 1080p captures pass complete Stage 2 ladders at tick 1231 with elite/results and zero errors. Focused world tests pass 146/146 and aggregate world/hazard tests pass 183/183. Atlas SHA-256: 9ad1845759bf235ab8ad1036c59928f28b639f84d2495449a0b3544b27f89bb2.",
+      "nextAction": "Retain as the approved World Warrior kick-focused anchor; replace Grappler next with a broad tournament-wrestling silhouette and a genuinely readable signature drive or throw.",
+      "reviewDate": "2026-07-17"
     },
     {
       "id": "archive_enemy_family_legacy_and_pending",
@@ -184,20 +884,49 @@
     {
       "id": "archive_index_vaults_style_pilot_v2",
       "category": "stage",
-      "status": "style_direction_approved_production_layers_pending",
+      "status": "runtime_approved",
       "assets": [
-        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v2.png"
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_backdrop_style_pilot_v1.png",
+        "Artifacts/StyleCalibration/archive_index_vaults_backdrop_review_proxy.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_floor_style_pilot_v3.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_midground_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_foreground_style_pilot_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_floor_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_midground_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_foreground_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_foreground_left_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_foreground_right_style_v2.png"
       ],
       "model": "nano_banana_pro",
-      "jobMetadata": "Artifacts/style_calibration_index_vaults_v2_job.json",
+      "jobMetadata": [
+        "Artifacts/style_calibration_index_vaults_v2_job.json",
+        "Artifacts/style_calibration_archive_index_vaults_backdrop_job.json",
+        "Artifacts/style_calibration_archive_index_vaults_floor_v3_job.json",
+        "Artifacts/style_calibration_archive_index_vaults_midground_v2_job.json",
+        "Artifacts/StyleCalibration/archive_index_vaults_midground_cutout_job.json",
+        "Artifacts/style_calibration_archive_index_vaults_foreground_job.json",
+        "Artifacts/StyleCalibration/archive_index_vaults_foreground_cutout_job.json"
+      ],
       "canonicalReferencesUsed": [
         "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
         "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
-        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png",
+        "Assets/Sprites/Hazards/Archive/archive_index_scan_emitter_style_v1.png"
       ],
       "structureOnlyReferences": [
         "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v1.png",
-        "Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_higgsfield_v1.png"
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_floor_higgsfield_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_floor_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_floor_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_midground_style_pilot_v1.png"
       ],
       "score": 15,
       "scoreBreakdown": {
@@ -211,44 +940,566 @@
         "runtimeFitness": 2
       },
       "automaticFailure": false,
-      "finalApproval": false,
-      "nextAction": "Derive separate lateral backdrop, low-frequency floor, midground landmark, and foreground layers; then capture beside approved characters.",
-      "reviewDate": "2026-07-14"
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_world_tests.log",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_final_tests.log",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_index_vaults_layers_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The runtime environment uses five independent textures across four depth layers: a 3168x1344 opaque far backdrop, 2048x2048 top-down floor, 2048x868 real-alpha three-landmark midground, and separate 665x629/589x598 real-alpha entrance/exit foreground rails. Parallax factors 0.72/0.90/1.12 preserve ordered depth; foreground opacity is 0.72. Floor V1 was rejected for 50.6 percent light-area dominance, V2 for a continuous rail that projected as a floating platform, and accepted V3 reduces light occupancy to 11.1 percent with staggered seams. Midground V1 was rejected for baked text/checkerboard. Exact calm/live captures at 720p and 1080p prove fighter grounding, ivory separation, edge-bound foreground, parallax, lighting transitions, sharp sampling, both scan hazards, lane rhythm, elite/results, and no form unlock. One point is withheld because panel-seam frequency remains near the upper acceptable limit at 720p. Runtime hashes: backdrop c353d973b1fbe1310e62951f20a7973985ac33cea90265bcd809d55a8509d728; floor 0e47b6820897be73f05147d48d3d92fa9e48929f856eed4b4867c42d6caf518b; midground 52e1110a9563823f3b3d39efb7757a91a601bc33f3c066c47fc7e30536d6fead; foreground left 5306a7d142a7b95f9737914fb9f0e4c62966407c57b2e85b493780a92fa0cb96; foreground right a2b2fefb138f285ef1201cb1dc048e781c010bbf3206423e7f25cb0ccc59df3f.",
+      "nextAction": "Retain as the approved Index Vaults environment; explicitly review the existing Intake Boulevard environment before producing Corruption Repository layers.",
+      "reviewDate": "2026-07-17"
     },
     {
-      "id": "project_mannequin_hud_style_pilot_v1",
-      "category": "hud",
-      "status": "style_direction_approved_component_extraction_pending",
+      "id": "archive_intake_boulevard_layers_style_v1",
+      "category": "stage",
+      "status": "runtime_approved",
       "assets": [
-        "Assets/UI/Concepts/StyleCalibration/project_mannequin_hud_style_pilot_v1.png"
+        "Assets/Stages/Concepts/StyleCalibration/archive_intake_boulevard_backdrop_style_pilot_v2.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_backdrop_review_proxy.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_intake_boulevard_floor_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_intake_boulevard_midground_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_intake_boulevard_foreground_style_pilot_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_floor_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_foreground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_foreground_left_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_intake_boulevard_foreground_right_style_v1.png"
       ],
       "model": "nano_banana_pro",
-      "jobMetadata": "Artifacts/style_calibration_hud_job.json",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_intake_boulevard_backdrop_v2_job.json",
+        "Artifacts/style_calibration_archive_intake_boulevard_floor_nano_job.json",
+        "Artifacts/style_calibration_archive_intake_boulevard_midground_job.json",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_midground_cutout_job.json",
+        "Artifacts/style_calibration_archive_intake_boulevard_foreground_job.json",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_foreground_cutout_job.json"
+      ],
       "canonicalReferencesUsed": [
         "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
         "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
         "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v2.png",
+        "Assets/Sprites/Hazards/Archive/archive_intake_tram_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_district_backdrop_band_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_district_floor_higgsfield_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_intake_boulevard_backdrop_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_intake_boulevard_floor_style_pilot_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_import.log",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_world_tests.log",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_final_tests.log",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layers_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The runtime environment uses five independent textures across four depth layers: a 3168x1344 opaque asymmetric far backdrop, dark 2048x2048 top-down floor, 2048x868 real-alpha midground, and separate 473x427/236x280 real-alpha entrance/exit foreground pieces. Parallax factors 0.72/0.90/1.12 preserve ordered depth; foreground opacity is 0.70. Backdrop V1 was rejected for a centered corridor composition. A visually viable GPT Image 2 floor was rejected because completed metadata retained only one reference; the accepted Nano Banana Pro floor retained four references and supersedes it. Exact calm/live captures at 720p and 1080p prove fighter grounding, ivory separation, quiet gameplay space, edge-bound foreground, parallax, lighting, sharp sampling, Intake Tram operation, elite/results, and no form unlock. One point is withheld because upper-architecture detail density remains near the acceptable limit. Runtime hashes: backdrop ead57d8206c46b372fede50cebd59a27e32c2494ea5cb73b22cfcc5c2b65a5d1; floor 76b4b68561ca5596820d3fc1d35b2621dad210ae3c450c4425c29cb08b62e02a; midground 0aac83233bfaa5a8e5227573a81e90d4fe04a2540e21df49aa7647bb9b8aa9b3; foreground left 63097461a46c11b1e13ca29df8be9553c5643629c68aa082ecf28ec96a8f1d8c; foreground right e6bdb885bf9e3734dd4f71f1d1ead3a7cb674689d5acf97769dd57b43af7b507.",
+      "nextAction": "Retain as the approved Intake Boulevard environment and produce the Corruption Repository layered replacement next.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "archive_corruption_repository_layers_style_v1",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_corruption_repository_backdrop_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_corruption_repository_floor_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_corruption_repository_midground_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_corruption_repository_foreground_style_pilot_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_floor_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_foreground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_foreground_left_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_foreground_right_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_corruption_repository_backdrop_job.json",
+        "Artifacts/style_calibration_archive_corruption_repository_floor_v2_job.json",
+        "Artifacts/style_calibration_archive_corruption_repository_midground_job.json",
+        "Artifacts/StyleCalibration/archive_corruption_repository_midground_cutout_job.json",
+        "Artifacts/style_calibration_archive_corruption_repository_foreground_job.json",
+        "Artifacts/StyleCalibration/archive_corruption_repository_foreground_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_style_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_index_vaults_floor_style_v2.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_security_sweep_style_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_explosion_decal_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_floor_higgsfield_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_corruption_repository_backdrop_style_pilot_rejected_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_corruption_repository_floor_style_pilot_v1.png"
+      ],
+      "rejectedJobMetadata": [
+        "Artifacts/style_calibration_archive_corruption_repository_backdrop_rejected_v1_job.json",
+        "Artifacts/style_calibration_archive_corruption_repository_floor_job.json"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_import.log",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_world_tests.log",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_final_tests.log",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layers_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The runtime environment uses five independent textures across four depth layers: a 3168x1344 opaque asymmetric far backdrop, dark 2048x2048 top-down floor, 2048x868 real-alpha three-landmark midground, and separate 738x336/765x310 real-alpha containment remnants. Parallax factors 0.72/0.90/1.12 preserve ordered depth; foreground opacity is 0.70. The first backdrop result was rejected for excessive rubble/cable density and pseudo-glyph shapes. Floor V1 was rejected despite 11.16 percent light occupancy because its complete perimeter frame and long bright rails would project as platforms; accepted V2 reduces light occupancy to 1.78 percent and removes opposing-edge structures. Exact calm/live captures at 720p and 1080p prove fighter grounding, ivory separation, quiet central gameplay space, edge-bound foreground, parallax, lighting, sharp sampling, 4/4 falling and sweep hazard evidence, canister explosion, Basalt progression/results, and no form unlock. One point is withheld because upper architecture and magenta floor fractures remain near the acceptable detail-frequency limit. Runtime hashes: backdrop e172c055a317d8ef333d5e2857e361b0831b26d792fa854e1a9e25c7448d2b5e; floor 99087db75637219e6951a2e1f828ccb2662e70639c62418c2ef71cefd7e72e21; midground faa2e804bae940612f89b4bdfdb6bf0d73bc09aaccf8b5a174258949e1a28c40; foreground left 011009e517db09215fb327ea2e5abcdc23f1f5727660cd6f858d9a74bea56aa9; foreground right 842fbc767f31de0ccd3d72d923934dc967cf56ce9d094bd14a85716a47202ab2.",
+      "nextAction": "Retain as the approved Corruption Repository environment and produce the Knight's Reliquary layered replacement next.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "archive_knights_reliquary_layers_style_v1",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_knights_reliquary_backdrop_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_knights_reliquary_floor_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_knights_reliquary_midground_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_knights_reliquary_foreground_style_pilot_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_floor_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_foreground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_foreground_left_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_foreground_right_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_knights_reliquary_backdrop_job.json",
+        "Artifacts/style_calibration_archive_knights_reliquary_floor_job.json",
+        "Artifacts/style_calibration_archive_knights_reliquary_midground_job.json",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_midground_cutout_job.json",
+        "Artifacts/style_calibration_archive_knights_reliquary_foreground_job.json",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_foreground_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Mannequin/knight_intro_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_floor_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_corruption_repository_foreground_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_higgsfield_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_floor_higgsfield_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_combat_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_combat_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_import.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_world_tests.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_final_tests.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_combat_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layers_combat_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The runtime environment uses five independent textures across four depth layers: a 3168x1344 opaque asymmetric ceremonial backdrop, dark 2048x2048 top-down floor, 2048x868 real-alpha three-landmark midground, and separate 643x397/443x379 real-alpha oath-rail remnants. Parallax factors 0.72/0.90/1.12 preserve ordered depth; foreground opacity is 0.68. The accepted floor has 1.35 percent light occupancy, no complete ring, no perimeter frame, and no opposing-edge rail; its small offset seal uses disconnected arcs. Exact clear/combat captures at 720p and 1080p prove grounding, ivory and violet fighter separation, quiet central gameplay space, edge-bound foreground, parallax, lighting, sharp sampling, Archive Knight defeat, form unlock, inheritance wait, form application, Stage Complete, and results. One point is withheld because repeated broken-arc motifs remain visible after floor tiling. This record approves the environment only; the unique Archive Knight combat atlas and intro presentation are approved by separate records, while localized phase-destruction spectacle remains unapproved. Runtime hashes: backdrop e2712dabcf6ea3faf554aab657339379f63de9f0676ce5a330c4586e7bb492fc; floor 57964db4fc1cb58dce09585d6ecf02158f81d98c43969499e860ec1ef81300f2; midground fd5365f0b6922519ab5722335b72e884ab024b3051990599d2b633b6c955d4c7; foreground left bb78bc8fb776cb153c88629c63d7f186a69402621863759685931e95b3088942; foreground right 298c2e60587106b0d059d811b48b1768bb4cd4c448eb715694978fce3219a3b6.",
+      "nextAction": "Retain the approved Reliquary environment and add localized phase-destruction spectacle.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "archive_knight_style_pilot_v1",
+      "category": "boss_form",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_idle_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_walk_sheet_v3.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_walk_opposite_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_dash_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_dash_brake_pose_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_jump_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_attacks_upper_sheet_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_attacks_kicks_sheet_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_reactions_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_knockdown_pose_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_defeated_pose_v1.png",
+        "Assets/Sprites/Enemies/archive_knight_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_knight_pilot_job.json",
+        "Artifacts/style_calibration_archive_knight_idle_job.json",
+        "Artifacts/StyleCalibration/archive_knight_idle_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_walk_v3_job.json",
+        "Artifacts/StyleCalibration/archive_knight_walk_v3_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_walk_opposite_job.json",
+        "Artifacts/StyleCalibration/archive_knight_walk_opposite_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_dash_job.json",
+        "Artifacts/StyleCalibration/archive_knight_dash_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_dash_brake_job.json",
+        "Artifacts/StyleCalibration/archive_knight_dash_brake_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_jump_job.json",
+        "Artifacts/StyleCalibration/archive_knight_jump_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_attacks_upper_job.json",
+        "Artifacts/StyleCalibration/archive_knight_attacks_upper_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_attacks_kicks_job.json",
+        "Artifacts/StyleCalibration/archive_knight_attacks_kicks_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_reactions_job.json",
+        "Artifacts/StyleCalibration/archive_knight_reactions_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_knockdown_job.json",
+        "Artifacts/StyleCalibration/archive_knight_knockdown_cutout_job.json",
+        "Artifacts/style_calibration_archive_knight_defeated_job.json",
+        "Artifacts/StyleCalibration/archive_knight_defeated_cutout_job.json"
+      ],
+      "compositionManifest": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_animation_sources_v1.json",
+      "compositionReport": "Artifacts/StyleCalibration/archive_knight_style_v1_composition_report.json",
+      "atlasPreview": "Artifacts/StyleCalibration/archive_knight_style_v1_atlas_preview.png",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_floor_style_v1.png",
+        "Assets/Sprites/Enemies/overseer_basalt_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Sprites/Mannequin/knight_intro_higgsfield_v1.png",
+        "Assets/Sprites/Mannequin/mannequin_sheet_higgsfield_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_walk_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_walk_sheet_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_attacks_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_archive_burst_pose_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_knight_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knight_cleave_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knight_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_knight_cleave_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_knight_build.log",
+        "Artifacts/StyleCalibration/archive_knight_world_tests.log",
+        "Artifacts/StyleCalibration/archive_knight_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_knight_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_knight_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The final 2560x2304 real-alpha 10x9 atlas contains 60 populated frames across rows 0-5 and leaves rows 6-8 transparent. Grouped source composition uses authored boxes and connected-silhouette anchors; row scales remain tightly matched from 0.224609 to 0.239085. The unique faceless helm, broken-arch left pauldron, sternum memory core, split tabards, and integrated right-forearm archive blade replace the prior tint-only mannequin identity for both the final boss and inherited form. Rejected Walk V1 lost the signature pauldron, Walk V2 redesigned/cropped the character, the ten-pose attack sheet detached the blade and dropped identity markers, and the standalone Burst redesigned the helm/blade and added a baseline. Exact idle/active-cleave captures at 720p and 1080p prove matched standing height, boss-width silhouette, grounding, attached blade continuity, ivory/plum separation, clean attack readability, full defeat/unlock/inheritance/results progression, and zero runtime errors. Runtime atlas SHA-256: ce115f5271aba73a7efcf740090e9720bb1715922fd51955d85f9328df5071b1. This record covers the combat atlas and inherited form; the matching intro presentation is approved separately, while localized phase-destruction spectacle remains unapproved.",
+      "nextAction": "Retain the approved Archive Knight combat identity and add localized Reliquary phase-destruction spectacle.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "archive_knight_intro_style_v1",
+      "category": "boss_intro",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_intro_sheet_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_intro_cutout_v1.png",
+        "Assets/Sprites/Enemies/archive_knight_intro_style_v1.png",
+        "Assets/Sprites/Enemies/archive_knight_portrait_style_v1.png",
+        "Assets/Sprites/Mannequin/mannequin_portrait_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_knight_intro_job.json",
+        "Artifacts/StyleCalibration/archive_knight_intro_cutout_job.json",
+        "Artifacts/StyleCalibration/archive_knight_portrait_cutout_job.json"
+      ],
+      "processingScript": "Scripts/Tools/_process_intro.py",
+      "atlasPreview": "Artifacts/StyleCalibration/archive_knight_intro_style_v1_atlas_preview.png",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_idle_sheet_v1.png",
+        "Assets/Sprites/Enemies/archive_knight_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Sprites/Mannequin/knight_intro_higgsfield_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_knight_matchup_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knight_intro_peak_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knight_matchup_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_knight_intro_peak_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_knight_intro_import.log",
+        "Artifacts/StyleCalibration/archive_knight_intro_build.log",
+        "Artifacts/StyleCalibration/archive_knight_intro_world_tests.log",
+        "Artifacts/StyleCalibration/archive_knight_intro_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_knight_intro_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_knight_intro_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The 1024x512 real-alpha 4x2 runtime atlas uses one global scale of 0.573, baseline 250, ground offset 122, and frame heights 238/239/239/227/237/244/210/212 without any cell-edge contact. Frames 0-4 form the entrance and power flourish, frame 2 is the authored cyan/violet peak, and frames 5-7 form the stable ready loop. The faceless crest helm, broken-arch pauldron, sternum core, split tabards, and attached forearm blade remain consistent through all eight poses. The old purple tint-only mannequin intro is retained only as cadence provenance and is no longer runtime-selected. Explicit real-alpha Knight and canonical mannequin portraits replace both atlas/procedural matchup-card fallbacks. Exact 720p and 1080p captures prove settled title/VS/taunt hierarchy, unclipped illustrated identities, matched in-world scale and grounding, readable peak flare, READY/FIGHT/HUD lifecycle, and zero errors. Runtime hashes: intro atlas 90e3e6f7831bdd9153e9b3655fcf7d9c5b4b0fa0fc1dcfce71b60d165b6df329; Knight portrait 418dd12cdf6e5d1da74789c4081e2223e1e548c84d5eb6049be1853cd81132d8; mannequin portrait 0cac94cbc237762711c090694fbab392fde9956054508bc6242b1b92ebc764cc.",
+      "nextAction": "Retain the approved Archive Knight intro presentation and add localized Reliquary phase-destruction spectacle.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "archive_reliquary_phase_destruction_style_v1",
+      "category": "stage_spectacle",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase2_midground_style_pilot_v3.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase3_midground_style_pilot_v3.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase_bursts_style_pilot_v2.png",
+        "Assets/Stages/ArchiveDistrict/archive_reliquary_phase2_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_reliquary_phase3_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_reliquary_phase2_burst_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_reliquary_phase3_burst_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_reliquary_phase2_midground_v3_job.json",
+        "Artifacts/style_calibration_archive_reliquary_phase3_midground_v2_job.json",
+        "Artifacts/style_calibration_archive_reliquary_phase_bursts_v2_job.json",
+        "Artifacts/StyleCalibration/archive_reliquary_phase2_midground_cutout_job.json",
+        "Artifacts/StyleCalibration/archive_reliquary_phase3_midground_cutout_job.json",
+        "Artifacts/StyleCalibration/archive_reliquary_phase_bursts_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_knight_style_pilot_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_midground_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_backdrop_style_v1.png",
+        "Assets/Stages/ArchiveDistrict/archive_knights_reliquary_foreground_style_v1.png",
+        "Assets/Vfx/Combat/project_mannequin_strike_burst_style_v1.png"
+      ],
+      "processingSource": "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase3_midground_style_pilot_v2.png",
+      "rejectedSources": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase2_midground_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase2_midground_style_pilot_v2.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase3_midground_style_pilot_v1.png",
+        "Assets/Stages/Concepts/StyleCalibration/archive_reliquary_phase_bursts_style_pilot_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_reliquary_phase2_burst_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase2_settled_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase3_burst_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase3_settled_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase2_burst_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase2_settled_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase3_burst_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_reliquary_phase3_settled_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_reliquary_destruction_import.log",
+        "Artifacts/StyleCalibration/archive_reliquary_destruction_build.log",
+        "Artifacts/StyleCalibration/archive_reliquary_destruction_world_tests.log",
+        "Artifacts/StyleCalibration/archive_reliquary_destruction_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_reliquary_destruction_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_reliquary_destruction_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The existing deterministic BossPhaseChanged/WallBreakStarted path remains authoritative; presentation consumes each real wall break without mutating combat state. Phase 2 persistently breaks only the left oath-tablet landmark, while phase 3 preserves that ruin and advances damage through the center plinth and right crystal seal. A localized persistent overlay keeps the progression readable inside the live boss camera. Separate real-alpha bursts use left/right fight-room anchors: phase 2 is a compact porcelain archive-ring rupture and phase 3 is a larger crystal/plinth rupture. The effects expand and fade over 0.72 seconds while persistent damage remains. Phase-2 V1 was rejected for reflected Knight anatomy, V2 for pseudo-writing; phase-3 V1 was rejected for a reflected boot and V2 was deterministically cleaned only below the lowest real landmark; burst V1 was rejected for pseudo-glyphs and a cast-shadow blob. Exact burst/settled captures at 720p and 1080p prove real transitions at ticks 786/997, progressive localization, title/effect coexistence, fighter readability, bounded debris, and zero runtime errors. Runtime hashes: phase-2 state 3eb3ace1a11bff2fb24a27bf472de918d4b3c8f48f5086f20a69bf7814b589e4; phase-3 state 1e35bcbefb78d21ea1312005301aa0ae2c85f1e624638ccd91c252d97c770a5d; phase-2 burst e25333ee6261c6d6acc5b7eb7d2cc1231360c75f42295b3a984d429f88c77c9c; phase-3 burst ae3be6af4fe93227b8d3c19a7539078fad2427b656ef6be737c7c0301511c344.",
+      "nextAction": "Retain as the approved Reliquary phase spectacle; Archive stage art is complete and shared UI restyling is next.",
+      "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "project_mannequin_hud_style_pilot_v1",
+      "category": "hud",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_hud_style_pilot_v1.png",
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_hud_frame_style_pilot_v1.png",
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_hud_frame_cutout_v1.png",
+        "Assets/UI/Hud/project_mannequin_hud_frame_style_v2.png",
+        "Assets/Sprites/Mannequin/mannequin_portrait_style_v1.png",
+        "Assets/Sprites/Enemies/archive_knight_portrait_style_v1.png",
+        "Scripts/UI/MvpHud.cs",
+        "Scripts/UI/FormSelectPortraitResolver.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_hud_job.json",
+        "Artifacts/style_calibration_project_mannequin_hud_frame_job.json",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/UI/Concepts/StyleCalibration/project_mannequin_hud_style_pilot_v1.png",
+        "Assets/Sprites/Enemies/archive_knight_portrait_style_v1.png"
       ],
       "structureOnlyReferences": [
         "Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png",
         "Artifacts/ArchiveArtPass/index_vaults_runtime_calibrated.png",
         "Artifacts/Phase0Smoke/archive_map_1280x720.png"
       ],
-      "score": 15,
+      "score": 16,
       "scoreBreakdown": {
         "cohesion": 2,
         "contour": 2,
         "celValueStructure": 2,
         "silhouette": 2,
-        "detailDensity": 1,
+        "detailDensity": 2,
         "materialLighting": 2,
         "colorHierarchy": 2,
         "runtimeFitness": 2
       },
       "automaticFailure": false,
-      "finalApproval": false,
-      "nextAction": "Extract and rebuild modular nine-slice/texture components, preserve blank text regions, wire responsive layouts, and validate 1–4-player captures.",
-      "reviewDate": "2026-07-14"
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1920x810.png",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1280x960.png",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_split_screen_runtime_1280x720.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_import.log",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1920x810.log",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_runtime_1280x960.log",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_split_screen_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/project_mannequin_hud_frame_final_tests.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The production HUD uses one 2752x1536 real-alpha overlay with 86.98 percent transparent area and a visible top band bounded at y=25..320. Source-relative horizontal placement preserves the authored empty portrait wells and native control seats. MvpHud now resolves each active form through FormSelectPortraitResolver instead of tinting one mannequin crop, constrains bars and ellipsized detail text to their windows, splits score/time and encounter/hostile telemetry around the center keystone, and uses a centered 16:9 safe rect so portrait wells never stretch on ultrawide or tall viewports. Exact 1280x720 and 1920x1080 boss-lifecycle captures prove READY/FIGHT visibility, active Blank Mannequin/Archive Knight portraits, seated bars, compact hierarchy, and zero errors. Exact 1920x810, 1280x960, and two-player isolated-duel captures prove ultrawide, 4:3, and split-screen compatibility. The capture-only root viewport override now honors arbitrary aspect ratios without affecting ordinary play. Runtime SHA-256: 8ab249e8fcc78922f20f7d28352f151c4ba6280c4451c30c73dd6d95c26b06c8.",
+      "nextAction": "Retain as the approved shared HUD anchor; restyle the Archive Map, results, pause, and form-select surfaces around the same Living Archive UI grammar.",
+      "reviewDate": "2026-07-17"
     },
     {
       "id": "archive_raider_style_pilot_v1",
@@ -679,6 +1930,301 @@
       "notes": "The imported 2560x2304 real-alpha 10x9 atlas contains 60 populated runtime cells and uses SpritePixelSize 0.0205 with ground offset 120 without tinting. Matte obsidian cel planes, wedge helmet, split amber-magenta fault core, cyan restraint ring, asymmetric shoulder, and stepped seismic gauntlet remain distinct from the base Bruiser. Faultline Driver uses frames 40-49 and durations [5,5,5,5,5,5,6,7,8,8], exactly preserving 20 startup, 5 active, and 34 recovery frames. Walk V1 and jump V1 were rejected for ivory Bruiser identity regression; follow-through V1 swapped arm functions and V2 moved the slab gauntlet onto the leg, so the accepted row uses four clean recovery poses and repeats the final guard. Violet-white Stage 3 light preserves the authored palette. Dual-resolution Stage 3 captures pass with 4/4 hazards, real canister damage, elite intro/lifebar, results, and no form unlock. Atlas SHA-256: 4002d41eaa09263b5c1cb90ae9deadaa9b3514c4975f92e1b3861834dec83200.",
       "nextAction": "Retain as the approved Stage 3 named elite; continue with remaining Archive environments, hazards, HUD, and Archive Knight review.",
       "reviewDate": "2026-07-16"
+    },
+    {
+      "id": "archive_intake_tram_style_pilot_v1",
+      "category": "hazard",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_intake_tram_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_intake_tram_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_archive_intake_tram_job.json",
+      "processingJobMetadata": "Artifacts/StyleCalibration/archive_intake_tram_cutout_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Props/Archive/archive_health_cache_style_v2.png",
+        "Assets/Sprites/Props/Archive/archive_volatile_canister_style_v2.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_intake_tram_warning_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_intake_tram_active_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_intake_tram_warning_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_intake_tram_active_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_intake_tram_hazard_tests.log",
+        "Artifacts/StyleCalibration/archive_intake_tram_final_tests.log",
+        "Artifacts/StyleCalibration/archive_intake_tram_warning_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_intake_tram_active_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_intake_tram_warning_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_intake_tram_active_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The 2048x1373 real-alpha runtime sprite has 1827x839 visible bounds and uses SpritePixelSize 0.00220 with ground offset 419.5. Its four-world-unit collision footprint and eight-unit sweep preserve the original authored endpoint while matching the long armored silhouette. The procedural amber/red strip remains the deterministic accessibility layer beneath the illustrated tram. Dual-resolution warning and midpoint-active captures preserve safe lanes, show full-color active readability and real 45 damage, and complete the full Stage 1 ladder with one of one hazard warnings, elite intro/lifebar, results, and no form unlock. One point is withheld for dense tread/base detail. Runtime asset SHA-256: 169e6ee682f994619b44acd3fe1e85e472ba234ba98c6c809a727bea58ee5936.",
+      "nextAction": "Retain as the approved Intake Boulevard hazard; active and aftermath hazards are complete, with Index Vaults environment layers next.",
+      "reviewDate": "2026-07-16"
+    },
+    {
+      "id": "archive_index_scan_hazard_family_v1",
+      "category": "hazard",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_index_scan_emitter_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_index_scan_field_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_index_scan_emitter_style_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_index_scan_field_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_index_scan_emitter_job.json",
+        "Artifacts/style_calibration_archive_index_scan_field_job.json",
+        "Artifacts/StyleCalibration/archive_index_scan_emitter_cutout_job.json",
+        "Artifacts/StyleCalibration/archive_index_scan_field_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/Concepts/StyleCalibration/archive_index_vaults_style_pilot_v2.png",
+        "Assets/Sprites/Hazards/Archive/archive_intake_tram_style_v1.png",
+        "Assets/Sprites/Props/Archive/archive_health_cache_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/combat_strike_vfx_style_pilot_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_index_scan_far_warning_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_index_scan_far_active_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_index_scan_near_active_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_index_scan_far_warning_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_index_scan_far_active_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_index_scan_near_active_clear_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_index_scan_hazard_tests.log",
+        "Artifacts/StyleCalibration/archive_index_scan_final_tests.log",
+        "Artifacts/StyleCalibration/archive_index_scan_far_warning_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_index_scan_far_active_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_index_scan_near_active_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_index_scan_far_warning_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_index_scan_far_active_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_index_scan_near_active_clear_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The 2048x2048 emitter has 1240x1809 visible bounds, real alpha, SpritePixelSize 0.00090, and ground offset 935. The 2048x868 floor field is 52.4 percent fully transparent with no fully opaque carpet. Far and near scans reuse the same resources at normalized X anchors 0.08 and 0.92; the near scan mirrors both the emitter and field UVs. The procedural amber/red plane remains the deterministic accessibility layer beneath warning/active illustrated art. Dual-resolution clear warning, live active, and mirrored near-active captures preserve fighter feet, center/opposite safe lanes, two-of-two hazard warnings, lane transitions, elite intro/lifebar, results, and no form unlock. One point is withheld for repeated field-rail density. Emitter SHA-256: 01330100a231d7d8d5481ff33073d1ec8209a63a44fdbe091e461281a8cc8073. Field SHA-256: e0b874d894bd5abf4ad12e9095880f4d05060b0f1671b0d277586e0dd18b10eb.",
+      "nextAction": "Retain as the approved Index Vaults scan family; active and aftermath hazards are complete, with Index Vaults environment layers next.",
+      "reviewDate": "2026-07-16"
+    },
+    {
+      "id": "archive_repository_falling_hazard_family_v1",
+      "category": "hazard",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_repository_falling_shelf_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_repository_data_debris_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_falling_shelf_style_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_data_debris_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_repository_falling_shelf_job.json",
+        "Artifacts/style_calibration_archive_repository_data_debris_job.json",
+        "Artifacts/StyleCalibration/archive_repository_falling_shelf_cutout_job.json",
+        "Artifacts/StyleCalibration/archive_repository_data_debris_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
+        "Assets/Sprites/Props/Archive/archive_volatile_canister_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/overseer_basalt_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/combat_strike_vfx_style_pilot_v1.png"
+      ],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_repository_shelf_warning_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_shelf_active_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_data_debris_active_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_shelf_warning_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_repository_shelf_active_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_repository_data_debris_active_clear_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_repository_falling_art_hazard_tests.log",
+        "Artifacts/StyleCalibration/archive_repository_falling_art_final_tests.log",
+        "Artifacts/StyleCalibration/archive_repository_shelf_warning_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_shelf_active_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_data_debris_active_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_shelf_warning_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_repository_shelf_active_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_repository_data_debris_active_clear_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The 2048x1373 shelf has 1601x1115 visible bounds and uses SpritePixelSize 0.00150 with ground offset 546.5. The 2048x2048 center terminal cluster has 1369x1572 visible bounds and uses SpritePixelSize 0.00170 with ground offset 747. Both descend 4.4 world units during their 45-frame warning and settle on the existing 2.4x2.0 circular impact zones; the near shelf mirrors the far shelf while center debris uses a distinct asset. The procedural violet/orange discs remain authoritative accessibility markers. Dual-resolution late-warning, live shelf impact, and isolated center-impact captures preserve fighter silhouettes, show real -70 impact damage, and complete Stage 3 with four-of-four hazard warnings, real canister explosion/damage, elite intro/lifebar, results, and no form unlock. One point is withheld for peripheral shard density on the center cluster. Shelf SHA-256: 25262b8ab53d53194b1007a06e219522a89b3a01ff2473ce16f6cf58ff03829a. Data-debris SHA-256: cf6be468793cf4e6fb0c3126a0a5f51e8bfe4a4096578d43114599913f54ea0a.",
+      "nextAction": "Retain as the approved Corruption Repository falling-strike family; active and aftermath hazard art are complete, with Archive environment production next.",
+      "reviewDate": "2026-07-16"
+    },
+    {
+      "id": "archive_repository_security_sweep_v1",
+      "category": "hazard",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_repository_security_sweep_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_security_sweep_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_repository_security_sweep_job.json",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Hazards/Archive/archive_index_scan_emitter_style_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_intake_tram_style_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_falling_shelf_style_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_warning_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_active_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_warning_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_active_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_hazard_tests.log",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_final_tests.log",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_warning_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_active_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_warning_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_repository_security_sweep_active_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The 2048x1373 real-alpha emitter has 1557x667 visible bounds and uses SpritePixelSize 0.00125 with ground offset 300.5. It is horizontally mirrored and inset to normalized X anchor 0.85 so the magenta prow faces the positive-X 10.8-unit sweep and the full hull remains visible at entry. The procedural amber/red strip remains the authoritative warning/active accessibility layer; moving LinearSweep sprites use higher warning opacity while preserving authored colors. Exact 720p/1080p clear-warning and live midpoint-active captures preserve safe near/far lanes, fighter silhouettes, four-of-four hazard warnings, real canister explosion/damage, elite intro/lifebar, results, and no form unlock. Runtime asset SHA-256: 2c75718db3bb192f24a45229151b8e2f67237d8359639d06e9f155ac3cc2fb3b.",
+      "nextAction": "Retain as the approved Corruption Repository security sweep; aftermath art is complete and Archive environment production is next.",
+      "reviewDate": "2026-07-16"
+    },
+    {
+      "id": "archive_repository_aftermath_family_v1",
+      "category": "hazard_aftermath",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/archive_repository_explosion_decal_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/archive_repository_impact_fragments_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_explosion_decal_style_v1.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_impact_fragments_style_v1.png"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_archive_repository_explosion_decal_job.json",
+        "Artifacts/style_calibration_archive_repository_impact_fragments_job.json",
+        "Artifacts/StyleCalibration/archive_repository_explosion_decal_cutout_job.json",
+        "Artifacts/StyleCalibration/archive_repository_impact_fragments_cutout_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Props/Archive/archive_volatile_canister_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/combat_strike_vfx_style_pilot_v1.png",
+        "Artifacts/StyleCalibration/styled_volatile_canister_explosion_runtime_1920x1080.png",
+        "Assets/Sprites/Hazards/Archive/archive_repository_falling_shelf_style_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/archive_repository_canister_aftermath_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_falling_aftermath_clear_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_repository_canister_aftermath_clear_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_repository_falling_aftermath_clear_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/archive_repository_aftermath_hazard_tests.log",
+        "Artifacts/StyleCalibration/archive_repository_aftermath_final_tests.log",
+        "Artifacts/StyleCalibration/archive_repository_canister_aftermath_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_falling_aftermath_clear_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/archive_repository_canister_aftermath_clear_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/archive_repository_falling_aftermath_clear_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The 2048x2048 decal has 1553x1609 visible bounds, 66.5 percent fully transparent pixels, and no rectangular matte. Canister explosions author a 4.0x3.4 world-unit decal; falling impacts author a 2.6x2.2 mark. The 2048x1373 fragment pile has 1573x791 visible bounds and uses SpritePixelSize 0.00068 with ground offset 432.5, keeping its runtime height near 0.54 world units. StageAftermathVisualData is shared by props and hazards. PropExploded and the target-independent HazardZoneImpacted event spawn one bounded mark per source; repeats refresh it and encounter changes clear it. Exact 720p/1080p isolated captures prove both source types while full Stage 3 ladders retain four-of-four hazard warnings, real canister explosion/damage, elite intro/lifebar, results, and no form unlock. Decal SHA-256: 789574d5d8b373d70d04fb1e9f686989511bc9bdf5ebc3ddc30c9524a1e76e8d. Fragment SHA-256: 5e5ef7ab2da59d03a5c86a78d8f1dd86711d285c6a0e46aed21a46cc6774aa25.",
+      "nextAction": "Retain as the approved Repository aftermath family; begin Archive environment production from the approved Index Vaults lateral pilot.",
+      "reviewDate": "2026-07-17"
     },
     {
       "id": "combat_strike_vfx_style_pilot_v1",

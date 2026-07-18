@@ -1,0 +1,39 @@
+[
+  {
+    "created_at": "2026-07-17T17:37:25.345442Z",
+    "display_name": "Nano Banana Pro",
+    "id": "76a7e5d3-dfb3-4d83-9f3f-eed88bb5192c",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_173725_76a7e5d3-dfb3-4d83-9f3f-eed88bb5192c_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "4:3",
+      "batch_size": 1,
+      "height": 1792,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "3b1022ff-0765-40be-a4bc-97098365704c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3b1022ff-0765-40be-a4bc-97098365704c_resize.jpg"
+        },
+        {
+          "id": "74c65055-2e16-45bb-bb0b-1fba6218a954",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/74c65055-2e16-45bb-bb0b-1fba6218a954.png"
+        },
+        {
+          "id": "b73bee34-a992-40c6-b15f-8751f445ef42",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b73bee34-a992-40c6-b15f-8751f445ef42.png"
+        }
+      ],
+      "prompt": "Create ONE complete full-body Archive Knight KNOCKDOWN pose for a fighting-game sprite atlas. References 1 and 2 are absolute identity authorities. Preserve the exact faceless ivory crested helm, cyan visor, enormous open broken-archive-arch LEFT pauldron, small RIGHT shoulder, violet sternum core, porcelain/plum armor, rigid split tabards, heavy boots, and ONE cyan-edged archive blade integrated along the RIGHT forearm. Never mirror, swap, omit, duplicate, detach or redesign these features.\r\n\r\nThe Knight lies on the RIGHT side in a readable temporary knockdown, torso and head slightly raised, one knee bent, arch pauldron visible above the torso, attached forearm blade resting safely along the body. Entire crest, arch, blade and both boots visible. Wide low silhouette, no floor plane or cast shadow, no defeat limpness.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad cel shading, clean highlights, polished anime fighting-game finish. One character only on perfectly uniform pure white background with generous clearance. No text, border, floor, shadow, scenery, extra limbs, loose/second blade, shield, cape, floating parts, crop, photorealism, PBR, rust, grime, microtexture, painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2400
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_173725_76a7e5d3-dfb3-4d83-9f3f-eed88bb5192c.png",
+    "status": "completed"
+  }
+]

@@ -273,7 +273,7 @@ Passing requirements:
 
 Automatic failures include photoreal/PBR drift, no canonical reference used, unreadability at target scale, contaminated alpha, dashboard-like UI, stage detail that compromises combat, or missing manual approval.
 
-## Current audit disposition — 2026-07-14
+## Current audit disposition — 2026-07-17
 
 ### Approved
 
@@ -289,31 +289,47 @@ Automatic failures include photoreal/PBR drift, no canonical reference used, unr
 - Archive Raider V2 animated runtime atlas and Raider Cross sequence.
 - Archive Bruiser V2 animated runtime atlas and Bruiser Hammer sequence.
 - Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt unique animated elite atlases and signature attacks.
+- Archive Intake Tram authored hazard sprite, warning/active treatment, and deterministic accessibility strip.
+- Archive Index Vaults mirrored scan emitter/field family with warning/active treatment and deterministic accessibility strips.
+- Archive Corruption Repository falling shelf/data-debris family with descending warning treatment and deterministic impact discs.
+- Archive Corruption Repository security-sweep emitter with authored warning/active treatment over its deterministic moving strip.
+- Archive Corruption Repository persistent explosion/falling-impact decal and fragment aftermath family.
+- Archive Intake Boulevard layered environment: asymmetric far backdrop, low-frequency floor, real-alpha midground, and split edge foreground.
+- Archive Index Vaults layered environment: far backdrop, low-frequency floor, three-landmark midground, and split edge foreground.
+- Archive Corruption Repository layered environment: damaged-vault far backdrop, low-frequency fractured floor, three-landmark midground, and split containment-remnant foreground.
+- Archive Knight's Reliquary layered environment: asymmetric ceremonial far backdrop, low-frequency broken-seal floor, low three-landmark midground, and split oath-rail foreground.
+- Archive Knight unique animated combat atlas and inherited form: faceless crested helm, broken-arch oath pauldron, sternum memory core, and integrated forearm blade.
+- Archive Knight identity-matched eight-frame intro atlas and illustrated mannequin/Knight matchup portraits.
+- Archive Knight's Reliquary progressive phase destruction: left oath-tablet rupture, center-plinth collapse, right crystal-seal overload, and distinct localized bursts.
+- Living Archive gameplay HUD: real-alpha porcelain/plum broadcast frame, cyan/coral side hierarchy, active-form bust portraits, contained native bars, concise telemetry, and responsive centered safe-area composition.
+- Living Archive Archive Map: illustrated navigation chamber, distinct Archive/tournament/astral portal motifs, unframed structural columns, native realm controls, and a cyan four-node route spine.
+- Living Archive results: asymmetric porcelain/plum record plate with a left rank medallion, right tally chamber, title rail, archive ribbon, and command ledge shared by Stage Clear, World Complete, and Game Over.
+- Living Archive pause: asymmetric seven-slot navigation record plus a large right document chamber shared by active-form summary, Move List, Move Cards, Form Loadout, and Artifacts.
+- Living Archive form-select: full-body champion aperture, six-window inheritance vault, centered current-form frame, movable native cursor, and loadout ribbon.
 - Authored Project Mannequin strike-impact runtime VFX.
 
-### Approved direction / runtime completion pending
+### Archive shared UI
 
-- Index Vaults lateral environment pilot V2; production layers pending.
-- Living Archive HUD kit pilot; modular extraction/wiring pending.
+- HUD, Archive Map, results, pause, and form-select are runtime approved. New screens extend their material grammar without copying an approved composition verbatim.
 
 ### Functional but not style-approved
 
 The following are unique, imported, and mechanically wired, but drift toward photorealistic/dense hard-surface sci-fi or incompatible UI treatment. They remain temporary integration assets:
 
-- Archive Index Vaults backdrop/floor.
-- Archive Corruption Repository backdrop/floor.
-- Archive Knight’s Reliquary backdrop/floor.
 - Legacy Archive V1 cache, canister, and pickup family (`*_higgsfield_v1`); these are retained for provenance only and are no longer runtime-selected.
-- Current glossy metallic lifebar frame.
-- Current flat Archive Map skin.
+
+The rejected legacy backdrop/floor pairs for all four Archive stages, glossy metallic lifebar frame, and flat dashboard Archive Map skin remain only as provenance and are no longer runtime-selected.
+
+The World Warrior tournament-district composite remains a supporting palette/architecture reference, but its runtime reuse across all four stages and as the floor fallback is rejected. Dojo Approach now uses an approved layered dusk-dojo environment; Pavilion Circuit is the next environment replacement.
+
+The World Warrior Dojo Rookie and Pavilion Striker are approved roster anchors. Rookie uses deep indigo cloth, saffron hierarchy, restrained vermilion accents, and a compact open-palm rushdown silhouette. Striker inverts that hierarchy through a vermilion pavilion jacket, indigo collar/calf wraps, and a tall horizontal-kick silhouette. Both use simple repeatable cloth geometry without copying Ryu. The military/tactical Grappler remains rejected; its replacement must preserve a broad wrestling silhouette while sharing the roster's tournament-world material and color discipline.
 
 ### Pending explicit review
 
-- Archive Stage 1 environment and Archive Knight.
-- Archive Knight and other non-anchor bosses.
-- World Warrior enemies and remaining stages.
+- Other non-anchor bosses.
+- World Warrior Grappler, named elites, and remaining stages.
 - Astral enemies and stages.
-- Remaining combat/hazard VFX, reward icons, portraits, menus, pause UI, results UI, and form-select UI.
+- Remaining combat/hazard VFX, reward icons, portraits, and non-Archive menus.
 
 Pending means unapproved—not implicitly accepted.
 
@@ -323,10 +339,10 @@ Pending means unapproved—not implicitly accepted.
 2. **DONE:** Approve the pilots beside mannequin/Ryu/Goku.
 3. **DONE:** Restyle and dual-resolution validate all Archive caches, the volatile canister, pickups, and the canister detonation.
 4. **DONE:** Replace Archive Scout, Raider, and Bruiser and create unique animation-ready Veyra, Rhune, and Basalt elites.
-5. **IN PROGRESS:** Restyle Archive Stages 1–4 with layered cel-painted subzones and lower surface noise, beginning with themed hazard set pieces.
-6. Replace lifebar art and reskin HUD/map/results/pause/form-select around one fighting-game UI kit.
-7. Complete the remaining themed hazard art and VFX.
-8. Apply the approved grammar—without copying Archive motifs—to World Warrior and Astral.
+5. **DONE:** Restyle Archive Stages 1–4 with layered cel-painted subzones and lower surface noise; all four environments are runtime approved.
+6. **DONE:** The lifebar/HUD, Archive Map, results, pause, and form-select families are runtime approved.
+7. **DONE for Archive:** Complete the remaining themed Archive hazard art and VFX, including Reliquary phase spectacle.
+8. **IN PROGRESS:** Apply the approved grammar—without copying Archive motifs—to World Warrior, then Astral.
 
 ## Definition of visually complete
 

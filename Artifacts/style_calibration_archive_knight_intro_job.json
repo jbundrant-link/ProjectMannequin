@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T19:06:11.577296Z",
+    "display_name": "Nano Banana Pro",
+    "id": "0534bf3f-ceb3-47d2-970d-4527ac4ed46c",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_190611_0534bf3f-ceb3-47d2-970d-4527ac4ed46c_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "4870bffe-6709-4a17-bbcc-bb2e8e134797",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4870bffe-6709-4a17-bbcc-bb2e8e134797_resize.jpg"
+        },
+        {
+          "id": "e81860d3-0557-40b5-98c7-29857b09570d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e81860d3-0557-40b5-98c7-29857b09570d.png"
+        },
+        {
+          "id": "70f2b09b-3980-4a38-a6e9-468244a1d654",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/70f2b09b-3980-4a38-a6e9-468244a1d654.png"
+        },
+        {
+          "id": "5653b427-b006-4216-9c71-1ce80009f692",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5653b427-b006-4216-9c71-1ce80009f692.png"
+        },
+        {
+          "id": "e0e67fce-e5c8-4375-ab54-aba407e2d209",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e0e67fce-e5c8-4375-ab54-aba407e2d209.png"
+        },
+        {
+          "id": "4188941e-43da-4691-a423-8221309bf2f5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4188941e-43da-4691-a423-8221309bf2f5.png"
+        },
+        {
+          "id": "95978160-ac84-4f47-9820-1a27b0a9b75f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/95978160-ac84-4f47-9820-1a27b0a9b75f_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create ONE 4-COLUMN x 2-ROW BOSS INTRO POSE SHEET for the approved ARCHIVE KNIGHT final boss and inherited form. The approved Archive Knight identity pilot and idle sheet are absolute design authorities: preserve the exact faceless enclosed helm with downward ivory crest and narrow cyan memory slit; oversized broken-archive-arch LEFT oath pauldron; smaller articulated right shoulder; warm-ivory porcelain chest/thigh armor over deep-plum joints; dark-indigo split tabards; compact faceted violet sternum core; cyan seam lights; tiny gold fasteners; heavy boots; and the broad integrated RIGHT-forearm archive blade. The blade must remain physically attached to the right forearm in every pose. Match the supplied mannequin, Ryu, and Goku intro references as one cohesive modern 2.5D fighting-game production: confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional materials, polished anime fighting-game lighting, stable anatomy, and arcade-readable silhouettes. The old purple Knight intro is STRUCTURE/CADENCE ONLY and its tint-only mannequin identity must not be copied.\n\nEXACT LAYOUT: eight separate full-body poses, four columns by two rows, equal cells, one character per cell, same character scale and SCREEN-RIGHT three-quarter orientation, feet on one consistent baseline, generous separation, no overlap, no cropping.\nTOP ROW left-to-right: (0) severe neutral entrance, forearm blade lowered; (1) sternum core awakening as left fist tightens; (2) POWER PEAK with blade raised diagonally and compact controlled cyan/violet core flare while the entire body remains readable; (3) power settles as blade lowers into guard.\nBOTTOM ROW left-to-right: (4) one grounded armored step into duel range; (5) clean fighting-ready stance with blade forward; (6) deeper guarded ready stance with asymmetric pauldron prominent; (7) final stable battle stance compatible with frames 5 and 6 for a subtle loop.\n\nUse a perfectly uniform medium-gray background in every cell for later cutout. No text, letters, numbers, labels, UI, borders, cell lines, environment, floor plane, cast shadows on the background, extra figures, duplicate limbs, detached sword, loose weapon, cape, long cloth, giant aura, smoke, particles crossing cells, photorealism, PBR, rust, grime, dense greebles, microtexture, painterly blur, flat vector art, or identity redesign. High fidelity comes from exact identity, pose clarity, broad cel planes, and finish. Full sheet only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_190611_0534bf3f-ceb3-47d2-970d-4527ac4ed46c.png",
+    "status": "completed"
+  }
+]

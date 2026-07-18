@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-17T19:53:00.131687Z",
+    "display_name": "Nano Banana Pro",
+    "id": "e81be781-f72d-4e9a-9c18-2f432c90b27c",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_195300_e81be781-f72d-4e9a-9c18-2f432c90b27c_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "d657b15a-decf-4f7d-9ef6-b2b81d54979d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d657b15a-decf-4f7d-9ef6-b2b81d54979d_resize.jpg"
+        },
+        {
+          "id": "a07e8be2-7013-4cdb-a46a-362e97cf1bc2",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a07e8be2-7013-4cdb-a46a-362e97cf1bc2.png"
+        },
+        {
+          "id": "35c9d2cb-b45f-41e1-b769-7d13a61e4eb6",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/35c9d2cb-b45f-41e1-b769-7d13a61e4eb6.png"
+        },
+        {
+          "id": "6cfd5cac-9f40-4dec-90b4-a97abda2ae29",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6cfd5cac-9f40-4dec-90b4-a97abda2ae29.png"
+        },
+        {
+          "id": "00eed7e1-2d78-42d0-bb8d-f1a95c5a2b43",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/00eed7e1-2d78-42d0-bb8d-f1a95c5a2b43.png"
+        },
+        {
+          "id": "ea241697-8335-4063-89a4-65e71c513633",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ea241697-8335-4063-89a4-65e71c513633_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the FINAL PHASE-3 PERSISTENT MIDGROUND DESTRUCTION STATE for the approved Knight's Reliquary fighting-game stage, named LAST ARCHIVE. Use the supplied approved phase-2 strip as the exact layout, scale, perspective, spacing, and rendering authority. Match the supplied mannequin, Ryu, Goku, and Archive Knight references with controlled dark contours, broad two-to-four-step cel shading, simplified warm-ivory/deep-plum materials, cyan/violet focal accents, and polished anime fighting-game readability.\n\nRecreate exactly three separated landmarks on one perfectly uniform medium-gray 21:9 canvas. LEFT: preserve the phase-2 broken oath-tablet arch and its few large settled shards exactly; do not add more left-side rubble. CENTER: advance destruction by splitting the long ivory cap slab into two displaced large sections, cracking the plum plinth, and dropping the small helm marker onto the base; retain a recognizable low remains silhouette and one restrained violet core glow. RIGHT: advance destruction by overloading the cyan crystal seal: crystal split into two or three large suspended/settled pieces, one side of the ivory frame broken inward, one dark armature collapsed, restrained cyan-violet energy seams; keep large readable pieces rather than a debris cloud. Destruction progression must read left-to-right across the two boss transitions.\n\nKeep every object in the upper 60 percent and the entire lower 35 percent completely empty uniform gray. No reflection, floor, horizon, cast shadow, anatomy, ghosted character, text, pseudo-writing, glyphs, symbols, labels, UI, borders, checkerboard, dust carpet, particles crossing gaps, photorealism, PBR, rust, grime, dense rubble, microtexture, or painterly blur. Entire silhouettes visible and separated. Full-bleed production cutout source.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_195300_e81be781-f72d-4e9a-9c18-2f432c90b27c.png",
+    "status": "completed"
+  }
+]

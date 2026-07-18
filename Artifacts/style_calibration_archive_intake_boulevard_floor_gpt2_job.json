@@ -1,0 +1,71 @@
+﻿[
+  {
+    "created_at": "2026-07-17T12:36:41.865167Z",
+    "display_name": "GPT Image 2",
+    "id": "fe96a755-b558-4263-957c-ad661fa19168",
+    "job_type": "gpt_image_2",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_123641_fe96a755-b558-4263-957c-ad661fa19168_min.webp",
+    "params": {
+      "aspect_ratio": "1:1",
+      "height": 2048,
+      "medias": [
+        {
+          "data": {
+            "id": "726569a1-6fc1-425b-9609-ebb3c9ca06c2",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/726569a1-6fc1-425b-9609-ebb3c9ca06c2.png"
+          },
+          "role": "image"
+        },
+        {
+          "data": {
+            "id": "0b0337c7-29b7-469f-bc06-fd1338e0a328",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0b0337c7-29b7-469f-bc06-fd1338e0a328.png"
+          },
+          "role": "image"
+        },
+        {
+          "data": {
+            "id": "ff1e901c-cbd6-4ab0-9e49-0ba1772666e3",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ff1e901c-cbd6-4ab0-9e49-0ba1772666e3.png"
+          },
+          "role": "image"
+        },
+        {
+          "data": {
+            "id": "7b17959f-2075-4c48-8550-3524cbf64572",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7b17959f-2075-4c48-8550-3524cbf64572.png"
+          },
+          "role": "image"
+        },
+        {
+          "data": {
+            "id": "cb9c676c-f9b7-46d6-ac7c-0281b6176c55",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cb9c676c-f9b7-46d6-ac7c-0281b6176c55.png"
+          },
+          "role": "image"
+        },
+        {
+          "data": {
+            "id": "073a2b71-967b-48c8-8fd9-94c65fecc6af",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/073a2b71-967b-48c8-8fd9-94c65fecc6af.png"
+          },
+          "role": "image"
+        }
+      ],
+      "model": "videotape-alpha",
+      "prompt": "Create the Intake Boulevard gameplay floor texture for a 2.5D belt-scroll fighting game, using the references for Project Mannequin cel-shaded rendering and Archive palette. Strict flat orthographic top-down square tile. Deep indigo and navy broad boulevard slabs occupy at least 80 percent; limited warm porcelain inset plates, short cyan/violet registration seams, tiny amber markers. Central 60 percent is quiet, dark, low-frequency, and readable beneath ivory fighters. Staggered offset seams and isolated short accents only. No continuous line, track, stripe, rail, belt, threshold, or curb longer than one quarter of the image. Mirror-friendly edges. No perspective, walls, machinery, people, props, hazards, text, realistic cracks, grime, reflections, PBR, or dense circuitry.",
+      "quality": "high",
+      "reference_elements": [],
+      "resolution": "2k",
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_123641_fe96a755-b558-4263-957c-ad661fa19168.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-07-18T04:13:00.326707Z",
+  "display_name": "Nano Banana Pro",
+  "id": "45ff5d29-2a73-46ea-b75d-57fe8f5912f0",
+  "job_type": "nano_banana_pro",
+  "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_041300_45ff5d29-2a73-46ea-b75d-57fe8f5912f0_min.webp",
+  "params": {
+    "application": null,
+    "aspect_ratio": "1:1",
+    "batch_size": 1,
+    "height": 2048,
+    "input_image": null,
+    "input_images": [
+      {
+        "id": "cdeb376b-2303-4066-95e8-b493f542706a",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cdeb376b-2303-4066-95e8-b493f542706a.png"
+      },
+      {
+        "id": "cf78c0de-390d-40a0-8fa7-d7047cc3d548",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cf78c0de-390d-40a0-8fa7-d7047cc3d548.png"
+      },
+      {
+        "id": "56802d03-9c7a-490c-8bd3-6d000ee3257e",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/56802d03-9c7a-490c-8bd3-6d000ee3257e.png"
+      },
+      {
+        "id": "811afa4b-963f-4b29-85b5-9936cb90f079",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/811afa4b-963f-4b29-85b5-9936cb90f079.png"
+      },
+      {
+        "id": "db9696e1-0735-41a1-84ed-a2af06ff0412",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/db9696e1-0735-41a1-84ed-a2af06ff0412_resize.jpg"
+      }
+    ],
+    "prompt": "Revise the supplied packed-earth Dojo Approach floor with ONLY these production corrections. Preserve the strict top-down packed-earth material, broad dark cel-painted pressure zones, quiet central field, isolated blue-gray stepping stones, sparse moss, and tiny warm glints. REMOVE the thin black outline around the entire canvas perimeter. REMOVE all four vermilion/red triangle edge markers. Remove any border, frame, vignette edge, dark edge strip, corner marker, or line touching the canvas boundary. Extend the same seamless matte packed-earth texture continuously through every outer edge with no visible boundary treatment. Keep all stones, moss, and accents fully inset at least 12 percent from every canvas edge; move or omit any element that would touch that safety margin. Do not add replacement markers.\n\nPROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel shading, simplified stylized materials, clean highlights, and arcade readability. Characters define rendering grammar only; do not include them. Keep bright occupancy under 4 percent and the central 72 percent calm. No paving network, seam rows, continuous line, border, frame, ring, grid, perspective, walls, props, hazards, text, symbols, photorealism, PBR, scratches, dense texture, or baked shadows. Full-bleed mirror-friendly square packed-earth floor with uniform seamless edges.",
+    "resolution": "2k",
+    "surface": null,
+    "width": 2048
+  },
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_041300_45ff5d29-2a73-46ea-b75d-57fe8f5912f0.png",
+  "status": "completed"
+}

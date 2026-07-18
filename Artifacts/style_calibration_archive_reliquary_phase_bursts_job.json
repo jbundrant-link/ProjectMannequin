@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T20:06:49.187191Z",
+    "display_name": "Nano Banana Pro",
+    "id": "2a166a17-f9f6-468f-b540-801946cc17a0",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_200649_2a166a17-f9f6-468f-b540-801946cc17a0_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "84bf85f4-9e5f-45df-8145-5d5b07a5383f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/84bf85f4-9e5f-45df-8145-5d5b07a5383f.png"
+        },
+        {
+          "id": "e0352a11-9d09-43e3-8df3-5a84d30ba3d8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e0352a11-9d09-43e3-8df3-5a84d30ba3d8.png"
+        },
+        {
+          "id": "f75f398d-79d0-45ba-ac57-dfe30c1dbe9a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f75f398d-79d0-45ba-ac57-dfe30c1dbe9a.png"
+        },
+        {
+          "id": "96231f3b-3e1e-404f-8be4-323947b4c12a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/96231f3b-3e1e-404f-8be4-323947b4c12a_resize.jpg"
+        },
+        {
+          "id": "1c38ca02-70e4-4eaf-b1c7-9ca0f809bd0e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1c38ca02-70e4-4eaf-b1c7-9ca0f809bd0e.png"
+        },
+        {
+          "id": "e2810ddf-5297-4343-b7e5-7b4a62cf6b62",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e2810ddf-5297-4343-b7e5-7b4a62cf6b62.png"
+        },
+        {
+          "id": "c8a3b634-e3b2-4683-bda5-44b6aa1f8527",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c8a3b634-e3b2-4683-bda5-44b6aa1f8527.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one TWO-COMPONENT BOSS PHASE DESTRUCTION BURST SOURCE for Knight's Reliquary, matching the approved mannequin, Ryu, Goku, Archive Knight, and Reliquary destruction references: controlled dark contours, broad two-to-four-step cel shading, sharp graphic energy, simplified warm-ivory/deep-plum materials, cyan/violet accents, and polished anime fighting-game VFX.\n\nOn one perfectly uniform medium-gray 21:9 canvas, place exactly TWO separated, non-overlapping transient burst effects with the central 30 percent empty gray. LEFT component, PHASE 2 BROKEN SEAL: one compact asymmetrical violet-cyan shock star with a broken circular archive trace, five or six large warm-ivory porcelain tablet shards flying mostly upward and left/right, two short tapered cyan streaks, and a small plum impact core. RIGHT component, PHASE 3 LAST ARCHIVE: a stronger asymmetrical cyan-violet crystal rupture with two broken concentric archive arcs, three large cyan crystal shards, four or five ivory/plum plinth fragments, and several short tapered speed lines radiating outward. Each component is a single readable fighting-game impact silhouette, entirely visible, with no overlap or cropping. Right burst may be about 20 percent larger than left.\n\nNo characters, bodies, hands, weapons, floor, environment, persistent landmark, smoke cloud, dust carpet, photoreal particles, text, glyphs, labels, UI, border, checkerboard, cast shadow, reflection, gradients on the gray background, PBR, rust, grime, tiny debris noise, or painterly blur. Keep the lower 18 percent empty gray so bursts can sit above fighter feet. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_200649_2a166a17-f9f6-468f-b540-801946cc17a0.png",
+    "status": "completed"
+  }
+]

@@ -255,12 +255,15 @@ the planned priority chain:
 
 1. `CharacterData.SelectPortraitPath` (new field) — explicit hand-drawn override.
 2. Derived asset `res://Assets/UI/FormSelect/<id>.png` — for a future offline pass.
-3. Runtime idle-frame crop — loads the form's sprite sheet (Ryu, Goku) or, for
-   procedurally rendered forms with no sheet (blank mannequin, Archive Knight),
-   generates the mannequin sheet via `ProceduralMannequinSpriteSheetFactory` using
-   a palette that mirrors `CharacterVisualComponent`. It crops cell (row 0, col 0)
-   to the alpha bounding box (with padding) and returns an `AtlasTexture`; if pixel
-   data cannot be read it falls back to the full idle cell.
+3. Runtime idle-frame crop — loads the form's sprite sheet when no explicit art
+   exists, or generates the mannequin sheet through
+   `ProceduralMannequinSpriteSheetFactory` as a final fallback. It crops cell
+   (row 0, col 0) to the alpha bounding box (with padding) and returns an
+   `AtlasTexture`; if pixel data cannot be read it falls back to the full idle cell.
+
+The blank mannequin and Archive Knight boss/inherited form now use explicit
+style-approved illustrated portraits, so their matchup and form-select cards no
+longer depend on the procedural/runtime crop fallback.
 
 Overlay updated: each slot shows a portrait thumbnail above the name/role, and the
 left preview panel shows a large portrait for the highlighted form.
@@ -399,7 +402,7 @@ fingerprints match. The overlay guard closes the only interactive gap.
 Deferred with a ready-to-implement path (debug-only value, kept out to avoid adding
 surface/risk to the determinism tooling):
 
-- **Replay *reproduction* of interactive UI swaps.** The `ReplaySerializer` parser
+- **Replay _reproduction_ of interactive UI swaps.** The `ReplaySerializer` parser
   ignores unknown line types, so this is backward-compatible: add a
   `ReplayFormSwap(tick, playerId, formId)` list to the recorder/recording, emit
   `swap <tick> <playerId> <formId>` lines, capture `FormSwapStarted` presentation

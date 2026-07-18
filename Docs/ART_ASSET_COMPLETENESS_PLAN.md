@@ -18,13 +18,13 @@ This plan is a release gate for every remaining content phase. Art direction, pi
 
 ## Completion states
 
-| State                                      | Meaning                                                                                                                                    |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Mechanics pending                          | Layout, combat, hazard, or progression behavior is incomplete.                                                                             |
-| Mechanics complete / art pending           | Gameplay is deterministic and tested, but one or more art gates below fail.                                                                |
-| Art technically integrated / style pending | Bespoke assets are imported and wired, but the style rubric has not passed. This remains the state of the latest Archive environment pass. |
-| Style approved / capture pending           | Raw assets pass the visual bible, but runtime composition has not passed final QA.                                                         |
-| Slice complete                             | Mechanics, technical art gates, style review, runtime capture, and readability checks all pass.                                            |
+| State                                      | Meaning                                                                                         |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| Mechanics pending                          | Layout, combat, hazard, or progression behavior is incomplete.                                  |
+| Mechanics complete / art pending           | Gameplay is deterministic and tested, but one or more art gates below fail.                     |
+| Art technically integrated / style pending | Bespoke assets are imported and wired, but the style rubric has not passed.                     |
+| Style approved / capture pending           | Raw assets pass the visual bible, but runtime composition has not passed final QA.              |
+| Slice complete                             | Mechanics, technical art gates, style review, runtime capture, and readability checks all pass. |
 
 ## Hard art gates
 
@@ -55,34 +55,38 @@ A stage or phase is complete only when every applicable requirement passes:
 ## Verified audit baseline
 
 - Archive Nexus previously derived four ladder stages from one district art source.
-- World Warrior Sector currently derives four ladder stages from the same tournament art source.
+- World Warrior Sector previously derived all four ladder stages from one tournament composite; Dojo Approach now uses an approved independent layered environment, while Stages 2–4 still require replacement.
 - Astral Battlefront has four route paintings, but repeats route images and uses hero imagery as its floor fallback.
 - Archive named elites previously reused base archetype sheets with a gold tint/stat boost; Veyra, Rhune, and Basalt now use distinct animation-ready atlases. Other worlds remain pending.
 - The prior boulder, crate, and meter-pickup paths were missing.
 - Health, meter, and score pickups previously referenced the same missing image and differed by tint.
-- Hazard presentation currently relies mainly on procedural strips/discs.
-- The first Archive environment and gameplay-object replacement pass solved missing/reused-path problems but drifted toward dense realistic hard-surface sci-fi. The seven gameplay objects have since been superseded at runtime by the approved style-v2 family; the Stage 2–4 environments still require replacement.
-- The current HUD frame uses glossy realistic metal, while the Archive Map reads as a software dashboard rather than a Living Archive fighting-game interface.
+- Hazard presentation still uses procedural strips/discs as its deterministic accessibility layer, with runtime-approved Intake Tram, Index Vault scans, Repository falling/sweep emitters, and persistent aftermath art layered above it.
+- The first Archive environment and gameplay-object replacement pass solved missing/reused-path problems but drifted toward dense realistic hard-surface sci-fi. The seven gameplay objects, all four Archive environments, the Archive Knight combat/intro package, Reliquary phase spectacle, gameplay HUD, Archive Map, results, pause, and form-select have since been superseded at runtime by approved style-v2 families. Archive art and shared UI are complete.
+- The gameplay HUD now uses the approved Living Archive broadcast frame and active-form portraits; the Archive Map uses an illustrated navigation chamber with native route and checkpoint controls.
 
 ## Current Archive status
 
-| Slice                 | Mechanics          | Environment                                     | Props/pickups                                                   | Elite                                            | Hazard set-piece art                                              | Capture                                                                                               | Status                             |
-| --------------------- | ------------------ | ----------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| Intake Boulevard      | Complete           | Explicit style review pending                   | Health and data caches/pickups runtime approved                 | Scout and Index Warden Veyra runtime approved    | Tram art pending                                                  | Scout/Jab, Veyra/Decree, and real cache/drop flows pass at 720p/1080p; environment still pending      | Mechanics complete / style pending |
-| Index Vaults          | Complete           | Style pilot approved; production layers pending | Health and meter caches/pickups runtime approved                | Raider and Cipher Captain Rhune runtime approved | Scan-emitter/beam art pending                                     | Raider/Cross, Rhune/Cipher Cross, and cache/drop flows pass at 720p/1080p; environment still fails    | Mechanics complete / style pending |
-| Corruption Repository | Complete           | Technically wired; style replacement required   | Health/meter/data family and volatile canister runtime approved | Bruiser and Overseer Basalt runtime approved     | Falling shelf/debris, security emitter, and aftermath art pending | Bruiser/Hammer, Basalt/Faultline, and canister detonation pass at 720p/1080p; environment still fails | Mechanics complete / style pending |
-| Knight's Reliquary    | Existing boss loop | Technically wired; style replacement required   | Not applicable yet                                              | Archive Knight review pending                    | Localized destruction/spectacle art pending                       | Pending                                                                                               | Mechanics complete / style pending |
+| Slice                 | Mechanics           | Environment                          | Props/pickups                                                   | Elite                                                                   | Hazard set-piece art                                                                 | Capture                                                                                                                                              | Status         |
+| --------------------- | ------------------- | ------------------------------------ | --------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Intake Boulevard      | Complete            | Layered environment runtime approved | Health and data caches/pickups runtime approved                 | Scout and Index Warden Veyra runtime approved                           | Intake Tram runtime approved                                                         | Replacement calm/live environment and full ladder pass at 720p/1080p; legacy failure retained as provenance                                          | Slice complete |
+| Index Vaults          | Complete            | Layered environment runtime approved | Health and meter caches/pickups runtime approved                | Raider and Cipher Captain Rhune runtime approved                        | Mirrored scan emitter/field family runtime approved                                  | Calm/live environment, scans, Raider/Cross, Rhune/Cipher Cross, and cache/drop flows pass at 720p/1080p                                              | Slice complete |
+| Corruption Repository | Complete            | Layered environment runtime approved | Health/meter/data family and volatile canister runtime approved | Bruiser and Overseer Basalt runtime approved                            | Falling shelf/data debris, security sweep, and persistent aftermath runtime approved | Calm/live environment, shelf/debris impacts, security sweep, aftermath, canister detonation, Bruiser/Hammer, and Basalt/Faultline pass at 720p/1080p | Slice complete |
+| Knight's Reliquary    | Complete final loop | Layered environment runtime approved | Not applicable yet                                              | Unique Archive Knight atlas and identity-matched intro runtime approved | Two progressive destruction states and localized phase bursts runtime approved       | Clear/combat environment, Knight idle/cleave, matchup/intro peak, phase-2/phase-3 burst/settled states, and full progression pass at 720p/1080p      | Slice complete |
 
-## Technically integrated Archive assets requiring style review/replacement
+## Superseded Archive assets retained for provenance
 
-### Environments
+### Legacy environments
 
+- `archive_district_backdrop_band_higgsfield_v1.png`
+- `archive_district_floor_higgsfield_v1.png`
 - `archive_index_vaults_backdrop_higgsfield_v1.png`
 - `archive_index_vaults_floor_higgsfield_v1.png`
 - `archive_corruption_repository_backdrop_higgsfield_v1.png`
 - `archive_corruption_repository_floor_higgsfield_v1.png`
 - `archive_knights_reliquary_backdrop_higgsfield_v1.png`
 - `archive_knights_reliquary_floor_higgsfield_v1.png`
+
+These remain structure/provenance references and are not selected by the runtime Archive catalog.
 
 ### Superseded legacy props and pickups
 
@@ -113,22 +117,48 @@ These remain only as provenance/structure references and are not selected by the
 - `index_warden_veyra_style_v1.png` — 16/16 unique Stage 1 elite atlas with Warden Decree, halo-preserving pose extraction, authored cyan-white room light, and dual-resolution live captures.
 - `cipher_captain_rhune_style_v1.png` — 16/16 unique Stage 2 elite atlas with Cipher Cross, authored cool-white room light, and dual-resolution live captures.
 - `overseer_basalt_style_v1.png` — 16/16 unique Stage 3 elite atlas with Faultline Driver, authored violet-white room light, and dual-resolution live captures.
+- `archive_knight_style_v1.png` — 16/16 unique final-boss and inherited-form atlas with 60 populated frames, matched row scales, stable broken-arch pauldron/forearm blade identity, and dual-resolution idle/cleave captures.
+- `archive_knight_intro_style_v1.png` plus explicit Knight/mannequin portraits — 16/16 identity-matched eight-frame intro and illustrated matchup package with a settled VS/title/taunt card, authored frame-2 power peak, and dual-resolution lifecycle captures.
+- Reliquary phase destruction — 16/16 progressive left-to-right arena damage with distinct real-alpha phase-2/phase-3 persistent states, localized porcelain/crystal bursts, and real `broken_seal`/`last_archive` event captures.
+- `project_mannequin_hud_frame_style_v2.png` — 16/16 real-alpha Living Archive broadcast frame with active-form portraits, contained native bars, concise split telemetry, centered 16:9 safe-area behavior, and exact 720p/1080p/21:9/4:3 plus two-player split-screen evidence.
+- Archive Map — 15/16 illustrated Living Archive navigation chamber with native realm selection, a four-node cyan route spine, responsive 720p/1080p/21:9 layouts, and safe overwrite confirmation.
+- Results family — 16/16 real-alpha asymmetric rank/tally plate shared by Stage Clear, World Complete, and Game Over, with seven transactional route smokes and responsive 720p/1080p/21:9 evidence.
+- Pause family — 16/16 real-alpha asymmetric record plate shared by root, Move List, Move Cards, Form Loadout, and Artifacts, with nested Escape/resume and responsive exact captures.
+- Form-select — 16/16 real-alpha inheritance selector with a full-body preview, centered current-form vault, movable native cursor, explicit Goku confirmation, and responsive exact captures.
+- `archive_intake_tram_style_v1.png` — 15/16 real-alpha themed hazard layered above the procedural warning strip; calibrated to `SpritePixelSize=0.00220`, ground offset `419.5`, and a four-unit collision footprint with dual-resolution warning/active captures.
+- `archive_index_scan_emitter_style_v1.png` and `archive_index_scan_field_style_v1.png` — 15/16 mirrored Stage 2 hazard family; real-alpha emitter uses `SpritePixelSize=0.00090`, ground offset `935`, inset anchors `0.08/0.92`, and shared directional field UVs above the procedural scan strips.
+- `archive_repository_falling_shelf_style_v1.png` and `archive_repository_data_debris_style_v1.png` — 15/16 Stage 3 falling-strike family; mirrored shelves use `0.00150/546.5`, center debris uses `0.00170/747`, and all descend `4.4` world units above the procedural impact discs.
+- `archive_repository_security_sweep_style_v1.png` — 16/16 hovering linear-sweep emitter; calibrated to `0.00125/300.5`, right-facing with X anchor `0.85`, and layered above the moving procedural warning/active strip.
+- `archive_repository_explosion_decal_style_v1.png` and `archive_repository_impact_fragments_style_v1.png` — 16/16 persistent aftermath family shared by canister explosions and falling impacts; source-specific decals pair with a `0.00068/432.5` low fragment pile and clear on encounter changes.
+- Intake Boulevard layered environment — 15/16 runtime-approved asymmetric far backdrop, dark top-down floor, real-alpha midground, and split entrance/exit foreground pieces with ordered parallax and exact calm/live captures.
+- Index Vaults layered environment — 15/16 runtime-approved far backdrop, dark top-down floor, three-landmark real-alpha midground, and split entrance/exit foreground rails with ordered parallax and exact calm/live captures.
+- Corruption Repository layered environment — 15/16 runtime-approved asymmetric damaged-vault backdrop, 1.78-percent-light top-down floor, three-landmark real-alpha midground, and split containment-remnant foreground with ordered parallax and exact calm/live captures.
+- Knight's Reliquary layered environment — 15/16 runtime-approved asymmetric ceremonial backdrop, 1.35-percent-light broken-seal floor, low three-landmark real-alpha midground, and split oath-rail foreground with ordered parallax and exact clear/combat captures.
 
 All seven style-v2 objects are independent real-alpha images with function-specific silhouettes and no tint-only identity. The legacy images remain in the repository for provenance but no longer seed or supply runtime presentation.
 
-Final Archive enemy/object verification on 2026-07-16: clean build, 124/124 world-run assertions, 32/32 stage-hazard assertions, Stage 1/2/3 ladder summaries passing, and dual-resolution captures for all object functions, base enemies, and named elites.
+Current Archive enemy/object/hazard/environment/UI verification on 2026-07-17: clean build, 140/140 world-run assertions plus 37/37 stage-hazard assertions (177/177 aggregate), 16/16 Archive Map model assertions, 12/12 results-flow model assertions, 4/4 form-select model assertions, seven results route smokes, complete pause and form-select UI smokes, Stage 1–4 ladder summaries, and responsive runtime evidence for every approved Archive content/UI family.
+
+Current cross-world verification after Dojo Approach, Dojo Rookie, and Pavilion Striker integration: 146/146 world-run assertions plus 37/37 stage-hazard assertions (183/183 aggregate), with exact Rookie and Striker idle/active ladders passing at 720p and 1080p.
 
 ### Completed animated enemy and elite replacement
 
 - Archive Raider — 16/16 runtime approved. Six identity-locked final source sheets compose through authored connected-silhouette anchors into `archive_raider_style_v2.png`; rejected rusty sources and failed revisions remain provenance only.
 - Archive Scout and Bruiser — 16/16 runtime approved at lightweight/heavyweight scales with phase-aligned Scout Jab and Bruiser Hammer rows.
 - Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt — 16/16 unique named-elite atlases with distinct silhouettes, attacks, room lights, hashes, and dual-resolution runtime evidence; no tint-only identity remains in Archive Stages 1–3.
+- Archive Knight — 16/16 unique final-boss and inherited-form atlas with 60 populated frames, exact identity across grouped source families, clean Archive Cleave evidence, and no tint-only mannequin fallback.
+- Archive Knight intro — 16/16 eight-frame real-alpha atlas and explicit illustrated matchup portraits with the approved Knight identity, stable peak/ready cadence, and no legacy purple or procedural-card fallback.
+- World Warrior Dojo Rookie — 16/16 original indigo/saffron rushdown identity with seven style-locked source sheets, 60 populated atlas frames, exact Quick Palm phase timing, and dual-resolution Stage 1 evidence. The Ryu-derived legacy atlas remains provenance only.
+- World Warrior Pavilion Striker — 16/16 original vermilion/indigo kick specialist with 60 populated frames, exact Turning Kick phase timing, and dual-resolution Stage 2 evidence. Deterministic component filtering excludes generated source-sheet dividers and stray shoes without touching intended figures.
 - Atlas contract — 10×9 at 256-pixel cells; rows 0–5 map locomotion, signature attack, and defensive/defeat states; rows 6–8 remain transparent.
 
-### Approved calibration directions awaiting production
+### Completed shared UI production
 
-- Index Vaults lateral stage concept V2 — 15/16; separate backdrop/floor/midground/foreground production layers pending.
-- Living Archive HUD kit concept — 15/16; modular component extraction and responsive runtime wiring pending.
+- Living Archive HUD kit — 16/16 runtime approved with active-form portrait resolution, responsive safe-area composition, and no legacy glossy-frame selection.
+- Archive Map — 15/16 runtime approved with an illustrated chamber, unframed structural columns, native realm/route controls, responsive exact captures, and safe checkpoint replacement focus.
+- Results — 16/16 runtime approved with one reusable real-alpha plate, asymmetric rank/tally hierarchy, mode-specific Stage/World/KO treatment, safe confirmation focus, and clean procedural-audio teardown.
+- Pause — 16/16 runtime approved with one reusable real-alpha record plate, seven-slot navigation, active-form record, four nested document views, and verified Escape/resume behavior.
+- Form-select — 16/16 runtime approved with one six-vault inheritance selector, active-form/current-cursor separation, cancel/reopen/confirm behavior, and deterministic explicit-target swap.
 
 ## Production order
 
@@ -138,16 +168,25 @@ Final Archive enemy/object verification on 2026-07-16: clean build, 124/124 worl
 2. **DONE:** Complete the first runtime calibration set with the strike VFX and all seven Archive caches, pickups, and canister assets at both target resolutions.
 3. **DONE:** Expand the approved health-family grammar to meter/data and revise the volatile canister until its explosive identity is unambiguous.
 4. **DONE:** Replace all three base Archive enemies and produce unique animation-ready sheets for Index Warden Veyra, Cipher Captain Rhune, and Overseer Basalt.
-5. **IN PROGRESS:** Produce Intake Tram, scan emitter/beam, falling shelf/data debris, security sweep emitter, explosion decal, and impact fragments in graphic anime/cel-shaded treatment.
-6. Add foreground/subzone variants and landmarks where a single backdrop still reads as repetition during traversal.
-7. Replace the lifebar frame and reskin HUD, Archive Map, results, pause, and form-select around the approved illustrated fighting-game Archive UI kit.
-8. Add localized Reliquary destruction variants and boss-phase spectacle.
-9. Run technical and visual-style gates and promote each Archive slice independently.
+5. **DONE:** Runtime-approve Intake Tram, Index Vaults scans, and Corruption Repository falling shelf/data debris, security sweep, explosion decal, and impact fragments.
+6. **DONE:** Intake Boulevard, Index Vaults, Corruption Repository, and Knight's Reliquary production layers are runtime approved with ordered parallax and dual-resolution evidence.
+7. **DONE:** Replace the legacy Archive Knight intro atlas/cards with the approved combat identity and explicit illustrated portraits.
+8. **DONE:** Add localized Reliquary destruction variants and boss-phase spectacle.
+9. **DONE:** Replace the lifebar frame and reskin the gameplay HUD around the approved illustrated fighting-game Archive UI kit.
+10. **DONE:** Reskin the Archive Map around an illustrated Living Archive navigation chamber while preserving checkpoint and focus safety.
+11. **DONE:** Reskin Stage Clear, World Complete, Game Over, and replay/restart confirmations around one approved responsive results plate.
+12. **DONE:** Reskin pause root, Move List, Move Cards, Form Loadout, and Artifacts around one approved responsive record plate.
+13. **DONE:** Complete form-select as the final Archive shared-UI gate.
+14. **DONE:** Run technical and visual-style gates and promote each Archive slice independently.
+15. **DONE:** Replace the rejected Dojo Approach reuse with an independent layered dusk-dojo environment and exact dual-resolution runtime evidence.
+16. **DONE:** Explicitly review the World Warrior Rookie/Striker/Grappler runtime atlases and replace the rejected Ryu-derived Rookie with an original 16/16 style-v2 atlas.
+17. **DONE:** Replace the generic tracksuit Striker with an original 16/16 kick-focused style-v2 atlas and a real horizontal Turning Kick.
+18. **IN PROGRESS:** Replace Grappler with an original non-military tournament-wrestling identity and readable signature drive/throw, then produce Pavilion Circuit layers.
 
 ### World Warrior
 
-1. Four unique environment/floor identities: Dojo Approach, Pavilion Circuit, Grand Tournament Floor, Champion's Courtyard.
-2. Unique sheets for Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand Grappler Tetsu.
+1. **IN PROGRESS:** Four unique environment/floor identities: Dojo Approach is 15/16 runtime approved; Pavilion Circuit, Grand Tournament Floor, and Champion's Courtyard follow.
+2. **IN PROGRESS:** Dojo Rookie and Pavilion Striker are 16/16 runtime approved; original Grappler follows before unique Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand Grappler Tetsu sheets.
 3. Training crates/dummies, health/meter/score pickups, rolling log, falling practice prop, spectator/crowd layers, and arena destruction.
 4. Preserve the same contour/value grammar as the accepted characters while using World Warrior-specific warm tournament motifs.
 5. Runtime capture and style audit before any slice is marked complete.

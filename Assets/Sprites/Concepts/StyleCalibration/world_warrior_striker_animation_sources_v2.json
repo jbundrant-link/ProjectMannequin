@@ -1,0 +1,54 @@
+{
+  "enemyId": "world_warrior_striker",
+  "background": "green",
+  "minimum_component_area": 80000,
+  "output": "Assets/Sprites/Enemies/world_warrior_striker_style_v2.png",
+  "preview": "Artifacts/StyleCalibration/world_warrior_striker_style_v2_atlas_preview.png",
+  "report": "Artifacts/StyleCalibration/world_warrior_striker_style_v2_composition_report.json",
+  "animations": [
+    {
+      "name": "idle",
+      "target_row": 0,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_idle_sheet_style_v1.png",
+      "anchors": [[516, 517], [1536, 513], [510, 1539], [1546, 1535]]
+    },
+    {
+      "name": "walk",
+      "target_row": 1,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_walk_sheet_style_v1.png",
+      "anchors": [[305, 535], [786, 538], [1262, 535], [1768, 535], [306, 1487], [785, 1490], [1266, 1489], [1771, 1492]]
+    },
+    {
+      "name": "dash",
+      "target_row": 2,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_dash_sheet_style_v1.png",
+      "anchors": [[327, 544], [933, 575], [1568, 501], [462, 1519], [1099, 1488], [1684, 1479]]
+    },
+    {
+      "name": "jump",
+      "target_row": 3,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_jump_sheet_style_v1.png",
+      "anchors": [[549, 557], [1531, 518], [530, 1430], [1538, 1550]]
+    },
+    {
+      "name": "turning_kick",
+      "target_row": 4,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_attack_startup_sheet_style_v1.png",
+          "anchors": [[375, 543], [1037, 548], [1693, 551], [560, 1536], [1492, 1543]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_attack_recovery_sheet_style_v1.png",
+          "anchors": [[446, 536], [1026, 534], [1679, 533], [643, 1539], [1413, 1540]]
+        }
+      ]
+    },
+    {
+      "name": "defense_hit_defeat",
+      "target_row": 5,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_misc_sheet_style_v1.png",
+      "anchors": [[265, 519], [720, 563], [1208, 537], [1734, 528], [388, 1485], [906, 1533], [1597, 1290], [1587, 1719]]
+    }
+  ]
+}

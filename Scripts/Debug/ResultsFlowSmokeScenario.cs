@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Godot;
 using ProjectMannequin.Core;
+using ProjectMannequin.Presentation;
 using ProjectMannequin.Progression;
 using ProjectMannequin.UI;
 
@@ -21,6 +22,7 @@ public partial class ResultsFlowSmokeScenario : Node
     private int _frames;
     private int _phase;
     private int _shownFrame;
+    private int _actionFrame;
     private bool _visible;
     private bool _modeCorrect;
     private bool _rank;
@@ -30,6 +32,7 @@ public partial class ResultsFlowSmokeScenario : Node
     private bool _confirmation;
     private bool _cancel;
     private bool _unlock;
+    private bool _styledPlate;
 
     public void Initialize(MvpHud hud)
     {
@@ -37,6 +40,17 @@ public partial class ResultsFlowSmokeScenario : Node
         ProcessMode = ProcessModeEnum.Always;
         _variant = OS.GetEnvironment("PROJECT_MANNEQUIN_RESULTS_FLOW_MODE").Trim().ToLowerInvariant();
         _mode = ParseMode(_variant);
+        if (!string.IsNullOrWhiteSpace(OS.GetEnvironment("PROJECT_MANNEQUIN_RESULTS_FLOW_CAPTURE"))
+            || !string.IsNullOrWhiteSpace(OS.GetEnvironment("PROJECT_MANNEQUIN_RESULTS_CONFIRM_CAPTURE")))
+        {
+            var stageIntro = hud.GetNodeOrNull<StageIntroSequencer>("../StageIntroSequencer");
+            if (stageIntro is not null)
+            {
+                stageIntro.Visible = false;
+            }
+        }
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_RESULTS_FLOW_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_RESULTS_CONFIRM_CAPTURE");
         GD.Print($"[ResultsFlowSmoke] Driver active mode={_mode} variant={_variant}.");
     }
 
@@ -65,7 +79,9 @@ public partial class ResultsFlowSmokeScenario : Node
             case 1:
                 var visualCapture = !string.IsNullOrWhiteSpace(
                     OS.GetEnvironment("PROJECT_MANNEQUIN_RESULTS_FLOW_CAPTURE"));
-                if (_frames < _shownFrame + (visualCapture ? 25 : 5))
+                if (_frames < _shownFrame + 5
+                    || visualCapture
+                    && (_hud.ResultsOpacity < 0.99f || _hud.HudOpacity < 0.99f))
                 {
                     return;
                 }
@@ -73,14 +89,16 @@ public partial class ResultsFlowSmokeScenario : Node
                 CaptureModal();
                 CaptureFrameIfRequested();
                 DriveAction();
+                _actionFrame = _frames;
                 _phase = 2;
                 break;
             case 2:
-                if (_frames < _shownFrame + 8)
+                if (_frames < _actionFrame + 6)
                 {
                     return;
                 }
 
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_RESULTS_CONFIRM_CAPTURE");
                 CaptureActionOutcome();
                 Finish();
                 break;
@@ -107,6 +125,9 @@ public partial class ResultsFlowSmokeScenario : Node
             && GetViewport().GuiGetFocusOwner()?.Name == $"ResultsAction_{primary.Value}";
         _unlock = _mode != ResultsFlowMode.WorldComplete
             || _hud.ResultsUnlockText.StartsWith("FORM ARCHIVED");
+        _styledPlate = ResourceLoader.Exists(_hud.ResultsPlatePath)
+            && Descendants<TextureRect>(_hud).Any(texture =>
+                texture.Name == "ResultsPlate");
     }
 
     private void DriveAction()
@@ -187,6 +208,10 @@ public partial class ResultsFlowSmokeScenario : Node
 
     private void Finish()
     {
+        var capturePassed = CaptureExistsIfRequested(
+            "PROJECT_MANNEQUIN_RESULTS_FLOW_CAPTURE");
+        var confirmationCapturePassed = CaptureExistsIfRequested(
+            "PROJECT_MANNEQUIN_RESULTS_CONFIRM_CAPTURE");
         var passed = _visible
             && _modeCorrect
             && _rank
@@ -195,11 +220,15 @@ public partial class ResultsFlowSmokeScenario : Node
             && _route
             && _confirmation
             && _cancel
-            && _unlock;
+            && _unlock
+            && _styledPlate
+            && capturePassed
+            && confirmationCapturePassed;
         GD.Print(
             $"[ResultsFlowSmoke] SUMMARY passed={passed} mode={_mode} variant={_variant} visible={_visible} "
             + $"modeOk={_modeCorrect} rank={_rank} buttons={_buttons} focus={_focus} "
-            + $"route={_route} confirm={_confirmation} cancel={_cancel} unlock={_unlock}");
+            + $"route={_route} confirm={_confirmation} cancel={_cancel} unlock={_unlock} "
+            + $"styled={_styledPlate} capture={capturePassed} confirmCapture={confirmationCapturePassed}");
         if (!passed)
         {
             GD.PushError("[ResultsFlowSmoke] Results modal or transactional routing regressed.");
@@ -215,7 +244,12 @@ public partial class ResultsFlowSmokeScenario : Node
 
     private void CaptureFrameIfRequested()
     {
-        var path = OS.GetEnvironment("PROJECT_MANNEQUIN_RESULTS_FLOW_CAPTURE");
+        CaptureFrameIfRequested("PROJECT_MANNEQUIN_RESULTS_FLOW_CAPTURE");
+    }
+
+    private void CaptureFrameIfRequested(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
         if (string.IsNullOrWhiteSpace(path))
         {
             return;
@@ -232,6 +266,21 @@ public partial class ResultsFlowSmokeScenario : Node
         {
             GD.PushError($"[ResultsFlowSmoke] Could not save capture '{path}' ({error}).");
         }
+    }
+
+    private static void PrepareCaptureOutput(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    private static bool CaptureExistsIfRequested(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        return string.IsNullOrWhiteSpace(path) || File.Exists(path);
     }
 
     private static ResultsFlowMode ParseMode(string value)

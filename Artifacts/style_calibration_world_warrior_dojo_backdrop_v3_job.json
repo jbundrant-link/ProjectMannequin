@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-18T04:02:32.750109Z",
+    "display_name": "Nano Banana Pro",
+    "id": "ffb2cae4-6f4d-4ab7-978a-e92112530646",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040232_ffb2cae4-6f4d-4ab7-978a-e92112530646_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "332b6cad-3c54-4870-bb0d-4e07f2119f47",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/332b6cad-3c54-4870-bb0d-4e07f2119f47.png"
+        },
+        {
+          "id": "04939b70-82de-4596-abc6-87e9c6709079",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/04939b70-82de-4596-abc6-87e9c6709079.png"
+        },
+        {
+          "id": "a007e4b2-0a19-4989-8db9-e6790fcdb80d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a007e4b2-0a19-4989-8db9-e6790fcdb80d.png"
+        },
+        {
+          "id": "5a656e0a-85cc-4b06-b5e2-3ec69e0ed004",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5a656e0a-85cc-4b06-b5e2-3ec69e0ed004_resize.jpg"
+        },
+        {
+          "id": "c9c2d72b-0bba-4972-80e9-5d87206f0a6c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c9c2d72b-0bba-4972-80e9-5d87206f0a6c_resize.jpg"
+        },
+        {
+          "id": "2b336fa4-7ed0-4d73-898c-c249862fb263",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2b336fa4-7ed0-4d73-898c-c249862fb263.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the FAR BACKDROP for DOJO APPROACH, Stage 1 of World Warrior Sector. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, and polished anime fighting-game lighting. Characters define rendering grammar only; DO NOT include characters. The Tournament District reference supplies only warm World Warrior palette and dojo architecture. The approved Intake Boulevard backdrop supplies only the continuous lateral belt-scroll composition grammar. The legacy runtime frame shows the giant-floor/repetition failures to avoid.\n\nPaint ONE uninterrupted full-bleed 21:9 SIDE-ON PANORAMIC ELEVATION of a long outer-dojo compound at dusk. It must look like one camera view of one connected location, never a collage. Architecture evolves gradually left-to-right through overlapping rooflines and continuous plaster/timber walls: at the far left, low hillside wall and wind-touched vermilion cloth; through the middle, a long open-sided practice veranda with uneven timber bays and sparse warm lanterns; toward the right, the same compound rises into a challenger pavilion and partial outer gate entering from the edge. Connect every transition with shared eaves, walls, pines, shrubs, and distant mountain silhouettes. One continuous sky color and light direction across the entire image. One consistent horizon, scale, exposure, and color grade. No dominant centered doorway or staircase. Keep the lower quarter simple, dark, and low contrast behind fighters.\n\nUse warm ivory plaster, charcoal-brown timber, muted jade pines, vermilion/coral cloth accents, cool cyan-white dusk rim light, and restrained gold lanterns. Large architectural masses and broad cel-painted planes dominate; sparse roof detail only. BACKDROP ONLY: no floor, road, foreground rail, practice props, fighters, spectators, people, silhouettes, UI, text, symbols, signs, central gate, symmetry, corridor, tunnel, perspective convergence, photorealism, PBR, dense roof tiles, microtexture, painterly blur, or baked borders. ABSOLUTELY NO vertical separators, black bars, panel boundaries, triptych layout, stitched exposure changes, hard sky-color transitions, or one-third composition breaks. Seamless lateral production backdrop.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040232_ffb2cae4-6f4d-4ab7-978a-e92112530646.png",
+    "status": "completed"
+  }
+]

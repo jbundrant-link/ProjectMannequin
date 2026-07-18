@@ -1022,6 +1022,12 @@ public sealed class ArcadeEncounterDirector
                 {
                     continue;
                 }
+
+                events.Add(new CombatPresentationEvent(
+                    CombatPresentationEventType.HazardZoneImpacted,
+                    tick,
+                    encounter.Id,
+                    Payload: zone.Id));
             }
             else if (tick % 30 != 0)
             {

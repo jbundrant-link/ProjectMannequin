@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T16:38:08.266909Z",
+    "display_name": "Nano Banana Pro",
+    "id": "cda28c38-20f5-4299-9184-fda513cd7ffc",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_163808_cda28c38-20f5-4299-9184-fda513cd7ffc_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "69ce7012-3e13-4923-a430-2db876ae8b89",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/69ce7012-3e13-4923-a430-2db876ae8b89_resize.jpg"
+        },
+        {
+          "id": "00b7027b-f1c6-455d-a1e1-f518d0b84248",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/00b7027b-f1c6-455d-a1e1-f518d0b84248.png"
+        },
+        {
+          "id": "2532f6ba-f47b-4574-9122-5f9c823c8262",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2532f6ba-f47b-4574-9122-5f9c823c8262.png"
+        },
+        {
+          "id": "6a812f37-b73c-4a2c-9269-eb38b6733952",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6a812f37-b73c-4a2c-9269-eb38b6733952_resize.jpg"
+        }
+      ],
+      "prompt": "Create the missing OPPOSITE-LEG HALF of the approved Archive Knight walk cycle as exactly FOUR complete full-body poses in a clean 2 columns x 2 rows source sheet. References 1 and 2 are absolute Archive Knight identity authorities. Reference 3 shows the accepted first half-cycle's exact body scale, screen-right three-quarter camera, lighting, armor rendering, and integrated blade treatment. Reference 4 supplies only canonical walking mechanics.\r\n\r\nPreserve exactly: faceless ivory crested helm; cyan visor slit; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder plate; violet sternum core; porcelain plates; deep-plum joints; short rigid split tabards; heavy boots; one cyan-edged archive blade attached along the RIGHT forearm at constant length. Never mirror, swap, omit, duplicate or redesign asymmetrical features.\r\n\r\nThe four poses are the right-leg-leading mirror phase in motion, without mirroring the costume: 1 opposite-foot contact, 2 down position, 3 passing position, 4 up position. Natural arm counter-swing, same height and baseline, screen-right travel, measured armored walk. Every complete figure fits inside one quarter with generous clearance.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, fighting-game anatomy, polished anime finish. Perfectly uniform pure white background. No grid, text, labels, border, floor, shadows, scenery, extra figures, extra limbs, detached/second blade, shield, cape, long robe, floating parts, cropped crest/blade/feet, overlap, photorealism, PBR, rust, grime, microtexture, or painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_163808_cda28c38-20f5-4299-9184-fda513cd7ffc.png",
+    "status": "completed"
+  }
+]

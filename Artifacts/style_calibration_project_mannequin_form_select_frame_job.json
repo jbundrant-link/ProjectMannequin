@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-18T03:21:48.220761Z",
+    "display_name": "Nano Banana Pro",
+    "id": "088d73dc-d9f7-47da-a016-c54a35249540",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_032148_088d73dc-d9f7-47da-a016-c54a35249540_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "16:9",
+      "batch_size": 1,
+      "height": 1536,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "c2c0c787-aceb-4ad2-a269-8a60d81a6cf5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c2c0c787-aceb-4ad2-a269-8a60d81a6cf5.png"
+        },
+        {
+          "id": "50cffd68-42e9-4a18-b378-73d8e9230119",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/50cffd68-42e9-4a18-b378-73d8e9230119.png"
+        },
+        {
+          "id": "8e201a3e-ffe3-47ec-9dbe-dbb7f9ac0951",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8e201a3e-ffe3-47ec-9dbe-dbb7f9ac0951.png"
+        },
+        {
+          "id": "416c2f8f-fa38-4774-b71f-09f177208d8d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/416c2f8f-fa38-4774-b71f-09f177208d8d_resize.jpg"
+        },
+        {
+          "id": "b24ca062-f560-4bb7-8976-c5b8e4a47f62",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b24ca062-f560-4bb7-8976-c5b8e4a47f62.png"
+        },
+        {
+          "id": "5bc09cbb-a1ae-4f5b-bead-13ed1153b635",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5bc09cbb-a1ae-4f5b-bead-13ed1153b635.png"
+        },
+        {
+          "id": "a6651880-e724-4779-823b-00e17a1c42a1",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a6651880-e724-4779-823b-00e17a1c42a1.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one reusable FORM SELECT / INHERITANCE SELECTOR FRAME for Project Mannequin. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, and polished modern fighting-game character-select presentation. Characters define rendering grammar only; DO NOT include characters. The approved Living Archive HUD, Archive Map, Results, and Pause families define warm-ivory porcelain, deep-plum joints, cyan Archive energy, restrained gold/coral accents, faceted keystones, and dimensional cel-painted UI materials. The legacy selector screenshot is STRUCTURE ONLY: preserve its fast left-preview/right-grid comparison, but do not copy translucent generic cards or text.\n\nOn one perfectly uniform neutral medium-gray background, create a single complete wide 16:9 INHERITANCE SELECTOR FRAME, fully visible with generous gray margin and no cropping. Composition must be distinct from pause/results: TOP, a shallow faceted title rail with a central cyan archive crystal and blank dark title seat; LEFT, one tall champion aperture/pedestal with dark blank interior, broad porcelain shoulder frame, and lower blank identity/stat shelf for a large native portrait and data; RIGHT, one large inheritance vault containing exactly SIX separated blank selection windows in a 3-column by 2-row grid, each with dark blank interior and restrained plum/ivory edge plates; BOTTOM, one narrow command ribbon spanning the center for native control hints. Keep the left aperture dominant enough for a full-body preview, but leave the right grid readable at 1280x720. Use cyan for current cursor energy, restrained gold for equipped/current state, tiny coral inheritance accents, large cel-painted planes, clean contours, and sparse detail. The selector must remain readable over dimmed live gameplay.\n\nNO text, letters, numbers, words, logos, rank glyphs, icons, portraits, characters, faces, silhouettes, health bars, progress fills, buttons, cursor, checkerboard, transparency grid, full-screen border, photorealism, PBR metal, chrome, rust, grime, dense greebles, microtexture, enterprise dashboard styling, rounded software cards, flat vector art, gradients, or decorative orbs. No shadows or reflections on the neutral background. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2752
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_032148_088d73dc-d9f7-47da-a016-c54a35249540.png",
+    "status": "completed"
+  }
+]

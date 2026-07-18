@@ -29,6 +29,7 @@ public partial class CombatAudioManager : Node
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private readonly HashSet<string> _seenEventKeys = new();
     private readonly Queue<AudioStreamPlayer> _pool = new();
+    private readonly List<AudioStream> _ownedProceduralStreams = new();
 
     public override void _Ready()
     {
@@ -45,20 +46,62 @@ public partial class CombatAudioManager : Node
         // Procedural boss-intro cues so the cinematic slam / READY / FIGHT beats
         // are audible without external audio assets (designers can still assign
         // real voice-over on these exports).
-        IntroSlamSound ??= ProceduralAudioFactory.CreateSlam();
-        AnnouncerReadySound ??= ProceduralAudioFactory.CreateStinger(new[] { 262.0f, 330.0f, 392.0f }, 0.34f, 0.55f);
-        AnnouncerFightSound ??= ProceduralAudioFactory.CreateStinger(new[] { 392.0f, 523.0f, 784.0f }, 0.38f, 0.6f);
-        GongSound ??= ProceduralAudioFactory.CreateGong();
-        HitConnectedSound ??= ProceduralAudioFactory.CreateImpact(185.0f, 0.095f, 0.34f, 0.48f, 1101);
-        HeavyHitSound ??= ProceduralAudioFactory.CreateImpact(92.0f, 0.16f, 0.52f, 0.68f, 1102);
-        GuardHitSound ??= ProceduralAudioFactory.CreateImpact(340.0f, 0.09f, 0.22f, 0.42f, 1103);
-        GuardBrokenSound ??= ProceduralAudioFactory.CreateSlam(0.34f, 0.68f);
-        ParrySound ??= ProceduralAudioFactory.CreateStinger(new[] { 660.0f, 990.0f, 1320.0f }, 0.16f, 0.48f);
-        SuperStartedSound ??= ProceduralAudioFactory.CreateSlam(0.42f, 0.72f);
-        BeamClashStartedSound ??= ProceduralAudioFactory.CreateGong(146.0f, 0.72f, 0.55f);
-        FormSwapSound ??= ProceduralAudioFactory.CreateStinger(new[] { 220.0f, 440.0f, 880.0f }, 0.28f, 0.46f);
-        WallBreakSound ??= ProceduralAudioFactory.CreateSlam(0.62f, 0.82f);
-        BossPhaseChangeSound ??= ProceduralAudioFactory.CreateStinger(new[] { 110.0f, 165.0f, 247.0f }, 0.48f, 0.62f);
+        IntroSlamSound ??= Own(ProceduralAudioFactory.CreateSlam());
+        AnnouncerReadySound ??= Own(ProceduralAudioFactory.CreateStinger(new[] { 262.0f, 330.0f, 392.0f }, 0.34f, 0.55f));
+        AnnouncerFightSound ??= Own(ProceduralAudioFactory.CreateStinger(new[] { 392.0f, 523.0f, 784.0f }, 0.38f, 0.6f));
+        GongSound ??= Own(ProceduralAudioFactory.CreateGong());
+        HitConnectedSound ??= Own(ProceduralAudioFactory.CreateImpact(185.0f, 0.095f, 0.34f, 0.48f, 1101));
+        HeavyHitSound ??= Own(ProceduralAudioFactory.CreateImpact(92.0f, 0.16f, 0.52f, 0.68f, 1102));
+        GuardHitSound ??= Own(ProceduralAudioFactory.CreateImpact(340.0f, 0.09f, 0.22f, 0.42f, 1103));
+        GuardBrokenSound ??= Own(ProceduralAudioFactory.CreateSlam(0.34f, 0.68f));
+        ParrySound ??= Own(ProceduralAudioFactory.CreateStinger(new[] { 660.0f, 990.0f, 1320.0f }, 0.16f, 0.48f));
+        SuperStartedSound ??= Own(ProceduralAudioFactory.CreateSlam(0.42f, 0.72f));
+        BeamClashStartedSound ??= Own(ProceduralAudioFactory.CreateGong(146.0f, 0.72f, 0.55f));
+        FormSwapSound ??= Own(ProceduralAudioFactory.CreateStinger(new[] { 220.0f, 440.0f, 880.0f }, 0.28f, 0.46f));
+        WallBreakSound ??= Own(ProceduralAudioFactory.CreateSlam(0.62f, 0.82f));
+        BossPhaseChangeSound ??= Own(ProceduralAudioFactory.CreateStinger(new[] { 110.0f, 165.0f, 247.0f }, 0.48f, 0.62f));
+    }
+
+    public override void _ExitTree()
+    {
+        foreach (var child in GetChildren())
+        {
+            if (child is not AudioStreamPlayer player)
+            {
+                continue;
+            }
+
+            player.Stop();
+            player.Stream = null;
+        }
+
+        _pool.Clear();
+        IntroSlamSound = null;
+        AnnouncerReadySound = null;
+        AnnouncerFightSound = null;
+        GongSound = null;
+        HitConnectedSound = null;
+        HeavyHitSound = null;
+        GuardHitSound = null;
+        GuardBrokenSound = null;
+        ParrySound = null;
+        SuperStartedSound = null;
+        BeamClashStartedSound = null;
+        FormSwapSound = null;
+        WallBreakSound = null;
+        BossPhaseChangeSound = null;
+        foreach (var stream in _ownedProceduralStreams)
+        {
+            stream.Dispose();
+        }
+
+        _ownedProceduralStreams.Clear();
+    }
+
+    private AudioStreamWav Own(AudioStreamWav stream)
+    {
+        _ownedProceduralStreams.Add(stream);
+        return stream;
     }
 
     public override void _Process(double delta)

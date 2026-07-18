@@ -18,6 +18,8 @@ public static class TestRosterFactory
             DashSpeed = 10.8f,
             JumpVelocity = 12.4f,
             Gravity = 28.0f,
+            SelectPortraitPath =
+                "res://Assets/Sprites/Mannequin/mannequin_portrait_style_v1.png",
             RoleTags = new List<string> { "base", "adaptive" },
             SynergyTags = new List<string> { "martial_arts", "archive" },
             IntroAnimation = new SpriteAnimationClipData
@@ -719,15 +721,21 @@ public static class TestRosterFactory
             GuardBreakFrames = 78,
             GuardRecoveryDelayFrames = 90,
             GuardRecoveryPerSecond = 20.0f,
+            SpriteSheetPath =
+                "res://Assets/Sprites/Enemies/archive_knight_style_v1.png",
+            SpriteSheetColumns = 10,
+            SpriteSheetRows = 9,
+            SpritePixelSize = 0.018f,
+            SpriteGroundOffsetPixels = 120.0f,
+            TintSpriteSheet = false,
+            SelectPortraitPath =
+                "res://Assets/Sprites/Enemies/archive_knight_portrait_style_v1.png",
             RoleTags = new List<string> { "boss", "sword" },
             SynergyTags = new List<string> { "metal", "sword" },
             IntroAnimation = new SpriteAnimationClipData
             {
-                // Archive Knight intro: the mannequin-knight powers up into a battle
-                // stance. Uses the mannequin intro atlas recolored to the knight's
-                // purple armor (same procedural base art), so it matches the boss.
-                // Plays once during the cinematic, then idle-bounces the stance.
-                AtlasPath = "res://Assets/Sprites/Mannequin/knight_intro_higgsfield_v1.png",
+                AtlasPath =
+                    "res://Assets/Sprites/Enemies/archive_knight_intro_style_v1.png",
                 AtlasColumns = 4,
                 AtlasRows = 2,
                 PixelSize = 0.017f,
@@ -2718,7 +2726,7 @@ public static class TestRosterFactory
 
     public static CharacterData CreateWorldWarriorRookie()
     {
-        return CreateWorldWarriorMinion(
+        var rookie = CreateWorldWarriorMinion(
             "world_warrior_rookie",
             "Dojo Rookie",
             CharacterRole.Rushdown,
@@ -2729,11 +2737,28 @@ public static class TestRosterFactory
             recoveryFrames: 23,
             damage: 8,
             pushbackX: 1.4f);
+        rookie.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/world_warrior_rookie_style_v2.png";
+
+        var attack = rookie.FindMove("world_warrior_rookie_attack");
+        if (attack is not null)
+        {
+            attack.AnimationFrameSequence = new List<int>
+            {
+                40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            };
+            attack.AnimationFrameDurations = new List<int>
+            {
+                3, 3, 3, 3, 5, 4, 4, 4, 4, 7,
+            };
+        }
+
+        return rookie;
     }
 
     public static CharacterData CreateWorldWarriorStriker()
     {
-        return CreateWorldWarriorMinion(
+        var striker = CreateWorldWarriorMinion(
             "world_warrior_striker",
             "Street Challenger",
             CharacterRole.Striker,
@@ -2744,6 +2769,23 @@ public static class TestRosterFactory
             recoveryFrames: 27,
             damage: 11,
             pushbackX: 2.0f);
+        striker.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/world_warrior_striker_style_v2.png";
+
+        var attack = striker.FindMove("world_warrior_striker_attack");
+        if (attack is not null)
+        {
+            attack.AnimationFrameSequence = new List<int>
+            {
+                40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            };
+            attack.AnimationFrameDurations = new List<int>
+            {
+                4, 4, 4, 4, 5, 4, 5, 5, 6, 7,
+            };
+        }
+
+        return striker;
     }
 
     public static CharacterData CreateWorldWarriorGrappler()

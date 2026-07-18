@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-17T14:01:44.024127Z",
+    "display_name": "Nano Banana Pro",
+    "id": "91ae471e-c5c1-4c38-b086-063acbdd29d9",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_140144_91ae471e-c5c1-4c38-b086-063acbdd29d9_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "a90cf3c0-8c54-451d-a253-3111437c8de4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a90cf3c0-8c54-451d-a253-3111437c8de4.png"
+        },
+        {
+          "id": "06bb7e71-6c69-474d-9fbb-5ae8cd595e19",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/06bb7e71-6c69-474d-9fbb-5ae8cd595e19.png"
+        },
+        {
+          "id": "8c11d770-41e8-42e9-b6d2-9dd22866d1a6",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8c11d770-41e8-42e9-b6d2-9dd22866d1a6.png"
+        },
+        {
+          "id": "8f2bf138-b81e-416b-b67f-61ecc29056f9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8f2bf138-b81e-416b-b67f-61ecc29056f9.png"
+        },
+        {
+          "id": "300282e6-8a3b-4f34-894e-b554e824a7b4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/300282e6-8a3b-4f34-894e-b554e824a7b4.png"
+        },
+        {
+          "id": "cb9a5aec-09c3-46bd-a2e6-45f05a3c8bc6",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cb9a5aec-09c3-46bd-a2e6-45f05a3c8bc6_resize.jpg"
+        }
+      ],
+      "prompt": "Revise the supplied Corruption Repository floor pilot for actual 2.5D fighting-game projection. Preserve strict flat orthographic top-down view, deep indigo/dark-plum dominance, broad cel-shaded slabs, sparse magenta fractures, tiny amber marks, and the quiet dark central gameplay field. REMOVE the complete outer perimeter frame, every edge border, all continuous horizontal and vertical rails, every long cyan/ivory light strip, and the large ivory corner panels. No line, plate, seam, or accent may touch two opposite edges or span more than 18 percent of the image width or height. Break the layout into staggered irregular slab seams that terminate well before the image edges. Ivory may appear only as four or fewer small isolated inset wedges, each under 4 percent of image area. Cyan and violet appear only as short isolated dashes. Keep at least 85 percent of the image dark and keep all bright occupancy under 8 percent. Retain two or three separated restrained magenta fracture clusters near outer quadrants, never across the center.\n\nPROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel shading, simplified stylized materials, clean highlights, and polished anime fighting-game readability. Characters are rendering references only; do not include them. No border, frame, track, bridge, grid, repeated lattice, centered ring, perspective, walls, raised platform, characters, props, hazards, text, signs, photorealism, PBR, rust, grime, scratches, microtexture, debris, or dense greebles. Full-bleed mirror-friendly square floor tile; all edges must remain low-contrast dark slab surfaces without framing.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_140144_91ae471e-c5c1-4c38-b086-063acbdd29d9.png",
+    "status": "completed"
+  }
+]

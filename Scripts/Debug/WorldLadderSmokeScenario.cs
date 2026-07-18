@@ -13,6 +13,7 @@ namespace ProjectMannequin.DebugTools;
 public sealed class WorldLadderSmokeScenario
 {
     private const int EnemyCaptureMinimumWarmupFrames = 30;
+    private const int EnemyCaptureOverlayTimeoutFrames = 300;
 
     private readonly GameSimulation _simulation;
     private readonly MvpHud? _hud;
@@ -53,6 +54,7 @@ public sealed class WorldLadderSmokeScenario
     private bool _raiderOriginalAiEnabled;
     private bool _raiderOriginalVulnerable;
     private readonly HashSet<string> _raiderHiddenActorIds = new();
+    private readonly HashSet<string> _stageCaptureHiddenActorIds = new();
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private readonly HashSet<string> _clearedEncounterIds = new();
@@ -78,7 +80,8 @@ public sealed class WorldLadderSmokeScenario
         }
 
         player.IsVulnerable = false;
-        if (director.Mission.StageNumber == 2)
+        if (director.Mission.WorldId == "archive_nexus"
+            && director.Mission.StageNumber == 2)
         {
             var encounterIndex = director.Mission.Encounters.FindIndex(encounter =>
                 encounter.Id == director.CurrentEncounter.Id);
@@ -118,6 +121,16 @@ public sealed class WorldLadderSmokeScenario
         }
 
         _sawAwaitingFormSwap |= director.State == ArcadeStageState.AwaitingFormSwap;
+        if (director.State == ArcadeStageState.AwaitingFormSwap)
+        {
+            var unlockedForm = player.FormArchive.GetForm(director.Mission.BossFormId);
+            if (unlockedForm is not null && player.CurrentForm.Id != unlockedForm.Id)
+            {
+                player.SetForm(unlockedForm);
+            }
+            return;
+        }
+
         if (director.State != ArcadeStageState.EncounterActive)
         {
             _encounterActiveStartedTick = -1;
@@ -128,6 +141,8 @@ public sealed class WorldLadderSmokeScenario
         {
             _encounterActiveStartedTick = tick;
         }
+
+        StageAuthoredCaptureActors(director);
 
         if (TryDriveRaiderCapture(tick, director, player))
         {
@@ -205,6 +220,11 @@ public sealed class WorldLadderSmokeScenario
             }
         }
 
+        if (AuthoredStageCapturePending(director))
+        {
+            return;
+        }
+
         if (tick < _nextDefeatTick)
         {
             return;
@@ -244,7 +264,7 @@ public sealed class WorldLadderSmokeScenario
             ?? styledPickupPropTarget
             ?? _simulation.Actors.FirstOrDefault(actor =>
             !actor.IsPlayerControlled
-            && !actor.IsBoss
+            && (!actor.IsBoss || director.Mission.IsFinalStage)
             && !actor.IsDead
             && (actor.ArcadeBrain?.IsEnteringStage == false
                 || tick - _encounterActiveStartedTick > 150)
@@ -289,7 +309,8 @@ public sealed class WorldLadderSmokeScenario
             ? _simulation.Actors.FirstOrDefault(actor =>
                 !actor.IsDead
                 && actor.CurrentForm.Id == CapturedEnemyFormId()
-                && actor.ArcadeBrain?.IsEnteringStage == false)
+                && (actor.ArcadeBrain is null
+                    || !actor.ArcadeBrain.IsEnteringStage))
             : _simulation.Actors.FirstOrDefault(actor =>
                 actor.ActorId == _raiderCaptureActorId
                 && !actor.IsDead);
@@ -320,7 +341,8 @@ public sealed class WorldLadderSmokeScenario
             raider.State = CombatActorState.Idle;
             var captureWarmup = tick - _raiderCaptureStartedTick;
             if (captureWarmup < EnemyCaptureMinimumWarmupFrames
-                || (_hud?.CenterNotificationVisible == true && captureWarmup < 120))
+                || (_hud?.CenterNotificationVisible == true
+                    && captureWarmup < EnemyCaptureOverlayTimeoutFrames))
             {
                 return true;
             }
@@ -552,10 +574,16 @@ public sealed class WorldLadderSmokeScenario
         var expectsPropExplosion = director.Mission.Encounters
             .SelectMany(encounter => encounter.Props)
             .Any(prop => prop.ExplodesOnBreak);
-        var laneRhythmPassed = director.Mission.StageNumber != 2
+        var expectsVaultLaneRhythm = director.Mission.WorldId == "archive_nexus"
+            && director.Mission.StageNumber == 2;
+        var laneRhythmPassed = !expectsVaultLaneRhythm
             || (_sawNarrowVaultLane && _sawWideVaultLane && _sawNarrowLaneClamp);
         var enemyCapturePassed = EnemyCapturePassed(director);
-        var passed = director.Mission.StageNumber is >= 1 and <= 3
+        var aftermathCapturePath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_AFTERMATH_CAPTURE");
+        var aftermathCapturePassed = string.IsNullOrWhiteSpace(aftermathCapturePath)
+            || CaptureFileExists(aftermathCapturePath);
+        var nonFinalPassed = director.Mission.StageNumber is >= 1 and <= 3
             && !director.Mission.IsFinalStage
             && _hordesCleared == 2
             && _sawEliteSpawn
@@ -572,8 +600,26 @@ public sealed class WorldLadderSmokeScenario
             && _sawEliteIntroFight
             && _sawEliteLifeBar
             && enemyCapturePassed
+            && aftermathCapturePassed
             && !_sawFormUnlock
             && !_sawAwaitingFormSwap;
+        var player = _simulation.Actors.FirstOrDefault(actor => actor.IsPlayerControlled);
+        var finalPassed = director.Mission.StageNumber == 4
+            && director.Mission.IsFinalStage
+            && _hordesCleared == 0
+            && !_sawEliteSpawn
+            && _sawStageCompleted
+            && _sawResults
+            && _sawFormUnlock
+            && _sawAwaitingFormSwap
+            && player?.CurrentForm.Id == director.Mission.BossFormId
+            && _sawHazardWarning == (expectedHazards > 0)
+            && _hazardWarnings.Count >= expectedHazards
+            && _sawPropExplosion == expectsPropExplosion
+            && _sawPropExplosionDamage == expectsPropExplosion
+            && enemyCapturePassed
+            && aftermathCapturePassed;
+        var passed = nonFinalPassed || finalPassed;
         GD.Print(
             $"[LadderSmoke] SUMMARY passed={passed} "
             + $"stage={director.Mission.StageNumber} hordes={_hordesCleared} "
@@ -584,6 +630,7 @@ public sealed class WorldLadderSmokeScenario
             + $"explosion={_sawPropExplosion}/{_sawPropExplosionDamage}/{expectsPropExplosion} "
             + $"lanes={_sawNarrowVaultLane}/{_sawWideVaultLane}/{_sawNarrowLaneClamp} "
             + $"enemyCapture={enemyCapturePassed} "
+            + $"aftermathCapture={aftermathCapturePassed} "
             + $"awaitSwap={_sawAwaitingFormSwap} tick={tick}");
         if (!passed)
         {
@@ -628,9 +675,12 @@ public sealed class WorldLadderSmokeScenario
         {
             "index_warden_veyra" => 1,
             "archive_scout" => 1,
+            "world_warrior_rookie" => 1,
             "cipher_captain_rhune" => 2,
             "overseer_basalt" => 3,
             "archive_bruiser" => 3,
+            "world_warrior_grappler" => 3,
+            "archive_knight_boss" => 4,
             _ => 2,
         };
     }
@@ -650,6 +700,7 @@ public sealed class WorldLadderSmokeScenario
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_IDLE_CAPTURE",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_IDLE_CAPTURE",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_IDLE_CAPTURE",
+            "archive_knight_boss" => "PROJECT_MANNEQUIN_LADDER_KNIGHT_IDLE_CAPTURE",
             _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_IDLE_CAPTURE",
         };
     }
@@ -663,6 +714,7 @@ public sealed class WorldLadderSmokeScenario
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ATTACK_CAPTURE",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ATTACK_CAPTURE",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ATTACK_CAPTURE",
+            "archive_knight_boss" => "PROJECT_MANNEQUIN_LADDER_KNIGHT_ATTACK_CAPTURE",
             _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_ATTACK_CAPTURE",
         };
     }
@@ -676,6 +728,7 @@ public sealed class WorldLadderSmokeScenario
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ACTOR_ID",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ACTOR_ID",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ACTOR_ID",
+            "archive_knight_boss" => "PROJECT_MANNEQUIN_LADDER_KNIGHT_ACTOR_ID",
             _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_ACTOR_ID",
         };
     }
@@ -741,13 +794,8 @@ public sealed class WorldLadderSmokeScenario
     private void CaptureAuthoredStageFrameIfRequested(ArcadeEncounterDirector director)
     {
         var path = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CAPTURE");
-        var targetEncounterIndex = director.Mission.StageNumber switch
-        {
-            2 => 1,
-            3 => 0,
-            _ => -1,
-        };
-        var minimumElapsed = director.Mission.StageNumber == 3 ? 70 : 88;
+        var targetEncounterIndex = AuthoredStageCaptureEncounterIndex(director);
+        var minimumElapsed = AuthoredStageCaptureMinimumElapsed(director);
         if (_stageCaptureSaved
             || string.IsNullOrWhiteSpace(path)
             || targetEncounterIndex < 0
@@ -768,11 +816,82 @@ public sealed class WorldLadderSmokeScenario
         var error = _simulation.GetViewport().GetTexture().GetImage().SavePng(path);
         if (error != Error.Ok)
         {
-            GD.PushError($"[LadderSmoke] Could not save Stage 2 capture '{path}' ({error}).");
+            GD.PushError($"[LadderSmoke] Could not save authored stage capture '{path}' ({error}).");
             return;
         }
 
         _stageCaptureSaved = true;
+        RestoreAuthoredStageCaptureActors();
+        GD.Print($"[LadderSmoke] Authored stage capture saved: {path}");
+    }
+
+    private void StageAuthoredCaptureActors(ArcadeEncounterDirector director)
+    {
+        if (!AuthoredStageCapturePending(director)
+            || OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CLEAR_STAGE_CAPTURE") != "1")
+        {
+            return;
+        }
+
+        foreach (var actor in _simulation.Actors.Where(actor => actor.Visible))
+        {
+            _stageCaptureHiddenActorIds.Add(actor.ActorId);
+            actor.Visible = false;
+        }
+    }
+
+    private void RestoreAuthoredStageCaptureActors()
+    {
+        foreach (var actor in _simulation.Actors.Where(actor =>
+                     _stageCaptureHiddenActorIds.Contains(actor.ActorId)))
+        {
+            actor.Visible = true;
+        }
+        _stageCaptureHiddenActorIds.Clear();
+    }
+
+    private bool AuthoredStageCapturePending(ArcadeEncounterDirector director)
+    {
+        var path = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CAPTURE");
+        var targetEncounterIndex = AuthoredStageCaptureEncounterIndex(director);
+        return !_stageCaptureSaved
+            && !string.IsNullOrWhiteSpace(path)
+            && targetEncounterIndex >= 0
+            && director.Mission.Encounters.FindIndex(encounter =>
+                encounter.Id == director.CurrentEncounter.Id) == targetEncounterIndex;
+    }
+
+    private static int AuthoredStageCaptureEncounterIndex(
+        ArcadeEncounterDirector director)
+    {
+        var encounterNumberText = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_CAPTURE_ENCOUNTER_NUMBER");
+        if (int.TryParse(encounterNumberText, out var encounterNumber)
+            && encounterNumber > 0)
+        {
+            return Mathf.Clamp(
+                encounterNumber - 1,
+                0,
+                director.Mission.Encounters.Count - 1);
+        }
+
+        return director.Mission.StageNumber switch
+        {
+            1 => 1,
+            2 => 1,
+            3 => 0,
+            _ => -1,
+        };
+    }
+
+    private static int AuthoredStageCaptureMinimumElapsed(
+        ArcadeEncounterDirector director)
+    {
+        var minimumElapsedText = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_CAPTURE_MINIMUM_ELAPSED");
+        return int.TryParse(minimumElapsedText, out var authoredMinimum)
+            ? Mathf.Max(0, authoredMinimum)
+            : director.Mission.StageNumber == 3 ? 70 : 88;
     }
 
     private void CapturePickupFrameIfRequested(ArcadeEncounterDirector director)

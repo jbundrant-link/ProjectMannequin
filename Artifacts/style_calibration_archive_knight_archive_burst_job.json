@@ -1,0 +1,39 @@
+[
+  {
+    "created_at": "2026-07-17T17:24:24.492351Z",
+    "display_name": "Nano Banana Pro",
+    "id": "48cab79e-dbf3-4e5e-9c2a-fc8296177ca4",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_172424_48cab79e-dbf3-4e5e-9c2a-fc8296177ca4_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "3:4",
+      "batch_size": 1,
+      "height": 2400,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "3cdb92df-426a-4b1a-8b29-155b11f9436a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3cdb92df-426a-4b1a-8b29-155b11f9436a_resize.jpg"
+        },
+        {
+          "id": "8368f336-8d13-4ba2-a832-03d5290e6e4a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8368f336-8d13-4ba2-a832-03d5290e6e4a.png"
+        },
+        {
+          "id": "e4a8c531-43d9-47a6-850c-8df94d37ced6",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e4a8c531-43d9-47a6-850c-8df94d37ced6.png"
+        }
+      ],
+      "prompt": "Create ONE complete full-body Archive Knight ARCHIVE BURST release pose. References 1 and 2 are absolute identity authorities. Preserve exactly: faceless ivory crested helm; cyan visor slit; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder; faceted violet sternum core; porcelain plates; deep-plum joints; short rigid split tabards; heavy boots; ONE cyan-edged archive blade physically integrated along the RIGHT forearm. Never detach, duplicate, mirror, omit or redesign the blade or pauldron.\r\n\r\nScreen-right three-quarter finishing pose, feet braced wide on one baseline. The RIGHT forearm is extended across the body and its attached blade releases one tight crescent of cyan-violet archive energy hugging the weapon edge. The LEFT fist guards near the sternum core. Full crest, arch pauldron, entire blade and both boots visible. Strong final-boss silhouette; effect remains compact and does not obscure anatomy.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad cel shading, clean highlights, fighting anatomy, polished anime finish. One character only on perfectly uniform pure white background. No text, border, floor, shadow, scenery, extra limbs, loose/second blade, shield, cape, floating armor, crop, giant effect, photorealism, PBR, rust, grime, microtexture, painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 1792
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_172424_48cab79e-dbf3-4e5e-9c2a-fc8296177ca4.png",
+    "status": "completed"
+  }
+]

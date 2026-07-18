@@ -1,0 +1,54 @@
+{
+  "enemyId": "world_warrior_rookie",
+  "background": "green",
+  "minimum_component_area": 5000,
+  "output": "Assets/Sprites/Enemies/world_warrior_rookie_style_v2.png",
+  "preview": "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_atlas_preview.png",
+  "report": "Artifacts/StyleCalibration/world_warrior_rookie_style_v2_composition_report.json",
+  "animations": [
+    {
+      "name": "idle",
+      "target_row": 0,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_idle_sheet_style_v1.png",
+      "anchors": [[507, 534], [1534, 535], [508, 1547], [1533, 1545]]
+    },
+    {
+      "name": "walk",
+      "target_row": 1,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_walk_sheet_style_v1.png",
+      "anchors": [[238, 510], [744, 529], [1252, 517], [1776, 509], [243, 1533], [744, 1551], [1252, 1538], [1776, 1534]]
+    },
+    {
+      "name": "dash",
+      "target_row": 2,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_dash_sheet_style_v1.png",
+      "anchors": [[381, 613], [1061, 544], [1598, 569], [434, 1507], [1016, 1484], [1643, 1498]]
+    },
+    {
+      "name": "jump",
+      "target_row": 3,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_jump_sheet_style_v1.png",
+      "anchors": [[498, 571], [1554, 531], [513, 1491], [1551, 1615]]
+    },
+    {
+      "name": "quick_palm",
+      "target_row": 4,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_attack_startup_sheet_style_v1.png",
+          "anchors": [[407, 593], [1029, 589], [1652, 581], [613, 1472], [1416, 1468]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_attack_recovery_sheet_style_v1.png",
+          "anchors": [[388, 541], [1049, 537], [1666, 540], [628, 1504], [1375, 1500]]
+        }
+      ]
+    },
+    {
+      "name": "defense_hit_defeat",
+      "target_row": 5,
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_misc_sheet_style_v1.png",
+      "anchors": [[275, 532], [759, 560], [1266, 533], [1760, 555], [456, 1328], [1339, 1310], [506, 1820], [1535, 1813]]
+    }
+  ]
+}

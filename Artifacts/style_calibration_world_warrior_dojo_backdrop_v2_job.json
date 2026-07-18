@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-18T04:00:28.860875Z",
+    "display_name": "Nano Banana Pro",
+    "id": "0a59ab65-3d4a-4e42-a3ba-8e9763b751a2",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040028_0a59ab65-3d4a-4e42-a3ba-8e9763b751a2_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "421c67cf-643f-4ce5-9f83-41a090a298bd",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/421c67cf-643f-4ce5-9f83-41a090a298bd.png"
+        },
+        {
+          "id": "967a717e-f694-41e7-a248-f5e5392b7e3e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/967a717e-f694-41e7-a248-f5e5392b7e3e.png"
+        },
+        {
+          "id": "3721cfaa-5507-4540-8e0b-ef5a4fba76ba",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3721cfaa-5507-4540-8e0b-ef5a4fba76ba.png"
+        },
+        {
+          "id": "068b6056-c97e-4f71-bff0-53b8742a3f13",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/068b6056-c97e-4f71-bff0-53b8742a3f13_resize.jpg"
+        },
+        {
+          "id": "75d0d0a1-1721-4ee1-85f4-eb4ab68d046a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/75d0d0a1-1721-4ee1-85f4-eb4ab68d046a_resize.jpg"
+        },
+        {
+          "id": "43d054e9-ed28-4bb4-8449-5e0fac603a90",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/43d054e9-ed28-4bb4-8449-5e0fac603a90_resize.jpg"
+        }
+      ],
+      "prompt": "Revise the supplied Dojo Approach backdrop into ONE SEAMLESS CONTINUOUS SIDE-ON BELT-SCROLL BAND. Preserve the approved warm-ivory plaster, charcoal timber, vermilion cloth, muted jade pines, gold lanterns, broad cel-shaded planes, dark ink contours, and left-wall / center-practice-hall / right-pavilion identities. REMOVE both vertical black divider bars completely. Remove every triptych/panel boundary, seam, frame, border, crop break, and abrupt lighting split. Merge all architecture through overlapping side walls, roof eaves, trees, and distant silhouettes so the full 21:9 image reads as one uninterrupted location at one consistent horizon and scale.\n\nBreak the centered symmetry: move the main practice-hall opening left of center, replace the frontal staircase with a shallow side-on veranda and low training terrace, offset lanterns, and let the right pavilion gate enter from the outer edge rather than forming a central portal. Keep three adjacent asymmetric motifs but never frame them as separate images. Keep the lower 25 percent simple, dark, and low contrast behind fighters. Maintain a flat lateral elevation with distant mountains/temples only in the sky gaps.\n\nPROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel shading, simplified stylized materials, clean graphic highlights, and polished anime fighting-game readability. Characters define rendering grammar only; do not include them. The Tournament District supplies World Warrior palette only; the Intake backdrop supplies continuous lateral composition only. No floor, road, foreground rail, people, spectators, props, training dummies, hazards, text, signs, glyphs, centered gate, symmetry, stair axis, corridor, tunnel, perspective convergence, photorealism, PBR, dense roof tiles, microtexture, painterly blur, or baked UI. Full-bleed seamless production backdrop.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040028_0a59ab65-3d4a-4e42-a3ba-8e9763b751a2.png",
+    "status": "completed"
+  }
+]

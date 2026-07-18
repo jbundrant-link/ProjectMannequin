@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T14:06:29.622889Z",
+    "display_name": "Nano Banana Pro",
+    "id": "c12fb51a-9c80-4aab-b40e-1f6eda99fed3",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_140629_c12fb51a-9c80-4aab-b40e-1f6eda99fed3_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "ebc10bbb-5cef-4056-86a6-9b5ed6a84dcc",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ebc10bbb-5cef-4056-86a6-9b5ed6a84dcc.png"
+        },
+        {
+          "id": "4048dc17-9f42-4471-8e04-0766eec39ad7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4048dc17-9f42-4471-8e04-0766eec39ad7.png"
+        },
+        {
+          "id": "38dae463-a492-46bb-95a7-aff8e6d2c4ec",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/38dae463-a492-46bb-95a7-aff8e6d2c4ec.png"
+        },
+        {
+          "id": "ef007a47-4676-4b70-adc1-66cafb29b667",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ef007a47-4676-4b70-adc1-66cafb29b667_resize.jpg"
+        },
+        {
+          "id": "3c39f788-df06-48e9-aa2c-5cc8180761e4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3c39f788-df06-48e9-aa2c-5cc8180761e4.png"
+        },
+        {
+          "id": "2a21cb0b-9aca-435e-95e8-9d41ef09b342",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2a21cb0b-9aca-435e-95e8-9d41ef09b342.png"
+        },
+        {
+          "id": "efc6d865-7080-4823-af55-9d971e1640d7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/efc6d865-7080-4823-af55-9d971e1640d7.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one WIDE MIDGROUND LANDMARK STRIP for CORRUPTION REPOSITORY, a damaged data-vault stage inside the Living Archive. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, and polished anime fighting-game readability. Characters define rendering grammar and scale only; DO NOT include characters. The approved Repository backdrop and dark floor define the deep-indigo, ivory, cyan, restrained-magenta family. The approved Index Vaults cutout defines separated landmark spacing and silhouette simplicity. The Repository aftermath art defines the graphic corruption fracture motif.\n\nOn one perfectly uniform neutral medium-gray background, place exactly THREE separated, non-overlapping, fully visible side-on midground landmarks across a 21:9 canvas with generous empty gray gaps. LEFT: a leaning quarantine shelf monolith held by two broad ivory braces, with a few large book/data slab silhouettes and one restrained magenta fracture. CENTER: a compact suspended repository seal arch with a broken circular core, cyan recovery seam, and one dangling ivory data plate; keep it narrower than the left object. RIGHT: a stepped collapsed catalog tower with broad dark-plum slabs, one cyan locator pylon, and restrained magenta corruption at its base. All three share one consistent scale and side-on three-quarter fighting-stage perspective. Large broad planes dominate; detail is sparse. Keep the entire lower 25 percent of the canvas empty uniform gray so fighter bodies, feet, pickups, warning discs, shelves, and the security sweep remain unobstructed. Entire object silhouettes must be visible with no cropping.\n\nNo backdrop wall, floor, foreground rail, characters, enemies, caches, canisters, gameplay hazards, warning shapes, debris shower, text, letters, numbers, glyphs, signs, labels, checkerboard, transparency grid, gradients or shadows on the gray background, photorealism, PBR, rust, grime, dense books, cables, greebles, microtexture, or painterly blur. Do not connect the three landmarks. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_140629_c12fb51a-9c80-4aab-b40e-1f6eda99fed3.png",
+    "status": "completed"
+  }
+]

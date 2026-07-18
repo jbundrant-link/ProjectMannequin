@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-17T19:47:42.457686Z",
+    "display_name": "Nano Banana Pro",
+    "id": "a0aede4b-026d-46ca-b2c5-a7daf9d34847",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_194742_a0aede4b-026d-46ca-b2c5-a7daf9d34847_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "05200df8-a762-4686-a7da-327d00ff0994",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/05200df8-a762-4686-a7da-327d00ff0994_resize.jpg"
+        },
+        {
+          "id": "c41defd5-c6e6-42c5-9c2f-ab810405f5fa",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c41defd5-c6e6-42c5-9c2f-ab810405f5fa.png"
+        },
+        {
+          "id": "dde72e85-8ba1-4277-bf32-3c2a8d44cc96",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/dde72e85-8ba1-4277-bf32-3c2a8d44cc96.png"
+        },
+        {
+          "id": "e1fec211-2ef2-429d-934c-0fae72b7944a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e1fec211-2ef2-429d-934c-0fae72b7944a.png"
+        },
+        {
+          "id": "11fbd590-869c-4f67-9f70-22d268a18b37",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/11fbd590-869c-4f67-9f70-22d268a18b37.png"
+        },
+        {
+          "id": "a2b2b668-8997-4c77-ae58-684c74589de0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a2b2b668-8997-4c77-ae58-684c74589de0_resize.jpg"
+        }
+      ],
+      "prompt": "Revise the supplied Knight's Reliquary phase-2 midground source for clean production cutout. Preserve the exact left-localized BROKEN SEAL damage: fractured ivory oath tablets, one large missing center section, a few large settled shards, restrained violet cracks. Preserve the center ceremonial plinth intact and preserve the right suspended crystal frame intact. Keep all three landmarks separated, fully visible, side-on, and at one consistent scale.\n\nCRITICAL CLEANUP: REMOVE the entire reflective floor, every reflection, mirrored shape, ghosted character leg, boot, body fragment, cast shadow, horizon, gradient, fog, and all content below the landmarks. The background must be ONE perfectly uniform medium-gray color from top edge to bottom edge. Reposition the three landmarks into the upper 60 percent so the entire lower 35 percent is completely empty uniform gray. No floor contact reflection under any object. No characters or anatomy anywhere. Keep only a few large physical tablet shards attached to or immediately beside the left landmark; no debris crossing the empty lower band.\n\nPROJECT MANNEQUIN STYLE LOCK. Preserve controlled dark contours, broad two-to-four-step cel shading, simplified warm-ivory/deep-plum materials, cyan/violet focal accents, and polished anime fighting-game finish matching the supplied mannequin, Ryu, Goku, and Archive Knight references. No text, glyphs, UI, borders, checkerboard, photorealism, PBR, rust, grime, dense rubble, microtexture, or painterly blur. Full-bleed 21:9 cutout source.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_194742_a0aede4b-026d-46ca-b2c5-a7daf9d34847.png",
+    "status": "completed"
+  }
+]

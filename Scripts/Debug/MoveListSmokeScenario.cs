@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Godot;
 using ProjectMannequin.Combat;
@@ -19,6 +20,7 @@ public partial class MoveListSmokeScenario : Node
     private PauseMenu? _pauseMenu;
     private int _phase;
     private int _processFrames;
+    private int _phaseStartedFrame;
     private bool _pauseOpened;
     private bool _moveListButtonWorked;
     private bool _titleCorrect;
@@ -26,6 +28,10 @@ public partial class MoveListSmokeScenario : Node
     private bool _hadoukenCommandCorrect;
     private bool _crouchCommandCorrect;
     private bool _legendCorrect;
+    private bool _loadoutWorked;
+    private bool _formLoadoutWorked;
+    private bool _artifactsWorked;
+    private bool _styledPlate;
     private bool _backReturnedToPause;
     private bool _resumed;
 
@@ -34,6 +40,11 @@ public partial class MoveListSmokeScenario : Node
         _simulation = simulation;
         _pauseMenu = pauseMenu;
         ProcessMode = ProcessModeEnum.Always;
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_PAUSE_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_MOVE_LIST_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_MOVE_CARDS_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_FORM_LOADOUT_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_ARTIFACTS_CAPTURE");
         GD.Print("[MoveListSmoke] Driver active.");
     }
 
@@ -58,39 +69,128 @@ public partial class MoveListSmokeScenario : Node
                 player.SetForm(TestRosterFactory.CreateWorldWarriorRyuForm(), resetHealth: true);
                 SendEscape();
                 _phase = 1;
+                _phaseStartedFrame = _processFrames;
                 break;
             case 1:
+                if (_processFrames < _phaseStartedFrame + 6)
+                {
+                    return;
+                }
+
                 var pausePanel = FindByName<Control>(_pauseMenu, "PausePanel");
                 _pauseOpened = GetTree().Paused
                     && pausePanel?.Visible == true
                     && _pauseMenu.Layer >= 30;
+                _styledPlate = ResourceLoader.Exists(_pauseMenu.PausePlatePath)
+                    && Descendants<TextureRect>(_pauseMenu).Any(texture =>
+                        texture.Name == "PausePlate");
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_PAUSE_CAPTURE");
                 var moveListButton = Descendants<Button>(_pauseMenu)
                     .FirstOrDefault(button => button.Text == "Move List");
                 moveListButton?.EmitSignal(BaseButton.SignalName.Pressed);
                 _phase = 2;
+                _phaseStartedFrame = _processFrames;
                 break;
             case 2:
+                if (_processFrames < _phaseStartedFrame + 6)
+                {
+                    return;
+                }
+
                 CaptureMoveList();
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_MOVE_LIST_CAPTURE");
                 SendEscape();
                 _phase = 3;
+                _phaseStartedFrame = _processFrames;
                 break;
             case 3:
+                if (_processFrames < _phaseStartedFrame + 2)
+                {
+                    return;
+                }
+
                 var moveListPanel = FindByName<Control>(_pauseMenu, "MoveListPanel");
                 var rootPanel = FindByName<Control>(_pauseMenu, "PausePanel");
                 _backReturnedToPause = GetTree().Paused
                     && moveListPanel?.Visible == false
                     && rootPanel?.Visible == true;
-                SendEscape();
+                PressButton("Move Cards");
                 _phase = 4;
+                _phaseStartedFrame = _processFrames;
                 break;
             case 4:
+                if (_processFrames < _phaseStartedFrame + 6)
+                {
+                    return;
+                }
+
+                _loadoutWorked = FindByName<Control>(_pauseMenu, "LoadoutPanel")?.Visible == true;
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_MOVE_CARDS_CAPTURE");
+                SendEscape();
+                _phase = 5;
+                _phaseStartedFrame = _processFrames;
+                break;
+            case 5:
+                if (_processFrames < _phaseStartedFrame + 2)
+                {
+                    return;
+                }
+
+                PressButton("Form Loadout");
+                _phase = 6;
+                _phaseStartedFrame = _processFrames;
+                break;
+            case 6:
+                if (_processFrames < _phaseStartedFrame + 6)
+                {
+                    return;
+                }
+
+                _formLoadoutWorked = FindByName<Control>(_pauseMenu, "FormLoadoutPanel")?.Visible == true;
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_FORM_LOADOUT_CAPTURE");
+                SendEscape();
+                _phase = 7;
+                _phaseStartedFrame = _processFrames;
+                break;
+            case 7:
+                if (_processFrames < _phaseStartedFrame + 2)
+                {
+                    return;
+                }
+
+                PressButton("Artifacts");
+                _phase = 8;
+                _phaseStartedFrame = _processFrames;
+                break;
+            case 8:
+                if (_processFrames < _phaseStartedFrame + 6)
+                {
+                    return;
+                }
+
+                _artifactsWorked = FindByName<Control>(_pauseMenu, "ArtifactsPanel")?.Visible == true;
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_ARTIFACTS_CAPTURE");
+                SendEscape();
+                _phase = 9;
+                _phaseStartedFrame = _processFrames;
+                break;
+            case 9:
+                if (_processFrames < _phaseStartedFrame + 2)
+                {
+                    return;
+                }
+
+                SendEscape();
+                _phase = 10;
+                break;
+            case 10:
                 var panel = FindByName<Control>(_pauseMenu, "PausePanel");
                 _resumed = !GetTree().Paused && panel?.Visible == false;
                 Finish();
                 break;
         }
 
-        if (_processFrames >= 120)
+        if (_processFrames >= 180)
         {
             GD.PushError($"[MoveListSmoke] Timed out in phase={_phase}.");
             GetTree().Paused = false;
@@ -128,13 +228,24 @@ public partial class MoveListSmokeScenario : Node
             && _hadoukenCommandCorrect
             && _crouchCommandCorrect
             && _legendCorrect
+            && _loadoutWorked
+            && _formLoadoutWorked
+            && _artifactsWorked
+            && _styledPlate
             && _backReturnedToPause
-            && _resumed;
+            && _resumed
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_PAUSE_CAPTURE")
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_MOVE_LIST_CAPTURE")
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_MOVE_CARDS_CAPTURE")
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_FORM_LOADOUT_CAPTURE")
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_ARTIFACTS_CAPTURE");
         GD.Print(
             $"[MoveListSmoke] SUMMARY passed={passed} pause={_pauseOpened} "
             + $"button={_moveListButtonWorked} title={_titleCorrect} hadouken={_hadoukenListed} "
             + $"motionLabel={_hadoukenCommandCorrect} crouchLabel={_crouchCommandCorrect} "
-            + $"legend={_legendCorrect} back={_backReturnedToPause} resumed={_resumed}");
+            + $"legend={_legendCorrect} cards={_loadoutWorked} forms={_formLoadoutWorked} "
+            + $"artifacts={_artifactsWorked} styled={_styledPlate} "
+            + $"back={_backReturnedToPause} resumed={_resumed}");
         if (!passed)
         {
             GD.PushError("[MoveListSmoke] Pause Move List or command labels regressed.");
@@ -142,6 +253,49 @@ public partial class MoveListSmokeScenario : Node
 
         GetTree().Paused = false;
         GetTree().Quit();
+    }
+
+    private void PressButton(string text)
+    {
+        Descendants<Button>(_pauseMenu!)
+            .FirstOrDefault(button => button.Text == text)
+            ?.EmitSignal(BaseButton.SignalName.Pressed);
+    }
+
+    private void CaptureFrameIfRequested(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            return;
+        }
+
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError($"[MoveListSmoke] Could not save capture '{path}' ({error}).");
+        }
+    }
+
+    private static void PrepareCaptureOutput(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    private static bool CaptureExistsIfRequested(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        return string.IsNullOrWhiteSpace(path) || File.Exists(path);
     }
 
     private void SendEscape()

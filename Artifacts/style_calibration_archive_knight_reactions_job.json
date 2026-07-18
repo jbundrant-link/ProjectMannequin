@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T17:32:48.876433Z",
+    "display_name": "Nano Banana Pro",
+    "id": "e5a42774-a0b0-4ca4-8163-65e658ffaa84",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_173248_e5a42774-a0b0-4ca4-8163-65e658ffaa84_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "ed4b3f1f-7d97-48fd-826e-12c5157d461c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ed4b3f1f-7d97-48fd-826e-12c5157d461c_resize.jpg"
+        },
+        {
+          "id": "43ebbec5-2423-435e-82cd-db6adbc090e5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/43ebbec5-2423-435e-82cd-db6adbc090e5.png"
+        },
+        {
+          "id": "f25e3f2e-3592-48fa-a0fd-ad6e306e816b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f25e3f2e-3592-48fa-a0fd-ad6e306e816b.png"
+        },
+        {
+          "id": "52165819-e9fe-4347-8f9c-cc62f1c4660e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/52165819-e9fe-4347-8f9c-cc62f1c4660e.png"
+        }
+      ],
+      "prompt": "Create exactly SIX complete full-body Archive Knight defense/reaction/form-swap poses in a clean 3 columns x 2 rows source sheet. References 1 and 2 are absolute identity authorities. Preserve exactly: faceless ivory crested helm; narrow cyan visor; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder; violet sternum core; porcelain plates; deep-plum joints; short rigid split tabards; heavy boots; ONE cyan-edged archive blade physically integrated along the RIGHT forearm at constant length. Never mirror, swap, omit, duplicate or redesign asymmetrical features; never detach or turn the blade into a held sword.\r\n\r\nScreen-right three-quarter camera, stable body/head scale, lighting and baseline. Runtime row-5 order, left-to-right top then bottom: 1 high guard using the arch pauldron and attached forearm blade; 2 precise parry with attached blade deflecting outward; 3 staggered guard-break/hit recoil with anatomy readable; 4 upright form-swap charge beginning with dim violet sternum glow; 5 stronger form-swap stance with cyan seams illuminated; 6 peak form-swap stance with compact cyan-violet aura hugging the body. Full silhouettes, effect never obscures feet or armor, generous clearance.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad cel shading, clean highlights, fighting anatomy, polished anime finish. Perfectly uniform pure white background. No grid, text, labels, border, floor, shadows, scenery, extra figures/limbs, loose/second blade, shield, cape, floating armor, cropped crest/blade/feet, overlap, giant aura, photorealism, PBR, rust, grime, microtexture, painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_173248_e5a42774-a0b0-4ca4-8163-65e658ffaa84.png",
+    "status": "completed"
+  }
+]

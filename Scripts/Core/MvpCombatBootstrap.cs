@@ -270,6 +270,13 @@ public partial class MvpCombatBootstrap : Node
             scenario.Initialize(simulation, GetNode<PauseMenu>("PauseMenu"));
             AddChild(scenario);
         }
+
+        if (OS.GetEnvironment("PROJECT_MANNEQUIN_FORM_SELECT_UI_SMOKE_TEST") == "1")
+        {
+            var scenario = new FormSelectUiSmokeScenario();
+            scenario.Initialize(simulation, GetNode<FormSelectOverlay>("FormSelectOverlay"));
+            AddChild(scenario);
+        }
     }
 
     private static void ApplySavedProgress(CombatActor player)

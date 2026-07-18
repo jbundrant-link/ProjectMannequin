@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T17:02:10.131799Z",
+    "display_name": "Nano Banana Pro",
+    "id": "009bfe2d-57c0-42dc-8423-d2762d6087eb",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_170210_009bfe2d-57c0-42dc-8423-d2762d6087eb_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "5b5498ac-68ed-4448-9076-6401c800e00b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5b5498ac-68ed-4448-9076-6401c800e00b_resize.jpg"
+        },
+        {
+          "id": "0fefb1b4-7305-4000-bae9-bbb9846cfb8e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0fefb1b4-7305-4000-bae9-bbb9846cfb8e.png"
+        },
+        {
+          "id": "cfe05b01-fea9-4f6d-830e-46d3e9dbfc26",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cfe05b01-fea9-4f6d-830e-46d3e9dbfc26.png"
+        },
+        {
+          "id": "1c6b587d-9938-4515-a6e9-3d27b8fad87d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1c6b587d-9938-4515-a6e9-3d27b8fad87d.png"
+        }
+      ],
+      "prompt": "Create a new 2x2 JUMP ANIMATION SOURCE SHEET. References 1 and 2 are absolute Archive Knight identity and idle authorities; reference 3 supplies only the four-state jump cadence and 2x2 spacing; reference 4 supplies canonical contour/cel-shading quality.\r\n\r\nPreserve the approved Knight exactly in all four poses: faceless ivory crested helm; narrow cyan visor slit; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder; violet sternum core; warm-ivory plates; deep-plum joints; short rigid split tabards; gold fasteners; heavy boots; one cyan-edged archive blade integrated along the RIGHT forearm at constant length. Never mirror, swap, omit, duplicate or redesign asymmetrical features.\r\n\r\nExactly four complete full-body screen-right three-quarter poses in clean 2 columns x 2 rows: grounded jump startup crouch, rising leap with modest knee tuck, upright compact apex, landing crouch. Consistent camera, body/head scale and light. Startup and landing feet share baseline; airborne poses remain fully inside their cells. Entire crest, arch, blade and boots visible with generous clearance.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean highlights, fighting-game anatomy, polished anime finish. Perfectly uniform pure white background. No grid, text, labels, border, floor, shadows, scenery, extra figures/limbs, detached or second blade, shield, cape, long robe, floating parts, crop, overlap, photorealism, PBR, rust, grime, microtexture, or painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_170210_009bfe2d-57c0-42dc-8423-d2762d6087eb.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T14:57:28.989411Z",
+    "display_name": "Nano Banana Pro",
+    "id": "dbcea084-0592-42de-9e79-b3d08b66a51c",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_145728_dbcea084-0592-42de-9e79-b3d08b66a51c_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "d6d53ab5-6ef0-4e69-8398-007ce24e888f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d6d53ab5-6ef0-4e69-8398-007ce24e888f.png"
+        },
+        {
+          "id": "54456b1e-3f09-4002-98cc-2cd087bf731e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/54456b1e-3f09-4002-98cc-2cd087bf731e.png"
+        },
+        {
+          "id": "e01cf46e-c564-4f46-bd62-4fdd7da6e802",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e01cf46e-c564-4f46-bd62-4fdd7da6e802.png"
+        },
+        {
+          "id": "3969cefc-748f-41c4-a510-c72e3579a593",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3969cefc-748f-41c4-a510-c72e3579a593.png"
+        },
+        {
+          "id": "449987fc-3589-4287-90c3-56148a86b2e0",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/449987fc-3589-4287-90c3-56148a86b2e0_resize.jpg"
+        },
+        {
+          "id": "5aabf4b1-30d6-4d5a-885b-671c9c50d0e7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5aabf4b1-30d6-4d5a-885b-671c9c50d0e7_resize.jpg"
+        },
+        {
+          "id": "5fed5b99-5bdb-4c3b-bc71-f104d48a1a97",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5fed5b99-5bdb-4c3b-bc71-f104d48a1a97_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the FAR BACKDROP PILOT for KNIGHT'S RELIQUARY, the final boss arena of the Living Archive. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable masses, and polished anime fighting-game lighting. Characters define rendering grammar only; DO NOT include characters. The purple Archive Knight intro atlas defines only the warden's restrained violet identity, not a character to paint into the room. The approved Corruption Repository and Index Vaults backdrops define side-on layered stage grammar. The old Reliquary backdrop is STRUCTURE ONLY - do not copy its photoreal rendering, symmetry, holographic figures, tiny machinery, cables, or dense noise.\n\nCompose one full-bleed 21:9 SIDE-ON LATERAL FINAL-ARENA BAND at a consistent horizon, with no central vanishing point and no mirrored composition. Build three adjacent asymmetric motifs at one stable scale: LEFT, a low oath-gallery wall with three broad blank champion tablets and one broken ivory arch; CENTER-LEFT, one monumental sealed reliquary door with a simple faceless helm crest and two broad stepped porcelain buttresses, offset from exact center; RIGHT, a darker inheritance vault with one suspended faceted memory crystal, a damaged seal aperture, and sparse cyan archive traces. The room must feel ceremonial, quiet, and dangerous rather than industrial. Use deep plum/indigo architectural masses, warm ivory porcelain plates, controlled violet boss energy, sparse cyan archive seams, and tiny restrained gold accents. Large clean forms dominate. Keep the lower backdrop band simple, dark, and low contrast behind fighters. Reserve open silhouette space around the central arena.\n\nBACKDROP ONLY: no floor, road, foreground railing, characters, knights, armor figures, portraits, holograms, banners with figures, text, letters, numbers, glyphs, signs, UI, props, hazards, debris, centered corridor, tunnel, one-point perspective, perfect bilateral symmetry, photorealism, PBR metal, rust, grime, cables, dense greebles, microtexture, painterly blur, or baked borders. Flat traversal elevation with clean lateral continuity and sharp production finish.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_145728_dbcea084-0592-42de-9e79-b3d08b66a51c.png",
+    "status": "completed"
+  }
+]

@@ -155,6 +155,21 @@ def build_soft_alpha(rgb_array, bg: str):
     return np.rint(255.0 * (1.0 - transition)).astype(np.uint8)
 
 
+def load_source_rgba(path: Path, bg: str):
+    """Load a source with either authored alpha or a chroma-key background."""
+    import numpy as np
+    from PIL import Image
+
+    source = Image.open(path)
+    if bg == "alpha":
+        return source.convert("RGBA")
+
+    source_rgb = source.convert("RGB")
+    rgba = source_rgb.convert("RGBA")
+    rgba.putalpha(Image.fromarray(build_soft_alpha(np.asarray(source_rgb), bg), "L"))
+    return despill(rgba, bg)
+
+
 def extract_connected_components(
     path: Path,
     bg: str,
@@ -172,17 +187,13 @@ def extract_connected_components(
 
     from PIL import Image
 
-    source_rgb = Image.open(path).convert("RGB")
-    rgb_array = np.asarray(source_rgb)
-    binary_foreground = np.asarray(build_alpha(source_rgb, bg)) > 0
+    source_rgba = load_source_rgba(path, bg)
+    alpha_array = np.asarray(source_rgba.getchannel("A"))
+    binary_foreground = alpha_array > 8
     labels, _ = ndimage.label(
         binary_foreground,
         structure=np.ones((3, 3), dtype=np.uint8),
     )
-    soft_alpha = build_soft_alpha(rgb_array, bg)
-    source_rgba = source_rgb.convert("RGBA")
-    source_rgba.putalpha(Image.fromarray(soft_alpha, "L"))
-    source_rgba = despill(source_rgba, bg)
 
     components = []
     for label_id, slices in enumerate(ndimage.find_objects(labels), 1):
@@ -195,14 +206,14 @@ def extract_connected_components(
 
         x0 = max(0, x_slice.start - 2)
         y0 = max(0, y_slice.start - 2)
-        x1 = min(source_rgb.width, x_slice.stop + 2)
-        y1 = min(source_rgb.height, y_slice.stop + 2)
+        x1 = min(source_rgba.width, x_slice.stop + 2)
+        y1 = min(source_rgba.height, y_slice.stop + 2)
         local_labels = labels[y0:y1, x0:x1]
         component_mask = local_labels == label_id
         component_mask = ndimage.binary_dilation(component_mask, iterations=2)
         alpha = np.where(
             component_mask,
-            soft_alpha[y0:y1, x0:x1],
+            alpha_array[y0:y1, x0:x1],
             0,
         ).astype(np.uint8)
         figure = source_rgba.crop((x0, y0, x1, y1))
@@ -225,7 +236,98 @@ def extract_connected_components(
     return components
 
 
+def extract_box_components(
+    path: Path,
+    bg: str,
+    boxes,
+    minimum_area: int,
+    primary_x_margin: int,
+):
+    """Extract one complete pose per authored box, preserving detached parts."""
+    try:
+        import numpy as np
+        from scipy import ndimage
+    except ImportError as exception:
+        raise RuntimeError(
+            "Manifest composition requires numpy and scipy. Install "
+            "Scripts/Tools/requirements.txt in the selected Python environment."
+        ) from exception
+
+    from PIL import Image
+
+    source_rgba = load_source_rgba(path, bg)
+    components = []
+    for box_index, raw_box in enumerate(boxes):
+        if len(raw_box) != 4:
+            raise ValueError(f"{path}: box {box_index + 1} must contain four values.")
+        x0, y0, x1, y1 = (int(value) for value in raw_box)
+        if x0 < 0 or y0 < 0 or x1 > source_rgba.width or y1 > source_rgba.height:
+            raise ValueError(
+                f"{path}: box {box_index + 1} {raw_box} exceeds "
+                f"{source_rgba.width}x{source_rgba.height}."
+            )
+        if x1 <= x0 or y1 <= y0:
+            raise ValueError(f"{path}: box {box_index + 1} is empty: {raw_box}.")
+
+        crop = source_rgba.crop((x0, y0, x1, y1))
+        alpha_array = np.asarray(crop.getchannel("A"))
+        labels, _ = ndimage.label(
+            alpha_array > 8,
+            structure=np.ones((3, 3), dtype=np.uint8),
+        )
+        retained_labels = []
+        primary_candidates = []
+        for label_id, slices in enumerate(ndimage.find_objects(labels), 1):
+            if slices is None:
+                continue
+            area = int(np.count_nonzero(labels[slices] == label_id))
+            if area < minimum_area:
+                continue
+            retained_labels.append(label_id)
+            _, x_slice = slices
+            center_x = (x_slice.start + x_slice.stop) * 0.5
+            if primary_x_margin <= center_x <= crop.width - primary_x_margin:
+                primary_candidates.append((area, label_id))
+
+        if not retained_labels:
+            raise ValueError(
+                f"{path}: box {box_index + 1} contains no component "
+                f"at least {minimum_area}px."
+            )
+        if primary_x_margin > 0 and not primary_candidates:
+            raise ValueError(
+                f"{path}: box {box_index + 1} has no primary component "
+                f"inside its {primary_x_margin}px horizontal margins."
+            )
+
+        retained_mask = np.isin(labels, retained_labels)
+        kept_alpha = np.where(retained_mask, alpha_array, 0).astype(np.uint8)
+        figure = crop.copy()
+        figure.putalpha(Image.fromarray(kept_alpha, "L"))
+        alpha_bounds = figure.getchannel("A").getbbox()
+        if alpha_bounds is None:
+            raise ValueError(f"{path}: box {box_index + 1} became transparent.")
+        figure = figure.crop(alpha_bounds)
+        area = int(np.count_nonzero(kept_alpha))
+        components.append(
+            {
+                "area": area,
+                "center_x": x0 + (alpha_bounds[0] + alpha_bounds[2]) * 0.5,
+                "center_y": y0 + (alpha_bounds[1] + alpha_bounds[3]) * 0.5,
+                "bbox": [x0, y0, x1, y1],
+                "image": figure,
+            }
+        )
+
+    return components
+
+
 def select_components(components, anchors, source_name: str):
+    if len(components) < len(anchors):
+        raise ValueError(
+            f"{source_name}: found {len(components)} components for "
+            f"{len(anchors)} authored anchors."
+        )
     selected = []
     available = set(range(len(components)))
     for anchor_index, anchor in enumerate(anchors):
@@ -315,7 +417,7 @@ def write_preview(sheet, path: Path, used_rows: int = 6):
     canvas.convert("RGB").save(path)
 
 
-def compose_manifest(manifest_path: Path) -> int:
+def compose_manifest(manifest_path: Path, output_override: Path | None = None) -> int:
     from PIL import Image
 
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -330,51 +432,95 @@ def compose_manifest(manifest_path: Path) -> int:
     )
     report = {
         "manifest": str(manifest_path).replace("\\", "/"),
-        "output": manifest["output"],
+        "output": str(output_override or Path(manifest["output"])).replace("\\", "/"),
         "rows": [],
     }
 
     for animation in manifest["animations"]:
-        source_path = Path(animation["source"])
-        if not source_path.exists():
-            raise FileNotFoundError(f"Missing animation source: {source_path}")
         target_row = int(animation["target_row"])
         if target_row < 0 or target_row >= SHEET_ROWS:
-            raise ValueError(f"Invalid target row {target_row} for {source_path}")
-        anchors = animation["anchors"]
-        if not anchors or len(anchors) > SHEET_COLS:
-            raise ValueError(
-                f"{source_path}: expected 1..{SHEET_COLS} authored anchors."
+            raise ValueError(f"Invalid target row {target_row}.")
+
+        groups = animation.get("source_groups") or [animation]
+        selected = []
+        group_reports = []
+        discovered_total = 0
+        for group in groups:
+            source_path = Path(group["source"])
+            if not source_path.exists():
+                raise FileNotFoundError(f"Missing animation source: {source_path}")
+            group_background = group.get("background", background)
+            group_minimum_area = int(group.get("minimum_component_area", minimum_area))
+
+            if boxes := group.get("boxes"):
+                group_components = extract_box_components(
+                    source_path,
+                    group_background,
+                    boxes,
+                    group_minimum_area,
+                    int(group.get("primary_x_margin", 0)),
+                )
+                group_selected = group_components
+            else:
+                anchors = group.get("anchors")
+                if not anchors:
+                    raise ValueError(
+                        f"{source_path}: expected authored anchors or boxes."
+                    )
+                group_components = extract_connected_components(
+                    source_path,
+                    group_background,
+                    group_minimum_area,
+                )
+                group_selected = select_components(
+                    group_components,
+                    anchors,
+                    str(source_path),
+                )
+
+            discovered_total += len(group_components)
+            selected.extend(group_selected)
+            group_reports.append(
+                {
+                    "source": str(source_path).replace("\\", "/"),
+                    "background": group_background,
+                    "discovered_components": len(group_components),
+                    "selected_components": len(group_selected),
+                    "source_bboxes": [
+                        component["bbox"] for component in group_selected
+                    ],
+                }
             )
 
-        components = extract_connected_components(
-            source_path,
-            background,
-            minimum_area,
-        )
-        selected = select_components(components, anchors, str(source_path))
+        if not selected or len(selected) > SHEET_COLS:
+            raise ValueError(
+                f"{animation['name']}: expected 1..{SHEET_COLS} selected poses, "
+                f"found {len(selected)}."
+            )
         frames, scale = normalize_component_frames(selected)
         for column in range(SHEET_COLS):
             frame = frames[min(column, len(frames) - 1)]
             sheet.alpha_composite(frame, (column * FRAME, target_row * FRAME))
 
-        report["rows"].append(
-            {
-                "name": animation["name"],
-                "target_row": target_row,
-                "source": str(source_path).replace("\\", "/"),
-                "discovered_components": len(components),
-                "selected_components": len(selected),
-                "scale": round(scale, 6),
-                "source_bboxes": [component["bbox"] for component in selected],
-            }
-        )
+        row_report = {
+            "name": animation["name"],
+            "target_row": target_row,
+            "discovered_components": discovered_total,
+            "selected_components": len(selected),
+            "scale": round(scale, 6),
+            "source_bboxes": [component["bbox"] for component in selected],
+        }
+        if len(group_reports) == 1:
+            row_report["source"] = group_reports[0]["source"]
+        if animation.get("source_groups"):
+            row_report["source_groups"] = group_reports
+        report["rows"].append(row_report)
         print(
             f"  row {target_row} ({animation['name']}): "
-            f"selected={len(selected)} discovered={len(components)} scale={scale:.4f}"
+            f"selected={len(selected)} discovered={discovered_total} scale={scale:.4f}"
         )
 
-    output_path = Path(manifest["output"])
+    output_path = output_override or Path(manifest["output"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
     sheet.save(output_path)
     report["sha256"] = hashlib.sha256(output_path.read_bytes()).hexdigest()
@@ -394,14 +540,14 @@ def compose_manifest(manifest_path: Path) -> int:
         is not None
     )
 
-    if report_path_value := manifest.get("report"):
+    if output_override is None and (report_path_value := manifest.get("report")):
         report_path = Path(report_path_value)
         report_path.parent.mkdir(parents=True, exist_ok=True)
         report_path.write_text(
             json.dumps(report, indent=2) + "\n",
             encoding="utf-8",
         )
-    if preview_path_value := manifest.get("preview"):
+    if output_override is None and (preview_path_value := manifest.get("preview")):
         write_preview(sheet, Path(preview_path_value))
 
     print(
@@ -452,7 +598,13 @@ def main() -> int:
         if len(sys.argv) < 3:
             print("ERROR: --manifest requires a JSON path")
             return 2
-        return compose_manifest(Path(sys.argv[2]))
+        output_override = None
+        if len(sys.argv) > 3:
+            if len(sys.argv) != 5 or sys.argv[3] != "--output":
+                print("ERROR: optional manifest syntax is --output <path>")
+                return 2
+            output_override = Path(sys.argv[4])
+        return compose_manifest(Path(sys.argv[2]), output_override)
 
     enemy_id = sys.argv[1]
     background = sys.argv[2] if len(sys.argv) > 2 else "green"

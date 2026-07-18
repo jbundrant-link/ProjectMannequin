@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T13:58:12.574107Z",
+    "display_name": "Nano Banana Pro",
+    "id": "986c5474-c47d-417c-a9dd-6741466cc2e3",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_135812_986c5474-c47d-417c-a9dd-6741466cc2e3_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "47c229d3-5b07-45e2-b70c-01c1d4af979a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/47c229d3-5b07-45e2-b70c-01c1d4af979a.png"
+        },
+        {
+          "id": "b6bc22fe-f84f-4dac-8c38-f4ae34a06c7c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b6bc22fe-f84f-4dac-8c38-f4ae34a06c7c.png"
+        },
+        {
+          "id": "e9d5645a-47e6-4d8a-91f1-700a0d296c7f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e9d5645a-47e6-4d8a-91f1-700a0d296c7f.png"
+        },
+        {
+          "id": "90ccb3c0-11cb-41d3-af73-8207b27779c8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/90ccb3c0-11cb-41d3-af73-8207b27779c8_resize.jpg"
+        },
+        {
+          "id": "6fb04b04-ce16-45c1-9750-b21420adf868",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6fb04b04-ce16-45c1-9750-b21420adf868.png"
+        },
+        {
+          "id": "7c28dd60-7d59-4a58-a95a-50113abfd052",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7c28dd60-7d59-4a58-a95a-50113abfd052.png"
+        },
+        {
+          "id": "b8b44639-83d9-4ee0-b65b-4029739e9241",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b8b44639-83d9-4ee0-b65b-4029739e9241_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one production FLOOR TILE PILOT for CORRUPTION REPOSITORY, a damaged data-vault stage inside the Living Archive. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: controlled dark contours, broad two-to-four-step cel-shaded value planes, clean graphic highlights, simplified stylized materials, saturated controlled accents, and arcade readability. Characters define rendering grammar only; DO NOT include characters. The approved Repository backdrop defines deep-indigo, ivory, cyan, restrained-magenta world identity. The approved Index Vaults floor defines strict orthographic gameplay readability. The Repository aftermath decal defines graphic fracture language. The old Repository floor is STRUCTURE ONLY - DO NOT copy its photoreal texture, repeated metal grid, cracks, debris, or dense noise.\n\nSTRICT FLAT ORTHOGRAPHIC TOP-DOWN VIEW, square 1:1, full-bleed tile. Build large staggered deep-indigo and dark-plum archive floor slabs with broad cel-painted value planes. Keep at least 75 percent of the surface dark navy/indigo and keep the central 65 percent especially quiet for ivory fighter feet, pickups, warning discs, and moving hazard strips. Use only a few isolated short cyan seam segments, tiny amber locator marks, and two or three restrained irregular magenta corruption fractures near separated outer quadrants. Magenta must be sparse and must never form a large bright zone. Add small bounded ivory edge inserts only, never a broad white combat field. Mirror-friendly outer edges with low-frequency shapes.\n\nNO perspective, horizon, wall, architecture, stairs, raised platform, bridge, railing, track, conveyor, stripe, frame, border, square grid, repeated panel lattice, continuous horizontal line, continuous vertical line, centered ring, road, characters, enemies, props, caches, canisters, hazards, warning markers, text, logos, symbols, debris, rubble, photorealism, PBR metal, rust, grime, scratches, dense cracks, circuits, greebles, microtexture, or baked shadows. No line or accent may span more than 22 percent of the image width or height. Clean low-frequency fighter-readable top-down floor only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_135812_986c5474-c47d-417c-a9dd-6741466cc2e3.png",
+    "status": "completed"
+  }
+]

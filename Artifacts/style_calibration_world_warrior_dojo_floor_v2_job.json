@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-18T04:07:30.478299Z",
+    "display_name": "Nano Banana Pro",
+    "id": "a601cb4f-51cd-4987-a609-613cc98ab902",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040730_a601cb4f-51cd-4987-a609-613cc98ab902_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "58a9125b-7fd0-44de-b608-bf5967f17ced",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/58a9125b-7fd0-44de-b608-bf5967f17ced.png"
+        },
+        {
+          "id": "6e0143ea-8b4d-429c-a9a3-136b50429dd5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6e0143ea-8b4d-429c-a9a3-136b50429dd5.png"
+        },
+        {
+          "id": "fed22d02-e1b1-49aa-943a-33cdd8098861",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fed22d02-e1b1-49aa-943a-33cdd8098861.png"
+        },
+        {
+          "id": "b28a4d88-44e9-451f-8372-d4233573ec8c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b28a4d88-44e9-451f-8372-d4233573ec8c.png"
+        },
+        {
+          "id": "705d9dca-be14-487b-9878-425ce685850f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/705d9dca-be14-487b-9878-425ce685850f_resize.jpg"
+        },
+        {
+          "id": "07f33ff2-51fb-46bb-be9b-2a08dfcd130e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/07f33ff2-51fb-46bb-be9b-2a08dfcd130e.png"
+        }
+      ],
+      "prompt": "Revise the supplied Dojo Approach floor pilot for actual 2.5D fighting-game projection. Preserve strict flat orthographic top-down view, matte charcoal-brown and muted blue-gray stone, broad cel-painted planes, tiny warm lantern glints, sparse muted-jade moss, and the dark quiet center. REMOVE every continuous horizontal stone course, continuous vertical seam, repeated brick row, perimeter line, edge border, long vermilion strip, paired edge marker, and rectangular framing pattern. No seam, inlay, crack, or accent may span more than 16 percent of the image width or height. Every joint must terminate or turn within one local slab cluster. Use irregular offset polygonal flagstones and broad asymmetrical slab islands, with seams deliberately staggered so no row continues across the tile. Keep all four edges low-contrast dark stone without matching bars or borders.\n\nVermilion appears only as five or fewer tiny isolated wedge insets, each under 3 percent of image width and placed away from opposite-edge symmetry. Moss appears in short isolated pockets only. Keep at least 88 percent dark/medium neutral stone and bright occupancy under 5 percent. The central 70 percent remains calm and fighter-readable.\n\nPROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references through controlled contours, broad two-to-four-step cel shading, simplified materials, clean highlights, and arcade readability. Characters define rendering grammar only; do not include them. No border, frame, track, bridge, grid, repeated lattice, centered ring, perspective, walls, raised platform, characters, props, hazards, text, symbols, photorealism, PBR, grime, scratches, dense cracks, debris, or microtexture. Full-bleed mirror-friendly square floor tile.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040730_a601cb4f-51cd-4987-a609-613cc98ab902.png",
+    "status": "completed"
+  }
+]

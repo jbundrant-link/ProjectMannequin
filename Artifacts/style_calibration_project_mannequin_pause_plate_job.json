@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-18T02:40:18.798381Z",
+    "display_name": "Nano Banana Pro",
+    "id": "2bef696b-1b12-4480-8dbf-6ea859a6b76b",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_024018_2bef696b-1b12-4480-8dbf-6ea859a6b76b_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "3:2",
+      "batch_size": 1,
+      "height": 1696,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "e1a57775-c429-4a5d-af65-e13a6c76388f",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e1a57775-c429-4a5d-af65-e13a6c76388f.png"
+        },
+        {
+          "id": "8bdf29e5-9795-4f68-bfdd-ec45109455df",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8bdf29e5-9795-4f68-bfdd-ec45109455df.png"
+        },
+        {
+          "id": "85f1897a-57bb-44ea-9878-b429dd6bc0be",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/85f1897a-57bb-44ea-9878-b429dd6bc0be.png"
+        },
+        {
+          "id": "cddb0178-083e-4ade-bd93-cac1d0e381c9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cddb0178-083e-4ade-bd93-cac1d0e381c9_resize.jpg"
+        },
+        {
+          "id": "ca058f3b-3ef5-433a-8a59-0ef0d5693bbe",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ca058f3b-3ef5-433a-8a59-0ef0d5693bbe_resize.jpg"
+        },
+        {
+          "id": "b769e287-62f5-42e2-94c9-64a7dd4b8347",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b769e287-62f5-42e2-94c9-64a7dd4b8347.png"
+        },
+        {
+          "id": "d481c019-05b2-4957-b499-8909795e4623",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d481c019-05b2-4957-b499-8909795e4623.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one reusable PAUSE RECORD PLATE for Project Mannequin, supporting the pause root and nested Move List/loadout/artifact views. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, and polished modern fighting-game interface presentation. Characters define rendering grammar only; DO NOT include characters. The approved Living Archive HUD, Archive Map, and Results plate define warm-ivory porcelain, deep-plum joints, cyan Archive energy, restrained gold/coral accents, faceted keystones, and dimensional cel-painted materials. The legacy pause screenshot is STRUCTURE ONLY: preserve fast vertical navigation and readable nested content, but do not copy default software buttons, flat rectangles, or text.\n\nOn one perfectly uniform neutral medium-gray background, create a single complete 3:2 PAUSE RECORD PLATE, fully visible with generous gray margin and no cropping. Strong asymmetric composition distinct from the results plate: TOP-LEFT, a compact blank faceted title tab with a small cyan pause/archive keystone; LEFT, one tall narrow dark navigation well framed by porcelain/plum plates, sized for seven compact native command rows; RIGHT, one much larger blank document chamber with dark low-contrast interior, sparse cyan separators, and open space for a fighter portrait, current-form/build summary, Move List rows, loadout grids, or artifact records; BOTTOM-RIGHT, one narrow blank back/status ribbon. The left and right regions must be clearly separate but connected by one angular porcelain bridge. Use cyan seams for archive continuity, restrained gold around the active navigation path, tiny coral safety accents, broad cel-painted planes, clean ink contours, and sparse detail. The entire plate must stay readable over dimmed live gameplay.\n\nNO text, letters, numbers, pause glyphs, words, logos, icons, portraits, characters, faces, health bars, progress fills, buttons, cursor, checkerboard, transparency grid, full-screen border, photorealism, PBR metal, chrome, rust, grime, dense greebles, microtexture, enterprise dashboard styling, rounded software card, flat vector art, gradients, or decorative orbs. No shadows or reflections on the neutral background. Production cutout source only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2528
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_024018_2bef696b-1b12-4480-8dbf-6ea859a6b76b.png",
+    "status": "completed"
+  }
+]

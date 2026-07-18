@@ -24,6 +24,8 @@ public partial class FormSelectOverlay : CanvasLayer
     [Export] public NodePath SimulationPath { get; set; } = "../GameSimulation";
     [Export] public int Columns { get; set; } = 3;
     [Export] public int Rows { get; set; } = 2;
+    [Export] public string FormSelectFramePath { get; set; } =
+        "res://Assets/UI/FormSelect/project_mannequin_form_select_frame_style_v1.png";
 
     private readonly List<FormEntry> _entries = new();
     private readonly List<PanelContainer> _slotPanels = new();
@@ -39,15 +41,24 @@ public partial class FormSelectOverlay : CanvasLayer
     private CombatActor? _player;
 
     private Control _root = null!;
+    private Control _frameRoot = null!;
     private GridContainer _grid = null!;
     private TextureRect _previewPortrait = null!;
     private Label _previewName = null!;
     private Label _previewRole = null!;
     private Label _previewStats = null!;
     private Label _previewTags = null!;
+    private Label _loadoutStatus = null!;
 
     private int _cursor;
     private bool _isOpen;
+
+    public bool IsOpen => _isOpen;
+    public int EntryCount => _entries.Count;
+    public string SelectedFormId => _cursor >= 0 && _cursor < _entries.Count
+        ? _entries[_cursor].Id
+        : "";
+    public string PreviewName => _previewName?.Text ?? "";
 
     private readonly record struct FormEntry(string Id, CharacterData Form, bool IsCurrent);
 
@@ -67,6 +78,8 @@ public partial class FormSelectOverlay : CanvasLayer
         {
             return;
         }
+
+        PositionFrame();
 
         // Pulse the selected slot's border so the cursor reads at a glance.
         _pulseTime += (float)delta;
@@ -160,6 +173,8 @@ public partial class FormSelectOverlay : CanvasLayer
         BuildGrid();
         UpdateSelectionVisuals();
         UpdatePreview();
+        _loadoutStatus.Text = $"ACTIVE LOADOUT  //  {_entries.Count} INHERITANCE RECORDS";
+        PositionFrame();
 
         _pulseTime = 0.0f;
         _root.Visible = true;
@@ -223,6 +238,14 @@ public partial class FormSelectOverlay : CanvasLayer
 
             _entries.Add(new FormEntry(formId, form, formId == currentId));
         }
+
+        var currentIndex = _entries.FindIndex(entry => entry.IsCurrent);
+        if (currentIndex >= 0 && _entries.Count > 1)
+        {
+            var current = _entries[currentIndex];
+            _entries.RemoveAt(currentIndex);
+            _entries.Insert(1, current);
+        }
     }
 
     private void MoveCursor(int deltaX, int deltaY)
@@ -279,100 +302,100 @@ public partial class FormSelectOverlay : CanvasLayer
         dim.SetAnchorsPreset(Control.LayoutPreset.FullRect);
         _root.AddChild(dim);
 
-        var margin = new MarginContainer();
-        margin.SetAnchorsPreset(Control.LayoutPreset.FullRect);
-        margin.AddThemeConstantOverride("margin_left", 56);
-        margin.AddThemeConstantOverride("margin_top", 48);
-        margin.AddThemeConstantOverride("margin_right", 56);
-        margin.AddThemeConstantOverride("margin_bottom", 48);
-        _root.AddChild(margin);
-
-        var outer = new VBoxContainer();
-        outer.AddThemeConstantOverride("separation", 18);
-        margin.AddChild(outer);
-
-        var title = MakeLabel("SELECT FORM", 40, Colors.White);
-        title.HorizontalAlignment = HorizontalAlignment.Center;
-        outer.AddChild(title);
-
-        var accentWrap = new CenterContainer();
-        accentWrap.AddChild(new ColorRect
+        _frameRoot = new Control
         {
-            Color = new Color(0.30f, 0.80f, 1.00f, 0.55f),
-            CustomMinimumSize = new Vector2(230, 3),
-        });
-        outer.AddChild(accentWrap);
+            Name = "FormSelectFrameRoot",
+            CustomMinimumSize = new Vector2(1150.0f, 642.0f),
+            Size = new Vector2(1150.0f, 642.0f),
+        };
+        _root.AddChild(_frameRoot);
 
-        var body = new HBoxContainer();
-        body.AddThemeConstantOverride("separation", 28);
-        body.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
-        outer.AddChild(body);
+        if (ResourceLoader.Exists(FormSelectFramePath))
+        {
+            var frame = new TextureRect
+            {
+                Name = "FormSelectFrame",
+                Texture = GD.Load<Texture2D>(FormSelectFramePath),
+                ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+                StretchMode = TextureRect.StretchModeEnum.Scale,
+                MouseFilter = Control.MouseFilterEnum.Ignore,
+            };
+            frame.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+            _frameRoot.AddChild(frame);
+        }
 
-        body.AddChild(BuildPreviewPanel());
+        var title = MakeLabel("SELECT FORM", 32, Colors.White);
+        title.HorizontalAlignment = HorizontalAlignment.Center;
+        title.VerticalAlignment = VerticalAlignment.Center;
+        title.Position = new Vector2(390.0f, 34.0f);
+        title.Size = new Vector2(700.0f, 58.0f);
+        _frameRoot.AddChild(title);
+
+        var preview = BuildPreviewPanel();
+        preview.Position = new Vector2(58.0f, 118.0f);
+        preview.Size = new Vector2(330.0f, 470.0f);
+        _frameRoot.AddChild(preview);
 
         var gridWrap = new CenterContainer();
-        gridWrap.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-        gridWrap.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
-        body.AddChild(gridWrap);
+        gridWrap.Position = new Vector2(430.0f, 144.0f);
+        gridWrap.Size = new Vector2(660.0f, 390.0f);
+        _frameRoot.AddChild(gridWrap);
 
         _grid = new GridContainer { Columns = Mathf.Max(1, Columns) };
-        _grid.AddThemeConstantOverride("h_separation", 12);
-        _grid.AddThemeConstantOverride("v_separation", 12);
+        _grid.AddThemeConstantOverride("h_separation", 10);
+        _grid.AddThemeConstantOverride("v_separation", 10);
         gridWrap.AddChild(_grid);
 
-        var hint = MakeLabel(
-            "Move: WASD     Confirm: J / Enter     Cancel: Q / Esc",
-            15,
-            new Color(0.72f, 0.77f, 0.88f));
-        hint.HorizontalAlignment = HorizontalAlignment.Center;
-        outer.AddChild(hint);
+        _loadoutStatus = MakeLabel(
+            "ACTIVE LOADOUT  //  INHERITANCE RECORDS",
+            13,
+            new Color(0.78f, 0.86f, 0.92f));
+        _loadoutStatus.HorizontalAlignment = HorizontalAlignment.Center;
+        _loadoutStatus.VerticalAlignment = VerticalAlignment.Center;
+        _loadoutStatus.Position = new Vector2(430.0f, 570.0f);
+        _loadoutStatus.Size = new Vector2(660.0f, 34.0f);
+        _frameRoot.AddChild(_loadoutStatus);
+        PositionFrame();
     }
 
     private Control BuildPreviewPanel()
     {
-        var panel = new PanelContainer { CustomMinimumSize = new Vector2(320, 0) };
-        panel.SizeFlagsVertical = Control.SizeFlags.ExpandFill;
-
-        var style = new StyleBoxFlat
+        var panel = new Control
         {
-            BgColor = new Color(0.05f, 0.06f, 0.10f, 0.92f),
-            BorderColor = new Color(0.30f, 0.85f, 1.00f, 0.55f),
+            CustomMinimumSize = new Vector2(330, 470),
+            Size = new Vector2(330, 470),
         };
-        style.SetBorderWidthAll(2);
-        style.SetCornerRadiusAll(8);
-        style.SetContentMarginAll(18);
-        panel.AddThemeStyleboxOverride("panel", style);
-
-        var box = new VBoxContainer();
-        box.AddThemeConstantOverride("separation", 10);
-        panel.AddChild(box);
 
         _previewPortrait = new TextureRect
         {
             ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
             StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
-            CustomMinimumSize = new Vector2(0, 240),
-            SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+            Position = new Vector2(18.0f, 10.0f),
+            Size = new Vector2(294.0f, 270.0f),
         };
-        box.AddChild(_previewPortrait);
+        panel.AddChild(_previewPortrait);
 
-        _previewName = MakeLabel("", 30, Colors.White);
+        _previewName = MakeLabel("", 24, Colors.White);
         _previewName.AutowrapMode = TextServer.AutowrapMode.WordSmart;
-        box.AddChild(_previewName);
+        _previewName.Position = new Vector2(18.0f, 286.0f);
+        _previewName.Size = new Vector2(294.0f, 42.0f);
+        panel.AddChild(_previewName);
 
-        _previewRole = MakeLabel("", 16, new Color(0.75f, 0.85f, 1.00f));
-        box.AddChild(_previewRole);
+        _previewRole = MakeLabel("", 14, new Color(0.75f, 0.85f, 1.00f));
+        _previewRole.Position = new Vector2(18.0f, 330.0f);
+        _previewRole.Size = new Vector2(294.0f, 28.0f);
+        panel.AddChild(_previewRole);
 
-        box.AddChild(new HSeparator());
-
-        _previewStats = MakeLabel("", 16, new Color(0.85f, 0.95f, 0.85f));
-        box.AddChild(_previewStats);
+        _previewStats = MakeLabel("", 14, new Color(0.85f, 0.95f, 0.85f));
+        _previewStats.Position = new Vector2(18.0f, 385.0f);
+        _previewStats.Size = new Vector2(294.0f, 26.0f);
+        panel.AddChild(_previewStats);
 
         _previewTags = MakeLabel("", 13, new Color(0.70f, 0.75f, 0.85f));
         _previewTags.AutowrapMode = TextServer.AutowrapMode.WordSmart;
-        box.AddChild(_previewTags);
-
-        box.AddChild(new Control { SizeFlagsVertical = Control.SizeFlags.ExpandFill });
+        _previewTags.Position = new Vector2(18.0f, 416.0f);
+        _previewTags.Size = new Vector2(294.0f, 48.0f);
+        panel.AddChild(_previewTags);
         return panel;
     }
 
@@ -398,7 +421,7 @@ public partial class FormSelectOverlay : CanvasLayer
 
     private PanelContainer BuildFilledSlot(FormEntry entry)
     {
-        var panel = new PanelContainer { CustomMinimumSize = new Vector2(168, 188) };
+        var panel = new PanelContainer { CustomMinimumSize = new Vector2(190, 175) };
 
         var box = new VBoxContainer { Alignment = BoxContainer.AlignmentMode.Center };
         box.AddThemeConstantOverride("separation", 4);
@@ -409,11 +432,11 @@ public partial class FormSelectOverlay : CanvasLayer
             Texture = FormSelectPortraitResolver.Resolve(entry.Form, bust: true),
             ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
             StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
-            CustomMinimumSize = new Vector2(120, 108),
+            CustomMinimumSize = new Vector2(120, 96),
             SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
         });
 
-        var name = MakeLabel(entry.Form.DisplayName, 17, Colors.White);
+        var name = MakeLabel(entry.Form.DisplayName, 15, Colors.White);
         name.HorizontalAlignment = HorizontalAlignment.Center;
         name.AutowrapMode = TextServer.AutowrapMode.WordSmart;
         box.AddChild(name);
@@ -435,11 +458,11 @@ public partial class FormSelectOverlay : CanvasLayer
 
     private static PanelContainer BuildEmptySlot()
     {
-        var panel = new PanelContainer { CustomMinimumSize = new Vector2(168, 188) };
+        var panel = new PanelContainer { CustomMinimumSize = new Vector2(190, 175) };
         var style = new StyleBoxFlat
         {
-            BgColor = new Color(0.04f, 0.05f, 0.08f, 0.55f),
-            BorderColor = new Color(0.18f, 0.20f, 0.26f, 0.70f),
+            BgColor = new Color(0.04f, 0.05f, 0.08f, 0.05f),
+            BorderColor = new Color(0.18f, 0.20f, 0.26f, 0.20f),
         };
         style.SetBorderWidthAll(1);
         style.SetCornerRadiusAll(6);
@@ -486,21 +509,38 @@ public partial class FormSelectOverlay : CanvasLayer
         if (selected)
         {
             var k = 0.5f + (0.5f * Mathf.Sin(pulse * 7.0f));
-            style.BgColor = new Color(0.16f, 0.22f, 0.34f, 0.98f);
+            style.BgColor = new Color(0.16f, 0.22f, 0.34f, 0.20f);
             style.BorderColor = new Color(0.30f, 0.78f, 1.00f).Lerp(new Color(0.66f, 0.95f, 1.00f), k);
         }
         else
         {
-            style.BgColor = new Color(0.08f, 0.09f, 0.13f, 0.92f);
+            style.BgColor = new Color(0.08f, 0.09f, 0.13f, 0.04f);
             style.BorderColor = isCurrent
                 ? new Color(1.00f, 0.78f, 0.32f)
-                : new Color(0.24f, 0.27f, 0.35f);
+                : new Color(0.24f, 0.27f, 0.35f, 0.24f);
         }
 
         style.SetBorderWidthAll(selected ? 4 : 2);
-        style.SetCornerRadiusAll(6);
-        style.SetContentMarginAll(8);
+        style.SetCornerRadiusAll(2);
+        style.SetContentMarginAll(6);
         return style;
+    }
+
+    private void PositionFrame()
+    {
+        if (_frameRoot is null)
+        {
+            return;
+        }
+
+        var viewportSize = GetViewport().GetVisibleRect().Size;
+        var scale = Mathf.Clamp(
+            Mathf.Min(viewportSize.X / 1280.0f, viewportSize.Y / 720.0f),
+            0.85f,
+            1.35f);
+        _frameRoot.Scale = Vector2.One * scale;
+        var scaledSize = _frameRoot.Size * scale;
+        _frameRoot.Position = (viewportSize - scaledSize) * 0.5f;
     }
 
     private void UpdatePreview()
@@ -539,6 +579,20 @@ public partial class FormSelectOverlay : CanvasLayer
         _moveSound = ProceduralAudioFactory.CreateStinger(new[] { 620.0f }, 0.045f, 0.20f);
         _confirmSound = ProceduralAudioFactory.CreateStinger(new[] { 523.0f, 784.0f }, 0.12f, 0.32f);
         _cancelSound = ProceduralAudioFactory.CreateStinger(new[] { 392.0f, 262.0f }, 0.10f, 0.26f);
+    }
+
+    public override void _ExitTree()
+    {
+        if (_sfx is not null)
+        {
+            _sfx.Stop();
+            _sfx.Stream = null;
+        }
+
+        _openSound?.Dispose();
+        _moveSound?.Dispose();
+        _confirmSound?.Dispose();
+        _cancelSound?.Dispose();
     }
 
     private void PlaySound(AudioStream? stream)

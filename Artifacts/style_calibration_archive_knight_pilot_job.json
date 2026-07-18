@@ -1,0 +1,54 @@
+[
+  {
+    "created_at": "2026-07-17T16:03:56.542848Z",
+    "display_name": "Nano Banana Pro",
+    "id": "ae5fcb92-b361-46dc-8bdc-87526e255ae8",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_160356_ae5fcb92-b361-46dc-8bdc-87526e255ae8_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "3:4",
+      "batch_size": 1,
+      "height": 2400,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "8cdeaa66-4b3f-4a1b-8283-5dd1118c9933",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8cdeaa66-4b3f-4a1b-8283-5dd1118c9933.png"
+        },
+        {
+          "id": "32a4ff02-58ff-41cf-a40c-08ed42ff70f9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/32a4ff02-58ff-41cf-a40c-08ed42ff70f9.png"
+        },
+        {
+          "id": "180f09ca-dffb-4a8d-a757-0c65c02b7236",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/180f09ca-dffb-4a8d-a757-0c65c02b7236.png"
+        },
+        {
+          "id": "f553b055-ad52-49a2-97bd-f0e21cf732f8",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f553b055-ad52-49a2-97bd-f0e21cf732f8.png"
+        },
+        {
+          "id": "e39f8720-7175-4a8f-a1a6-712181382a86",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e39f8720-7175-4a8f-a1a6-712181382a86_resize.jpg"
+        },
+        {
+          "id": "1d6188b6-fa69-48f8-9a13-b24e21d482d5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1d6188b6-fa69-48f8-9a13-b24e21d482d5.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Design ONE full-body ARCHIVE KNIGHT identity pilot for Project Mannequin, a final boss and unlockable combat form. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident controlled dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, fighting-game anatomy, strong arcade-readable silhouette, and polished anime fighting-game lighting. The old purple Knight intro is STRUCTURE/PALETTE HISTORY ONLY; do not copy its tint-only mannequin design. The Reliquary backdrop defines ceremonial warm-ivory, deep-plum, violet, cyan, and tiny-gold world identity.\n\nCreate a genuinely unique tall athletic warden, not a recolored mannequin. SCREEN-RIGHT THREE-QUARTER fighting stance, feet on one baseline, full body completely visible. Faceless enclosed helm with one clean downward ivory crest and a narrow cyan memory slit; broad asymmetrical LEFT oath pauldron shaped like a broken archive arch; smaller articulated right shoulder for mobility; layered warm-ivory porcelain chest and thigh plates over deep-plum mechanical joints; dark-indigo waist guard with two short rigid split tabards; one compact faceted violet memory core at the sternum; controlled cyan seam lights; tiny gold fasteners only. The RIGHT forearm carries an integrated broad archive blade: one solid stylized ivory-and-indigo energy-edged weapon aligned along the forearm, long enough to read as a sword but attached so it remains stable across animation. Heavy armored boots, visible hands, believable fighting proportions. Ceremonial, severe, elegant, and dangerous, with large clean shapes and no surface noise.\n\nSingle character only on a perfectly uniform neutral medium-gray background. No other figures, pose variants, text, letters, numbers, logo, UI, frame, border, environment, floor plane, cast shadow, cape, cloth train, floating ornaments, loose weapon, shield, horns, wings, photorealism, PBR metal, rust, grime, scratches, dense greebles, microtexture, painterly blur, flat vector art, or chibi proportions. Production character concept suitable as the exact identity reference for animation sheets.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 1792
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_160356_ae5fcb92-b361-46dc-8bdc-87526e255ae8.png",
+    "status": "completed"
+  }
+]

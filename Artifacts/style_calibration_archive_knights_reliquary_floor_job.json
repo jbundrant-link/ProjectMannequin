@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T15:00:18.160461Z",
+    "display_name": "Nano Banana Pro",
+    "id": "44ffc43a-47c5-41ad-9e00-36300e6088f9",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_150018_44ffc43a-47c5-41ad-9e00-36300e6088f9_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "7d6f27c1-fcb0-409e-a01e-61bc3408b157",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7d6f27c1-fcb0-409e-a01e-61bc3408b157.png"
+        },
+        {
+          "id": "e07b5cf1-6be5-4c4e-a663-46d410394ae3",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e07b5cf1-6be5-4c4e-a663-46d410394ae3.png"
+        },
+        {
+          "id": "77050e96-717d-48eb-a483-1ce2fbafb75b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/77050e96-717d-48eb-a483-1ce2fbafb75b.png"
+        },
+        {
+          "id": "238921cb-44a6-455a-b2eb-a855d355be27",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/238921cb-44a6-455a-b2eb-a855d355be27.png"
+        },
+        {
+          "id": "fe125214-ef23-4534-84f5-cf9bd9636dda",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fe125214-ef23-4534-84f5-cf9bd9636dda_resize.jpg"
+        },
+        {
+          "id": "b94b25e4-4c57-4798-a8fb-337843baf5e4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b94b25e4-4c57-4798-a8fb-337843baf5e4.png"
+        },
+        {
+          "id": "115923a9-916d-408e-8970-e5e735485473",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/115923a9-916d-408e-8970-e5e735485473_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one production FLOOR TILE PILOT for KNIGHT'S RELIQUARY, the final boss arena of the Living Archive. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel-shaded value planes, clean graphic highlights, simplified stylized materials, saturated controlled accents, and arcade readability. Characters define rendering grammar only; DO NOT include characters. The accepted Reliquary backdrop defines ceremonial deep-plum, warm-ivory, violet, cyan, and tiny-gold identity. The approved Corruption Repository floor defines strict top-down gameplay quietness and terminated seams. The purple Knight intro defines only restrained violet energy. The old Reliquary floor is STRUCTURE ONLY - do not copy its photoreal texture, concentric circles, gold lattice, symmetry, or repeated grid.\n\nSTRICT FLAT ORTHOGRAPHIC TOP-DOWN VIEW, square 1:1, full-bleed tile. Build large staggered deep-plum and midnight-indigo porcelain floor slabs with broad cel-painted value planes. Keep at least 88 percent of the surface dark and keep the central 70 percent especially quiet for two fighters, boss VFX, form-swap effects, and HUD readability. Add one SMALL OFFSET BROKEN-SEAL MOTIF near an outer quadrant using three disconnected short violet arcs, never a complete circle and never centered. Use only a few isolated short cyan seam dashes, tiny warm-gold locator studs, and three or fewer small bounded ivory inset wedges near outer edges. Every seam and accent terminates well before opposite edges. Mirror-friendly outer edges remain dark and low contrast.\n\nNO complete circle, concentric ring, centered medallion, perimeter frame, border, continuous horizontal line, continuous vertical line, track, bridge, rail, stripe, square grid, repeated lattice, perspective, horizon, wall, stairs, raised platform, characters, armor figures, props, hazards, text, signs, logos, debris, photorealism, PBR metal, rust, grime, scratches, dense cracks, circuits, greebles, microtexture, or baked shadows. No line or accent may span more than 16 percent of image width or height. Clean low-frequency fighter-readable final-arena floor only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_150018_44ffc43a-47c5-41ad-9e00-36300e6088f9.png",
+    "status": "completed"
+  }
+]

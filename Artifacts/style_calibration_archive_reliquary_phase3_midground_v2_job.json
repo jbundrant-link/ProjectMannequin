@@ -1,0 +1,49 @@
+[
+  {
+    "created_at": "2026-07-17T19:56:28.593917Z",
+    "display_name": "Nano Banana Pro",
+    "id": "1cc777ea-bd4e-467e-a870-8002b642672d",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_195628_1cc777ea-bd4e-467e-a870-8002b642672d_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "3f890e39-f013-4964-ac19-2bf2063679b1",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3f890e39-f013-4964-ac19-2bf2063679b1_resize.jpg"
+        },
+        {
+          "id": "03e6e3d8-88f4-477d-9845-e7ee3014878a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/03e6e3d8-88f4-477d-9845-e7ee3014878a_resize.jpg"
+        },
+        {
+          "id": "3adfe767-51f2-47b0-af3b-a7283c15a3bf",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3adfe767-51f2-47b0-af3b-a7283c15a3bf.png"
+        },
+        {
+          "id": "7a77c36f-bcb8-4452-b7f9-fafa69e2d65e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7a77c36f-bcb8-4452-b7f9-fafa69e2d65e.png"
+        },
+        {
+          "id": "d1587060-3be6-403a-89db-f6438b2c42ad",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d1587060-3be6-403a-89db-f6438b2c42ad_resize.jpg"
+        }
+      ],
+      "prompt": "Revise the supplied Knight's Reliquary LAST ARCHIVE phase-3 destruction strip for clean production cutout without changing the three damage states. Preserve the left phase-2 broken oath-tablet ruin and its few large shards. Preserve the center collapsed plinth with two displaced cap slabs, cracked plum core, fallen helm marker, and restrained violet glow. Preserve the right overloaded crystal seal with split cyan crystal, broken ivory frame, collapsed armature, and a few large settled fragments.\n\nCRITICAL CLEANUP: REMOVE the entire reflective floor, every reflection, mirrored shape, ghosted boot, leg, character fragment, anatomy, cast shadow, horizon, haze, gradient, and all content below the landmarks. Reposition all three separated landmarks into the upper 58 percent. The entire lower 38 percent must be perfectly uniform medium-gray with no object, reflection, debris, glow, or shadow. The medium-gray background must be one flat color from top to bottom. Keep only the large authored fragments immediately attached to each landmark.\n\nPROJECT MANNEQUIN STYLE LOCK. Preserve controlled dark contours, broad two-to-four-step cel shading, simplified warm-ivory/deep-plum materials, restrained cyan/violet energy, and polished anime fighting-game production matching the supplied canonical characters. No text, pseudo-writing, glyphs, UI, borders, checkerboard, floor, photorealism, PBR, rust, grime, dense rubble, microtexture, particles crossing gaps, or painterly blur. Full-bleed 21:9 cutout source.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_195628_1cc777ea-bd4e-467e-a870-8002b642672d.png",
+    "status": "completed"
+  }
+]

@@ -26,11 +26,15 @@ public partial class ArchiveMapSmokeScenario : Node
     private bool _overwriteShown;
     private bool _safeDefaultFocus;
     private bool _cancelRestored;
+    private bool _styledBackground;
 
     public void Initialize(MainMenu menu)
     {
         _menu = menu;
         ProcessMode = ProcessModeEnum.Always;
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_ARCHIVE_MAP_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_ARCHIVE_MAP_WORLD_CAPTURE");
+        PrepareCaptureOutput("PROJECT_MANNEQUIN_ARCHIVE_MAP_CONFIRM_CAPTURE");
         GD.Print("[ArchiveMapSmoke] Driver active.");
     }
 
@@ -60,6 +64,7 @@ public partial class ArchiveMapSmokeScenario : Node
                     && _menu.RenderedStageCount == 4
                     && Descendants<Label>(_menu).Any(label =>
                         label.Text.Contains("PAVILION CIRCUIT"));
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_ARCHIVE_MAP_WORLD_CAPTURE");
                 var session = RunSessionManager.Instance;
                 session.CurrentWorldId = "archive_nexus";
                 session.CurrentStageIndex = 1;
@@ -81,6 +86,7 @@ public partial class ArchiveMapSmokeScenario : Node
             case 3:
                 _overwriteShown = _menu.IsConfirmationVisible;
                 _safeDefaultFocus = GetViewport().GuiGetFocusOwner()?.Name == "CancelReplaceRun";
+                CaptureFrameIfRequested("PROJECT_MANNEQUIN_ARCHIVE_MAP_CONFIRM_CAPTURE");
                 FindButton("CancelReplaceRun")?.EmitSignal(BaseButton.SignalName.Pressed);
                 _phase = 4;
                 break;
@@ -106,6 +112,9 @@ public partial class ArchiveMapSmokeScenario : Node
         _trainingExcluded = worldButtons.All(button => !button.Name.ToString().Contains("training_room"));
         _lockedRealm = worldButtons.FirstOrDefault(button =>
             button.Name == "WorldButton_iron_fist_foundry") is { Disabled: true };
+        _styledBackground = ResourceLoader.Exists(_menu!.ArchiveMapBackgroundPath)
+            && Descendants<TextureRect>(_menu).Any(texture =>
+                texture.Name == "ArchiveMapBackground");
         _fourStageRoute = _menu!.RenderedStageCount == 4
             && Descendants<Label>(_menu).Any(label => label.Text.Contains("INTAKE BOULEVARD"))
             && Descendants<Label>(_menu).Any(label => label.Text.Contains("KNIGHT'S RELIQUARY"));
@@ -113,7 +122,12 @@ public partial class ArchiveMapSmokeScenario : Node
 
     private void CaptureFrameIfRequested()
     {
-        var path = OS.GetEnvironment("PROJECT_MANNEQUIN_ARCHIVE_MAP_CAPTURE");
+        CaptureFrameIfRequested("PROJECT_MANNEQUIN_ARCHIVE_MAP_CAPTURE");
+    }
+
+    private void CaptureFrameIfRequested(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
         if (string.IsNullOrWhiteSpace(path))
         {
             return;
@@ -139,26 +153,47 @@ public partial class ArchiveMapSmokeScenario : Node
 
     private void Finish()
     {
+        var capturesPassed = CaptureExistsIfRequested("PROJECT_MANNEQUIN_ARCHIVE_MAP_CAPTURE")
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_ARCHIVE_MAP_WORLD_CAPTURE")
+            && CaptureExistsIfRequested("PROJECT_MANNEQUIN_ARCHIVE_MAP_CONFIRM_CAPTURE");
         var passed = _coreWorldCards
             && _trainingExcluded
             && _lockedRealm
+            && _styledBackground
             && _fourStageRoute
             && _worldSelection
             && _activeRoute
             && _overwriteShown
             && _safeDefaultFocus
-            && _cancelRestored;
+            && _cancelRestored
+            && capturesPassed;
         GD.Print(
             $"[ArchiveMapSmoke] SUMMARY passed={passed} worlds={_coreWorldCards} "
-            + $"noTraining={_trainingExcluded} locked={_lockedRealm} stages={_fourStageRoute} "
+            + $"noTraining={_trainingExcluded} locked={_lockedRealm} styled={_styledBackground} "
+            + $"stages={_fourStageRoute} "
             + $"selection={_worldSelection} active={_activeRoute} overwrite={_overwriteShown} "
-            + $"safeFocus={_safeDefaultFocus} cancel={_cancelRestored}");
+            + $"safeFocus={_safeDefaultFocus} cancel={_cancelRestored} captures={capturesPassed}");
         if (!passed)
         {
             GD.PushError("[ArchiveMapSmoke] Archive Map UI or overwrite protection regressed.");
         }
 
         GetTree().Quit();
+    }
+
+    private static void PrepareCaptureOutput(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    private static bool CaptureExistsIfRequested(string environmentVariable)
+    {
+        var path = OS.GetEnvironment(environmentVariable);
+        return string.IsNullOrWhiteSpace(path) || File.Exists(path);
     }
 
     private static IEnumerable<T> Descendants<T>(Node root) where T : Node

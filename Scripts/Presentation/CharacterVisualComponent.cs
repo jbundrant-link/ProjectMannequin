@@ -104,11 +104,13 @@ public partial class CharacterVisualComponent : Node3D
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private float _impactFlashSeconds;
     private Color _impactFlashColor = Colors.White;
-    private int _raiderIdleCaptureFrame = -1;
-    private int _raiderIdleCaptureStableRenderFrames;
-    private int _raiderAttackCaptureStableRenderFrames;
-    private bool _raiderIdleCaptureSaved;
-    private bool _raiderAttackCaptureSaved;
+    private int _enemyIdleCaptureFrame = -1;
+    private int _enemyIdleCaptureStableRenderFrames;
+    private int _enemyAttackCaptureStableRenderFrames;
+    private bool _enemyIdleCaptureSaved;
+    private bool _enemyAttackCaptureSaved;
+    private int _introCaptureStableRenderFrames;
+    private bool _introCaptureSaved;
 
     private readonly AnimationDriver _driver = new();
     private GameSimulation? _simulation;
@@ -172,65 +174,78 @@ public partial class CharacterVisualComponent : Node3D
             ResolveSpriteFrame(),
             0,
             Mathf.Max(0, _sheetColumns * _sheetRows - 1));
+        CaptureIntroPeakIfRequested();
         UpdateSpritePosition();
         UpdateAuraSprite();
         UpdateHitFlash();
         _impactFlashSeconds = Mathf.Max(0.0f, _impactFlashSeconds - (float)delta);
         UpdateScale();
         UpdateHud();
-        CaptureRaiderFrameIfRequested();
+        CaptureEnemyFrameIfRequested();
     }
 
-    private void CaptureRaiderFrameIfRequested()
+    private void CaptureEnemyFrameIfRequested()
     {
+        var targetFormId = CapturedEnemyFormId();
         if (_actor is null
-            || _actor.CurrentForm.Id != "archive_raider"
+            || _actor.CurrentForm.Id != targetFormId
             || _actor.ActorId != OS.GetEnvironment(
-                "PROJECT_MANNEQUIN_LADDER_RAIDER_ACTOR_ID"))
+                EnemyActorIdVariable(targetFormId)))
         {
             return;
         }
 
         var idlePath = OS.GetEnvironment(
-            "PROJECT_MANNEQUIN_LADDER_RAIDER_IDLE_CAPTURE");
-        if (!_raiderIdleCaptureSaved
+            EnemyIdleCaptureVariable(targetFormId));
+        if (!_enemyIdleCaptureSaved
             && !string.IsNullOrWhiteSpace(idlePath)
             && _actor.State == CombatActorState.Idle)
         {
-            if (_raiderIdleCaptureFrame != _sprite.Frame)
+            if (_enemyIdleCaptureFrame != _sprite.Frame)
             {
-                _raiderIdleCaptureFrame = _sprite.Frame;
-                _raiderIdleCaptureStableRenderFrames = 1;
+                _enemyIdleCaptureFrame = _sprite.Frame;
+                _enemyIdleCaptureStableRenderFrames = 1;
             }
             else
             {
-                _raiderIdleCaptureStableRenderFrames++;
+                _enemyIdleCaptureStableRenderFrames++;
             }
 
-            if (_raiderIdleCaptureStableRenderFrames >= 3)
+            if (_enemyIdleCaptureStableRenderFrames >= 3)
             {
-                _raiderIdleCaptureSaved = SaveRaiderCapture(idlePath, "idle");
+                _enemyIdleCaptureSaved = SaveEnemyCapture(
+                    idlePath,
+                    _actor.CurrentForm.DisplayName,
+                    "idle");
             }
         }
 
         var attackPath = OS.GetEnvironment(
-            "PROJECT_MANNEQUIN_LADDER_RAIDER_ATTACK_CAPTURE");
+            EnemyAttackCaptureVariable(targetFormId));
+        var targetMoveId = CapturedEnemyMoveId();
+        var targetMoveFrame = CapturedEnemyMoveFrame();
         var isStableActivePose = _actor.State == CombatActorState.Attacking
-            && _actor.CurrentMove?.Id == "archive_raider_attack"
-            && _actor.CurrentMoveFrame is >= 17 and <= 19
-            && _sprite.Frame == 44;
-        _raiderAttackCaptureStableRenderFrames = isStableActivePose
-            ? _raiderAttackCaptureStableRenderFrames + 1
+            && _actor.CurrentMove?.Id == targetMoveId
+            && _actor.CurrentMoveFrame >= targetMoveFrame
+            && _actor.CurrentMoveFrame <= targetMoveFrame + 2;
+        _enemyAttackCaptureStableRenderFrames = isStableActivePose
+            ? _enemyAttackCaptureStableRenderFrames + 1
             : 0;
-        if (!_raiderAttackCaptureSaved
+        if (!_enemyAttackCaptureSaved
             && !string.IsNullOrWhiteSpace(attackPath)
-            && _raiderAttackCaptureStableRenderFrames >= 3)
+            && _enemyAttackCaptureStableRenderFrames >= 3)
         {
-            _raiderAttackCaptureSaved = SaveRaiderCapture(attackPath, "active Raider Cross");
+            _enemyAttackCaptureSaved = SaveEnemyCapture(
+                attackPath,
+                _actor.CurrentForm.DisplayName,
+                $"{_actor.CurrentMove?.DisplayName ?? targetMoveId} frame {targetMoveFrame}");
         }
     }
 
-    private bool SaveRaiderCapture(string path, string poseLabel)
+    private bool SaveEnemyCapture(
+        string path,
+        string displayName,
+        string poseLabel)
     {
         var directory = Path.GetDirectoryName(path);
         if (!string.IsNullOrWhiteSpace(directory))
@@ -242,12 +257,114 @@ public partial class CharacterVisualComponent : Node3D
         if (error != Error.Ok)
         {
             GD.PushError(
-                $"[CharacterVisual] Could not save Raider {poseLabel} capture '{path}' ({error}).");
+                $"[CharacterVisual] Could not save {displayName} {poseLabel} capture '{path}' ({error}).");
             return false;
         }
 
-        GD.Print($"[CharacterVisual] Raider {poseLabel} capture saved: {path}");
+        GD.Print($"[CharacterVisual] {displayName} {poseLabel} capture saved: {path}");
         return true;
+    }
+
+    private void CaptureIntroPeakIfRequested()
+    {
+        var path = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_BOSS_INTRO_POSE_CAPTURE");
+        var targetFormId = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_BOSS_INTRO_FORM_ID");
+        if (string.IsNullOrWhiteSpace(targetFormId))
+        {
+            targetFormId = "archive_knight_boss";
+        }
+
+        if (_introCaptureSaved
+            || string.IsNullOrWhiteSpace(path)
+            || _actor is null
+            || !_actor.IsBoss
+            || _actor.CurrentForm.Id != targetFormId
+            || !_introClipActive
+            || _introClip is null
+            || _introClip.Frames.Count == 0)
+        {
+            return;
+        }
+
+        var peakIndex = Mathf.Clamp(
+            _introClip.PeakFrameIndex,
+            0,
+            _introClip.Frames.Count - 1);
+        var peakFrame = _introClip.Frames[peakIndex];
+        _introCaptureStableRenderFrames = _sprite.Frame == peakFrame
+            ? _introCaptureStableRenderFrames + 1
+            : 0;
+        if (_introCaptureStableRenderFrames < 3)
+        {
+            return;
+        }
+
+        _introCaptureSaved = SaveEnemyCapture(
+            path,
+            _actor.CurrentForm.DisplayName,
+            $"intro peak frame {peakFrame}");
+    }
+
+    private static string CapturedEnemyFormId()
+    {
+        var value = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_FORM_ID");
+        return string.IsNullOrWhiteSpace(value) ? "archive_raider" : value;
+    }
+
+    private static string CapturedEnemyMoveId()
+    {
+        var value = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_MOVE_ID");
+        return string.IsNullOrWhiteSpace(value) ? "archive_raider_attack" : value;
+    }
+
+    private static int CapturedEnemyMoveFrame()
+    {
+        var value = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_MOVE_FRAME");
+        return int.TryParse(value, out var frame) ? Mathf.Max(0, frame) : 17;
+    }
+
+    private static string EnemyIdleCaptureVariable(string formId)
+    {
+        return formId switch
+        {
+            "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_IDLE_CAPTURE",
+            "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_IDLE_CAPTURE",
+            "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_IDLE_CAPTURE",
+            "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_IDLE_CAPTURE",
+            "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_IDLE_CAPTURE",
+            "archive_knight_boss" => "PROJECT_MANNEQUIN_LADDER_KNIGHT_IDLE_CAPTURE",
+            _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_IDLE_CAPTURE",
+        };
+    }
+
+    private static string EnemyAttackCaptureVariable(string formId)
+    {
+        return formId switch
+        {
+            "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ATTACK_CAPTURE",
+            "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ATTACK_CAPTURE",
+            "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ATTACK_CAPTURE",
+            "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ATTACK_CAPTURE",
+            "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ATTACK_CAPTURE",
+            "archive_knight_boss" => "PROJECT_MANNEQUIN_LADDER_KNIGHT_ATTACK_CAPTURE",
+            _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_ATTACK_CAPTURE",
+        };
+    }
+
+    private static string EnemyActorIdVariable(string formId)
+    {
+        return formId switch
+        {
+            "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ACTOR_ID",
+            "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ACTOR_ID",
+            "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ACTOR_ID",
+            "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ACTOR_ID",
+            "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ACTOR_ID",
+            "archive_knight_boss" => "PROJECT_MANNEQUIN_LADDER_KNIGHT_ACTOR_ID",
+            _ => "PROJECT_MANNEQUIN_LADDER_RAIDER_ACTOR_ID",
+        };
     }
 
     private Node3D InstantiateVisualRoot()

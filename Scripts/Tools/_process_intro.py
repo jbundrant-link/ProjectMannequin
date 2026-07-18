@@ -20,6 +20,12 @@ _parser.add_argument("--rows", type=int, default=2)
 _parser.add_argument("--cell", type=int, default=256)
 _parser.add_argument("--baseline", type=int, default=250, help="feet y within each cell")
 _parser.add_argument("--maxh", type=int, default=244, help="tallest pose scaled to this")
+_parser.add_argument(
+    "--background",
+    choices=("green", "alpha"),
+    default="green",
+    help="source background treatment",
+)
 _args = _parser.parse_args()
 
 RAW = _args.raw
@@ -30,25 +36,37 @@ BASELINE = _args.baseline
 MAX_FRAME_HEIGHT = _args.maxh
 
 im = Image.open(RAW).convert("RGBA")
-r, g, b, _ = im.split()
+r, g, b, source_alpha = im.split()
 
-# Chroma key: background is bright green (~#00E000); mannequin is tan/burgundy.
-gr = ImageChops.subtract(g, r)
-gb = ImageChops.subtract(g, b)
-mask_gr = gr.point(lambda v: 255 if v > 40 else 0)
-mask_gb = gb.point(lambda v: 255 if v > 40 else 0)
-mask_g = g.point(lambda v: 255 if v > 100 else 0)
-green = ImageChops.multiply(ImageChops.multiply(mask_gr, mask_gb), mask_g)
-alpha = ImageOps.invert(green)  # 0 where green, 255 elsewhere
+if _args.background == "alpha":
+    alpha = source_alpha
+    keyed = Image.composite(
+        im,
+        Image.new("RGBA", im.size, (0, 0, 0, 0)),
+        alpha,
+    )
+else:
+    # Chroma key: background is bright green (~#00E000); mannequin is tan/burgundy.
+    gr = ImageChops.subtract(g, r)
+    gb = ImageChops.subtract(g, b)
+    mask_gr = gr.point(lambda v: 255 if v > 40 else 0)
+    mask_gb = gb.point(lambda v: 255 if v > 40 else 0)
+    mask_g = g.point(lambda v: 255 if v > 100 else 0)
+    green = ImageChops.multiply(ImageChops.multiply(mask_gr, mask_gb), mask_g)
+    alpha = ImageOps.invert(green)  # 0 where green, 255 elsewhere
 
-# Green despill so anti-aliased edges don't leave a halo: clamp g <= (r+b)/2+24.
-half = ImageChops.add(r.point(lambda v: v // 2), b.point(lambda v: v // 2))
-limit = half.point(lambda v: min(255, v + 24))
-g2 = ImageChops.darker(g, limit)
+    # Green despill so anti-aliased edges don't leave a halo: clamp g <= (r+b)/2+24.
+    half = ImageChops.add(r.point(lambda v: v // 2), b.point(lambda v: v // 2))
+    limit = half.point(lambda v: min(255, v + 24))
+    g2 = ImageChops.darker(g, limit)
 
-keyed = Image.merge("RGBA", (r, g2, b, alpha))
-# Hard-cut RGB to transparent where keyed out so downscaling can't bleed green.
-keyed = Image.composite(keyed, Image.new("RGBA", im.size, (0, 0, 0, 0)), alpha)
+    keyed = Image.merge("RGBA", (r, g2, b, alpha))
+    # Hard-cut RGB to transparent where keyed out so downscaling can't bleed green.
+    keyed = Image.composite(
+        keyed,
+        Image.new("RGBA", im.size, (0, 0, 0, 0)),
+        alpha,
+    )
 
 W, H = im.size
 cw, ch = W // COLS, H // ROWS
@@ -71,7 +89,7 @@ for i, f in enumerate(frames):
         report.append(0)
         continue
     nw, nh = max(1, round(f.width * scale)), max(1, round(f.height * scale))
-    scaled = f.resize((nw, nh), Image.LANCZOS)
+    scaled = f.resize((nw, nh), Image.Resampling.LANCZOS)
     col, row = i % COLS, i // COLS
     x = col * CELL + (CELL - nw) // 2
     y = row * CELL + BASELINE - nh

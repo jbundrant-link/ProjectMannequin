@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T14:17:57.648715Z",
+    "display_name": "Nano Banana Pro",
+    "id": "e4c90f74-5fe5-4040-8c39-9a4cd94a8549",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_141757_e4c90f74-5fe5-4040-8c39-9a4cd94a8549_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "50ae4541-1165-4bb7-b903-7ceb04a9102e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/50ae4541-1165-4bb7-b903-7ceb04a9102e.png"
+        },
+        {
+          "id": "54870f48-0b8b-43c4-804f-ebde684d398e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/54870f48-0b8b-43c4-804f-ebde684d398e.png"
+        },
+        {
+          "id": "fb72e254-9168-4cda-bc06-3f678a8bee3b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fb72e254-9168-4cda-bc06-3f678a8bee3b.png"
+        },
+        {
+          "id": "3d013397-2ae3-4708-881d-caf12d65f810",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3d013397-2ae3-4708-881d-caf12d65f810_resize.jpg"
+        },
+        {
+          "id": "2045e77c-3e1a-4b68-b0f2-7832689ab468",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2045e77c-3e1a-4b68-b0f2-7832689ab468.png"
+        },
+        {
+          "id": "8c9bb407-5c13-41ed-b98c-b32164ed96bb",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8c9bb407-5c13-41ed-b98c-b32164ed96bb.png"
+        },
+        {
+          "id": "e907e993-d486-4f01-9623-6081c2f65d1c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e907e993-d486-4f01-9623-6081c2f65d1c.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one WIDE FOREGROUND EDGE SOURCE for CORRUPTION REPOSITORY, a damaged data-vault stage inside the Living Archive. Match the supplied mannequin, Ryu, and Goku references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, and polished anime fighting-game readability. Characters define rendering grammar and scale only; DO NOT include characters. The approved Repository backdrop, floor, and midground define the deep-indigo, ivory, cyan, restrained-magenta family. The approved Index Vaults foreground demonstrates low edge-bound pieces that never cross the gameplay center.\n\nOn one perfectly uniform neutral medium-gray background, place exactly TWO disconnected low foreground remnants at the extreme sides of a 21:9 canvas. LEFT piece: a short broken quarantine balustrade entering from the lower-left edge, deep indigo with one small ivory brace, one short cyan seam, and one restrained magenta fracture. RIGHT piece: a different short collapsed archive containment plinth entering from the lower-right edge, dark plum with one small ivory cap, one short cyan seam, and a few restrained magenta cracks. Both are side-on three-quarter fighting-stage objects, knee height relative to a fighter, broad simple silhouettes, and fully visible except where intentionally entering from the outer canvas edge. Keep the central 60 percent of the entire canvas completely empty uniform gray. Keep the upper 55 percent empty uniform gray. The two pieces must never touch or share a shadow.\n\nNo continuous rail, no bridge, no full-width strip, no center object, no floor, no wall, no backdrop, no characters, enemies, props, caches, canisters, gameplay hazards, warning marks, debris shower, text, letters, numbers, glyphs, signs, labels, checkerboard, transparency grid, gradients or shadows on the gray background, photorealism, PBR, rust, grime, dense books, cables, greebles, microtexture, or painterly blur. Production cutout source only; clean separated silhouettes.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_141757_e4c90f74-5fe5-4040-8c39-9a4cd94a8549.png",
+    "status": "completed"
+  }
+]

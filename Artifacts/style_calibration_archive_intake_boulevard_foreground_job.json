@@ -1,0 +1,54 @@
+﻿[
+  {
+    "created_at": "2026-07-17T12:45:02.635047Z",
+    "display_name": "Nano Banana Pro",
+    "id": "f52e6336-3e86-44c8-b9c5-e7c84b7a5c1b",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_124502_f52e6336-3e86-44c8-b9c5-e7c84b7a5c1b_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "e52119a8-4c52-43a2-bc78-7b7f3b0e3cec",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e52119a8-4c52-43a2-bc78-7b7f3b0e3cec.png"
+        },
+        {
+          "id": "929bb3f6-fc14-465c-bbb0-cd105b07c49a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/929bb3f6-fc14-465c-bbb0-cd105b07c49a.png"
+        },
+        {
+          "id": "54022054-f739-4dc5-84a5-9d59c3db9b41",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/54022054-f739-4dc5-84a5-9d59c3db9b41.png"
+        },
+        {
+          "id": "11cea249-c240-4672-8500-6731cdd83c1a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/11cea249-c240-4672-8500-6731cdd83c1a.png"
+        },
+        {
+          "id": "8dca3da1-7853-46cb-9b35-b199bc84628b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8dca3da1-7853-46cb-9b35-b199bc84628b.png"
+        },
+        {
+          "id": "23f0dc6e-a1f5-4b59-9963-b3fd864d5879",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/23f0dc6e-a1f5-4b59-9963-b3fd864d5879.png"
+        }
+      ],
+      "prompt": "Using the approved Intake Boulevard backdrop, dark floor, tram, and real-alpha midground as Stage 1 anchors plus the three fighters as readability anchors, design one restrained FOREGROUND EDGE SOURCE for a 2.5D belt-scroll stage. Two disconnected partial objects only on uniform neutral gray: lower-left a short knee-height indigo intake guardrail with one porcelain cap and cyan seam; lower-right a compact porcelain/indigo route bollard cluster with small violet/amber accents. Leave the central 60 percent completely empty. Broad cel-shaded planes, controlled dark outlines, simple low silhouettes. No continuous rail, center object, floor, wall, tram, characters, props, hazards, words, glyphs, checkerboard, background shadows, PBR, rust, or dense detail. Full 21:9 cutout source.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_124502_f52e6336-3e86-44c8-b9c5-e7c84b7a5c1b.png",
+    "status": "completed"
+  }
+]

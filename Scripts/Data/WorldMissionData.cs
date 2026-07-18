@@ -219,6 +219,15 @@ public sealed class StageBackgroundPanelData
 {
     public string TexturePath { get; set; } = "";
     public string DestroyedTexturePath { get; set; } = "";
+    public List<string> DestructionTexturePaths { get; set; } = new();
+    public List<string> DestructionBurstTexturePaths { get; set; } = new();
+    public List<float> DestructionBurstAnchorXs { get; set; } = new();
+    public float DestructionBurstPositionY { get; set; } = 2.4f;
+    public float DestructionBurstPositionZ { get; set; } = -4.2f;
+    public float DestructionBurstPixelSize { get; set; }
+    public float DestructionOverlayPositionY { get; set; } = 1.5f;
+    public float DestructionOverlayPositionZ { get; set; } = -4.3f;
+    public float DestructionOverlayPixelSize { get; set; }
     public StageVisualLayerKind Layer { get; set; } = StageVisualLayerKind.Midground;
     public StageTextureSampling Sampling { get; set; } = StageTextureSampling.Linear;
     public float MinX { get; set; }
@@ -243,6 +252,20 @@ public enum StagePickupType
     Score,
 }
 
+public sealed class StageAftermathVisualData
+{
+    public string DecalTexturePath { get; set; } = "";
+    public float DecalSizeX { get; set; }
+    public float DecalSizeZ { get; set; }
+    public float DecalOpacity { get; set; } = 0.72f;
+    public string FragmentSpritePath { get; set; } = "";
+    public float FragmentPixelSize { get; set; }
+    public float FragmentGroundOffsetPixels { get; set; }
+    public float FragmentOffsetX { get; set; }
+    public float FragmentOffsetZ { get; set; }
+    public bool FragmentFlipH { get; set; }
+}
+
 public sealed class StagePropData
 {
     public string Id { get; set; } = "";
@@ -263,6 +286,7 @@ public sealed class StagePropData
     public string SpritePath { get; set; } = "res://Assets/Sprites/Hazards/crate.png";
     public float SpritePixelSize { get; set; }
     public float SpriteGroundOffsetPixels { get; set; }
+    public StageAftermathVisualData? AftermathVisual { get; set; }
 }
 
 public sealed class StageHazardZoneData
@@ -270,6 +294,16 @@ public sealed class StageHazardZoneData
     public string Id { get; set; } = "";
     public StageHazardBehavior Behavior { get; set; } = StageHazardBehavior.StaticPulse;
     public StageHazardTargetMask Targets { get; set; } = StageHazardTargetMask.Players;
+    public string SpritePath { get; set; } = "";
+    public float SpritePixelSize { get; set; }
+    public float SpriteGroundOffsetPixels { get; set; }
+    public float SpriteTravelHeight { get; set; }
+    public float SpriteAnchorX { get; set; } = 0.5f;
+    public float SpriteAnchorZ { get; set; } = 0.5f;
+    public bool SpriteFlipH { get; set; }
+    public string FieldTexturePath { get; set; } = "";
+    public bool FieldFlipH { get; set; }
+    public StageAftermathVisualData? AftermathVisual { get; set; }
     public float MinX { get; set; }
     public float MaxX { get; set; }
     public float MinZ { get; set; } = -3.0f;

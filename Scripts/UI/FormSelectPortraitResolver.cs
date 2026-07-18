@@ -48,17 +48,18 @@ public static class FormSelectPortraitResolver
 
     private static Texture2D? Build(CharacterData form, bool bust)
     {
-        // Explicit and derived art is treated as already framed; bust returns it as-is.
         if (!string.IsNullOrWhiteSpace(form.SelectPortraitPath)
             && ResourceLoader.Exists(form.SelectPortraitPath))
         {
-            return GD.Load<Texture2D>(form.SelectPortraitPath);
+            return FrameExplicitPortrait(
+                GD.Load<Texture2D>(form.SelectPortraitPath),
+                bust);
         }
 
         var derivedPath = DerivedDirectory + form.Id + ".png";
         if (ResourceLoader.Exists(derivedPath))
         {
-            return GD.Load<Texture2D>(derivedPath);
+            return FrameExplicitPortrait(GD.Load<Texture2D>(derivedPath), bust);
         }
 
         var crop = GetBase(form);
@@ -69,6 +70,24 @@ public static class FormSelectPortraitResolver
 
         var (source, full) = crop.Value;
         var region = bust ? ToBust(full) : full;
+        return new AtlasTexture
+        {
+            Atlas = source,
+            Region = new Rect2(region.Position.X, region.Position.Y, region.Size.X, region.Size.Y),
+            FilterClip = true,
+        };
+    }
+
+    private static Texture2D? FrameExplicitPortrait(Texture2D? source, bool bust)
+    {
+        if (source is null || !bust)
+        {
+            return source;
+        }
+
+        var fullCell = new Rect2I(0, 0, source.GetWidth(), source.GetHeight());
+        var full = ComputeContentRegion(source, fullCell) ?? fullCell;
+        var region = ToBust(full);
         return new AtlasTexture
         {
             Atlas = source,
@@ -127,12 +146,20 @@ public static class FormSelectPortraitResolver
         return (source, region);
     }
 
-    // Crops the character's bounding box to a head-and-shoulders bust: the top
-    // slice of the full figure, roughly square, anchored at the head.
+    // Crops the upper half into a narrow portrait window so wide weapons or
+    // pauldrons cannot shrink the face and torso inside compact square wells.
     private static Rect2I ToBust(Rect2I full)
     {
-        var height = Mathf.Clamp(Mathf.RoundToInt(full.Size.X * 1.15f), 1, full.Size.Y);
-        return new Rect2I(full.Position.X, full.Position.Y, full.Size.X, height);
+        var height = Mathf.Clamp(
+            Mathf.RoundToInt(full.Size.Y * 0.50f),
+            1,
+            full.Size.Y);
+        var width = Mathf.Clamp(
+            Mathf.RoundToInt(height * 0.82f),
+            1,
+            full.Size.X);
+        var x = full.Position.X + (full.Size.X - width) / 2;
+        return new Rect2I(x, full.Position.Y, width, height);
     }
 
     /// <summary>

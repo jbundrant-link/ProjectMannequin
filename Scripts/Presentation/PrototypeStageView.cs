@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Godot;
 using ProjectMannequin.Core;
@@ -17,6 +18,8 @@ public partial class PrototypeStageView : Node3D
     private MeshInstance3D? _gameplayFloor;
     private readonly List<MeshInstance3D> _laneBoundaries = new();
     private readonly List<StageLayerInstance> _stageLayers = new();
+    private readonly List<DestructionBurstInstance> _destructionBursts = new();
+    private Sprite3D? _destructionOverlaySprite;
     private readonly Dictionary<StageVisualLayerKind, Node3D> _layerRoots = new();
     private GameSimulation? _simulation;
     private StageMissionData _mission = null!;
@@ -43,12 +46,18 @@ public partial class PrototypeStageView : Node3D
     private bool _stageVisualSmokeSummaryPrinted;
     private bool _parallaxObserved;
     private bool _lightingTransitionObserved;
+    private int _destructionPhase;
+    private int _destructionBurstCaptureFrames;
+    private int _destructionSettledCaptureFrames;
+    private bool _destructionBurstCaptureSaved;
+    private bool _destructionSettledCaptureSaved;
 
     [Export] public NodePath SimulationPath { get; set; } = "../GameSimulation";
     [Export] public string StageTexturePath { get; set; } = "";
 
     public override void _Ready()
     {
+        ConfigureCaptureViewport();
         _simulation = GetNodeOrNull<GameSimulation>(SimulationPath);
         _mission = MvpMissionSelection.CreateSelectedMission();
         _cameraSmokeEnabled =
@@ -63,6 +72,27 @@ public partial class PrototypeStageView : Node3D
         CreateLighting();
         CreateCamera();
         CreateSplitScreenOverlay();
+        PrepareDestructionCaptureOutputs();
+    }
+
+    private void ConfigureCaptureViewport()
+    {
+        var widthText = OS.GetEnvironment("PROJECT_MANNEQUIN_VIEWPORT_WIDTH");
+        var heightText = OS.GetEnvironment("PROJECT_MANNEQUIN_VIEWPORT_HEIGHT");
+        if (!int.TryParse(widthText, out var width)
+            || !int.TryParse(heightText, out var height)
+            || width <= 0
+            || height <= 0)
+        {
+            return;
+        }
+
+        var window = GetWindow();
+        window.Mode = Window.ModeEnum.Windowed;
+        window.Borderless = true;
+        window.ContentScaleSize = new Vector2I(width, height);
+        window.ContentScaleAspect = Window.ContentScaleAspectEnum.Ignore;
+        window.Size = new Vector2I(width, height);
     }
 
     private void CreateSplitScreenOverlay()
@@ -85,6 +115,8 @@ public partial class PrototypeStageView : Node3D
         }
 
         CapturePresentationEvents();
+        UpdateDestructionBursts((float)delta);
+        CaptureDestructionFrameIfRequested();
 
         var activePlayers = _simulation.Actors
             .Where(actor => actor.IsPlayerControlled && !actor.IsDead)
@@ -498,7 +530,8 @@ public partial class PrototypeStageView : Node3D
                 case CombatPresentationEventType.WallBreakStarted:
                     _shakeTime = 0.7f;
                     _shakeStrength = 0.25f;
-                    ApplyDestroyedStageVariant();
+                    _destructionPhase++;
+                    ApplyDestroyedStageVariant(_destructionPhase);
                     break;
             }
         }
@@ -858,30 +891,228 @@ public partial class PrototypeStageView : Node3D
         }
     }
 
-    private void ApplyDestroyedStageVariant()
+    private void ApplyDestroyedStageVariant(int destructionPhase)
     {
+        StageBackgroundPanelData? burstPanel = null;
         foreach (var layer in _stageLayers)
         {
-            if (!string.IsNullOrWhiteSpace(layer.Data.DestroyedTexturePath)
-                && ResourceLoader.Exists(layer.Data.DestroyedTexturePath))
+            var texturePath = layer.Data.DestructionTexturePaths.Count > 0
+                ? layer.Data.DestructionTexturePaths[Mathf.Clamp(
+                    destructionPhase - 1,
+                    0,
+                    layer.Data.DestructionTexturePaths.Count - 1)]
+                : layer.Data.DestroyedTexturePath;
+            if (!string.IsNullOrWhiteSpace(texturePath)
+                && ResourceLoader.Exists(texturePath))
             {
                 try
                 {
-                    layer.Sprite.Texture =
-                        GD.Load<Texture2D>(layer.Data.DestroyedTexturePath);
+                    layer.Sprite.Texture = GD.Load<Texture2D>(texturePath);
                 }
                 catch (Exception ex)
                 {
-                    GD.PushWarning($"Failed to load destroyed texture '{layer.Data.DestroyedTexturePath}': {ex.Message}");
+                    GD.PushWarning(
+                        $"Failed to load destroyed texture '{texturePath}': {ex.Message}");
                 }
+
+                if (layer.Data.DestructionOverlayPixelSize > 0.0f)
+                {
+                    ApplyDestructionOverlay(layer.Data, texturePath);
+                }
+            }
+            else
+            {
+                layer.Sprite.Modulate = new Color(
+                    layer.Data.DestroyedTintR,
+                    layer.Data.DestroyedTintG,
+                    layer.Data.DestroyedTintB,
+                    layer.Data.Opacity);
+            }
+
+            if (burstPanel is null
+                && layer.Data.DestructionBurstTexturePaths.Count > 0)
+            {
+                burstPanel = layer.Data;
+            }
+        }
+
+        if (burstPanel is not null)
+        {
+            SpawnDestructionBurst(burstPanel, destructionPhase);
+        }
+    }
+
+    private void SpawnDestructionBurst(
+        StageBackgroundPanelData panel,
+        int destructionPhase)
+    {
+        var index = Mathf.Clamp(
+            destructionPhase - 1,
+            0,
+            panel.DestructionBurstTexturePaths.Count - 1);
+        var texturePath = panel.DestructionBurstTexturePaths[index];
+        if (!ResourceLoader.Exists(texturePath))
+        {
+            return;
+        }
+
+        var anchorX = panel.DestructionBurstAnchorXs.Count > index
+            ? panel.DestructionBurstAnchorXs[index]
+            : 0.5f;
+        var centerX = ResolveDestructionCenterX();
+        var sprite = new Sprite3D
+        {
+            Name = $"DestructionBurst{destructionPhase}",
+            Texture = GD.Load<Texture2D>(texturePath),
+            PixelSize = panel.DestructionBurstPixelSize,
+            Position = new Vector3(
+                centerX + Mathf.Lerp(-3.6f, 3.6f, anchorX),
+                panel.DestructionBurstPositionY,
+                panel.DestructionBurstPositionZ),
+            Scale = Vector3.One * 0.72f,
+            Shaded = false,
+            DoubleSided = true,
+            AlphaCut = SpriteBase3D.AlphaCutMode.OpaquePrepass,
+            Billboard = BaseMaterial3D.BillboardModeEnum.Disabled,
+        };
+        _layerRoots[StageVisualLayerKind.Midground].AddChild(sprite);
+        _destructionBursts.Add(new DestructionBurstInstance(sprite));
+        _destructionBurstCaptureFrames = 0;
+        _destructionSettledCaptureFrames = 0;
+        _destructionBurstCaptureSaved = false;
+        _destructionSettledCaptureSaved = false;
+    }
+
+    private void ApplyDestructionOverlay(
+        StageBackgroundPanelData panel,
+        string texturePath)
+    {
+        if (_destructionOverlaySprite is null)
+        {
+            _destructionOverlaySprite = new Sprite3D
+            {
+                Name = "ReliquaryDestructionOverlay",
+                PixelSize = panel.DestructionOverlayPixelSize,
+                Shaded = false,
+                DoubleSided = true,
+                AlphaCut = SpriteBase3D.AlphaCutMode.OpaquePrepass,
+                Billboard = BaseMaterial3D.BillboardModeEnum.Disabled,
+            };
+            _layerRoots[StageVisualLayerKind.Midground].AddChild(
+                _destructionOverlaySprite);
+        }
+
+        _destructionOverlaySprite.Texture = GD.Load<Texture2D>(texturePath);
+        _destructionOverlaySprite.PixelSize = panel.DestructionOverlayPixelSize;
+        _destructionOverlaySprite.Position = new Vector3(
+            ResolveDestructionCenterX(),
+            panel.DestructionOverlayPositionY,
+            panel.DestructionOverlayPositionZ);
+    }
+
+    private float ResolveDestructionCenterX()
+    {
+        return _simulation?.EncounterDirector?.CameraCenterX
+            ?? (_mission.StageMinX + _mission.StageMaxX) * 0.5f;
+    }
+
+    private void UpdateDestructionBursts(float deltaSeconds)
+    {
+        for (var index = _destructionBursts.Count - 1; index >= 0; index--)
+        {
+            var burst = _destructionBursts[index];
+            burst.ElapsedSeconds += deltaSeconds;
+            var progress = Mathf.Clamp(burst.ElapsedSeconds / 0.72f, 0.0f, 1.0f);
+            var eased = 1.0f - Mathf.Pow(1.0f - progress, 3.0f);
+            burst.Sprite.Scale = Vector3.One * Mathf.Lerp(0.72f, 1.08f, eased);
+            burst.Sprite.Modulate = new Color(
+                1.0f,
+                1.0f,
+                1.0f,
+                progress < 0.45f
+                    ? 1.0f
+                    : Mathf.Clamp((1.0f - progress) / 0.55f, 0.0f, 1.0f));
+            burst.Sprite.Position += Vector3.Up * (deltaSeconds * 0.18f);
+            if (progress < 1.0f)
+            {
                 continue;
             }
 
-            layer.Sprite.Modulate = new Color(
-                layer.Data.DestroyedTintR,
-                layer.Data.DestroyedTintG,
-                layer.Data.DestroyedTintB,
-                layer.Data.Opacity);
+            burst.Sprite.QueueFree();
+            _destructionBursts.RemoveAt(index);
+        }
+    }
+
+    private void CaptureDestructionFrameIfRequested()
+    {
+        if (_destructionPhase is < 1 or > 2)
+        {
+            return;
+        }
+
+        var bossPhaseNumber = _destructionPhase + 1;
+        var burstPath = OS.GetEnvironment(
+            $"PROJECT_MANNEQUIN_RELIQUARY_PHASE{bossPhaseNumber}_BURST_CAPTURE");
+        var settledPath = OS.GetEnvironment(
+            $"PROJECT_MANNEQUIN_RELIQUARY_PHASE{bossPhaseNumber}_SETTLED_CAPTURE");
+        if (_destructionBursts.Count > 0)
+        {
+            _destructionBurstCaptureFrames++;
+            if (!_destructionBurstCaptureSaved
+                && !string.IsNullOrWhiteSpace(burstPath)
+                && _destructionBurstCaptureFrames >= 10)
+            {
+                _destructionBurstCaptureSaved = SaveDestructionCapture(
+                    burstPath,
+                    $"phase {bossPhaseNumber} burst");
+            }
+            return;
+        }
+
+        _destructionSettledCaptureFrames++;
+        if (!_destructionSettledCaptureSaved
+            && !string.IsNullOrWhiteSpace(settledPath)
+            && _destructionSettledCaptureFrames >= 120)
+        {
+            _destructionSettledCaptureSaved = SaveDestructionCapture(
+                settledPath,
+                $"phase {bossPhaseNumber} settled");
+        }
+    }
+
+    private bool SaveDestructionCapture(string path, string label)
+    {
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError(
+                $"[ReliquaryDestruction] Could not save {label} capture '{path}' ({error}).");
+            return false;
+        }
+
+        GD.Print($"[ReliquaryDestruction] Saved {label} capture: {path}");
+        return true;
+    }
+
+    private static void PrepareDestructionCaptureOutputs()
+    {
+        foreach (var phase in new[] { 2, 3 })
+        {
+            foreach (var state in new[] { "BURST", "SETTLED" })
+            {
+                var path = OS.GetEnvironment(
+                    $"PROJECT_MANNEQUIN_RELIQUARY_PHASE{phase}_{state}_CAPTURE");
+                if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
         }
     }
 
@@ -904,4 +1135,15 @@ public partial class PrototypeStageView : Node3D
         Sprite3D Sprite,
         Vector3 BasePosition,
         StageBackgroundPanelData Data);
+
+    private sealed class DestructionBurstInstance
+    {
+        public DestructionBurstInstance(Sprite3D sprite)
+        {
+            Sprite = sprite;
+        }
+
+        public Sprite3D Sprite { get; }
+        public float ElapsedSeconds { get; set; }
+    }
 }

@@ -1,0 +1,52 @@
+﻿{
+  "created_at": "2026-07-17T07:18:55.236796Z",
+  "display_name": "Nano Banana Pro",
+  "id": "37a15db3-54d7-433c-b62f-f0c9464b4aeb",
+  "job_type": "nano_banana_pro",
+  "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_071855_37a15db3-54d7-433c-b62f-f0c9464b4aeb_min.webp",
+  "params": {
+    "application": null,
+    "aspect_ratio": "21:9",
+    "batch_size": 1,
+    "height": 1344,
+    "input_image": null,
+    "input_images": [
+      {
+        "id": "8824bf19-fddc-4a49-aaa6-0e8b3ed136f5",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8824bf19-fddc-4a49-aaa6-0e8b3ed136f5.png"
+      },
+      {
+        "id": "e0ca48c5-5026-4e84-b953-cf853fa9faf1",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e0ca48c5-5026-4e84-b953-cf853fa9faf1.png"
+      },
+      {
+        "id": "c6ea25cf-ff68-4a89-a4a6-009e531eeb00",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c6ea25cf-ff68-4a89-a4a6-009e531eeb00_resize.jpg"
+      },
+      {
+        "id": "961b474f-32de-4738-b536-5ac94b5c1d7d",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/961b474f-32de-4738-b536-5ac94b5c1d7d.png"
+      },
+      {
+        "id": "68c580dd-4a13-4e06-9c4d-02f76eaac9bb",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/68c580dd-4a13-4e06-9c4d-02f76eaac9bb.png"
+      },
+      {
+        "id": "1de74e33-0be5-47a3-a9a4-030e544c266a",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1de74e33-0be5-47a3-a9a4-030e544c266a.png"
+      }
+    ],
+    "prompt": "Using the approved Index Vaults backdrop, dark floor, and lateral pilot as world anchors plus the three fighters as rendering anchors, design one WIDE MIDGROUND LANDMARK STRIP for a 2.5D belt-scroll stage. Three separated non-overlapping landmarks across a 21:9 neutral-gray canvas with generous transparent-looking gaps: left a leaning indigo catalog-stack tower with sparse cyan index bars; center a broad warm-porcelain archive arch with violet/cyan seams; right a compact cylindrical index spindle with controlled cyan core. Side-on three-quarter fighting-stage view, broad cel-shaded planes, dark ink contours, simplified detail. Keep the lower fighter band open. Entire objects visible, no backdrop wall, floor, foreground rail, characters, props, hazards, text, photoreal materials, rust, or dense greebles.",
+    "resolution": "2k",
+    "surface": null,
+    "width": 3168
+  },
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_071855_37a15db3-54d7-433c-b62f-f0c9464b4aeb.png",
+  "status": "completed"
+}

@@ -84,7 +84,7 @@ Done:
 - Higgsfield-generated Archive District stage with a clear arcade combat lane and layered city backdrop.
 - Corrected sprite grounding so character feet remain visible above the stage plane.
 - Responsive top HUD and reduced world-space actor label clutter.
-- MUGEN-informed mirrored lifebar layout with original Higgsfield ornament art, live Godot health/meter values, and mannequin portraits.
+- 16/16 Living Archive mirrored lifebar package with a real-alpha porcelain/plum frame, live Godot health/meter values, active-form bust portraits, concise split telemetry, and centered safe-area behavior across 16:9, 21:9, 4:3, and isolated-duel split-screen views.
 - MUGEN source/permission audit covering creator credits, declarative conversion, and reference-only restrictions.
 - Reference implementation audit covering the supplied Simpsons, Street Fighter, Godot, MAME X-Men, and GameJolt projects.
 - Detailed Simpsons-style pre-boss camera, route, spawn, collision, and enemy-rhythm adaptation notes.
@@ -94,7 +94,10 @@ Done:
 - MVP completion/failure panel with restart and main-menu shortcuts.
 - Complete arcade stage sequence: travel through six escalating horde sectors, advance to the boss gate, defeat the Archive Knight, and shapeshift.
 - Data-driven world catalog and mission/encounter definitions for future archive realms.
-- Startup Archive Map with separate mission buttons for Archive District and Tournament District.
+- 15/16 illustrated Living Archive startup map with four realm controls, four-node route spine, selected-realm state, responsive 16:9/21:9 composition, and safe checkpoint replacement confirmation.
+- 16/16 Living Archive results package shared by Stage Clear, World Complete, and Game Over, with asymmetric rank/tally presentation, responsive exact captures, and all seven transactional routes verified.
+- 16/16 Living Archive pause package shared by root, Move List, Move Cards, Form Loadout, and Artifacts, with active-form identity and responsive nested-view validation.
+- 16/16 Living Archive form-select package with full-body preview, six-slot inheritance vault, current/cursor separation, cancel/reopen/confirm flow, and deterministic explicit Goku swap.
 - Mission selection shared by the bootstrap, stage renderer, encounter director, HUD, completion flow, and debug scenarios.
 - World Warrior route with six gated horde encounters, three enemy roles, seventeen staggered spawns, and all four entry edges.
 - Ryu boss with a Higgsfield-restyled sprite atlas, CPU profile, three phases, valid six-button commands, Hadouken, Shoryuken, Tatsumaki, and super data.
@@ -135,9 +138,11 @@ Tuning Backlog After MVP:
 
 - Motion specials and supers now use attack buttons, but command tuning and visual feedback need more work.
 - Player super data exists through `236HK`; its VFX and move-specific animation still need polish.
-- Character-specific sheets are still needed for the training enemy and Archive Knight boss form.
+- A character-specific sheet is still needed for the training enemy; the Archive Knight boss and inherited form now share a unique runtime-approved 10×9 atlas.
 - Original, redistributable World Warrior character art is still needed; the current Ryu frames are a local personal-use prototype source with no bundled license metadata.
-- World Warrior horde enemies currently reuse tinted mannequin presentation and need dedicated original sheets.
+- World Warrior Dojo Rookie and Pavilion Striker now use 16/16 original 60-frame style-v2 atlases with phase-aligned Quick Palm/Turning Kick and exact 720p/1080p evidence. Only the tactical Grappler base atlas remains explicitly rejected.
+- Dojo Approach now uses a 15/16 layered dusk-dojo environment with a quiet packed-earth floor and exact 720p/1080p evidence; the reused tournament composite remains rejected for World Warrior Stages 2–4.
+- Archive Nexus stage art, enemies, boss presentation, hazards, HUD, Archive Map, results, pause, and form-select are runtime-approved; World Warrior is the next active art-completeness pass.
 - Astral Battlefront currently uses one wide stage panel and still needs segmented travel panels, parallax, breakables, and dedicated horde art.
 - Goku still needs audio and additional cinematic super camera framing.
 - Stronger boss defeat celebration/unlock presentation.

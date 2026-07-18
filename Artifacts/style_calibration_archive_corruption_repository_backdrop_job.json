@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-07-17T13:47:54.4707Z",
+  "display_name": "Nano Banana Pro",
+  "id": "c139f508-0c4a-4d2d-b950-eac88b7696eb",
+  "job_type": "nano_banana_pro",
+  "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_134754_c139f508-0c4a-4d2d-b950-eac88b7696eb_min.webp",
+  "params": {
+    "application": null,
+    "aspect_ratio": "21:9",
+    "batch_size": 1,
+    "height": 1344,
+    "input_image": null,
+    "input_images": [
+      {
+        "id": "6fd24cee-b77c-4b1d-8925-e19f0edb0332",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6fd24cee-b77c-4b1d-8925-e19f0edb0332.png"
+      },
+      {
+        "id": "55951d5f-4210-4184-95c7-b4561f96b009",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/55951d5f-4210-4184-95c7-b4561f96b009.png"
+      },
+      {
+        "id": "ec15b1a0-2410-442a-9d02-73238fd07b38",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ec15b1a0-2410-442a-9d02-73238fd07b38.png"
+      },
+      {
+        "id": "c4ecb32d-ce17-418f-9999-02e662e68865",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c4ecb32d-ce17-418f-9999-02e662e68865_resize.jpg"
+      },
+      {
+        "id": "0a08e923-d8eb-4ae4-925a-220ee2068777",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0a08e923-d8eb-4ae4-925a-220ee2068777.png"
+      },
+      {
+        "id": "6a14ddfb-f2da-4f94-b909-6d422c7d251c",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6a14ddfb-f2da-4f94-b909-6d422c7d251c_resize.jpg"
+      }
+    ],
+    "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the FAR BACKDROP PILOT for Corruption Repository, a side-on 2.5D belt-scroll fighting-game stage in the Living Archive. Reference roles in supplied order: mannequin, Ryu, and Goku are authoritative contour/cel-shading anchors; the approved Intake Boulevard backdrop is the authoritative lateral environment grammar; the Repository security-sweep emitter supplies magenta/cyan world motifs; the old Repository backdrop is STRUCTURE ONLY and its photorealism, density, cables, and gritty rendering must not be copied. Build one continuous asymmetric 21:9 horizontal elevation at a consistent horizon with three adjacent traversal identities: left collapsed catalog stacks held by broad ivory Archive buttresses, center quarantined record-core bays split by restrained magenta corruption fissures, right sealed deep-repository gate and stepped data vaults. Strong side view, flat lateral band, no central vanishing point, no centered corridor, no symmetry. Broad two-to-four-step cel-painted value planes, confident controlled dark contours, simplified porcelain and dark-indigo materials, clean graphic highlights, cyan archive traces, restrained magenta corruption accents, sparse warm amber quarantine lights. Large readable architectural masses dominate; distant detail is simplified and low contrast. Leave the lower gameplay-facing portion visually quiet. No floor, foreground, characters, creatures, props, hazards, UI, text, logos, signs, perspective tunnel, photorealism, PBR, rust, grime, rubble noise, cables everywhere, dense greebles, microtexture, painterly blur, or baked borders. Full-bleed production backdrop, polished modern anime fighting-game finish.",
+    "resolution": "2k",
+    "surface": null,
+    "width": 3168
+  },
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_134754_c139f508-0c4a-4d2d-b950-eac88b7696eb.png",
+  "status": "completed"
+}

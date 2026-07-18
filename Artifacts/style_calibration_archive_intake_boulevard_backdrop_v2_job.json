@@ -1,0 +1,54 @@
+﻿[
+  {
+    "created_at": "2026-07-17T12:28:45.981236Z",
+    "display_name": "Nano Banana Pro",
+    "id": "9adca847-3097-4b68-90f8-c65c6f79fcf6",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_122845_9adca847-3097-4b68-90f8-c65c6f79fcf6_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "502e4795-ed98-4153-aa78-f8cc7d965bba",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/502e4795-ed98-4153-aa78-f8cc7d965bba_resize.jpg"
+        },
+        {
+          "id": "a9989eb5-49c4-4e6a-8aad-ef79492ef1b9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a9989eb5-49c4-4e6a-8aad-ef79492ef1b9_resize.jpg"
+        },
+        {
+          "id": "5ce37874-f7ae-4d04-ae11-1050b88ba461",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5ce37874-f7ae-4d04-ae11-1050b88ba461.png"
+        },
+        {
+          "id": "6a68faec-e310-4646-81bd-58974ae68033",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6a68faec-e310-4646-81bd-58974ae68033.png"
+        },
+        {
+          "id": "88bf9618-6e0b-41d6-9281-d3c38999ad9b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/88bf9618-6e0b-41d6-9281-d3c38999ad9b.png"
+        },
+        {
+          "id": "eda728c1-8bd3-4a2f-b69e-7e6cc45ad6af",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/eda728c1-8bd3-4a2f-b69e-7e6cc45ad6af.png"
+        }
+      ],
+      "prompt": "Revise the supplied Intake Boulevard backdrop into a true SIDE-ON LATERAL BELT-SCROLL BAND. Preserve warm-porcelain/deep-indigo Living Archive architecture, cyan/violet route lights, amber windows, broad cel-shaded planes, and controlled ink contours. Remove the centered avenue, symmetry, central gate, and all depth-tunnel/vanishing-point composition. Build one continuous asymmetric horizontal facade with three adjacent motifs at one consistent horizon and scale: left outer catalog gatehouse profile, center low intake conveyor halls, right tall record-registration stacks. Flat elevation-like side view with distant silhouettes only behind them, low contrast and simplified detail. No floor, foreground, characters, billboards, faces, text, props, hazards, perspective corridor, photorealism, rust, or dense greebles. Full-bleed 21:9 traversal backdrop.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_122845_9adca847-3097-4b68-90f8-c65c6f79fcf6.png",
+    "status": "completed"
+  }
+]

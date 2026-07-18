@@ -23,6 +23,7 @@ public partial class MvpHud : CanvasLayer
     private Control _root = null!;
     private Label _objectiveLabel = null!;
     private Label _stageProgressLabel = null!;
+    private Label _encounterProgressLabel = null!;
     private Label _advanceLabel = null!;
     private Label _notificationLabel = null!;
     private Label _comboLabel = null!;
@@ -47,13 +48,17 @@ public partial class MvpHud : CanvasLayer
     private Label _missionBodyLabel = null!;
     private Label _missionUnlockLabel = null!;
     private HBoxContainer _missionButtons = null!;
+    private TextureRect? _resultsPlate;
     private PanelContainer _resultsConfirmationPanel = null!;
     private Label _resultsConfirmationTitle = null!;
     private Label _resultsConfirmationBody = null!;
     private Button _resultsConfirmationAccept = null!;
     private Button _resultsConfirmationCancel = null!;
+    private TextureRect? _hudFrame;
     private TextureRect? _playerPortrait;
     private TextureRect? _bossPortrait;
+    private string _playerPortraitFormId = "";
+    private string _bossPortraitFormId = "";
     private ColorRect _cinematicWash = null!;
     private VBoxContainer _beamClashContainer = null!;
     private ProgressBar _beamClashBar = null!;
@@ -95,7 +100,9 @@ public partial class MvpHud : CanvasLayer
     [Export] public NodePath SimulationPath { get; set; } = "../GameSimulation";
     [Export] public string MainMenuScenePath { get; set; } = "res://Scenes/UI/MainMenu.tscn";
     [Export] public string HudFramePath { get; set; } =
-        "res://Assets/UI/Hud/project_mannequin_lifebar_frame_higgsfield_v1.png";
+        "res://Assets/UI/Hud/project_mannequin_hud_frame_style_v2.png";
+    [Export] public string ResultsPlatePath { get; set; } =
+        "res://Assets/UI/Results/project_mannequin_results_plate_style_v1.png";
     [Export] public string PortraitSourcePath { get; set; } =
         "res://Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png";
 
@@ -111,11 +118,14 @@ public partial class MvpHud : CanvasLayer
         || _notifications.Count > 0
         || !string.IsNullOrWhiteSpace(_notificationLabel?.Text);
     public bool ResultsPanelVisible => _missionPanel?.Visible == true;
+    public float ResultsOpacity => _missionPanel?.Modulate.A ?? 0.0f;
     public ResultsFlowMode ResultsMode => _resultsMode;
     public string ResultsRankText => _missionRankLabel?.Text ?? "";
     public bool ResultsConfirmationVisible => _resultsConfirmationPanel?.Visible == true;
     public string ResultsUnlockText => _missionUnlockLabel?.Text ?? "";
     public bool ResultsActionCommitted => _resultActionCommitted;
+    public string PlayerPortraitFormId => _playerPortraitFormId;
+    public string BossPortraitFormId => _bossPortraitFormId;
     public IReadOnlyList<string> ResultsButtonTexts => _resultButtons
         .Select(button => button.Text)
         .ToArray();
@@ -143,7 +153,11 @@ public partial class MvpHud : CanvasLayer
 
         if (mode == ResultsFlowMode.WorldComplete)
         {
-            _formUnlockedThisStage = director.Mission.BossFormId;
+            _formUnlockedThisStage = WorldRunCatalog.CreateRun(
+                    director.Mission.WorldId)
+                .Stages
+                .Last()
+                .BossFormId;
         }
 
         ShowStageResults(
@@ -163,7 +177,8 @@ public partial class MvpHud : CanvasLayer
                 CounterHits: 4,
                 DamageTaken: 86,
                 Deaths: 0,
-                Rank: StageRank.S));
+                Rank: StageRank.S),
+            debugModeOverride: mode);
     }
 
     public override void _Ready()
@@ -282,6 +297,7 @@ public partial class MvpHud : CanvasLayer
         playerBox.AddChild(_playerMeterBar);
 
         _playerDetailLabel = MakeLabel("", 14, new Color(0.82f, 0.88f, 0.94f));
+        _playerDetailLabel.TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis;
         playerBox.AddChild(_playerDetailLabel);
 
         _bossPanel = new VBoxContainer
@@ -304,16 +320,16 @@ public partial class MvpHud : CanvasLayer
 
         _bossDetailLabel = MakeLabel("", 13, new Color(0.90f, 0.84f, 0.74f));
         _bossDetailLabel.HorizontalAlignment = HorizontalAlignment.Center;
+        _bossDetailLabel.TextOverrunBehavior = TextServer.OverrunBehavior.TrimEllipsis;
         _bossPanel.AddChild(_bossDetailLabel);
 
-        _stageProgressLabel = MakeLabel("", 13, new Color(0.56f, 0.86f, 1.0f));
+        _stageProgressLabel = MakeLabel("", 12, new Color(0.56f, 0.86f, 1.0f));
         _stageProgressLabel.HorizontalAlignment = HorizontalAlignment.Center;
-        _stageProgressLabel.SetAnchorsPreset(Control.LayoutPreset.TopWide);
-        _stageProgressLabel.OffsetLeft = 20;
-        _stageProgressLabel.OffsetTop = 112;
-        _stageProgressLabel.OffsetRight = -20;
-        _stageProgressLabel.OffsetBottom = 136;
         _root.AddChild(_stageProgressLabel);
+
+        _encounterProgressLabel = MakeLabel("", 12, new Color(1.0f, 0.68f, 0.52f));
+        _encounterProgressLabel.HorizontalAlignment = HorizontalAlignment.Center;
+        _root.AddChild(_encounterProgressLabel);
 
         _objectiveLabel = MakeLabel("", 16, new Color(1.0f, 0.86f, 0.44f));
         _objectiveLabel.HorizontalAlignment = HorizontalAlignment.Center;
@@ -428,51 +444,92 @@ public partial class MvpHud : CanvasLayer
         _missionDim.SetAnchorsPreset(Control.LayoutPreset.FullRect);
         _root.AddChild(_missionDim);
 
-        _missionPanel = MakePanel(Vector2.Zero, new Vector2(820, 530));
+        _missionPanel = MakePanel(Vector2.Zero, new Vector2(880, 590));
         _missionPanel.Name = "ResultsPanel";
         _missionPanel.Visible = false;
         _missionPanel.MouseFilter = Control.MouseFilterEnum.Ignore;
-        _missionPanel.AddThemeStyleboxOverride("panel", ResultPanelStyle(
-            new Color(0.025f, 0.035f, 0.055f, 0.99f),
-            new Color(0.42f, 0.78f, 0.92f, 0.95f),
-            2));
+        _missionPanel.AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
         _root.AddChild(_missionPanel);
 
+        if (ResourceLoader.Exists(ResultsPlatePath))
+        {
+            _resultsPlate = new TextureRect
+            {
+                Name = "ResultsPlate",
+                Texture = GD.Load<Texture2D>(ResultsPlatePath),
+                ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+                StretchMode = TextureRect.StretchModeEnum.Scale,
+                MouseFilter = Control.MouseFilterEnum.Ignore,
+            };
+            _resultsPlate.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+            _missionPanel.AddChild(_resultsPlate);
+        }
+
         var margin = new MarginContainer();
-        margin.AddThemeConstantOverride("margin_left", 28);
-        margin.AddThemeConstantOverride("margin_top", 22);
-        margin.AddThemeConstantOverride("margin_right", 28);
-        margin.AddThemeConstantOverride("margin_bottom", 22);
+        margin.AddThemeConstantOverride("margin_left", 72);
+        margin.AddThemeConstantOverride("margin_top", 54);
+        margin.AddThemeConstantOverride("margin_right", 72);
+        margin.AddThemeConstantOverride("margin_bottom", 46);
         _missionPanel.AddChild(margin);
 
         var missionBox = new VBoxContainer();
-        missionBox.AddThemeConstantOverride("separation", 8);
+        missionBox.AddThemeConstantOverride("separation", 5);
         margin.AddChild(missionBox);
 
         _missionEyebrowLabel = MakeLabel("PROJECT MANNEQUIN  //  RESULTS", 13, new Color(0.42f, 0.94f, 0.92f));
         _missionEyebrowLabel.HorizontalAlignment = HorizontalAlignment.Center;
         missionBox.AddChild(_missionEyebrowLabel);
 
-        _missionTitleLabel = MakeLabel("STAGE CLEAR", 34, Colors.White);
+        _missionTitleLabel = MakeLabel("STAGE CLEAR", 30, Colors.White);
         _missionTitleLabel.HorizontalAlignment = HorizontalAlignment.Center;
         missionBox.AddChild(_missionTitleLabel);
 
-        _missionRankLabel = MakeLabel("A", 82, new Color(1.0f, 0.82f, 0.30f));
+        var resultContent = new HBoxContainer
+        {
+            CustomMinimumSize = new Vector2(0.0f, 270.0f),
+        };
+        resultContent.AddThemeConstantOverride("separation", 30);
+        var resultContentMargin = new MarginContainer();
+        resultContentMargin.AddThemeConstantOverride("margin_left", 56);
+        resultContentMargin.AddThemeConstantOverride("margin_right", 44);
+        resultContentMargin.AddChild(resultContent);
+        missionBox.AddChild(resultContentMargin);
+
+        var rankColumn = new VBoxContainer
+        {
+            Alignment = BoxContainer.AlignmentMode.Center,
+            CustomMinimumSize = new Vector2(252.0f, 0.0f),
+        };
+        resultContent.AddChild(rankColumn);
+        rankColumn.AddChild(new Control { SizeFlagsVertical = Control.SizeFlags.ExpandFill });
+        _missionRankLabel = MakeLabel("A", 96, new Color(1.0f, 0.82f, 0.30f));
         _missionRankLabel.HorizontalAlignment = HorizontalAlignment.Center;
-        _missionRankLabel.CustomMinimumSize = new Vector2(0.0f, 94.0f);
-        _missionRankLabel.PivotOffset = new Vector2(380.0f, 47.0f);
-        missionBox.AddChild(_missionRankLabel);
+        _missionRankLabel.VerticalAlignment = VerticalAlignment.Center;
+        _missionRankLabel.CustomMinimumSize = new Vector2(252.0f, 132.0f);
+        _missionRankLabel.PivotOffset = new Vector2(126.0f, 66.0f);
+        rankColumn.AddChild(_missionRankLabel);
+        rankColumn.AddChild(new Control { SizeFlagsVertical = Control.SizeFlags.ExpandFill });
 
-        _missionSubtitleLabel = MakeLabel("", 16, new Color(0.70f, 0.80f, 0.90f));
+        var tallyColumn = new VBoxContainer
+        {
+            Alignment = BoxContainer.AlignmentMode.Center,
+            SizeFlagsHorizontal = Control.SizeFlags.ExpandFill,
+        };
+        tallyColumn.AddThemeConstantOverride("separation", 8);
+        resultContent.AddChild(tallyColumn);
+        _missionSubtitleLabel = MakeLabel("", 12, new Color(0.70f, 0.80f, 0.90f));
         _missionSubtitleLabel.HorizontalAlignment = HorizontalAlignment.Center;
-        missionBox.AddChild(_missionSubtitleLabel);
-        missionBox.AddChild(new HSeparator());
+        _missionSubtitleLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
+        _missionSubtitleLabel.CustomMinimumSize = new Vector2(0.0f, 36.0f);
+        tallyColumn.AddChild(_missionSubtitleLabel);
+        tallyColumn.AddChild(new HSeparator());
 
-        _missionBodyLabel = MakeLabel("", 16, new Color(0.84f, 0.89f, 0.95f));
+        _missionBodyLabel = MakeLabel("", 13, new Color(0.84f, 0.89f, 0.95f));
         _missionBodyLabel.HorizontalAlignment = HorizontalAlignment.Center;
         _missionBodyLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
-        _missionBodyLabel.CustomMinimumSize = new Vector2(0.0f, 132.0f);
-        missionBox.AddChild(_missionBodyLabel);
+        _missionBodyLabel.VerticalAlignment = VerticalAlignment.Center;
+        _missionBodyLabel.CustomMinimumSize = new Vector2(0.0f, 184.0f);
+        tallyColumn.AddChild(_missionBodyLabel);
 
         _missionUnlockLabel = MakeLabel("", 17, new Color(1.0f, 0.78f, 0.30f));
         _missionUnlockLabel.HorizontalAlignment = HorizontalAlignment.Center;
@@ -486,13 +543,6 @@ public partial class MvpHud : CanvasLayer
         };
         _missionButtons.AddThemeConstantOverride("separation", 12);
         missionBox.AddChild(_missionButtons);
-
-        var hint = MakeLabel(
-            "ACCEPT / R  PRIMARY ACTION      CANCEL / M  ARCHIVE MAP",
-            12,
-            new Color(0.52f, 0.61f, 0.70f));
-        hint.HorizontalAlignment = HorizontalAlignment.Center;
-        missionBox.AddChild(hint);
 
         _resultsConfirmationPanel = MakePanel(Vector2.Zero, new Vector2(610, 280));
         _resultsConfirmationPanel.Name = "ResultsConfirmationPanel";
@@ -600,6 +650,8 @@ public partial class MvpHud : CanvasLayer
         UpdateThreatIndicators(delta);
         PositionPlayerPanel();
         PositionBossPanel();
+        PositionHudFrame();
+        PositionTopHudDetails();
         PositionPortraits();
         PositionMissionPanel();
     }
@@ -612,7 +664,7 @@ public partial class MvpHud : CanvasLayer
             return;
         }
 
-        var frame = new TextureRect
+        _hudFrame = new TextureRect
         {
             Name = "HiggsfieldHudFrame",
             Texture = GD.Load<Texture2D>(HudFramePath),
@@ -620,8 +672,8 @@ public partial class MvpHud : CanvasLayer
             StretchMode = TextureRect.StretchModeEnum.Scale,
             MouseFilter = Control.MouseFilterEnum.Ignore,
         };
-        frame.SetAnchorsPreset(Control.LayoutPreset.FullRect);
-        _root.AddChild(frame);
+        _root.AddChild(_hudFrame);
+        PositionHudFrame();
     }
 
     private void AddPortraits()
@@ -664,6 +716,7 @@ public partial class MvpHud : CanvasLayer
 
     private void UpdatePlayerHud(CombatActor? player)
     {
+        UpdatePortrait(_playerPortrait, player, ref _playerPortraitFormId);
         if (player is null)
         {
             _playerNameLabel.Text = "P1 Offline";
@@ -691,6 +744,7 @@ public partial class MvpHud : CanvasLayer
     private void UpdateBossHud(CombatActor? boss)
     {
         _bossPanel.Visible = boss is not null && !boss.IsDead;
+        UpdatePortrait(_bossPortrait, boss, ref _bossPortraitFormId);
         if (_bossPortrait is not null)
         {
             _bossPortrait.Visible = _bossPanel.Visible;
@@ -721,23 +775,58 @@ public partial class MvpHud : CanvasLayer
             $"{phaseText}{transitionText} | HP {boss.Health}/{boss.CurrentForm.MaxHealth}{guardText}";
     }
 
+    private static void UpdatePortrait(
+        TextureRect? portrait,
+        CombatActor? actor,
+        ref string portraitFormId)
+    {
+        if (portrait is null)
+        {
+            return;
+        }
+
+        if (actor is null)
+        {
+            portrait.Visible = false;
+            portraitFormId = "";
+            return;
+        }
+
+        var form = actor.CurrentForm;
+        if (portraitFormId != form.Id)
+        {
+            var resolved = FormSelectPortraitResolver.Resolve(form, bust: true);
+            if (resolved is not null)
+            {
+                portrait.Texture = resolved;
+                portrait.Modulate = Colors.White;
+            }
+
+            portraitFormId = form.Id;
+        }
+
+        portrait.Visible = true;
+    }
+
     private void UpdateStageFlow(ArcadeEncounterDirector? director)
     {
         if (director is null)
         {
             _stageProgressLabel.Text = "";
+            _encounterProgressLabel.Text = "";
             _advanceLabel.Visible = false;
             return;
         }
 
         _stageProgressLabel.Text =
-            $"SCORE {ProjectMannequin.Progression.RunSessionManager.Instance.ScoreManager.RunScore:000000}    " +
-            $"TIME {FormatTime(ProjectMannequin.Progression.RunSessionManager.Instance.ScoreManager.ActiveGameplayFrames)}" +
-            $" / PAR {FormatTime(Mathf.RoundToInt(director.Mission.ParTimeSeconds * GameConstants.TickRate))}    " +
-            $"{director.Mission.WorldDisplayName.ToUpperInvariant()} // STAGE {director.Mission.StageNumber} // " +
-            $"{director.Mission.DisplayName.ToUpperInvariant()}    " +
-            $"ENCOUNTER {director.CurrentEncounterNumber}/{director.TotalEncounterCount}    " +
-            $"HOSTILES {director.EnemiesRemaining}";
+            $"SCORE {ProjectMannequin.Progression.RunSessionManager.Instance.ScoreManager.RunScore:000000}    "
+            + $"{FormatTime(ProjectMannequin.Progression.RunSessionManager.Instance.ScoreManager.ActiveGameplayFrames)}"
+            + $" / {FormatTime(Mathf.RoundToInt(director.Mission.ParTimeSeconds * GameConstants.TickRate))}";
+        var hostileLabel = director.EnemiesRemaining == 1 ? "HOSTILE" : "HOSTILES";
+        _encounterProgressLabel.Text =
+            $"STAGE {director.Mission.StageNumber}    "
+            + $"{director.CurrentEncounterNumber}/{director.TotalEncounterCount}    "
+            + $"{director.EnemiesRemaining} {hostileLabel}";
 
         _advanceLabel.Visible = director.ShowAdvancePrompt;
         if (_advanceLabel.Visible)
@@ -842,11 +931,13 @@ public partial class MvpHud : CanvasLayer
 
     private void ShowStageResults(
         ArcadeEncounterDirector director,
-        StageResultsData results)
+        StageResultsData results,
+        ResultsFlowMode? debugModeOverride = null)
     {
-        var mode = director.Mission.IsFinalStage
-            ? ResultsFlowMode.WorldComplete
-            : ResultsFlowMode.StageClear;
+        var mode = debugModeOverride
+            ?? (director.Mission.IsFinalStage
+                ? ResultsFlowMode.WorldComplete
+                : ResultsFlowMode.StageClear);
         if (_resultsMode == mode && _missionPanel.Visible)
         {
             return;
@@ -871,19 +962,24 @@ public partial class MvpHud : CanvasLayer
             ? "WORLD COMPLETE"
             : "STAGE CLEAR";
         _missionTitleLabel.Modulate = Colors.White;
+        _missionRankLabel.AddThemeFontSizeOverride("font_size", 96);
         _missionRankLabel.Text = results.Rank.ToString();
         _missionRankLabel.Modulate = RankColor(results.Rank);
         _missionRankLabel.Visible = true;
+        _missionBodyLabel.AddThemeFontSizeOverride("font_size", 13);
+        var displayedMission = debugModeOverride == ResultsFlowMode.WorldComplete
+            ? WorldRunCatalog.CreateRun(director.Mission.WorldId).Stages.Last()
+            : director.Mission;
         _missionSubtitleLabel.Text =
-            $"{director.Mission.WorldDisplayName.ToUpperInvariant()}  //  "
-            + $"STAGE {director.Mission.StageNumber}  //  "
-            + director.Mission.StageTitle.ToUpperInvariant();
+            $"{displayedMission.WorldDisplayName.ToUpperInvariant()}  //  "
+            + $"STAGE {displayedMission.StageNumber}\n"
+            + displayedMission.StageTitle.ToUpperInvariant();
         _missionBodyLabel.Text =
-            $"COMBAT SCORE  {results.CombatScore,7}        CLEAR BONUS  {results.ClearBonus,7}\n"
-            + $"TIME BONUS   {results.TimeBonus,7}        CLEAR TIME   {FormatTime(results.ActiveFrames),7}\n"
-            + $"MAX COMBO    {results.MaxCombo,7}        DAMAGE TAKEN {results.DamageTaken,7}\n"
-            + $"ENEMIES      {results.EnemiesDefeated,7}        PARRIES      {results.Parries,7}\n\n"
-            + $"STAGE TOTAL  {results.StageTotal,7}        RUN TOTAL     {results.RunTotal,7}";
+            $"COMBAT  {results.CombatScore}      CLEAR  +{results.ClearBonus}\n"
+            + $"TIME    +{results.TimeBonus}      {FormatTime(results.ActiveFrames)}\n"
+            + $"COMBO   {results.MaxCombo}      DAMAGE  {results.DamageTaken}\n"
+            + $"ENEMIES {results.EnemiesDefeated}      PARRIES {results.Parries}\n\n"
+            + $"STAGE {results.StageTotal}      RUN {results.RunTotal}";
         _missionUnlockLabel.Visible = mode == ResultsFlowMode.WorldComplete
             && !string.IsNullOrWhiteSpace(_formUnlockedThisStage);
         _missionUnlockLabel.Text = _missionUnlockLabel.Visible
@@ -910,16 +1006,17 @@ public partial class MvpHud : CanvasLayer
         _missionEyebrowLabel.Text = "PROJECT MANNEQUIN  //  RUN INTERRUPTED";
         _missionTitleLabel.Text = "GAME OVER";
         _missionTitleLabel.Modulate = new Color(1.0f, 0.38f, 0.30f);
+        _missionRankLabel.AddThemeFontSizeOverride("font_size", 82);
         _missionRankLabel.Text = "KO";
         _missionRankLabel.Modulate = new Color(1.0f, 0.34f, 0.28f);
         _missionRankLabel.Visible = true;
+        _missionBodyLabel.AddThemeFontSizeOverride("font_size", 12);
         _missionSubtitleLabel.Text = director is null
             ? "ARCHIVE CONNECTION LOST"
             : $"{director.Mission.WorldDisplayName.ToUpperInvariant()}  //  STAGE {director.Mission.StageNumber}";
         _missionBodyLabel.Text =
-            "The current stage attempt has ended. Retry restores the committed "
-            + "stage-entry health, meter, lives, score, and build. Restart World "
-            + "creates a fresh Stage 1 checkpoint.";
+            "Retry restores the committed stage-entry health, meter, lives, "
+            + "score, and build.\n\nRestart World creates a fresh Stage 1 checkpoint.";
         _missionUnlockLabel.Text = "YOUR COMMITTED CHECKPOINT REMAINS SAFE";
         _missionUnlockLabel.Visible = true;
         BuildResultsButtons(ResultsFlowMode.GameOver);
@@ -1905,20 +2002,53 @@ public partial class MvpHud : CanvasLayer
 
     private void PositionBossPanel()
     {
-        var size = GetViewport().GetVisibleRect().Size;
-        var panelWidth = Mathf.Clamp(size.X * 0.33f, 320.0f, 720.0f);
+        var hudRect = GetHudSafeRect();
+        var panelWidth = Mathf.Clamp(hudRect.Size.X * 0.33f, 320.0f, 720.0f);
         _bossPanel.CustomMinimumSize = new Vector2(panelWidth, 108.0f);
-        _bossPanel.Position = new Vector2(size.X - size.X * 0.124f - panelWidth, 18.0f)
-            + new Vector2(BossIntroSlide * size.X * 0.5f, 0.0f);
+        _bossPanel.Size = new Vector2(panelWidth, 108.0f);
+        _bossPanel.Position = new Vector2(
+                hudRect.End.X - hudRect.Size.X * 0.124f - panelWidth,
+                18.0f)
+            + new Vector2(BossIntroSlide * hudRect.Size.X * 0.5f, 0.0f);
     }
 
     private void PositionPlayerPanel()
     {
-        var size = GetViewport().GetVisibleRect().Size;
-        var panelWidth = Mathf.Clamp(size.X * 0.33f, 320.0f, 720.0f);
+        var hudRect = GetHudSafeRect();
+        var panelWidth = Mathf.Clamp(hudRect.Size.X * 0.33f, 320.0f, 720.0f);
         _playerPanel.CustomMinimumSize = new Vector2(panelWidth, 104.0f);
-        _playerPanel.Position = new Vector2(size.X * 0.124f, 18.0f)
-            + new Vector2(-BossIntroSlide * size.X * 0.5f, 0.0f);
+        _playerPanel.Size = new Vector2(panelWidth, 104.0f);
+        _playerPanel.Position = new Vector2(
+                hudRect.Position.X + hudRect.Size.X * 0.124f,
+                18.0f)
+            + new Vector2(-BossIntroSlide * hudRect.Size.X * 0.5f, 0.0f);
+    }
+
+    private void PositionHudFrame()
+    {
+        if (_hudFrame is null)
+        {
+            return;
+        }
+
+        var hudRect = GetHudSafeRect();
+        _hudFrame.Position = hudRect.Position;
+        _hudFrame.Size = hudRect.Size;
+    }
+
+    private void PositionTopHudDetails()
+    {
+        var hudRect = GetHudSafeRect();
+        var panelWidth = Mathf.Clamp(hudRect.Size.X * 0.33f, 320.0f, 720.0f);
+        var slide = BossIntroSlide * hudRect.Size.X * 0.5f;
+        _stageProgressLabel.Position = new Vector2(
+            hudRect.Position.X + hudRect.Size.X * 0.124f - slide,
+            108.0f);
+        _stageProgressLabel.Size = new Vector2(panelWidth, 24.0f);
+        _encounterProgressLabel.Position = new Vector2(
+            hudRect.End.X - hudRect.Size.X * 0.124f - panelWidth + slide,
+            108.0f);
+        _encounterProgressLabel.Size = new Vector2(panelWidth, 24.0f);
     }
 
     private void PositionPortraits()
@@ -1928,27 +2058,51 @@ public partial class MvpHud : CanvasLayer
             return;
         }
 
-        var size = GetViewport().GetVisibleRect().Size;
-        var portraitSize = Mathf.Min(size.X * 0.09f, size.Y * 0.16f);
-        var marginX = size.X * 0.019f;
-        var marginY = size.Y * 0.024f;
+        var hudRect = GetHudSafeRect();
+        var portraitSize = Mathf.Min(hudRect.Size.X * 0.09f, hudRect.Size.Y * 0.16f);
+        var marginX = hudRect.Size.X * 0.019f;
+        var marginY = hudRect.Size.Y * 0.024f;
 
-        var portraitSlide = new Vector2(BossIntroSlide * size.X * 0.5f, 0.0f);
-        _playerPortrait.Position = new Vector2(marginX, marginY) - portraitSlide;
+        var portraitSlide = new Vector2(BossIntroSlide * hudRect.Size.X * 0.5f, 0.0f);
+        _playerPortrait.Position = new Vector2(
+            hudRect.Position.X + marginX,
+            marginY) - portraitSlide;
         _playerPortrait.Size = Vector2.One * portraitSize;
-        _bossPortrait.Position = new Vector2(size.X - marginX - portraitSize, marginY) + portraitSlide;
+        _bossPortrait.Position = new Vector2(
+            hudRect.End.X - marginX - portraitSize,
+            marginY) + portraitSlide;
         _bossPortrait.Size = Vector2.One * portraitSize;
+    }
+
+    private Rect2 GetHudSafeRect()
+    {
+        var viewportSize = GetViewport().GetVisibleRect().Size;
+        var width = Mathf.Min(viewportSize.X, viewportSize.Y * (16.0f / 9.0f));
+        var height = width * (9.0f / 16.0f);
+        return new Rect2(
+            new Vector2((viewportSize.X - width) * 0.5f, 0.0f),
+            new Vector2(width, height));
     }
 
     private void PositionMissionPanel()
     {
         var size = GetViewport().GetVisibleRect().Size;
+        var resultsScale = Mathf.Clamp(
+            Mathf.Min(size.X / 1280.0f, size.Y / 720.0f),
+            0.85f,
+            1.35f);
+        _missionPanel.Size = _missionPanel.CustomMinimumSize;
+        _missionPanel.Scale = Vector2.One * resultsScale;
+        var scaledResultsSize = _missionPanel.CustomMinimumSize * resultsScale;
         _missionPanel.Position = new Vector2(
-            (size.X - _missionPanel.CustomMinimumSize.X) * 0.5f,
-            (size.Y - _missionPanel.CustomMinimumSize.Y) * 0.5f);
+            (size.X - scaledResultsSize.X) * 0.5f,
+            (size.Y - scaledResultsSize.Y) * 0.5f);
+        _resultsConfirmationPanel.Size = _resultsConfirmationPanel.CustomMinimumSize;
+        _resultsConfirmationPanel.Scale = Vector2.One * resultsScale;
+        var scaledConfirmationSize = _resultsConfirmationPanel.CustomMinimumSize * resultsScale;
         _resultsConfirmationPanel.Position = new Vector2(
-            (size.X - _resultsConfirmationPanel.CustomMinimumSize.X) * 0.5f,
-            (size.Y - _resultsConfirmationPanel.CustomMinimumSize.Y) * 0.5f);
+            (size.X - scaledConfirmationSize.X) * 0.5f,
+            (size.Y - scaledConfirmationSize.Y) * 0.5f);
     }
 
     private static PanelContainer MakePanel(Vector2 position, Vector2 minimumSize)

@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-17T19:45:17.414589Z",
+    "display_name": "Nano Banana Pro",
+    "id": "b4d87847-9246-4fa5-b59a-bc127fa37436",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_194517_b4d87847-9246-4fa5-b59a-bc127fa37436_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "2ba9705d-a959-4ada-abe7-002c16b8c932",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2ba9705d-a959-4ada-abe7-002c16b8c932.png"
+        },
+        {
+          "id": "e75c9f20-c743-445b-9a4b-58d6f629d111",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e75c9f20-c743-445b-9a4b-58d6f629d111.png"
+        },
+        {
+          "id": "e1e9ff65-06cc-4bd1-89b0-205c953cf77c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e1e9ff65-06cc-4bd1-89b0-205c953cf77c.png"
+        },
+        {
+          "id": "98807328-0457-48f7-bd18-264d64cf5c47",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/98807328-0457-48f7-bd18-264d64cf5c47_resize.jpg"
+        },
+        {
+          "id": "dcc17d43-52e6-4998-ba81-e69c4a70e3a9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/dcc17d43-52e6-4998-ba81-e69c4a70e3a9.png"
+        },
+        {
+          "id": "4705ca16-823b-4462-b1da-36adc6085632",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4705ca16-823b-4462-b1da-36adc6085632_resize.jpg"
+        },
+        {
+          "id": "c97ab8df-c326-4dd9-a377-12614797d408",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c97ab8df-c326-4dd9-a377-12614797d408.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create the PHASE-2 PERSISTENT MIDGROUND DESTRUCTION PILOT for the approved Knight's Reliquary 2.5D fighting-game stage. Match the supplied mannequin, Ryu, Goku, and Archive Knight references with confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized porcelain/plum materials, saturated controlled cyan/violet accents, and polished anime fighting-game readability. The supplied approved Reliquary midground is the exact layout and scale authority.\n\nOn one perfectly uniform neutral medium-gray background, recreate EXACTLY THREE separated side-on midground landmarks in the same left/center/right positions, scale, perspective, and generous gaps as the approved source. This is the first boss phase break, named BROKEN SEAL. LEFT landmark only: the three ivory oath tablets and their plum base have just fractured outward from one sharp violet seal rupture. Show one tablet split, one leaning, a few large settled porcelain shards at the base, and a restrained violet crack glow; preserve a clear recognizable remains silhouette. CENTER landmark: keep the low ceremonial plinth and helm marker intact and unchanged. RIGHT landmark: keep the cracked ivory crystal frame, dark armatures, and suspended cyan/violet crystal intact and unchanged. Destruction must be localized to the left third so the player can read progressive arena damage.\n\nKeep the entire lower 24 percent empty uniform gray for fighters, feet, attacks, and phase-burst telegraphs. Use only a few large authored shards; no debris cloud, no particles crossing gaps, no dust carpet, no floor, no backdrop, no foreground rail, no characters, no enemies, no text, glyphs, labels, UI, borders, checkerboard, shadows on the gray background, photorealism, PBR, rust, grime, dense rubble, microtexture, or painterly blur. Entire silhouettes visible with no cropping. Production cutout source, full-bleed 21:9.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_194517_b4d87847-9246-4fa5-b59a-bc127fa37436.png",
+    "status": "completed"
+  }
+]

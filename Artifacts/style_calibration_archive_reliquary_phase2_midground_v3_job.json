@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T19:50:18.833756Z",
+    "display_name": "Nano Banana Pro",
+    "id": "eb4c4859-8b95-4a53-a31b-44d5e7cfb533",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_195018_eb4c4859-8b95-4a53-a31b-44d5e7cfb533_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "7fc07ce0-c5ec-49b5-aff5-95c3cc3e7dc9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7fc07ce0-c5ec-49b5-aff5-95c3cc3e7dc9_resize.jpg"
+        },
+        {
+          "id": "bf9d444d-215a-4c67-870f-a96531a5c8f4",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bf9d444d-215a-4c67-870f-a96531a5c8f4.png"
+        },
+        {
+          "id": "0989b863-6059-4e66-b486-95ea20320162",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0989b863-6059-4e66-b486-95ea20320162.png"
+        },
+        {
+          "id": "ac69a5fa-1397-44ce-b377-ea862413e4cf",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ac69a5fa-1397-44ce-b377-ea862413e4cf_resize.jpg"
+        }
+      ],
+      "prompt": "Revise the supplied phase-2 Reliquary destruction strip without changing composition, spacing, scale, damage, colors, or background. REMOVE every word, pseudo-letter, scribble, inscription, line of writing, glyph, rune, symbol, and text-like mark from all ivory tablet faces. Replace them with completely blank broad cel-shaded porcelain surfaces carrying only a few structural fracture cracks. Preserve the left broken tablet arch and large settled shards, intact center helmet plinth, intact right cyan crystal seal, three separated silhouettes, and perfectly uniform medium-gray background including the empty lower 35 percent. No reflection, anatomy, floor, shadows, text, UI, or extra objects. PROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, simplified ivory/plum materials, restrained cyan/violet accents, polished anime fighting-game production. Full-bleed 21:9 cutout source.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_195018_eb4c4859-8b95-4a53-a31b-44d5e7cfb533.png",
+    "status": "completed"
+  }
+]

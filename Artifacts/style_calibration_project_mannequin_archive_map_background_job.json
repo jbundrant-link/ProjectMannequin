@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-18T01:06:05.591612Z",
+    "display_name": "Nano Banana Pro",
+    "id": "b09db000-bff7-4730-9fc6-45024afbd06f",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_010605_b09db000-bff7-4730-9fc6-45024afbd06f_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "16:9",
+      "batch_size": 1,
+      "height": 1536,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "6cc57bb3-7337-474d-8f3f-f28605437a26",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6cc57bb3-7337-474d-8f3f-f28605437a26.png"
+        },
+        {
+          "id": "feca368d-3c73-42f3-831a-3f9385446503",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/feca368d-3c73-42f3-831a-3f9385446503.png"
+        },
+        {
+          "id": "b79226b4-404f-4857-bf66-ebbc16e3c0da",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b79226b4-404f-4857-bf66-ebbc16e3c0da.png"
+        },
+        {
+          "id": "fcb0236a-6ec5-4c4d-8e69-16063a3106c9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fcb0236a-6ec5-4c4d-8e69-16063a3106c9_resize.jpg"
+        },
+        {
+          "id": "395ba540-6fd8-4f8e-8549-1a31d2cb6951",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/395ba540-6fd8-4f8e-8549-1a31d2cb6951_resize.jpg"
+        },
+        {
+          "id": "c122a194-23f3-4f6a-a071-a134666a80f6",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c122a194-23f3-4f6a-a071-a134666a80f6_resize.jpg"
+        },
+        {
+          "id": "3d9c6d18-14c7-4f5f-933c-383d5f3641a9",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3d9c6d18-14c7-4f5f-933c-383d5f3641a9_resize.jpg"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one full-screen BACKGROUND PILOT for the ARCHIVE MAP, the playable realm-selection screen in Project Mannequin. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, and cinematic fighting-game polish. Characters define rendering grammar only; DO NOT include characters. The approved Living Archive HUD frame defines warm-ivory porcelain plates, deep-plum joints, cyan Archive energy, restrained coral accents, and faceted keystone forms. The supplied Archive, World Warrior, and Astral stage images define three realm identities only; do not copy their exact compositions.\n\nBuild an immersive full-bleed 16:9 LIVING ARCHIVE NAVIGATION CHAMBER viewed straight-on with a slight elevated three-quarter perspective. It is a dimensional fighting-game map room, not a software dashboard. Across the background, create three asymmetric portal/record motifs integrated into one vast porcelain-and-dark-plum archive hall: LEFT, a cool cyan catalog gate with stacked record silhouettes and ivory arches; LOWER-LEFT/CENTER, a restrained warm coral-and-gold tournament seal with roofline/lantern geometry; RIGHT, a violet/cyan astral aperture with floating broken-ring fragments and a small bright sky-energy core. A broad central archive table or recessed map floor carries thin branching cyan energy routes, but leave the middle 55 percent low-contrast and visually quiet so native route nodes and labels remain readable. Keep the upper 18 percent dark and simple for the screen title. Keep both outer side bands subdued behind interactive realm cards. Use large architectural masses, broad cel-painted planes, clean ink contours, sparse energy traces, and controlled depth. No single hue may dominate the entire image; balance ivory, plum, cyan, warm coral/gold, and violet.\n\nBACKGROUND ONLY. No characters, faces, silhouettes of people, cards, panels, windows for text, buttons, HUD bars, cursor, map labels, words, letters, numbers, glyphs, logos, signs, checkerboard, border, frame, centered corridor, one-point tunnel, photorealism, PBR metal, chrome, rust, grime, dense books, dense greebles, microtexture, enterprise dashboard grid, flat vector art, or baked UI. No gradients or decorative orbs. Full-bleed production background with readable negative space for native Godot controls.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2752
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_010605_b09db000-bff7-4730-9fc6-45024afbd06f.png",
+    "status": "completed"
+  }
+]

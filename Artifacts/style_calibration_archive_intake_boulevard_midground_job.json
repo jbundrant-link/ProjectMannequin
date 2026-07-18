@@ -1,0 +1,54 @@
+﻿[
+  {
+    "created_at": "2026-07-17T12:41:33.576746Z",
+    "display_name": "Nano Banana Pro",
+    "id": "5b40a019-6d6e-4687-be8a-8db879c96db7",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_124133_5b40a019-6d6e-4687-be8a-8db879c96db7_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "449d61e8-3305-4443-9f77-eb75c21b0cd1",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/449d61e8-3305-4443-9f77-eb75c21b0cd1.png"
+        },
+        {
+          "id": "d5a82058-d208-42d1-aecc-9c031fd45878",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d5a82058-d208-42d1-aecc-9c031fd45878.png"
+        },
+        {
+          "id": "441320b0-cf0f-4898-bbcf-25b21a3deb62",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/441320b0-cf0f-4898-bbcf-25b21a3deb62.png"
+        },
+        {
+          "id": "0920e597-6842-4b8f-982d-98fb37c50a65",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0920e597-6842-4b8f-982d-98fb37c50a65.png"
+        },
+        {
+          "id": "2a260a32-b315-4841-b892-11b67e142132",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2a260a32-b315-4841-b892-11b67e142132.png"
+        },
+        {
+          "id": "39c00dbd-32b5-4504-becb-2bcfb5526acc",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/39c00dbd-32b5-4504-becb-2bcfb5526acc.png"
+        }
+      ],
+      "prompt": "Using the approved Intake Boulevard lateral backdrop, dark floor, and tram as Stage 1 anchors plus the three fighters as rendering anchors, design one WIDE MIDGROUND LANDMARK STRIP for a 2.5D belt-scroll stage. Three separated non-overlapping landmarks on uniform neutral gray with generous gaps: left a tall warm-porcelain outer intake gate pylon with cyan seam; center a low deep-indigo tram checkpoint canopy with violet/cyan route lights; right a compact porcelain registration obelisk with amber core. Side-on three-quarter stage view, broad cel-shaded planes, controlled dark contours, simplified detail. Keep the lower fighter band open. No backdrop wall, floor, continuous rail, characters, tram vehicle, props, hazards, words, letters, symbols, pseudo-text, checkerboard, shadows on background, PBR, rust, or dense greebles. Full 21:9 cutout source.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_124133_5b40a019-6d6e-4687-be8a-8db879c96db7.png",
+    "status": "completed"
+  }
+]

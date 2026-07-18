@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T17:16:51.992813Z",
+    "display_name": "Nano Banana Pro",
+    "id": "bd156427-2295-45c2-8e46-389c216d6d44",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_171651_bd156427-2295-45c2-8e46-389c216d6d44_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "ee44f345-b0a2-4dfe-a0f2-f5a075b47fc6",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ee44f345-b0a2-4dfe-a0f2-f5a075b47fc6_resize.jpg"
+        },
+        {
+          "id": "b1596990-4052-40f4-8a87-c67ca092c391",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b1596990-4052-40f4-8a87-c67ca092c391.png"
+        },
+        {
+          "id": "e497a930-b28d-4bdc-a015-3ac2904c8317",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e497a930-b28d-4bdc-a015-3ac2904c8317.png"
+        },
+        {
+          "id": "eb4668a7-853e-491b-a7ad-b6ff25f5928b",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/eb4668a7-853e-491b-a7ad-b6ff25f5928b_resize.jpg"
+        }
+      ],
+      "prompt": "Create exactly FOUR complete full-body Archive Knight upper-attack poses in a clean 2 columns x 2 rows source sheet. References 1 and 2 are absolute identity authorities. Preserve exactly: faceless ivory crested helm; cyan visor slit; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder; violet sternum core; porcelain plates; deep-plum joints; short rigid split tabards; heavy boots; ONE cyan-edged archive blade physically integrated along the RIGHT forearm at constant length. The weapon is part of the gauntlet: never detach it, hold it by a handle, duplicate it, move it to the other arm, or turn it into a loose sword. Never mirror, swap, omit or redesign asymmetrical features.\r\n\r\nScreen-right three-quarter camera, stable scale/light/baseline. Pose order: 1 fast LEFT pommel jab while right blade remains guarded and attached; 2 armored RIGHT shoulder drive led by the broken-arch pauldron while blade remains tucked along forearm; 3 heavy downward cleave performed by swinging the entire RIGHT forearm and its attached blade; 4 wide cleave follow-through with the attached blade low and outward, one restrained cyan-violet edge streak hugging the blade only. Strong fighting-game silhouettes, full body visible, generous clearance.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad cel shading, clean highlights, fighting anatomy, polished anime finish. Perfectly uniform pure white background. No grid, text, labels, border, floor, shadows, scenery, extra figures/limbs, loose/second blade, shield, cape, floating parts, cropped crest/blade/feet, overlap, photorealism, PBR, rust, grime, microtexture, painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_171651_bd156427-2295-45c2-8e46-389c216d6d44.png",
+    "status": "completed"
+  }
+]

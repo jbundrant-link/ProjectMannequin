@@ -1,0 +1,133 @@
+{
+  "enemyId": "archive_knight",
+  "background": "alpha",
+  "minimum_component_area": 400,
+  "output": "Assets/Sprites/Enemies/archive_knight_style_v1.png",
+  "preview": "Artifacts/StyleCalibration/archive_knight_style_v1_atlas_preview.png",
+  "report": "Artifacts/StyleCalibration/archive_knight_style_v1_composition_report.json",
+  "animations": [
+    {
+      "name": "sentinel_idle",
+      "target_row": 0,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_idle_cutout_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024], [1024, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "measured_walk",
+      "target_row": 1,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_walk_cutout_v3.png",
+          "background": "alpha",
+          "minimum_component_area": 5000,
+          "anchors": [[312, 509], [768, 525], [1231, 521], [1704, 525]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_walk_opposite_cutout_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 5000,
+          "anchors": [[500, 510], [1459, 531], [577, 1533], [1491, 1550]]
+        }
+      ]
+    },
+    {
+      "name": "warden_dash",
+      "target_row": 2,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_dash_cutout_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 5000,
+          "anchors": [[360, 524], [960, 556], [1629, 560], [577, 1553], [1581, 1609]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_dash_brake_normalized_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 683, 1024]]
+        }
+      ]
+    },
+    {
+      "name": "armored_jump",
+      "target_row": 3,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_jump_cutout_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024], [1024, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "archive_arsenal",
+      "target_row": 4,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_idle_cutout_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_attacks_upper_cutout_v2.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024], [1024, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_attacks_kicks_cutout_v2.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[0, 0, 1024, 1024], [1024, 0, 2048, 1024], [0, 1024, 1024, 2048], [1024, 1024, 2048, 2048]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_attacks_upper_cutout_v2.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 40,
+          "boxes": [[1024, 1024, 2048, 2048]]
+        }
+      ]
+    },
+    {
+      "name": "defense_inheritance_defeat",
+      "target_row": 5,
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_reactions_cutout_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 5000,
+          "anchors": [[313, 525], [970, 530], [1685, 566], [577, 1553], [1040, 1552], [1581, 1609]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_knockdown_normalized_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 20,
+          "boxes": [[0, 0, 1024, 572]]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/archive_knight_defeated_normalized_v1.png",
+          "background": "alpha",
+          "minimum_component_area": 400,
+          "primary_x_margin": 20,
+          "boxes": [[0, 0, 1024, 572]]
+        }
+      ]
+    }
+  ]
+}

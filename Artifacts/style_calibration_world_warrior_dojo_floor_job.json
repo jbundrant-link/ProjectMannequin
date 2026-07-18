@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-18T04:05:07.919738Z",
+    "display_name": "Nano Banana Pro",
+    "id": "5151ad35-192c-4851-953e-c55391f8d110",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040507_5151ad35-192c-4851-953e-c55391f8d110_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "8c6283ab-9752-42e2-866e-68e49e47463c",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8c6283ab-9752-42e2-866e-68e49e47463c.png"
+        },
+        {
+          "id": "6614c8f7-5200-4170-ba53-8a3183837fee",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6614c8f7-5200-4170-ba53-8a3183837fee.png"
+        },
+        {
+          "id": "1227b9f5-f83a-488d-a81e-41c55fea13b7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1227b9f5-f83a-488d-a81e-41c55fea13b7.png"
+        },
+        {
+          "id": "939edd34-9734-4bba-aac2-be57f48bb007",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/939edd34-9734-4bba-aac2-be57f48bb007_resize.jpg"
+        },
+        {
+          "id": "761106f4-51f3-4832-86c2-17776744e388",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/761106f4-51f3-4832-86c2-17776744e388_resize.jpg"
+        },
+        {
+          "id": "93c8d3ce-43df-49ba-a7d5-103bd8f29841",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/93c8d3ce-43df-49ba-a7d5-103bd8f29841.png"
+        },
+        {
+          "id": "bf426080-f8fc-4602-9816-06e652182344",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bf426080-f8fc-4602-9816-06e652182344.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one production FLOOR TILE PILOT for DOJO APPROACH, Stage 1 of World Warrior Sector. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel-shaded value planes, clean graphic highlights, simplified stylized materials, and arcade readability. Characters define rendering grammar only; DO NOT include characters. The approved Dojo Approach backdrop defines the warm ivory/charcoal/vermilion/muted-jade dusk identity. The Tournament District supplies World Warrior stone/wood palette only. The approved Archive floor is STRUCTURE ONLY and demonstrates strict orthographic low-frequency projection; do not copy Archive colors or motifs. The legacy runtime capture demonstrates giant masonry and repeated-row failures to avoid.\n\nSTRICT FLAT ORTHOGRAPHIC TOP-DOWN VIEW, square 1:1, full-bleed mirror-friendly tile. Design a quiet outer-dojo training courtyard floor made from broad matte charcoal-brown and muted blue-gray stone flags with irregular staggered seams. Use low-frequency slab shapes at varied sizes, not repeated rows. Keep the central 70 percent especially dark, calm, and low contrast for ivory/white/orange fighters, pickups, shadows, and telegraphs. Add only sparse short vermilion corner inlays, tiny warm-gold lantern reflections, and a few isolated muted-jade moss seams near outer quadrants. At least 82 percent of the surface should remain dark/medium neutral stone; bright occupancy under 7 percent. Every seam or accent terminates quickly and no line spans more than 18 percent of image width or height. Outer edges remain low-contrast stone with no framing.\n\nNO perspective, horizon, wall, architecture, stairs, raised platform, bridge, railing, track, conveyor, stripe, perimeter frame, border, square grid, repeated brick rows, continuous horizontal or vertical line, centered ring, dojo crest, road, characters, enemies, props, dummies, crates, hazards, warning marks, text, letters, numbers, logos, debris, photorealism, PBR stone, grime, scratches, dense cracks, microtexture, or baked shadows. Clean fighter-readable cel-painted top-down floor only.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_040507_5151ad35-192c-4851-953e-c55391f8d110.png",
+    "status": "completed"
+  }
+]

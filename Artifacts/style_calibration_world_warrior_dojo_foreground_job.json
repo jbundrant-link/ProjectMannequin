@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-07-18T04:26:03.846754Z",
+    "display_name": "Nano Banana Pro",
+    "id": "99bfeee6-c287-42d5-9f91-fa4e423310e4",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_042603_99bfeee6-c287-42d5-9f91-fa4e423310e4_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "21:9",
+      "batch_size": 1,
+      "height": 1344,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "459f2597-8f82-4d4f-bf01-c0b9abcc0c90",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/459f2597-8f82-4d4f-bf01-c0b9abcc0c90.png"
+        },
+        {
+          "id": "54e44d71-83aa-494d-9bff-9cd974832b0a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/54e44d71-83aa-494d-9bff-9cd974832b0a.png"
+        },
+        {
+          "id": "204dfd6c-f0bb-42b2-85e4-03cfeee779b7",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/204dfd6c-f0bb-42b2-85e4-03cfeee779b7.png"
+        },
+        {
+          "id": "58b526b1-7b8a-4106-8b7e-189a733fa457",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/58b526b1-7b8a-4106-8b7e-189a733fa457_resize.jpg"
+        },
+        {
+          "id": "fbd8aea7-cb3e-4c7e-a768-283d67012cc1",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fbd8aea7-cb3e-4c7e-a768-283d67012cc1.png"
+        },
+        {
+          "id": "4485e6d6-e714-4575-99e4-df10b97de9bd",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4485e6d6-e714-4575-99e4-df10b97de9bd.png"
+        },
+        {
+          "id": "c64b91b2-13fa-4edd-96f0-9a5a9696e265",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c64b91b2-13fa-4edd-96f0-9a5a9696e265.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create one WIDE FOREGROUND EDGE SOURCE for DOJO APPROACH, Stage 1 of World Warrior Sector. Match the supplied mannequin, Ryu, and Goku references with controlled dark contours, broad two-to-four-step cel shading, simplified stylized materials, clean highlights, and polished anime fighting-game readability. Characters define rendering grammar and scale only; DO NOT include characters. The approved Dojo backdrop, packed-earth floor, and three-landmark midground define the warm ivory/charcoal/vermilion/muted-jade dusk family. The approved Index Vaults foreground demonstrates edge-bound pieces that never cross the fight center; do not copy Archive motifs.\n\nOn one perfectly uniform neutral medium-gray background, place exactly TWO disconnected low foreground fragments at the extreme sides of a 21:9 canvas. LEFT: a short broken outer-dojo stone step entering from the lower-left edge, with one low dark-timber cap, a tiny vermilion rope tie, and a small moss pocket. RIGHT: a different short timber-and-stone lantern plinth entering from the lower-right edge, with one warm lantern housing, a pale plaster insert, and muted-jade foliage at its base. Both are side-on three-quarter fighting-stage objects, knee height relative to a fighter, broad simple silhouettes, and fully visible except where intentionally entering from the outer canvas edge. Keep the central 65 percent completely empty uniform gray. Keep the upper 58 percent completely empty uniform gray. The two pieces must never touch or share a shadow.\n\nNo continuous rail, fence, bridge, full-width strip, center object, floor, wall, backdrop, characters, spectators, enemies, practice posts, gong, gameplay props, hazards, warning marks, text, letters, glyphs, signs, checkerboard, transparency grid, gradients, or shadows on the gray background. No photorealism, PBR, rust, grime, dense stone/wood texture, greebles, microtexture, or painterly blur. Production cutout source only; clean separated silhouettes.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 3168
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260718_042603_99bfeee6-c287-42d5-9f91-fa4e423310e4.png",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-07-17T16:07:22.317043Z",
+  "display_name": "Nano Banana Pro",
+  "id": "8f9640d1-1824-4103-9c53-febcb13e04ca",
+  "job_type": "nano_banana_pro",
+  "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_160722_8f9640d1-1824-4103-9c53-febcb13e04ca_min.webp",
+  "params": {
+    "application": null,
+    "aspect_ratio": "1:1",
+    "batch_size": 1,
+    "height": 2048,
+    "input_image": null,
+    "input_images": [
+      {
+        "id": "b91f1788-7ca0-432f-969a-2d369e24c98b",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b91f1788-7ca0-432f-969a-2d369e24c98b_resize.jpg"
+      },
+      {
+        "id": "04625b4e-0278-43fc-b393-257cc4bb1db6",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/04625b4e-0278-43fc-b393-257cc4bb1db6.png"
+      },
+      {
+        "id": "3a44a2be-db10-4bb6-a2f7-056e433aa418",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3a44a2be-db10-4bb6-a2f7-056e433aa418.png"
+      },
+      {
+        "id": "c1f57b34-25da-4fce-93f1-ac28eb6c3bc4",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c1f57b34-25da-4fce-93f1-ac28eb6c3bc4.png"
+      },
+      {
+        "id": "f8f2cbae-0bfd-4f2d-904a-b47084bd0b55",
+        "type": "media_input",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f8f2cbae-0bfd-4f2d-904a-b47084bd0b55.png"
+      }
+    ],
+    "prompt": "PROJECT MANNEQUIN STYLE LOCK. Create an exact 2x2 ANIMATION SOURCE SHEET for the supplied ARCHIVE KNIGHT identity pilot. The Archive Knight pilot is the absolute identity authority: preserve the exact faceless ivory crested helm, narrow cyan memory slit, asymmetrical broken-arch LEFT pauldron, smaller right shoulder, faceted violet sternum core, warm-ivory porcelain plates, deep-plum joints, dark-indigo rigid split tabards, tiny gold fasteners, heavy boots, and the same integrated cyan-edged archive blade attached along the RIGHT forearm. Do not redesign, simplify away, recolor, swap sides, mirror asymmetry, detach the blade, add a shield, or change proportions. Match mannequin/Ryu/Goku contour weight, broad two-to-four-step cel shading, clean highlights, fighting-game anatomy, and polished anime finish.\n\nOne square 2k image containing exactly FOUR complete full-body poses in a clean 2 columns x 2 rows layout, read left-to-right then top-to-bottom. Same SCREEN-RIGHT THREE-QUARTER orientation, camera, body scale, head size, lighting direction, and foot baseline in every cell. Pose 1 neutral sentinel idle with blade lowered along right forearm. Pose 2 guarded duel stance with fists raised and blade angled safely outward. Pose 3 subtle breathing high point with chest lifted and pauldron stable. Pose 4 lower ready stance with knees flexed and blade forward. All poses are grounded, readable, and distinct without extreme foreshortening.\n\nPerfectly uniform solid bright chroma green background from edge to edge. No grid lines, dividers, labels, text, numbers, logos, frame, border, floor, cast shadows, scenery, extra characters, extra limbs, loose weapons, cape, floating parts, cropped helmet, cropped blade, cropped feet, overlapping cells, photorealism, PBR, rust, grime, microtexture, or painterly blur. Leave generous green clearance around every silhouette for connected-pose extraction.",
+    "resolution": "2k",
+    "surface": null,
+    "width": 2048
+  },
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_160722_8f9640d1-1824-4103-9c53-febcb13e04ca.png",
+  "status": "completed"
+}

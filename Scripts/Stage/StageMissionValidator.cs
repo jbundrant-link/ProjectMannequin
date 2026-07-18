@@ -194,6 +194,25 @@ public static class StageMissionValidator
                 {
                     errors.Add($"Encounter '{encounter.Id}' falling strike '{zone.Id}' needs a finite impact window.");
                 }
+                if (!string.IsNullOrWhiteSpace(zone.SpritePath)
+                    && (!ResourceLoader.Exists(zone.SpritePath)
+                        || zone.SpritePixelSize <= 0.0f
+                        || zone.SpriteGroundOffsetPixels < 0.0f
+                        || zone.SpriteTravelHeight < 0.0f
+                        || zone.SpriteAnchorX < 0.0f
+                        || zone.SpriteAnchorX > 1.0f
+                        || zone.SpriteAnchorZ < 0.0f
+                        || zone.SpriteAnchorZ > 1.0f))
+                {
+                    errors.Add(
+                        $"Encounter '{encounter.Id}' hazard '{zone.Id}' has invalid authored sprite metrics or path.");
+                }
+                if (!string.IsNullOrWhiteSpace(zone.FieldTexturePath)
+                    && !ResourceLoader.Exists(zone.FieldTexturePath))
+                {
+                    errors.Add(
+                        $"Encounter '{encounter.Id}' hazard '{zone.Id}' has missing field texture '{zone.FieldTexturePath}'.");
+                }
 
                 var movedMinX = System.Math.Min(zone.MinX, zone.MinX + zone.MovementOffsetX);
                 var movedMaxX = System.Math.Max(zone.MaxX, zone.MaxX + zone.MovementOffsetX);
@@ -213,6 +232,10 @@ public static class StageMissionValidator
                 {
                     errors.Add($"Encounter '{encounter.Id}' hazard '{zone.Id}' has no permanent safe lane or off window.");
                 }
+                ValidateAftermathVisual(
+                    $"Encounter '{encounter.Id}' hazard '{zone.Id}'",
+                    zone.AftermathVisual,
+                    errors);
             }
             
             foreach (var prop in encounter.Props)
@@ -247,6 +270,10 @@ public static class StageMissionValidator
                     errors.Add(
                         $"Encounter '{encounter.Id}' prop '{prop.Id}' has missing sprite '{prop.SpritePath}'.");
                 }
+                ValidateAftermathVisual(
+                    $"Encounter '{encounter.Id}' prop '{prop.Id}'",
+                    prop.AftermathVisual,
+                    errors);
             }
 
             var authoredSpawns = encounter.Waves.Count > 0
@@ -267,6 +294,31 @@ public static class StageMissionValidator
         }
 
         return errors;
+    }
+
+    private static void ValidateAftermathVisual(
+        string owner,
+        StageAftermathVisualData? visual,
+        ICollection<string> errors)
+    {
+        if (visual is null)
+        {
+            return;
+        }
+
+        var decalValid = !string.IsNullOrWhiteSpace(visual.DecalTexturePath)
+            && ResourceLoader.Exists(visual.DecalTexturePath)
+            && visual.DecalSizeX > 0.0f
+            && visual.DecalSizeZ > 0.0f
+            && visual.DecalOpacity is > 0.0f and <= 1.0f;
+        var fragmentsValid = !string.IsNullOrWhiteSpace(visual.FragmentSpritePath)
+            && ResourceLoader.Exists(visual.FragmentSpritePath)
+            && visual.FragmentPixelSize > 0.0f
+            && visual.FragmentGroundOffsetPixels >= 0.0f;
+        if (!decalValid || !fragmentsValid)
+        {
+            errors.Add($"{owner} has invalid aftermath art or metrics.");
+        }
     }
 
     private static void ValidateBackgroundPanels(
@@ -291,6 +343,33 @@ public static class StageMissionValidator
             {
                 errors.Add(
                     $"Mission '{mission.Id}' has missing background panel art '{panel.TexturePath}'.");
+            }
+
+            if (panel.DestructionTexturePaths.Any(path =>
+                    string.IsNullOrWhiteSpace(path) || !ResourceLoader.Exists(path)))
+            {
+                errors.Add(
+                    $"Mission '{mission.Id}' has missing progressive destruction panel art.");
+            }
+
+            if (panel.DestructionBurstTexturePaths.Count > 0
+                && (panel.DestructionBurstPixelSize <= 0.0f
+                    || panel.DestructionBurstTexturePaths.Any(path =>
+                        string.IsNullOrWhiteSpace(path) || !ResourceLoader.Exists(path))
+                    || (panel.DestructionBurstAnchorXs.Count > 0
+                        && panel.DestructionBurstAnchorXs.Count
+                            != panel.DestructionBurstTexturePaths.Count)
+                    || panel.DestructionBurstAnchorXs.Any(anchor =>
+                        anchor < 0.0f || anchor > 1.0f)))
+            {
+                errors.Add(
+                    $"Mission '{mission.Id}' has invalid progressive destruction burst art or metrics.");
+            }
+
+            if (panel.DestructionOverlayPixelSize < 0.0f)
+            {
+                errors.Add(
+                    $"Mission '{mission.Id}' has invalid progressive destruction overlay metrics.");
             }
         }
     }

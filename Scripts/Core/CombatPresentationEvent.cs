@@ -84,6 +84,7 @@ public enum CombatPresentationEventType
     EliteIntroReady,
     EliteIntroFight,
     PropExploded,
+    HazardZoneImpacted,
 }
 
 public readonly record struct CombatPresentationEvent(

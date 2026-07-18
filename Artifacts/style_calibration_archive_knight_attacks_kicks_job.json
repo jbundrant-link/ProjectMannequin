@@ -1,0 +1,44 @@
+[
+  {
+    "created_at": "2026-07-17T17:20:35.095868Z",
+    "display_name": "Nano Banana Pro",
+    "id": "e2d1fbce-440a-42ab-a20e-55fe095ff471",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_172035_e2d1fbce-440a-42ab-a20e-55fe095ff471_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "f1159ec4-57ec-4166-a5ea-129d45f7cc59",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f1159ec4-57ec-4166-a5ea-129d45f7cc59_resize.jpg"
+        },
+        {
+          "id": "7f813cfb-4ce2-4bfb-a1e9-a859db7b8a43",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7f813cfb-4ce2-4bfb-a1e9-a859db7b8a43.png"
+        },
+        {
+          "id": "68fcb726-9261-4908-a492-adc1064329f5",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/68fcb726-9261-4908-a492-adc1064329f5_resize.jpg"
+        },
+        {
+          "id": "95beaffd-d5e1-44b6-9a3c-e9b82faa793d",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/95beaffd-d5e1-44b6-9a3c-e9b82faa793d.png"
+        }
+      ],
+      "prompt": "Create exactly FOUR complete full-body Archive Knight kick/air-attack poses in a clean 2 columns x 2 rows source sheet. References 1 and 2 are absolute identity authorities. Preserve exactly: faceless ivory crested helm; cyan visor slit; enormous open broken-archive-arch LEFT pauldron with dark-indigo center and cyan inner seam; small RIGHT shoulder; violet sternum core; porcelain plates; deep-plum joints; short rigid split tabards; heavy boots; ONE cyan-edged archive blade physically integrated along the RIGHT forearm at constant length. The weapon stays attached and guarded in every kick. Never detach, duplicate, move, mirror, omit or redesign asymmetrical features.\r\n\r\nScreen-right three-quarter camera, stable scale/light. Pose order: 1 low front kick, grounded support foot visible; 2 driving mid-height side kick; 3 high armored roundhouse with full crest, arch, attached blade and both legs inside cell; 4 compact airborne blade-check pose with knees tucked modestly, attached forearm blade angled outward and both boots visible. Strong readable fighting-game silhouettes, no giant foreshortening, complete bodies with generous clearance.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad cel shading, clean highlights, fighting anatomy, polished anime finish. Perfectly uniform pure white background. No grid, text, labels, border, floor, shadows, scenery, extra figures/limbs, loose/second blade, shield, cape, floating parts, cropped crest/blade/feet, overlap, photorealism, PBR, rust, grime, microtexture, painterly blur.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_172035_e2d1fbce-440a-42ab-a20e-55fe095ff471.png",
+    "status": "completed"
+  }
+]

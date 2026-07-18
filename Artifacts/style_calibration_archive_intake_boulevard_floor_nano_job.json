@@ -1,0 +1,44 @@
+﻿[
+  {
+    "created_at": "2026-07-17T12:59:48.594266Z",
+    "display_name": "Nano Banana Pro",
+    "id": "55620861-2661-4e81-99f4-7f318abd64d5",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_125948_55620861-2661-4e81-99f4-7f318abd64d5_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "2ef6f288-c694-4ba7-86d3-d9307fc5387e",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2ef6f288-c694-4ba7-86d3-d9307fc5387e.png"
+        },
+        {
+          "id": "edc7fbff-f834-4a44-96df-47493f86d9bd",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/edc7fbff-f834-4a44-96df-47493f86d9bd.png"
+        },
+        {
+          "id": "b7317c5f-8477-4cea-8d38-4c42f97c2e72",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b7317c5f-8477-4cea-8d38-4c42f97c2e72.png"
+        },
+        {
+          "id": "3862b26c-a544-4c15-8080-5ddbb4011782",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3862b26c-a544-4c15-8080-5ddbb4011782.png"
+        }
+      ],
+      "prompt": "Create the Intake Boulevard gameplay floor texture for a 2.5D belt-scroll fighting game. Strict flat orthographic top-down square tile. Deep indigo/navy broad boulevard slabs occupy at least 85 percent; limited warm-porcelain inset plates, short cyan/violet registration seams, tiny amber markers. Central 60 percent quiet and dark beneath ivory fighters. Staggered offset seams and isolated short accents only. No continuous line, track, stripe, rail, belt, threshold, or curb longer than one quarter of the image. Mirror-friendly edges. Broad anime cel-shaded value planes, controlled dark outlines. No perspective, walls, machinery, people, props, hazards, text, cracks, grime, reflections, PBR, or dense circuitry.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260717_125948_55620861-2661-4e81-99f4-7f318abd64d5.png",
+    "status": "completed"
+  }
+]
