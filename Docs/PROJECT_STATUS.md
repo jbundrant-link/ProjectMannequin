@@ -12,7 +12,9 @@ roadmap precedence live in the
 for gamepad-as-P1 QA closure, combat spectacle polish, Hollow Archive expansion,
 and the reserved Iron Fist Foundry branch lives in the
 [Next Implementation Plan](NEXT_IMPLEMENTATION_PLAN.md); it does not replace the
-master plan.
+master plan. The exact cross-machine continuation checkpoint, including the
+active Tournament Grappler source review and transfer checklist, lives in the
+[Project Handoff](PROJECT_HANDOFF.md).
 
 The playable routes are:
 

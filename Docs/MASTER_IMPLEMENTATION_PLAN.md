@@ -18,6 +18,7 @@ status disagree:
 | **[NEXT_IMPLEMENTATION_PLAN.md](NEXT_IMPLEMENTATION_PLAN.md)**                                                                                                                                               | Near-term tactical sequence: gamepad QA, combat spectacle, Hollow Archive, and eventual Foundry. It refines execution order but cannot replace, narrow, or waive this master plan. |
 | **[ART_ASSET_COMPLETENESS_PLAN.md](ART_ASSET_COMPLETENESS_PLAN.md)**                                                                                                                                         | Mandatory content and art-completion gates. A mechanically complete phase remains incomplete while any applicable gate fails.                                                      |
 | **[VISUAL_STYLE_BIBLE.md](VISUAL_STYLE_BIBLE.md)**                                                                                                                                                           | Authoritative visual language, canonical references, rejection rules, generation workflow, and approval rubric.                                                                    |
+| **[PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)**                                                                                                                                                                 | Current verified execution checkpoint and machine-transfer instructions. It is operational context only and cannot alter scope or waive a roadmap/completion gate.                  |
 | **[ROGUELIKE_ANALYSIS.md](ROGUELIKE_ANALYSIS.md)**                                                                                                                                                           | Preserved design research, source-game takeaways, and proposed features. It is proposal evidence, not accepted scope.                                                              |
 | **Historical boss source plans:** [intro/archetypes](implementation_plan_boss_intro.md), [DBFZ mechanics](implementation_plan_boss_mechanics.md), and [narrative/wall/death](implementation_plan_phase_4.md) | Original implementation proposals and design rationale. Their reconciled status lives in the backlog; they are not active roadmap authority.                                       |
 | **[ROGUELIKE_BOSS_BACKLOG.md](ROGUELIKE_BOSS_BACKLOG.md)**                                                                                                                                                   | Historical gap register and implementation evidence. It may be stale and does not override current scope or completion gates.                                                      |
@@ -38,16 +39,20 @@ Precedence rules:
    until Archive Nexus, World Warrior Sector, and Astral Battlefront all reach
    console-demo quality.
 
-## Current Execution Focus - 2026-07-15
+## Current Execution Focus - 2026-07-18
 
 - The active master-plan phase is **Phase 5**.
-- The current slice is Overseer Basalt's identity-locked animation production,
-  followed by atlas composition, runtime wiring, automated checks, dual-resolution
-  capture, and manifest approval.
-- Archive Scout, Raider, Bruiser, Index Warden Veyra, and Cipher Captain Rhune
-  already have approved runtime replacements. Basalt remains the final Archive
-  base/elite character-art gap before returning to themed hazard, environment,
-  interface, and Reliquary work.
+- Archive Nexus and its shared UI quality bar are complete. The current slice is
+  Tournament Grappler's original non-military style-v2 atlas, followed by
+  Pavilion Circuit and the remaining World Warrior art-completeness pass.
+- Grappler's approved identity plus idle/walk/dash/jump/misc sources survived the
+  interrupted session. Its first attack pair remains rejected for weak
+  shoulder-drive readability and requires a targeted choreography revision
+  before composition. The exact continuation state lives in
+  [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md).
+- The verified starting baseline is 146/146 world-run assertions plus 37/37
+  stage-hazard assertions (183/183 aggregate). Dojo Approach, Dojo Rookie, and
+  Pavilion Striker already have dual-resolution runtime approval.
 - Gamepad QA, combat spectacle correctness, and Hollow Archive remain required
   tactical tracks in [NEXT_IMPLEMENTATION_PLAN.md](NEXT_IMPLEMENTATION_PLAN.md).
   Their priority does not cancel or bypass the active Phase 5 completion gates.

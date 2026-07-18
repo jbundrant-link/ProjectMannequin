@@ -2,6 +2,11 @@
 
 Project Mannequin is a Godot 4.7 C# prototype for a local-first 2.5D side-scrolling fighting sandbox.
 
+Continuing on another machine or in a fresh agent session starts with the
+[Project Handoff](Docs/PROJECT_HANDOFF.md). It records the exact Git checkpoint,
+active Phase 5 slice, surviving generated assets, remaining roadmap, setup
+notes, and continuation prompt.
+
 ## Requirements
 
 - Godot 4.7 .NET/Mono edition
