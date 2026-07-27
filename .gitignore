@@ -104,3 +104,36 @@ Thumbs.db
 
 #Video Analysis
 /_video_analysis
+
+# --- Working art material (not loaded by the game) ---------------------------
+# Assets/Sprites/Concepts holds generation source sheets, pilots, and
+# intermediate walk-repair frames. Scripts/Tools/audit_asset_usage.py confirms
+# ZERO files here are loaded at runtime; the composed atlases that actually ship
+# live in Assets/Sprites/<roster>/ and are tracked normally.
+#
+# 563 MB of this folder is ALREADY in history as raw (non-LFS) blobs, which is
+# the single largest reason .git is around 2.5 GB. These rules stop that growing.
+# They cannot shrink what is already committed - that needs a history rewrite.
+# The files stay on disk; they are simply not git's problem.
+#
+# JSON is deliberately still tracked: those provenance records are small and are
+# the only surviving description of how each sheet was generated.
+/Assets/Sprites/Concepts/**/*.png
+/Assets/Sprites/Concepts/**/*.jpg
+/Assets/Sprites/Concepts/**/*.zip
+/Assets/Sprites/Concepts/**/*.import
+
+# Superseded stage pilots. Each has a shipped successor and the asset usage
+# audit finds no reference from code, scenes, or the review manifest.
+/Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_overscan_pilot_v1.png
+/Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_overscan_pilot_v2.png
+/Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_style_v1.png
+/Assets/Stages/AstralBattlefront/astral_energy_rail_summit_backdrop_pilot_v1.png
+/Assets/Stages/AstralBattlefront/astral_energy_rail_floor_pilot_v1.png
+/Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_arena_backdrop_pilot_v1.png
+/Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_overscan_pilot_v1.png.import
+/Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_overscan_pilot_v2.png.import
+/Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_style_v1.png.import
+/Assets/Stages/AstralBattlefront/astral_energy_rail_summit_backdrop_pilot_v1.png.import
+/Assets/Stages/AstralBattlefront/astral_energy_rail_floor_pilot_v1.png.import
+/Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_arena_backdrop_pilot_v1.png.import
