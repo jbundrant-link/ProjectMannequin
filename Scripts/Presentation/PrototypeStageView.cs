@@ -82,6 +82,13 @@ public partial class PrototypeStageView : Node3D
         ConfigureCaptureViewport();
         _simulation = GetNodeOrNull<GameSimulation>(SimulationPath);
         _mission = MvpMissionSelection.CreateSelectedMission();
+
+        // Opt-in render cost measurement. Self-contained and gated on
+        // persistence being disabled, so it cannot alter a player session -
+        // it turns vsync off, which would otherwise make every stage report
+        // the refresh interval and hide a real budget overrun.
+        ProjectMannequin.Debugging.FrameTimeProbe.AttachIfRequested(
+            this, _mission.Id);
         _cameraSmokeEnabled =
             OS.GetEnvironment("PROJECT_MANNEQUIN_CAMERA_SMOKE_TEST") == "1";
         _stageVisualSmokeEnabled =

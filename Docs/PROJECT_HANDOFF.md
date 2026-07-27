@@ -679,15 +679,38 @@ the same pilot, runtime, and dual-resolution gates.
   routed through LFS, which is the exact mistake that built the oversized
   history. Run it before committing, or install it as a pre-commit hook. It is
   verified to block a raw binary and to pass an LFS-covered one.
-22. **Resume here.** The vignette half of item 5 is an OPEN DESIGN CALL, not a
-  coding task. Godot 4's `Environment` has no vignette, so it needs a screen
-  overlay or post shader, and a conventional radial vignette darkens the LEFT
-  AND RIGHT edges - which in a belt-scroller is exactly where a cornered player
-  is fighting for their life. It would also shift every capture, including the
-  plate fidelity comparison that approves the 5 plate stages. Options are: skip
-  it, or restrict the falloff to the top and bottom edges so framing improves
-  without dimming a cornered fighter. Ask before building either. After that,
-  the pass ends with the frame-time check against the 16.7 ms budget.
+22. `Stage Rendering And Depth Separation Pass` item 7, the frame-time check,
+  is DONE and PASSES with very large headroom. `Scripts/Debug/FrameTimeProbe.cs`
+  attaches only when `PROJECT_MANNEQUIN_FRAME_TIME_PROBE=1` and persistence is
+  disabled; `Scripts/Tools/run_stage_frame_time_audit.ps1` sweeps 10 stages.
+  Worst p95 is 0.84 ms against a 16.7 ms budget - about 5 per cent - with mean
+  0.53-0.59 ms, 0 per cent of frames over budget, and 14-29 draw calls. So the
+  contact shadow, depth tint, key light and depth fog together cost nothing
+  meaningful at current scene complexity.
+  *** TWO MEASUREMENT TRAPS, both hit and fixed, do not reintroduce them:
+  (a) the probe MUST disable vsync and uncap FPS, or every stage reports the
+  refresh interval and a real overrun stays invisible; (b) the sample window
+  must be WALL TIME, not frame count. At 1500+ fps the first version's 90+240
+  frames covered under 0.2 s and measured an empty arena before any enemy
+  spawned. It now warms up 3 s and samples 4 s. The giveaway was `max` being
+  an identical 1.39 ms on 8 of 10 stages; with a real window the maxima spread
+  to 2.2-6.7 ms.
+  Validated by a resolution sweep rather than assumed: cost rises monotonically
+  0.52 -> 0.60 -> 0.79 -> 0.83 ms from 360p to 4K, so the probe genuinely sees
+  GPU load. Scaling is sublinear, so these stages are draw-call bound, not
+  pixel bound. Numbers are machine-specific and from a Debug build; treat them
+  as a budget check, not a portable benchmark.
+23. **Resume here.** The vignette half of item 5 is the ONLY thing left in the
+  pass, and it is an OPEN DESIGN CALL rather than a coding task. Godot 4's
+  `Environment` has no vignette, so it needs a screen overlay or post shader,
+  and a conventional radial vignette darkens the LEFT AND RIGHT edges - which
+  in a belt-scroller is exactly where a cornered player is fighting for their
+  life. It would also shift every capture, including the plate fidelity
+  comparison that approves the 5 plate stages. Options are: skip it, or
+  restrict the falloff to the top and bottom edges so framing improves without
+  dimming a cornered fighter. ASK BEFORE BUILDING EITHER - it was asked once
+  and not yet answered. Frame budget is not a constraint here: the pass uses
+  about 5 per cent of it.
   The pass was added
   to the master plan on 2026-07-25 from external art review: the base art is
   fine, but the frame is not rendered, so foreground does not separate from
@@ -707,12 +730,12 @@ the same pilot, runtime, and dual-resolution gates.
   the `StageVisualLayerKind` depth ramp, then the floor lighting decision, the
   per-stage key direction, far-layer softening, a numeric separation gate in
   `WorldRunTests`, and a frame-time check against the 16.7 ms budget.
-23. Only then return to the Phase 5 art queue, starting with the training-crate
+24. Only then return to the Phase 5 art queue, starting with the training-crate
   variants. The Pavilion and Grand Tournament backdrop repaints and the Astral
   restyle must be authored against the key direction locked by item 15; any
   stage art produced before that lock is provisional. Nothing in that queue is
   cancelled and no completion gate is waived; only the order changed.
-24. Run every deterministic suite with
+25. Run every deterministic suite with
   `Scripts/Tools/run_all_deterministic_suites.ps1`, which covers input grammar,
   settings, world run, run score, and stage hazards in one headless pass.
 
