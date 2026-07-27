@@ -660,6 +660,25 @@ the same pilot, runtime, and dual-resolution gates.
   them, but they have been deliberately left uncommitted as regenerable output
   of the now-committed capture scripts. That is inconsistent: either commit
   them or extend the ignore rules. 110 of the 216 are referenced by nothing.
+
+  DECIDED 2026-07-26 (user): defer the art cleanup until the game is complete,
+  then do it in one pass. IMPORTANT CORRECTION TO THAT PLAN - deleting files in
+  a later commit does NOT clean the repository. A delete is just another
+  commit; every earlier version of the blob stays in history, `.git` does not
+  shrink, and a fresh clone still downloads all of it. The only thing that
+  actually removes a blob is a history rewrite with `git-filter-repo` or BFG,
+  which rewrites every later commit hash and invalidates existing clones, so it
+  has to be a deliberate one-time operation with everyone re-cloning after.
+  The ignore rules already landed mean NEW working material never enters
+  history, so the debt has stopped growing; the end-of-project rewrite only has
+  to deal with the ~563 MB of concept art already committed.
+
+  DECIDED 2026-07-26 (user): commit more frequently, at each completed plan
+  item rather than at the end of a phase. `Scripts/Tools/check_staged_assets.ps1`
+  guards that cadence - it fails if any staged file at or over 1 MB is not
+  routed through LFS, which is the exact mistake that built the oversized
+  history. Run it before committing, or install it as a pre-commit hook. It is
+  verified to block a raw binary and to pass an LFS-covered one.
 22. **Resume here.** The vignette half of item 5 is an OPEN DESIGN CALL, not a
   coding task. Godot 4's `Environment` has no vignette, so it needs a screen
   overlay or post shader, and a conventional radial vignette darkens the LEFT
