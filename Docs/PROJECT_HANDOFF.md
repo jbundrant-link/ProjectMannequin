@@ -639,15 +639,27 @@ the same pilot, runtime, and dual-resolution gates.
   build 0/0, suites 34/34/227/11/47. It is LOCAL ONLY and has NOT been pushed.
   The commit boundary is deliberate: `Scripts/`, `Docs/`, `.github/`, root
   config and `Artifacts/*.json` are in; everything under `Assets/` is not.
-  *** ART CHECK-IN IS STILL OPEN AND NEEDS A DECISION. 415 untracked PNGs under
-  `Assets/` total 1.48 GB and only 179 are covered by `.gitattributes`, so
-  committing them as-is would put roughly 1.16 GB into history as raw
-  undeltifiable blobs. `.git` is ALREADY 2,491 MB because the 204 Artifacts
-  PNGs already in history went in that way - only 112 files in the whole repo
-  use LFS. Extend `.gitattributes` to cover every new asset path BEFORE any art
-  commit. The 216 Artifacts capture PNGs (320 MB) were deliberately excluded as
-  regenerable output of the now-committed capture scripts, and 110 of them are
-  not referenced by any doc or by the review manifest at all.
+  ART CHECK-IN IS NOW SIZED AND SAFE. `Scripts/Tools/audit_asset_usage.py`
+  classifies every image by what actually references it. Of 199 untracked PNGs
+  under `Assets/` only 51 (272.9 MB) are loaded by the game; 32 (227.7 MB) were
+  referenced by nothing at all, verified as superseded pilots and intermediate
+  walk-repair frames whose successors already shipped. Commit `acb37f0` closed
+  a real hazard: only 14 of the 51 REQUIRED assets were LFS-covered, so an
+  as-is commit would have put ~230 MB of required art into history raw. Now
+  51/51. Commit `c364893` then ignored the working material rather than
+  deleting or committing it, taking the pending art commit from 1,163 MB / 199
+  files to 558 MB / 78 files.
+  *** ROOT CAUSE OF THE OVERSIZED REPO: `Assets/Sprites/Concepts/` already has
+  597 tracked binaries with only 12 in LFS, so about 563 MB of working material
+  that nothing loads sits in history as raw blobs. That is the largest single
+  reason `.git` is 2,491 MB. The ignore rules stop the growth but CANNOT shrink
+  history - that needs `git-filter-repo`/BFG, which rewrites every later commit
+  hash and breaks existing clones. Decide that deliberately, not in passing.
+  *** STILL OPEN: the 216 `Artifacts/StyleCalibration` capture PNGs (320 MB)
+  are explicitly UN-ignored by `.gitignore` negation rules, so git still offers
+  them, but they have been deliberately left uncommitted as regenerable output
+  of the now-committed capture scripts. That is inconsistent: either commit
+  them or extend the ignore rules. 110 of the 216 are referenced by nothing.
 22. **Resume here.** The vignette half of item 5 is an OPEN DESIGN CALL, not a
   coding task. Godot 4's `Environment` has no vignette, so it needs a screen
   overlay or post shader, and a conventional radial vignette darkens the LEFT
