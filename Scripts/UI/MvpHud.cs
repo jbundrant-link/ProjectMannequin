@@ -8,6 +8,8 @@ using ProjectMannequin.LocalInput;
 using ProjectMannequin.Progression;
 using ProjectMannequin.Stage;
 
+using ProjectMannequin.Settings;
+
 namespace ProjectMannequin.UI;
 
 public partial class MvpHud : CanvasLayer
@@ -39,6 +41,7 @@ public partial class MvpHud : CanvasLayer
     private PanelContainer _playerPanel = null!;
     private VBoxContainer _bossPanel = null!;
     private Label _controlsLabel = null!;
+    private Label _saveIndicatorLabel = null!;
     private PanelContainer _missionPanel = null!;
     private ColorRect _missionDim = null!;
     private Label _missionEyebrowLabel = null!;
@@ -86,6 +89,7 @@ public partial class MvpHud : CanvasLayer
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private float _notificationTimer;
+    private bool _enemyCapturePresentationSuppressed;
     private float _comboTimer;
     private float _comboScale = 1.0f;
     private Color _comboColor = new(1.0f, 0.84f, 0.34f);
@@ -123,6 +127,20 @@ public partial class MvpHud : CanvasLayer
     public string ResultsRankText => _missionRankLabel?.Text ?? "";
     public bool ResultsConfirmationVisible => _resultsConfirmationPanel?.Visible == true;
     public string ResultsUnlockText => _missionUnlockLabel?.Text ?? "";
+
+    public void SetEnemyCapturePresentationSuppressed(bool suppressed)
+    {
+        _enemyCapturePresentationSuppressed = suppressed;
+        if (!suppressed)
+        {
+            return;
+        }
+
+        _notifications.Clear();
+        _notificationTimer = 0.0f;
+        _notificationLabel.Text = "";
+        _objectiveLabel.Text = "";
+    }
     public bool ResultsActionCommitted => _resultActionCommitted;
     public string PlayerPortraitFormId => _playerPortraitFormId;
     public string BossPortraitFormId => _bossPortraitFormId;
@@ -401,6 +419,19 @@ public partial class MvpHud : CanvasLayer
         _controlsLabel.OffsetRight = -20;
         _controlsLabel.OffsetBottom = -14;
         _root.AddChild(_controlsLabel);
+
+        // Brief confirmation that a stage commit or unlock reached disk. Sits
+        // above the controls line so the two never overlap.
+        _saveIndicatorLabel = MakeLabel("", 13, new Color(0.62f, 0.88f, 0.72f));
+        _saveIndicatorLabel.Name = "SaveIndicator";
+        _saveIndicatorLabel.Visible = false;
+        _saveIndicatorLabel.HorizontalAlignment = HorizontalAlignment.Right;
+        _saveIndicatorLabel.SetAnchorsPreset(Control.LayoutPreset.BottomRight);
+        _saveIndicatorLabel.OffsetLeft = -300;
+        _saveIndicatorLabel.OffsetTop = -56;
+        _saveIndicatorLabel.OffsetRight = -20;
+        _saveIndicatorLabel.OffsetBottom = -36;
+        _root.AddChild(_saveIndicatorLabel);
 
         BuildResultsPanel();
 
@@ -831,7 +862,12 @@ public partial class MvpHud : CanvasLayer
         _advanceLabel.Visible = director.ShowAdvancePrompt;
         if (_advanceLabel.Visible)
         {
-            var pulse = 0.62f + Mathf.Sin(Time.GetTicksMsec() * 0.008f) * 0.28f;
+            var pulse = AccessibilityRuntime.Oscillate(
+                Time.GetTicksMsec(),
+                0.008f,
+                0.62f,
+                0.28f,
+                SettingsStore.Current.ReducedFlash);
             _advanceLabel.Modulate = new Color(0.34f, 0.94f, 0.88f, pulse);
         }
     }
@@ -841,6 +877,12 @@ public partial class MvpHud : CanvasLayer
         CombatActor? boss,
         ArcadeEncounterDirector? director)
     {
+        if (_enemyCapturePresentationSuppressed)
+        {
+            _objectiveLabel.Text = "";
+            return;
+        }
+
         if (player is null)
         {
             _objectiveLabel.Text = "Connect a controller or keyboard for Player 1.";
@@ -874,7 +916,9 @@ public partial class MvpHud : CanvasLayer
 
         if (player.FormArchive.ActiveLoadout.Count > 1)
         {
-            _objectiveLabel.Text = "Archive complete. Press Q to shapeshift into the unlocked boss form.";
+            _objectiveLabel.Text = "Archive complete. Press "
+            + $"{InputGlyphs.UiActionLabel(LogicalUiAction.FormSwap)}"
+            + " to shapeshift into the unlocked boss form.";
             return;
         }
 
@@ -1294,6 +1338,23 @@ public partial class MvpHud : CanvasLayer
 
     private void UpdateNotification(float delta)
     {
+        if (_enemyCapturePresentationSuppressed)
+        {
+            _notifications.Clear();
+            _notificationTimer = 0.0f;
+            _notificationLabel.Text = "";
+            return;
+        }
+
+        UpdateSaveIndicator();
+
+        // A pad dropping mid-run must not be silent: the player needs to know
+        // control fell back to the keyboard rather than think the game froze.
+        if (LocalInputManager.ConsumeDeviceNotice() is { } deviceNotice)
+        {
+            _notifications.Enqueue(deviceNotice);
+        }
+
         if (_notificationTimer > 0.0f)
         {
             _notificationTimer -= delta;
@@ -1310,6 +1371,24 @@ public partial class MvpHud : CanvasLayer
         _notificationLabel.Text = _notifications.Dequeue();
         _notificationLabel.Modulate = Colors.White;
         _notificationTimer = 2.7f;
+    }
+
+    private void UpdateSaveIndicator()
+    {
+        var now = Time.GetTicksMsec();
+        var visible = !_enemyCapturePresentationSuppressed
+            && SaveSchema.ShouldShowSaveIndicator(now);
+        _saveIndicatorLabel.Visible = visible;
+        if (!visible)
+        {
+            return;
+        }
+
+        _saveIndicatorLabel.Text = "PROGRESS SAVED";
+        var elapsed = now - (SaveSchema.LastSaveMilliseconds ?? now);
+        // Fade only over the final third so the text is solid while readable.
+        var fade = Mathf.Clamp(1.0f - ((elapsed / 1800.0f) - 0.66f) / 0.34f, 0.0f, 1.0f);
+        _saveIndicatorLabel.Modulate = new Color(1.0f, 1.0f, 1.0f, fade);
     }
 
     private void UpdateComboDisplay(float delta)
@@ -1499,7 +1578,8 @@ public partial class MvpHud : CanvasLayer
             case CombatPresentationEventType.FormUnlocked:
                 _formUnlockedThisStage = presentationEvent.Payload;
                 _notifications.Enqueue($"FORM ARCHIVED: {ResolveFormDisplayName(presentationEvent.Payload)}");
-                _notifications.Enqueue("Press Q to shapeshift.");
+                _notifications.Enqueue(
+                    $"Press {InputGlyphs.UiActionLabel(LogicalUiAction.FormSwap)} to shapeshift.");
                 break;
             case CombatPresentationEventType.FormSwapCompleted:
                 _notifications.Enqueue($"SHAPESHIFT COMPLETE: {presentationEvent.Payload}");

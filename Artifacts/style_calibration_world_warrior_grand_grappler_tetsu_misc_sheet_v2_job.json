@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-23T09:18:57.767137Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "e732f082-76b4-4132-9907-f1218b69db73",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_091857_e732f082-76b4-4132-9907-f1218b69db73_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "45e905b8-4301-493d-abde-8c1c86051943",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/45e905b8-4301-493d-abde-8c1c86051943.png"
+                                        },
+                                        {
+                                            "id":  "6d694f39-56f2-4b83-b79d-6b5fc03b3459",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6d694f39-56f2-4b83-b79d-6b5fc03b3459_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "bde3b7f4-ed19-4444-972b-a0e0f520e03c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bde3b7f4-ed19-4444-972b-a0e0f520e03c.png"
+                                        },
+                                        {
+                                            "id":  "a3637262-5ee3-45f6-bfe5-1bc6f4c821f3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a3637262-5ee3-45f6-bfe5-1bc6f4c821f3.png"
+                                        },
+                                        {
+                                            "id":  "6e7146a8-a340-4b21-9ab8-f7835fc2827d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6e7146a8-a340-4b21-9ab8-f7835fc2827d.png"
+                                        },
+                                        {
+                                            "id":  "783706ba-e997-45fe-8d78-5d0e5cc031e1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/783706ba-e997-45fe-8d78-5d0e5cc031e1.png"
+                                        },
+                                        {
+                                            "id":  "099aa62c-7b02-4d3f-8a1a-36dadaf06a7c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/099aa62c-7b02-4d3f-8a1a-36dadaf06a7c.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Create a corrected production DEFENSE / HIT / DEFEAT source sheet for WORLD WARRIOR GRAND GRAPPLER TETSU.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the exact approved Tetsu identity authority. Preserve his smooth bald head, stern square face, two blunt charcoal beard braids with saffron bands, deep warm-brown skin, massive rectangular anatomy, vermilion and warm-ivory high-collar vest, deep-indigo waist wrap, charcoal shorts with ivory side blocks, plum forearm wraps, charcoal calf wraps, saffron ankle cords, ivory-toed indigo shoes, and square bronze left-hip seal in every pose.\r\n2. Reference 2 is the exact 4-columns-by-2-rows choreography/layout authority. Copy its eight defense, hit, fall, recovery, knockdown, and defeat pose roles, never its mannequin identity.\r\n3. Reference 3 is the rejected Tetsu v1 misc sheet and supplies rendering continuity plus the surviving pose ideas only. It has only SEVEN figures because its top row omits the fourth backward-stagger beat. Do not copy its missing slot, oversized spacing, or seven-figure layout.\r\n4. Reference 4 is Tournament Grappler for shared heavyweight World Warrior cloth grammar only. Do not copy his hair, face, diagonal tunic, trousers, round token, or identity.\r\n5. Reference 5 is Pavilion Ace Makoto for named-elite finish quality only. Do not copy her body, braid, costume, or identity.\r\n6-7. References 6-7 are canonical rendering-finish anchors only. Match controlled dark contours, broad two-to-four-band cel shading, clean designed highlights, and arcade-readable anatomy without copying either identity.\r\n\r\nProduce EXACTLY EIGHT complete, separate, fully colored Tetsu figures in one square 4 columns x 2 rows sheet, ordered left-to-right across the top row then left-to-right across the bottom row.\r\n\r\nTOP ROW MUST CONTAIN FOUR FIGURES:\r\n1. Broad crossed-forearm standing guard, feet wide and both shoes planted.\r\n2. Deep guard compression, elbows and knees visibly yielding while remaining upright.\r\n3. Clear chest-hit recoil, torso jolting back, arms separating, both feet still visible.\r\n4. Distinct off-balance backward stagger one beat later, torso farther back, one foot sliding or lifting, arms spread for balance. Pose 4 must not duplicate pose 3 and must remain fully visible.\r\n\r\nBOTTOM ROW MUST CONTAIN FOUR FIGURES:\r\n5. Broad backward fall in progress, complete body and all limbs visible.\r\n6. One-knee recovery with one open hand planted and head raised.\r\n7. Complete side-prone knockdown with face, both beard braids, square hip seal, both legs, and both shoes visible.\r\n8. Final defeated side-prone pose, lower and more settled than pose 7, with the complete body visible.\r\n\r\nLAYOUT IS ABSOLUTE. Use one consistent smaller figure scale. Every figure must fit independently inside its implied quarter-width cell with pure green between figures. Preserve at least 48 pixels of green around each complete standing/falling figure and at least 24 pixels around each complete prone figure. No body part may touch a canvas edge. The top row must visibly contain four separate figures, not three.\r\n\r\nUniform pure chroma-green RGB 0,255,0 background. No attacker, blood, wound, injury detail, impact effect, dust, floor, shadow, scene, text, labels, grid, divider, black silhouette, placeholder, missing beard braid, missing square seal, extra limb, touching figures, duplicate pose, or crop. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_091857_e732f082-76b4-4132-9907-f1218b69db73.png",
+    "status":  "completed"
+}

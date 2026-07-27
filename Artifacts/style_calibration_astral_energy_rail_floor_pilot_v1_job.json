@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-22T04:11:16.317649Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "0792c177-17c4-4cbc-86d9-82a239c66d5a",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_041116_0792c177-17c4-4cbc-86d9-82a239c66d5a_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  4096,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "ec2c7c1e-4054-40c1-9ef1-0aa50812f342",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ec2c7c1e-4054-40c1-9ef1-0aa50812f342_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "f930395d-d46d-411f-95df-366d677e3ab5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f930395d-d46d-411f-95df-366d677e3ab5.png"
+                                        },
+                                        {
+                                            "id":  "39098932-4d5b-48b6-a8c4-81fec93f15e1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/39098932-4d5b-48b6-a8c4-81fec93f15e1.png"
+                                        },
+                                        {
+                                            "id":  "af4350ac-73ea-4917-b3ca-3e2e3a85dfee",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/af4350ac-73ea-4917-b3ca-3e2e3a85dfee.png"
+                                        },
+                                        {
+                                            "id":  "10bfee9e-a59d-4b5e-9205-d8ada953d36d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/10bfee9e-a59d-4b5e-9205-d8ada953d36d.png"
+                                        },
+                                        {
+                                            "id":  "f65041b5-9b90-419b-9f39-edd5b8743fa4",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f65041b5-9b90-419b-9f39-edd5b8743fa4.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve Astral Battlefront\u0027s luminous cyan-white energy, porcelain-white ruins, saturated sky blue, restrained jade growth, and deep indigo storm contrast. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production ENERGY RAIL GAMEPLAY FLOOR texture for Project Mannequin\u0027s Astral Battlefront Stage 3. Use the flattened Stage 3 composition master only for material, palette, and broad slab language. Produce a strict top-down orthographic 1:1 texture at 4K: enormous warm porcelain-white causeway slabs with deep indigo joints, sparse cyan energy insets, restrained jade growth in isolated cracks, and broad cel-painted cool shadow planes. Keep the center low contrast so fighters, feet, pickups, and telegraphs dominate. Target 8 to 12 very large slab courses across the full canvas, never tiny tiles.\r\n\r\nThe texture must be seamless and mirror-friendly on all four edges. Every edge must end in generic continuing stone with no clipped landmark, continuous grass stripe, perimeter curb, border, or focal object. No perspective convergence, horizon, sky, wall, architecture, platform edge, cliff face, undergrowth apron, stairs, circle, ring, emblem, radial pattern, checkerboard, text, symbol, prop, hazard, character, cast shadow, realistic grit, microdetail, or photographic material. Full-bleed top-down production floor.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4096
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_041116_0792c177-17c4-4cbc-86d9-82a239c66d5a.png",
+    "status":  "completed"
+}

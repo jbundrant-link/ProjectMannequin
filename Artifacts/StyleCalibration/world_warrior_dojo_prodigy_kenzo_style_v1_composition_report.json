@@ -1,0 +1,397 @@
+{
+  "manifest": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_animation_sources_v1.json",
+  "output": "Assets/Sprites/Enemies/world_warrior_dojo_prodigy_kenzo_style_v1.png",
+  "rows": [
+    {
+      "name": "idle_master_guard",
+      "target_row": 0,
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.249458,
+      "source_bboxes": [
+        [
+          195,
+          66,
+          855,
+          979
+        ],
+        [
+          1191,
+          66,
+          1857,
+          981
+        ],
+        [
+          189,
+          1078,
+          848,
+          2000
+        ],
+        [
+          1201,
+          1079,
+          1870,
+          2000
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_idle_sheet_style_v1.png"
+    },
+    {
+      "name": "measured_walk",
+      "target_row": 1,
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.269637,
+      "source_bboxes": [
+        [
+          7,
+          88,
+          506,
+          933
+        ],
+        [
+          521,
+          88,
+          993,
+          936
+        ],
+        [
+          1003,
+          88,
+          1494,
+          934
+        ],
+        [
+          1491,
+          88,
+          2021,
+          931
+        ],
+        [
+          13,
+          1098,
+          490,
+          1945
+        ],
+        [
+          498,
+          1098,
+          997,
+          1951
+        ],
+        [
+          966,
+          1098,
+          1525,
+          1946
+        ],
+        [
+          1506,
+          1098,
+          2006,
+          1951
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_walk_sheet_style_v1.png"
+    },
+    {
+      "name": "master_dash",
+      "target_row": 2,
+      "discovered_components": 6,
+      "selected_components": 6,
+      "scale": 0.255556,
+      "source_bboxes": [
+        [
+          41,
+          227,
+          638,
+          891
+        ],
+        [
+          654,
+          183,
+          1315,
+          880
+        ],
+        [
+          1324,
+          141,
+          1986,
+          880
+        ],
+        [
+          45,
+          1096,
+          774,
+          1860
+        ],
+        [
+          733,
+          1072,
+          1367,
+          1878
+        ],
+        [
+          1371,
+          985,
+          2005,
+          1885
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_dash_sheet_style_v1.png"
+    },
+    {
+      "name": "poised_jump",
+      "target_row": 3,
+      "discovered_components": 4,
+      "selected_components": 4,
+      "scale": 0.265896,
+      "source_bboxes": [
+        [
+          194,
+          265,
+          732,
+          983
+        ],
+        [
+          1190,
+          98,
+          1777,
+          959
+        ],
+        [
+          225,
+          1032,
+          829,
+          1897
+        ],
+        [
+          1180,
+          1200,
+          1843,
+          1980
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_jump_sheet_style_v1.png"
+    },
+    {
+      "name": "master_palm",
+      "target_row": 4,
+      "discovered_components": 15,
+      "selected_components": 10,
+      "scale": 0.238589,
+      "source_bboxes": [
+        [
+          54,
+          105,
+          705,
+          1026
+        ],
+        [
+          696,
+          111,
+          1348,
+          1026
+        ],
+        [
+          1314,
+          115,
+          1974,
+          1006
+        ],
+        [
+          205,
+          1072,
+          893,
+          1962
+        ],
+        [
+          205,
+          1072,
+          893,
+          1962
+        ],
+        [
+          11,
+          57,
+          738,
+          984
+        ],
+        [
+          725,
+          57,
+          1353,
+          989
+        ],
+        [
+          1386,
+          57,
+          2008,
+          987
+        ],
+        [
+          202,
+          1064,
+          861,
+          2011
+        ],
+        [
+          1078,
+          1049,
+          1769,
+          2013
+        ]
+      ],
+      "source_groups": [
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_style_v3.png",
+          "background": "green",
+          "discovered_components": 5,
+          "selected_components": 4,
+          "source_bboxes": [
+            [
+              54,
+              105,
+              705,
+              1026
+            ],
+            [
+              696,
+              111,
+              1348,
+              1026
+            ],
+            [
+              1314,
+              115,
+              1974,
+              1006
+            ],
+            [
+              205,
+              1072,
+              893,
+              1962
+            ]
+          ]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_style_v3.png",
+          "background": "green",
+          "discovered_components": 5,
+          "selected_components": 1,
+          "source_bboxes": [
+            [
+              205,
+              1072,
+              893,
+              1962
+            ]
+          ]
+        },
+        {
+          "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_recovery_sheet_style_v1.png",
+          "background": "green",
+          "discovered_components": 5,
+          "selected_components": 5,
+          "source_bboxes": [
+            [
+              11,
+              57,
+              738,
+              984
+            ],
+            [
+              725,
+              57,
+              1353,
+              989
+            ],
+            [
+              1386,
+              57,
+              2008,
+              987
+            ],
+            [
+              202,
+              1064,
+              861,
+              2011
+            ],
+            [
+              1078,
+              1049,
+              1769,
+              2013
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "defense_hit_defeat",
+      "target_row": 5,
+      "discovered_components": 8,
+      "selected_components": 8,
+      "scale": 0.264069,
+      "source_bboxes": [
+        [
+          10,
+          106,
+          520,
+          927
+        ],
+        [
+          505,
+          133,
+          1032,
+          927
+        ],
+        [
+          1042,
+          111,
+          1532,
+          927
+        ],
+        [
+          1536,
+          108,
+          1995,
+          924
+        ],
+        [
+          110,
+          1022,
+          918,
+          1646
+        ],
+        [
+          1107,
+          1085,
+          1773,
+          1602
+        ],
+        [
+          132,
+          1693,
+          943,
+          1972
+        ],
+        [
+          1058,
+          1746,
+          1982,
+          1969
+        ]
+      ],
+      "source": "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_misc_sheet_style_v1.png"
+    }
+  ],
+  "sha256": "dc2dfe3de8e43f54b5b68b8cadfaaa6a57fdf08f9e5ada5b6ae9e6955e99d81f",
+  "size": [
+    2560,
+    2304
+  ],
+  "nonempty_frames": 60
+}

@@ -99,6 +99,16 @@ public partial class GameSimulation : Node
             GD.Print(ProjectMannequin.DebugTools.InputGrammarTests.Run());
         }
 
+        if (OS.GetEnvironment("PROJECT_MANNEQUIN_SETTINGS_TEST") == "1")
+        {
+            GD.Print(ProjectMannequin.DebugTools.SettingsTests.Run());
+        }
+
+        // Audio only: the window half of Apply would override the viewport the
+        // capture tooling configures for deterministic runtime evidence.
+        ProjectMannequin.Settings.SettingsStore.ApplyAudio(
+            ProjectMannequin.Settings.SettingsStore.Current);
+
         if (OS.GetEnvironment("PROJECT_MANNEQUIN_DEFENSE_TEST") == "1")
         {
             GD.Print(ProjectMannequin.DebugTools.DefensiveMechanicsTests.Run());

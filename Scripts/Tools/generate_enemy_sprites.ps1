@@ -20,7 +20,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$cli  = 'C:\Users\Joseph Bundrant\AppData\Local\Programs\higgsfield\higgsfield.exe'
+$cli  = Join-Path $env:LOCALAPPDATA "Programs\Higgsfield\higgsfield.exe"
 $root = 'Assets/Sprites/Enemies'
 $mannequin = 'Assets/Sprites/Mannequin'
 $style = (Resolve-Path "$mannequin/mannequin_master_higgsfield_v1.png").Path

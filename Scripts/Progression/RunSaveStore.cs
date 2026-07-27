@@ -31,6 +31,11 @@ public static class RunSaveStore
 {
     private const string SavePath = "user://project_mannequin_active_run.json";
     private const int CurrentSchemaVersion = 1;
+
+    /// <summary>
+    /// Oldest run checkpoint this build can still migrate forward.
+    /// </summary>
+    private const int MinimumSupportedSchemaVersion = 1;
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
     public static bool TryLoad(out RunStageCheckpoint checkpoint)
@@ -57,6 +62,18 @@ public static class RunSaveStore
             return false;
         }
 
+        if (!SaveSchema.MayOverwrite(SaveSchema.Evaluate(
+                checkpoint.SchemaVersion,
+                CurrentSchemaVersion,
+                MinimumSupportedSchemaVersion)))
+        {
+            GD.PushWarning(
+                $"Refusing to write active run save at schema v{checkpoint.SchemaVersion} "
+                + $"with a build that writes v{CurrentSchemaVersion}. "
+                + "The newer file is left intact.");
+            return false;
+        }
+
         checkpoint.SchemaVersion = CurrentSchemaVersion;
         var path = ProjectSettings.GlobalizePath(SavePath);
         var directory = Path.GetDirectoryName(path);
@@ -76,6 +93,7 @@ public static class RunSaveStore
             }
 
             File.Move(temporaryPath, path, overwrite: true);
+            SaveSchema.NotifySaved();
             return true;
         }
         catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
@@ -109,6 +127,19 @@ public static class RunSaveStore
         }
     }
 
+    /// <summary>
+    /// Brings an older run checkpoint forward to the current schema.
+    /// </summary>
+    /// <remarks>
+    /// v1 is currently the only shape, so this only stamps the version. Real
+    /// steps go here as the checkpoint grows, and each one must be additive or
+    /// explicitly transform the field it renames.
+    /// </remarks>
+    private static void Migrate(RunStageCheckpoint checkpoint)
+    {
+        checkpoint.SchemaVersion = CurrentSchemaVersion;
+    }
+
     private static bool TryLoadPath(string path, out RunStageCheckpoint checkpoint)
     {
         checkpoint = new RunStageCheckpoint();
@@ -123,11 +154,34 @@ public static class RunSaveStore
                 File.ReadAllText(path),
                 JsonOptions);
             if (loaded is null
-                || loaded.SchemaVersion != CurrentSchemaVersion
                 || string.IsNullOrWhiteSpace(loaded.WorldId)
                 || loaded.StageIndex < 0)
             {
                 return false;
+            }
+
+            // Version mismatch used to discard the file outright, which threw
+            // away a player's in-progress run on any schema bump. Migrate it
+            // instead, and keep a newer build's file readable but read-only.
+            var compatibility = SaveSchema.Evaluate(
+                loaded.SchemaVersion,
+                CurrentSchemaVersion,
+                MinimumSupportedSchemaVersion);
+            switch (compatibility)
+            {
+                case SaveCompatibility.Unsupported:
+                    GD.PushWarning(
+                        $"Active run save '{path}' is schema v{loaded.SchemaVersion}, "
+                        + $"below the minimum supported v{MinimumSupportedSchemaVersion}. "
+                        + "Discarding it.");
+                    return false;
+                case SaveCompatibility.FutureVersion:
+                    SaveSchema.WarnFutureSave(
+                        path, loaded.SchemaVersion, CurrentSchemaVersion);
+                    break;
+                case SaveCompatibility.Migrated:
+                    Migrate(loaded);
+                    break;
             }
 
             loaded.EquippedFormIds ??= new List<string>();

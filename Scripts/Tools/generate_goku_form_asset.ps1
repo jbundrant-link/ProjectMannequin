@@ -20,7 +20,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$cli = "C:\Users\Joseph Bundrant\AppData\Local\Programs\higgsfield\higgsfield.exe"
+$cli = Join-Path $env:LOCALAPPDATA "Programs\Higgsfield\higgsfield.exe"
 $resolvedSource = (Resolve-Path -LiteralPath $SourcePath).Path
 $resolvedOutput = [System.IO.Path]::GetFullPath(
     (Join-Path (Get-Location) $OutputPath)

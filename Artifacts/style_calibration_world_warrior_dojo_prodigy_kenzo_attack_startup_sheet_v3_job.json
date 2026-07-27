@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-21T03:43:16.916793Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "17f848ec-978d-4df9-8bc1-47732fffc8ab",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_034316_17f848ec-978d-4df9-8bc1-47732fffc8ab_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "981c3c97-4e21-49c4-92ea-76e82431cf73",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/981c3c97-4e21-49c4-92ea-76e82431cf73.png"
+                                        },
+                                        {
+                                            "id":  "4ebe0a87-78c1-4025-a3c7-785d86ec015a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4ebe0a87-78c1-4025-a3c7-785d86ec015a.png"
+                                        },
+                                        {
+                                            "id":  "2987d67f-4245-4704-af01-e7ace9952b45",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2987d67f-4245-4704-af01-e7ace9952b45.png"
+                                        },
+                                        {
+                                            "id":  "248b5363-140a-4749-b325-2087a7b5ed46",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/248b5363-140a-4749-b325-2087a7b5ed46.png"
+                                        },
+                                        {
+                                            "id":  "438039ae-75eb-40fc-8a2b-3e3c298ed4a5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/438039ae-75eb-40fc-8a2b-3e3c298ed4a5.png"
+                                        },
+                                        {
+                                            "id":  "3f0c845a-2d58-4212-a351-6923776bdeaa",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3f0c845a-2d58-4212-a351-6923776bdeaa.png"
+                                        },
+                                        {
+                                            "id":  "58bf6ee3-43be-4529-ba4e-731c04db5e42",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/58bf6ee3-43be-4529-ba4e-731c04db5e42.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR DOJO PRODIGY KENZO identity. Preserve the same original fighter in every pose: lean athletic build with upright master\u0027s posture; swept-back black hair held by one bright saffron-gold champion circlet; layered ceremonial sleeveless deep-indigo vest with gold edge trim over a warm-ivory underwrap; one bronze champion medallion centered on the chest; a long vermilion champion half-sash hanging from the left hip; wide warm-ivory forearm guards; charcoal wide pleated hakama-style trousers gathered by a saffron cord; and low ivory split-sole shoes. Keep the same face, proportions, costume geometry, color hierarchy, camera, and light.\r\n\r\nThe second supplied image is the exact approved ACTIVE-POSE CAMERA AND SILHOUETTE TARGET. Every generated pose must retain this right-facing front three-quarter view with Kenzo\u0027s face, chest, bronze medallion, ivory underwrap, and front vest trim visible. Build poses 1-4 progressively toward it and reproduce its fully extended open lead hand as pose 5. Never rotate to a rear three-quarter or back-facing view.\r\n\r\nThe third supplied image is choreography only. Copy its five-frame open-palm timing and increasingly extended lead arm, but never copy the Rookie\u0027s identity. The fourth image is the approved Dojo Rookie for shared World Warrior material grammar only. The final three images are rendering-finish anchors only. Do not copy any reference face, hair, costume, or identity.\r\n\r\nProduce exactly FIVE distinct full-body MASTER PALM startup/active poses arranged as three figures on the top row and two on the bottom row, ordered left-to-right then top-to-bottom:\r\n1. Upright open-palm master guard with both shoes grounded.\r\n2. Lead shoulder rotates and the lead hand rises; the lead palm is visibly open.\r\n3. Front foot steps and hips turn while the open lead palm travels forward.\r\n4. Lead arm reaches nearly full extension with a flat vertical open palm facing right.\r\n5. Match the second reference: strongest active silhouette with the lead arm fully extended to the right, elbow nearly locked, wrist aligned, and one unmistakable OPEN PALM with all five fingers visible. The rear fist remains compact at the ribs and the bronze chest medallion remains fully visible.\r\n\r\nEvery pose must face exactly right in the same front three-quarter side camera. Every lead hand must remain open. Maintain one consistent scale and baseline with generous green separation around every complete figure. Uniform pure chroma-green RGB 0,255,0 background. No back-facing pose, rear three-quarter pose, hidden chest, hidden medallion, closed lead fist, punch, hook, finger curl into a fist, kick, weapon, target, impact effect, speed line, motion blur, recovery pose, duplicate pose, white karate gi, red headband, bare feet, tracksuit, military gear, armor, photorealism, PBR, painterly blur, flat vector art, pixel art, shadow, floor, scene, text, labels, grid lines, border, touching figures, extra limbs, missing half-sash, or crop. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_034316_17f848ec-978d-4df9-8bc1-47732fffc8ab.png",
+    "status":  "completed"
+}

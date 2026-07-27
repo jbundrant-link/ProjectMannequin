@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-22T06:27:27.065214Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "62929762-b885-445b-9223-b31a271b5587",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_062727_62929762-b885-445b-9223-b31a271b5587_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "4:3",
+                   "batch_size":  1,
+                   "height":  3584,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "0312471c-6207-4adb-9201-6332794a2eda",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0312471c-6207-4adb-9201-6332794a2eda_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "78df081b-5c3f-4817-bef0-981a45048e58",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/78df081b-5c3f-4817-bef0-981a45048e58_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "02a6c4f3-8c5a-41d1-9658-3e9b002a2350",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/02a6c4f3-8c5a-41d1-9658-3e9b002a2350_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "fdbbe8b6-651d-4570-bae4-358d2b799f06",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fdbbe8b6-651d-4570-bae4-358d2b799f06_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "32c96a38-0df1-4865-94f1-745347758161",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/32c96a38-0df1-4865-94f1-745347758161.png"
+                                        },
+                                        {
+                                            "id":  "65cf24ee-ace7-48b1-83b5-5c8084aa9749",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/65cf24ee-ace7-48b1-83b5-5c8084aa9749.png"
+                                        },
+                                        {
+                                            "id":  "c3b3460b-cc7e-42eb-9724-b2d3f1e5e4ea",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c3b3460b-cc7e-42eb-9724-b2d3f1e5e4ea.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve Astral Battlefront\u0027s luminous cyan-white energy, porcelain-white ruins, saturated sky blue, restrained jade growth, and deep indigo storm contrast. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate the production FLOORLESS LEFT APPROACH BACKDROP companion for Project Mannequin\u0027s side-scrolling Astral Battlefront Stage 3. It must connect naturally into the supplied approved Energy Rail Convergence V4 center backdrop while remaining a distinct earlier route section.\r\n\r\nCONTINUITY CONTRACT: use the approved V4 center backdrop as the authoritative camera distance, architectural scale, contour weight, sky blue, cyan rail thickness, white-porcelain material, mist level, and protected-frame geometry. The RIGHTMOST 12 percent of this new image must be quiet blue sky and pale waterfall mist whose average color and brightness can overlap V4\u0027s left edge without a visible seam. Do not copy V4\u0027s three arcade groups or central vortex. Instead, build an earlier approach rhythm with exactly three complete, smaller middle-distance landmarks: LEFT a low broken capsule-era porcelain relay arch with one restrained cyan node; CENTER a complete twin-pylon rail gate with a narrow horizontal cyan rail; RIGHT a distant floating garden observatory and one complete low arch preparing the transition into V4. Keep broad sky gaps between all groups.\r\n\r\nOUTPUT AND CAMERA CONTRACT: 4:3 canvas at 4K. The central horizontal 16:9 band from 12.5 percent to 87.5 percent of canvas height is the protected gameplay-safe frame. Keep every critical landmark and complete silhouette inside it. Upper and lower 12.5 percent are natural overscan. Reserve the lower 35 percent of the protected frame as uninterrupted calm pale-blue waterfall mist and low-contrast atmospheric depth. No architecture, island underside, rail, cliff, vegetation mass, or dark silhouette may enter that calm fighter band.\r\n\r\nLATERAL FLOW: communicate left-to-right ascent only through increasing landmark refinement and thin horizontal rails. Use one flat side-on elevation, one stable horizon, and no perspective convergence. Keep both outer edges quiet. All arches and pylons must be fully contained with generous sky around them. Rails are thin distant light bands, never walkable platforms.\r\n\r\nThe second supplied image is the old Capsule Causeway composition master and is identity reference only. Do not reproduce its floor, road, near ledge, ramps, or complete-scene perspective. Environment and character references define rendering grammar only.\r\n\r\nNO floor, road, paving, fighting lane, platform surface, foreground ledge, near cliff, undergrowth apron, cropped structure, repeated V4 landmark, giant vortex, crossing rail, X shape, diagonal bridge, ramp, path toward camera, character, enemy, vehicle, prop, pickup, hazard, cast shadow, text, symbol, logo, UI, border, panel seam, centered corridor, strong one-point perspective, photorealism, or PBR. Full-bleed floorless production backdrop.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4800
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_062727_62929762-b885-445b-9223-b31a271b5587.png",
+    "status":  "completed"
+}

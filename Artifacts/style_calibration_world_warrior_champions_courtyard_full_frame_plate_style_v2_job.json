@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-25T16:45:50.357909Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "83edc1c3-533f-480d-99e3-b24c71a4d283",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260725_164550_83edc1c3-533f-480d-99e3-b24c71a4d283_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "16:9",
+                   "batch_size":  1,
+                   "height":  3072,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "6ae963e6-0067-4566-81d4-fd5348abfb8f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6ae963e6-0067-4566-81d4-fd5348abfb8f_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "d859727f-88d7-48e9-9c34-1da783d363ec",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d859727f-88d7-48e9-9c34-1da783d363ec_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "2ead114d-703c-4d62-9067-667851b67789",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2ead114d-703c-4d62-9067-667851b67789.png"
+                                        },
+                                        {
+                                            "id":  "784a030b-2ec9-47a0-b570-0d468dc92f5b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/784a030b-2ec9-47a0-b570-0d468dc92f5b.png"
+                                        },
+                                        {
+                                            "id":  "7d55eac2-a596-4e91-a55f-c10fa82c0b54",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7d55eac2-a596-4e91-a55f-c10fa82c0b54.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one complete CHAMPION\u0027S COURTYARD BOSS ARENA for Project Mannequin\u0027s World Warrior tournament finale, painted as a single continuous scene at dusk. Keep the established identity from the supplied courtyard reference: a walled tournament courtyard of warm timber and pale plaster halls, deep indigo tiled roofs, hanging lanterns and braziers, vermilion banners, dark pines and distant storm-lit mountains beyond the walls.\r\n\r\nONE CONTINUOUS PAINTING. This is a single scene observed from one camera in one perspective, not a backdrop pasted above a floor. The paving, the courtyard walls, and the buildings must share one horizon, one vanishing behaviour, and one lighting direction, and the ground must run continuously back to the base of the architecture. The previous version failed because a backdrop image and a top-down floor tile were stacked, leaving a flat grey strip straight across the frame and a pavement whose slab size contradicted the buildings.\r\n\r\nABSOLUTELY NO HORIZONTAL BAND. No flat strip, no solid bar, no blank gutter, no mist band, no gradient ribbon, no seam, no divider, and no abrupt tonal step may cross the frame at any height. Every row of the image must contain painted scene content.\r\n\r\nFIGHTING GROUND CONTRACT. Reserve the lower third of the frame for the flat walkable stone courtyard the fighters occupy: the paving must begin no higher than 66 percent of image height and continue unbroken to the bottom edge. Keep that whole band clear, level, and uncluttered, with no steps, kerbs, walls, pits, water, railings, furniture, or props inside it. Paving slabs must read at human scale against the courtyard walls, roughly one stride across, with irregular interlocking joints rather than a regular grid, and they must recede naturally with the same perspective as the architecture.\r\n\r\nCAMERA AND FRAMING. Exact 16:9 landscape. Symmetrically composed but not mirrored: vary the left and right architecture. Place the horizon and the main hall in the upper two thirds. Keep the extreme left and right edges quiet so camera shake and zoom never reveal an unfinished corner.\r\n\r\nDEPTH AND READABILITY. Distant mountains and sky are broad and low contrast; courtyard walls, roofs, and banners are readable but quieter than fighters; the paving is the quietest surface in the frame so fighters, telegraphs, and pickups dominate.\r\n\r\nThe first supplied image is the REJECTED v1 plate: use it only for palette and general layout memory, and do not reproduce its stacked construction, its grey strip, or its oversized pavement. The second image is the approved courtyard identity reference for architecture and mood. The mannequin, Ryu, and Goku images are authoritative rendering-style anchors only.\r\n\r\nNO character, enemy, fighter, crowd figure, silhouette, prop, pickup, hazard, HUD, text, letters, numbers, glyph, logo, border, frame, vignette, letterbox bar, panel seam, triptych, or split screen. Full-bleed single-scene production plate.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  5504
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260725_164550_83edc1c3-533f-480d-99e3-b24c71a4d283.png",
+    "status":  "completed"
+}

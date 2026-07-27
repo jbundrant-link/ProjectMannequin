@@ -1,4 +1,5 @@
 using Godot;
+using ProjectMannequin.Core;
 using ProjectMannequin.Data;
 
 namespace ProjectMannequin.Stage;
@@ -26,6 +27,14 @@ public readonly record struct StageHazardFrame(
 /// <summary>Pure deterministic hazard timing and movement resolution.</summary>
 public static class StageHazardRuntime
 {
+    public static Vector3 ResolvePushStep(StageHazardZoneData zone)
+    {
+        return zone.Behavior == StageHazardBehavior.PushZone
+            ? new Vector3(zone.PushSpeedX, 0.0f, zone.PushSpeedZ)
+                / GameConstants.TickRate
+            : Vector3.Zero;
+    }
+
     public static StageHazardFrame Resolve(StageHazardZoneData zone, int encounterElapsedFrames)
     {
         if (encounterElapsedFrames < zone.ActivationDelayFrames)

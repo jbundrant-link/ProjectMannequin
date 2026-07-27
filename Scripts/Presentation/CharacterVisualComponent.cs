@@ -5,6 +5,8 @@ using ProjectMannequin.Combat;
 using ProjectMannequin.Core;
 using ProjectMannequin.Data;
 
+using ProjectMannequin.Settings;
+
 namespace ProjectMannequin.Presentation;
 
 public partial class CharacterVisualComponent : Node3D
@@ -102,6 +104,21 @@ public partial class CharacterVisualComponent : Node3D
     private ulong _introClipStartedMsec;
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
+    private const float GroundShadowWidth = 2.15f;
+    // Near-circular in WORLD space. The stage camera sits about 14.5 degrees
+    // above the horizon, so perspective already squashes the footprint to
+    // roughly a quarter of its depth on screen. Pre-squashing it here as well
+    // collapsed the shadow to a nine-pixel sliver.
+    private const float GroundShadowDepthRatio = 0.95f;
+    private const float GroundShadowOpacity = 0.62f;
+    private const float GroundShadowFadeHeight = 4.0f;
+    private const float GroundShadowGroundOffset = 0.035f;
+    private const float GroundShadowForwardOffset = 0.30f;
+    private const float GroundShadowLeanStrength = 0.42f;
+
+    private MeshInstance3D _groundShadow = null!;
+    private PlaneMesh _groundShadowMesh = null!;
+    private StandardMaterial3D _groundShadowMaterial = null!;
     private float _impactFlashSeconds;
     private Color _impactFlashColor = Colors.White;
     private int _enemyIdleCaptureFrame = -1;
@@ -140,6 +157,7 @@ public partial class CharacterVisualComponent : Node3D
         _sprite = visualRoot.GetNodeOrNull<Sprite3D>("Sprite3D") ?? CreateSprite(visualRoot);
         ConfigureSprite();
         CreateAuraSprite();
+        CreateGroundShadow();
         BuildHudElements();
     }
 
@@ -180,6 +198,7 @@ public partial class CharacterVisualComponent : Node3D
         UpdateHitFlash();
         _impactFlashSeconds = Mathf.Max(0.0f, _impactFlashSeconds - (float)delta);
         UpdateScale();
+        UpdateGroundShadow();
         UpdateHud();
         CaptureEnemyFrameIfRequested();
     }
@@ -331,6 +350,9 @@ public partial class CharacterVisualComponent : Node3D
         {
             "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_IDLE_CAPTURE",
             "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_IDLE_CAPTURE",
+            "world_warrior_dojo_prodigy_kenzo" => "PROJECT_MANNEQUIN_LADDER_KENZO_IDLE_CAPTURE",
+            "world_warrior_pavilion_ace_makoto" => "PROJECT_MANNEQUIN_LADDER_MAKOTO_IDLE_CAPTURE",
+            "world_warrior_grand_grappler_tetsu" => "PROJECT_MANNEQUIN_LADDER_TETSU_IDLE_CAPTURE",
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_IDLE_CAPTURE",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_IDLE_CAPTURE",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_IDLE_CAPTURE",
@@ -345,6 +367,9 @@ public partial class CharacterVisualComponent : Node3D
         {
             "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ATTACK_CAPTURE",
             "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ATTACK_CAPTURE",
+            "world_warrior_dojo_prodigy_kenzo" => "PROJECT_MANNEQUIN_LADDER_KENZO_ATTACK_CAPTURE",
+            "world_warrior_pavilion_ace_makoto" => "PROJECT_MANNEQUIN_LADDER_MAKOTO_ATTACK_CAPTURE",
+            "world_warrior_grand_grappler_tetsu" => "PROJECT_MANNEQUIN_LADDER_TETSU_ATTACK_CAPTURE",
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ATTACK_CAPTURE",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ATTACK_CAPTURE",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ATTACK_CAPTURE",
@@ -359,6 +384,9 @@ public partial class CharacterVisualComponent : Node3D
         {
             "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ACTOR_ID",
             "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ACTOR_ID",
+            "world_warrior_dojo_prodigy_kenzo" => "PROJECT_MANNEQUIN_LADDER_KENZO_ACTOR_ID",
+            "world_warrior_pavilion_ace_makoto" => "PROJECT_MANNEQUIN_LADDER_MAKOTO_ACTOR_ID",
+            "world_warrior_grand_grappler_tetsu" => "PROJECT_MANNEQUIN_LADDER_TETSU_ACTOR_ID",
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ACTOR_ID",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ACTOR_ID",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ACTOR_ID",
@@ -416,6 +444,124 @@ public partial class CharacterVisualComponent : Node3D
             Visible = false,
         };
         (_sprite.GetParent() ?? this).AddChild(_auraSprite);
+    }
+
+    /// <summary>
+    /// Builds the soft contact shadow that grounds this fighter.
+    /// </summary>
+    /// <remarks>
+    /// This is its own mesh rather than a real cast shadow on purpose. The
+    /// stage floor is an unshaded material, and on full-frame plate stages the
+    /// gameplay floor is invisible entirely, so a real shadow would have
+    /// nothing to land on. An explicit blob works on every presentation mode
+    /// and costs one transparent quad per fighter.
+    /// </remarks>
+    /// <summary>
+    /// Builds the soft contact shadow that grounds this fighter.
+    /// </summary>
+    /// <remarks>
+    /// This is its own mesh rather than a real cast shadow on purpose. The
+    /// stage floor is an unshaded material, and on full-frame plate stages the
+    /// gameplay floor is invisible entirely, so a real shadow would have
+    /// nothing to land on. An explicit blob works on every presentation mode
+    /// and costs one transparent quad per fighter.
+    ///
+    /// The material sorts at <c>RenderPriority = 1</c>. Stage backdrop plates
+    /// sort at -8 for the same reason: they are screen-filling alpha-blended
+    /// billboards, and without an explicit order they draw last and erase every
+    /// transparent object in the gameplay layer.
+    /// </remarks>
+    private void CreateGroundShadow()
+    {
+        const int size = 128;
+        using var image = Image.CreateEmpty(size, size, false, Image.Format.Rgba8);
+        var centre = (size - 1) * 0.5f;
+        for (var y = 0; y < size; y++)
+        {
+            for (var x = 0; x < size; x++)
+            {
+                var dx = (x - centre) / centre;
+                var dy = (y - centre) / centre;
+                var distance = Mathf.Sqrt((dx * dx) + (dy * dy));
+                // Quadratic falloff so the core reads solid and the rim melts
+                // out instead of ending on a visible circle edge.
+                // Gentle exponent, not a square: squaring concentrated the
+                // darkness into the centre, which is exactly the part the
+                // fighter's own feet occlude.
+                var falloff = Mathf.Pow(Mathf.Clamp(1.0f - distance, 0.0f, 1.0f), 1.3f);
+                image.SetPixel(x, y, new Color(0.0f, 0.0f, 0.0f, falloff));
+            }
+        }
+
+        _groundShadowMaterial = new StandardMaterial3D
+        {
+            AlbedoTexture = ImageTexture.CreateFromImage(image),
+            AlbedoColor = new Color(0.0f, 0.0f, 0.0f, GroundShadowOpacity),
+            ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded,
+            Transparency = BaseMaterial3D.TransparencyEnum.Alpha,
+            RenderPriority = 1,
+            // Lies flat on the floor, so writing depth would fight the surface
+            // it is meant to sit on.
+            DepthDrawMode = BaseMaterial3D.DepthDrawModeEnum.Disabled,
+            CullMode = BaseMaterial3D.CullModeEnum.Disabled,
+            TextureFilter = BaseMaterial3D.TextureFilterEnum.Linear,
+        };
+
+        _groundShadowMesh = new PlaneMesh
+        {
+            Size = new Vector2(GroundShadowWidth, GroundShadowWidth * GroundShadowDepthRatio),
+            Material = _groundShadowMaterial,
+        };
+
+        _groundShadow = new MeshInstance3D
+        {
+            Name = "GroundShadow",
+            Mesh = _groundShadowMesh,
+            CastShadow = GeometryInstance3D.ShadowCastingSetting.Off,
+        };
+        AddChild(_groundShadow);
+    }
+
+    private void UpdateGroundShadow()
+    {
+        if (_actor is null)
+        {
+            return;
+        }
+
+        var height = Mathf.Max(0.0f, _actor.SimPosition.Y);
+        var lift = Mathf.Clamp(height / GroundShadowFadeHeight, 0.0f, 1.0f);
+
+        // Rising off the ground shrinks and fades the contact, which is what
+        // sells the jump arc without a real light.
+        var shrink = Mathf.Lerp(1.0f, 0.55f, lift);
+        var alpha = Mathf.Lerp(GroundShadowOpacity, 0.0f, lift);
+        _groundShadow.Visible = alpha > 0.01f;
+        if (!_groundShadow.Visible)
+        {
+            return;
+        }
+
+        var width = GroundShadowWidth * shrink;
+        _groundShadowMesh.Size = new Vector2(width, width * GroundShadowDepthRatio);
+        _groundShadowMaterial.AlbedoColor = new Color(0.0f, 0.0f, 0.0f, alpha);
+
+        // The offset is local, and this node carries the boss/presentation
+        // scale, so divide it back out or a scaled fighter's shadow sinks.
+        var scale = Mathf.Max(0.001f, Scale.Y);
+
+        // Lean away from the stage's declared key light, so the contact agrees
+        // with the direction the backdrop is painted as being lit from.
+        var lean = ProjectMannequin.Stage.StageKeyLight.ContactOffset(
+            ProjectMannequin.Stage.StageKeyLight.YawDegrees,
+            ProjectMannequin.Stage.StageKeyLight.PitchDegrees,
+            GroundShadowLeanStrength);
+        _groundShadow.Position = new Vector3(
+            lean.X / scale,
+            (-height + GroundShadowGroundOffset) / scale,
+            // Nudged toward the camera so the pool reads in front of the feet
+            // instead of being hidden behind them.
+            (GroundShadowForwardOffset + lean.Y) / scale);
     }
 
     private void BuildHudElements()
@@ -937,7 +1083,12 @@ public partial class CharacterVisualComponent : Node3D
             return;
         }
 
-        var pulse = 0.22f + 0.06f * Mathf.Sin(Time.GetTicksMsec() * 0.008f);
+        var pulse = AccessibilityRuntime.Oscillate(
+            Time.GetTicksMsec(),
+            0.008f,
+            0.22f,
+            0.06f,
+            SettingsStore.Current.ReducedFlash);
         _auraSprite.Visible = true;
         _auraSprite.Texture = _sprite.Texture;
         _auraSprite.Hframes = _sprite.Hframes;
@@ -966,7 +1117,17 @@ public partial class CharacterVisualComponent : Node3D
         // Flash white-hot at the very peak for an "impact frame" pop.
         var hot = Mathf.Pow(intensity, 3.0f);
         var color = clip.IntroAuraColor.Lerp(Colors.White, hot * 0.6f);
-        var flicker = 0.82f + 0.18f * Mathf.Sin(Time.GetTicksMsec() * 0.03f);
+        // Was 0.03 rad/ms, which is 4.8 Hz and above the WCAG 2.3.1 three-flash
+        // ceiling, on a full-character aura that covers a large part of the
+        // frame during a boss intro. Lowered to 2.9 Hz. This one is purely
+        // cosmetic and long-lived, so slowing it costs nothing, unlike the
+        // state strobes in UpdateHitFlash which encode timing information.
+        var flicker = AccessibilityRuntime.Oscillate(
+            Time.GetTicksMsec(),
+            AccessibilityRuntime.BossAuraFlickerRate,
+            0.82f,
+            0.18f,
+            SettingsStore.Current.ReducedFlash);
 
         _auraSprite.Visible = true;
         _auraSprite.Texture = _sprite.Texture;
@@ -1035,27 +1196,50 @@ public partial class CharacterVisualComponent : Node3D
 
         if (_impactFlashSeconds > 0.0f)
         {
-            _sprite.Modulate = _impactFlashColor;
+            _sprite.Modulate = AccessibilityRuntime.SoftenImpactFlash(
+                _impactFlashColor,
+                ShouldTintCurrentSprite() ? _teamAccent : Colors.White,
+                SettingsStore.Current.ReducedFlash);
             return;
         }
 
+        // Every state strobe below routes through AccessibilityRuntime so
+        // Reduced Flash removes the flicker without removing the state colour.
+        var now = Time.GetTicksMsec();
+        var reducedFlash = SettingsStore.Current.ReducedFlash;
+
         if (_actor.State is CombatActorState.FormSwapping or CombatActorState.CinematicLocked)
         {
-            var pulse = Time.GetTicksMsec() / 80 % 2 == 0 ? 1.0f : 0.72f;
+            var pulse = AccessibilityRuntime.StrobeScalar(
+                now,
+                AccessibilityRuntime.StrobePeriods.FormSwapMilliseconds,
+                0.72f,
+                1.0f,
+                reducedFlash);
             _sprite.Modulate = new Color(pulse, pulse, pulse, 1.0f);
             return;
         }
 
         if (_actor.State == CombatActorState.Parrying)
         {
-            var pulse = Time.GetTicksMsec() / 65 % 2 == 0 ? 1.0f : 0.68f;
+            var pulse = AccessibilityRuntime.StrobeScalar(
+                now,
+                AccessibilityRuntime.StrobePeriods.ParryMilliseconds,
+                0.68f,
+                1.0f,
+                reducedFlash);
             _sprite.Modulate = new Color(0.34f * pulse, 0.94f * pulse, 1.0f);
             return;
         }
 
         if (_actor.State == CombatActorState.GuardBreak)
         {
-            var pulse = Time.GetTicksMsec() / 85 % 2 == 0 ? 1.0f : 0.62f;
+            var pulse = AccessibilityRuntime.StrobeScalar(
+                now,
+                AccessibilityRuntime.StrobePeriods.GuardBreakMilliseconds,
+                0.62f,
+                1.0f,
+                reducedFlash);
             _sprite.Modulate = new Color(1.0f, 0.34f * pulse, 0.16f * pulse);
             return;
         }
@@ -1064,12 +1248,21 @@ public partial class CharacterVisualComponent : Node3D
             && _actor.CurrentMove is { IsSuper: true }
             && _actor.CurrentMoveFrame < _actor.CurrentMove.StartupFrames)
         {
-            var pulse = Time.GetTicksMsec() / 55 % 2 == 0 ? 1.0f : 0.58f;
+            var pulse = AccessibilityRuntime.StrobeScalar(
+                now,
+                AccessibilityRuntime.StrobePeriods.SuperStartupMilliseconds,
+                0.58f,
+                1.0f,
+                reducedFlash);
             _sprite.Modulate = new Color(1.0f, 0.74f * pulse, 0.30f * pulse);
             return;
         }
 
-        if (_actor.State == CombatActorState.Hitstun && Time.GetTicksMsec() / 70 % 2 == 0)
+        if (_actor.State == CombatActorState.Hitstun
+            && AccessibilityRuntime.StrobeOn(
+                now,
+                AccessibilityRuntime.StrobePeriods.HitstunMilliseconds,
+                reducedFlash))
         {
             _sprite.Modulate = new Color(1.0f, 0.44f, 0.44f);
             return;

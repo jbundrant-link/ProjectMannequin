@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-23T09:14:53.355015Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "c7730e8a-8a74-436a-aa78-6f41330083cc",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_091453_c7730e8a-8a74-436a-aa78-6f41330083cc_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "bc92b450-3577-44b6-adcb-c33486918eb4",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bc92b450-3577-44b6-adcb-c33486918eb4.png"
+                                        },
+                                        {
+                                            "id":  "d6047626-809f-4a53-9a1e-80af92abc010",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d6047626-809f-4a53-9a1e-80af92abc010.png"
+                                        },
+                                        {
+                                            "id":  "1530ade0-37d9-41b9-99a9-cc7fc43223ac",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1530ade0-37d9-41b9-99a9-cc7fc43223ac.png"
+                                        },
+                                        {
+                                            "id":  "c5f840a6-22c9-44e4-bbd5-1401676552ba",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c5f840a6-22c9-44e4-bbd5-1401676552ba.png"
+                                        },
+                                        {
+                                            "id":  "f0176885-5712-4785-9bb6-7741fa534344",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f0176885-5712-4785-9bb6-7741fa534344.png"
+                                        },
+                                        {
+                                            "id":  "5762f636-83e8-4519-ba4b-e30bff8fe7ab",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5762f636-83e8-4519-ba4b-e30bff8fe7ab.png"
+                                        }
+                                    ],
+                   "prompt":  "Create a corrected production WALK-CYCLE SOURCE SHEET for World Warrior Grand Grappler Tetsu.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the exact character identity authority. Preserve this exact character in all eight poses: very tall monolithic older heavyweight with deep warm-brown skin, smooth bald head, two blunt square charcoal beard braids with saffron bands, broad rectangular torso, boxy vermilion and warm-ivory high-collar vest, deep-indigo waist wrap, charcoal knee-length shorts with ivory side blocks, plum forearm wraps, charcoal calf wraps with saffron ankle cords, ivory-toed indigo shoes, and one square bronze left-hip seal; preserve exact face, twin beard geometry, costume, square seal side, and massive upright proportions. Keep the same face/head design, costume geometry, asymmetry, proportions, palette, materials, contour weight, and lighting.\r\n2. Reference 2 is the accepted Project Mannequin WALK CHOREOGRAPHY authority. Reproduce its exact eight sequential gait beats, complete leg alternation, opposing arm swing, 4-columns-by-2-rows organization, screen-right camera, spacing, and common foot baseline. Do not copy the mannequin\u0027s body, armor, colors, or identity.\r\n3. Reference 3 is an anatomical timing map. GOLD A and CYAN B are persistent physical limbs. Follow its row-major order exactly: A-contact, A-down, A-passing, A-up, B-contact, B-down, B-passing, B-up. Do not render its colors, labels, circles, guide lines, stick geometry, or white background.\r\n4. Reference 4 is a FAILURE/STYLE-CONTINUITY reference. Preserve its character rendering and scale, but reject its repeated poses, repeated same-leg lead, incomplete passing phases, and weak stride. Do not copy its choreography.\r\n5 and 6 supply only canonical Project Mannequin rendering finish: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, fighting-game anatomy, and polished anime presentation. Do not copy either character\u0027s identity.\r\n\r\nProduce EXACTLY EIGHT separate complete full-body figures in one square 4 columns x 2 rows sheet, read left-to-right across the top row then the bottom row. All face screen-right in one consistent three-quarter side camera. Top row: A heel contact, down/compression, A planted while B passes, A toe support/high point while B advances. Bottom row: B heel contact, down/compression, B planted while A passes, B toe support/high point while A advances back into frame 1. The leg that leads in frame 5 must be physically opposite the leg that leads in frame 1. Natural opposing arm swing. At least six materially different silhouettes; no duplicated pose.\r\n\r\nLOWER-BODY GEOMETRY IS ABSOLUTE. In each contact pose, one heel must visibly reach farthest forward while the opposite toe trails. In each down pose, the planted support knee must visibly compress. In each passing pose, one support leg must be near-vertical under the hips while the opposite bent foot is visibly airborne beside it. In each up pose, the support heel must be raised behind the hips while the opposite knee advances. Do not substitute standing, crouching, guarding, or repeated long-stride poses for these phases. Keep the camera-far physical leg one cel-shadow band darker through the full hip-to-foot chain so the lead-leg swap remains readable.\r\n\r\nUse one consistent body scale, head size, light direction, and identical foot baseline. Every figure must fit independently inside its implied cell with generous clearance on all sides. Exactly two arms, two legs, two feet, and all identity features in every frame. Natural grounded walk only: no idle, shuffle, march, run, jump, attack, guard, or knee strike.\r\n\r\nUniform pure chroma-green RGB 0,255,0 background. No floor, cast shadow, scenery, grid, dividers, border, text, labels, numbers, arrows, colored guide marks, motion effects, extra figure, extra limb, missing limb, merged legs, touching figures, or crop.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: cohesive modern 2.5D fighting-game production, confident dark ink contours, broad cel-shaded value planes, clean designed highlights, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game finish. No photorealism, PBR, grit, microtexture, painterly blur, flat vector art, or pixel art. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_091453_c7730e8a-8a74-436a-aa78-6f41330083cc.png",
+    "status":  "completed"
+}

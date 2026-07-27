@@ -52,7 +52,13 @@ public static class RunScoreTests
             TeamId = 2,
         };
         elite.Initialize(TestRosterFactory.CreateArchiveScout());
-        var actors = new List<CombatActor> { player, elite };
+        var pickup = new CombatActor
+        {
+            ActorId = "score_pickup",
+            TeamId = 0,
+        };
+        pickup.Initialize(HazardRosterFactory.CreateWorldWarriorScorePickup());
+        var actors = new List<CombatActor> { player, elite, pickup };
 
         for (var frame = 0; frame < 120; frame++)
         {
@@ -82,6 +88,7 @@ public static class RunScoreTests
             new(CombatPresentationEventType.ComboUpdated, 100, player.ActorId, elite.ActorId, "8"),
             new(CombatPresentationEventType.Parried, 100, player.ActorId, elite.ActorId, "perfect"),
             new(CombatPresentationEventType.ActorDefeated, 100, elite.ActorId),
+            new(CombatPresentationEventType.ActorDefeated, 100, pickup.ActorId),
             new(CombatPresentationEventType.StageCompleted, 100, player.ActorId, Payload: mission.Id),
         };
         var output = new List<CombatPresentationEvent>(events);
@@ -95,8 +102,10 @@ public static class RunScoreTests
 
         var results = session.ScoreManager.LastStageResults;
         Check(results is not null, "stage completion produces immutable results");
-        Check(results is { MaxCombo: 8, Parries: 1, EnemiesDefeated: 1 },
-            "results capture combo, parry, and elite defeat telemetry");
+        Check(results is { MaxCombo: 8, Parries: 1 },
+            "results capture combo and parry telemetry");
+        Check(results is { EnemiesDefeated: 1 },
+            "pickup collection deaths do not count as enemy defeats or award defeat score");
         Check(results is { TimeBonus: > 0, ClearBonus: 3500 },
             "clear time under par awards deterministic time and clear bonuses");
         Check(results?.Rank == StageRank.S, "rank thresholds resolve S boundary");

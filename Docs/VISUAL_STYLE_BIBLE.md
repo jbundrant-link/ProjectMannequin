@@ -300,6 +300,7 @@ Automatic failures include photoreal/PBR drift, no canonical reference used, unr
 - Archive Knight's Reliquary layered environment: asymmetric ceremonial far backdrop, low-frequency broken-seal floor, low three-landmark midground, and split oath-rail foreground.
 - Archive Knight unique animated combat atlas and inherited form: faceless crested helm, broken-arch oath pauldron, sternum memory core, and integrated forearm blade.
 - Archive Knight identity-matched eight-frame intro atlas and illustrated mannequin/Knight matchup portraits.
+- World Warrior Pavilion Ace Makoto unique animated named-elite atlas and Crescent Heel sequence.
 - Archive Knight's Reliquary progressive phase destruction: left oath-tablet rupture, center-plinth collapse, right crystal-seal overload, and distinct localized bursts.
 - Living Archive gameplay HUD: real-alpha porcelain/plum broadcast frame, cyan/coral side hierarchy, active-form bust portraits, contained native bars, concise telemetry, and responsive centered safe-area composition.
 - Living Archive Archive Map: illustrated navigation chamber, distinct Archive/tournament/astral portal motifs, unframed structural columns, native realm controls, and a cyan four-node route spine.
@@ -320,14 +321,14 @@ The following are unique, imported, and mechanically wired, but drift toward pho
 
 The rejected legacy backdrop/floor pairs for all four Archive stages, glossy metallic lifebar frame, and flat dashboard Archive Map skin remain only as provenance and are no longer runtime-selected.
 
-The World Warrior tournament-district composite remains a supporting palette/architecture reference, but its runtime reuse across all four stages and as the floor fallback is rejected. Dojo Approach now uses an approved layered dusk-dojo environment; Pavilion Circuit is the next environment replacement.
+The World Warrior tournament-district composite remains a supporting palette/architecture reference, but its runtime reuse across all four stages and as the floor fallback is rejected. Dojo Approach uses an approved layered dusk-dojo environment, Pavilion Circuit uses an approved independent lantern-pavilion/deck family, Grand Tournament Floor uses an approved empty championship-arena/giant-slab family, and Champion's Courtyard uses an approved storm-dark final-duel courtyard family. Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand Grappler Tetsu use approved distinct 16/16 named-elite atlases. The breakable training dummy establishes the approved prop grammar, while the Vitality Gourd, Focus Drum, and Judge's Laurel Fan establish health, meter, and score pickup grammar; the 15/16 Sparring Supply Crate establishes the breakable-crate grammar, and the remaining training-crate variants are the next World Warrior art slice.
 
-The World Warrior Dojo Rookie and Pavilion Striker are approved roster anchors. Rookie uses deep indigo cloth, saffron hierarchy, restrained vermilion accents, and a compact open-palm rushdown silhouette. Striker inverts that hierarchy through a vermilion pavilion jacket, indigo collar/calf wraps, and a tall horizontal-kick silhouette. Both use simple repeatable cloth geometry without copying Ryu. The military/tactical Grappler remains rejected; its replacement must preserve a broad wrestling silhouette while sharing the roster's tournament-world material and color discipline.
+The World Warrior Dojo Rookie, Pavilion Striker, and Tournament Grappler are approved roster anchors. Rookie uses deep indigo cloth, saffron hierarchy, restrained vermilion accents, and a compact open-palm rushdown silhouette. Striker inverts that hierarchy through a vermilion pavilion jacket, indigo collar/calf wraps, and a tall horizontal-kick silhouette. Grappler adds a broad plum/indigo wrestling silhouette and a readable low Shoulder Drive without military kit. All three use simple repeatable cloth geometry without copying Ryu.
 
 ### Pending explicit review
 
 - Other non-anchor bosses.
-- World Warrior Grappler, named elites, and remaining stages.
+- World Warrior named elites and remaining stages.
 - Astral enemies and stages.
 - Remaining combat/hazard VFX, reward icons, portraits, and non-Archive menus.
 

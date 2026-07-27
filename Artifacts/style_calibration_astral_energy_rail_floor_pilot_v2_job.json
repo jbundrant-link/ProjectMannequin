@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-22T04:16:21.853037Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "c7dca3a2-12ef-4de9-aa4a-fbb776a835dd",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_041621_c7dca3a2-12ef-4de9-aa4a-fbb776a835dd_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  4096,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "ebf2a053-3ce1-4b2d-84b1-e2238746ab36",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ebf2a053-3ce1-4b2d-84b1-e2238746ab36_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "5a7893de-c2da-41dc-8368-84277a05dc15",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5a7893de-c2da-41dc-8368-84277a05dc15_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "7f2ad83b-30cd-4979-bb05-35b798fba2a8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7f2ad83b-30cd-4979-bb05-35b798fba2a8.png"
+                                        },
+                                        {
+                                            "id":  "3fdb1ebb-0c34-40c0-a6ae-5410e32502d3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3fdb1ebb-0c34-40c0-a6ae-5410e32502d3.png"
+                                        },
+                                        {
+                                            "id":  "3ae2c174-83ad-43e9-9de3-4dc024fff296",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3ae2c174-83ad-43e9-9de3-4dc024fff296.png"
+                                        },
+                                        {
+                                            "id":  "51252e54-fdf0-460c-a09a-710b0915f657",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/51252e54-fdf0-460c-a09a-710b0915f657.png"
+                                        },
+                                        {
+                                            "id":  "389c514d-5781-4957-b9ec-7518cfd8f698",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/389c514d-5781-4957-b9ec-7518cfd8f698.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve Astral Battlefront\u0027s luminous cyan-white energy, porcelain-white ruins, saturated sky blue, restrained jade growth, and deep indigo storm contrast. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production ENERGY RAIL GAMEPLAY FLOOR texture for Project Mannequin\u0027s Astral Battlefront Stage 3. Use the flattened Stage 3 composition master only for material, palette, and broad slab language. Produce a strict top-down orthographic 1:1 texture at 4K: enormous warm porcelain-white causeway slabs with deep indigo joints, sparse cyan energy insets, restrained jade growth in isolated cracks, and broad cel-painted cool shadow planes. Keep the center low contrast so fighters, feet, pickups, and telegraphs dominate. Target 8 to 12 very large slab courses across the full canvas, never tiny tiles.\r\n\r\nThe first supplied image is the REJECTED V1 floor. Preserve only its broad ivory slab scale, clean dark contours, cyan crack accents, and restrained jade details. V1 fails because dark-blue blocks, mortar joints, cracks, vines, and clipped plants touch every boundary and would create repeated bands. REMOVE all edge contamination.\r\n\r\nHARD SEAM CONTRACT: reserve the outermost 10 percent on the TOP, BOTTOM, LEFT, and RIGHT edges as one uninterrupted generic warm-ivory stone plane. This entire perimeter must contain no joint, crack, cyan light, blue shadow block, vegetation, clipped shape, border, curb, or value stripe. The pixel colors at all four edges must be quiet, nearly uniform ivory so mirror repetition joins stone to stone without a visible band. Place every slab joint, cyan inset, crack, jade sprig, and shadow accent strictly inside the central 80 percent of the canvas. Fade interior value variation gently toward the clean perimeter.\r\n\r\nThe texture must be seamless and mirror-friendly on all four edges. No perspective convergence, horizon, sky, wall, architecture, platform edge, cliff face, undergrowth apron, stairs, circle, ring, emblem, radial pattern, checkerboard, text, symbol, prop, hazard, character, cast shadow, realistic grit, microdetail, or photographic material. Full-bleed top-down production floor.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4096
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_041621_c7dca3a2-12ef-4de9-aa4a-fbb776a835dd.png",
+    "status":  "completed"
+}

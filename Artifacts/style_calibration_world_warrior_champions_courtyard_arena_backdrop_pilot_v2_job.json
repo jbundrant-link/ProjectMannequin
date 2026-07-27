@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-22T07:11:10.296785Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "5a040cad-78f0-4ac0-9027-d4f3c7ba97ce",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_071110_5a040cad-78f0-4ac0-9027-d4f3c7ba97ce_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "16:9",
+                   "batch_size":  1,
+                   "height":  3072,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "6606e808-f56b-48e8-b2a2-4bb092b7e3df",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6606e808-f56b-48e8-b2a2-4bb092b7e3df_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "f979338a-707e-442f-9076-ac5085a2baea",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f979338a-707e-442f-9076-ac5085a2baea_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "2bf78a02-1bb3-4265-8100-eb1b5ad8d202",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2bf78a02-1bb3-4265-8100-eb1b5ad8d202_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "8b05381e-afcb-4685-a53e-e549cafa5cc6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8b05381e-afcb-4685-a53e-e549cafa5cc6.png"
+                                        },
+                                        {
+                                            "id":  "b636a4f4-e687-47a8-93f6-5b4b9df5d5e3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b636a4f4-e687-47a8-93f6-5b4b9df5d5e3.png"
+                                        },
+                                        {
+                                            "id":  "7766ad18-b3d4-48ca-a58d-843ecead6770",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7766ad18-b3d4-48ca-a58d-843ecead6770.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve World Warrior\u0027s warm ivory masonry, charcoal timber, indigo storm shadows, restrained vermilion cloth, jade foliage, and sparse saffron light. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production FLOORLESS CHAMPION\u0027S COURTYARD BOSS ARENA BACKDROP for Project Mannequin\u0027s final World Warrior duel against Ryu.\r\n\r\nThe first supplied image is the REJECTED V1 arena backdrop. Preserve its storm-night palette, moonlit mountain depth, central broken shrine wall, two restrained vermilion cloths, charcoal timber, cypress silhouettes, clean contour language, and sparse saffron torch light. V1 fails because the left wall and torch are cut by the left edge, the large canopy is cut by the right edge, and a broad perspective platform/floor is baked across the bottom. REMOVE all three failures. The second supplied image is the approved location and palette master; use it for identity only.\r\n\r\nCAMERA CONTRACT: exact 16:9 canvas at 4K. This complete canvas is the normal-fight camera frame and must be fully visible without runtime crop or nonuniform scaling. Keep all critical architecture inside the central 88 percent of width and central 86 percent of height. Leave natural storm sky, mountain haze, and low-contrast wall continuation around every edge so short boss-intro zooms can crop safely. Do not draw guides, safe-frame lines, translucent rectangles, borders, or tonal bands.\r\n\r\nCOMPOSITION: one coherent side-on courtyard at one horizon and scale. LEFT: a complete low broken ivory wall and dark cypress opening positioned well inside the frame. CENTER: a complete modest roofless champion shrine wall with two blank restrained vermilion cloth panels and one small saffron torch. RIGHT: a complete compact broken charcoal-timber training arcade with a short wind-bent canopy positioned well inside the frame. Connect the groups through low distant wall remnants and storm atmosphere, but preserve visible sky gaps between them. Keep every roof, post, wall, torch, tree, and cloth silhouette fully contained with visible clearance around it; nothing may touch or be cut by an edge.\r\n\r\nEDGE AND FLOOR CONTRACT: keep the outermost left and right margins as continuous storm sky, distant mountains, cypress haze, and low wall continuation only. No torch, post, canopy, wall corner, or landmark may enter from an edge. Reserve the lower 35 percent as a calm, low-contrast vertical distant plinth and blue-gray storm mist behind fighter bodies. This lower band must contain NO horizontal platform top, paving, floor surface, road, perspective plane, curb, ledge, reflection, or walkable surface. Keep high-contrast landmarks above that band. Use no close foreground object. Keep the central fight area visually quiet and symmetrical enough for two fighters while the overall scene remains asymmetric and natural.\r\n\r\nThe second supplied environment image is rendering grammar only. The final mannequin, Ryu, and Goku references are authoritative style anchors only.\r\n\r\nNO floor, road, paving, gameplay lane, platform surface, foreground ledge, near wall, close rail, giant arch, edge-cropped structure, character, Ryu, enemy, spectator, crowd, prop, pickup, hazard, cast character shadow, text, letters, numbers, calligraphy, glyphs, logo, UI, border, divider, triptych, centered corridor, strong one-point perspective, photorealism, or PBR. Full-bleed floorless 16:9 production backdrop with no frame.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  5504
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_071110_5a040cad-78f0-4ac0-9027-d4f3c7ba97ce.png",
+    "status":  "completed"
+}

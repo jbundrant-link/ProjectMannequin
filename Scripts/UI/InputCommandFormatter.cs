@@ -3,20 +3,25 @@ using System.Linq;
 using System.Text;
 using Godot;
 
+using ProjectMannequin.LocalInput;
+
 namespace ProjectMannequin.UI;
 
 /// <summary>
 /// Translates the project's fighting-game command notation (for example
-/// "236LP") into the actual keyboard keys the local player has to press
-/// (for example "↓ ↘ →  +  J"). Button labels are read from the live
-/// <see cref="InputMap"/> so they always match the real bindings that
-/// <c>LocalInputManager</c> registered (and any future remaps), instead of
+/// "236LP") into the actual controls the local player has to press, instead of
 /// abstract LP/MP/HP tokens.
+/// </summary>
+/// <remarks>
+/// Labels follow whichever device Player 1 is using: keyboard keys read from
+/// the live <see cref="InputMap"/> so they match what <c>LocalInputManager</c>
+/// registered, or the printed pad glyph for the active controller family. Both
+/// resolve through <see cref="InputGlyphs"/>.
 ///
 /// Directional motions are shown facing right (the standard move-list
 /// convention): 6 = forward, 4 = back.
-/// </summary>
-public static class KeyboardCommandFormatter
+/// </remarks>
+public static class InputCommandFormatter
 {
     private static readonly Dictionary<int, string> DirectionArrows = new()
     {
@@ -53,39 +58,18 @@ public static class KeyboardCommandFormatter
     };
 
     /// <summary>
-    /// Returns the keyboard key currently bound to an input action (for example
-    /// "J" for "p1_lp"), falling back to a default label when the action is not
-    /// registered yet.
+    /// Returns the label currently bound to an input action for whatever device
+    /// Player 1 is using: the keyboard key (for example "J" for "p1_lp"), or the
+    /// printed pad glyph when a controller is active.
     /// </summary>
-    public static string KeyFor(string action, string fallback)
-    {
-        var name = new StringName(action);
-        if (InputMap.HasAction(name))
-        {
-            foreach (var inputEvent in InputMap.ActionGetEvents(name))
-            {
-                if (inputEvent is not InputEventKey keyEvent)
-                {
-                    continue;
-                }
-
-                var key = keyEvent.PhysicalKeycode != Key.None
-                    ? keyEvent.PhysicalKeycode
-                    : keyEvent.Keycode;
-                if (key != Key.None)
-                {
-                    return OS.GetKeycodeString(key);
-                }
-            }
-        }
-
-        return fallback;
-    }
+    public static string KeyFor(string action, string fallback) =>
+        InputGlyphs.LabelForAction(action, fallback);
 
     /// <summary>
-    /// Converts a command notation string into a keyboard-key display string.
+    /// Converts a command notation string into a display string for the active
+    /// device.
     /// </summary>
-    public static string ToKeyboard(string notation)
+    public static string ToDisplayCommand(string notation)
     {
         if (string.IsNullOrWhiteSpace(notation))
         {

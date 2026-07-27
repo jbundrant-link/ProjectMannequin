@@ -28,7 +28,11 @@ public partial class WorldLadderSmokeRunner : Node
             return;
         }
 
-        for (var index = 0; index < TicksPerFrame; index++)
+        var ticksThisFrame = string.IsNullOrWhiteSpace(
+            OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_ENEMY_FORM_ID"))
+            ? TicksPerFrame
+            : 1;
+        for (var index = 0; index < ticksThisFrame; index++)
         {
             if (_simulation.EncounterDirector.State == ArcadeStageState.Complete)
             {

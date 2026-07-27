@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-24T07:54:16.909721Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "2fe05fd2-7e64-4eab-a642-e1da6d8cefca",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_075416_2fe05fd2-7e64-4eab-a642-e1da6d8cefca_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "3a97d867-fb52-463b-a80d-05fb8768a231",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3a97d867-fb52-463b-a80d-05fb8768a231.png"
+                                        },
+                                        {
+                                            "id":  "3b3e77fb-7fb6-4b8e-b4fd-75bef4e2c3bd",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3b3e77fb-7fb6-4b8e-b4fd-75bef4e2c3bd.png"
+                                        },
+                                        {
+                                            "id":  "32fa2771-1733-43b2-9da3-97fb0c61cbe0",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/32fa2771-1733-43b2-9da3-97fb0c61cbe0_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "492e0e5f-3d68-49f7-aab5-85cd2c57a98a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/492e0e5f-3d68-49f7-aab5-85cd2c57a98a.png"
+                                        },
+                                        {
+                                            "id":  "695ab005-0ae0-40c4-bbe5-13094102afad",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/695ab005-0ae0-40c4-bbe5-13094102afad.png"
+                                        },
+                                        {
+                                            "id":  "cc511cb7-49b4-4b35-88c6-b7e2079ccb31",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cc511cb7-49b4-4b35-88c6-b7e2079ccb31.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-object IDENTITY / FUNCTION PILOT of the WORLD WARRIOR FOCUS DRUM, a small original combat-meter pickup viewed in a clean right-facing three-quarter angle, centered and fully visible.\r\n\r\nThe pickup must read instantly as stored martial focus, fighting rhythm, and reusable combat energy at arcade gameplay size without using an Archive crystal, shard, lightning icon, text, potion, coin, or health cue. Build one compact hand-carried HOURGLASS DRUM with this exact large-form hierarchy:\r\n- a distinctive squat hourglass silhouette, wider at both ends and deeply pinched at the center;\r\n- two broad warm-ivory leather drumheads, one front-left and one rear-right, each marked only by three thick concentric saffron-gold resonance rings with no letters or symbols;\r\n- one deep-indigo lacquered central waist with a wide plum grip band;\r\n- six thick vermilion braided tension cords spanning diagonally between the two drum rims in large readable X-shaped bands;\r\n- four chunky saffron tuning beads placed symmetrically on the cords;\r\n- two short vermilion cloth streamers tied at the central grip, angled backward and fully attached;\r\n- one small warm-ivory base rest integrated under the lower rim so the pickup feels grounded, never floating.\r\n\r\nFunction must come from unmistakable rhythm/focus cues: taut drumheads, visible tension cords, tuning beads, and bold resonance rings. Keep the object pristine, energized, and desirable. Use only a few large components with thick contours. It must remain legible when reduced to roughly 64, 80, and 96 pixels tall. The hourglass body and integrated base rest must form a stable grounded silhouette. No aura, floating rings, sound-wave effects, sparks, or detached energy.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the approved World Warrior Vitality Gourd. Use only its pickup-scale contour weight, large-form simplification, grounded collectible presentation, and warm-ivory/vermilion/deep-indigo/saffron hierarchy. Do not copy its calabash body, leaves, cork, cord knot, cradle, health function, or silhouette.\r\n2. Reference 2 is the approved World Warrior training dummy. Use only its practical tournament-equipment materials, broad cel planes, indigo lacquer, vermilion braces, and sturdy object readability. Do not copy its post, pads, arms, base, pegs, break seams, or silhouette.\r\n3. Reference 3 is the approved Pavilion Circuit environment. Use only its ceremonial drum/tournament motif, vermilion/deep-indigo/saffron hierarchy, and refined champion-equipment finish. Do not reproduce architecture, lanterns, platform, mountains, or scene.\r\n4-6. References 4-6 are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, clean designed highlights, simplified materials, saturated controlled accents, and arcade-readable 2.5D fighting-game volume. Do not copy any character\u0027s face, body, costume, anatomy, or identity.\r\n\r\nOne complete centered pickup on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side, including outside both drum rims and attached streamers and below the complete base rest. No Archive crystal, gemstone, shard, prism, blade, spear, lightning bolt, battery, meter bar, floating orb, aura, detached ring, rays, sparks, health cross, heart, leaf, food, gourd, potion bottle, flask, coin, medal, trophy, currency symbol, text, letters, numbers, kanji, logo, face, eyes, mouth, person, creature, weapon, crate, chest, explosive warning, detached pieces, floor, cast shadow, scenery, room, architecture, border, grid, duplicate object, photorealism, PBR, painterly blur, flat vector art, pixel art, or crop. 2K square pickup pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_075416_2fe05fd2-7e64-4eab-a642-e1da6d8cefca.png",
+    "status":  "completed"
+}

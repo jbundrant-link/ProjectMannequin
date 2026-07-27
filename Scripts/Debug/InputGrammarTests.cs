@@ -1,4 +1,5 @@
 using System.Text;
+using Godot;
 using ProjectMannequin.Core;
 using ProjectMannequin.LocalInput;
 
@@ -103,6 +104,252 @@ public static class InputGrammarTests
         var consumedTick = firstMatched ? b7.GetFrame(first!.Value.InputAgeFrames).Tick : -1;
         var second = interpreter.FindBestCommand(new[] { qcfLp }, b7, true, consumedTick);
         Check("consumed press not re-matched", firstMatched && second is null);
+
+        var availableDevices = new[]
+        {
+            new LocalInputDeviceOption(
+                GameConstants.KeyboardDeviceId,
+                "Keyboard",
+                "keyboard",
+                ""),
+            new LocalInputDeviceOption(4, "Pad A", "gamepad", "guid-a"),
+            new LocalInputDeviceOption(9, "Pad B", "gamepad", "guid-b"),
+        };
+        Check(
+            "keyboard preference resolves keyboard",
+            LocalInputAssignmentPolicy.ResolvePreferredP1Device(
+                "keyboard",
+                "",
+                availableDevices) == GameConstants.KeyboardDeviceId);
+        Check(
+            "gamepad GUID re-resolves unstable runtime ID",
+            LocalInputAssignmentPolicy.ResolvePreferredP1Device(
+                "gamepad",
+                "GUID-B",
+                availableDevices) == 9);
+        Check(
+            "missing preferred pad falls back to connected pad",
+            LocalInputAssignmentPolicy.ResolvePreferredP1Device(
+                "gamepad",
+                "missing",
+                availableDevices) == 4);
+        var assignments = LocalInputAssignmentPolicy.BuildAssignments(
+            GameConstants.MaxPlayers,
+            new[] { 4, 9 },
+            9);
+        Check(
+            "P1 preference claims pad and P2 gets next unclaimed pad",
+            assignments[0] == 9 && assignments[1] == 4);
+        Check(
+            "duplicate live-device assignment is rejected",
+            !LocalInputAssignmentPolicy.CanAssign(assignments, 2, 9, new[] { 4, 9 }));
+        Check(
+            "disconnect requests assignment refresh",
+            LocalInputAssignmentPolicy.ShouldRefresh(
+                replayActive: false,
+                assignments,
+                new[] { 4 },
+                GameConstants.KeyboardDeviceId));
+        Check(
+            "replay prevents live assignment refresh",
+            !LocalInputAssignmentPolicy.ShouldRefresh(
+                replayActive: true,
+                assignments,
+                new[] { 4 },
+                GameConstants.KeyboardDeviceId));
+
+        UiInputRouter.ResetNavigationState();
+        var rightPress = new InputEventJoypadMotion
+        {
+            Device = 9,
+            Axis = JoyAxis.LeftX,
+            AxisValue = 0.8f,
+        };
+        Check(
+            "assigned P1 left stick navigates right",
+            UiInputRouter.IsPressedForAssignedDevice(
+                rightPress,
+                LogicalUiAction.Right,
+                assignedDevice: 9));
+        Check(
+            "unassigned pad cannot navigate P1 UI",
+            !UiInputRouter.IsPressedForAssignedDevice(
+                new InputEventJoypadMotion
+                {
+                    Device = 4,
+                    Axis = JoyAxis.LeftY,
+                    AxisValue = -0.8f,
+                },
+                LogicalUiAction.Up,
+                assignedDevice: 9));
+        Check(
+            "held stick direction is edge-triggered",
+            !UiInputRouter.IsPressedForAssignedDevice(
+                new InputEventJoypadMotion
+                {
+                    Device = 9,
+                    Axis = JoyAxis.LeftX,
+                    AxisValue = 0.9f,
+                },
+                LogicalUiAction.Right,
+                assignedDevice: 9));
+        UiInputRouter.IsPressedForAssignedDevice(
+            new InputEventJoypadMotion
+            {
+                Device = 9,
+                Axis = JoyAxis.LeftX,
+                AxisValue = 0.0f,
+            },
+            LogicalUiAction.Right,
+            assignedDevice: 9);
+        Check(
+            "stick navigation rearms after dead-zone release",
+            UiInputRouter.IsPressedForAssignedDevice(
+                new InputEventJoypadMotion
+                {
+                    Device = 9,
+                    Axis = JoyAxis.LeftX,
+                    AxisValue = 0.8f,
+                },
+                LogicalUiAction.Right,
+                assignedDevice: 9));
+        Check(
+            "keyboard remains emergency modal fallback",
+            UiInputRouter.IsEventFromAssignedDevice(
+                new InputEventKey { Pressed = true, PhysicalKeycode = Key.Escape },
+                assignedDevice: 9));
+
+        // --- Input glyph switching -------------------------------------
+
+        Check(
+            "keyboard preference never resolves to a gamepad family",
+            GamepadBindings.DetectFamily("keyboard", "Xbox Series Controller")
+                == InputGlyphFamily.Keyboard);
+
+        Check(
+            "pad families are detected from the driver name",
+            GamepadBindings.DetectFamily("gamepad", "Xbox Series X Controller")
+                == InputGlyphFamily.Xbox
+            && GamepadBindings.DetectFamily("gamepad", "Sony DualSense Wireless Controller")
+                == InputGlyphFamily.PlayStation
+            && GamepadBindings.DetectFamily("gamepad", "Nintendo Switch Pro Controller")
+                == InputGlyphFamily.Nintendo);
+
+        // An unknown pad must not be guessed into a brand, because printing the
+        // wrong face-button name is worse than printing the SDL position.
+        Check(
+            "unknown pads fall back to generic position labels",
+            GamepadBindings.DetectFamily("gamepad", "Some Arcade Stick")
+                == InputGlyphFamily.GenericGamepad
+            && GamepadBindings.DetectFamily("gamepad", "")
+                == InputGlyphFamily.GenericGamepad
+            && GamepadBindings.Label(InputGlyphFamily.GenericGamepad, JoyButton.A)
+                .Contains("down"));
+
+        // Godot reports face buttons by SDL position, so the same position has
+        // to print a different name per family. This is the whole feature.
+        Check(
+            "the same physical button prints its family's printed label",
+            GamepadBindings.Label(InputGlyphFamily.Xbox, JoyButton.A) == "A"
+            && GamepadBindings.Label(InputGlyphFamily.PlayStation, JoyButton.A) == "Cross"
+            && GamepadBindings.Label(InputGlyphFamily.Nintendo, JoyButton.A) == "B"
+            && GamepadBindings.Label(InputGlyphFamily.PlayStation, JoyButton.Y) == "Triangle"
+            && GamepadBindings.Label(InputGlyphFamily.Nintendo, JoyButton.Y) == "X");
+
+        Check(
+            "shoulder, stick, and trigger labels follow the family",
+            GamepadBindings.Label(InputGlyphFamily.Xbox, JoyButton.LeftShoulder) == "LB"
+            && GamepadBindings.Label(InputGlyphFamily.PlayStation, JoyButton.LeftShoulder) == "L1"
+            && GamepadBindings.TriggerLabel(InputGlyphFamily.Xbox, GamepadBindings.BlockAxis) == "LT"
+            && GamepadBindings.TriggerLabel(InputGlyphFamily.PlayStation, GamepadBindings.GrabAxis) == "R2");
+
+        // The glyph table and the poll loop must stay one table: a label that
+        // claims a binding the pad does not have is a lie to the player.
+        var everyAttackIsBound = true;
+        foreach (var attack in new[]
+                 {
+                     InputButtons.LightPunch,
+                     InputButtons.MediumPunch,
+                     InputButtons.HeavyPunch,
+                     InputButtons.LightKick,
+                     InputButtons.MediumKick,
+                     InputButtons.HeavyKick,
+                 })
+        {
+            if (!GamepadBindings.TryGetJoyButton(attack, out _))
+            {
+                everyAttackIsBound = false;
+            }
+        }
+
+        Check(
+            "every attack button resolves through the shared binding table",
+            everyAttackIsBound
+            && !GamepadBindings.TryGetJoyButton(InputButtons.Block, out _)
+            && !GamepadBindings.TryGetJoyButton(InputButtons.Grab, out _));
+
+        // SDL MISC1 is the Xbox share / PS5 microphone / Switch capture button.
+        // Calling it the PlayStation touchpad was wrong and shipped into a
+        // capture before it was caught, so it is pinned here.
+        Check(
+            "Misc1 is never mislabelled as the PlayStation touchpad",
+            GamepadBindings.Label(InputGlyphFamily.PlayStation, JoyButton.Misc1) == "Mic"
+            && GamepadBindings.Label(InputGlyphFamily.Xbox, JoyButton.Misc1) == "Share"
+            && GamepadBindings.Label(InputGlyphFamily.Nintendo, JoyButton.Misc1) == "Capture"
+            && GamepadBindings.Label(InputGlyphFamily.PlayStation, JoyButton.Touchpad) == "Touchpad");
+
+        // Jump must live on a button that physically exists on every pad.
+        // Misc1 is the Xbox Series share / PS5 mic / Switch capture button and
+        // is absent on Xbox One, DualShock 4, and most third-party controllers,
+        // so binding jump there made jumping impossible on them.
+        var universalButtons = new System.Collections.Generic.HashSet<JoyButton>
+        {
+            JoyButton.A, JoyButton.B, JoyButton.X, JoyButton.Y,
+            JoyButton.LeftShoulder, JoyButton.RightShoulder,
+            JoyButton.LeftStick, JoyButton.RightStick,
+            JoyButton.Start, JoyButton.Back,
+            JoyButton.DpadUp, JoyButton.DpadDown,
+            JoyButton.DpadLeft, JoyButton.DpadRight,
+        };
+        Check(
+            "jump is bound to a button present on every controller",
+            GamepadBindings.TryGetJoyButton(InputButtons.Jump, out var jumpButton)
+            && universalButtons.Contains(jumpButton)
+            && jumpButton != JoyButton.Misc1);
+
+        var everyCoreActionIsUniversal = true;
+        foreach (var core in new[]
+                 {
+                     InputButtons.LightPunch, InputButtons.MediumPunch, InputButtons.HeavyPunch,
+                     InputButtons.LightKick, InputButtons.MediumKick, InputButtons.HeavyKick,
+                     InputButtons.Jump, InputButtons.Dash, InputButtons.FormSwap,
+                     InputButtons.Start,
+                 })
+        {
+            if (!GamepadBindings.TryGetJoyButton(core, out var joy)
+                || !universalButtons.Contains(joy))
+            {
+                everyCoreActionIsUniversal = false;
+            }
+        }
+
+        Check(
+            "every core action sits on a universally present button",
+            everyCoreActionIsUniversal);
+
+        var distinctJoyButtons = new System.Collections.Generic.HashSet<JoyButton>();
+        var noDoubleBinding = true;
+        foreach (var (_, joy) in GamepadBindings.ButtonMap)
+        {
+            if (!distinctJoyButtons.Add(joy))
+            {
+                noDoubleBinding = false;
+            }
+        }
+
+        Check(
+            "no two gameplay actions share one pad button",
+            noDoubleBinding && distinctJoyButtons.Count == GamepadBindings.ButtonMap.Count);
 
         sb.AppendLine($"=== {passed} passed, {failed} failed ===");
         return sb.ToString();

@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-22T03:32:23.51419Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "62d2acee-ec01-4eae-983c-9323661c0efe",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_033223_62d2acee-ec01-4eae-983c-9323661c0efe_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "39b347d6-3b4e-48f2-833e-255c944902ea",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/39b347d6-3b4e-48f2-833e-255c944902ea.png"
+                                        },
+                                        {
+                                            "id":  "94ba9d95-1ff5-49c4-9a1e-976568c23373",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/94ba9d95-1ff5-49c4-9a1e-976568c23373.png"
+                                        },
+                                        {
+                                            "id":  "7972a6e9-9d57-450d-a662-2e747f7181e8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7972a6e9-9d57-450d-a662-2e747f7181e8.png"
+                                        },
+                                        {
+                                            "id":  "9af1139d-c529-4126-b289-a79f25e17ba3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9af1139d-c529-4126-b289-a79f25e17ba3.png"
+                                        },
+                                        {
+                                            "id":  "98470447-771d-40c8-9786-6769a7c4dabe",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/98470447-771d-40c8-9786-6769a7c4dabe.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-body IDENTITY PILOT of WORLD WARRIOR PAVILION ACE MAKOTO, a single original adult woman standing in a calm right-facing three-quarter precision-kick guard with both feet grounded, rear heel slightly raised, hands poised but relaxed, and her full body visible.\r\n\r\nMakoto is the decorated elite counterpart to the Pavilion Striker, but she must be a distinct champion rather than a recolor or gender swap. Preserve this identity: tall lean athletic kick-specialist build with powerful calves and compact shoulders; warm medium skin; sharp composed face; black hair swept into one high braided crest that arcs backward and ends above the shoulder blades, threaded with two restrained saffron bands; short asymmetrical vermilion pavilion mantle fastened only over the left shoulder and ending above the waist; fitted sleeveless deep-indigo wrap top with one warm-ivory diagonal chest panel and narrow saffron piping; charcoal fitted kick trousers beneath a two-panel deep-indigo split overskirt that ends at mid-thigh and opens clearly around both legs; wide plum hand wraps; warm-ivory shin guards with one simple vermilion chevron each; low ivory split-sole kicking shoes; and one bronze crescent champion token fixed at the right hip. The high braid, one-shoulder short mantle, split overskirt, ivory shin guards, and crescent hip token are mandatory silhouette anchors.\r\n\r\nMakoto\u0027s fighting identity is exact, economical precision kicking: upright balanced posture, long clean leg lines, no open-palm master pose, no wrestling crouch, no lifted-knee copy of the Striker pilot, and no exaggerated dancer pose. She is visibly senior to the base Striker through ceremonial asymmetry and controlled bearing while remaining a practical fast fighter.\r\n\r\nThe first supplied image is the approved Pavilion Striker. Use it only for shared World Warrior material grammar and the vermilion/deep-indigo/saffron/warm-ivory family; do not copy his rust hair, undercut, sleeveless long jacket, male body, raised-knee pose, round hanging token, trousers, or costume geometry. The second supplied image is the approved Dojo Prodigy Kenzo. Use it only as the named-elite quality bar; do not copy his circlet, medallion, long half-sash, hakama, open-palm pose, face, or identity. The final three images are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, saturated controlled accents, and arcade-readable fighting-game anatomy. Do not copy any reference character\u0027s face, hair, costume, or identity.\r\n\r\nOne complete centered figure on uniform pure chroma-green RGB 0,255,0 with generous green margin on every side, including above the braid and below both shoes. No white karate gi, red headband, bare feet, tracksuit, long coat, long sash, hakama, military or tactical gear, armor, cargo pockets, skirt that hides either leg, photorealism, PBR, painterly blur, flat vector art, pixel art, weapon, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, extra limbs, missing costume anchors, or crop. 2K square identity pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_033223_62d2acee-ec01-4eae-983c-9323661c0efe.png",
+    "status":  "completed"
+}

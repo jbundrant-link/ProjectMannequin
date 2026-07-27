@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-22T07:22:09.854046Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "94af813b-cabd-449b-888a-3e2a1b9aa209",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_072209_94af813b-cabd-449b-888a-3e2a1b9aa209_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  4096,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "d27654f6-7647-4852-a24e-881c31f05391",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d27654f6-7647-4852-a24e-881c31f05391_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "3b66e7e3-190e-4802-b6e8-d26798b81096",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3b66e7e3-190e-4802-b6e8-d26798b81096.png"
+                                        },
+                                        {
+                                            "id":  "5aa4485a-2f88-4d19-9aee-436137c993c6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5aa4485a-2f88-4d19-9aee-436137c993c6_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e8988944-60c3-4e2d-8868-b47088f24514",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e8988944-60c3-4e2d-8868-b47088f24514.png"
+                                        },
+                                        {
+                                            "id":  "721a942c-7d5c-4ad2-aead-d5024c894ee3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/721a942c-7d5c-4ad2-aead-d5024c894ee3.png"
+                                        },
+                                        {
+                                            "id":  "a0ce6a16-1228-4314-a90a-36bd072ab2ae",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a0ce6a16-1228-4314-a90a-36bd072ab2ae.png"
+                                        },
+                                        {
+                                            "id":  "ededfdde-7245-4122-8d66-83433ada9d05",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ededfdde-7245-4122-8d66-83433ada9d05.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve World Warrior\u0027s warm ivory masonry, charcoal timber, indigo storm shadows, restrained vermilion cloth, jade foliage, and sparse saffron light. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production CHAMPION\u0027S COURTYARD BOSS ARENA FLOOR for Project Mannequin. EDIT the first supplied rejected V1 floor in place. Preserve only its weathered ivory, charcoal-indigo, blue-gray, and rare jade palette plus its clean contour language. V1 fails because it is a regular running-bond brick wall with continuous horizontal rows, repeated rectangular blocks, and long straight mortar lines.\r\n\r\nV2 GEOMETRY REBUILD: replace every existing brick and mortar line with exactly 12 enormous asymmetric interlocking flagstone polygons. Use varied five-to-eight-sided shapes with staggered nonparallel joints. No two stones may share the same dimensions. No joint may stay straight for more than 14 percent of canvas width or height. No horizontal or vertical line may cross more than one stone boundary. Rotate individual stone axes subtly so the texture reads as a strict top-down arena surface from every camera direction, never as masonry or a wall. Keep the largest quiet ivory stones in the center and move darker stones toward scattered non-symmetric positions.\r\n\r\nThe texture will map ONCE across a square bounded boss-arena mesh; it is not a scrolling road and does not need a decorative border. Carry generic stone naturally through every edge. No continuous row, column, grid, ring, radial pattern, centered emblem, perimeter curb, blank frame, clipped focal crack, or vegetation stripe. Keep all high-energy cracks and moss away from the outermost 8 percent.\r\n\r\nNo perspective convergence, horizon, sky, wall, architecture, timber, platform edge, stairs, circle, text, symbol, prop, hazard, character, cast shadow, realistic grit, microdetail, or photographic material. Full-bleed top-down production floor.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4096
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_072209_94af813b-cabd-449b-888a-3e2a1b9aa209.png",
+    "status":  "completed"
+}

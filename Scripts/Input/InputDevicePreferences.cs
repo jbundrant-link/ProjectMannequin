@@ -47,29 +47,10 @@ public static class InputDevicePreferences
     public static int ResolveP1Device()
     {
         var preference = Load();
-        if (!string.Equals(preference.DeviceKind, "gamepad", StringComparison.OrdinalIgnoreCase))
-        {
-            return GameConstants.KeyboardDeviceId;
-        }
-
-        var connected = Input.GetConnectedJoypads();
-        if (!string.IsNullOrWhiteSpace(preference.JoyGuid))
-        {
-            foreach (var deviceId in connected)
-            {
-                if (string.Equals(
-                        Input.GetJoyGuid(deviceId),
-                        preference.JoyGuid,
-                        StringComparison.OrdinalIgnoreCase))
-                {
-                    return deviceId;
-                }
-            }
-        }
-
-        return connected.Count > 0
-            ? connected[0]
-            : GameConstants.KeyboardDeviceId;
+        return LocalInputAssignmentPolicy.ResolvePreferredP1Device(
+            preference.DeviceKind,
+            preference.JoyGuid,
+            AvailableP1Devices());
     }
 
     public static string CurrentP1Label()

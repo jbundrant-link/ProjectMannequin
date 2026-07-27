@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-23T09:04:08.219861Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "f51f1a76-198f-44f9-ae69-08f114698ab9",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_090408_f51f1a76-198f-44f9-ae69-08f114698ab9_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "137c2088-b3f5-4620-83fc-d9ce4ce896ac",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/137c2088-b3f5-4620-83fc-d9ce4ce896ac.png"
+                                        },
+                                        {
+                                            "id":  "ef0ea9b3-205e-4f7b-8aa6-46a52962a8dd",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ef0ea9b3-205e-4f7b-8aa6-46a52962a8dd.png"
+                                        },
+                                        {
+                                            "id":  "826636ef-056d-4bec-83d3-49bb30f7b200",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/826636ef-056d-4bec-83d3-49bb30f7b200.png"
+                                        },
+                                        {
+                                            "id":  "4bafbc51-551f-40ae-aa10-ace90d52a4aa",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4bafbc51-551f-40ae-aa10-ace90d52a4aa.png"
+                                        },
+                                        {
+                                            "id":  "98aae4f1-54b4-4b76-b1fc-379d81223017",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/98aae4f1-54b4-4b76-b1fc-379d81223017.png"
+                                        },
+                                        {
+                                            "id":  "a720bf9f-443c-494f-b1e1-f9bd33be927f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a720bf9f-443c-494f-b1e1-f9bd33be927f.png"
+                                        },
+                                        {
+                                            "id":  "0bea9459-9acb-4729-a0de-1fdd31dc79e2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0bea9459-9acb-4729-a0de-1fdd31dc79e2.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Create a corrected production IRON GATE CLINCH startup/active source sheet for WORLD WARRIOR GRAND GRAPPLER TETSU.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the exact approved Tetsu identity authority. Preserve his exact bald head, stern face, two blunt square beard braids, massive rectangular body, boxy vermilion and warm-ivory vest, indigo waist wrap, charcoal shorts, plum forearm wraps, saffron ankle cords, ivory-toed shoes, square bronze left-hip seal, colors, right-facing three-quarter camera, cel shading, and light in all five poses.\r\n2. Reference 2 is the rejected v1 startup and supplies choreography order only. Its top-right wide-arm figure is clipped at the right canvas edge and MUST NOT be copied at its failed scale or framing. Preserve the progression from guard to open gates to inward clinch, but redraw every figure complete.\r\n3. Reference 3 is Tournament Grappler for shared World Warrior heavyweight cloth grammar only. Do not copy his curls, silver forelock, diagonal tunic, loose trousers, round token, low shoulder drive, face, or identity.\r\n4. Reference 4 is Pavilion Ace Makoto for named-elite finish quality only. Do not copy her body, braid, costume, stance, or identity.\r\n5-7. References 5-7 are canonical rendering-finish anchors only. Match their confident dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, and arcade-readable fighting-game anatomy. Do not copy any reference identity.\r\n\r\nProduce exactly FIVE distinct complete full-body IRON GATE CLINCH startup/active poses arranged as three figures on the top row and two figures on the bottom row, ordered left-to-right then top-to-bottom:\r\n1. Upright extra-wide open-hand clinch guard, both feet planted.\r\n2. Lead foot makes one broad forward step while both elbows open and both hands remain visibly open.\r\n3. Both arms spread chest-high like two heavy gates around an imaginary opponent, torso tall, palms facing inward, every fingertip and elbow fully visible.\r\n4. Hips settle as both forearms sweep inward in a square body-lock arc, hands still separate and open.\r\n5. Strongest active silhouette: an upright crushing two-arm body-lock entry at chest and rib height, both open arms clearly curved inward around an imaginary torso, elbows behind hands, chest advanced, knees flexed, both feet planted wide, head above the imaginary shoulder line.\r\n\r\nFRAMING IS ABSOLUTE. Use one consistent smaller character scale across all five figures. Each figure must fit entirely inside its own implied cell. In the three-figure top row, each complete figure must remain within one third of the canvas width with at least 64 pixels of green between neighboring figures. Preserve at least 96 pixels of pure green outside the leftmost and rightmost body points, above every head and raised hand, below every shoe, and around the bottom-row figures. Pose 3 must be scaled down enough that both wide open hands, fingertips, elbows, and shoulders fit with clear green on both sides. No body part may touch any canvas edge.\r\n\r\nEvery figure faces right in the same three-quarter camera and remains on uniform pure chroma-green RGB 0,255,0. No low shoulder tackle, Tournament Grappler Shoulder Drive, punch, closed striking fist, clasped hands, crossed wrists, target figure, contact, throw victim, impact, speed line, motion blur, back-facing turn, recovery pose, scalp hair, missing beard braid, missing square seal, extra limb, touching figures, border, text, floor, shadow, scene, or crop. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_090408_f51f1a76-198f-44f9-ae69-08f114698ab9.png",
+    "status":  "completed"
+}

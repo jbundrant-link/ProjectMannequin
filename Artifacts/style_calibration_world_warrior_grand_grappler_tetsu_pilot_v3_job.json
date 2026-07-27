@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-23T07:37:15.020566Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "00f122bb-d8ca-474f-abfd-998c6b0b1ee8",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_073715_00f122bb-d8ca-474f-abfd-998c6b0b1ee8_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "d8cddc2b-6ee5-43d1-8620-f5bc95e0fcdd",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d8cddc2b-6ee5-43d1-8620-f5bc95e0fcdd.png"
+                                        },
+                                        {
+                                            "id":  "5de6d035-7faf-4775-afd6-8711ee5edf22",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5de6d035-7faf-4775-afd6-8711ee5edf22.png"
+                                        },
+                                        {
+                                            "id":  "491a2054-e2cf-40bf-a429-02d9e61c5ca2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/491a2054-e2cf-40bf-a429-02d9e61c5ca2.png"
+                                        },
+                                        {
+                                            "id":  "2ae7c11b-d6d8-4642-b740-cbf14e38b003",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2ae7c11b-d6d8-4642-b740-cbf14e38b003.png"
+                                        },
+                                        {
+                                            "id":  "55e68c52-4e5c-4434-b6fa-17c95d446ed9",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/55e68c52-4e5c-4434-b6fa-17c95d446ed9.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. REFRAME the exact WORLD WARRIOR GRAND GRAPPLER TETSU from the first supplied image as one approved-quality full-body identity pilot on pure chroma green. This is a composition and background correction only, not a redesign. Preserve the first image\u0027s exact face, bald head, twin beard braids, deep warm-brown skin, massive rectangular anatomy, upright right-facing three-quarter clinch stance, open hands, boxy vermilion vest, ivory side panels, indigo waist wrap, charcoal shorts, plum forearm wraps, calf wraps, saffron ankle cords, ivory-toed shoes, square bronze left-hip seal, colors, contours, cel shading, and light direction. Do not alter, simplify, embellish, or reinterpret the character.\r\n\r\nTetsu is a monolithic veteran grappling champion: very tall, extremely broad rectangular torso, thick waist, massive rounded shoulders, huge forearms, pillar-like thighs and calves, deep warm-brown skin, stern calm square face, broad nose, smooth shaved head, and one enormous dense charcoal beard divided into TWO short blunt square braids capped with restrained saffron bands. No scalp hair, forelock, moustache-only face, scars, or angry screaming expression. The bald crown and twin square beard braids are mandatory head-and-silhouette anchors.\r\n\r\nHis costume is ceremonial tournament cloth, never armor: a boxy sleeveless vermilion champion vest with a high deep-indigo stand collar, closed front, broad warm-ivory vertical side panels, and narrow saffron edge piping; a very wide deep-indigo ribbed waist wrap; charcoal knee-length grappling shorts with separate warm-ivory rectangular side blocks and clear space between both legs; wide plum forearm wraps leaving both hands bare; narrow saffron ankle cords over charcoal calf wraps; low deep-indigo split-sole wrestling shoes with warm-ivory toe caps; and one large flat BRONZE SQUARE champion seal fixed off-center at the LEFT hip with a simple vermilion diamond inset. The boxy vest, twin beard braids, pillar shorts silhouette, ivory toe caps, and offset square seal are mandatory identity anchors.\r\n\r\nTetsu is the elite counterpart to the Tournament Grappler, but must be a separate champion rather than a recolor, older version, or costume variant. His fighting identity is upright immovable clinch control, not the base Grappler\u0027s low forward-pitched shoulder-entry pose. Keep his torso rectangular rather than tapered, his head bald rather than curly, and his hands open rather than clenched.\r\n\r\nThe first supplied image is the absolute Tetsu identity and pose authority. The second supplied image is the approved Tournament Grappler; use it ONLY to retain shared World Warrior cloth material grammar. Do not copy his short black curls, silver forelock, clean-shaven face, diagonal plum wrap tunic, centered round belt token, brick-red loose trousers, low forward lean, face, or exact proportions. The final three supplied images are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Retain their confident dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, saturated controlled accents, and arcade-readable fighting-game anatomy. Do not copy any reference character\u0027s face, hair, costume, body, or identity.\r\n\r\nCAMERA FRAMING IS MANDATORY: zoom out and make the complete figure occupy only about 72 to 78 percent of the square canvas height and no more than 70 percent of its width. Preserve at least 160 pixels of uninterrupted pure green above the bald head, below both shoes, and outside the leftmost and rightmost body points. Do not enlarge the body to fill the frame.\r\n\r\nOne complete centered figure on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side. No white karate gi, red headband, bare feet, diagonal wrap tunic, centered round belt token, brick-red baggy trousers, long coat, cape, mantle, long sash, hakama, skirt, singlet, championship belt, tactical or military gear, armor, cargo pockets, knee pads, combat boots, photorealism, PBR, painterly blur, flat vector art, pixel art, weapon, chain, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, extra limbs, missing beard braid, missing square seal, closed fist, duplicate figure, tight framing, or crop. 2K square identity pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_073715_00f122bb-d8ca-474f-abfd-998c6b0b1ee8.png",
+    "status":  "completed"
+}

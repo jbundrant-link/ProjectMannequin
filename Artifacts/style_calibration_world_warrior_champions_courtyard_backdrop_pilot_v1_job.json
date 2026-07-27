@@ -1,0 +1,72 @@
+﻿{
+    "created_at":  "2026-07-20T08:14:25.299734Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "d12b6806-d831-4bb1-8028-82ddcd55f7e9",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_081425_d12b6806-d831-4bb1-8028-82ddcd55f7e9_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "e35cfb32-3de5-41c9-af86-d0654b079ce2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e35cfb32-3de5-41c9-af86-d0654b079ce2_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "d7e02a9e-6073-4ee1-ae94-cb36507f789e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d7e02a9e-6073-4ee1-ae94-cb36507f789e_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "fa30e8f3-d4b9-4e30-b8cb-599c6292ae95",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fa30e8f3-d4b9-4e30-b8cb-599c6292ae95_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "803f13f0-f0e5-4b63-b72b-46880d39c472",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/803f13f0-f0e5-4b63-b72b-46880d39c472_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "eb31bc11-3c12-4703-adf3-9abdee7062d2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/eb31bc11-3c12-4703-adf3-9abdee7062d2.png"
+                                        },
+                                        {
+                                            "id":  "c1e7712a-b1df-461e-99e9-492904eee56c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c1e7712a-b1df-461e-99e9-492904eee56c.png"
+                                        },
+                                        {
+                                            "id":  "1acdca9c-9c31-4bdc-bece-4e19bd6fd550",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1acdca9c-9c31-4bdc-bece-4e19bd6fd550.png"
+                                        },
+                                        {
+                                            "id":  "4b343ae8-109c-45c1-80fe-2a0b7bd07c9a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4b343ae8-109c-45c1-80fe-2a0b7bd07c9a.png"
+                                        },
+                                        {
+                                            "id":  "215aaf71-8557-4e2e-a5ae-8a0d4a46c0eb",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/215aaf71-8557-4e2e-a5ae-8a0d4a46c0eb.png"
+                                        },
+                                        {
+                                            "id":  "e65dc146-b147-41f1-9462-5ad3200a95d7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e65dc146-b147-41f1-9462-5ad3200a95d7.png"
+                                        }
+                                    ],
+                   "prompt":  "Produce ONE seamless continuous 21:9 side-on belt-scroll CHAMPION\u0027S COURTYARD BACKDROP PILOT for Project Mannequin. This is World Warrior Stage 4: the quiet final-duel courtyard where Ryu waits after the public tournament. It must feel intimate, austere, weather-changed, and fighter-focused, never another public stadium, lantern circuit, or dojo approach.\r\n\r\nBuild one uninterrupted flat lateral elevation with three asymmetric but connected final-duel subzones at one horizon and scale. LEFT: a low cracked warm-ivory courtyard wall opening onto dark cypress trees, with one extinguished stone brazier and folded indigo rain cloth. CENTER-LEFT: a modest roofless champion shrine wall with two broad blank vermilion cloth panels, a shallow weathered stone bench, and one restrained saffron torch; no altar icon or text. RIGHT: a broken open training arcade with charcoal timber posts, a second torch, rain-dark plaster, and a far-edge champion entry opening beneath a wind-bent canopy. Connect the spaces through low damaged stone walls, shallow puddle-dark masonry bases, sparse torch rhythm, and distant storm mountains under a deep indigo cloud break. Use cool storm-blue and charcoal as the dominant hierarchy, warm ivory for readable wall planes, restrained vermilion cloth, and sparse saffron fire.\r\n\r\nCOMPOSITION FOR THE FIXED GAME CAMERA: keep every wall, roof remnant, torch, and courtyard landmark within the middle 46 percent of image height. Reserve the upper 32 percent for storm sky, distant mountains, and wind-shaped cloud bands. Reserve the lower 24 percent as a simple dark low-contrast wall/plinth behind fighters. Keep structures lower and quieter than Grand Tournament Floor; no giant close-up. Use broad lateral shapes, one consistent horizon, and at least three open sky gaps so the duel feels exposed to weather.\r\n\r\nThe first three images are approved Dojo, Pavilion, and Grand Tournament production backdrops. Match only their seamless side-on production format, controlled contours, broad cel-painted planes, and World Warrior material grammar. Do not copy Dojo\u0027s compound, Pavilion\u0027s lantern arcade, or Grand Tournament\u0027s public terraces/trophy architecture. The fourth image is the rejected Tournament District composite and is STRUCTURE/PALETTE REFERENCE ONLY; do not copy its people, signs, storefronts, floor, or composition. The next three images are approved original World Warrior roster anchors. The final three images are canonical mannequin, Ryu, and Goku rendering anchors; Ryu defines only final-duel seriousness and rendering finish, not a character to include.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK. Match the approved references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-three-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. High fidelity comes from composition, lighting, and finish, not PBR texture noise.\r\n\r\nNo floor, road, fighting lane, foreground rail, people, spectators, fighters, Ryu, crowd silhouettes, training dummies, gameplay props, active hazards, lightning strikes, projectiles, pickups, text, letters, numbers, calligraphy, signs, logos, UI, divider bars, panel seams, triptych framing, centered gate, centered staircase, mirror symmetry, corridor, tunnel, strong perspective convergence, photorealism, PBR, gritty military sci-fi, dense stone/roof microdetail, painterly blur, flat vector art, or baked character shadows. Full-bleed production backdrop with no border.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_081425_d12b6806-d831-4bb1-8028-82ddcd55f7e9.png",
+    "status":  "completed"
+}

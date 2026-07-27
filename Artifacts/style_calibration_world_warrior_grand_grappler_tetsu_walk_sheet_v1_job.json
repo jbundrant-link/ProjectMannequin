@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-23T08:02:38.298833Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "3f079926-dae8-4d89-a9de-e77b27f63d04",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_080238_3f079926-dae8-4d89-a9de-e77b27f63d04_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "28d97d7a-bf7e-48d0-a962-0f4530400390",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/28d97d7a-bf7e-48d0-a962-0f4530400390.png"
+                                        },
+                                        {
+                                            "id":  "b08eb5a4-d14e-48cb-8109-52c468608001",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b08eb5a4-d14e-48cb-8109-52c468608001_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e3a6e581-cdb1-4077-b34c-3d54bf90a080",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e3a6e581-cdb1-4077-b34c-3d54bf90a080.png"
+                                        },
+                                        {
+                                            "id":  "4f9b5be1-0169-4ed3-8e26-e24eaffab260",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4f9b5be1-0169-4ed3-8e26-e24eaffab260.png"
+                                        },
+                                        {
+                                            "id":  "a9b4cc9c-7592-4daf-bda0-2a92a2ff4fbc",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a9b4cc9c-7592-4daf-bda0-2a92a2ff4fbc.png"
+                                        },
+                                        {
+                                            "id":  "d98834f5-2164-4615-b591-9b83b4f64029",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d98834f5-2164-4615-b591-9b83b4f64029.png"
+                                        },
+                                        {
+                                            "id":  "a98c22d6-e786-4a34-820e-ae57a41110e6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a98c22d6-e786-4a34-820e-ae57a41110e6.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR GRAND GRAPPLER TETSU identity and absolute authority. The WORLD WARRIOR GRAND GRAPPLER TETSU is one exact original older adult man: very tall monolithic heavyweight with a broad rectangular torso, thick waist, massive rounded shoulders, huge forearms, pillar-like thighs and calves, and deep warm-brown skin; stern calm square face with broad nose; smooth shaved head; enormous dense charcoal beard divided into two short blunt square braids capped with restrained saffron bands; boxy sleeveless vermilion champion vest with high deep-indigo stand collar, closed front, broad warm-ivory vertical side panels, and narrow saffron piping; very wide deep-indigo ribbed waist wrap; charcoal knee-length grappling shorts with separate warm-ivory rectangular side blocks; wide plum forearm wraps with bare hands; charcoal calf wraps with narrow saffron ankle cords; low deep-indigo split-sole wrestling shoes with warm-ivory toe caps; and one large flat bronze square champion seal fixed off-center at the left hip with a vermilion diamond inset. Preserve his exact face, bald head, twin beard geometry, massive rectangular proportions, costume geometry, colors, light direction, and right-facing three-quarter camera in every pose. The second supplied image is choreography/layout reference only; copy its requested timing and body flow, never its identity. The third image is the approved Tournament Grappler for shared World Warrior heavyweight cloth/material grammar only; do not copy his face, hair, diagonal tunic, trousers, low shoulder posture, centered round token, or identity. The fourth image is approved Pavilion Ace Makoto for named-elite finish quality only; do not copy her face, braid, mantle, panels, body, stance, or identity. The final three images are canonical rendering-finish anchors only. Match controlled dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, saturated controlled accents, and arcade-readable fighting-game anatomy. Do not copy any reference character\u0027s face, hair, costume, body, or identity.\r\n\r\nEvery figure must be complete and separated on uniform pure chroma-green RGB 0,255,0. No scalp hair, curls, silver forelock, clean-shaven face, diagonal plum wrap tunic, centered round token, brick-red loose trousers, low shoulder-entry copy of Tournament Grappler, white karate gi, red headband, bare feet, long coat, cape, mantle, long sash, hakama, skirt, wrestling singlet, championship belt, tactical or military gear, armor, cargo pockets, knee pads, combat boots, photorealism, PBR, painterly blur, flat vector art, pixel art, weapon, chain, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, touching figures, extra limbs, missing beard braid, missing square seal, duplicate pose, or crop.\nProduce exactly EIGHT full-body heavy WALK poses in a clean 4 columns by 2 rows. All face right. Ordered left-to-right, top then bottom: 1 left-foot heel contact; 2 left-leg down/compression; 3 left leg planted while right leg passes; 4 left-leg high point and right leg advances; 5 right-foot heel contact; 6 right-leg down/compression; 7 right leg planted while left leg passes; 8 right-leg high point and left leg advances. Use slow powerful alternating steps, upright rectangular torso, broad open-hand carriage, clearly different planted feet, and visible separation between both legs. Twin beard braids and square hip seal counter-swing slightly without changing sides. Same scale and baseline with large green separation. No shuffle, glide, march, run, attack, repeated lead leg, or duplicate pose. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_080238_3f079926-dae8-4d89-a9de-e77b27f63d04.png",
+    "status":  "completed"
+}

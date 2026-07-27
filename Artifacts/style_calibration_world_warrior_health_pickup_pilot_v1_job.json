@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-24T01:26:56.980676Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "08fd3082-6ee3-4c56-a509-8b12c5840cde",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_012656_08fd3082-6ee3-4c56-a509-8b12c5840cde_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "340b3532-a3e9-4256-9c96-41f8888641b0",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/340b3532-a3e9-4256-9c96-41f8888641b0.png"
+                                        },
+                                        {
+                                            "id":  "eb56b08a-511f-41b6-9beb-d1913f98aca1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/eb56b08a-511f-41b6-9beb-d1913f98aca1_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "686b2daa-83dc-4d0b-bdec-9c5e2dcef2af",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/686b2daa-83dc-4d0b-bdec-9c5e2dcef2af_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e3caf901-1731-457b-aa37-55d692d5384f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e3caf901-1731-457b-aa37-55d692d5384f.png"
+                                        },
+                                        {
+                                            "id":  "e23e3877-5fae-40f4-969a-7fa8b96ec61b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e23e3877-5fae-40f4-969a-7fa8b96ec61b.png"
+                                        },
+                                        {
+                                            "id":  "54f8ab60-6e36-4a47-a3e4-9e277142790e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/54f8ab60-6e36-4a47-a3e4-9e277142790e.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-object IDENTITY / FUNCTION PILOT of the WORLD WARRIOR VITALITY GOURD, a small original health-recovery pickup viewed in a clean right-facing three-quarter angle, centered and fully visible.\r\n\r\nThe pickup must read instantly as restorative martial-arts provision at arcade gameplay size without using a medical cross, heart icon, crystal, text, or generic potion bottle. Build one compact, bottom-heavy, hand-carried CALABASH GOURD with this exact large-form hierarchy:\r\n- a distinctive double-lobed warm-ivory ceramic body, smaller round upper bulb and broader lower bulb joined by a narrow waist;\r\n- one chunky saffron-gold cork and collar at the top;\r\n- one asymmetrical fresh jade-green medicinal leaf sprig with exactly three broad leaves emerging beside the cork;\r\n- one wide vermilion braided tournament cord wrapped around the narrow waist, tied into a large simple side knot with two short cloth tails;\r\n- one deep-indigo lacquered protective foot cradle under the lower bulb, shaped as three broad upward petals rather than a bottle base;\r\n- one simple jade-green leaf-shaped ceramic inlay centered on the lower bulb, large enough to survive at 64 pixels, with no surrounding symbol or text.\r\n\r\nFunction must come from unmistakable food/herbal cues: the calabash silhouette, fresh medicinal leaves, sealed restorative vessel, and clean nourishing color hierarchy. Keep the object pristine, desirable, and easy to collect. Use only a few large components with thick contours. It must remain legible when reduced to roughly 64, 80, and 96 pixels tall. The lower bulb and indigo cradle should form a stable grounded silhouette; do not make it float or emit a large aura.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the approved World Warrior training dummy. Use only its confident contour weight, warm ivory/vermilion/deep-indigo/saffron material hierarchy, simplified cel planes, and practical tournament-equipment finish. Do not copy its post, targets, side arms, base, break seams, proportions, or silhouette.\r\n2. Reference 2 is the approved Dojo Approach environment. Use only its worn lacquered wood, warm ivory cloth/ceramic feeling, muted vermilion accents, and grounded martial-arts identity. Do not reproduce any architecture, floor, trees, or scene.\r\n3. Reference 3 is the approved Pavilion Circuit environment. Use only its refined champion-equipment finish and clean vermilion/deep-indigo/saffron hierarchy. Do not reproduce architecture, lanterns, drums, platform, mountains, or scene.\r\n4-6. References 4-6 are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, clean designed highlights, simplified materials, saturated controlled accents, and arcade-readable 2.5D fighting-game volume. Do not copy any character\u0027s face, body, costume, anatomy, or identity.\r\n\r\nOne complete centered pickup on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side, including above the cork and leaves, outside the cord tails, and below the complete indigo cradle. No medical cross, plus sign, heart shape, heart container, Archive crystal, gemstone, shard, floating orb, glowing cube, syringe, pill, bandage roll, potion bottle, glass flask, branded product, food package, text, letters, numbers, kanji, logo, face, eyes, mouth, person, creature, weapon, crate, chest, explosive warning, detached pieces, large aura, rays, sparkles, floor, cast shadow, scenery, room, architecture, border, grid, duplicate object, photorealism, PBR, painterly blur, flat vector art, pixel art, or crop. 2K square pickup pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_012656_08fd3082-6ee3-4c56-a509-8b12c5840cde.png",
+    "status":  "completed"
+}

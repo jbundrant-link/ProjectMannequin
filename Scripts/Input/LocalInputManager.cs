@@ -98,23 +98,14 @@ public partial class LocalInputManager : Node
 
     public bool TrySetAssignedDevice(int playerId, int deviceId, bool persistP1Preference = true)
     {
-        if (playerId < 1 || playerId > GameConstants.MaxPlayers)
+        var connected = Godot.Input.GetConnectedJoypads();
+        if (!LocalInputAssignmentPolicy.CanAssign(
+                _assignedDevices,
+                playerId,
+                deviceId,
+                connected))
         {
             return false;
-        }
-
-        if (deviceId != GameConstants.KeyboardDeviceId
-            && !Godot.Input.GetConnectedJoypads().Contains(deviceId))
-        {
-            return false;
-        }
-
-        for (var slot = 0; slot < _assignedDevices.Length; slot++)
-        {
-            if (slot != playerId - 1 && _assignedDevices[slot] == deviceId)
-            {
-                return false;
-            }
         }
 
         _assignedDevices[playerId - 1] = deviceId;
@@ -123,46 +114,63 @@ public partial class LocalInputManager : Node
             InputDevicePreferences.SelectP1Device(deviceId);
         }
 
+        if (playerId == 1)
+        {
+            InputGlyphs.Invalidate();
+        }
+
         return true;
     }
 
     private void AssignDefaultDevices()
     {
-        for (var slot = 0; slot < _assignedDevices.Length; slot++)
-        {
-            _assignedDevices[slot] = int.MinValue;
-        }
-
-        var playerOneDevice = InputDevicePreferences.ResolveP1Device();
-        _assignedDevices[0] = playerOneDevice;
-
+        var previousPlayerOne = _assignedDevices.Length > 0
+            ? _assignedDevices[0]
+            : GameConstants.KeyboardDeviceId;
         var joypads = Godot.Input.GetConnectedJoypads();
-        var nextPlayerSlot = 1;
-        for (var index = 0; index < joypads.Count && nextPlayerSlot < GameConstants.MaxPlayers; index++)
-        {
-            if (joypads[index] == playerOneDevice)
-            {
-                continue;
-            }
+        var assignments = LocalInputAssignmentPolicy.BuildAssignments(
+            GameConstants.MaxPlayers,
+            joypads,
+            InputDevicePreferences.ResolveP1Device());
+        assignments.CopyTo(_assignedDevices, 0);
 
-            _assignedDevices[nextPlayerSlot++] = joypads[index];
+        if (_assignedDevices.Length > 0 && _assignedDevices[0] != previousPlayerOne)
+        {
+            // Relabel every prompt and move-list entry for the new device, and
+            // leave a record the HUD can surface so a pad dropping mid-run is
+            // not silent.
+            InputGlyphs.Invalidate();
+            PendingDeviceNotice = _assignedDevices[0] == GameConstants.KeyboardDeviceId
+                ? "CONTROLLER DISCONNECTED - KEYBOARD ACTIVE"
+                : $"CONTROLLER CONNECTED - {InputDevicePreferences.CurrentP1Label().ToUpperInvariant()}";
         }
+    }
+
+    /// <summary>
+    /// Set when Player 1's device changes. The HUD consumes and clears it.
+    /// </summary>
+    /// <remarks>
+    /// Deliberately not a simulation presentation event: device changes are
+    /// wall-clock, not tick-deterministic, and must never enter replay state.
+    /// </remarks>
+    public static string? PendingDeviceNotice { get; private set; }
+
+    public static string? ConsumeDeviceNotice()
+    {
+        var notice = PendingDeviceNotice;
+        PendingDeviceNotice = null;
+        return notice;
     }
 
     private void RefreshDeviceAssignments()
     {
         var connected = Godot.Input.GetConnectedJoypads();
         var desiredPlayerOneDevice = InputDevicePreferences.ResolveP1Device();
-        var assignmentInvalid = _assignedDevices[0] != desiredPlayerOneDevice;
-        for (var slot = 0; slot < _assignedDevices.Length && !assignmentInvalid; slot++)
-        {
-            var assigned = _assignedDevices[slot];
-            assignmentInvalid = assigned != int.MinValue
-                && assigned != GameConstants.KeyboardDeviceId
-                && !connected.Contains(assigned);
-        }
-
-        if (assignmentInvalid)
+        if (LocalInputAssignmentPolicy.ShouldRefresh(
+                _replaySource is not null,
+                _assignedDevices,
+                connected,
+                desiredPlayerOneDevice))
         {
             AssignDefaultDevices();
         }
@@ -212,19 +220,29 @@ public partial class LocalInputManager : Node
             mask |= InputButtons.Down | InputButtons.Crouch;
         }
 
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.X)) mask |= InputButtons.LightPunch;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.Y)) mask |= InputButtons.MediumPunch;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.RightShoulder)) mask |= InputButtons.HeavyPunch;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.A)) mask |= InputButtons.LightKick;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.B)) mask |= InputButtons.MediumKick;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.LeftShoulder)) mask |= InputButtons.HeavyKick;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.LeftStick)) mask |= InputButtons.Dash;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.RightStick)) mask |= InputButtons.FormSwap;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.Misc1)) mask |= InputButtons.Jump;
-        if (Godot.Input.GetJoyAxis(deviceId, JoyAxis.TriggerLeft) > 0.35f) mask |= InputButtons.Block;
-        if (Godot.Input.GetJoyAxis(deviceId, JoyAxis.TriggerRight) > 0.35f) mask |= InputButtons.Grab;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.Start)) mask |= InputButtons.Start;
-        if (Godot.Input.IsJoyButtonPressed(deviceId, JoyButton.Back)) mask |= InputButtons.Assist;
+        // Read the shared binding table rather than a second copy of it, so the
+        // glyphs shown in the move list can never disagree with what the pad
+        // actually does.
+        foreach (var (button, joyButton) in GamepadBindings.ButtonMap)
+        {
+            if (Godot.Input.IsJoyButtonPressed(deviceId, joyButton))
+            {
+                mask |= button;
+            }
+        }
+
+        // Analog triggers, so they are not part of the button table.
+        if (Godot.Input.GetJoyAxis(deviceId, GamepadBindings.BlockAxis)
+            > GamepadBindings.TriggerThreshold)
+        {
+            mask |= InputButtons.Block;
+        }
+
+        if (Godot.Input.GetJoyAxis(deviceId, GamepadBindings.GrabAxis)
+            > GamepadBindings.TriggerThreshold)
+        {
+            mask |= InputButtons.Grab;
+        }
 
         return mask;
     }

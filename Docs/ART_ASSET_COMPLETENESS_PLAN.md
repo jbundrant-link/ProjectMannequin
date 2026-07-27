@@ -40,7 +40,8 @@ A stage or phase is complete only when every applicable requirement passes:
 8. **Canonical style references** — every generated-art job uses approved mannequin/Ryu/Goku anchors; an off-style asset is never the sole reference for another asset.
 9. **Style rubric** — every asset passes the visual bible at 14/16 or better, with no automatic-fail condition and explicit review metadata.
 10. **Runtime cohesion QA** — inspect beside approved characters at 1280×720 and 1920×1080 for style cohesion, seams, scale, contrast, occlusion, telegraph readability, and detail noise.
-11. **Performance** — new art stays within texture-memory and draw-call budgets and does not introduce recurring frame hitches.
+11. **Lighting contract** — stage and backdrop art authored after the `Stage Rendering And Depth Separation Pass` must agree with the per-stage key direction locked by that pass. Painted lighting that contradicts the runtime key is a failure, not a style preference. Art produced before that lock is provisional and is re-reviewed against it.
+12. **Performance** — new art stays within texture-memory and draw-call budgets and does not introduce recurring frame hitches.
 
 ## Mandatory style workflow
 
@@ -55,12 +56,12 @@ A stage or phase is complete only when every applicable requirement passes:
 ## Verified audit baseline
 
 - Archive Nexus previously derived four ladder stages from one district art source.
-- World Warrior Sector previously derived all four ladder stages from one tournament composite; Dojo Approach now uses an approved independent layered environment, while Stages 2–4 still require replacement.
+- World Warrior Sector previously derived all four ladder stages from one tournament composite; Dojo Approach, Pavilion Circuit, Grand Tournament Floor, and Champion's Courtyard now use four independent runtime-approved layered environment families.
 - Astral Battlefront has four route paintings, but repeats route images and uses hero imagery as its floor fallback.
-- Archive named elites previously reused base archetype sheets with a gold tint/stat boost; Veyra, Rhune, and Basalt now use distinct animation-ready atlases. Other worlds remain pending.
+- Archive named elites previously reused base archetype sheets with a gold tint/stat boost; Veyra, Rhune, and Basalt now use distinct animation-ready atlases. World Warrior Kenzo, Makoto, and Tetsu are also complete; the Astral elites remain pending.
 - The prior boulder, crate, and meter-pickup paths were missing.
 - Health, meter, and score pickups previously referenced the same missing image and differed by tint.
-- Hazard presentation still uses procedural strips/discs as its deterministic accessibility layer, with runtime-approved Intake Tram, Index Vault scans, Repository falling/sweep emitters, and persistent aftermath art layered above it.
+- Hazard presentation still uses procedural strips/discs as its deterministic accessibility layer, with runtime-approved Intake Tram, Index Vault scans, Repository falling/sweep emitters, and persistent aftermath art layered above it. The reusable deterministic `PushZone` runtime and validation contract are implemented; its first production-authored art/use remains in the Astral pass.
 - The first Archive environment and gameplay-object replacement pass solved missing/reused-path problems but drifted toward dense realistic hard-surface sci-fi. The seven gameplay objects, all four Archive environments, the Archive Knight combat/intro package, Reliquary phase spectacle, gameplay HUD, Archive Map, results, pause, and form-select have since been superseded at runtime by approved style-v2 families. Archive art and shared UI are complete.
 - The gameplay HUD now uses the approved Living Archive broadcast frame and active-form portraits; the Archive Map uses an illustrated navigation chamber with native route and checkpoint controls.
 
@@ -139,7 +140,7 @@ All seven style-v2 objects are independent real-alpha images with function-speci
 
 Current Archive enemy/object/hazard/environment/UI verification on 2026-07-17: clean build, 140/140 world-run assertions plus 37/37 stage-hazard assertions (177/177 aggregate), 16/16 Archive Map model assertions, 12/12 results-flow model assertions, 4/4 form-select model assertions, seven results route smokes, complete pause and form-select UI smokes, Stage 1–4 ladder summaries, and responsive runtime evidence for every approved Archive content/UI family.
 
-Current cross-world verification after Dojo Approach, Dojo Rookie, and Pavilion Striker integration: 146/146 world-run assertions plus 37/37 stage-hazard assertions (183/183 aggregate), with exact Rookie and Striker idle/active ladders passing at 720p and 1080p.
+Current cross-world verification after the World Warrior Sparring Supply Crate, Judge's Laurel Fan, walk-cycle QA expansion, and director-level PushZone integration: 190/190 world-run assertions plus 47/47 stage-hazard assertions (237/237 aggregate), with exact Rookie, Striker, Grappler, Kenzo, Makoto, Tetsu, training dummy, supply crate, health pickup, meter pickup, score pickup, Dojo, Pavilion, Grand Tournament, and Champion's Courtyard evidence passing at 720p and 1080p.
 
 ### Completed animated enemy and elite replacement
 
@@ -150,6 +151,15 @@ Current cross-world verification after Dojo Approach, Dojo Rookie, and Pavilion 
 - Archive Knight intro — 16/16 eight-frame real-alpha atlas and explicit illustrated matchup portraits with the approved Knight identity, stable peak/ready cadence, and no legacy purple or procedural-card fallback.
 - World Warrior Dojo Rookie — 16/16 original indigo/saffron rushdown identity with seven style-locked source sheets, 60 populated atlas frames, exact Quick Palm phase timing, and dual-resolution Stage 1 evidence. The Ryu-derived legacy atlas remains provenance only.
 - World Warrior Pavilion Striker — 16/16 original vermilion/indigo kick specialist with 60 populated frames, exact Turning Kick phase timing, and dual-resolution Stage 2 evidence. Deterministic component filtering excludes generated source-sheet dividers and stray shoes without touching intended figures.
+- World Warrior Tournament Grappler — 16/16 original plum/indigo heavyweight wrestler with 60 populated frames, exact Shoulder Drive phase timing, and dual-resolution Stage 3 evidence. Weak v1 and v2a attack sources remain rejected provenance.
+- World Warrior Dojo Prodigy Kenzo — 16/16 distinct named-elite archetype with a unique 60-frame atlas, exact Master Palm timing, unique arcade-profile identity, and dual-resolution Stage 1 evidence. Fist-bearing v1 and back-facing v2 startup sources remain rejected provenance.
+- World Warrior Pavilion Ace Makoto — 16/16 distinct named-elite archetype with a unique 60-frame atlas, exact Crescent Heel timing, unique arcade-profile identity, and dual-resolution Stage 2 evidence. Three failed walk revisions remain rejected provenance; accepted v4 passes the six-distinct-pose gate.
+- World Warrior Grand Grappler Tetsu — 16/16 distinct named-elite archetype with a unique 60-frame atlas, exact Iron Gate Clinch timing, unique arcade-profile identity, and dual-resolution Stage 3 evidence. Rejected pilot, two-pose walk, clipped startup, and seven-figure misc revisions remain provenance; accepted walk v2 passes eight distinct poses.
+- World Warrior training dummy — 16/16 nonhumanoid breakable practice post with unique real-alpha art, calibrated 2.8-unit runtime scale, 90 HP, guaranteed Vitality Gourd health drop, and clean intact/gourd-drop evidence at both target resolutions.
+- World Warrior Vitality Gourd — 16/16 independent health pickup with unique real-alpha calabash art, calibrated 0.74-unit runtime scale, guaranteed training-dummy drop, exact 25-percent healing, and clean drop/collection evidence at both target resolutions.
+- World Warrior Focus Drum — 16/16 independent meter pickup with unique real-alpha hourglass-drum art, calibrated 0.74-unit runtime scale, guaranteed Pavilion training-dummy drop, capped 200-meter grant, and clean drop/collection evidence at both target resolutions.
+- World Warrior Judge's Laurel Fan — 16/16 independent score pickup with unique real-alpha ceremonial-fan art, calibrated 0.74-unit runtime scale, guaranteed Grand Tournament training-dummy drop, exact 1000-point grant, and clean drop/collection evidence at both target resolutions.
+- World Warrior Sparring Supply Crate — 15/16 independent breakable crate with unique real-alpha timber/lacquer art, calibrated 1.30-unit runtime scale, 70 HP, guaranteed Focus Drum drop in the Dojo Approach second encounter, and clean intact/break-drop/collection evidence at both target resolutions.
 - Atlas contract — 10×9 at 256-pixel cells; rows 0–5 map locomotion, signature attack, and defensive/defeat states; rows 6–8 remain transparent.
 
 ### Completed shared UI production
@@ -181,17 +191,32 @@ Current cross-world verification after Dojo Approach, Dojo Rookie, and Pavilion 
 15. **DONE:** Replace the rejected Dojo Approach reuse with an independent layered dusk-dojo environment and exact dual-resolution runtime evidence.
 16. **DONE:** Explicitly review the World Warrior Rookie/Striker/Grappler runtime atlases and replace the rejected Ryu-derived Rookie with an original 16/16 style-v2 atlas.
 17. **DONE:** Replace the generic tracksuit Striker with an original 16/16 kick-focused style-v2 atlas and a real horizontal Turning Kick.
-18. **IN PROGRESS:** Replace Grappler with an original non-military tournament-wrestling identity and readable signature drive/throw, then produce Pavilion Circuit layers.
+18. **DONE:** Replace Grappler with an original non-military tournament-wrestling identity and readable Shoulder Drive.
+19. **DONE:** Replace Pavilion Circuit reuse with independent layered pavilion/deck production art and dual-resolution runtime evidence.
 
 ### World Warrior
 
-1. **IN PROGRESS:** Four unique environment/floor identities: Dojo Approach is 15/16 runtime approved; Pavilion Circuit, Grand Tournament Floor, and Champion's Courtyard follow.
-2. **IN PROGRESS:** Dojo Rookie and Pavilion Striker are 16/16 runtime approved; original Grappler follows before unique Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand Grappler Tetsu sheets.
-3. Training crates/dummies, health/meter/score pickups, rolling log, falling practice prop, spectator/crowd layers, and arena destruction.
+**Blocked until the lighting key is locked:** the Pavilion and Grand Tournament
+backdrop repaints with a painted ground line wait on the
+`Stage Rendering And Depth Separation Pass`. Repainting them against the current
+flat, unlit composite would have to be redone once the key direction and depth
+ramp exist, which is the same rework the camera-contract lock was created to
+prevent. Everything else in this queue is unblocked.
+
+1. **DONE:** Dojo Approach, Pavilion Circuit, Grand Tournament Floor, and Champion's Courtyard have four unique runtime-approved environment/floor identities.
+2. **DONE:** Dojo Rookie, Pavilion Striker, Tournament Grappler, Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand Grappler Tetsu are 16/16 runtime approved with unique animation-ready atlases.
+3. **IN PROGRESS:** The first training dummy, the Sparring Supply Crate, and the Vitality Gourd, Focus Drum, and Judge's Laurel Fan pickups are runtime approved. Generate and review the remaining World Warrior training-crate variants next on the proven crate path; rolling log, falling practice prop, spectator/crowd layers, and arena destruction remain pending.
 4. Preserve the same contour/value grammar as the accepted characters while using World Warrior-specific warm tournament motifs.
 5. Runtime capture and style audit before any slice is marked complete.
 
 ### Astral
+
+**Blocked until the lighting key is locked.** The four Astral stages currently
+run on interim pre-restyle plates, so the restyle is the largest remaining art
+job in the project. It is also the one most exposed to the lighting contract:
+authoring a full world of stage art against a flat, unlit composite and then
+introducing shadows and a depth ramp would invalidate the whole pass. This queue
+resumes after the `Stage Rendering And Depth Separation Pass`.
 
 1. Dedicated stage/floor composition for each ladder stage; route paintings may inform style but cannot be silently repeated as complete stage identities.
 2. Unique sheets for Saibaman Alpha, Vanguard Commander Lyra, and Ki Captain Prime.
@@ -201,6 +226,8 @@ Current cross-world verification after Dojo Approach, Dojo Rookie, and Pavilion 
 
 ## Automated enforcement
 
+- `Scripts/Tools/run_stage_junction_audit.ps1` gates the backdrop/floor junction by rendering each stage twice with different clear colours and diffing, so only real holes register and painted dark lines do not. All 7 layered stages currently report 0 gap pixels: the background never shows through geometry. What reads in play as a bad junction is the missing plinth/base at the wall foot, not a hole.
+- `Scripts/Tools/run_stage_layer_visibility_audit.ps1` measures how much of each parallax layer a stage actually draws, by capturing it again with each layer hidden. It caught Grand Tournament Floor rendering only 0.47% of its midground, hiding a gong, a judges' pavilion, and the championship trophy entirely. Fails below 1% midground.
 - `StageMissionValidator` rejects missing stage, floor, background-panel, and prop paths.
 - World-run tests require four distinct existing Archive backdrop paths and four distinct existing floor paths.
 - World-run tests require all four authored Archive prop sprites and three independent pickup sprites.

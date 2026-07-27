@@ -13,7 +13,7 @@ for gamepad-as-P1 QA closure, combat spectacle polish, Hollow Archive expansion,
 and the reserved Iron Fist Foundry branch lives in the
 [Next Implementation Plan](NEXT_IMPLEMENTATION_PLAN.md); it does not replace the
 master plan. The exact cross-machine continuation checkpoint, including the
-active Tournament Grappler source review and transfer checklist, lives in the
+active World Warrior training-crate variant slice and transfer checklist, lives in the
 [Project Handoff](PROJECT_HANDOFF.md).
 
 The playable routes are:
@@ -142,8 +142,8 @@ Tuning Backlog After MVP:
 - Player super data exists through `236HK`; its VFX and move-specific animation still need polish.
 - A character-specific sheet is still needed for the training enemy; the Archive Knight boss and inherited form now share a unique runtime-approved 10×9 atlas.
 - Original, redistributable World Warrior character art is still needed; the current Ryu frames are a local personal-use prototype source with no bundled license metadata.
-- World Warrior Dojo Rookie and Pavilion Striker now use 16/16 original 60-frame style-v2 atlases with phase-aligned Quick Palm/Turning Kick and exact 720p/1080p evidence. Only the tactical Grappler base atlas remains explicitly rejected.
-- Dojo Approach now uses a 15/16 layered dusk-dojo environment with a quiet packed-earth floor and exact 720p/1080p evidence; the reused tournament composite remains rejected for World Warrior Stages 2–4.
+- World Warrior Dojo Rookie, Pavilion Striker, and Tournament Grappler now use 16/16 original 60-frame style-v2 atlases with phase-aligned Quick Palm, Turning Kick, and Shoulder Drive plus exact 720p/1080p evidence. All three legacy base-enemy atlases remain rejected provenance only.
+- Dojo Approach uses a 15/16 layered dusk-dojo environment; Pavilion Circuit uses a 14/16 independent lantern-pavilion/deck environment; Grand Tournament Floor uses a 15/16 empty championship-arena/giant-slab environment; Champion's Courtyard uses a 15/16 storm-dark final-duel courtyard family. Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand Grappler Tetsu use distinct 16/16 named-elite atlases and archetypes. The World Warrior training dummy, Vitality Gourd health pickup, Focus Drum meter pickup, and Judge's Laurel Fan score pickup are also 16/16 runtime approved, and the Sparring Supply Crate is 15/16 runtime approved. The reused tournament composite remains rejected provenance. The remaining World Warrior training-crate variants are the active art-completeness slice.
 - Archive Nexus stage art, enemies, boss presentation, hazards, HUD, Archive Map, results, pause, and form-select are runtime-approved; World Warrior is the next active art-completeness pass.
 - Astral Battlefront currently uses one wide stage panel and still needs segmented travel panels, parallax, breakables, and dedicated horde art.
 - Goku still needs audio and additional cinematic super camera framing.

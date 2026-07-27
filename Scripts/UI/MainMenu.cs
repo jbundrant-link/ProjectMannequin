@@ -30,6 +30,7 @@ public partial class MainMenu : Control
     private Button _primaryActionButton = null!;
     private Button _restartWorldButton = null!;
     private Button _inputDeviceButton = null!;
+    private OptionsMenu _optionsMenu = null!;
     private Label _statusLabel = null!;
     private Control _confirmOverlay = null!;
     private Label _confirmTitle = null!;
@@ -56,6 +57,10 @@ public partial class MainMenu : Control
 
         _progress = MvpProgressStore.Load();
         BuildInterface();
+
+        _optionsMenu = new OptionsMenu { Name = "MainMenuOptions" };
+        AddChild(_optionsMenu);
+
         RefreshInputDeviceButton();
         var preferredWorld = IsCoreWorld(RunSessionManager.Instance.CurrentWorldId)
             ? RunSessionManager.Instance.CurrentWorldId
@@ -346,6 +351,11 @@ public partial class MainMenu : Control
             secretButton.Pressed += () => RequestStartWorld(HollowArchiveMission.WorldId);
             box.AddChild(secretButton);
         }
+
+        var optionsButton = MakeButton("OPTIONS", 278.0f, 38.0f, 14);
+        optionsButton.Name = "OptionsButton";
+        optionsButton.Pressed += OpenOptions;
+        box.AddChild(optionsButton);
 
         _statusLabel = MakeLabel("", 12, new Color(0.68f, 0.75f, 0.82f));
         _statusLabel.AutowrapMode = TextServer.AutowrapMode.WordSmart;
@@ -659,6 +669,8 @@ public partial class MainMenu : Control
     private void CycleInputDevice()
     {
         InputDevicePreferences.CycleP1Device();
+        // Relabel prompts and move lists for the newly selected device.
+        InputGlyphs.Invalidate();
         RefreshInputDeviceButton();
     }
 
@@ -759,6 +771,11 @@ public partial class MainMenu : Control
         label.AddThemeColorOverride("font_outline_color", new Color(0.0f, 0.0f, 0.0f, 0.82f));
         label.AddThemeConstantOverride("outline_size", 3);
         return label;
+    }
+
+    private void OpenOptions()
+    {
+        _optionsMenu.Open();
     }
 
     private static Button MakeButton(string text, float width, float height, int fontSize)

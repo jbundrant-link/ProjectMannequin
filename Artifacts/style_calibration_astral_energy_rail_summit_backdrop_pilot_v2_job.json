@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-22T06:38:21.237598Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "a8106dba-7064-45cb-a863-2c75b399a49e",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_063821_a8106dba-7064-45cb-a863-2c75b399a49e_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "4:3",
+                   "batch_size":  1,
+                   "height":  3584,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "5a2514e1-1b19-44f3-811b-8fdf23ec314b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5a2514e1-1b19-44f3-811b-8fdf23ec314b_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "498568a3-c122-4e94-8602-7ef4b7c1a443",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/498568a3-c122-4e94-8602-7ef4b7c1a443_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e7584393-d2fa-4f1a-b72b-bbe5a84b0efc",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e7584393-d2fa-4f1a-b72b-bbe5a84b0efc_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "ffb074d1-f007-4ebb-ac12-04038ab7b733",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ffb074d1-f007-4ebb-ac12-04038ab7b733_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "2d5dd02b-bf7a-40f7-a88e-aef99abc557b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2d5dd02b-bf7a-40f7-a88e-aef99abc557b_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "06284eb6-627f-43fc-b094-1342e04fd29e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/06284eb6-627f-43fc-b094-1342e04fd29e.png"
+                                        },
+                                        {
+                                            "id":  "084b9166-4fec-4050-8873-2ea68c2eacf5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/084b9166-4fec-4050-8873-2ea68c2eacf5.png"
+                                        },
+                                        {
+                                            "id":  "51f869a9-6d9a-4aaa-a70d-a9438c055a65",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/51f869a9-6d9a-4aaa-a70d-a9438c055a65.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve Astral Battlefront\u0027s luminous cyan-white energy, porcelain-white ruins, saturated sky blue, restrained jade growth, and deep indigo storm contrast. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate the production FLOORLESS RIGHT SUMMIT-APPROACH BACKDROP companion for Project Mannequin\u0027s side-scrolling Astral Battlefront Stage 3. EDIT the first supplied rejected V1 summit approach in place. Preserve its exact left receiver arch, center circular summit relay identity, slim crystal pylons, small floating islands, storm-cloud identity, contour language, and architectural scale. Make only the cleanup changes below.\r\n\r\nV1 CLEANUP: remove every visible rectangular tonal boundary, including the full-height vertical boundary near the left side and the wide horizontal darker band across the upper-middle sky. Repaint them with perfectly continuous neighboring sky, clouds, rails, and mist so no rectangle, stripe, value step, or editing boundary remains. Move the complete circular summit relay and its pylons upward, or dissolve only its lower support into mist, so no architecture, dark contour, cyan rim, or vegetation crosses below the fighter-band line at 61.25 percent of total canvas height. Clear the lower-right storm mass below that line and replace it with calm pale-blue waterfall mist. Keep storm clouds only above the fighter band. Repaint the leftmost 14 percent as quiet matching sky and mist with no rail endpoint, vertical boundary, or landmark touching the edge. Preserve all landmark identities above the fighter band.\r\n\r\nCONTINUITY CONTRACT: use the approved V4 center backdrop as the authoritative camera distance, architectural scale, contour weight, sky blue, cyan rail thickness, white-porcelain material, mist level, and protected-frame geometry. Do not add, remove, duplicate, or redesign V1\u0027s landmark groups.\r\n\r\nOUTPUT AND CAMERA CONTRACT: 4:3 canvas at 4K. The central horizontal 16:9 band from 12.5 percent to 87.5 percent of canvas height is the protected gameplay-safe frame. Keep every critical landmark and complete silhouette inside it. Upper and lower 12.5 percent are natural overscan. Reserve the lower 35 percent of the protected frame as uninterrupted calm pale-blue waterfall mist and low-contrast atmospheric depth. No architecture, island underside, rail, cliff, vegetation mass, or dark silhouette may enter that calm fighter band.\r\n\r\nLATERAL FLOW: imply approach to the summit through a restrained increase in distant cloud energy and architectural refinement, not larger foreground objects. Use one flat side-on elevation, one stable horizon, and no perspective convergence. Keep both outer edges quiet. Every arch, pylon, island, and rail junction must be fully contained with generous sky gaps. Rails remain thin distant horizontal light bands, never walkable platforms.\r\n\r\nThe second supplied image is the old Tournament Summit composition master and is identity reference only. Do not reproduce its floor, road, near ledge, ramps, or complete-scene perspective. Environment and character references define rendering grammar only.\r\n\r\nNO floor, road, paving, fighting lane, platform surface, foreground ledge, near cliff, undergrowth apron, cropped structure, repeated V4 landmark, second giant vortex, crossing rail, X shape, diagonal bridge, ramp, path toward camera, character, enemy, vehicle, prop, pickup, hazard, cast shadow, text, symbol, logo, UI, border, panel seam, centered corridor, strong one-point perspective, photorealism, or PBR. Full-bleed floorless production backdrop.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4800
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_063821_a8106dba-7064-45cb-a863-2c75b399a49e.png",
+    "status":  "completed"
+}

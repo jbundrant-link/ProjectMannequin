@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T08:27:01.303879Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "db89c360-4d32-4235-bc29-b40e1fbef2ab",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_082701_db89c360-4d32-4235-bc29-b40e1fbef2ab_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "cfd722c8-3ea4-4df4-a13e-a14c57da1253",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/cfd722c8-3ea4-4df4-a13e-a14c57da1253_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "0be9a75a-dae8-40de-9660-e47d7b2bcfe8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0be9a75a-dae8-40de-9660-e47d7b2bcfe8.png"
+                                        },
+                                        {
+                                            "id":  "ca4fcf22-3cb9-40aa-9fed-2207c0ccef95",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ca4fcf22-3cb9-40aa-9fed-2207c0ccef95.png"
+                                        },
+                                        {
+                                            "id":  "820a1568-b926-4d92-b9e5-fcb7f2e13c96",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/820a1568-b926-4d92-b9e5-fcb7f2e13c96.png"
+                                        },
+                                        {
+                                            "id":  "58f14955-0d03-4902-a4aa-0ef26363eda1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/58f14955-0d03-4902-a4aa-0ef26363eda1.png"
+                                        },
+                                        {
+                                            "id":  "a9c2c945-8b1a-46df-af38-16ce399367f7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a9c2c945-8b1a-46df-af38-16ce399367f7.png"
+                                        },
+                                        {
+                                            "id":  "a6c67a9b-e18a-4de3-9358-8a2a34a78109",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a6c67a9b-e18a-4de3-9358-8a2a34a78109.png"
+                                        },
+                                        {
+                                            "id":  "aa03f676-3066-405b-a989-5bae77a0aa2d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/aa03f676-3066-405b-a989-5bae77a0aa2d.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the approved Champion\u0027s Courtyard pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one WIDE MIDGROUND LANDMARK SOURCE for Champion\u0027s Courtyard on a perfectly uniform neutral medium-gray background. Place exactly THREE separated, non-overlapping, fully visible side-on final-duel landmarks across the 21:9 canvas with generous empty gray gaps. LEFT: a low broken warm-ivory wall remnant with one extinguished stone brazier, folded indigo rain cloth, and a small wind-bent cypress. CENTER: a modest cracked champion shrine wall with one shallow bench, two blank vermilion cloth panels, and one restrained saffron torch; no icon, altar text, or weapon. RIGHT: a broken charcoal-timber training arcade fragment with a torn indigo canopy, rain-dark plaster base, and one small torch. Keep all three low, austere, asymmetrical, and at one side-on scale. Keep the entire lower 30 percent empty uniform gray so fighters and feet remain unobstructed. Entire silhouettes visible with no cropping.\r\n\r\nNo connected wall, floor, full backdrop, people, spectators, Ryu, crowd silhouettes, enemies, active hazards, lightning, loose weapons, crates, words, signs, glyphs, warning marks, checkerboard, transparency grid, gradient, or cast shadows on the gray background. The background must be one flat solid gray color for clean removal.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_082701_db89c360-4d32-4235-bc29-b40e1fbef2ab.png",
+    "status":  "completed"
+}

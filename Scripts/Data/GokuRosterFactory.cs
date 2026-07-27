@@ -7,29 +7,29 @@ namespace ProjectMannequin.Data;
 public static class GokuRosterFactory
 {
     private const string GokuSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_higgsfield_v2_sheet.png";
     private const string KaiokenSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_kaioken_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_kaioken_higgsfield_v2_sheet.png";
     private const string FalseSuperSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_false_super_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_false_super_higgsfield_v2_sheet.png";
     private const string SuperSaiyan1SheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_ss1_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_ss1_higgsfield_v2_sheet.png";
     private const string SuperSaiyan2SheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_ss2_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_ss2_higgsfield_v2_sheet.png";
     private const string SuperSaiyan3SheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_ss3_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_ss3_higgsfield_v2_sheet.png";
     private const string SuperSaiyan4SheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_ss4_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_ss4_higgsfield_v2_sheet.png";
     private const string GodSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_god_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_god_higgsfield_v2_sheet.png";
     private const string BlueSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_blue_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_blue_higgsfield_v2_sheet.png";
     private const string BlueKaiokenSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_blue_kaioken_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_blue_kaioken_higgsfield_v2_sheet.png";
     private const string UltraInstinctSignSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_ui_sign_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_ui_sign_higgsfield_v2_sheet.png";
     private const string MasteredUltraInstinctSheetPath =
-        "res://Assets/Sprites/Goku/goku_astral_instinct_higgsfield_v1_sheet.png";
+        "res://Assets/Sprites/Goku/goku_astral_instinct_higgsfield_v2_sheet.png";
 
     public static CharacterData CreateGokuBoss()
     {
@@ -167,7 +167,9 @@ public static class GokuRosterFactory
                     damage: 22,
                     reach: 1.25f,
                     forwardVelocity: 3.4f),
-            });
+            },
+            spriteSheetPath:
+                "res://Assets/Sprites/Enemies/astral_saibaman_higgsfield_v2.png");
     }
 
     public static CharacterData CreateFriezaScout()
@@ -233,7 +235,9 @@ public static class GokuRosterFactory
                     damage: 27,
                     reach: 1.55f,
                     forwardVelocity: 3.8f),
-            });
+            },
+            spriteSheetPath:
+                "res://Assets/Sprites/Enemies/astral_frieza_heavy_higgsfield_v2.png");
     }
 
     public static CharacterData CreateKiCaptain()
@@ -473,7 +477,8 @@ public static class GokuRosterFactory
         float attackRange,
         float retreatDistance,
         Color tint,
-        List<MoveData> moves)
+        List<MoveData> moves,
+        string? spriteSheetPath = null)
     {
         return new CharacterData
         {
@@ -490,8 +495,8 @@ public static class GokuRosterFactory
             JumpVelocity = 8.5f,
             Gravity = 27.0f,
             Weight = maxHealth >= 150 ? 1.5f : 0.9f,
-            SpriteSheetPath =
-                $"res://Assets/Sprites/Enemies/{id}_higgsfield_v1.png",
+            SpriteSheetPath = spriteSheetPath
+                ?? $"res://Assets/Sprites/Enemies/{id}_higgsfield_v1.png",
             SpriteSheetColumns = 10,
             SpriteSheetRows = 9,
             SpritePixelSize = 0.018f,

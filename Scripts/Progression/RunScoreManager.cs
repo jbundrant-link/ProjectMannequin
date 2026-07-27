@@ -164,7 +164,9 @@ public sealed class RunScoreManager
                     break;
                 case CombatPresentationEventType.ActorDefeated:
                     var defeated = actors.FirstOrDefault(actor => actor.ActorId == presentationEvent.SourceActorId);
-                    if (defeated is not null && !defeated.IsPlayerControlled)
+                    if (defeated is not null
+                        && !defeated.IsPlayerControlled
+                        && !defeated.CurrentForm.RoleTags.Contains("pickup"))
                     {
                         EnemiesDefeated++;
                         AddScore(defeated.IsBoss ? 8000 : defeated.IsElite ? 3500 : 750);

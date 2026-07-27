@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-22T04:44:49.077147Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "512e1ae6-e740-4fcd-bcc8-7053a0398bf5",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_044449_512e1ae6-e740-4fcd-bcc8-7053a0398bf5_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "4dc26f61-f100-4412-95f8-0af51e349e71",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4dc26f61-f100-4412-95f8-0af51e349e71.png"
+                                        },
+                                        {
+                                            "id":  "8d6b73c3-67d7-4b58-95cd-8900d07839a2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8d6b73c3-67d7-4b58-95cd-8900d07839a2.png"
+                                        },
+                                        {
+                                            "id":  "3c3f0084-f067-4d1d-b622-ac4698bb072e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3c3f0084-f067-4d1d-b622-ac4698bb072e.png"
+                                        },
+                                        {
+                                            "id":  "ea366778-2ea7-4a1a-968d-7216dc088f53",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ea366778-2ea7-4a1a-968d-7216dc088f53.png"
+                                        },
+                                        {
+                                            "id":  "3fb3fc1e-4841-48ac-a224-2e54c83e5565",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3fb3fc1e-4841-48ac-a224-2e54c83e5565.png"
+                                        },
+                                        {
+                                            "id":  "54e02c47-7d0a-4edb-8a62-901e90006fea",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/54e02c47-7d0a-4edb-8a62-901e90006fea.png"
+                                        },
+                                        {
+                                            "id":  "28a9f625-9147-419c-b5c2-78dd42e6d8c1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/28a9f625-9147-419c-b5c2-78dd42e6d8c1.png"
+                                        }
+                                    ],
+                   "prompt":  "Create one production 4-columns-by-2-rows WALK-CYCLE SOURCE SHEET for WORLD WARRIOR PAVILION ACE MAKOTO.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the exact Makoto identity authority. Preserve this exact adult woman in all eight poses: warm medium skin, sharp composed face, huge high looped black braided crest with saffron bands, short asymmetrical vermilion pavilion mantle, fitted deep-indigo wrap top with warm-ivory diagonal chest panel, charcoal kick trousers, long split indigo pavilion panels, plum hand wraps, warm-ivory shin guards with vermilion chevrons, ivory split-sole shoes, and bronze crescent token at the right hip. Preserve her female proportions, costume asymmetry, face, braid, palette, materials, contour weight, and light.\r\n2. Reference 2 is the exact WALK CHOREOGRAPHY and SHEET-LAYOUT authority. Reproduce its eight row-major lower-body silhouettes, alternating contacts, down poses, passing poses, stylized high points, opposing arm swings, spacing, right-facing camera, and shared baseline. Replace the male Striker identity completely; do not copy his hair, face, male anatomy, vest, token, wraps, or costume.\r\n3. Reference 3 is an anatomical timing map. Follow its A-contact, A-down, A-passing, A-up, B-contact, B-down, B-passing, B-up order. Do not render guide colors, labels, circles, lines, or white background.\r\n4. Reference 4 is a rejected Makoto sheet used only for rendering continuity. Do not copy its duplicated bottom row, same-leg lead, idle-like poses, or weak gait.\r\n5 is the Striker identity only so it can be explicitly excluded. 6 and 7 supply only canonical Project Mannequin rendering finish.\r\n\r\nProduce EXACTLY EIGHT separate complete full-body Makoto figures in one square 4x2 sheet, read left-to-right across the top row then the bottom row. Match reference 2 pose-for-pose. The bottom row must not duplicate the top row: it must visibly use the physically opposite lead/support leg and reversed arm swing. At least six materially different lower-body silhouettes.\r\n\r\nKeep camera-near physical leg A one cel-value band lighter than camera-far physical leg B through the entire hip-to-shoe chain, and keep those values attached to the same limbs across all eight frames. Preserve Makoto\u0027s crescent token on the right hip and mantle on the same shoulder; never mirror her identity. Long split panels may flow but cannot hide the knees, ankles, or lead-leg swap.\r\n\r\nOne consistent body scale, head size, light direction, and foot baseline. Every figure independently contained with generous green margin. Exactly two arms, two legs, two feet, complete braid, mantle, token, shin guards, and shoes in every frame. Natural grounded walk only: no idle, shuffle, run, jump, attack, guard, or repeated raised-knee pose.\r\n\r\nUniform pure chroma-green RGB 0,255,0 background. No floor, cast shadow, scenery, grid, dividers, border, text, labels, numbers, arrows, guide marks, motion effects, extra figure, extra limb, missing limb, merged legs, touching figures, or crop. PROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, arcade-readable fighting-game anatomy, and polished modern 2.5D anime finish. No photorealism, PBR, grit, painterly blur, flat vector art, or pixel art. 2K square source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_044449_512e1ae6-e740-4fcd-bcc8-7053a0398bf5.png",
+    "status":  "completed"
+}

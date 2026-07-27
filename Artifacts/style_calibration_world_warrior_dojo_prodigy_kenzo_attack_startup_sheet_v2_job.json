@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-21T03:34:29.812522Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "3d650b9a-c3e4-4190-a56b-456a0d6e8e88",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_033429_3d650b9a-c3e4-4190-a56b-456a0d6e8e88_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "ab153b25-9830-4660-a9d2-4e14e904c695",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ab153b25-9830-4660-a9d2-4e14e904c695.png"
+                                        },
+                                        {
+                                            "id":  "507468ee-16cf-4d98-8445-377b6c3df1ac",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/507468ee-16cf-4d98-8445-377b6c3df1ac.png"
+                                        },
+                                        {
+                                            "id":  "37e011bf-d813-433a-8af2-f7203be5c757",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/37e011bf-d813-433a-8af2-f7203be5c757.png"
+                                        },
+                                        {
+                                            "id":  "fe6058cd-3fed-44e2-b788-c645767261bb",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fe6058cd-3fed-44e2-b788-c645767261bb.png"
+                                        },
+                                        {
+                                            "id":  "a6bbd0ed-b1cd-4694-8e83-46070cbca701",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a6bbd0ed-b1cd-4694-8e83-46070cbca701.png"
+                                        },
+                                        {
+                                            "id":  "2da32522-4249-4512-ad6f-4b324eda2ab6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2da32522-4249-4512-ad6f-4b324eda2ab6.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR DOJO PRODIGY KENZO identity. Preserve the same original fighter in every pose: lean athletic build with upright master\u0027s posture; swept-back black hair held by one bright saffron-gold champion circlet; layered ceremonial sleeveless deep-indigo vest with gold edge trim over a warm-ivory underwrap; one bronze champion medallion centered on the chest; a long vermilion champion half-sash hanging from the left hip; wide warm-ivory forearm guards; charcoal wide pleated hakama-style trousers gathered by a saffron cord; and low ivory split-sole shoes. Keep the same face, proportions, costume geometry, color hierarchy, right-facing three-quarter side view, and light.\r\n\r\nThe second supplied image is choreography only. Copy its five-frame open-palm timing and increasingly extended lead arm, but never copy the Rookie\u0027s face, hair, body, short sash, or costume. The third image is the approved Dojo Rookie for shared World Warrior material grammar only. The final three images are rendering-finish anchors only: controlled dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, and arcade-readable anatomy. Do not copy any reference identity.\r\n\r\nProduce exactly FIVE distinct full-body MASTER PALM startup/active poses arranged as three figures on the top row and two on the bottom row, ordered left-to-right then top-to-bottom:\r\n1. Upright open-palm master guard with both shoes grounded.\r\n2. Lead shoulder rotates and the lead hand rises; the lead palm is already visibly open.\r\n3. Front foot steps and hips turn while the open lead palm travels forward.\r\n4. Lead arm reaches nearly full extension with a flat vertical open palm facing right.\r\n5. Strongest active silhouette: fully extended straight lead arm, elbow nearly locked, wrist aligned, and one unmistakable vertical OPEN PALM facing right with all five fingers visibly separated. The rear hand remains compact at the ribs.\r\n\r\nEvery lead hand in all five poses must remain open. Pose 5 must read instantly as a palm strike at gameplay size. Maintain one consistent scale and baseline with generous green separation around every complete figure. Uniform pure chroma-green RGB 0,255,0 background. No closed lead fist, punch, hook, finger curl into a fist, kick, weapon, target, impact effect, speed line, motion blur, recovery pose, duplicate pose, white karate gi, red headband, bare feet, tracksuit, military gear, armor, photorealism, PBR, painterly blur, flat vector art, pixel art, shadow, floor, scene, text, labels, grid lines, border, touching figures, extra limbs, missing medallion, missing half-sash, or crop. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_033429_3d650b9a-c3e4-4190-a56b-456a0d6e8e88.png",
+    "status":  "completed"
+}

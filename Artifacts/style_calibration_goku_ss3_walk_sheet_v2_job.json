@@ -1,0 +1,63 @@
+﻿{
+    "created_at":  "2026-07-21T17:52:58.377892Z",
+    "display_name":  "GPT Image 2",
+    "id":  "49bf452f-8341-4738-8d32-f02ee29ac905",
+    "job_type":  "gpt_image_2",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_175258_49bf452f-8341-4738-8d32-f02ee29ac905_min.webp",
+    "params":  {
+                   "aspect_ratio":  "1:1",
+                   "height":  2048,
+                   "medias":  [
+                                  {
+                                      "data":  {
+                                                   "id":  "ffe46eef-2a23-429d-bfb9-1c7f3e6c56c4",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ffe46eef-2a23-429d-bfb9-1c7f3e6c56c4.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "2576e548-9064-4467-b8e1-2327f8bc79af",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2576e548-9064-4467-b8e1-2327f8bc79af.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "b9d51a2e-c0ed-4746-8809-b55232707537",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b9d51a2e-c0ed-4746-8809-b55232707537.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "f66c256a-2efc-4157-9c2c-719bd1bded03",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f66c256a-2efc-4157-9c2c-719bd1bded03.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "e3bfaff4-f02f-456f-857c-6c3ba89c7090",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e3bfaff4-f02f-456f-857c-6c3ba89c7090.png"
+                                               },
+                                      "role":  "image"
+                                  }
+                              ],
+                   "model":  "videotape-alpha",
+                   "prompt":  "Restyle the first supplied production walk sheet into Goku Super Saiyan 3 while preserving its animation and layout exactly.\r\n\r\nReference 1 is the absolute choreography, camera, scale, spacing, baseline, and frame-order authority. Preserve the identical eight full-body poses in the identical 4 columns x 2 rows cells, read left-to-right then top-to-bottom. Do not replace, mirror, reorder, crop, or simplify any pose. Keep the exact contact/down/passing/up then opposite-leg contact/down/passing/up mechanics and opposing arm swing.\r\n\r\nReference 2 is the exact form identity authority. Redraw every figure as Goku with extremely long golden-blond hair flowing in a compact vertical mass down the back below the waist, no eyebrows, orange sleeveless gi, dark-blue undershirt, belt, wristbands and boots, teal-green eyes, and a thin golden aura rim; keep the long hair close behind the torso and inside each cell without sideways spread. Preserve the exact form hair, face, eye color, outfit, aura treatment, proportions, palette, and materials in every frame. Reference 3 reinforces persistent A/B limb ownership only; do not render guide colors, labels, circles, lines, or stick geometry. References 4 and 5 supply only canonical Project Mannequin rendering finish.\r\n\r\nUse the same restrained thin aura rim visible in the identity reference; no large flames, glow columns, energy envelope, sparks crossing cells, or detached effects. Keep every complete figure centered inside its original implied cell with the same generous pure-green margin. Uniform pure chroma-green RGB 0,255,0 background. No floor, shadow, scene, grid, divider, border, text, labels, numbers, arrows, projectile, motion effect, extra figure, extra limb, missing limb, touching figures, or crop.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean designed highlights, polished modern 2.5D anime fighting-game anatomy and silhouettes. No photorealism, PBR, grit, microtexture, painterly blur, flat vector art, or pixel art. 2K square animation source.",
+                   "quality":  "high",
+                   "reference_elements":  [
+
+                                          ],
+                   "resolution":  "2k",
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_175258_49bf452f-8341-4738-8d32-f02ee29ac905.png",
+    "status":  "completed"
+}

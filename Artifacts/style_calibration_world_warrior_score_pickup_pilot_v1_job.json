@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-24T08:43:49.965086Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "8cf22a27-a1a7-42c1-b682-601b809f6c1c",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_084349_8cf22a27-a1a7-42c1-b682-601b809f6c1c_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "4791aa5a-bd69-4e50-975b-c6033518213a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4791aa5a-bd69-4e50-975b-c6033518213a.png"
+                                        },
+                                        {
+                                            "id":  "b6848fa9-a81b-4532-bcb8-4dd42fe6c1c1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b6848fa9-a81b-4532-bcb8-4dd42fe6c1c1.png"
+                                        },
+                                        {
+                                            "id":  "f4c50a0a-b567-49b6-89b1-43d7e4e59d40",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f4c50a0a-b567-49b6-89b1-43d7e4e59d40_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "2a7e6f89-aad7-4bb1-ae8e-5e97c30b602b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2a7e6f89-aad7-4bb1-ae8e-5e97c30b602b.png"
+                                        },
+                                        {
+                                            "id":  "b83a459e-c017-4909-9ee4-fa668f713081",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b83a459e-c017-4909-9ee4-fa668f713081.png"
+                                        },
+                                        {
+                                            "id":  "0813f066-447a-48a4-8c71-e26f4dfc459b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0813f066-447a-48a4-8c71-e26f4dfc459b.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-object IDENTITY / FUNCTION PILOT of the WORLD WARRIOR JUDGE\u0027S LAUREL FAN, a small original score-value pickup viewed in a clean right-facing three-quarter angle, centered and fully visible.\r\n\r\nThe pickup must read instantly as tournament judgment, earned honor, and arcade score value at gameplay size without using an Archive data prism, currency text or symbol, generic coin, medal, trophy, crown, gem, score number, or floating points effect. Build one compact ceremonial JUDGE\u0027S DISPLAY FAN with this exact large-form hierarchy:\r\n- one broad open semicircular folding-fan silhouette, wider than tall, with a gently scalloped BLUNT outer edge and no sharp weapon tips;\r\n- five large vermilion lacquer-cloth fan panels separated by thick warm-ivory ribs radiating from one deep-indigo round pivot;\r\n- one continuous saffron-gold LAUREL SPRIG arcing across the upper fan edge, simplified into exactly seven broad paired leaves and one central bud, attached to the fan rather than floating;\r\n- three chunky warm-ivory judge\u0027s tally tabs rising behind the fan at three different heights, each completely blank and marked only by one thick saffron edge stripe, with no letters, numbers, symbols, or writing;\r\n- one deep-indigo lacquered U-shaped display rest integrated beneath the pivot so the pickup is grounded and clearly ceremonial rather than hand-held combat equipment;\r\n- one short plum braided honor tassel tied to the right side of the pivot, with one saffron bead and two attached blunt cloth tails.\r\n\r\nFunction must come from unmistakable tournament-judging and earned-honor cues: the open judge fan, blank ranking tabs, attached laurel sprig, and formal display rest. Use only a few large components with thick contours. It must remain legible when reduced to roughly 64, 80, and 96 pixels tall. The broad fan arc, seven-leaf laurel, three stepped tabs, and indigo rest must survive at that size. Keep the object pristine, collectible, and bottom-weighted. This is a ceremonial display fan, NOT a weapon: no blade edge, spikes, sharpened ribs, throwing-fan silhouette, hand grip, or combat pose.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the approved World Warrior Vitality Gourd. Use only its pickup-scale contour weight, large-form simplification, grounded collectible presentation, and warm-ivory/vermilion/deep-indigo/saffron hierarchy. Do not copy its calabash body, leaves, cork, cord knot, cradle, health function, or silhouette.\r\n2. Reference 2 is the approved World Warrior Focus Drum. Use only its pickup scale, bold tournament-equipment finish, thick ivory contours, indigo lacquer, vermilion tension accents, and attached tassel treatment. Do not copy its hourglass body, drumheads, resonance rings, cords, beads, grip, meter function, or silhouette.\r\n3. Reference 3 is the approved Grand Tournament environment. Use only its judging-canopy ceremony, empty championship architecture, warm ivory/vermilion/deep-indigo/saffron hierarchy, and formal tournament mood. Do not reproduce architecture, stairs, walls, mountains, braziers, banners, judge silhouette, trophy silhouette, or scene.\r\n4-6. References 4-6 are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, clean designed highlights, simplified materials, saturated controlled accents, and arcade-readable 2.5D fighting-game volume. Do not copy any character\u0027s face, body, costume, anatomy, or identity.\r\n\r\nOne complete centered pickup on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side, including above all three tally tabs and the laurel, outside the full fan arc and tassel, and below the complete display rest. No Archive data prism, crystal, gemstone, shard, cube, chip, card, scroll, document, book, currency, coin, medal, trophy, cup, crown, belt, championship plate, star icon, number, tally mark, score text, plus sign, letters, kanji, logo, face, eyes, mouth, person, judge, creature, weapon, blade, spike, sharp fan, crate, chest, potion, gourd, drum, floating orb, aura, detached ring, rays, sparks, detached leaves, detached tabs, floor, cast shadow, scenery, room, architecture, border, grid, duplicate object, photorealism, PBR, painterly blur, flat vector art, pixel art, or crop. 2K square pickup pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_084349_8cf22a27-a1a7-42c1-b682-601b809f6c1c.png",
+    "status":  "completed"
+}

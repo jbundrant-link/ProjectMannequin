@@ -7,6 +7,8 @@ using ProjectMannequin.Data;
 using ProjectMannequin.Progression;
 using ProjectMannequin.DebugTools;
 
+using ProjectMannequin.LocalInput;
+
 namespace ProjectMannequin.Stage;
 
 public enum ArcadeStageState
@@ -241,9 +243,15 @@ public sealed class ArcadeEncounterDirector
                     => $"Clear {encounter.DisplayName}. Wave {CurrentWaveNumber}/{TotalWaveCount}. "
                         + $"{EnemiesRemaining} hostiles remain.",
                 ArcadeStageState.Intermission => "Sector clear. Prepare to advance.",
-                ArcadeStageState.AwaitingReward => "Sector clear. Choose a reward (1/2/3).",
+                ArcadeStageState.AwaitingReward =>
+                    "Sector clear. Choose a reward ("
+                    + $"{InputGlyphs.UiActionLabel(LogicalUiAction.Reward1)}/"
+                    + $"{InputGlyphs.UiActionLabel(LogicalUiAction.Reward2)}/"
+                    + $"{InputGlyphs.UiActionLabel(LogicalUiAction.Reward3)}).",
                 ArcadeStageState.AwaitingFormSwap
-                    => "Combat form archived. Press Q to shapeshift and complete the mission.",
+                    => "Combat form archived. Press "
+                        + $"{InputGlyphs.UiActionLabel(LogicalUiAction.FormSwap)}"
+                        + " to shapeshift and complete the mission.",
                 ArcadeStageState.Complete
                     => Mission.IsFinalStage
                         ? $"{Mission.DisplayName} complete. Boss form inheritance confirmed."
@@ -890,6 +898,8 @@ public sealed class ArcadeEncounterDirector
             {
                 "prop_crate" => HazardRosterFactory.CreateBreakableCrate(),
                 "prop_explosive_canister" => HazardRosterFactory.CreateExplosiveCanister(),
+                "world_warrior_training_dummy" => HazardRosterFactory.CreateWorldWarriorTrainingDummy(),
+                "world_warrior_supply_crate" => HazardRosterFactory.CreateWorldWarriorSupplyCrate(),
                 _ => HazardRosterFactory.CreateBreakableCrate(),
             };
             var tint = Colors.White;
@@ -942,6 +952,12 @@ public sealed class ArcadeEncounterDirector
     {
         var form = pickupType switch
         {
+            StagePickupType.Health when Mission.WorldId == "world_warrior_sector" =>
+                HazardRosterFactory.CreateWorldWarriorHealthPickup(),
+            StagePickupType.Meter when Mission.WorldId == "world_warrior_sector" =>
+                HazardRosterFactory.CreateWorldWarriorMeterPickup(),
+            StagePickupType.Score when Mission.WorldId == "world_warrior_sector" =>
+                HazardRosterFactory.CreateWorldWarriorScorePickup(),
             StagePickupType.Health => HazardRosterFactory.CreateHealthPickup(),
             StagePickupType.Score => HazardRosterFactory.CreateScorePickup(),
             _ => HazardRosterFactory.CreateMeterPickup(),
@@ -1013,6 +1029,21 @@ public sealed class ArcadeEncounterDirector
                 continue;
             }
 
+            if (zone.Behavior == StageHazardBehavior.PushZone)
+            {
+                var pushStep = StageHazardRuntime.ResolvePushStep(zone);
+                foreach (var target in HazardTargetsInside(zone, hazardFrame))
+                {
+                    var position = target.SimPosition + pushStep;
+                    target.SimPosition = new Vector3(
+                        Mathf.Clamp(position.X, encounter.ArenaMinX, encounter.ArenaMaxX),
+                        position.Y,
+                        Mathf.Clamp(position.Z, CurrentLaneMinZ, CurrentLaneMaxZ));
+                }
+
+                continue;
+            }
+
             // Falling strikes impact once on active entry. Persistent zones keep
             // their twice-per-second damage cadence.
             var impactKey = $"{encounter.Id}:{zone.Id}:{cycle}";
@@ -1035,24 +1066,8 @@ public sealed class ArcadeEncounterDirector
             }
 
             var damage = Mathf.Max(1, Mathf.RoundToInt(zone.DamagePerSecond * 0.5f));
-            foreach (var target in _simulation.Actors.Where(actor =>
-                         !actor.IsDead
-                         && !actor.CurrentForm.RoleTags.Contains("pickup")
-                         && !actor.CurrentForm.RoleTags.Contains("hazard")
-                         && (actor.IsPlayerControlled
-                             ? zone.Targets.HasFlag(StageHazardTargetMask.Players)
-                             : zone.Targets.HasFlag(StageHazardTargetMask.Enemies))))
+            foreach (var target in HazardTargetsInside(zone, hazardFrame))
             {
-                var position = target.SimPosition;
-                var inside = position.X >= hazardFrame.MinX
-                    && position.X <= hazardFrame.MaxX
-                    && position.Z >= hazardFrame.MinZ
-                    && position.Z <= hazardFrame.MaxZ;
-                if (!inside)
-                {
-                    continue;
-                }
-
                 if (!target.ApplyHazardDamage(damage, tick))
                 {
                     continue;
@@ -1095,8 +1110,11 @@ public sealed class ArcadeEncounterDirector
             "overseer_basalt" => TestRosterFactory.CreateOverseerBasalt(),
             "archive_knight_boss" => TestRosterFactory.CreateTestBoss(),
             "world_warrior_rookie" => TestRosterFactory.CreateWorldWarriorRookie(),
+            "world_warrior_dojo_prodigy_kenzo" => TestRosterFactory.CreateWorldWarriorDojoProdigyKenzo(),
             "world_warrior_striker" => TestRosterFactory.CreateWorldWarriorStriker(),
+            "world_warrior_pavilion_ace_makoto" => TestRosterFactory.CreateWorldWarriorPavilionAceMakoto(),
             "world_warrior_grappler" => TestRosterFactory.CreateWorldWarriorGrappler(),
+            "world_warrior_grand_grappler_tetsu" => TestRosterFactory.CreateWorldWarriorGrandGrapplerTetsu(),
             "world_warrior_ryu_boss" => TestRosterFactory.CreateWorldWarriorRyuBoss(),
             "astral_saibaman" => GokuRosterFactory.CreateSaibaman(),
             "astral_frieza_scout" => GokuRosterFactory.CreateFriezaScout(),
@@ -1117,8 +1135,11 @@ public sealed class ArcadeEncounterDirector
             "overseer_basalt" => Colors.White,
             "archive_knight_boss" => new Color(0.68f, 0.46f, 0.92f),
             "world_warrior_rookie" => new Color(0.92f, 0.64f, 0.30f),
+            "world_warrior_dojo_prodigy_kenzo" => Colors.White,
             "world_warrior_striker" => new Color(0.36f, 0.72f, 0.96f),
+            "world_warrior_pavilion_ace_makoto" => Colors.White,
             "world_warrior_grappler" => new Color(0.78f, 0.42f, 0.86f),
+            "world_warrior_grand_grappler_tetsu" => Colors.White,
             "world_warrior_ryu_boss" => Colors.White,
             "astral_saibaman" => new Color(0.44f, 0.84f, 0.28f),
             "astral_frieza_scout" => new Color(0.55f, 0.42f, 0.92f),
@@ -1369,6 +1390,7 @@ public sealed class ArcadeEncounterDirector
                     }
                 }
             }
+
             else
             {
                 RunSessionManager.Instance.ActiveArtifacts.Add(option.Id);
@@ -1405,6 +1427,23 @@ public sealed class ArcadeEncounterDirector
 
         _pendingRewardOptions.Clear();
         EnterIntermission(tick, events);
+    }
+
+    private IEnumerable<CombatActor> HazardTargetsInside(
+        StageHazardZoneData zone,
+        StageHazardFrame hazardFrame)
+    {
+        return _simulation.Actors.Where(actor =>
+            !actor.IsDead
+            && !actor.CurrentForm.RoleTags.Contains("pickup")
+            && !actor.CurrentForm.RoleTags.Contains("hazard")
+            && (actor.IsPlayerControlled
+                ? zone.Targets.HasFlag(StageHazardTargetMask.Players)
+                : zone.Targets.HasFlag(StageHazardTargetMask.Enemies))
+            && actor.SimPosition.X >= hazardFrame.MinX
+            && actor.SimPosition.X <= hazardFrame.MaxX
+            && actor.SimPosition.Z >= hazardFrame.MinZ
+            && actor.SimPosition.Z <= hazardFrame.MaxZ);
     }
 
     private void EnterIntermission(int tick, ICollection<CombatPresentationEvent> events)
@@ -1714,6 +1753,11 @@ public sealed class ArcadeEncounterDirector
         {
             _crowdCoordinator.ReleaseActor(actor);
             _defeatedActorTicks[actor.ActorId] = tick;
+
+            if (actor.CurrentForm.RoleTags.Contains("pickup"))
+            {
+                actor.Visible = false;
+            }
 
             if (actor.CurrentForm.RoleTags.Contains("breakable"))
             {

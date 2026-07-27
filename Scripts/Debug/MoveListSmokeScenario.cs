@@ -204,8 +204,8 @@ public partial class MoveListSmokeScenario : Node
         var labels = panel is null
             ? new List<string>()
             : Descendants<Label>(panel).Select(label => label.Text.Trim()).ToList();
-        var hadoukenCommand = KeyboardCommandFormatter.ToKeyboard("236LP");
-        var crouchCommand = KeyboardCommandFormatter.ToKeyboard("2LP");
+        var hadoukenCommand = InputCommandFormatter.ToDisplayCommand("236LP");
+        var crouchCommand = InputCommandFormatter.ToDisplayCommand("2LP");
 
         _moveListButtonWorked = panel?.Visible == true;
         _titleCorrect = labels.Any(text => text.StartsWith("MOVE LIST", System.StringComparison.Ordinal)

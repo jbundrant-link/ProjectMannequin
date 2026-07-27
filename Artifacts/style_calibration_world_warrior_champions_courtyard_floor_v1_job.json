@@ -1,0 +1,67 @@
+﻿{
+    "created_at":  "2026-07-20T08:25:44.055584Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "0c5a1356-f62e-4692-b547-d96a57c78512",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_082544_0c5a1356-f62e-4692-b547-d96a57c78512_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "8ab48657-986f-4e67-9ee7-4f2c515d944d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8ab48657-986f-4e67-9ee7-4f2c515d944d_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "d9f98dcd-1565-4ac5-b3ce-18fb12bb3969",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d9f98dcd-1565-4ac5-b3ce-18fb12bb3969.png"
+                                        },
+                                        {
+                                            "id":  "70297e55-1469-42ac-9877-02097d10801d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/70297e55-1469-42ac-9877-02097d10801d.png"
+                                        },
+                                        {
+                                            "id":  "3f86b78b-208b-428e-9e52-bfd80433149a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3f86b78b-208b-428e-9e52-bfd80433149a.png"
+                                        },
+                                        {
+                                            "id":  "4b2e9db7-7cb0-4086-949d-f0b2d51685ef",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4b2e9db7-7cb0-4086-949d-f0b2d51685ef.png"
+                                        },
+                                        {
+                                            "id":  "88a43900-6eb5-4b4b-b7c1-b4066263dd43",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/88a43900-6eb5-4b4b-b7c1-b4066263dd43.png"
+                                        },
+                                        {
+                                            "id":  "68a2bcbe-f46e-44c7-95ea-46ace3d04487",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/68a2bcbe-f46e-44c7-95ea-46ace3d04487.png"
+                                        },
+                                        {
+                                            "id":  "1eb9a063-c07c-41dc-902c-892e27fe09da",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1eb9a063-c07c-41dc-902c-892e27fe09da.png"
+                                        },
+                                        {
+                                            "id":  "9607cde4-5d87-4de1-88c9-56cb40b35da2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9607cde4-5d87-4de1-88c9-56cb40b35da2.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the approved Champion\u0027s Courtyard pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one strict TOP-DOWN ORTHOGRAPHIC square WEATHERED COURTYARD FLOOR texture for Champion\u0027s Courtyard. Use exactly SIX broad staggered courses of huge rain-dark warm-ivory and blue-charcoal flagstones. Each stone must be enormous, spanning at least one quarter of the canvas width; use sparse irregular joints, never small tiles. Separate stones with thin deep-indigo mortar. Use cool storm-blue shadow planes, muted warm-ivory upper planes, and restrained plum-gray wet-value patches. Add broad cel-painted damp highlights only along a few inset stone edges, never mirror reflections. Keep the center low contrast and uncluttered for the final duel. The Champion\u0027s Courtyard pilot supplies storm-dark ivory/indigo/charcoal hierarchy. Grand Tournament\u0027s giant slabs are scale reference only; make this older, cracked, quieter, and more intimate.\r\n\r\nNo perspective convergence, horizon, wall, architecture, timber, dense paving network, small tiles, checkerboard, concentric geometry, circle, oval, arc, ring, spiral, radial sweep, centered emblem, letters, symbols, border, perimeter frame, vignette, puddle reflection, object, prop, hazard, lightning, baked character shadow, rubble, dense cracks, realistic grit, moss carpet, or microdetail. Side edges must be mirror-friendly and free of clipped focal objects. Full-bleed 1:1 production floor.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_082544_0c5a1356-f62e-4692-b547-d96a57c78512.png",
+    "status":  "completed"
+}

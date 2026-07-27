@@ -4,7 +4,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-$cli = 'C:\Users\Joseph Bundrant\AppData\Local\Programs\higgsfield\higgsfield.exe'
+$cli = Join-Path $env:LOCALAPPDATA "Programs\Higgsfield\higgsfield.exe"
 $identity = 'Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_style_pilot_v1.png'
 $rookie = 'Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png'
 $striker = 'Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png'

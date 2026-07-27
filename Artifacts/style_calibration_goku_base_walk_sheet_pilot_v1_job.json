@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-21T16:55:44.162447Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "a0d062bd-b926-44ff-970f-a3d53ceb96b6",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_165544_a0d062bd-b926-44ff-970f-a3d53ceb96b6_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "224804a8-dd2d-4bea-90c3-a9deb951ff84",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/224804a8-dd2d-4bea-90c3-a9deb951ff84.png"
+                                        },
+                                        {
+                                            "id":  "9b5071e6-7c37-4ada-8749-afd5e203f9af",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9b5071e6-7c37-4ada-8749-afd5e203f9af.png"
+                                        },
+                                        {
+                                            "id":  "dacdf663-ad37-4298-8fa8-f164779580a9",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/dacdf663-ad37-4298-8fa8-f164779580a9.png"
+                                        },
+                                        {
+                                            "id":  "0b31e131-63c3-47e9-82c3-2714fecbb453",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0b31e131-63c3-47e9-82c3-2714fecbb453.png"
+                                        },
+                                        {
+                                            "id":  "4b3f37b2-1458-4765-a3f9-233287032819",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4b3f37b2-1458-4765-a3f9-233287032819.png"
+                                        }
+                                    ],
+                   "prompt":  "Create a production-ready BASE GOKU WALK-CYCLE SOURCE SHEET with exactly EIGHT separate complete full-body figures arranged in a clean square 4 columns x 2 rows, read left-to-right across the top row then left-to-right across the bottom row.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the exact accepted walk choreography authority. Reproduce its eight sequential contact/down/passing/up gait beats, full opposite-leg alternation, opposing arm swing, screen-right three-quarter side camera, spacing, and common foot baseline. Do not copy the mannequin body, porcelain materials, colors, or identity.\r\n2. Reference 2 is the controlling anatomical timing map. GOLD A and CYAN B remain the same physical limbs through all eight frames. Follow exactly: A-contact, A-down, A-passing, A-up, B-contact, B-down, B-passing, B-up. Do not render guide colors, labels, circles, lines, stick geometry, or white background.\r\n3. Reference 3 is the exact BASE GOKU identity authority: adult muscular anime martial artist; tall black upswept spiky hair; orange sleeveless gi with dark-blue undershirt, belt, wristbands, and boots; warm skin; clean anime face. Preserve this exact hair, face, outfit geometry, proportions, palette, and boot design in every frame.\r\n4 and 5 are canonical Project Mannequin rendering-finish anchors only: controlled dark contours, broad two-to-four-step cel shading, clean designed highlights, strong fighting-game anatomy, and polished modern 2.5D anime presentation. Do not copy their identity or pose.\r\n\r\nTOP ROW, FRAMES 1-4, A-LEG HALF:\r\n1. A heel contact forward toward screen-right while B extends behind on its toe.\r\n2. Body compresses over planted A while B lifts from behind.\r\n3. A remains planted under the hips while bent B passes forward with visible toe clearance.\r\n4. A rises onto its toe behind the hips while B advances toward heel contact.\r\n\r\nBOTTOM ROW, FRAMES 5-8, EXACT OPPOSITE B-LEG HALF:\r\n5. B heel contact forward toward screen-right while A extends behind on its toe.\r\n6. Body compresses over planted B while A lifts from behind.\r\n7. B remains planted under the hips while bent A passes forward with visible toe clearance.\r\n8. B rises onto its toe behind the hips while A advances toward frame 1.\r\n\r\nThe forward leg in frame 5 must be physically opposite the forward leg in frame 1. Reverse the arms as well. Use restrained natural walking arm swing, not fists-up combat guard. Keep the camera-near leg slightly brighter orange and the camera-far leg one cel-shadow band darker so limb ownership remains readable, but never recolor the gi or swap colors at a knee. At least six materially different silhouettes; no repeated idle pose.\r\n\r\nAll figures face screen-right with identical head size, body scale, light direction, and foot baseline. Every figure fits independently inside its implied cell with generous green clearance on all sides. Exactly two arms, two legs, two boots, one head, and all costume pieces in every frame. Natural grounded walk only: no crouch attack, dash, run, flight, jump, high-knee march, kick, punch, aura, energy, projectile, target, or motion effect.\r\n\r\nUniform pure chroma-green RGB 0,255,0 background. No floor, cast shadow, scenery, grid, dividers, border, text, labels, numbers, arrows, extra figure, extra limb, missing limb, merged legs, touching figures, or crop.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: cohesive modern 2.5D fighting-game production, confident dark ink contours, broad cel-shaded value planes, clean graphic highlights, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game finish. No photorealism, PBR, grit, microtexture, painterly blur, flat vector art, or pixel art. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_165544_a0d062bd-b926-44ff-970f-a3d53ceb96b6.png",
+    "status":  "completed"
+}

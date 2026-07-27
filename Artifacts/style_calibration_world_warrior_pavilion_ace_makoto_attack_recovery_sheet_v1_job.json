@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-22T03:48:20.388534Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "5e0cc55f-7160-484f-8ee4-b9cf6b49bd1d",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_034820_5e0cc55f-7160-484f-8ee4-b9cf6b49bd1d_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "78038c83-b8e4-4345-9d65-6259dd53393b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/78038c83-b8e4-4345-9d65-6259dd53393b.png"
+                                        },
+                                        {
+                                            "id":  "a3f49c80-3e19-40ca-9e7c-2ec8d31cf04c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a3f49c80-3e19-40ca-9e7c-2ec8d31cf04c.png"
+                                        },
+                                        {
+                                            "id":  "4c69fad7-ecc3-4f0c-acb4-47950dcbfedc",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4c69fad7-ecc3-4f0c-acb4-47950dcbfedc.png"
+                                        },
+                                        {
+                                            "id":  "52c0464e-ecde-4fb4-83ac-ef0d5a92831c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/52c0464e-ecde-4fb4-83ac-ef0d5a92831c.png"
+                                        },
+                                        {
+                                            "id":  "c5cb4981-4a02-441b-923d-feab898fcfe5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c5cb4981-4a02-441b-923d-feab898fcfe5.png"
+                                        },
+                                        {
+                                            "id":  "489a2da2-0041-40dc-850e-0776d1700bd3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/489a2da2-0041-40dc-850e-0776d1700bd3.png"
+                                        },
+                                        {
+                                            "id":  "d7f5c4ef-09ae-4843-8d69-3476d4c6a46a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d7f5c4ef-09ae-4843-8d69-3476d4c6a46a.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR PAVILION ACE MAKOTO identity. The WORLD WARRIOR PAVILION ACE MAKOTO is one exact original adult woman: tall lean athletic precision-kick build with powerful calves and compact shoulders; warm medium skin; sharp composed face; black hair braided into one huge high looped crest arcing backward with restrained saffron bands; one short asymmetrical vermilion pavilion mantle fastened across the upper left shoulder; fitted sleeveless deep-indigo wrap top with one warm-ivory diagonal chest panel and narrow saffron piping; charcoal fitted kick trousers; long narrow deep-indigo split pavilion panels hanging at the front and sides while leaving both legs clearly visible; wide plum hand wraps; warm-ivory shin guards with one vermilion chevron each; low ivory split-sole kicking shoes; and one bronze crescent champion token fixed at the right hip. Preserve her exact face, braid geometry, female proportions, costume geometry, colors, light direction, and right-facing three-quarter camera in every pose. The second image is choreography/layout reference only; copy its timing and body flow, not its identity. The third image is the approved Pavilion Striker for shared World Warrior material grammar only. The fourth image is approved Dojo Prodigy Kenzo for named-elite finish only. The final three images are rendering-finish references only. Do not copy any reference character\u0027s face, hair, costume, body, or identity.\r\n\r\nEvery figure must be complete and separated on uniform pure chroma-green RGB 0,255,0. No rust hair, undercut, male body, raised-knee copy of the Striker pilot, white karate gi, red headband, bare feet, tracksuit, long coat, long sash, hakama, military or tactical gear, armor, cargo pockets, dress that fuses the legs, photorealism, PBR, painterly blur, flat vector art, pixel art, weapon, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, touching figures, extra limbs, missing braid, missing mantle, missing crescent token, missing shin guards, duplicate pose, or crop.\nProduce exactly FIVE distinct full-body CRESCENT HEEL recovery poses arranged as three figures on the top row and two on the bottom row, ordered left-to-right then top-to-bottom. Continue from Makoto\u0027s high right outside-crescent heel kick in one right-facing three-quarter camera: 1 heel has just passed the high apex and the right knee begins folding; 2 right leg retracts across the body while torso remains upright; 3 right foot descends beside the support leg; 4 controlled staggered landing with hands returning to guard; 5 original narrow precision-kick guard restored. Preserve the full braid, mantle, crescent token, split panels, shin guards, and both shoes in every pose. Maintain one consistent scale and generous green margin. No new attack, straight horizontal kick, back-facing turn, target, impact, effect, or crop. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_034820_5e0cc55f-7160-484f-8ee4-b9cf6b49bd1d.png",
+    "status":  "completed"
+}

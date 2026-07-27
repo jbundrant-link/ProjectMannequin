@@ -1,0 +1,67 @@
+﻿{
+    "created_at":  "2026-07-20T07:00:43.798547Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "4169c505-5c79-4a97-90d1-e771d4fdaf1e",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_070043_4169c505-5c79-4a97-90d1-e771d4fdaf1e_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "64b8c96b-e8fe-498b-9498-288da438fb03",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/64b8c96b-e8fe-498b-9498-288da438fb03_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "1e96d3eb-6427-4d0c-abc1-01925634dad1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1e96d3eb-6427-4d0c-abc1-01925634dad1_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "4211ce17-b56b-475c-9287-d5315a609611",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4211ce17-b56b-475c-9287-d5315a609611_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "602f7595-da40-4854-a364-3d4a19d6e620",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/602f7595-da40-4854-a364-3d4a19d6e620.png"
+                                        },
+                                        {
+                                            "id":  "4a3ab949-0ca9-4f64-b3a8-327b3128f63a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4a3ab949-0ca9-4f64-b3a8-327b3128f63a.png"
+                                        },
+                                        {
+                                            "id":  "268327b8-7554-4f6f-a5b7-b9f2fc4ac8dc",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/268327b8-7554-4f6f-a5b7-b9f2fc4ac8dc.png"
+                                        },
+                                        {
+                                            "id":  "e6cec185-9ce4-44cf-91b6-0ea591a4463b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e6cec185-9ce4-44cf-91b6-0ea591a4463b.png"
+                                        },
+                                        {
+                                            "id":  "f6106912-1624-4fda-98f7-16d917cd33d7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f6106912-1624-4fda-98f7-16d917cd33d7.png"
+                                        },
+                                        {
+                                            "id":  "d5bab14e-71a2-4cbf-8907-315d913ebd59",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d5bab14e-71a2-4cbf-8907-315d913ebd59.png"
+                                        }
+                                    ],
+                   "prompt":  "Produce ONE seamless continuous 21:9 side-on belt-scroll GRAND TOURNAMENT FLOOR BACKDROP PILOT for Project Mannequin. This is World Warrior Stage 3: a monumental open-air championship arena for the final qualifier and heavyweight title-holder. It must read instantly as a wide public tournament stadium, never another dojo compound or lantern pavilion.\r\n\r\nBuild one uninterrupted flat lateral elevation with three asymmetric but connected championship subzones at one horizon and scale. LEFT: a broad low contestants\u0027 gate cut into warm-ivory tournament stone, with one heavy vermilion canopy and dark-indigo curtain opening. CENTER-LEFT: tiered EMPTY spectator terraces with large simplified stone seating bands, restrained saffron torch bowls, and blank vermilion/indigo honor cloth; leave the seats empty because spectators will be a separate runtime reaction layer. RIGHT: a low championship judges\u0027 dais and trophy-plinth silhouette beneath a shallow curved roof, followed by a second open tier and champion entry arch at the far edge. Connect all zones through low stone retaining walls, dark timber rails, torch rhythm, and distant mountain silhouettes under a deep indigo-to-plum evening sky.\r\n\r\nCOMPOSITION FOR THE FIXED GAME CAMERA: keep all roofs, terraces, gates, and landmark masses within the middle 50 percent of image height. Reserve the upper 28 percent for open sky and distant silhouettes. Reserve the lower 24 percent as a simple dark low-contrast arena retaining wall behind fighters. Do not let a single building fill the full image height. Use broad lateral shapes and one consistent horizon; no frontal corridor or central staircase. The arena must feel wider and more ceremonial than Pavilion Circuit without becoming a giant close-up.\r\n\r\nThe first image is the approved Dojo Approach backdrop: match only its seamless side-on production format, contour control, broad cel-painted value planes, and low-detail gameplay band. Do not copy its enclosed compound, cool timber arrangement, or practice-hall identity. The second image is approved Pavilion Circuit: match only its World Warrior color/material grammar; do not copy its lantern arcade, open pavilion arrangement, circular wall motifs, or close architectural scale. The third image is the rejected Tournament District composite and is STRUCTURE AND CHAMPIONSHIP-PALETTE REFERENCE ONLY; do not copy its people, signs, storefront, floor, rendering defects, or composition. The next three images are the approved original World Warrior Rookie, Striker, and Grappler family anchors; use only their vermilion/indigo/saffron/ivory hierarchy. The final three images are the canonical mannequin, Ryu, and Goku rendering-finish anchors.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK. Match the approved references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-three-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. High fidelity comes from composition, lighting, and finish, not PBR texture noise.\r\n\r\nNo floor, road, fighting lane, foreground rail, people, spectators, fighters, crowd silhouettes, training dummies, gameplay props, hazards, pickups, text, letters, numbers, calligraphy, signs, logos, UI, divider bars, panel seams, triptych framing, centered gate, centered staircase, mirror symmetry, corridor, tunnel, strong perspective convergence, photorealism, PBR, gritty military sci-fi, dense roof/stone microdetail, painterly blur, flat vector art, or baked character shadows. Full-bleed production backdrop with no border.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_070043_4169c505-5c79-4a97-90d1-e771d4fdaf1e.png",
+    "status":  "completed"
+}

@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-22T07:12:47.318528Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "98eb4fce-e4c0-4c91-874f-5b6c0e60f8c3",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_071247_98eb4fce-e4c0-4c91-874f-5b6c0e60f8c3_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  4096,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "e43b496e-703d-4874-8f4c-fac8546fec74",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e43b496e-703d-4874-8f4c-fac8546fec74.png"
+                                        },
+                                        {
+                                            "id":  "a9236015-1f54-4da3-a396-c88ac246ae9d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a9236015-1f54-4da3-a396-c88ac246ae9d_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "d22dd5c0-1718-4c40-83c0-5a32e8aec9b4",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d22dd5c0-1718-4c40-83c0-5a32e8aec9b4.png"
+                                        },
+                                        {
+                                            "id":  "647e070f-fc9a-4b9d-8a02-be2a6ffd3351",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/647e070f-fc9a-4b9d-8a02-be2a6ffd3351.png"
+                                        },
+                                        {
+                                            "id":  "1ab2ecb5-406d-4441-9be7-6cf44d33fc5d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1ab2ecb5-406d-4441-9be7-6cf44d33fc5d.png"
+                                        },
+                                        {
+                                            "id":  "a1d53222-7b79-4016-a056-bed71ae7e4e2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a1d53222-7b79-4016-a056-bed71ae7e4e2.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve World Warrior\u0027s warm ivory masonry, charcoal timber, indigo storm shadows, restrained vermilion cloth, jade foliage, and sparse saffron light. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production CHAMPION\u0027S COURTYARD BOSS ARENA FLOOR for Project Mannequin. Use the first supplied floor reference for weathered ivory-and-indigo flagstone material only. Produce a strict top-down orthographic 1:1 texture at 4K with 10 to 14 enormous asymmetric interlocking rain-dark flagstones, sparse deep-indigo joints, restrained blue-gray damp value planes, and very rare jade moss in interior cracks. Keep the central fight area low contrast and uncluttered.\r\n\r\nThe texture will map ONCE across a square bounded boss-arena mesh; it is not a scrolling road and does not need a decorative border. Carry generic stone naturally through every edge. No continuous row, column, grid, ring, radial pattern, centered emblem, perimeter curb, blank frame, clipped focal crack, or vegetation stripe. Keep all high-energy cracks and moss away from the outermost 8 percent.\r\n\r\nNo perspective convergence, horizon, sky, wall, architecture, timber, platform edge, stairs, circle, text, symbol, prop, hazard, character, cast shadow, realistic grit, microdetail, or photographic material. Full-bleed top-down production floor.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4096
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_071247_98eb4fce-e4c0-4c91-874f-5b6c0e60f8c3.png",
+    "status":  "completed"
+}

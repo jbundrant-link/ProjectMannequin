@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-22T06:35:42.372546Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "4a732d91-2c06-4349-92b6-4db686bcb75d",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_063542_4a732d91-2c06-4349-92b6-4db686bcb75d_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "4:3",
+                   "batch_size":  1,
+                   "height":  3584,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "fb755502-08d7-4a12-ae1e-c282ed3a5bf5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fb755502-08d7-4a12-ae1e-c282ed3a5bf5_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "1033053b-98d6-4e1e-93d0-5096bd75b2b6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1033053b-98d6-4e1e-93d0-5096bd75b2b6_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "0027b691-d848-4d3e-aa3c-67f43f9d2884",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0027b691-d848-4d3e-aa3c-67f43f9d2884_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e95fe90c-d5d3-486c-9ef2-b30b72a32e79",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e95fe90c-d5d3-486c-9ef2-b30b72a32e79_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "97d45ddf-9208-4ea5-aeaf-486fd3f4ea2c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/97d45ddf-9208-4ea5-aeaf-486fd3f4ea2c_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e08fd212-580d-4529-a046-65884b610aa8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e08fd212-580d-4529-a046-65884b610aa8.png"
+                                        },
+                                        {
+                                            "id":  "3e58bfec-563d-425e-a37f-2d91e77cbe07",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3e58bfec-563d-425e-a37f-2d91e77cbe07.png"
+                                        },
+                                        {
+                                            "id":  "10e02c67-6f67-43b6-95e6-863dc3e83cb9",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/10e02c67-6f67-43b6-95e6-863dc3e83cb9.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve Astral Battlefront\u0027s luminous cyan-white energy, porcelain-white ruins, saturated sky blue, restrained jade growth, and deep indigo storm contrast. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate the production FLOORLESS LEFT APPROACH BACKDROP companion for Project Mannequin\u0027s side-scrolling Astral Battlefront Stage 3. EDIT the first supplied rejected V1 approach in place. Preserve its exact blue-sky composition, curved relay arch, twin-pylon rail gate, small garden observatory, contour language, and architectural scale. Make only the cleanup changes below.\r\n\r\nV1 CLEANUP: completely remove the full-height waterfall/glow wall touching the right edge. Repaint the rightmost 14 percent as uninterrupted soft blue sky and pale waterfall mist matching the approved V4 center backdrop\u0027s left edge. No vertical light column, waterfall, tonal stripe, cloud wall, rail endpoint, or architecture may touch that edge. Raise or dissolve every lower arch base, pylon base, broken slab, and vegetation silhouette into mist so no architecture or dark contour crosses below the fighter-band line at 61.25 percent of total canvas height. The entire region below that line must be calm pale-blue mist with only broad low-contrast cloud variation. Preserve the landmarks above that line.\r\n\r\nCONTINUITY CONTRACT: use the approved V4 center backdrop as the authoritative camera distance, architectural scale, contour weight, sky blue, cyan rail thickness, white-porcelain material, mist level, and protected-frame geometry. Do not add, remove, duplicate, or redesign V1\u0027s landmark groups.\r\n\r\nOUTPUT AND CAMERA CONTRACT: 4:3 canvas at 4K. The central horizontal 16:9 band from 12.5 percent to 87.5 percent of canvas height is the protected gameplay-safe frame. Keep every critical landmark and complete silhouette inside it. Upper and lower 12.5 percent are natural overscan. Reserve the lower 35 percent of the protected frame as uninterrupted calm pale-blue waterfall mist and low-contrast atmospheric depth. No architecture, island underside, rail, cliff, vegetation mass, or dark silhouette may enter that calm fighter band.\r\n\r\nLATERAL FLOW: communicate left-to-right ascent only through increasing landmark refinement and thin horizontal rails. Use one flat side-on elevation, one stable horizon, and no perspective convergence. Keep both outer edges quiet. All arches and pylons must be fully contained with generous sky around them. Rails are thin distant light bands, never walkable platforms.\r\n\r\nThe second supplied image is the old Capsule Causeway composition master and is identity reference only. Do not reproduce its floor, road, near ledge, ramps, or complete-scene perspective. Environment and character references define rendering grammar only.\r\n\r\nNO floor, road, paving, fighting lane, platform surface, foreground ledge, near cliff, undergrowth apron, cropped structure, repeated V4 landmark, giant vortex, crossing rail, X shape, diagonal bridge, ramp, path toward camera, character, enemy, vehicle, prop, pickup, hazard, cast shadow, text, symbol, logo, UI, border, panel seam, centered corridor, strong one-point perspective, photorealism, or PBR. Full-bleed floorless production backdrop.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4800
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_063542_4a732d91-2c06-4349-92b6-4db686bcb75d.png",
+    "status":  "completed"
+}

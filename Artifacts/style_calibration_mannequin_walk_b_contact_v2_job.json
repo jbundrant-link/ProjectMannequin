@@ -1,0 +1,63 @@
+﻿{
+    "created_at":  "2026-07-21T07:04:40.835308Z",
+    "display_name":  "GPT Image 2",
+    "id":  "ee7b5f33-4ed8-4a3c-9a48-252a021f9f54",
+    "job_type":  "gpt_image_2",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_070440_ee7b5f33-4ed8-4a3c-9a48-252a021f9f54_min.webp",
+    "params":  {
+                   "aspect_ratio":  "1:1",
+                   "height":  2048,
+                   "medias":  [
+                                  {
+                                      "data":  {
+                                                   "id":  "5f1b01a4-b40b-4d7b-ad50-a1a42fc04832",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5f1b01a4-b40b-4d7b-ad50-a1a42fc04832.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "1a4b9a81-8ae2-48a6-bad7-45fccbada4c5",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1a4b9a81-8ae2-48a6-bad7-45fccbada4c5.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "7bea531d-2411-46b7-934b-de8f55a74328",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7bea531d-2411-46b7-934b-de8f55a74328.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "f44bcb48-9613-4278-b87f-42bc4d3b15bf",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f44bcb48-9613-4278-b87f-42bc4d3b15bf.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "479de80e-017c-457d-b96e-d14908ec64ea",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/479de80e-017c-457d-b96e-d14908ec64ea_resize.jpg"
+                                               },
+                                      "role":  "image"
+                                  }
+                              ],
+                   "model":  "videotape-alpha",
+                   "prompt":  "Create ONE complete full-body screen-right-facing blank PROJECT MANNEQUIN walk pose centered on a square 2K source image.\r\n\r\nREFERENCE ROLES ARE STRICT. Reference 1 is the exact mannequin identity authority: preserve its faceless warm-ivory porcelain head and plates, plum-brown joints and understructure, lean athletic proportions, simplified segmented anatomy, palette, contour weight, and lighting. In reference 2, ONLY the two bottom-row figures have the correct persistent leg ownership: the DARK PLUM-GRAY LEG is the support limb while the LIGHT WARM-IVORY LEG swings. Extend that exact limb identity into the requested pose. References 3 and 4 supply only canonical cel-shaded fighting-game finish. Reference 5 is a FAILURE EXAMPLE ONLY and must not be copied; it incorrectly makes the light leg lead repeatedly.\r\n\r\nLEG IDENTITY IS ABSOLUTE. The requested forward/support leg must be visibly DARK PLUM-GRAY continuously from hip plate through thigh, knee, shin, ankle, and foot. The other leg must remain visibly LIGHT WARM-IVORY continuously from hip through foot. Do not swap their colors at the knee. Do not recolor the dark forward leg light. Do not put the light foot farthest toward screen-right.\r\n\r\nNatural relaxed walk mechanics and opposite arm swing. Exactly one figure, two arms, two legs, and two feet. Preserve all joints. Same three-quarter side camera as the mannequin references. Uniform pure chroma-green RGB 0,255,0 background with large clearance around the complete figure. No floor, cast shadow, scenery, grid, border, text, labels, arrows, motion effects, extra figure, extra limb, missing limb, merged legs, crop, run, march, attack, or idle.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: polished modern 2.5D fighting-game sprite illustration, controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, simplified porcelain materials, and an arcade-readable silhouette; no photorealism, PBR, grit, painterly blur, flat vector art, or pixel art.\nPOSE: DARK-LEG HEEL CONTACT. The dark plum-gray leg reaches forward across the body toward screen-right and is the farthest-forward limb; its dark heel touches the baseline and its dark toe angles slightly upward. The light ivory leg extends behind the hips with only its light toe touching the baseline. This is the exact limb-identity opposite of the old sheet\u0027s light-leg contact pose. Use a long but natural walking stride, not a split or lunge.",
+                   "quality":  "high",
+                   "reference_elements":  [
+
+                                          ],
+                   "resolution":  "2k",
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_070440_ee7b5f33-4ed8-4a3c-9a48-252a021f9f54.png",
+    "status":  "completed"
+}

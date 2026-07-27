@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T04:27:01.634777Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "55e0fa8c-4a11-4a40-9fa9-163f6e74059e",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_042701_55e0fa8c-4a11-4a40-9fa9-163f6e74059e_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "e873131b-4c5a-4d78-ba8a-33ccf54f665f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e873131b-4c5a-4d78-ba8a-33ccf54f665f_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "d6003c9f-7489-4a67-975d-6d4f4d8543e8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d6003c9f-7489-4a67-975d-6d4f4d8543e8.png"
+                                        },
+                                        {
+                                            "id":  "89ae42d3-a4be-43d0-ab29-7004b489dd6d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/89ae42d3-a4be-43d0-ab29-7004b489dd6d.png"
+                                        },
+                                        {
+                                            "id":  "a1da44ad-1ff5-40a8-bd5a-6c636570bf38",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a1da44ad-1ff5-40a8-bd5a-6c636570bf38.png"
+                                        },
+                                        {
+                                            "id":  "1c78a23a-62bb-4db0-a5dd-00d5a8f670b7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1c78a23a-62bb-4db0-a5dd-00d5a8f670b7.png"
+                                        },
+                                        {
+                                            "id":  "e2e392a1-2d1d-4bbb-9611-2ca625468f62",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e2e392a1-2d1d-4bbb-9611-2ca625468f62.png"
+                                        },
+                                        {
+                                            "id":  "6ba7fc13-5d33-4ff8-aa0a-c480fcc64a27",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6ba7fc13-5d33-4ff8-aa0a-c480fcc64a27.png"
+                                        },
+                                        {
+                                            "id":  "53498df7-4299-4697-87c5-02ef5273e8be",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/53498df7-4299-4697-87c5-02ef5273e8be.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied approved Pavilion pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one WIDE FOREGROUND EDGE SOURCE for Pavilion Circuit on a perfectly uniform neutral medium-gray background. Place exactly TWO disconnected shallow KNEE-HEIGHT edge remnants. LEFT: a low vermilion pavilion-rail footing entering only from the extreme lower-left edge, with one indigo cloth tie, a small ivory stone base, and restrained jade leaves. RIGHT: a low broken lantern-base plinth entering only from the extreme lower-right edge, with a dark timber cap, one small inset saffron light, a blank vermilion ribbon, and restrained leaves. Keep the upper 60 percent perfectly empty uniform gray, the central 65 percent perfectly empty uniform gray, and both silhouettes entirely below the lower 40 percent. Both pieces must be fully visible enough to cut out, must never connect, and must not mirror each other exactly.\r\n\r\nNo tall lantern, post, column, wall, bridge, center object, floor, connected rail, characters, props, hazards, text, symbols, checkerboard, transparency grid, gradient, or cast shadows on the gray background. The background must be one flat solid gray color for clean removal.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_042701_55e0fa8c-4a11-4a40-9fa9-163f6e74059e.png",
+    "status":  "completed"
+}

@@ -1,0 +1,42 @@
+﻿{
+    "created_at":  "2026-07-23T07:25:02.861328Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "fd4d4137-433b-4237-a32e-4809a2d16da6",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_072502_fd4d4137-433b-4237-a32e-4809a2d16da6_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "c2838711-3753-4ddb-9a9d-fe57b3f6ec10",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c2838711-3753-4ddb-9a9d-fe57b3f6ec10.png"
+                                        },
+                                        {
+                                            "id":  "e743b261-be3b-4ab3-a127-fcbdbada3425",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e743b261-be3b-4ab3-a127-fcbdbada3425.png"
+                                        },
+                                        {
+                                            "id":  "48e74fe0-87d3-43d0-88af-e5f5fb0f1a55",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/48e74fe0-87d3-43d0-88af-e5f5fb0f1a55.png"
+                                        },
+                                        {
+                                            "id":  "562c28b0-55b1-4afd-9908-099c99dcf861",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/562c28b0-55b1-4afd-9908-099c99dcf861.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-body IDENTITY PILOT of WORLD WARRIOR GRAND GRAPPLER TETSU, one original older adult man standing in a calm upright right-facing three-quarter clinch guard. Both feet are fully grounded in an extra-wide stable stance, knees flexed, torso tall, elbows broad, lead hand open at chest height, rear hand open near the abdomen, and the complete figure is visible.\r\n\r\nTetsu is a monolithic veteran grappling champion: very tall, extremely broad rectangular torso, thick waist, massive rounded shoulders, huge forearms, pillar-like thighs and calves, deep warm-brown skin, stern calm square face, broad nose, smooth shaved head, and one enormous dense charcoal beard divided into TWO short blunt square braids capped with restrained saffron bands. No scalp hair, forelock, moustache-only face, scars, or angry screaming expression. The bald crown and twin square beard braids are mandatory head-and-silhouette anchors.\r\n\r\nHis costume is ceremonial tournament cloth, never armor: a boxy sleeveless vermilion champion vest with a high deep-indigo stand collar, closed front, broad warm-ivory vertical side panels, and narrow saffron edge piping; a very wide deep-indigo ribbed waist wrap; charcoal knee-length grappling shorts with separate warm-ivory rectangular side blocks and clear space between both legs; wide plum forearm wraps leaving both hands bare; narrow saffron ankle cords over charcoal calf wraps; low deep-indigo split-sole wrestling shoes with warm-ivory toe caps; and one large flat BRONZE SQUARE champion seal fixed off-center at the LEFT hip with a simple vermilion diamond inset. The boxy vest, twin beard braids, pillar shorts silhouette, ivory toe caps, and offset square seal are mandatory identity anchors.\r\n\r\nTetsu is the elite counterpart to the Tournament Grappler, but must be a separate champion rather than a recolor, older version, or costume variant. His fighting identity is upright immovable clinch control, not the base Grappler\u0027s low forward-pitched shoulder-entry pose. Keep his torso rectangular rather than tapered, his head bald rather than curly, and his hands open rather than clenched.\r\n\r\nThe first supplied image is the approved Tournament Grappler. Use it ONLY for shared World Warrior cloth material grammar, heavyweight anatomy finish, and the deep-indigo/vermilion/plum/saffron/warm-ivory palette family. Do not copy his short black curls, silver forelock, clean-shaven face, diagonal plum wrap tunic, centered round belt token, brick-red loose trousers, low forward lean, face, or exact proportions. The final three supplied images are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, saturated controlled accents, and arcade-readable fighting-game anatomy. Do not copy any reference character\u0027s face, hair, costume, body, or identity.\r\n\r\nOne complete centered figure on uniform pure chroma-green RGB 0,255,0 with generous green margin on every side, including above the bald head, outside both elbows and hands, and below both shoes. No white karate gi, red headband, bare feet, diagonal wrap tunic, centered round belt token, brick-red baggy trousers, long coat, cape, mantle, long sash, hakama, skirt, singlet, championship belt, tactical or military gear, armor, cargo pockets, knee pads, combat boots, photorealism, PBR, painterly blur, flat vector art, pixel art, weapon, chain, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, extra limbs, missing beard braid, missing square seal, closed fist, duplicate figure, or crop. 2K square identity pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260723_072502_fd4d4137-433b-4237-a32e-4809a2d16da6.png",
+    "status":  "completed"
+}

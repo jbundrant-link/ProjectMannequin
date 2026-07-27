@@ -16,14 +16,26 @@ The active master-plan phase remains Phase 5. The remaining Archive hazard,
 environment, interface, and Reliquary gates
 continue even where this shorter tactical plan does not repeat them.
 
+**Sequencing override - 2026-07-25.** The master plan's
+`Execution Sequencing Change - 2026-07-25` pulls Phase 6 items 1-4, the
+playability systems block, ahead of the remaining Phase 5 content art. That
+block now precedes every track below, including combat spectacle polish. Track
+ordering inside this document is otherwise unchanged, and nothing here is
+cancelled. Two consequences for this plan specifically: the dynamic
+Xbox/PlayStation/Nintendo glyph theming listed under gamepad input as deferred
+Phase 6 presentation moves forward with that block, and the gamepad QA sign-off
+should be taken alongside control rebinding rather than before it, since
+rebinding changes the surface being signed off.
+
 ## Review Outcome
 
 The original order was sound, but implementation has moved on:
 
 - **Gamepad-as-P1 is implemented.** Device assignment, GUID-based persistence,
   main-menu selection, disconnect fallback, and device-aware modal UI routing now
-  exist. The remaining work is validation plus an explicit decision on left-stick
-  menu navigation.
+  exist. Dead-zoned edge-triggered left-stick menu navigation and a pure
+  assignment/preference policy now pass 24/24 deterministic tests. Only the
+  real-controller acceptance matrix remains for sign-off.
 - **Combat spectacle is the next development priority.** Generic super camera,
   wash, audio, animation, and impact infrastructure already exists. The next pass
   should fix event parity and weak-point correctness before adding authored VFX.
@@ -42,7 +54,7 @@ The original order was sound, but implementation has moved on:
 
 Revised order:
 
-1. Close gamepad-as-P1 validation.
+1. Close gamepad-as-P1 real-hardware validation.
 2. Ship one complete combat-spectacle vertical slice.
 3. Convert Hollow Archive into a real multi-boss mode and use it to prove the
    spectacle/readability systems.
@@ -64,30 +76,19 @@ Revised order:
 - `LocalInputManager.RefreshDeviceAssignments` falls back safely when a selected
   pad disconnects.
 - `UiInputRouter` filters pad events by the assigned P1 device while deliberately
-  retaining keyboard as an emergency modal fallback.
+  retaining keyboard as an emergency modal fallback. D-pad and dead-zoned,
+  edge-triggered left-stick events both drive modal navigation.
+- `LocalInputAssignmentPolicy` owns pure preference resolution, assignment,
+  duplicate rejection, disconnect refresh, and replay-safe refresh decisions.
+- `PROJECT_MANNEQUIN_INPUT_GRAMMAR_TEST=1` passes 24/24 grammar, assignment,
+  device-filtering, stick-edge, dead-zone rearm, and emergency-fallback checks.
 - `MainMenu` exposes the P1 device selector.
 - Form select, pause, rewards, route choices, results, and Archive Hub use the
   shared logical UI router.
 
 ### Remaining Bounded Work
 
-1. **Decide left-stick UI parity**
-   - `UiInputRouter.IsPressed` currently maps key and joypad-button events; modal
-     navigation is D-pad-only even though combat movement reads the left stick.
-   - Recommendation: add edge-triggered, dead-zoned left-stick navigation with a
-     controlled repeat delay. If D-pad-only is intentional, state that explicitly
-     in the controls UI and acceptance criteria.
-
-2. **Add a deterministic assignment-policy suite**
-   - Extract the connected-device/preference resolution into a pure policy that
-     can be tested without physical hardware.
-   - Cover keyboard default, explicit P1 joypad, duplicate-device rejection,
-     GUID re-resolution, disconnect fallback, reconnect behavior, and replay not
-     being replaced by live input.
-   - Add synthetic `UiInputRouter` checks for assigned versus unassigned pad
-     events and the intentional keyboard emergency fallback.
-
-3. **Run a real-controller acceptance matrix**
+1. **Run a real-controller acceptance matrix**
    - Start from the main menu and select the pad without using a mouse.
    - Verify movement, lane/depth input, jump, all six attacks, block, grab, dash,
      motion inputs including `236HK`, pause, rewards, route choice, results, and
@@ -103,16 +104,17 @@ Revised order:
   selected gamepad.
 - P1 can open, navigate, confirm, and cancel the form-select overlay with the
   assigned gamepad.
-- The documented menu-navigation policy matches reality: either D-pad plus
-  edge-triggered left stick, or explicitly approved D-pad-only navigation.
+- D-pad and edge-triggered left-stick navigation both work on the target pad.
 - Keyboard-only play still works with the existing bindings.
 - Keyboard emergency fallback remains available in every modal when a selected
   pad disconnects.
 - P2+ device assignment remains predictable for split-screen and co-op tests.
 - Replay playback and existing deterministic smoke tests do not read live device
   changes.
+- Dynamic Xbox/PlayStation/Nintendo glyph theming remains Phase 6 presentation
+  work and is not represented as complete by this functional sign-off.
 
-## 2. Combat Spectacle Polish — NEXT DEVELOPMENT PRIORITY
+## 2. Combat Spectacle Polish — QUEUED BEHIND THE PLAYABILITY SYSTEMS BLOCK
 
 ### Verified Baseline
 

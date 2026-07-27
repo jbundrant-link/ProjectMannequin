@@ -10,6 +10,17 @@ public static class MvpProgressStore
 {
     private const string SavePath = "user://project_mannequin_mvp_progress.json";
     private const int CurrentSchemaVersion = 2;
+
+    /// <summary>
+    /// Oldest schema this build can still migrate forward.
+    /// </summary>
+    /// <remarks>
+    /// v1 differed from v2 only by added fields, which deserialize to their
+    /// defaults, so migrating it needs no transform. Any real field rename or
+    /// semantic change must add an explicit step in <see cref="Migrate"/> and
+    /// raise this floor only once the old shape is genuinely unreadable.
+    /// </remarks>
+    private const int MinimumSupportedSchemaVersion = 1;
     private static readonly string[] NonPersistentRunFlags =
     {
         "PROJECT_MANNEQUIN_COMBAT_SMOKE_TEST",
@@ -25,8 +36,10 @@ public static class MvpProgressStore
         "PROJECT_MANNEQUIN_RUN_CHECKPOINT_TEST",
         "PROJECT_MANNEQUIN_RUN_SCORE_TEST",
         "PROJECT_MANNEQUIN_STAGE_HAZARD_TEST",
+        "PROJECT_MANNEQUIN_SETTINGS_TEST",
         "PROJECT_MANNEQUIN_BOSS_INTRO_HUD_SMOKE_TEST",
         "PROJECT_MANNEQUIN_MOVE_LIST_SMOKE_TEST",
+        "PROJECT_MANNEQUIN_OPTIONS_UI_SMOKE_TEST",
         "PROJECT_MANNEQUIN_FORM_SELECT_UI_SMOKE_TEST",
         "PROJECT_MANNEQUIN_SCENE_FLOW_SMOKE_TEST",
         "PROJECT_MANNEQUIN_ARCHIVE_MAP_TEST",
@@ -65,7 +78,31 @@ public static class MvpProgressStore
                 data.BestStageTimesFrames ??= new Dictionary<string, int>();
                 data.BestStageRanks ??= new Dictionary<string, string>();
                 data.CompletedWorldIds ??= new List<string>();
-                data.SchemaVersion = CurrentSchemaVersion;
+
+                // Do NOT restamp the version here. Restamping relabels an old
+                // or newer file as current without transforming it, which turns
+                // a migration problem into silent data corruption.
+                var compatibility = SaveSchema.Evaluate(
+                    data.SchemaVersion,
+                    CurrentSchemaVersion,
+                    MinimumSupportedSchemaVersion);
+                switch (compatibility)
+                {
+                    case SaveCompatibility.FutureVersion:
+                        SaveSchema.WarnFutureSave(
+                            candidate, data.SchemaVersion, CurrentSchemaVersion);
+                        break;
+                    case SaveCompatibility.Unsupported:
+                        GD.PushWarning(
+                            $"Progress save '{candidate}' is schema v{data.SchemaVersion}, "
+                            + $"below the minimum supported v{MinimumSupportedSchemaVersion}. "
+                            + "Starting from empty progress rather than trusting it.");
+                        continue;
+                    case SaveCompatibility.Migrated:
+                        Migrate(data);
+                        break;
+                }
+
                 return data;
             }
             catch (Exception exception) when (exception is IOException or JsonException or UnauthorizedAccessException)
@@ -75,6 +112,28 @@ public static class MvpProgressStore
         }
 
         return new MvpProgressData();
+    }
+
+    /// <summary>
+    /// Brings an older progress file forward to the current schema.
+    /// </summary>
+    /// <remarks>
+    /// Each version step is explicit and cumulative. Only the version is
+    /// stamped after the steps run, never before, so a partially migrated file
+    /// can never be mistaken for a current one.
+    /// </remarks>
+    private static void Migrate(MvpProgressData data)
+    {
+        if (data.SchemaVersion < 2)
+        {
+            // v1 -> v2 added best-score, best-time, best-rank, and completed
+            // world tracking. Those deserialize to empty collections above, so
+            // there is nothing to transform; an empty best-score table simply
+            // means "no recorded runs yet", which is correct for a v1 save.
+            data.SchemaVersion = 2;
+        }
+
+        data.SchemaVersion = CurrentSchemaVersion;
     }
 
     public static bool HasUnlockedForm(string formId)
@@ -221,7 +280,19 @@ public static class MvpProgressStore
 
         try
         {
-            data.SchemaVersion = CurrentSchemaVersion;
+            if (!SaveSchema.MayOverwrite(SaveSchema.Evaluate(
+                data.SchemaVersion,
+                CurrentSchemaVersion,
+                MinimumSupportedSchemaVersion)))
+        {
+            GD.PushWarning(
+                $"Refusing to write progress save at schema v{data.SchemaVersion} "
+                + $"with a build that writes v{CurrentSchemaVersion}. "
+                + "The newer file is left intact.");
+            return;
+        }
+
+        data.SchemaVersion = CurrentSchemaVersion;
             var temporaryPath = path + ".tmp";
             var backupPath = path + ".bak";
             File.WriteAllText(temporaryPath, JsonSerializer.Serialize(data, JsonOptions));
@@ -231,6 +302,7 @@ public static class MvpProgressStore
             }
 
             File.Move(temporaryPath, path, overwrite: true);
+            SaveSchema.NotifySaved();
         }
         catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
         {

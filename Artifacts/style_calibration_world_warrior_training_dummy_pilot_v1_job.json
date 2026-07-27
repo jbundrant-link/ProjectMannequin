@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-24T00:46:00.406924Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "486cddda-9182-4854-ab25-6db4806718c2",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_004600_486cddda-9182-4854-ab25-6db4806718c2_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "42ee326e-6ee3-49c2-8837-407fa0171126",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/42ee326e-6ee3-49c2-8837-407fa0171126_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "bc7af5cf-c64a-4f21-bc86-9828c12ce549",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bc7af5cf-c64a-4f21-bc86-9828c12ce549_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "7d9ad466-be60-46fb-810c-e37ab05fa7f3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7d9ad466-be60-46fb-810c-e37ab05fa7f3.png"
+                                        },
+                                        {
+                                            "id":  "150a8b17-ff7c-479f-b6a6-8f75eaad0dc4",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/150a8b17-ff7c-479f-b6a6-8f75eaad0dc4.png"
+                                        },
+                                        {
+                                            "id":  "48c8f5d5-81e8-4a18-a4c3-0aa194246cb3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/48c8f5d5-81e8-4a18-a4c3-0aa194246cb3.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-object IDENTITY / FUNCTION PILOT of a WORLD WARRIOR BREAKABLE TRAINING DUMMY: a single freestanding nonhumanoid martial-arts striking post viewed in a clean right-facing three-quarter angle, centered and fully visible.\r\n\r\nThe prop must read instantly as BOTH a PRACTICE TARGET and a BREAKABLE GAMEPLAY OBJECT at arcade gameplay size. Build one broad, stable, waist-to-chest-high training apparatus with this exact large-form hierarchy:\r\n- one thick vertical charcoal-brown lacquered hardwood spine, visibly constructed from three sacrificial stacked timber segments;\r\n- one broad warm-ivory rectangular torso strike pad wrapped in canvas, centered on the upper half, with a simple vermilion diamond-shaped impact patch and no text or symbol;\r\n- one smaller saffron-gold circular upper strike pad above it, clearly a padded target rather than a face or head;\r\n- two short horizontal side striking arms at different heights, made from dark timber and capped by compact deep-indigo padded blocks; they are equipment bars, not human arms;\r\n- one wide low octagonal weighted base in deep indigo lacquer with vermilion corner braces and warm-ivory wear strips;\r\n- four large exposed bronze break pegs and two bold diagonal split seams where the post would snap under attacks.\r\n\r\nBreakability must come from large readable construction cues: segmented sacrificial wood, exposed pegs, wedge joints, broad split seams, and slightly chipped pad edges. Keep the object intact and usable in this pilot; no destroyed state, loose debris, dust, impact burst, or attacker. The silhouette must remain compact and bottom-heavy, with the base wider than the upper post. Use only a few large components so it remains legible when reduced to roughly 128-192 pixels tall.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the approved World Warrior Dojo Approach environment. Use only its charcoal ink contours, warm lacquered wood, worn ivory plaster/canvas, muted vermilion banners, and dusk-lit martial-arts identity. Do not reproduce its buildings, roofs, trees, mountains, floor, or scene.\r\n2. Reference 2 is the approved Pavilion Circuit environment. Use only its cleaner vermilion/deep-indigo/saffron tournament hierarchy and refined champion-equipment finish. Do not reproduce its architecture, lanterns, platform, drums, mountains, or scene.\r\n3-5. References 3-5 are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, clean designed highlights, simplified materials, saturated controlled accents, and arcade-readable 2.5D fighting-game volume. Do not copy any character\u0027s face, body, costume, anatomy, or identity.\r\n\r\nOne complete centered object on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side, including above the upper target, outside both side arms, and below the entire base. No human figure, mannequin body, torso anatomy, face, eyes, mouth, hair, hands, feet, clothing, creature, opponent, person-shaped silhouette, punching bag, hanging bag, crate, treasure chest, pickup icon, health cross, meter symbol, currency symbol, explosive warning, barrel, metal sci-fi container, armor, weapon, text, letters, numbers, kanji, logo, floor, cast shadow, scenery, room, architecture, border, grid, duplicate object, detached parts, photorealism, PBR, gritty realism, painterly blur, flat vector art, pixel art, or crop. 2K square prop pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260724_004600_486cddda-9182-4854-ab25-6db4806718c2.png",
+    "status":  "completed"
+}

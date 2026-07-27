@@ -1,0 +1,71 @@
+﻿{
+    "created_at":  "2026-07-21T19:18:02.032345Z",
+    "display_name":  "GPT Image 2",
+    "id":  "3569e230-2d79-447c-9667-38e5126c1785",
+    "job_type":  "gpt_image_2",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_191802_3569e230-2d79-447c-9667-38e5126c1785_min.webp",
+    "params":  {
+                   "aspect_ratio":  "1:1",
+                   "height":  2048,
+                   "medias":  [
+                                  {
+                                      "data":  {
+                                                   "id":  "fda658cb-fd5c-45b1-8181-bfc2ef925d34",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fda658cb-fd5c-45b1-8181-bfc2ef925d34.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "6b4bc199-f609-4e51-83fa-be63a0b46202",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6b4bc199-f609-4e51-83fa-be63a0b46202.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "33e767da-5792-4541-9ab2-29e44337e921",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/33e767da-5792-4541-9ab2-29e44337e921.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "83e44df0-c5aa-447f-ab84-51e9e68eab9b",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/83e44df0-c5aa-447f-ab84-51e9e68eab9b.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "bea6685f-851a-4af1-b949-6fb85aa26a2b",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bea6685f-851a-4af1-b949-6fb85aa26a2b.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "816660f3-de4c-4c24-b50f-cd350f2ecca7",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/816660f3-de4c-4c24-b50f-cd350f2ecca7.png"
+                                               },
+                                      "role":  "image"
+                                  }
+                              ],
+                   "model":  "videotape-alpha",
+                   "prompt":  "Create a corrected production WALK-CYCLE SOURCE SHEET for World Warrior Dojo Rookie.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the exact character identity authority. Preserve this exact character in all eight poses: original young quick open-palm fighter with black swept hair and bronze clasp, deep-indigo crossover vest, saffron placket and short sash tab, vermilion trouser panel and wraps, charcoal trousers, ivory shoes, and lacquer waist token; preserve exact lean identity. Keep the same face/head design, costume geometry, asymmetry, proportions, palette, materials, contour weight, and lighting.\r\n2. Reference 2 is the accepted Project Mannequin WALK CHOREOGRAPHY authority. Reproduce its exact eight sequential gait beats, complete leg alternation, opposing arm swing, 4-columns-by-2-rows organization, screen-right camera, spacing, and common foot baseline. Do not copy the mannequin\u0027s body, armor, colors, or identity.\r\n3. Reference 3 is an anatomical timing map. GOLD A and CYAN B are persistent physical limbs. Follow its row-major order exactly: A-contact, A-down, A-passing, A-up, B-contact, B-down, B-passing, B-up. Do not render its colors, labels, circles, guide lines, stick geometry, or white background.\r\n4. Reference 4 is a FAILURE/STYLE-CONTINUITY reference. Preserve its character rendering and scale, but reject its repeated poses, repeated same-leg lead, incomplete passing phases, and weak stride. Do not copy its choreography.\r\n5 and 6 supply only canonical Project Mannequin rendering finish: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, fighting-game anatomy, and polished anime presentation. Do not copy either character\u0027s identity.\r\n\r\nProduce EXACTLY EIGHT separate complete full-body figures in one square 4 columns x 2 rows sheet, read left-to-right across the top row then the bottom row. All face screen-right in one consistent three-quarter side camera. Top row: A heel contact, down/compression, A planted while B passes, A toe support/high point while B advances. Bottom row: B heel contact, down/compression, B planted while A passes, B toe support/high point while A advances back into frame 1. The leg that leads in frame 5 must be physically opposite the leg that leads in frame 1. Natural opposing arm swing. At least six materially different silhouettes; no duplicated pose.\r\n\r\nLOWER-BODY GEOMETRY IS ABSOLUTE. In each contact pose, one heel must visibly reach farthest forward while the opposite toe trails. In each down pose, the planted support knee must visibly compress. In each passing pose, one support leg must be near-vertical under the hips while the opposite bent foot is visibly airborne beside it. In each up pose, the support heel must be raised behind the hips while the opposite knee advances. Do not substitute standing, crouching, guarding, or repeated long-stride poses for these phases. Keep the camera-far physical leg one cel-shadow band darker through the full hip-to-foot chain so the lead-leg swap remains readable.\r\n\r\nUse one consistent body scale, head size, light direction, and identical foot baseline. Every figure must fit independently inside its implied cell with generous clearance on all sides. Exactly two arms, two legs, two feet, and all identity features in every frame. Natural grounded walk only: no idle, shuffle, march, run, jump, attack, guard, or knee strike.\r\n\r\nUniform pure chroma-green RGB 0,255,0 background. No floor, cast shadow, scenery, grid, dividers, border, text, labels, numbers, arrows, colored guide marks, motion effects, extra figure, extra limb, missing limb, merged legs, touching figures, or crop.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: cohesive modern 2.5D fighting-game production, confident dark ink contours, broad cel-shaded value planes, clean designed highlights, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game finish. No photorealism, PBR, grit, microtexture, painterly blur, flat vector art, or pixel art. 2K square animation source.",
+                   "quality":  "high",
+                   "reference_elements":  [
+
+                                          ],
+                   "resolution":  "2k",
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_191802_3569e230-2d79-447c-9667-38e5126c1785.png",
+    "status":  "completed"
+}

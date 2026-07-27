@@ -36,6 +36,7 @@ public partial class PauseMenu : CanvasLayer
     private GridContainer _formLoadoutGrid = null!;
     private Label _formLoadoutHint = null!;
     private PanelContainer _moveListPanel = null!;
+    private readonly System.Collections.Generic.List<Label> _legendLabels = new();
     private Label _moveListTitle = null!;
     private VBoxContainer _moveListContent = null!;
     private PanelContainer _artifactsPanel = null!;
@@ -43,6 +44,7 @@ public partial class PauseMenu : CanvasLayer
     private Label _artifactsSummaryLabel = null!;
     private Button _resumeButton = null!;
     private Button _quitButton = null!;
+    private OptionsMenu _optionsMenu = null!;
     private Control _pausePlateRoot = null!;
     private Control _pauseRecordContent = null!;
     private TextureRect _pausePortrait = null!;
@@ -56,11 +58,44 @@ public partial class PauseMenu : CanvasLayer
         Layer = 30;
         ProcessMode = ProcessModeEnum.Always;
         BuildInterface();
+
+        _optionsMenu = new OptionsMenu { Name = "PauseOptionsMenu" };
+        _optionsMenu.Closed += OnOptionsClosed;
+        AddChild(_optionsMenu);
+
         SetPaused(false);
+    }
+
+    /// <summary>
+    /// Hands the screen to the options surface. The tree stays paused and the
+    /// pause plate hides so the two panels never stack or share focus.
+    /// </summary>
+    private void OpenOptions()
+    {
+        _panel.Visible = false;
+        _optionsMenu.Open();
+    }
+
+    private void OnOptionsClosed()
+    {
+        if (!_paused)
+        {
+            return;
+        }
+
+        _panel.Visible = true;
+        _resumeButton.CallDeferred("grab_focus");
     }
 
     public override void _UnhandledInput(InputEvent inputEvent)
     {
+        // The options surface owns every button while it is up, including
+        // Cancel, so pause must not resume combat underneath it.
+        if (_optionsMenu.IsOpen)
+        {
+            return;
+        }
+
         // Escape is both Pause and Cancel on keyboard. Handle nested panels
         // first so Escape returns to the pause root instead of resuming combat.
         if (_paused && UiInputRouter.IsPressed(inputEvent, LogicalUiAction.Cancel))
@@ -176,6 +211,10 @@ public partial class PauseMenu : CanvasLayer
         var artifacts = MakeButton("Artifacts");
         artifacts.Pressed += () => ToggleArtifacts(true);
         box.AddChild(artifacts);
+
+        var options = MakeButton("Options");
+        options.Pressed += OpenOptions;
+        box.AddChild(options);
 
         var restart = MakeButton("Restart Stage");
         restart.Pressed += RestartScene;
@@ -464,16 +503,13 @@ public partial class PauseMenu : CanvasLayer
         _moveListTitle.AddThemeFontSizeOverride("font_size", 22);
         box.AddChild(_moveListTitle);
 
-        foreach (var legend in new[]
-                 {
-                     KeyboardCommandFormatter.DirectionLegend(),
-                     KeyboardCommandFormatter.ButtonLegend(),
-                     KeyboardCommandFormatter.SystemLegend(),
-                 })
+        // Kept as fields: legends name real controls, so they have to be
+        // rewritten when the player switches between keyboard and a pad.
+        _legendLabels.Clear();
+        for (var line = 0; line < 3; line++)
         {
             var legendLabel = new Label
             {
-                Text = legend,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 AutowrapMode = TextServer.AutowrapMode.WordSmart,
                 Modulate = new Color(0.75f, 0.85f, 0.95f),
@@ -481,7 +517,10 @@ public partial class PauseMenu : CanvasLayer
             legendLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
             legendLabel.AddThemeFontSizeOverride("font_size", 11);
             box.AddChild(legendLabel);
+            _legendLabels.Add(legendLabel);
         }
+
+        RefreshLegends();
 
         box.AddChild(new HSeparator());
 
@@ -523,8 +562,24 @@ public partial class PauseMenu : CanvasLayer
         }
     }
 
+    private void RefreshLegends()
+    {
+        if (_legendLabels.Count < 3)
+        {
+            return;
+        }
+
+        _legendLabels[0].Text = InputCommandFormatter.DirectionLegend();
+        _legendLabels[1].Text = InputCommandFormatter.ButtonLegend();
+        _legendLabels[2].Text = InputCommandFormatter.SystemLegend();
+    }
+
     private void RefreshMoveList()
     {
+        // Re-resolve the active device first: the player may have plugged in or
+        // unplugged a pad since this panel was last opened.
+        InputGlyphs.Invalidate();
+        RefreshLegends();
         foreach (var child in _moveListContent.GetChildren())
         {
             child.QueueFree();
@@ -554,7 +609,7 @@ public partial class PauseMenu : CanvasLayer
             }
 
             var category = CategoryOf(move);
-            var input = KeyboardCommandFormatter.ToKeyboard(move.InputCommand);
+            var input = InputCommandFormatter.ToDisplayCommand(move.InputCommand);
             if (!seen.Add(category + "|" + input))
             {
                 // Skip duplicate-input variants (for example close normals that
@@ -613,7 +668,7 @@ public partial class PauseMenu : CanvasLayer
 
         var input = new Label
         {
-            Text = KeyboardCommandFormatter.ToKeyboard(move.InputCommand),
+            Text = InputCommandFormatter.ToDisplayCommand(move.InputCommand),
             HorizontalAlignment = HorizontalAlignment.Right,
             CustomMinimumSize = new Vector2(115, 0),
             Modulate = new Color(0.82f, 1.0f, 0.82f),

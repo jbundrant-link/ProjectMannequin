@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-21T03:25:36.043443Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "4748ff85-c7df-438a-af65-b8810d489297",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_032536_4748ff85-c7df-438a-af65-b8810d489297_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "1d3a095a-52e2-4b45-ba5b-fe3a0b220d97",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1d3a095a-52e2-4b45-ba5b-fe3a0b220d97.png"
+                                        },
+                                        {
+                                            "id":  "073f56b6-2499-4192-86e8-283068f02edf",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/073f56b6-2499-4192-86e8-283068f02edf_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "444be593-e653-4a78-9f90-9ae16b7e666f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/444be593-e653-4a78-9f90-9ae16b7e666f.png"
+                                        },
+                                        {
+                                            "id":  "61a61ff5-904f-4a53-8141-7674b7f9c76d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/61a61ff5-904f-4a53-8141-7674b7f9c76d.png"
+                                        },
+                                        {
+                                            "id":  "c72c9ae9-c457-4a1a-9757-ab63490f0549",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c72c9ae9-c457-4a1a-9757-ab63490f0549.png"
+                                        },
+                                        {
+                                            "id":  "85644db6-8713-4df5-94ff-c468f195a9fa",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/85644db6-8713-4df5-94ff-c468f195a9fa.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR DOJO PRODIGY KENZO identity. Preserve it exactly in every pose. The WORLD WARRIOR DOJO PRODIGY KENZO is the decorated elite version of the Dojo Rookie: a poised, upright, taller young open-palm master. Preserve this exact identity in every pose: lean athletic build with confident straightened posture; swept-back black hair held by one bright saffron-gold champion circlet; layered ceremonial sleeveless vest in deep indigo with gold-embroidered edge trim over a warm-ivory underwrap; a long vermilion champion half-sash that hangs from the left hip down to the knee as a distinctive trailing silhouette; wide warm-ivory forearm guards; charcoal wide pleated hakama-style trousers gathered by a saffron cord; a bronze champion medallion centered on the chest; and low ivory split-sole shoes. Kenzo is clearly a rank above the Rookie: more ceremonial cloth, an upright master\u0027s bearing, and the trailing vermilion half-sash. Keep an open-palm karate-master fighting identity, not a wrestler or striker. The second image is choreography/layout reference only; copy its timing and body flow, not its identity. The third image is the approved Dojo Rookie for shared World Warrior material grammar only. The final three images are rendering-finish references only. Do not copy any reference character\u0027s face, hair, costume, or identity.\r\n\r\nEvery figure must be complete and separated on uniform pure chroma-green RGB 0,255,0. No white karate gi, no red headband, no bare feet, no tracksuit, no short Rookie sash tab, no military or tactical gear, no armor, no cargo pockets, no photorealism, no PBR, no painterly blur, no flat vector art, no pixel art, no weapon, no aura, no impact effect, no target, no shadow, no floor, no scene, no text, no labels, no grid lines, no border, no touching figures, no extra limbs, no missing costume pieces, no duplicate pose, and no crop.\nProduce exactly FIVE full-body MASTER PALM startup/active poses arranged as 3 figures on the top row and 2 on the bottom row. All face right. Ordered poses: 1 upright open-palm guard; 2 lead shoulder rotates; 3 precise front-foot step and palm chamber; 4 lead palm nearly extended; 5 strongest fully extended straight open-palm master strike active pose. Keep the rear hand poised at the ribs, both shoes grounded, and the active hand clearly open. Large green separation and one consistent scale. No punch, kick, recovery pose, impact, target, or speed line. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_032536_4748ff85-c7df-438a-af65-b8810d489297.png",
+    "status":  "completed"
+}

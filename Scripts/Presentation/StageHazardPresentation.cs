@@ -6,6 +6,8 @@ using ProjectMannequin.Core;
 using ProjectMannequin.Data;
 using ProjectMannequin.Stage;
 
+using ProjectMannequin.Settings;
+
 namespace ProjectMannequin.Presentation;
 
 /// <summary>
@@ -21,6 +23,9 @@ public partial class StageHazardPresentation : Node3D
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
     private readonly HashSet<string> _aftermathCaptureHiddenActorIds = new();
     private readonly HashSet<string> _aftermathCaptureHiddenSourceIds = new();
+    private bool _telegraphCaptureSaved;
+    private int _telegraphCaptureStableFrames;
+    private float _telegraphCaptureCountdownScale;
     private GameSimulation? _simulation;
     private string _encounterId = "";
     private long _presentationEventCursor;
@@ -54,6 +59,7 @@ public partial class StageHazardPresentation : Node3D
 
         var hazardsVisible = director.State == ArcadeStageState.EncounterActive
             && !_aftermathCaptureActorsHidden;
+        _telegraphCaptureCountdownScale = 0.0f;
         foreach (var zone in encounter.HazardZones)
         {
             if (!_visuals.TryGetValue(zone.Id, out var visual))
@@ -73,6 +79,7 @@ public partial class StageHazardPresentation : Node3D
                 {
                     visual.Sprite.Visible = false;
                 }
+                visual.CountdownMesh.Visible = false;
                 continue;
             }
 
@@ -88,6 +95,7 @@ public partial class StageHazardPresentation : Node3D
                 {
                     visual.Sprite.Visible = false;
                 }
+                visual.CountdownMesh.Visible = false;
                 continue;
             }
 
@@ -109,7 +117,16 @@ public partial class StageHazardPresentation : Node3D
                 (frame.MinX + frame.MaxX) * 0.5f,
                 0.045f,
                 (frame.MinZ + frame.MaxZ) * 0.5f);
-            var pulse = 0.5f + Mathf.Sin(Time.GetTicksMsec() * 0.014f) * 0.5f;
+            var settings = SettingsStore.Current;
+            var pulse = AccessibilityRuntime.Pulse(
+                Time.GetTicksMsec(),
+                0.014f,
+                settings.ReducedFlash);
+            var cue = AccessibilityRuntime.ResolveTelegraph(
+                frame.IsWarning,
+                frame.Progress,
+                pulse,
+                settings.HighContrastTelegraphs);
             if (visual.FieldMesh is not null
                 && visual.FieldPlane is not null
                 && visual.FieldMaterial is not null)
@@ -121,11 +138,11 @@ public partial class StageHazardPresentation : Node3D
                     0.055f,
                     (frame.MinZ + frame.MaxZ) * 0.5f);
                 visual.FieldMaterial.AlbedoColor = frame.IsWarning
-                    ? new Color(1.0f, 1.0f, 1.0f, 0.24f + pulse * 0.16f)
-                    : new Color(1.0f, 1.0f, 1.0f, 0.62f + pulse * 0.18f);
+                    ? new Color(1.0f, 1.0f, 1.0f, 0.24f + (pulse * 0.16f))
+                    : new Color(1.0f, 1.0f, 1.0f, 0.62f + (pulse * 0.18f));
                 visual.FieldMaterial.EmissionEnergyMultiplier = frame.IsWarning
-                    ? 1.25f
-                    : 2.1f;
+                    ? settings.HighContrastTelegraphs ? 2.0f : 1.25f
+                    : settings.HighContrastTelegraphs ? 3.2f : 2.1f;
             }
             if (visual.Sprite is not null)
             {
@@ -146,19 +163,90 @@ public partial class StageHazardPresentation : Node3D
                             : new Color(1.0f, 0.78f, 0.48f, 0.34f + pulse * 0.18f)
                     : Colors.White;
             }
-            var color = zone.Behavior == StageHazardBehavior.FallingStrike
+            // Hue still carries behaviour, but the phase is carried by the
+            // cue's non-overlapping alpha bands and the countdown marker, so
+            // nothing depends on telling amber from red.
+            var hue = zone.Behavior == StageHazardBehavior.FallingStrike
                 ? frame.IsWarning
-                    ? new Color(0.88f, 0.34f, 1.0f, 0.18f + pulse * 0.24f)
-                    : new Color(1.0f, 0.60f, 0.10f, 0.40f + pulse * 0.20f)
+                    ? new Color(0.88f, 0.34f, 1.0f)
+                    : new Color(1.0f, 0.60f, 0.10f)
                 : frame.IsWarning
-                    ? new Color(1.0f, 0.72f, 0.12f, 0.18f + pulse * 0.22f)
-                    : new Color(1.0f, 0.18f, 0.08f, 0.32f + pulse * 0.18f);
-            visual.Material.AlbedoColor = color;
-            visual.Material.Emission = new Color(color.R, color.G, color.B);
-            visual.Material.EmissionEnergyMultiplier = frame.IsWarning ? 1.15f : 1.8f;
+                    ? new Color(1.0f, 0.72f, 0.12f)
+                    : new Color(1.0f, 0.18f, 0.08f);
+            visual.Material.AlbedoColor = new Color(hue.R, hue.G, hue.B, cue.Alpha);
+            visual.Material.Emission = hue;
+            visual.Material.EmissionEnergyMultiplier = cue.EmissionEnergy;
+
+            visual.CountdownMesh.Visible = cue.CountdownVisible;
+            if (cue.CountdownVisible)
+            {
+                var countdownWidth = Mathf.Max(0.02f, width * cue.CountdownScale);
+                var countdownDepth = Mathf.Max(0.02f, depth * cue.CountdownScale);
+                visual.CountdownPlane.Size = new Vector2(countdownWidth, countdownDepth);
+                visual.CountdownMesh.Position = new Vector3(
+                    (frame.MinX + frame.MaxX) * 0.5f,
+                    0.065f,
+                    (frame.MinZ + frame.MaxZ) * 0.5f);
+                visual.CountdownMaterial.AlbedoColor = new Color(
+                    1.0f,
+                    1.0f,
+                    1.0f,
+                    settings.HighContrastTelegraphs ? 0.85f : 0.55f);
+                visual.CountdownMaterial.EmissionEnergyMultiplier =
+                    settings.HighContrastTelegraphs ? 2.6f : 1.6f;
+                _telegraphCaptureCountdownScale = cue.CountdownScale;
+            }
         }
 
         CaptureAftermathFrameIfRequested();
+        CaptureTelegraphFrameIfRequested();
+    }
+
+    /// <summary>
+    /// Saves one frame mid wind-up so the colour-independent telegraph cues can
+    /// be reviewed as pixels rather than inferred from assertions.
+    /// </summary>
+    private void CaptureTelegraphFrameIfRequested()
+    {
+        var path = OS.GetEnvironment("PROJECT_MANNEQUIN_HAZARD_TELEGRAPH_CAPTURE");
+        if (_telegraphCaptureSaved || string.IsNullOrWhiteSpace(path))
+        {
+            return;
+        }
+
+        // Require the marker to be roughly half contracted, so the frame is
+        // unambiguous about the cue moving, and require that to hold for
+        // several frames: the viewport texture lags the current frame's
+        // transform writes by one render.
+        var midWindUp = _telegraphCaptureCountdownScale is > 0.3f and < 0.7f;
+        if (!midWindUp)
+        {
+            _telegraphCaptureStableFrames = 0;
+            return;
+        }
+
+        _telegraphCaptureStableFrames++;
+        if (_telegraphCaptureStableFrames < 4)
+        {
+            return;
+        }
+
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError(
+                $"[StageHazardPresentation] Could not save telegraph capture '{path}' ({error}).");
+            return;
+        }
+
+        _telegraphCaptureSaved = true;
+        GD.Print($"[StageHazardPresentation] Telegraph capture saved: {path}");
     }
 
     private void CaptureAftermathEvents(StageEncounterData encounter)
@@ -477,6 +565,34 @@ public partial class StageHazardPresentation : Node3D
                 };
                 AddChild(sprite);
             }
+            // Colour-independent wind-up cue. Warning and active telegraphs are
+            // amber vs red and purple vs orange, which protanopes and
+            // deuteranopes cannot separate, so phase has to be carried by
+            // something other than hue. This marker contracts to nothing as the
+            // hazard fires and is absent once it is live.
+            var countdownMaterial = new StandardMaterial3D
+            {
+                ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded,
+                Transparency = BaseMaterial3D.TransparencyEnum.Alpha,
+                AlbedoColor = new Color(1.0f, 1.0f, 1.0f, 0.55f),
+                EmissionEnabled = true,
+                Emission = Colors.White,
+                EmissionEnergyMultiplier = 1.6f,
+            };
+            var countdownPlane = new PlaneMesh
+            {
+                Size = Vector2.One,
+                Material = countdownMaterial,
+            };
+            var countdownMesh = new MeshInstance3D
+            {
+                Name = $"HazardCountdown_{zone.Id}",
+                Mesh = countdownPlane,
+                CastShadow = GeometryInstance3D.ShadowCastingSetting.Off,
+                Visible = false,
+            };
+            AddChild(countdownMesh);
+
             _visuals[zone.Id] = new HazardVisual(
                 mesh,
                 plane,
@@ -484,7 +600,10 @@ public partial class StageHazardPresentation : Node3D
                 fieldMesh,
                 fieldPlane,
                 fieldMaterial,
-                sprite);
+                sprite,
+                countdownMesh,
+                countdownPlane,
+                countdownMaterial);
         }
     }
 
@@ -501,6 +620,7 @@ public partial class StageHazardPresentation : Node3D
             {
                 visual.Sprite.Visible = false;
             }
+            visual.CountdownMesh.Visible = false;
         }
     }
 
@@ -511,7 +631,10 @@ public partial class StageHazardPresentation : Node3D
         MeshInstance3D? FieldMesh,
         PlaneMesh? FieldPlane,
         StandardMaterial3D? FieldMaterial,
-        Sprite3D? Sprite);
+        Sprite3D? Sprite,
+        MeshInstance3D CountdownMesh,
+        PlaneMesh CountdownPlane,
+        StandardMaterial3D CountdownMaterial);
 
     private sealed record AftermathVisual(Node3D Root);
 }

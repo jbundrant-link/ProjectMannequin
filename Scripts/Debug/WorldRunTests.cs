@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -58,8 +59,62 @@ public static class WorldRunTests
                         && encounter.ArenaMinX >= stage.StageMinX
                         && encounter.ArenaMaxX <= stage.StageMaxX),
                     $"{worldId} stage {expectedNumber} normalized encounter bounds");
-                Check(StageMissionValidator.Validate(stage).Count == 0,
-                    $"{worldId} stage {expectedNumber} mission validation");
+                var missionErrors = StageMissionValidator.Validate(stage);
+                Check(missionErrors.Count == 0,
+                    $"{worldId} stage {expectedNumber} mission validation",
+                    string.Join("; ", missionErrors));
+
+                if (worldId is "archive_nexus" or "world_warrior_sector"
+                    && stage.PresentationMode == StagePresentationMode.LegacyLayered)
+                {
+                    Check(FloorMaterialIsIsotropic(stage.FloorTexturePath, 0.55f),
+                        $"{worldId} stage {expectedNumber} floor material survives the stage camera",
+                        stage.FloorTexturePath);
+                    // Stage art is authored against this key, so it has to be a
+                    // usable direction rather than left at whatever a default
+                    // happened to be. A key at or above the horizon would light
+                    // the fighters from below.
+                    Check(stage.KeyLightPitchDegrees is > -85.0f and < -10.0f
+                          && stage.KeyLightYawDegrees is >= -180.0f and <= 180.0f,
+                        $"{worldId} stage {expectedNumber} declares a usable key light direction");
+
+                    // Far-layer haze must begin strictly BEHIND the deepest
+                    // point a fighter can stand on. If it ever started closer,
+                    // a player walking to the back lane would fade into the
+                    // backdrop mid-fight.
+                    var haze = ProjectMannequin.Stage.StageGroundProjection
+                        .ResolveFarHazeRange(
+                            stage,
+                            ProjectMannequin.Presentation.PrototypeStageView
+                                .FarHazeLaneClearance,
+                            ProjectMannequin.Presentation.PrototypeStageView
+                                .FarHazeSpan);
+                    var deepestFighter = ProjectMannequin.Stage
+                        .StageGroundProjection
+                        .ResolveRestingCameraProfile(stage).Depth
+                        - stage.LaneMinZ;
+                    Check(haze.Begin > deepestFighter,
+                        $"{worldId} stage {expectedNumber} haze starts behind the deepest fighter");
+                    Check(haze.End > haze.Begin,
+                        $"{worldId} stage {expectedNumber} haze ramps over a positive depth span");
+                    var farPanel = stage.BackgroundPanels.Single(panel =>
+                        panel.Layer == StageVisualLayerKind.Far);
+                    var midgroundPanel = stage.BackgroundPanels.Single(panel =>
+                        panel.Layer == StageVisualLayerKind.Midground);
+                    var foregroundPanels = stage.BackgroundPanels.Where(panel =>
+                        panel.Layer == StageVisualLayerKind.Foreground);
+                    Check(farPanel.AlignBottomToFloor
+                          && farPanel.RepeatHorizontally
+                          && farPanel.ScaleYMultiplier <= 0.40f
+                          && midgroundPanel.AlignBottomToFloor
+                          && midgroundPanel.RepeatHorizontally
+                          && midgroundPanel.CropTopFraction
+                              + midgroundPanel.CropBottomFraction > 0.0f
+                          && foregroundPanels.All(panel =>
+                              !panel.AlignBottomToFloor
+                              && !panel.RepeatHorizontally),
+                        $"{worldId} stage {expectedNumber} uses grounded aspect-safe layers");
+                }
 
                 if (stageIndex < 3)
                 {
@@ -329,7 +384,7 @@ public static class WorldRunTests
                 var raiderTexture = ResourceLoader.Exists(raider.SpriteSheetPath)
                     ? GD.Load<Texture2D>(raider.SpriteSheetPath)
                     : null;
-                Check(raider.SpriteSheetPath.EndsWith("archive_raider_style_v2.png")
+                Check(raider.SpriteSheetPath.EndsWith("archive_raider_style_v3.png")
                       && raiderTexture is not null
                       && raiderTexture.GetWidth() == 2560
                       && raiderTexture.GetHeight() == 2304
@@ -338,7 +393,7 @@ public static class WorldRunTests
                       && System.Math.Abs(raider.SpritePixelSize - 0.018f) < 0.00001f
                       && System.Math.Abs(raider.SpriteGroundOffsetPixels - 120.0f) < 0.01f
                       && !raider.TintSpriteSheet,
-                    "Archive Raider uses the identity-locked calibrated 10x9 style-v2 atlas");
+                    "Archive Raider uses the identity-locked walk-repaired 10x9 atlas");
                 var raiderAttack = raider.FindMove("archive_raider_attack");
                 Check(raiderAttack is not null
                       && raiderAttack.AnimationFrameSequence.SequenceEqual(
@@ -477,7 +532,7 @@ public static class WorldRunTests
                 var bruiserTexture = ResourceLoader.Exists(bruiser.SpriteSheetPath)
                     ? GD.Load<Texture2D>(bruiser.SpriteSheetPath)
                     : null;
-                Check(bruiser.SpriteSheetPath.EndsWith("archive_bruiser_style_v2.png")
+                Check(bruiser.SpriteSheetPath.EndsWith("archive_bruiser_style_v3.png")
                       && bruiserTexture is not null
                       && bruiserTexture.GetWidth() == 2560
                       && bruiserTexture.GetHeight() == 2304
@@ -486,7 +541,7 @@ public static class WorldRunTests
                       && System.Math.Abs(bruiser.SpritePixelSize - 0.0205f) < 0.00001f
                       && System.Math.Abs(bruiser.SpriteGroundOffsetPixels - 120.0f) < 0.01f
                       && !bruiser.TintSpriteSheet,
-                    "Archive Bruiser uses the heavyweight identity-locked 10x9 style-v2 atlas");
+                    "Archive Bruiser uses the heavyweight walk-repaired 10x9 atlas");
                 var bruiserAttack = bruiser.FindMove("archive_bruiser_attack");
                 Check(bruiserAttack is not null
                       && bruiserAttack.AnimationFrameSequence.SequenceEqual(
@@ -517,7 +572,7 @@ public static class WorldRunTests
                 Check(basalt.Id == "overseer_basalt"
                       && basalt.DisplayName == "Overseer Basalt"
                       && basalt.SpriteSheetPath.EndsWith(
-                          "overseer_basalt_style_v1.png")
+                          "overseer_basalt_style_v2.png")
                       && basaltTexture is not null
                       && basaltTexture.GetWidth() == 2560
                       && basaltTexture.GetHeight() == 2304
@@ -555,7 +610,7 @@ public static class WorldRunTests
                     ? GD.Load<Texture2D>(archiveKnight.SpriteSheetPath)
                     : null;
                 Check(archiveKnight.SpriteSheetPath.EndsWith(
-                          "archive_knight_style_v1.png")
+                          "archive_knight_style_v2.png")
                       && archiveKnightTexture is not null
                       && archiveKnightTexture.GetWidth() == 2560
                       && archiveKnightTexture.GetHeight() == 2304
@@ -643,19 +698,332 @@ public static class WorldRunTests
                           && panel.Opacity < 0.8f
                           && panel.MaxX - panel.MinX <= 4.6f),
                     "Dojo Approach production layers preserve ordered depth and edge-bound foreground");
+                var dojoTrainingProp = dojoApproach.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.ArchetypeId
+                        == "world_warrior_training_dummy");
+                Check(dojoTrainingProp.Id == "dojo_approach_training_dummy"
+                      && dojoTrainingProp.Health == 90
+                      && !dojoTrainingProp.IsThrowable
+                      && dojoTrainingProp.SpawnsPickupOnBreak
+                      && dojoTrainingProp.DropType == StagePickupType.Health
+                      && Mathf.IsEqualApprox(dojoTrainingProp.DropChance, 1.0f)
+                      && dojoTrainingProp.SpritePath.EndsWith(
+                          "world_warrior_training_dummy_style_v1.png")
+                      && Mathf.IsEqualApprox(
+                          dojoTrainingProp.SpritePixelSize,
+                          0.00147291f)
+                      && Mathf.IsEqualApprox(
+                          dojoTrainingProp.SpriteGroundOffsetPixels,
+                          968.0f),
+                    "Dojo Approach authors one calibrated nonthrowable training dummy with a guaranteed health drop");
+                var trainingDummy = HazardRosterFactory
+                    .CreateWorldWarriorTrainingDummy();
+                var trainingDummyTexture = ResourceLoader.Exists(
+                        trainingDummy.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(trainingDummy.SpriteSheetPath)
+                    : null;
+                Check(trainingDummy.Id == "world_warrior_training_dummy"
+                      && trainingDummy.DisplayName == "Training Dummy"
+                      && trainingDummyTexture is not null
+                      && trainingDummyTexture.GetWidth() == 2048
+                      && trainingDummyTexture.GetHeight() == 2048
+                      && !trainingDummy.TintSpriteSheet
+                      && trainingDummy.RoleTags.Contains("breakable")
+                      && trainingDummy.RoleTags.Contains("world_warrior")
+                      && trainingDummy.RoleTags.Contains("training_prop"),
+                    "World Warrior training dummy uses a unique real-alpha breakable prop sprite");
+                Check(HaveDistinctContent(new[]
+                    {
+                        trainingDummy.SpriteSheetPath,
+                        "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
+                    }),
+                    "World Warrior training dummy content is distinct from Archive caches");
+                var dojoSupplyCrate = dojoApproach.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.ArchetypeId
+                        == "world_warrior_supply_crate");
+                Check(dojoSupplyCrate.Id == "dojo_approach_supply_crate"
+                      && dojoSupplyCrate.Health == 70
+                      && dojoSupplyCrate.SpawnsPickupOnBreak
+                      && dojoSupplyCrate.DropType == StagePickupType.Meter
+                      && Mathf.IsEqualApprox(dojoSupplyCrate.DropChance, 1.0f)
+                      && dojoSupplyCrate.SpritePath.EndsWith(
+                          "world_warrior_supply_crate_style_v1.png")
+                      && Mathf.IsEqualApprox(
+                          dojoSupplyCrate.SpritePixelSize,
+                          0.00079027f)
+                      && Mathf.IsEqualApprox(
+                          dojoSupplyCrate.SpriteGroundOffsetPixels,
+                          848.0f)
+                      && dojoApproach.Encounters[1].Props.Any(prop =>
+                          prop.Id == "dojo_approach_supply_crate"),
+                    "Dojo Approach authors one calibrated supply crate with a guaranteed meter drop");
+                var supplyCrate = HazardRosterFactory
+                    .CreateWorldWarriorSupplyCrate();
+                var supplyCrateTexture = ResourceLoader.Exists(
+                        supplyCrate.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(supplyCrate.SpriteSheetPath)
+                    : null;
+                Check(supplyCrate.Id == "world_warrior_supply_crate"
+                      && supplyCrate.DisplayName == "Sparring Supply Crate"
+                      && supplyCrateTexture is not null
+                      && supplyCrateTexture.GetWidth() == 2048
+                      && supplyCrateTexture.GetHeight() == 2048
+                      && !supplyCrate.TintSpriteSheet
+                      && supplyCrate.RoleTags.Contains("breakable")
+                      && supplyCrate.RoleTags.Contains("world_warrior")
+                      && supplyCrate.RoleTags.Contains("supply_prop"),
+                    "World Warrior supply crate uses calibrated unique real-alpha breakable prop art");
+                Check(HaveDistinctContent(new[]
+                    {
+                        supplyCrate.SpriteSheetPath,
+                        trainingDummy.SpriteSheetPath,
+                        "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
+                    }),
+                    "World Warrior supply crate content is distinct from the training dummy and Archive caches");
+                var worldWarriorHealthPickup = HazardRosterFactory
+                    .CreateWorldWarriorHealthPickup();
+                var worldWarriorHealthTexture = ResourceLoader.Exists(
+                        worldWarriorHealthPickup.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(worldWarriorHealthPickup.SpriteSheetPath)
+                    : null;
+                Check(worldWarriorHealthPickup.Id == "pickup_health"
+                      && worldWarriorHealthPickup.DisplayName == "Vitality Gourd"
+                      && worldWarriorHealthTexture is not null
+                      && worldWarriorHealthTexture.GetWidth() == 2048
+                      && worldWarriorHealthTexture.GetHeight() == 2048
+                      && Mathf.IsEqualApprox(
+                          worldWarriorHealthPickup.SpritePixelSize,
+                          0.00038125f)
+                      && Mathf.IsEqualApprox(
+                          worldWarriorHealthPickup.SpriteGroundOffsetPixels,
+                          972.0f)
+                      && !worldWarriorHealthPickup.TintSpriteSheet
+                      && worldWarriorHealthPickup.RoleTags.Contains("pickup")
+                      && worldWarriorHealthPickup.RoleTags.Contains("world_warrior")
+                      && worldWarriorHealthPickup.RoleTags.Contains("health_pickup"),
+                    "World Warrior Vitality Gourd uses calibrated unique real-alpha pickup art");
+                Check(HaveDistinctContent(new[]
+                    {
+                        worldWarriorHealthPickup.SpriteSheetPath,
+                        "res://Assets/Sprites/Pickups/Archive/archive_health_pickup_style_v2.png",
+                    }),
+                    "World Warrior health pickup content is distinct from the Archive Vital");
+                var pavilionCircuit = run.Stages[1];
+                var pavilionFocusProp = pavilionCircuit.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.Id == "pavilion_circuit_focus_dummy");
+                Check(pavilionFocusProp.ArchetypeId == "world_warrior_training_dummy"
+                      && pavilionFocusProp.Health == 105
+                      && !pavilionFocusProp.IsThrowable
+                      && pavilionFocusProp.SpawnsPickupOnBreak
+                      && pavilionFocusProp.DropType == StagePickupType.Meter
+                      && Mathf.IsEqualApprox(pavilionFocusProp.DropChance, 1.0f)
+                      && pavilionFocusProp.SpritePath.EndsWith(
+                          "world_warrior_training_dummy_style_v1.png"),
+                    "Pavilion Circuit authors one training dummy with a guaranteed meter drop");
+                var worldWarriorMeterPickup = HazardRosterFactory
+                    .CreateWorldWarriorMeterPickup();
+                var worldWarriorMeterTexture = ResourceLoader.Exists(
+                        worldWarriorMeterPickup.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(worldWarriorMeterPickup.SpriteSheetPath)
+                    : null;
+                Check(worldWarriorMeterPickup.Id == "pickup_meter"
+                      && worldWarriorMeterPickup.DisplayName == "Focus Drum"
+                      && worldWarriorMeterTexture is not null
+                      && worldWarriorMeterTexture.GetWidth() == 2048
+                      && worldWarriorMeterTexture.GetHeight() == 2048
+                      && Mathf.IsEqualApprox(
+                          worldWarriorMeterPickup.SpritePixelSize,
+                          0.00052895f)
+                      && Mathf.IsEqualApprox(
+                          worldWarriorMeterPickup.SpriteGroundOffsetPixels,
+                          700.0f)
+                      && !worldWarriorMeterPickup.TintSpriteSheet
+                      && worldWarriorMeterPickup.RoleTags.Contains("pickup")
+                      && worldWarriorMeterPickup.RoleTags.Contains("world_warrior")
+                      && worldWarriorMeterPickup.RoleTags.Contains("meter_pickup"),
+                    "World Warrior Focus Drum uses calibrated unique real-alpha pickup art");
+                Check(HaveDistinctContent(new[]
+                    {
+                        worldWarriorMeterPickup.SpriteSheetPath,
+                        worldWarriorHealthPickup.SpriteSheetPath,
+                        "res://Assets/Sprites/Pickups/Archive/archive_meter_pickup_style_v2.png",
+                    }),
+                    "World Warrior meter pickup content is distinct from health and Archive meter art");
+                var pavilionLayerPaths = pavilionCircuit.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(pavilionCircuit.StageTexturePath.EndsWith(
+                          "world_warrior_pavilion_backdrop_style_v1.png")
+                      && pavilionCircuit.FloorTexturePath.EndsWith(
+                          "world_warrior_pavilion_floor_style_v2.png")
+                      && pavilionLayerPaths.Length == 4
+                      && pavilionLayerPaths.All(path => ResourceLoader.Exists(path))
+                      && HaveDistinctContent(pavilionLayerPaths)
+                      && HaveDistinctContent(new[]
+                      {
+                          pavilionCircuit.StageTexturePath,
+                          dojoApproach.StageTexturePath,
+                      }),
+                    "Pavilion Circuit uses independent style-approved production layers");
+                var pavilionFar = pavilionCircuit.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Far);
+                var pavilionMidground = pavilionCircuit.BackgroundPanels.Single(panel =>
+                    panel.Layer == StageVisualLayerKind.Midground);
+                var pavilionForeground = pavilionCircuit.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(pavilionFar.ParallaxFactorX < pavilionMidground.ParallaxFactorX
+                        && pavilionFar.ScaleYMultiplier <= 0.40f
+                        && pavilionMidground.ScaleYMultiplier <= 0.26f
+                    && pavilionMidground.AlignBottomToFloor
+                      && pavilionForeground.Length == 2
+                      && pavilionForeground.All(panel =>
+                          pavilionMidground.ParallaxFactorX < panel.ParallaxFactorX
+                          && pavilionMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 4.6f),
+                    "Pavilion Circuit layers preserve ordered depth and edge-bound foreground");
+                var grandTournament = run.Stages[2];
+                var grandTournamentHonorProp = grandTournament.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.Id == "grand_tournament_honor_dummy");
+                Check(grandTournamentHonorProp.ArchetypeId
+                          == "world_warrior_training_dummy"
+                      && grandTournamentHonorProp.Health == 120
+                      && !grandTournamentHonorProp.IsThrowable
+                      && grandTournamentHonorProp.SpawnsPickupOnBreak
+                      && grandTournamentHonorProp.DropType == StagePickupType.Score
+                      && Mathf.IsEqualApprox(
+                          grandTournamentHonorProp.DropChance,
+                          1.0f)
+                      && grandTournamentHonorProp.SpritePath.EndsWith(
+                          "world_warrior_training_dummy_style_v1.png"),
+                    "Grand Tournament authors one training dummy with a guaranteed score drop");
+                var worldWarriorScorePickup = HazardRosterFactory
+                    .CreateWorldWarriorScorePickup();
+                var worldWarriorScoreTexture = ResourceLoader.Exists(
+                        worldWarriorScorePickup.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(worldWarriorScorePickup.SpriteSheetPath)
+                    : null;
+                Check(worldWarriorScorePickup.Id == "pickup_score"
+                      && worldWarriorScorePickup.DisplayName == "Judge's Laurel Fan"
+                      && worldWarriorScoreTexture is not null
+                      && worldWarriorScoreTexture.GetWidth() == 2048
+                      && worldWarriorScoreTexture.GetHeight() == 2048
+                      && Mathf.IsEqualApprox(
+                          worldWarriorScorePickup.SpritePixelSize,
+                          0.00042676f)
+                      && Mathf.IsEqualApprox(
+                          worldWarriorScorePickup.SpriteGroundOffsetPixels,
+                          854.0f)
+                      && !worldWarriorScorePickup.TintSpriteSheet
+                      && worldWarriorScorePickup.RoleTags.Contains("pickup")
+                      && worldWarriorScorePickup.RoleTags.Contains("world_warrior")
+                      && worldWarriorScorePickup.RoleTags.Contains("score_pickup"),
+                    "World Warrior Judge's Laurel Fan uses calibrated unique real-alpha pickup art");
+                Check(HaveDistinctContent(new[]
+                    {
+                        worldWarriorScorePickup.SpriteSheetPath,
+                        worldWarriorHealthPickup.SpriteSheetPath,
+                        worldWarriorMeterPickup.SpriteSheetPath,
+                        "res://Assets/Sprites/Pickups/Archive/archive_data_pickup_style_v2.png",
+                    }),
+                    "World Warrior score pickup content is distinct from health meter and Archive score art");
+                var grandTournamentLayerPaths = grandTournament.BackgroundPanels
+                    .Select(panel => panel.TexturePath)
+                    .ToArray();
+                Check(grandTournament.StageTexturePath.EndsWith(
+                          "world_warrior_grand_tournament_backdrop_style_v1.png")
+                      && grandTournament.FloorTexturePath.EndsWith(
+                          "world_warrior_grand_tournament_floor_style_v2.png")
+                      && grandTournamentLayerPaths.Length == 4
+                      && grandTournamentLayerPaths.All(path =>
+                          ResourceLoader.Exists(path))
+                      && HaveDistinctContent(grandTournamentLayerPaths)
+                      && HaveDistinctContent(new[]
+                      {
+                          grandTournament.StageTexturePath,
+                          dojoApproach.StageTexturePath,
+                          pavilionCircuit.StageTexturePath,
+                      }),
+                    "Grand Tournament Floor uses independent style-approved production layers");
+                var grandTournamentFar = grandTournament.BackgroundPanels.Single(
+                    panel => panel.Layer == StageVisualLayerKind.Far);
+                var grandTournamentMidground = grandTournament.BackgroundPanels.Single(
+                    panel => panel.Layer == StageVisualLayerKind.Midground);
+                var grandTournamentForeground = grandTournament.BackgroundPanels
+                    .Where(panel => panel.Layer == StageVisualLayerKind.Foreground)
+                    .ToArray();
+                Check(grandTournamentFar.ParallaxFactorX
+                          < grandTournamentMidground.ParallaxFactorX
+                      && grandTournamentFar.ScaleYMultiplier <= 0.40f
+                      && grandTournamentMidground.ScaleYMultiplier <= 0.26f
+                      && grandTournamentMidground.AlignBottomToFloor
+                      && grandTournamentForeground.Length == 2
+                      && grandTournamentForeground.All(panel =>
+                          grandTournamentMidground.ParallaxFactorX
+                              < panel.ParallaxFactorX
+                          && grandTournamentMidground.PositionZ < panel.PositionZ
+                          && panel.Opacity < 0.8f
+                          && panel.MaxX - panel.MinX <= 4.8f),
+                    "Grand Tournament Floor layers preserve camera-safe depth and edge-bound foreground");
+                var championsCourtyard = run.Stages[3];
+                var courtyardArena = championsCourtyard.ArenaPresentation;
+                var courtyardPlate = championsCourtyard.FullFramePlates.Count == 1
+                    ? championsCourtyard.FullFramePlates[0]
+                    : null;
+                var courtyardPlateTexture = courtyardPlate is not null
+                    && ResourceLoader.Exists(courtyardPlate.TexturePath)
+                        ? GD.Load<Texture2D>(courtyardPlate.TexturePath)
+                        : null;
+                Check(championsCourtyard.PresentationMode
+                          == StagePresentationMode.FullFramePlates
+                      && courtyardArena is not null
+                      && championsCourtyard.BackgroundPanels.Count == 0
+                      && championsCourtyard.CompositeSegments.Count == 0
+                      && courtyardPlate is not null
+                      && courtyardPlate.TexturePath.EndsWith(
+                          "world_warrior_champions_courtyard_full_frame_plate_style_v2.png")
+                      && courtyardPlateTexture is not null
+                      && courtyardPlateTexture.GetWidth() == 5504
+                      && courtyardPlateTexture.GetHeight() == 3096
+                      && courtyardPlateTexture.GetWidth() * 9
+                          == courtyardPlateTexture.GetHeight() * 16
+                      && Mathf.IsEqualApprox(courtyardArena.CameraSize, 9.0f)
+                      && Mathf.IsEqualApprox(courtyardArena.CameraMaxSize, 9.0f)
+                      && Mathf.IsEqualApprox(
+                          courtyardArena.CenterX,
+                          championsCourtyard.Encounters.Single().CameraLockX)
+                      && Mathf.IsEqualApprox(
+                          courtyardPlate.CenterX,
+                          courtyardArena.CenterX),
+                    "Champion's Courtyard displays one complete full-frame stage plate");
+                Check(FullFramePlatesGroundFighters(championsCourtyard, 0.005f),
+                    "Champion's Courtyard grounds fighters on its painted arena floor");
+                Check(championsCourtyard.Encounters.All(encounter =>
+                          encounter.HazardZones.Count == 0)
+                      && Mathf.IsEqualApprox(
+                          championsCourtyard.CameraBaseSize,
+                          championsCourtyard.CameraMaxSize)
+                      && championsCourtyard.CameraCinematicSize
+                          < championsCourtyard.CameraBaseSize,
+                    "Champion's Courtyard preserves fixed normal framing without external hazards");
                 var rookie = TestRosterFactory.CreateWorldWarriorRookie();
                 var rookieTexture = ResourceLoader.Exists(rookie.SpriteSheetPath)
                     ? GD.Load<Texture2D>(rookie.SpriteSheetPath)
                     : null;
                 Check(rookie.SpriteSheetPath.EndsWith(
-                          "world_warrior_rookie_style_v2.png")
+                          "world_warrior_rookie_style_v3.png")
                       && rookieTexture is not null
                       && rookieTexture.GetWidth() == 2560
                       && rookieTexture.GetHeight() == 2304
                       && rookie.SpriteSheetColumns == 10
                       && rookie.SpriteSheetRows == 9
                       && !rookie.TintSpriteSheet,
-                    "Dojo Rookie uses the original identity-locked 10x9 style-v2 atlas");
+                    "Dojo Rookie uses the original identity-locked walk-repaired 10x9 atlas");
                 var quickPalm = rookie.FindMove("world_warrior_rookie_attack");
                 Check(quickPalm is not null
                       && quickPalm.AnimationFrameSequence.SequenceEqual(
@@ -665,19 +1033,66 @@ public static class WorldRunTests
                       && quickPalm.AnimationFrameDurations.Sum()
                           == quickPalm.TotalFrames,
                     "Dojo Rookie Quick Palm animation timing matches startup active and recovery phases");
+                var stageOneElite = dojoApproach.Encounters.Single(encounter =>
+                    encounter.Kind == StageEncounterKind.Elite);
+                Check(stageOneElite.DisplayName == "Dojo Prodigy Kenzo"
+                      && stageOneElite.Spawns.Single().ArchetypeId
+                          == "world_warrior_dojo_prodigy_kenzo",
+                    "World Warrior Stage 1 selects the distinct Kenzo archetype");
+                var kenzo = TestRosterFactory.CreateWorldWarriorDojoProdigyKenzo();
+                var kenzoTexture = ResourceLoader.Exists(kenzo.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(kenzo.SpriteSheetPath)
+                    : null;
+                Check(kenzo.Id == "world_warrior_dojo_prodigy_kenzo"
+                      && kenzo.DisplayName == "Dojo Prodigy Kenzo"
+                      && kenzo.SpriteSheetPath.EndsWith(
+                          "world_warrior_dojo_prodigy_kenzo_style_v2.png")
+                      && kenzoTexture is not null
+                      && kenzoTexture.GetWidth() == 2560
+                      && kenzoTexture.GetHeight() == 2304
+                      && kenzo.SpriteSheetColumns == 10
+                      && kenzo.SpriteSheetRows == 9
+                      && System.Math.Abs(kenzo.SpritePixelSize - 0.0190f) < 0.00001f
+                      && System.Math.Abs(kenzo.SpriteGroundOffsetPixels - 120.0f) < 0.01f
+                      && !kenzo.TintSpriteSheet
+                      && kenzo.ArcadeEnemyProfile?.Id
+                                                    == "world_warrior_dojo_prodigy_kenzo_arcade_ai"
+                      && kenzo.RoleTags.Contains("named_elite"),
+                    "Dojo Prodigy Kenzo uses a unique untinted animation-ready atlas");
+                var masterPalm = kenzo.FindMove(
+                    "world_warrior_dojo_prodigy_kenzo_attack");
+                Check(masterPalm is not null
+                      && masterPalm.DisplayName == "Master Palm"
+                      && masterPalm.AnimationFrameSequence.SequenceEqual(
+                          Enumerable.Range(40, 10))
+                      && masterPalm.AnimationFrameDurations.SequenceEqual(
+                          new[] { 3, 3, 3, 3, 5, 4, 4, 4, 4, 7 })
+                      && masterPalm.AnimationFrameDurations.Take(4).Sum()
+                          == masterPalm.StartupFrames
+                      && masterPalm.AnimationFrameDurations[4]
+                          == masterPalm.ActiveFrames
+                      && masterPalm.AnimationFrameDurations.Skip(5).Sum()
+                          == masterPalm.RecoveryFrames,
+                    "Kenzo Master Palm preserves Rookie combat timing on unique frames");
+                Check(HaveDistinctContent(new[]
+                    {
+                        rookie.SpriteSheetPath,
+                        kenzo.SpriteSheetPath,
+                    }),
+                    "Kenzo atlas content is distinct from the base Rookie");
                 var striker = TestRosterFactory.CreateWorldWarriorStriker();
                 var strikerTexture = ResourceLoader.Exists(striker.SpriteSheetPath)
                     ? GD.Load<Texture2D>(striker.SpriteSheetPath)
                     : null;
                 Check(striker.SpriteSheetPath.EndsWith(
-                          "world_warrior_striker_style_v2.png")
+                          "world_warrior_striker_style_v3.png")
                       && strikerTexture is not null
                       && strikerTexture.GetWidth() == 2560
                       && strikerTexture.GetHeight() == 2304
                       && striker.SpriteSheetColumns == 10
                       && striker.SpriteSheetRows == 9
                       && !striker.TintSpriteSheet,
-                    "Pavilion Striker uses the original identity-locked 10x9 style-v2 atlas");
+                    "Pavilion Striker uses the original identity-locked walk-repaired 10x9 atlas");
                 var turningKick = striker.FindMove("world_warrior_striker_attack");
                 Check(turningKick is not null
                       && turningKick.AnimationFrameSequence.SequenceEqual(
@@ -687,11 +1102,372 @@ public static class WorldRunTests
                       && turningKick.AnimationFrameDurations.Sum()
                           == turningKick.TotalFrames,
                     "Pavilion Striker Turning Kick timing matches startup active and recovery phases");
+                var stageTwoElite = pavilionCircuit.Encounters.Single(encounter =>
+                    encounter.Kind == StageEncounterKind.Elite);
+                Check(stageTwoElite.DisplayName == "Pavilion Ace Makoto"
+                      && stageTwoElite.Spawns.Single().ArchetypeId
+                          == "world_warrior_pavilion_ace_makoto",
+                    "World Warrior Stage 2 selects the distinct Makoto archetype");
+                var makoto = TestRosterFactory.CreateWorldWarriorPavilionAceMakoto();
+                var makotoTexture = ResourceLoader.Exists(makoto.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(makoto.SpriteSheetPath)
+                    : null;
+                Check(makoto.Id == "world_warrior_pavilion_ace_makoto"
+                      && makoto.DisplayName == "Pavilion Ace Makoto"
+                      && makoto.SpriteSheetPath.EndsWith(
+                          "world_warrior_pavilion_ace_makoto_style_v1.png")
+                      && makotoTexture is not null
+                      && makotoTexture.GetWidth() == 2560
+                      && makotoTexture.GetHeight() == 2304
+                      && makoto.SpriteSheetColumns == 10
+                      && makoto.SpriteSheetRows == 9
+                      && System.Math.Abs(makoto.SpritePixelSize - 0.0190f) < 0.00001f
+                      && System.Math.Abs(makoto.SpriteGroundOffsetPixels - 120.0f) < 0.01f
+                      && !makoto.TintSpriteSheet
+                      && makoto.ArcadeEnemyProfile?.Id
+                          == "world_warrior_pavilion_ace_makoto_arcade_ai"
+                      && makoto.RoleTags.Contains("named_elite"),
+                    "Pavilion Ace Makoto uses a unique untinted animation-ready atlas");
+                var crescentHeel = makoto.FindMove(
+                    "world_warrior_pavilion_ace_makoto_attack");
+                Check(crescentHeel is not null
+                      && crescentHeel.DisplayName == "Crescent Heel"
+                      && crescentHeel.AnimationFrameSequence.SequenceEqual(
+                          Enumerable.Range(40, 10))
+                      && crescentHeel.AnimationFrameDurations.SequenceEqual(
+                          new[] { 4, 4, 4, 4, 5, 4, 5, 5, 6, 7 })
+                      && crescentHeel.AnimationFrameDurations.Take(4).Sum()
+                          == crescentHeel.StartupFrames
+                      && crescentHeel.AnimationFrameDurations[4]
+                          == crescentHeel.ActiveFrames
+                      && crescentHeel.AnimationFrameDurations.Skip(5).Sum()
+                          == crescentHeel.RecoveryFrames,
+                    "Makoto Crescent Heel preserves Striker combat timing on unique frames");
+                Check(HaveDistinctContent(new[]
+                    {
+                        striker.SpriteSheetPath,
+                        makoto.SpriteSheetPath,
+                    }),
+                    "Makoto atlas content is distinct from the base Striker");
+                var grappler = TestRosterFactory.CreateWorldWarriorGrappler();
+                var grapplerTexture = ResourceLoader.Exists(grappler.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(grappler.SpriteSheetPath)
+                    : null;
+                Check(grappler.SpriteSheetPath.EndsWith(
+                          "world_warrior_grappler_style_v3.png")
+                      && grapplerTexture is not null
+                      && grapplerTexture.GetWidth() == 2560
+                      && grapplerTexture.GetHeight() == 2304
+                      && grappler.SpriteSheetColumns == 10
+                      && grappler.SpriteSheetRows == 9
+                      && !grappler.TintSpriteSheet,
+                    "Tournament Grappler uses the original identity-locked walk-repaired 10x9 atlas");
+                var shoulderDrive = grappler.FindMove(
+                    "world_warrior_grappler_attack");
+                Check(shoulderDrive is not null
+                      && shoulderDrive.DisplayName == "Shoulder Drive"
+                      && shoulderDrive.StartupFrames == 20
+                      && shoulderDrive.ActiveFrames == 5
+                      && shoulderDrive.RecoveryFrames == 34
+                      && shoulderDrive.AnimationFrameSequence.SequenceEqual(
+                          new[] { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 })
+                      && shoulderDrive.AnimationFrameDurations.SequenceEqual(
+                          new[] { 5, 5, 5, 5, 5, 6, 7, 7, 7, 7 })
+                      && shoulderDrive.AnimationFrameDurations.Take(4).Sum()
+                          == shoulderDrive.StartupFrames
+                      && shoulderDrive.AnimationFrameDurations[4]
+                          == shoulderDrive.ActiveFrames
+                      && shoulderDrive.AnimationFrameDurations.Skip(5).Sum()
+                          == shoulderDrive.RecoveryFrames
+                      && shoulderDrive.AnimationFrameDurations.Sum()
+                          == shoulderDrive.TotalFrames,
+                    "Tournament Grappler Shoulder Drive timing matches startup active and recovery phases");
+                var stageThreeElite = grandTournament.Encounters.Single(encounter =>
+                    encounter.Kind == StageEncounterKind.Elite);
+                Check(stageThreeElite.DisplayName == "Grand Grappler Tetsu"
+                      && stageThreeElite.Spawns.Single().ArchetypeId
+                          == "world_warrior_grand_grappler_tetsu",
+                    "World Warrior Stage 3 selects the distinct Tetsu archetype");
+                var tetsu = TestRosterFactory.CreateWorldWarriorGrandGrapplerTetsu();
+                var tetsuTexture = ResourceLoader.Exists(tetsu.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(tetsu.SpriteSheetPath)
+                    : null;
+                Check(tetsu.Id == "world_warrior_grand_grappler_tetsu"
+                      && tetsu.DisplayName == "Grand Grappler Tetsu"
+                      && tetsu.SpriteSheetPath.EndsWith(
+                          "world_warrior_grand_grappler_tetsu_style_v1.png")
+                      && tetsuTexture is not null
+                      && tetsuTexture.GetWidth() == 2560
+                      && tetsuTexture.GetHeight() == 2304
+                      && tetsu.SpriteSheetColumns == 10
+                      && tetsu.SpriteSheetRows == 9
+                      && System.Math.Abs(tetsu.SpritePixelSize - 0.018f) < 0.00001f
+                      && System.Math.Abs(tetsu.SpriteGroundOffsetPixels - 120.0f) < 0.01f
+                      && !tetsu.TintSpriteSheet
+                      && tetsu.ArcadeEnemyProfile?.Id
+                          == "world_warrior_grand_grappler_tetsu_arcade_ai"
+                      && tetsu.RoleTags.Contains("named_elite"),
+                    "Grand Grappler Tetsu uses a unique untinted animation-ready atlas");
+                var ironGateClinch = tetsu.FindMove(
+                    "world_warrior_grand_grappler_tetsu_attack");
+                Check(ironGateClinch is not null
+                      && ironGateClinch.DisplayName == "Iron Gate Clinch"
+                      && ironGateClinch.AnimationFrameSequence.SequenceEqual(
+                          Enumerable.Range(40, 10))
+                      && ironGateClinch.AnimationFrameDurations.SequenceEqual(
+                          new[] { 5, 5, 5, 5, 5, 6, 7, 7, 7, 7 })
+                      && ironGateClinch.AnimationFrameDurations.Take(4).Sum()
+                          == ironGateClinch.StartupFrames
+                      && ironGateClinch.AnimationFrameDurations[4]
+                          == ironGateClinch.ActiveFrames
+                      && ironGateClinch.AnimationFrameDurations.Skip(5).Sum()
+                          == ironGateClinch.RecoveryFrames,
+                    "Tetsu Iron Gate Clinch preserves Grappler combat timing on unique frames");
+                Check(HaveDistinctContent(new[]
+                    {
+                        grappler.SpriteSheetPath,
+                        tetsu.SpriteSheetPath,
+                    }),
+                    "Tetsu atlas content is distinct from the base Grappler");
+            }
+
+            if (worldId == "astral_battlefront")
+            {
+                // Each stage paints its own ground, so the floor path must be
+                // that stage's own plate at full plate resolution.
+                Check(run.Stages.All(stage =>
+                          stage.FullFramePlates.Count == 1
+                          && stage.FloorTexturePath
+                              == stage.FullFramePlates[0].TexturePath
+                          && stage.StageTexturePath
+                              == stage.FullFramePlates[0].TexturePath
+                          && Mathf.IsZeroApprox(stage.FloorTextureTopFraction)
+                          && ResourceLoader.Exists(stage.FloorTexturePath)
+                          && GD.Load<Texture2D>(stage.FloorTexturePath) is
+                              { } stageFloorTexture
+                          && stageFloorTexture.GetWidth() == 2704
+                          && stageFloorTexture.GetHeight() == 1521),
+                    "Astral stages use approved floors including full-frame plate production art");
+
+                var capsuleCausewayStage = run.Stages[1];
+                Check(capsuleCausewayStage.PresentationMode
+                          == StagePresentationMode.FullFramePlates
+                      && capsuleCausewayStage.BackgroundPanels.Count == 0
+                      && capsuleCausewayStage.CompositeSegments.Count == 0
+                      && capsuleCausewayStage.FullFramePlates.Count == 1
+                      && capsuleCausewayStage.FullFramePlates[0].TexturePath
+                          == "res://Assets/Stages/AstralBattlefront/astral_capsule_causeway_full_frame_plate_01.png"
+                      && FullFramePlatesGroundFighters(capsuleCausewayStage, 0.005f),
+                    "Astral Capsule Causeway grounds fighters on one complete scene plate");
+
+                // Every Astral stage now owns one complete scene painting.
+                // Stage 3 previously reused Stage 1's and Stage 4's plates
+                // byte-for-byte, which repeated landmarks across the ladder.
+                var astralPlatePaths = run.Stages
+                    .SelectMany(stage => stage.FullFramePlates)
+                    .Select(plate => plate.TexturePath)
+                    .ToArray();
+                Check(run.Stages.All(stage =>
+                          stage.PresentationMode
+                              == StagePresentationMode.FullFramePlates
+                          && stage.BackgroundPanels.Count == 0
+                          && stage.CompositeSegments.Count == 0
+                          && stage.FullFramePlates.Count == 1
+                          && FullFramePlatesGroundFighters(stage, 0.005f))
+                      && astralPlatePaths.SequenceEqual(new[]
+                      {
+                          "res://Assets/Stages/AstralBattlefront/astral_skyfall_breach_full_frame_plate_01.png",
+                          "res://Assets/Stages/AstralBattlefront/astral_capsule_causeway_full_frame_plate_01.png",
+                          "res://Assets/Stages/AstralBattlefront/astral_energy_rail_full_frame_plate_01.png",
+                          "res://Assets/Stages/AstralBattlefront/astral_tournament_summit_full_frame_plate_01.png",
+                      })
+                      && HaveDistinctContent(astralPlatePaths),
+                    "Astral stages each ground fighters on their own complete scene plate");
+
+                Check(run.Stages.All(stage =>
+                          stage.BackgroundPanels.Count == 0
+                          && stage.CompositeSegments.Count == 0
+                          && !stage.FloorTexturePath.EndsWith(
+                              "astral_skyway_floor_style_v1.png")),
+                    "Astral stages retired the layered route billboards and stopgap tiled floor");
             }
         }
 
+        // --- Key light contract ------------------------------------------
+
+        // A contact shadow that leans toward the light instead of away from it
+        // is the giveaway that grounding and lighting disagree.
+        var leftKey = ProjectMannequin.Stage.StageKeyLight.ContactOffset(
+            -45.0f, -40.0f, 1.0f);
+        var rightKey = ProjectMannequin.Stage.StageKeyLight.ContactOffset(
+            45.0f, -40.0f, 1.0f);
+        Check(leftKey.X > 0.0f && rightKey.X < 0.0f
+              && Mathf.IsEqualApprox(leftKey.X, -rightKey.X),
+            "the contact shadow leans away from the key light and mirrors with it");
+
+        var overhead = ProjectMannequin.Stage.StageKeyLight.ContactOffset(
+            -40.0f, -85.0f, 1.0f);
+        var raking = ProjectMannequin.Stage.StageKeyLight.ContactOffset(
+            -40.0f, -12.0f, 1.0f);
+        Check(raking.Length() > overhead.Length(),
+            "a low raking key throws the contact shadow further than an overhead one");
+
+        Check(Mathf.IsZeroApprox(
+                  ProjectMannequin.Stage.StageKeyLight.ContactOffset(
+                      0.0f, -48.0f, 1.0f).X),
+            "a key directly along the view axis produces no sideways lean");
+
+        // Absolute pitch, so a malformed positive value cannot invert the lean.
+        Check(ProjectMannequin.Stage.StageKeyLight.ContactOffset(-40.0f, 48.0f, 1.0f)
+              == ProjectMannequin.Stage.StageKeyLight.ContactOffset(-40.0f, -48.0f, 1.0f),
+            "key pitch sign cannot invert the contact lean");
+
+        // The backdrop plane is wired around z = -6, so haze must still be
+        // ramping there rather than having already saturated at the lane edge.
+        Check(ProjectMannequin.Presentation.PrototypeStageView.FarHazeSpan
+              > ProjectMannequin.Presentation.PrototypeStageView
+                  .FarHazeLaneClearance,
+            "haze ramps over a longer distance than its lane clearance");
+
+        // A negative or zero span would make begin and end coincide and turn
+        // the ramp into a hard edge across the backdrop.
+        var hazeReferenceStage = WorldRunCatalog
+            .CreateRun("world_warrior_sector").Stages[0];
+        var degenerate = ProjectMannequin.Stage.StageGroundProjection
+            .ResolveFarHazeRange(hazeReferenceStage, 1.5f, -5.0f);
+        Check(degenerate.End > degenerate.Begin,
+            "a malformed haze span cannot collapse the ramp to a hard edge");
+
+        // Negative clearance would drag the haze forward onto the fighters.
+        var clamped = ProjectMannequin.Stage.StageGroundProjection
+            .ResolveFarHazeRange(hazeReferenceStage, -9.0f, 7.0f);
+        Check(clamped.Begin >= ProjectMannequin.Stage.StageGroundProjection
+                  .ResolveRestingCameraProfile(hazeReferenceStage).Depth
+              - hazeReferenceStage.LaneMinZ,
+            "negative haze clearance cannot pull haze onto the fighters");
+
         log.Append($"=== {passed} passed, {failed} failed ===");
         return log.ToString();
+    }
+
+    /// <summary>
+    /// True when a floor material's detail is not aligned to one axis.
+    /// </summary>
+    /// <remarks>
+    /// The floor plane is viewed at a shallow angle, so a material painted in
+    /// courses collapses into screen-wide stripes. This loads whatever the stage
+    /// actually wires rather than a path guessed by hand: auditing by filename
+    /// previously flagged a superseded asset and cleared none of the real ones.
+    /// </remarks>
+    private static bool FloorMaterialIsIsotropic(
+        string floorTexturePath,
+        float minimumRatio)
+    {
+        if (!ResourceLoader.Exists(floorTexturePath))
+        {
+            return false;
+        }
+
+        using var texture = GD.Load<Texture2D>(floorTexturePath);
+        using var image = texture.GetImage();
+        if (image is null)
+        {
+            return false;
+        }
+
+        if (image.IsCompressed())
+        {
+            image.Decompress();
+        }
+
+        // Every fourth pixel is plenty for a variance ratio and keeps the
+        // deterministic suite fast on 2048-square materials.
+        const int step = 4;
+        var width = image.GetWidth();
+        var height = image.GetHeight();
+        if (width < step * 2 || height < step * 2)
+        {
+            return false;
+        }
+
+        var rowSpread = 0.0;
+        var rowCount = 0;
+        for (var y = 0; y < height; y += step)
+        {
+            var sum = 0.0;
+            var sumSquares = 0.0;
+            var samples = 0;
+            for (var x = 0; x < width; x += step)
+            {
+                var value = image.GetPixel(x, y).Luminance;
+                sum += value;
+                sumSquares += value * value;
+                samples++;
+            }
+
+            var mean = sum / samples;
+            rowSpread += Math.Sqrt(Math.Max(0.0, sumSquares / samples - mean * mean));
+            rowCount++;
+        }
+
+        var columnSpread = 0.0;
+        var columnCount = 0;
+        for (var x = 0; x < width; x += step)
+        {
+            var sum = 0.0;
+            var sumSquares = 0.0;
+            var samples = 0;
+            for (var y = 0; y < height; y += step)
+            {
+                var value = image.GetPixel(x, y).Luminance;
+                sum += value;
+                sumSquares += value * value;
+                samples++;
+            }
+
+            var mean = sum / samples;
+            columnSpread += Math.Sqrt(Math.Max(0.0, sumSquares / samples - mean * mean));
+            columnCount++;
+        }
+
+        var horizontal = rowSpread / Math.Max(1, rowCount);
+        var vertical = columnSpread / Math.Max(1, columnCount);
+        return vertical > 0.0001 && horizontal / vertical >= minimumRatio;
+    }
+
+    /// <summary>
+    /// True when every fighter standing anywhere in the belt depth lands on the
+    /// floor the stage plate actually paints.
+    /// </summary>
+    /// <remarks>
+    /// Plate dimensions, aspect, and pixel fidelity all pass even when the
+    /// painted floor sits well below the projected ground plane, which reads in
+    /// game as fighters hovering in mid-air. Only this projection catches it.
+    /// </remarks>
+    private static bool FullFramePlatesGroundFighters(
+        StageMissionData stage,
+        float minimumMarginFraction)
+    {
+        var painted = StageGroundProjection.ResolvePaintedGroundBand(stage);
+        if (painted is null)
+        {
+            return false;
+        }
+
+        var laneMinZ = stage.LaneMinZ;
+        var laneMaxZ = stage.LaneMaxZ;
+        foreach (var encounter in stage.Encounters.Where(
+                     encounter => encounter.UsesLaneBounds))
+        {
+            laneMinZ = Mathf.Min(laneMinZ, encounter.LaneMinZ);
+            laneMaxZ = Mathf.Max(laneMaxZ, encounter.LaneMaxZ);
+        }
+
+        var gameplay = StageGroundProjection.ResolveGameplayGroundBand(
+            StageGroundProjection.ResolveRestingCameraProfile(stage),
+            laneMinZ,
+            laneMaxZ);
+        return gameplay.IsWithin(painted.Value, minimumMarginFraction);
     }
 
     private static bool HaveDistinctContent(IEnumerable<string> resourcePaths)

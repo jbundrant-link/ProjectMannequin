@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T03:56:03.618547Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "763008e3-60a1-4858-b7cb-1f8a8e761b94",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_035603_763008e3-60a1-4858-b7cb-1f8a8e761b94_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "6e7b5726-c5e7-4f4e-bc45-a7c5a72a14a0",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6e7b5726-c5e7-4f4e-bc45-a7c5a72a14a0_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "af271ace-bcaa-4342-bb05-0fe1bb3aded3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/af271ace-bcaa-4342-bb05-0fe1bb3aded3_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "e3e41cf5-4b7f-4e9c-abc3-4ab237574113",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e3e41cf5-4b7f-4e9c-abc3-4ab237574113.png"
+                                        },
+                                        {
+                                            "id":  "2ed2eb51-56cf-4c84-9e77-6712762d7be7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2ed2eb51-56cf-4c84-9e77-6712762d7be7.png"
+                                        },
+                                        {
+                                            "id":  "bc6a73fa-1a59-4633-9de0-7bbcf2920653",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bc6a73fa-1a59-4633-9de0-7bbcf2920653.png"
+                                        },
+                                        {
+                                            "id":  "0128ef9f-81e8-4ea2-b17d-ec3ebd128b11",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0128ef9f-81e8-4ea2-b17d-ec3ebd128b11.png"
+                                        },
+                                        {
+                                            "id":  "b7a39da2-2b90-4c7b-8d30-9a71734fc85a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b7a39da2-2b90-4c7b-8d30-9a71734fc85a.png"
+                                        },
+                                        {
+                                            "id":  "b6cc1209-bc04-4605-a92c-78e1b35662e2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b6cc1209-bc04-4605-a92c-78e1b35662e2.png"
+                                        }
+                                    ],
+                   "prompt":  "Produce ONE seamless continuous 21:9 side-on belt-scroll PAVILION CIRCUIT BACKDROP PILOT for Project Mannequin. This is World Warrior Stage 2: an open lantern court where tournament challengers cycle through public pavilion matches. It must be unmistakably different from the enclosed cool-timber Dojo Approach.\r\n\r\nBuild one uninterrupted flat lateral elevation with three asymmetric but connected subzones at one horizon and scale: left, a low open-air training arcade with broad vermilion timber posts and indigo canopy cloth; center-left, an elevated open-sided tournament pavilion with a shallow judges\u0027 balcony, large circular ring motifs, and blank vertical honor banners; right, a receding but still side-on lantern colonnade and second smaller pavilion framed by dark pine silhouettes. Connect them through overlapping eaves, low walls, lantern chains, and distant violet mountain silhouettes. Use warm amber lantern light against muted plum twilight, vermilion structural accents, indigo fabric, warm ivory plaster, charcoal timber, restrained jade foliage, and saffron focal lights. Keep large architectural masses, controlled dark ink contours, broad two-to-four-step cel shading, simplified painted surfaces, clean graphic highlights, and clear atmospheric depth.\r\n\r\nThe first image is the approved Dojo Approach production backdrop: match only its seamless layered-stage format, contour control, broad cel-painted value planes, and low-detail gameplay band. Do not copy its building arrangement, cool palette, enclosed compound, or central practice hall. The second image is the rejected Tournament District composite and is STRUCTURE AND WORLD-PALETTE REFERENCE ONLY; do not copy its people, signs, floor, storefront arrangement, rendering defects, or composition. The next three images are the approved original World Warrior Rookie, Striker, and Grappler family anchors: use only their vermilion/indigo/saffron/ivory material hierarchy, not their bodies or costumes. The final three images are the canonical mannequin, Ryu, and Goku rendering-finish anchors.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK. Match all approved references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-three-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. High fidelity comes from composition, lighting, and finish, not PBR texture noise.\r\n\r\nReserve the lower 25 percent as a simple dark low-contrast architectural plinth behind fighters. No floor, road, fighting lane, foreground rail, people, spectators, fighters, silhouettes of people, training dummies, gameplay props, hazards, pickups, text, letters, numbers, symbols, calligraphy, signs, logos, UI, divider bars, panel seams, triptych framing, centered gate, centered staircase, mirror symmetry, corridor, tunnel, strong perspective convergence, baked shadows of characters, photorealism, PBR, gritty military sci-fi, dense roof-tile microdetail, painterly blur, or flat vector art. Full-bleed production backdrop with no border.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_035603_763008e3-60a1-4858-b7cb-1f8a8e761b94.png",
+    "status":  "completed"
+}

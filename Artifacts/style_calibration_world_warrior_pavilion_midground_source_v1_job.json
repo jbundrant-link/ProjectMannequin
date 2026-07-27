@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T04:11:01.7177Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "81c46b7d-a6ad-4cc0-9a2c-2338049ee940",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_041101_81c46b7d-a6ad-4cc0-9a2c-2338049ee940_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "2b32fe2f-1d13-49e3-996c-b8cc601e7cc8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2b32fe2f-1d13-49e3-996c-b8cc601e7cc8_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "1f9f4441-c188-4752-934a-2582e58d820d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1f9f4441-c188-4752-934a-2582e58d820d.png"
+                                        },
+                                        {
+                                            "id":  "2129ff3d-c61f-42d1-b66f-4bad0cc31220",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2129ff3d-c61f-42d1-b66f-4bad0cc31220.png"
+                                        },
+                                        {
+                                            "id":  "7ea5c54e-c4b5-4c2a-993b-ef850b3a19cb",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7ea5c54e-c4b5-4c2a-993b-ef850b3a19cb.png"
+                                        },
+                                        {
+                                            "id":  "52034c38-adf2-4744-aa8d-f6f0c8288024",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/52034c38-adf2-4744-aa8d-f6f0c8288024.png"
+                                        },
+                                        {
+                                            "id":  "58a05385-ce53-4299-a686-aae49fc9464e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/58a05385-ce53-4299-a686-aae49fc9464e.png"
+                                        },
+                                        {
+                                            "id":  "114b0818-7add-437d-9e79-ace259a751c3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/114b0818-7add-437d-9e79-ace259a751c3.png"
+                                        },
+                                        {
+                                            "id":  "a2e77b63-7bed-4d74-b6b2-243c3508bfa0",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a2e77b63-7bed-4d74-b6b2-243c3508bfa0.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied approved Pavilion pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one WIDE MIDGROUND LANDMARK SOURCE for Pavilion Circuit on a perfectly uniform neutral medium-gray background. Place exactly THREE separated, non-overlapping, fully visible side-on landmarks across the 21:9 canvas with generous empty gray gaps. LEFT: a low vermilion lantern arch with two blank indigo honor streamers and one compact ivory stone base. CENTER: a broad open judges\u0027 shelter with a shallow canopy, empty bench, two circular lacquer wall motifs, and restrained saffron lanterns; keep it low and lateral, never a tall building. RIGHT: paired padded practice posts beside a small warm lantern pedestal and a compact jade pine planter. All three share one scale, one side-on three-quarter fighting-stage perspective, the Pavilion pilot palette, broad cel-painted planes, and sparse detail. Keep the entire lower 28 percent empty uniform gray so fighters, feet, pickups, and hazards remain unobstructed. Entire silhouettes visible with no cropping.\r\n\r\nNo connected fence, backdrop wall, floor, platform extending between landmarks, characters, spectators, enemies, active hazards, loose weapons, crates, words, signs, glyphs, warning marks, checkerboard, transparency grid, gradient, or cast shadows on the gray background. The background must be one flat solid gray color for clean removal.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_041101_81c46b7d-a6ad-4cc0-9a2c-2338049ee940.png",
+    "status":  "completed"
+}

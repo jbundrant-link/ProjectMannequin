@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-21T17:22:43.488747Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "85ae3ba9-5582-4865-b704-ee238f592c75",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_172243_85ae3ba9-5582-4865-b704-ee238f592c75_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "405930bf-7c44-48f8-89d1-83f210f0bb63",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/405930bf-7c44-48f8-89d1-83f210f0bb63.png"
+                                        },
+                                        {
+                                            "id":  "a06ae153-62cd-4758-950d-d59c70679c8f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a06ae153-62cd-4758-950d-d59c70679c8f.png"
+                                        },
+                                        {
+                                            "id":  "7052433d-0cc8-45b1-bd88-3eb07a8f559e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7052433d-0cc8-45b1-bd88-3eb07a8f559e.png"
+                                        },
+                                        {
+                                            "id":  "04d277a0-9a5e-445e-a613-7c8d85c0c4cd",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/04d277a0-9a5e-445e-a613-7c8d85c0c4cd.png"
+                                        },
+                                        {
+                                            "id":  "62bc126b-7705-4aac-8c57-bbbe05028830",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/62bc126b-7705-4aac-8c57-bbbe05028830.png"
+                                        }
+                                    ],
+                   "prompt":  "Restyle the first supplied production walk sheet into Goku Super Saiyan 2 while preserving its animation and layout exactly.\r\n\r\nReference 1 is the absolute choreography, camera, scale, spacing, baseline, and frame-order authority. Preserve the identical eight full-body poses in the identical 4 columns x 2 rows cells, read left-to-right then top-to-bottom. Do not replace, mirror, reorder, crop, or simplify any pose. Keep the exact contact/down/passing/up then opposite-leg contact/down/passing/up mechanics and opposing arm swing.\r\n\r\nReference 2 is the exact form identity authority. Redraw every figure as Goku with rigid sharp golden-blond spiky hair, teal-green eyes, orange sleeveless gi, dark-blue undershirt, belt, wristbands and boots, a thin golden aura rim, and tiny close blue sparks that never detach from the silhouette. Preserve the exact form hair, face, eye color, outfit, aura treatment, proportions, palette, and materials in every frame. Reference 3 reinforces persistent A/B limb ownership only; do not render guide colors, labels, circles, lines, or stick geometry. References 4 and 5 supply only canonical Project Mannequin rendering finish.\r\n\r\nUse the same restrained thin aura rim visible in the identity reference; no large flames, glow columns, energy envelope, sparks crossing cells, or detached effects. Keep every complete figure centered inside its original implied cell with the same generous pure-green margin. Uniform pure chroma-green RGB 0,255,0 background. No floor, shadow, scene, grid, divider, border, text, labels, numbers, arrows, projectile, motion effect, extra figure, extra limb, missing limb, touching figures, or crop.\r\n\r\nPROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean designed highlights, polished modern 2.5D anime fighting-game anatomy and silhouettes. No photorealism, PBR, grit, microtexture, painterly blur, flat vector art, or pixel art. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_172243_85ae3ba9-5582-4865-b704-ee238f592c75.png",
+    "status":  "completed"
+}

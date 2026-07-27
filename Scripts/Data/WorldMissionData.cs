@@ -66,6 +66,7 @@ public enum StageHazardBehavior
     StaticPulse,
     LinearSweep,
     FallingStrike,
+    PushZone,
 }
 
 [System.Flags]
@@ -236,13 +237,92 @@ public sealed class StageBackgroundPanelData
     public float PositionZ { get; set; } = -6.0f;
     public float ParallaxFactorX { get; set; } = 1.0f;
     public float Opacity { get; set; } = 1.0f;
+
+    /// <summary>
+    /// Pushes partially transparent painted pixels toward fully opaque.
+    /// </summary>
+    /// <remarks>
+    /// 0 leaves the art untouched. Above 0, alpha at or above the resulting
+    /// threshold becomes solid while a narrow band is kept soft so silhouette
+    /// edges stay anti-aliased. This exists because some painted props carry
+    /// mid-range alpha across large interior areas, which lets the backdrop
+    /// show through solid-looking stone and timber.
+    /// </remarks>
+    public float AlphaSolidify { get; set; }
+    // Serialized legacy name; the renderer applies this uniformly on both axes.
     public float ScaleYMultiplier { get; set; } = 1.0f;
     public float CropTopFraction { get; set; }
     public float CropBottomFraction { get; set; }
     public float DestroyedTintR { get; set; } = 0.72f;
     public float DestroyedTintG { get; set; } = 0.68f;
     public float DestroyedTintB { get; set; } = 0.72f;
+    public bool AlignBottomToFloor { get; set; }
+
+    // Image row, as a fraction from the top, where this panel's painted ground
+    // line sits. AlignBottomToFloor puts that row on world y = 0 instead of the
+    // image's bottom edge, so painted ground-contact shadow extends below the
+    // gameplay floor and is occluded by it rather than banding across the frame.
+    // 1.0 keeps the historical behaviour of anchoring the image's bottom edge.
+    public float GroundLineFraction { get; set; } = 1.0f;
+    public bool RepeatHorizontally { get; set; }
     public bool FlipH { get; set; }
+}
+
+public enum StagePresentationMode
+{
+    LegacyLayered,
+    CompositeTraversal,
+    BoundedArena,
+    FullFramePlates,
+}
+
+public sealed class StageFullFramePlateData
+{
+    public string TexturePath { get; set; } = "";
+    public float CenterX { get; set; }
+    public float PositionZ { get; set; } = -6.0f;
+    public bool FlipH { get; set; }
+
+    // Normalised frame rows of the painted walkable floor: the far edge where
+    // the ground meets the scenery, and the near edge where it stops being
+    // standable. A screen-filling plate cannot follow fighters, so the camera
+    // is solved against this band instead of blindly centring the painting.
+    // Leaving both at zero marks the plate as not ground-calibrated.
+    public float GroundFarFraction { get; set; }
+    public float GroundNearFraction { get; set; }
+}
+
+public sealed class StageCompositeSegmentData
+{
+    public string TexturePath { get; set; } = "";
+    public string BackdropTexturePath { get; set; } = "";
+    public float MinX { get; set; }
+    public float MaxX { get; set; }
+    public float HorizonFraction { get; set; } = 0.66f;
+    public float FloorEndFraction { get; set; } = 0.84f;
+    public float ProtectedFrameTopFraction { get; set; }
+    public float ProtectedFrameBottomFraction { get; set; } = 1.0f;
+    public float BackdropPositionZ { get; set; } = -6.0f;
+    public float ForegroundPositionZ { get; set; } = 4.2f;
+    public float ParallaxFactorX { get; set; } = 0.90f;
+    public float ForegroundParallaxFactorX { get; set; } = 1.08f;
+    public bool FlipH { get; set; }
+}
+
+public sealed class StageArenaPresentationData
+{
+    public string BackdropTexturePath { get; set; } = "";
+    public string FloorTexturePath { get; set; } = "";
+    public float CenterX { get; set; }
+    public float BackdropWorldWidth { get; set; } = 20.0f;
+    public float BackdropBottomY { get; set; }
+    public float BackdropPositionZ { get; set; } = -6.0f;
+    public float FloorWorldSize { get; set; } = 22.0f;
+    public float FloorNearZ { get; set; } = 6.0f;
+    public float CameraLookHeight { get; set; } = 3.0f;
+    public float CameraSize { get; set; } = 9.0f;
+    public float CameraMaxSize { get; set; } = 10.0f;
+    public float CinematicCameraSize { get; set; } = 7.6f;
 }
 
 public enum StagePickupType
@@ -320,12 +400,29 @@ public sealed class StageHazardZoneData
     public float DamagePerSecond { get; set; } = 50.0f;
     public float KnockbackX { get; set; }
     public float KnockbackZ { get; set; }
+    // Continuous PushZone displacement in world units per second.
+    public float PushSpeedX { get; set; }
+    public float PushSpeedZ { get; set; }
     public int HitstunFrames { get; set; }
     public bool ActiveDuringBoss { get; set; } = true;
 }
 
 public sealed class StageMissionData
 {
+    /// <summary>
+    /// Downward pitch of the stage key light, in degrees. Negative aims at the
+    /// ground.
+    /// </summary>
+    /// <remarks>
+    /// Stage art must be painted against this. A highlight painted as though
+    /// the sun were on the left, over a fighter lit from the right, is the
+    /// single most obvious way a 2.5D stage reads as a collage.
+    /// </remarks>
+    public float KeyLightPitchDegrees { get; set; } = -48.0f;
+
+    /// <summary>Yaw of the stage key light, in degrees around the vertical axis.</summary>
+    public float KeyLightYawDegrees { get; set; } = -30.0f;
+
     public string Id { get; set; } = "";
     public string WorldId { get; set; } = "";
     public string WorldDisplayName { get; set; } = "";
@@ -391,6 +488,20 @@ public sealed class StageMissionData
     public float LaneAccentG { get; set; } = 0.78f;
     public float LaneAccentB { get; set; } = 0.84f;
     public float DefaultEnemyGravity { get; set; } = -80.0f;
+    public StagePresentationMode PresentationMode { get; set; } =
+        StagePresentationMode.LegacyLayered;
+
+    // Normalised frame row the belt's centre lane should sit on. Layered stages
+    // draw their ground as a mesh rather than a painting, so there is no painted
+    // band to solve against; declaring the intended ground line lets the same
+    // camera solver frame them consistently with the plate stages. Zero leaves
+    // the stage on the historical uncalibrated framing.
+    public float GroundLineCenterFraction { get; set; }
+
+    public List<StageCompositeSegmentData> CompositeSegments { get; set; } = new();
+    public List<StageFullFramePlateData> FullFramePlates { get; set; } = new();
+    public float FullFramePlateTransitionWidth { get; set; } = 2.0f;
+    public StageArenaPresentationData? ArenaPresentation { get; set; }
     public List<StageBackgroundPanelData> BackgroundPanels { get; set; } = new();
     public List<StageEncounterData> Encounters { get; set; } = new();
 

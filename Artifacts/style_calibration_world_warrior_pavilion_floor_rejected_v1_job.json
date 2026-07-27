@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T04:09:35.030556Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "1f14e2a0-3a43-485c-b998-f47fb45b4059",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_040935_1f14e2a0-3a43-485c-b998-f47fb45b4059_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "e0481b9e-4d0c-4e5b-9e7d-3cf4007060c6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e0481b9e-4d0c-4e5b-9e7d-3cf4007060c6_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "2dbaa1a9-4694-415b-bfd9-d9fe98695699",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2dbaa1a9-4694-415b-bfd9-d9fe98695699.png"
+                                        },
+                                        {
+                                            "id":  "6a55f16a-cdac-4982-a2a2-c0c2867b69d3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6a55f16a-cdac-4982-a2a2-c0c2867b69d3.png"
+                                        },
+                                        {
+                                            "id":  "7d054eb7-e144-4c0a-bc6f-02813de30926",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7d054eb7-e144-4c0a-bc6f-02813de30926.png"
+                                        },
+                                        {
+                                            "id":  "190b6f0b-28e1-4e3a-9a26-9226736ffa18",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/190b6f0b-28e1-4e3a-9a26-9226736ffa18.png"
+                                        },
+                                        {
+                                            "id":  "1ab95efa-69ad-4906-a439-baf4302c28a5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1ab95efa-69ad-4906-a439-baf4302c28a5.png"
+                                        },
+                                        {
+                                            "id":  "e5b0804b-900f-4b8a-8ae2-411d4b6a8be9",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e5b0804b-900f-4b8a-8ae2-411d4b6a8be9.png"
+                                        },
+                                        {
+                                            "id":  "fed6a726-aef8-4ff8-b2ca-792b1e80ce21",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fed6a726-aef8-4ff8-b2ca-792b1e80ce21.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied approved Pavilion pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one strict TOP-DOWN ORTHOGRAPHIC square FLOOR TEXTURE for Pavilion Circuit. Use a quiet matte plum-clay tournament court with broad charcoal pressure zones, subtle indigo cooling bands, sparse tiny saffron lantern glints, and a few small ivory flat stones fully inset near the outer areas. The central 72 percent must remain calm, dark, low-frequency, and free of objects so fighters, feet, pickups, and telegraphs stay readable. Bright occupancy must remain under four percent. Extend the same seamless material through every outer edge with no visible boundary treatment. The Pavilion pilot supplies the plum/vermillion/indigo/saffron palette; the Dojo floor supplies only top-down quietness and edge discipline. Make this visually distinct from Dojo packed earth and the legacy pale stone plaza.\r\n\r\nNo perspective, horizon, wall, architecture, timber planks, paving network, seam rows, continuous line, ring, grid, centered emblem, border, frame, vignette edge, corner marker, floor object, prop, hazard, baked character shadow, scratches, cracks, dense grit, or element touching the outer 12 percent safety margin. Full-bleed mirror-friendly 1:1 production floor.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_040935_1f14e2a0-3a43-485c-b998-f47fb45b4059.png",
+    "status":  "completed"
+}

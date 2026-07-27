@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T05:55:35.719298Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "09c56cb8-e589-4a3b-8eb8-b8cf72129497",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_055535_09c56cb8-e589-4a3b-8eb8-b8cf72129497_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "0114b71d-ba0d-4a31-90f8-46f373fb9a65",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0114b71d-ba0d-4a31-90f8-46f373fb9a65.png"
+                                        },
+                                        {
+                                            "id":  "0bb87ecb-8f88-4655-a35a-4074b1fb379b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0bb87ecb-8f88-4655-a35a-4074b1fb379b_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "73838caf-30c6-4016-b952-8f90177256db",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/73838caf-30c6-4016-b952-8f90177256db.png"
+                                        },
+                                        {
+                                            "id":  "664525c9-2a0c-4fd8-a670-8ad5ef88df75",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/664525c9-2a0c-4fd8-a670-8ad5ef88df75.png"
+                                        },
+                                        {
+                                            "id":  "91f9172c-348a-4f23-8358-615a427f05c4",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/91f9172c-348a-4f23-8358-615a427f05c4.png"
+                                        },
+                                        {
+                                            "id":  "0648dec0-3f81-4659-84cf-2edf38eaa416",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0648dec0-3f81-4659-84cf-2edf38eaa416.png"
+                                        },
+                                        {
+                                            "id":  "474ff6f1-6aec-4eae-8b54-fe2cf0ec935b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/474ff6f1-6aec-4eae-8b54-fe2cf0ec935b.png"
+                                        },
+                                        {
+                                            "id":  "615f1441-33b5-4300-9212-1eefcfb5d301",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/615f1441-33b5-4300-9212-1eefcfb5d301.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied approved Pavilion pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nReplace the first supplied rejected smooth plum floor with one strict TOP-DOWN ORTHOGRAPHIC SQUARE PAVILION DECK texture designed to remain legible after perspective projection. Use exactly NINE very broad horizontal lacquered timber board bands spanning continuously from the left edge to the right edge. Alternate restrained deep-plum, muted vermilion-brown, and charcoal-plum value planes; separate adjacent bands with thin straight dark-indigo joints. Each board band is roughly one ninth of the image height. Add only broad two-step cel-painted wood value planes inside each band, with extremely subtle lateral color variation and no realistic grain. The board joints must run only left-to-right and remain evenly horizontal. Do not add vertical board-end seams, so horizontal texture repetition remains seamless. The Pavilion pilot supplies the warm vermilion/indigo/plum palette; the Dojo floor supplies only low detail and gameplay readability. Keep all contrast moderate so fighters, feet, pickups, and telegraphs dominate.\r\n\r\nNo perspective convergence, horizon, wall, architecture, floor border, perimeter frame, centered emblem, circle, oval, arc, ring, spiral, vortex, bullseye, radial sweep, grid, diagonal seam, vertical seam, object, stone, spark, leaf, cloud, smoke, stain silhouette, prop, hazard, baked character shadow, scratches, cracks, knots, realistic grain, nails, microdetail, or dense grit. Full-bleed 1:1 production floor; every horizontal board and joint reaches both side edges cleanly.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_055535_09c56cb8-e589-4a3b-8eb8-b8cf72129497.png",
+    "status":  "completed"
+}

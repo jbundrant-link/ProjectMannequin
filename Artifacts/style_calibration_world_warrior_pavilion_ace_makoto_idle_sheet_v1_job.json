@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-22T03:40:32.462055Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "3d6ac4d2-c8f7-4d34-8a00-c5ec0aad4b90",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_034032_3d6ac4d2-c8f7-4d34-8a00-c5ec0aad4b90_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "f53ef1a6-3ef0-478d-bb8f-4a7dc8b323f7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f53ef1a6-3ef0-478d-bb8f-4a7dc8b323f7.png"
+                                        },
+                                        {
+                                            "id":  "af3de105-d836-4c41-953a-0daf838fa524",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/af3de105-d836-4c41-953a-0daf838fa524.png"
+                                        },
+                                        {
+                                            "id":  "f964c38d-a925-4b11-9604-19e4a11ea1b0",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f964c38d-a925-4b11-9604-19e4a11ea1b0.png"
+                                        },
+                                        {
+                                            "id":  "84288402-a998-417b-a475-cd6d8c131746",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/84288402-a998-417b-a475-cd6d8c131746.png"
+                                        },
+                                        {
+                                            "id":  "44eea96e-c1b4-4f1b-b343-8e86c7b00146",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/44eea96e-c1b4-4f1b-b343-8e86c7b00146.png"
+                                        },
+                                        {
+                                            "id":  "79e234b0-95a1-4ab2-ac99-a6014a0e26e7",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/79e234b0-95a1-4ab2-ac99-a6014a0e26e7.png"
+                                        },
+                                        {
+                                            "id":  "21e938c8-dabb-4f5d-b070-5e46706e1ca4",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/21e938c8-dabb-4f5d-b070-5e46706e1ca4.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR PAVILION ACE MAKOTO identity. The WORLD WARRIOR PAVILION ACE MAKOTO is one exact original adult woman: tall lean athletic precision-kick build with powerful calves and compact shoulders; warm medium skin; sharp composed face; black hair braided into one huge high looped crest arcing backward with restrained saffron bands; one short asymmetrical vermilion pavilion mantle fastened across the upper left shoulder; fitted sleeveless deep-indigo wrap top with one warm-ivory diagonal chest panel and narrow saffron piping; charcoal fitted kick trousers; long narrow deep-indigo split pavilion panels hanging at the front and sides while leaving both legs clearly visible; wide plum hand wraps; warm-ivory shin guards with one vermilion chevron each; low ivory split-sole kicking shoes; and one bronze crescent champion token fixed at the right hip. Preserve her exact face, braid geometry, female proportions, costume geometry, colors, light direction, and right-facing three-quarter camera in every pose. The second image is choreography/layout reference only; copy its timing and body flow, not its identity. The third image is the approved Pavilion Striker for shared World Warrior material grammar only. The fourth image is approved Dojo Prodigy Kenzo for named-elite finish only. The final three images are rendering-finish references only. Do not copy any reference character\u0027s face, hair, costume, body, or identity.\r\n\r\nEvery figure must be complete and separated on uniform pure chroma-green RGB 0,255,0. No rust hair, undercut, male body, raised-knee copy of the Striker pilot, white karate gi, red headband, bare feet, tracksuit, long coat, long sash, hakama, military or tactical gear, armor, cargo pockets, dress that fuses the legs, photorealism, PBR, painterly blur, flat vector art, pixel art, weapon, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, touching figures, extra limbs, missing braid, missing mantle, missing crescent token, missing shin guards, duplicate pose, or crop.\nProduce exactly FOUR full-body IDLE poses in a clean 2 columns by 2 rows. All face right and use one consistent foot baseline. Ordered left-to-right, top then bottom: 1 upright narrow precision-kick guard with rear heel slightly raised; 2 subtle inhale with shoulders settling; 3 small weight transfer onto the front foot while hands remain compact; 4 controlled return to the original guard. The high braided crest and split pavilion panels sway only slightly. Large green margins around every figure. No lifted-knee pose or attack. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_034032_3d6ac4d2-c8f7-4d34-8a00-c5ec0aad4b90.png",
+    "status":  "completed"
+}

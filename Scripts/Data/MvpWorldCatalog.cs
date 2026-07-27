@@ -148,7 +148,7 @@ public static class MvpWorldCatalog
                 0.82f,
                 cropBottomFraction: 0.0f,
                 positionY: 4.6f,
-                scaleYMultiplier: 0.95f),
+                scaleYMultiplier: 1.0f),
             Encounters = new List<StageEncounterData>
             {
                 new()
@@ -488,6 +488,10 @@ public static class MvpWorldCatalog
             BossFormId = "goku_archive_form",
             StageTexturePath =
                 "res://Assets/Stages/AstralBattlefront/astral_shattered_skyway_higgsfield_v1.png",
+            FloorTexturePath =
+                "res://Assets/Stages/AstralBattlefront/astral_skyway_floor_style_v1.png",
+            FloorTextureTopFraction = 0.0f,
+            FloorTextureTileWidth = 12.0f,
             StageTexturePositionY = 1.0f,
             StageMinX = 0.0f,
             StageMaxX = 116.0f,
@@ -505,6 +509,41 @@ public static class MvpWorldCatalog
             LaneAccentR = 0.16f,
             LaneAccentG = 0.70f,
             LaneAccentB = 1.0f,
+            PresentationMode = StagePresentationMode.CompositeTraversal,
+            CompositeSegments = new List<StageCompositeSegmentData>
+            {
+                CompositeSegment(
+                    "astral_route_01_skyfall_higgsfield_v2.png",
+                    0.0f,
+                    16.57f),
+                CompositeSegment(
+                    "astral_route_02_capsule_causeway_higgsfield_v2.png",
+                    16.57f,
+                    33.14f),
+                CompositeSegment(
+                    "astral_route_03_energy_rail_higgsfield_v2.png",
+                    33.14f,
+                    49.71f),
+                CompositeSegment(
+                    "astral_route_02_capsule_causeway_higgsfield_v2.png",
+                    49.71f,
+                    66.28f,
+                    flipH: true),
+                CompositeSegment(
+                    "astral_route_03_energy_rail_higgsfield_v2.png",
+                    66.28f,
+                    82.85f,
+                    flipH: true),
+                CompositeSegment(
+                    "astral_route_01_skyfall_higgsfield_v2.png",
+                    82.85f,
+                    99.42f,
+                    flipH: true),
+                CompositeSegment(
+                    "astral_route_04_tournament_summit_higgsfield_v2.png",
+                    99.42f,
+                    116.0f),
+            },
             BackgroundPanels = new List<StageBackgroundPanelData>
             {
                 StagePanel(
@@ -684,11 +723,35 @@ public static class MvpWorldCatalog
                 $"res://Assets/Stages/AstralBattlefront/{fileName}",
             MinX = minX,
             MaxX = maxX,
-            PositionY = -0.1f,
+            PositionY = 0.0f,
             PositionZ = -6.0f,
             Layer = StageVisualLayerKind.Midground,
             Sampling = StageTextureSampling.Linear,
             ParallaxFactorX = 0.90f,
+            CropBottomFraction = 0.36f,
+            AlignBottomToFloor = true,
+            FlipH = flipH,
+        };
+    }
+
+    private static StageCompositeSegmentData CompositeSegment(
+        string fileName,
+        float minX,
+        float maxX,
+        bool flipH = false)
+    {
+        return new StageCompositeSegmentData
+        {
+            TexturePath =
+                $"res://Assets/Stages/AstralBattlefront/{fileName}",
+            MinX = minX,
+            MaxX = maxX,
+            HorizonFraction = 0.66f,
+            FloorEndFraction = 0.84f,
+            BackdropPositionZ = -6.0f,
+            ForegroundPositionZ = 4.2f,
+            ParallaxFactorX = 0.90f,
+            ForegroundParallaxFactorX = 1.08f,
             FlipH = flipH,
         };
     }

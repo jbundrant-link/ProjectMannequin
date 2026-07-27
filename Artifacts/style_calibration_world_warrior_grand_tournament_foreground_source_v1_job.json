@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T07:18:38.818487Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "8b515a75-77a3-45dd-92f5-7c90d9dd35a4",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_071838_8b515a75-77a3-45dd-92f5-7c90d9dd35a4_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "a279454a-e478-4373-aa27-e8edb2d4696e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a279454a-e478-4373-aa27-e8edb2d4696e_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "b0e195aa-ea5a-4717-9618-b0e0673b845c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b0e195aa-ea5a-4717-9618-b0e0673b845c.png"
+                                        },
+                                        {
+                                            "id":  "d16f87af-63ee-4fe0-93f0-479731878fe0",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d16f87af-63ee-4fe0-93f0-479731878fe0.png"
+                                        },
+                                        {
+                                            "id":  "413b7bc2-0f12-41ac-aac8-f9d91a09884f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/413b7bc2-0f12-41ac-aac8-f9d91a09884f.png"
+                                        },
+                                        {
+                                            "id":  "2f95b77e-71f4-491d-b6c6-db3322914dd3",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2f95b77e-71f4-491d-b6c6-db3322914dd3.png"
+                                        },
+                                        {
+                                            "id":  "1680e5c3-3200-487d-98d0-33831ba3ccfb",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1680e5c3-3200-487d-98d0-33831ba3ccfb.png"
+                                        },
+                                        {
+                                            "id":  "68f2018d-37e3-4dea-936e-8cbb4aed9666",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/68f2018d-37e3-4dea-936e-8cbb4aed9666.png"
+                                        },
+                                        {
+                                            "id":  "d211fd44-a26a-408b-9231-51826ba09e11",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d211fd44-a26a-408b-9231-51826ba09e11.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the approved Grand Tournament pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one WIDE FOREGROUND EDGE SOURCE for Grand Tournament Floor on a perfectly uniform neutral medium-gray background. Place exactly TWO disconnected shallow KNEE-HEIGHT arena-edge remnants. LEFT: a low broken warm-ivory stone crowd barrier entering only from the extreme lower-left edge, with one dark-indigo rail cap, one blank vermilion cloth fold, and a small saffron torch bowl no taller than a fighter knee. RIGHT: a low championship rope-and-plinth remnant entering only from the extreme lower-right edge, with a charcoal stone footing, indigo rope, folded vermilion ribbon, and one small trophy-finial silhouette. Keep the upper 60 percent perfectly empty uniform gray, the central 65 percent perfectly empty uniform gray, and both silhouettes entirely below the lower 40 percent. Both pieces must remain disconnected and asymmetric.\r\n\r\nNo tall torch, post, column, wall, bridge, center object, floor, connected rail, people, crowd, characters, props, hazards, text, symbols, checkerboard, transparency grid, gradient, or cast shadows on the gray background. The background must be one flat solid gray color for clean removal.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_071838_8b515a75-77a3-45dd-92f5-7c90d9dd35a4.png",
+    "status":  "completed"
+}

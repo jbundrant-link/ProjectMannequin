@@ -271,6 +271,13 @@ public partial class MvpCombatBootstrap : Node
             AddChild(scenario);
         }
 
+        if (OS.GetEnvironment("PROJECT_MANNEQUIN_OPTIONS_UI_SMOKE_TEST") == "1")
+        {
+            var scenario = new OptionsMenuSmokeScenario();
+            scenario.Initialize(GetNode<PauseMenu>("PauseMenu"));
+            AddChild(scenario);
+        }
+
         if (OS.GetEnvironment("PROJECT_MANNEQUIN_FORM_SELECT_UI_SMOKE_TEST") == "1")
         {
             var scenario = new FormSelectUiSmokeScenario();

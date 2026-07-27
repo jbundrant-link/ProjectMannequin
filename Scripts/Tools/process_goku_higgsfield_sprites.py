@@ -16,6 +16,22 @@ CELL_WIDTH = 384
 CELL_HEIGHT = 320
 GROUND_BASELINE = 312
 TARGET_BODY_HEIGHT = 230
+WALK_RUNTIME_START = 9
+WALK_SOURCE_SEQUENCE = (0, 0, 1, 2, 3, 4, 4, 5, 6, 7)
+MOVEMENT_FORM_KEYS = (
+    "base",
+    "kaioken",
+    "false_super",
+    "ss1",
+    "ss2",
+    "ss3",
+    "ss4",
+    "god",
+    "blue",
+    "blue_kaioken",
+    "ui_sign",
+    "instinct",
+)
 
 
 MOVEMENT_SETS = (
@@ -168,6 +184,11 @@ TRANSFORMATION_SETS = (
 )
 
 INTENTIONALLY_BLANK_SPECIAL_FRAMES = (42, 46)
+WALK_SOURCES = {
+    Path("Assets/Sprites/Goku/goku_astral_higgsfield_v1_sheet.png"): Path(
+        "Assets/Sprites/Concepts/StyleCalibration/goku_base_walk_sheet_pilot_v2.png"
+    ),
+}
 
 
 def normalize_sheet(
@@ -485,7 +506,81 @@ def clear_frames(image: Image.Image, frame_indices: tuple[int, ...]) -> None:
         )
 
 
-def write_movement_atlas(core_path: Path, posture_path: Path, output_path: Path) -> None:
+def normalize_walk_frames(path: Path) -> list[Image.Image]:
+    columns = 4
+    rows = 2
+    source = chroma_key_green(Image.open(path).convert("RGBA"))
+    source = clear_cell_boundaries(source, columns, rows)
+    source_cell_width = source.width // columns
+    source_cell_height = source.height // rows
+    components: list[Image.Image] = []
+
+    for frame_index in range(columns * rows):
+        column = frame_index % columns
+        row = frame_index // columns
+        cell = source.crop(
+            (
+                column * source_cell_width,
+                row * source_cell_height,
+                (column + 1) * source_cell_width,
+                (row + 1) * source_cell_height,
+            )
+        )
+        component = extract_component_near(
+            cell,
+            (source_cell_width * 0.5, source_cell_height * 0.5),
+        )
+        if component is None:
+            raise ValueError(f"{path}: walk frame {frame_index + 1} is empty")
+        components.append(component)
+
+    reference_height = median(component.height for component in components)
+    maximum_width = max(component.width for component in components)
+    maximum_height = max(component.height for component in components)
+    scale = min(
+        TARGET_BODY_HEIGHT / reference_height,
+        (CELL_WIDTH - 12) / maximum_width,
+        (CELL_HEIGHT - 12) / maximum_height,
+    )
+
+    frames: list[Image.Image] = []
+    for component in components:
+        resized = component.resize(
+            (
+                max(1, round(component.width * scale)),
+                max(1, round(component.height * scale)),
+            ),
+            Image.Resampling.LANCZOS,
+        )
+        frame = Image.new("RGBA", (CELL_WIDTH, CELL_HEIGHT), (0, 0, 0, 0))
+        alpha_composite_clipped(
+            frame,
+            resized,
+            (CELL_WIDTH - resized.width) // 2,
+            GROUND_BASELINE - resized.height,
+        )
+        frames.append(frame)
+    return frames
+
+
+def patch_walk_frames(atlas: Image.Image, source_path: Path) -> None:
+    source_frames = normalize_walk_frames(source_path)
+    transparent = Image.new("RGBA", (CELL_WIDTH, CELL_HEIGHT), (0, 0, 0, 0))
+    for offset, source_index in enumerate(WALK_SOURCE_SEQUENCE):
+        frame_index = WALK_RUNTIME_START + offset
+        column = frame_index % COLUMNS
+        row = frame_index // COLUMNS
+        position = (column * CELL_WIDTH, row * CELL_HEIGHT)
+        atlas.paste(transparent, position)
+        atlas.alpha_composite(source_frames[source_index], position)
+
+
+def write_movement_atlas(
+    core_path: Path,
+    posture_path: Path,
+    output_path: Path,
+    apply_walk_patch: bool = True,
+) -> None:
     rows_per_source = 9
     core_scale = derive_sheet_scale(
         core_path,
@@ -517,6 +612,8 @@ def write_movement_atlas(core_path: Path, posture_path: Path, output_path: Path)
     )
     atlas.alpha_composite(core, (0, 0))
     atlas.alpha_composite(postures, (0, rows_per_source * CELL_HEIGHT))
+    if apply_walk_patch and (walk_source := WALK_SOURCES.get(output_path)):
+        patch_walk_frames(atlas, walk_source)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     atlas.save(output_path)
     print(f"Wrote {output_path} at {atlas.width}x{atlas.height} (8x18 frames)")
@@ -586,10 +683,26 @@ def write_effect_atlas(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.parse_args()
+    parser.add_argument("--movement-form", choices=MOVEMENT_FORM_KEYS)
+    parser.add_argument("--skip-walk-patch", action="store_true")
+    args = parser.parse_args()
 
-    for core_path, posture_path, output_path in MOVEMENT_SETS:
-        write_movement_atlas(core_path, posture_path, output_path)
+    movement_sets = MOVEMENT_SETS
+    if args.movement_form:
+        movement_sets = (
+            MOVEMENT_SETS[MOVEMENT_FORM_KEYS.index(args.movement_form)],
+        )
+
+    for core_path, posture_path, output_path in movement_sets:
+        write_movement_atlas(
+            core_path,
+            posture_path,
+            output_path,
+            apply_walk_patch=not args.skip_walk_patch,
+        )
+
+    if args.movement_form:
+        return
 
     for source_path, output_path in SPECIAL_SETS:
         write_single_atlas(

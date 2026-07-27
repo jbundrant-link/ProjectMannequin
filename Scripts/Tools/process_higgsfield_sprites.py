@@ -33,7 +33,7 @@ class SheetSpec:
 
 SHEETS = (
     SheetSpec(0, "idle", ROOT / "higgsfield_idle_sheet_v1.png", 2, 2, 4, crop_margin=18),
-    SheetSpec(1, "walk", ROOT / "higgsfield_walk_sheet_v1.png", 4, 2, 8),
+    SheetSpec(1, "walk", ROOT / "higgsfield_walk_sheet_v2.png", 4, 2, 8),
     SheetSpec(2, "dash", ROOT / "higgsfield_dash_sheet_v1.png", 3, 2, 6),
     SheetSpec(3, "jump", ROOT / "higgsfield_jump_sheet_v1.png", 2, 2, 4, remove_guides=True),
     SheetSpec(4, "attacks", ROOT / "higgsfield_attacks_sheet_v1.png", 5, 2, 10, crop_margin=12),
@@ -85,12 +85,34 @@ def main() -> int:
         print("Install it with: python -m pip install pillow")
         return 1
 
-    missing = [str(spec.source) for spec in SHEETS if not spec.source.exists()]
-    if missing:
-        print("ERROR: Missing Higgsfield source sheets:")
-        for path in missing:
+    missing_required = [
+        str(spec.source)
+        for spec in SHEETS
+        if spec.row < 6 and not spec.source.exists()
+    ]
+    if missing_required:
+        print("ERROR: Missing required Higgsfield source sheets:")
+        for path in missing_required:
             print(f"  {path}")
         return 2
+
+    missing_optional = [spec for spec in SHEETS if not spec.source.exists()]
+    existing_sheet = None
+    if missing_optional:
+        if not OUTPUT_SHEET.exists():
+            print("ERROR: Optional sources are missing and no active atlas can preserve them:")
+            for spec in missing_optional:
+                print(f"  {spec.source}")
+            return 2
+        with Image.open(OUTPUT_SHEET) as current_sheet:
+            existing_sheet = current_sheet.convert("RGBA")
+        expected_size = (FRAME_SIZE * SHEET_COLUMNS, FRAME_SIZE * SHEET_ROWS)
+        if existing_sheet.size != expected_size:
+            print(
+                f"ERROR: Existing atlas is {existing_sheet.size}, expected {expected_size}; "
+                "cannot preserve missing rows."
+            )
+            return 2
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     final_sheet = Image.new(
@@ -100,6 +122,29 @@ def main() -> int:
     )
 
     for spec in SHEETS:
+        if not spec.source.exists():
+            assert existing_sheet is not None
+            for column in range(SHEET_COLUMNS):
+                frame = existing_sheet.crop(
+                    (
+                        column * FRAME_SIZE,
+                        spec.row * FRAME_SIZE,
+                        (column + 1) * FRAME_SIZE,
+                        (spec.row + 1) * FRAME_SIZE,
+                    )
+                )
+                output_path = OUTPUT_DIR / f"row{spec.row}_{spec.name}_frame{column}.png"
+                frame.save(output_path)
+                final_sheet.alpha_composite(
+                    frame,
+                    (column * FRAME_SIZE, spec.row * FRAME_SIZE),
+                )
+            print(
+                f"Preserved row {spec.row} ({spec.name}) from active atlas; "
+                f"missing source {spec.source}"
+            )
+            continue
+
         frames = process_sheet(spec, Image)
         for column in range(SHEET_COLUMNS):
             source_index = min(column, len(frames) - 1)

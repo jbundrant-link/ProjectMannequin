@@ -636,7 +636,7 @@ public partial class CombatActor : Node3D
 
         if (pickup.CurrentForm.Id == "pickup_meter")
         {
-            AddMeter(200); // 2 bars
+            AddMeter(200); // Up to two bars, capped by the current form.
         }
         else if (pickup.CurrentForm.Id == "pickup_health")
         {

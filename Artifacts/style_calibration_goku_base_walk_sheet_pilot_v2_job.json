@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-21T17:00:44.685873Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "6c8b8304-c941-4151-a3e8-a947722e1ea6",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_170044_6c8b8304-c941-4151-a3e8-a947722e1ea6_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "4a5fb57c-264c-4f6c-9144-97a45658bfa2",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/4a5fb57c-264c-4f6c-9144-97a45658bfa2.png"
+                                        },
+                                        {
+                                            "id":  "d9918798-c4aa-4660-8f61-16f15f816d91",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d9918798-c4aa-4660-8f61-16f15f816d91.png"
+                                        },
+                                        {
+                                            "id":  "e2ec8374-7e53-43fc-8623-e00e05730f9a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e2ec8374-7e53-43fc-8623-e00e05730f9a.png"
+                                        },
+                                        {
+                                            "id":  "d661d52b-f01c-4f73-89af-f648844acdd1",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d661d52b-f01c-4f73-89af-f648844acdd1.png"
+                                        },
+                                        {
+                                            "id":  "1d708d16-c4b0-4361-afb9-2a19967b9ecc",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1d708d16-c4b0-4361-afb9-2a19967b9ecc.png"
+                                        }
+                                    ],
+                   "prompt":  "Revise the first supplied BASE GOKU WALK-CYCLE SHEET for production containment while preserving its animation exactly.\r\n\r\nReference 1 is the exact pose, identity, camera, frame-order, and rendering authority. Preserve the same eight Goku figures, same body design, same orange-and-blue costume, same black hair, same left-to-right top-to-bottom order, and the same distinct gait geometry in every corresponding cell. Do not replace any pose with idle and do not change which physical leg leads. Reference 2 reinforces exact base Goku identity. Reference 3 reinforces the intended contact/down/passing/up then opposite-leg contact/down/passing/up mechanics. References 4 and 5 supply only canonical Project Mannequin rendering finish.\r\n\r\nThe only required corrections are layout and background:\r\n- exactly 4 columns x 2 rows in one square 2K image;\r\n- shrink every figure uniformly to approximately 78 percent of its current height;\r\n- center each complete full-body figure inside its implied cell;\r\n- leave at least 12 percent of each cell height as empty background above the hair and below both boots;\r\n- keep generous horizontal separation so no hair, hand, elbow, knee, or boot touches another cell;\r\n- use one identical foot baseline per row;\r\n- replace the white background with perfectly uniform pure chroma-green RGB 0,255,0.\r\n\r\nEvery hair spike, head, hand, leg, and boot must be fully visible with clear green margin. No crop, no touching figures, no duplicated pose, no extra figure, no missing limb, no grid, divider, border, floor, shadow, text, labels, numbers, arrows, aura, energy, projectile, or motion effect. Do not change to photorealism, PBR, painterly blur, flat vector art, or pixel art. Preserve polished modern 2.5D anime fighting-game contours and cel shading.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260721_170044_6c8b8304-c941-4151-a3e8-a947722e1ea6.png",
+    "status":  "completed"
+}

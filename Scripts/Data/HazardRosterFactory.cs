@@ -80,6 +80,34 @@ public static class HazardRosterFactory
         return canister;
     }
 
+    public static CharacterData CreateWorldWarriorTrainingDummy()
+    {
+        var dummy = CreateBreakableCrate();
+        dummy.Id = "world_warrior_training_dummy";
+        dummy.DisplayName = "Training Dummy";
+        dummy.SpriteSheetPath =
+            "res://Assets/Sprites/Props/WorldWarrior/world_warrior_training_dummy_style_v1.png";
+        dummy.SpritePixelSize = 0.00147291f;
+        dummy.SpriteGroundOffsetPixels = 968.0f;
+        dummy.RoleTags.Add("world_warrior");
+        dummy.RoleTags.Add("training_prop");
+        return dummy;
+    }
+
+    public static CharacterData CreateWorldWarriorSupplyCrate()
+    {
+        var crate = CreateBreakableCrate();
+        crate.Id = "world_warrior_supply_crate";
+        crate.DisplayName = "Sparring Supply Crate";
+        crate.SpriteSheetPath =
+            "res://Assets/Sprites/Props/WorldWarrior/world_warrior_supply_crate_style_v1.png";
+        crate.SpritePixelSize = 0.00079027f;
+        crate.SpriteGroundOffsetPixels = 848.0f;
+        crate.RoleTags.Add("world_warrior");
+        crate.RoleTags.Add("supply_prop");
+        return crate;
+    }
+
     public static CharacterData CreateMeterPickup()
     {
         return CreatePickup(
@@ -100,6 +128,32 @@ public static class HazardRosterFactory
             672.0f);
     }
 
+    public static CharacterData CreateWorldWarriorHealthPickup()
+    {
+        var pickup = CreatePickup(
+            "pickup_health",
+            "Vitality Gourd",
+            "res://Assets/Sprites/Pickups/WorldWarrior/world_warrior_health_pickup_style_v1.png",
+            0.00038125f,
+            972.0f);
+        pickup.RoleTags.Add("world_warrior");
+        pickup.RoleTags.Add("health_pickup");
+        return pickup;
+    }
+
+    public static CharacterData CreateWorldWarriorMeterPickup()
+    {
+        var pickup = CreatePickup(
+            "pickup_meter",
+            "Focus Drum",
+            "res://Assets/Sprites/Pickups/WorldWarrior/world_warrior_meter_pickup_style_v1.png",
+            0.00052895f,
+            700.0f);
+        pickup.RoleTags.Add("world_warrior");
+        pickup.RoleTags.Add("meter_pickup");
+        return pickup;
+    }
+
     public static CharacterData CreateScorePickup()
     {
         return CreatePickup(
@@ -108,6 +162,19 @@ public static class HazardRosterFactory
             "res://Assets/Sprites/Pickups/Archive/archive_data_pickup_style_v2.png",
             0.00036f,
             698.0f);
+    }
+
+    public static CharacterData CreateWorldWarriorScorePickup()
+    {
+        var pickup = CreatePickup(
+            "pickup_score",
+            "Judge's Laurel Fan",
+            "res://Assets/Sprites/Pickups/WorldWarrior/world_warrior_score_pickup_style_v1.png",
+            0.00042676f,
+            854.0f);
+        pickup.RoleTags.Add("world_warrior");
+        pickup.RoleTags.Add("score_pickup");
+        return pickup;
     }
 
     private static CharacterData CreatePickup(

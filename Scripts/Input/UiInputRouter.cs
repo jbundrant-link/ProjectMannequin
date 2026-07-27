@@ -1,5 +1,6 @@
 using Godot;
 using ProjectMannequin.Core;
+using System.Collections.Generic;
 
 namespace ProjectMannequin.LocalInput;
 
@@ -27,12 +28,35 @@ public enum LogicalUiAction
 /// </summary>
 public static class UiInputRouter
 {
+    private const float StickPressThreshold = 0.65f;
+    private const float StickReleaseThreshold = 0.35f;
+    private static readonly Dictionary<(int Device, JoyAxis Axis), int> StickDirections = new();
+    private static InputEventJoypadMotion? _cachedMotionEvent;
+    private static LogicalUiAction? _cachedMotionAction;
+
     public static bool IsPressed(InputEvent inputEvent, LogicalUiAction action)
+    {
+        var assignedDevice = LocalInputManager.Active?.GetAssignedDevice(1)
+            ?? InputDevicePreferences.ResolveP1Device();
+        return IsPressedForAssignedDevice(inputEvent, action, assignedDevice);
+    }
+
+    public static bool IsPressedForAssignedDevice(
+        InputEvent inputEvent,
+        LogicalUiAction action,
+        int assignedDevice)
     {
         return inputEvent switch
         {
             InputEventKey key => IsKeyboardPressed(key, action),
-            InputEventJoypadButton button => IsJoypadPressed(button, action),
+            InputEventJoypadButton button => IsJoypadPressed(
+                button,
+                action,
+                assignedDevice),
+            InputEventJoypadMotion motion => IsEventFromAssignedDevice(
+                    motion,
+                    assignedDevice)
+                && ResolveJoypadMotion(motion) == action,
             _ => false,
         };
     }
@@ -47,6 +71,13 @@ public static class UiInputRouter
 
     public static bool IsEventFromP1(InputEvent inputEvent)
     {
+        var assigned = LocalInputManager.Active?.GetAssignedDevice(1)
+            ?? InputDevicePreferences.ResolveP1Device();
+        return IsEventFromAssignedDevice(inputEvent, assigned);
+    }
+
+    public static bool IsEventFromAssignedDevice(InputEvent inputEvent, int assignedDevice)
+    {
         if (inputEvent is InputEventKey)
         {
             // Keyboard remains an emergency fallback even when a pad is selected,
@@ -59,10 +90,8 @@ public static class UiInputRouter
             return false;
         }
 
-        var assigned = LocalInputManager.Active?.GetAssignedDevice(1)
-            ?? InputDevicePreferences.ResolveP1Device();
-        return assigned != GameConstants.KeyboardDeviceId
-            && inputEvent.Device == assigned;
+        return assignedDevice != GameConstants.KeyboardDeviceId
+            && inputEvent.Device == assignedDevice;
     }
 
     private static bool IsKeyboardPressed(InputEventKey key, LogicalUiAction action)
@@ -91,9 +120,12 @@ public static class UiInputRouter
         };
     }
 
-    private static bool IsJoypadPressed(InputEventJoypadButton button, LogicalUiAction action)
+    private static bool IsJoypadPressed(
+        InputEventJoypadButton button,
+        LogicalUiAction action,
+        int assignedDevice)
     {
-        if (!button.Pressed || !IsEventFromP1(button))
+        if (!button.Pressed || !IsEventFromAssignedDevice(button, assignedDevice))
         {
             return false;
         }
@@ -115,5 +147,56 @@ public static class UiInputRouter
             LogicalUiAction.MainMenu => button.ButtonIndex == JoyButton.B,
             _ => false,
         };
+    }
+
+    public static void ResetNavigationState()
+    {
+        StickDirections.Clear();
+        _cachedMotionEvent = null;
+        _cachedMotionAction = null;
+    }
+
+    private static LogicalUiAction? ResolveJoypadMotion(InputEventJoypadMotion motion)
+    {
+        if (ReferenceEquals(_cachedMotionEvent, motion))
+        {
+            return _cachedMotionAction;
+        }
+
+        _cachedMotionEvent = motion;
+        _cachedMotionAction = null;
+        if (motion.Axis is not (JoyAxis.LeftX or JoyAxis.LeftY))
+        {
+            return null;
+        }
+
+        var key = (motion.Device, motion.Axis);
+        if (System.Math.Abs(motion.AxisValue) <= StickReleaseThreshold)
+        {
+            StickDirections[key] = 0;
+            return null;
+        }
+
+        var direction = motion.AxisValue >= StickPressThreshold
+            ? 1
+            : motion.AxisValue <= -StickPressThreshold
+                ? -1
+                : 0;
+        if (direction == 0
+            || StickDirections.GetValueOrDefault(key) == direction)
+        {
+            return null;
+        }
+
+        StickDirections[key] = direction;
+        _cachedMotionAction = motion.Axis switch
+        {
+            JoyAxis.LeftX when direction < 0 => LogicalUiAction.Left,
+            JoyAxis.LeftX => LogicalUiAction.Right,
+            JoyAxis.LeftY when direction < 0 => LogicalUiAction.Up,
+            JoyAxis.LeftY => LogicalUiAction.Down,
+            _ => null,
+        };
+        return _cachedMotionAction;
     }
 }

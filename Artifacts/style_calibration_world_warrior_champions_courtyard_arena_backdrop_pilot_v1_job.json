@@ -1,0 +1,47 @@
+﻿{
+    "created_at":  "2026-07-22T05:09:39.191286Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "36c73248-c343-41e7-b316-1a488efaaee7",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_050939_36c73248-c343-41e7-b316-1a488efaaee7_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "16:9",
+                   "batch_size":  1,
+                   "height":  3072,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "f69c9437-5f61-4409-9703-6f802aadb466",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f69c9437-5f61-4409-9703-6f802aadb466_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "205a3ab3-4a2d-41e3-bd31-8d3447e21766",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/205a3ab3-4a2d-41e3-bd31-8d3447e21766_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "9f31c034-ee78-4cc8-b8a7-5338152bcd2f",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9f31c034-ee78-4cc8-b8a7-5338152bcd2f.png"
+                                        },
+                                        {
+                                            "id":  "e61956e9-34cb-4670-b713-0634cdd8d073",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e61956e9-34cb-4670-b713-0634cdd8d073.png"
+                                        },
+                                        {
+                                            "id":  "6d63fa41-1ba7-47d5-a682-df03b8b60b73",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/6d63fa41-1ba7-47d5-a682-df03b8b60b73.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve World Warrior\u0027s warm ivory masonry, charcoal timber, indigo storm shadows, restrained vermilion cloth, jade foliage, and sparse saffron light. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production FLOORLESS CHAMPION\u0027S COURTYARD BOSS ARENA BACKDROP for Project Mannequin\u0027s final World Warrior duel against Ryu. Use the first supplied image as the approved location and palette master, but rebuild it for a bounded fighting-game camera rather than a scrolling strip.\r\n\r\nCAMERA CONTRACT: exact 16:9 canvas at 4K. This complete canvas is the normal-fight camera frame and must be fully visible without runtime crop or nonuniform scaling. Keep all critical architecture inside the central 88 percent of width and central 86 percent of height. Leave natural storm sky, mountain haze, and low-contrast wall continuation around every edge so short boss-intro zooms can crop safely. Do not draw guides, safe-frame lines, translucent rectangles, borders, or tonal bands.\r\n\r\nCOMPOSITION: one coherent side-on courtyard at one horizon and scale. LEFT: a complete low broken ivory wall and dark cypress opening. CENTER: a complete modest roofless champion shrine wall with two blank restrained vermilion cloth panels and one small saffron torch. RIGHT: a complete broken charcoal-timber training arcade and wind-bent canopy. Connect the groups through low distant wall remnants and storm atmosphere, but preserve visible sky gaps between them. Keep every roof, post, wall, torch, tree, and cloth silhouette fully contained; nothing may be cut by an edge.\r\n\r\nFIGHTER READABILITY: reserve the lower 35 percent as a calm, low-contrast distant plinth and blue-gray storm mist behind fighter bodies. Keep high-contrast landmarks above that band. Use no close foreground object. Keep the central fight area visually quiet and symmetrical enough for two fighters while the overall scene remains asymmetric and natural.\r\n\r\nThe second supplied environment image is rendering grammar only. The final mannequin, Ryu, and Goku references are authoritative style anchors only.\r\n\r\nNO floor, road, paving, gameplay lane, platform surface, foreground ledge, near wall, close rail, giant arch, edge-cropped structure, character, Ryu, enemy, spectator, crowd, prop, pickup, hazard, cast character shadow, text, letters, numbers, calligraphy, glyphs, logo, UI, border, divider, triptych, centered corridor, strong one-point perspective, photorealism, or PBR. Full-bleed floorless 16:9 production backdrop with no frame.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  5504
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_050939_36c73248-c343-41e7-b316-1a488efaaee7.png",
+    "status":  "completed"
+}

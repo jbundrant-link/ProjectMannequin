@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-22T03:57:09.040475Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "2a6d0d37-976c-47b6-a10e-eac1f01ee320",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_035709_2a6d0d37-976c-47b6-a10e-eac1f01ee320_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "4:3",
+                   "batch_size":  1,
+                   "height":  3584,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "60c52800-c42c-445a-8a7f-c19d14580c73",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/60c52800-c42c-445a-8a7f-c19d14580c73_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "dfec74b1-a853-42f9-8890-b42283b593ee",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/dfec74b1-a853-42f9-8890-b42283b593ee_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "8e6564ab-140d-482d-bd71-35c456c50776",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/8e6564ab-140d-482d-bd71-35c456c50776_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "d61d1059-b36c-41a6-b4a6-e62c5468d3e8",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d61d1059-b36c-41a6-b4a6-e62c5468d3e8.png"
+                                        },
+                                        {
+                                            "id":  "b57502d5-3d3a-414b-85d0-c482f93f93cc",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/b57502d5-3d3a-414b-85d0-c482f93f93cc.png"
+                                        },
+                                        {
+                                            "id":  "c7f6bdfd-59bf-4376-847f-2d82b686ba58",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c7f6bdfd-59bf-4376-847f-2d82b686ba58.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Preserve Astral Battlefront\u0027s luminous cyan-white energy, porcelain-white ruins, saturated sky blue, restrained jade growth, and deep indigo storm contrast. High fidelity comes from composition, lighting, and finish, not PBR texture noise. Do not include characters. No photorealism, realistic PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nCreate one production FLOORLESS ENERGY RAIL CONVERGENCE BACKDROP for Project Mannequin\u0027s side-scrolling Astral Battlefront Stage 3. The first image is the current flattened Stage 3 composition master. Preserve its identity and broad composition language: a storm-charged cyan vortex in the upper sky, broken elevated luminous energy rails, monumental white archive-like arches and pylons, floating garden islands, distant waterfall plateaus, and a clear left-to-right ascent toward the summit. Rebuild it as a true side-on fighting-game backdrop, not a complete scene painting.\r\n\r\nOUTPUT AND CAMERA CONTRACT: 4:3 canvas at 4K. The central horizontal 16:9 band, from 12.5 percent to 87.5 percent of canvas height, is the protected gameplay-safe frame. Put every critical landmark, complete arch silhouette, rail junction, vortex focal point, and intended visible architecture inside that protected band. The upper and lower 12.5 percent are deliberate overscan continuation for camera zoom, shake, and multiplayer framing. Continue sky naturally into upper overscan. Continue only simple low-contrast distant masonry and atmospheric haze into lower overscan. Use one stable lateral horizon and consistent architectural scale. Keep the left and right edges compositionally quiet so adjacent route chunks can overlap without cutting a focal landmark.\r\n\r\nDEPTH AND READABILITY: distant cloud and floating-island masses are broad and low contrast; middle-distance ruined towers and waterfall plateaus are readable but quieter than fighters; the energy-rail arches provide the main Stage 3 landmark rhythm. Reserve a calm low-contrast band behind fighter torsos. All architecture must be complete, never cut in half by the canvas edge or safe-frame edge.\r\n\r\nThe second and third images are environment rendering references only. Match their controlled contours, broad painted planes, and arcade readability without copying their locations. The mannequin, Ryu, and Goku images are authoritative rendering-style anchors only.\r\n\r\nNO floor, road, paving, fighting lane, platform surface, foreground ledge, near cliff face, undergrowth apron, character, enemy, vehicle, prop, pickup, hazard, cast character shadow, text, letters, numbers, glyphs, logo, UI, border, divider, triptych, hard panel seam, centered corridor, strong one-point perspective, photorealism, or PBR. Full-bleed floorless production backdrop with no frame.",
+                   "resolution":  "4k",
+                   "surface":  null,
+                   "width":  4800
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_035709_2a6d0d37-976c-47b6-a10e-eac1f01ee320.png",
+    "status":  "completed"
+}

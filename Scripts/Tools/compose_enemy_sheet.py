@@ -372,6 +372,9 @@ def normalize_component_frames(components):
         width = max(1, round(figure.width * scale))
         height = max(1, round(figure.height * scale))
         figure = figure.resize((width, height), Image.Resampling.LANCZOS)
+        component_background = component.get("background")
+        if component_background in ("green", "magenta"):
+            figure = despill(figure, component_background)
         frame = Image.new("RGBA", (FRAME, FRAME), (0, 0, 0, 0))
         frame.alpha_composite(
             figure,
@@ -479,6 +482,8 @@ def compose_manifest(manifest_path: Path, output_override: Path | None = None) -
                 )
 
             discovered_total += len(group_components)
+            for component in group_selected:
+                component["background"] = group_background
             selected.extend(group_selected)
             group_reports.append(
                 {

@@ -51,6 +51,9 @@ appsettings.Development.json
 !/Artifacts/StyleCalibration/
 !/Artifacts/StyleCalibration/*_job.json
 !/Artifacts/StyleCalibration/*.png
+!/Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_*.log
+!/Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_composition_report.json
+!/Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_atlas_audit.json
 !/Artifacts/ArchiveArtPass/
 !/Artifacts/ArchiveArtPass/*.png
 !/Artifacts/Phase0Smoke/

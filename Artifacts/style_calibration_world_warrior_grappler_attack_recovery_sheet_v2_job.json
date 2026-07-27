@@ -1,0 +1,57 @@
+﻿{
+    "created_at":  "2026-07-20T03:09:31.949827Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "cca144a7-a59c-4d8b-bbc2-5a422d45fef4",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_030931_cca144a7-a59c-4d8b-bbc2-5a422d45fef4_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "2362f930-7807-4344-a97b-e97b460855ab",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/2362f930-7807-4344-a97b-e97b460855ab.png"
+                                        },
+                                        {
+                                            "id":  "3951f0e8-c6c6-488e-b4d5-ba624c861a8e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/3951f0e8-c6c6-488e-b4d5-ba624c861a8e.png"
+                                        },
+                                        {
+                                            "id":  "5a9330e1-57c4-4bb8-8197-1eb4967507e6",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/5a9330e1-57c4-4bb8-8197-1eb4967507e6.png"
+                                        },
+                                        {
+                                            "id":  "00db6625-90fd-4ea0-9446-7b35935b4686",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/00db6625-90fd-4ea0-9446-7b35935b4686.png"
+                                        },
+                                        {
+                                            "id":  "90d5a119-9e45-4f4f-95ba-9af28f4f5f63",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/90d5a119-9e45-4f4f-95ba-9af28f4f5f63.png"
+                                        },
+                                        {
+                                            "id":  "9986153a-6c5c-4ff8-bbdd-0f9525ea5a68",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9986153a-6c5c-4ff8-bbdd-0f9525ea5a68.png"
+                                        },
+                                        {
+                                            "id":  "f61a5555-aa8b-42d8-b8e9-5c79a239a957",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f61a5555-aa8b-42d8-b8e9-5c79a239a957.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. The first supplied image is the exact approved WORLD WARRIOR TOURNAMENT GRAPPLER identity. Preserve the same original massive heavyweight in every pose: broad trapezoid torso, thick neck, huge forearms and thighs, short dense black curls with one silver forelock, clean-shaven square jaw, sleeveless deep-plum wrap tunic with one indigo diagonal inner panel, wide woven saffron belt with compact side knot, loose brick-red knee-length wrestling trousers with indigo gussets, charcoal shin wraps, low warm-ivory soft wrestling shoes, dark-indigo wrist wraps, and one bronze-rimmed vermilion lacquer token centered on the belt. Keep the same face, heavyweight proportions, costume geometry, color hierarchy, side-on camera, and light. The third and fourth images are World Warrior family-material references only. The final three images are rendering-finish references only: confident dark contours, broad two-to-four-band cel shading, simplified cloth materials, designed highlights, stylized dimensional forms, saturated controlled accents, arcade-readable anatomy, and polished anime fighting-game presentation. Do not copy any reference character\u0027s face, hair, costume, or identity. High fidelity comes from anatomy, composition, lighting, and finish, not PBR texture noise.\r\n\r\nEvery figure must be complete, face right, and remain separated on uniform pure chroma-green RGB 0,255,0. No olive drab, camouflage, tactical vest, suspenders, cargo trousers, utility pockets, knee pads, combat boots, military gear, armor, wrestling singlet, championship text, photorealism, PBR, gritty military sci-fi, painterly blur, flat vector art, pixel art, weapon, aura, impact effect, target, shadow, floor, scene, text, labels, grid lines, border, touching figures, extra limbs, missing belt or token, duplicate pose, or crop.\nThe second image is the exact approved active-pose choreography target. Reproduce that low right-facing shoulder-first body-lock silhouette as pose 1, then unwind its momentum gradually without changing camera angle or inventing a new strike.\r\n\r\nProduce exactly FIVE distinct full-body SHOULDER DRIVE recovery poses arranged as three figures on the top row and two on the bottom row, ordered left-to-right then top-to-bottom:\r\n1. Match the second reference: very low forward torso below 35 degrees, lead shoulder ahead of hips, rear leg extended, arms still curved inward around an imaginary waist.\r\n2. Momentum settles but remains low: rear foot begins stepping underneath, torso remains below 45 degrees, hips stay low, elbows open and palms separate.\r\n3. Release: torso rises only halfway from the level change, head comes up, feet remain staggered and wide, both open hands remain forward.\r\n4. Reset: shoulders square, hands return to open grappling guard, knees stay bent.\r\n5. Neutral restored: the original low forward-pitched guard with both shoes planted and belt token centered.\r\n\r\nThe first three poses must visibly preserve and then dissipate the low forward drive; poses 1-2 cannot be generic guards, and pose 3 cannot be fully upright. Every pose remains in the same right-facing three-quarter side view. Maintain one consistent character scale and generous green margin around every complete figure. No back-facing pose, running arm swing, new attack, punch, target, throw victim, impact, dust, speed line, or effect. 2K square animation source.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_030931_cca144a7-a59c-4d8b-bbc2-5a422d45fef4.png",
+    "status":  "completed"
+}

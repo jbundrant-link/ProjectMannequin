@@ -70,6 +70,7 @@ public static class StageMissionValidator
             errors.Add($"Mission '{mission.Id}' has missing floor art '{effectiveFloorTexturePath}'.");
         }
 
+        ValidatePresentationProfile(mission, errors);
         ValidateBackgroundPanels(mission, errors);
         var previousTriggerX = mission.StageMinX;
         foreach (var encounter in mission.Encounters)
@@ -194,6 +195,12 @@ public static class StageMissionValidator
                 {
                     errors.Add($"Encounter '{encounter.Id}' falling strike '{zone.Id}' needs a finite impact window.");
                 }
+                if (zone.Behavior == StageHazardBehavior.PushZone
+                    && Mathf.IsZeroApprox(zone.PushSpeedX)
+                    && Mathf.IsZeroApprox(zone.PushSpeedZ))
+                {
+                    errors.Add($"Encounter '{encounter.Id}' push zone '{zone.Id}' needs a non-zero push speed.");
+                }
                 if (!string.IsNullOrWhiteSpace(zone.SpritePath)
                     && (!ResourceLoader.Exists(zone.SpritePath)
                         || zone.SpritePixelSize <= 0.0f
@@ -296,6 +303,136 @@ public static class StageMissionValidator
         return errors;
     }
 
+    private static void ValidatePresentationProfile(
+        StageMissionData mission,
+        ICollection<string> errors)
+    {
+        if (mission.PresentationMode == StagePresentationMode.FullFramePlates)
+        {
+            ValidateFullFramePlates(mission, errors);
+            return;
+        }
+
+        if (mission.PresentationMode != StagePresentationMode.BoundedArena)
+        {
+            return;
+        }
+
+        var arena = mission.ArenaPresentation;
+        if (arena is null)
+        {
+            errors.Add($"Mission '{mission.Id}' has no bounded-arena presentation data.");
+            return;
+        }
+
+        if (mission.BackgroundPanels.Count != 0
+            || mission.CompositeSegments.Count != 0
+            || arena.CenterX < mission.StageMinX
+            || arena.CenterX > mission.StageMaxX
+            || arena.BackdropWorldWidth <= 0.0f
+            || arena.FloorWorldSize <= 0.0f
+            || arena.FloorNearZ < mission.LaneMaxZ
+            || arena.FloorNearZ - arena.FloorWorldSize > mission.LaneMinZ
+            || arena.CameraLookHeight <= 0.0f
+            || arena.CameraSize <= 0.0f
+            || arena.CameraMaxSize < arena.CameraSize
+            || arena.CinematicCameraSize <= 0.0f
+            || arena.CinematicCameraSize >= arena.CameraSize
+            || !Mathf.IsEqualApprox(mission.CameraBaseSize, arena.CameraSize)
+            || !Mathf.IsEqualApprox(mission.CameraMaxSize, arena.CameraMaxSize)
+            || !Mathf.IsEqualApprox(
+                mission.CameraCinematicSize,
+                arena.CinematicCameraSize))
+        {
+            errors.Add($"Mission '{mission.Id}' has invalid bounded-arena geometry or camera settings.");
+        }
+
+        if (!ResourceLoader.Exists(arena.BackdropTexturePath)
+            || !ResourceLoader.Exists(arena.FloorTexturePath))
+        {
+            errors.Add($"Mission '{mission.Id}' has missing bounded-arena art.");
+            return;
+        }
+
+        using var backdrop = GD.Load<Texture2D>(arena.BackdropTexturePath);
+        using var floor = GD.Load<Texture2D>(arena.FloorTexturePath);
+        if (backdrop.GetWidth() * 9 != backdrop.GetHeight() * 16)
+        {
+            errors.Add($"Mission '{mission.Id}' bounded-arena backdrop is not exact 16:9.");
+        }
+
+        if (floor.GetWidth() != floor.GetHeight()
+            || floor.GetWidth() < 2048)
+        {
+            errors.Add($"Mission '{mission.Id}' bounded-arena floor is not a high-resolution square.");
+        }
+    }
+
+    private static void ValidateFullFramePlates(
+        StageMissionData mission,
+        ICollection<string> errors)
+    {
+        if (mission.FullFramePlates.Count == 0
+            || mission.BackgroundPanels.Count != 0
+            || mission.CompositeSegments.Count != 0
+            || mission.FullFramePlateTransitionWidth <= 0.0f)
+        {
+            errors.Add(
+                $"Mission '{mission.Id}' has invalid or mixed full-frame plate data.");
+            return;
+        }
+
+        var previousCenter = float.NegativeInfinity;
+        foreach (var plate in mission.FullFramePlates)
+        {
+            if (plate.CenterX < mission.StageMinX
+                || plate.CenterX > mission.StageMaxX
+                || plate.CenterX <= previousCenter
+                || !ResourceLoader.Exists(plate.TexturePath))
+            {
+                errors.Add(
+                    $"Mission '{mission.Id}' has an invalid full-frame plate anchor or path.");
+                previousCenter = plate.CenterX;
+                continue;
+            }
+
+            using var texture = GD.Load<Texture2D>(plate.TexturePath);
+            if (texture.GetWidth() * 9 != texture.GetHeight() * 16)
+            {
+                errors.Add(
+                    $"Mission '{mission.Id}' plate '{plate.TexturePath}' is not exact 16:9.");
+            }
+
+            previousCenter = plate.CenterX;
+        }
+
+        var arena = mission.ArenaPresentation;
+        if (arena is null)
+        {
+            return;
+        }
+
+        if (mission.FullFramePlates.Count != 1
+            || !Mathf.IsEqualApprox(
+                mission.FullFramePlates[0].CenterX,
+                arena.CenterX)
+            || arena.CenterX < mission.StageMinX
+            || arena.CenterX > mission.StageMaxX
+            || arena.CameraSize <= 0.0f
+            || arena.CameraMaxSize < arena.CameraSize
+            || arena.CinematicCameraSize <= 0.0f
+            || arena.CinematicCameraSize >= arena.CameraSize
+            || !Mathf.IsEqualApprox(mission.CameraBaseSize, arena.CameraSize)
+            || !Mathf.IsEqualApprox(mission.CameraMaxSize, arena.CameraMaxSize)
+            || !Mathf.IsEqualApprox(
+                mission.CameraCinematicSize,
+                arena.CinematicCameraSize))
+        {
+            errors.Add(
+                $"Mission '{mission.Id}' has invalid full-frame arena camera data.");
+        }
+    }
+
     private static void ValidateAftermathVisual(
         string owner,
         StageAftermathVisualData? visual,
@@ -333,9 +470,14 @@ public static class StageMissionValidator
                 || panel.ParallaxFactorX > 1.5f
                 || panel.Opacity <= 0.0f
                 || panel.Opacity > 1.0f
+                || panel.ScaleYMultiplier <= 0.0f
                 || panel.CropTopFraction < 0.0f
                 || panel.CropBottomFraction < 0.0f
-                || panel.CropTopFraction + panel.CropBottomFraction >= 0.9f)
+                || panel.CropTopFraction + panel.CropBottomFraction >= 0.9f
+                || (panel.RepeatHorizontally
+                    && panel.Layer == StageVisualLayerKind.Foreground)
+                || (panel.AlignBottomToFloor
+                    && !Mathf.IsZeroApprox(panel.PositionY)))
             {
                 errors.Add($"Mission '{mission.Id}' has an invalid background panel.");
             }

@@ -1,0 +1,71 @@
+﻿{
+    "created_at":  "2026-07-22T04:33:18.849927Z",
+    "display_name":  "GPT Image 2",
+    "id":  "e79c3a53-017a-4e17-bd36-2c2df68dbc13",
+    "job_type":  "gpt_image_2",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_043318_e79c3a53-017a-4e17-bd36-2c2df68dbc13_min.webp",
+    "params":  {
+                   "aspect_ratio":  "1:1",
+                   "height":  2048,
+                   "medias":  [
+                                  {
+                                      "data":  {
+                                                   "id":  "995fe6f8-c4ae-4340-bb46-1997f01a6d58",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/995fe6f8-c4ae-4340-bb46-1997f01a6d58.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "a16ed071-3c45-421b-959e-30dee9c7ffe0",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a16ed071-3c45-421b-959e-30dee9c7ffe0.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "01d11b51-42c2-419d-96da-478b12016957",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/01d11b51-42c2-419d-96da-478b12016957.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "1bcdc1ce-211a-4983-88f1-ede1992b8e82",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1bcdc1ce-211a-4983-88f1-ede1992b8e82.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "7a4f7cf7-4c80-464d-992f-e4c4b6bd464a",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/7a4f7cf7-4c80-464d-992f-e4c4b6bd464a.png"
+                                               },
+                                      "role":  "image"
+                                  },
+                                  {
+                                      "data":  {
+                                                   "id":  "0f0a3a71-8936-4960-ad48-0082eafe112e",
+                                                   "type":  "media_input",
+                                                   "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/0f0a3a71-8936-4960-ad48-0082eafe112e.png"
+                                               },
+                                      "role":  "image"
+                                  }
+                              ],
+                   "model":  "videotape-alpha",
+                   "prompt":  "Create ONE complete full-body WORLD WARRIOR PAVILION ACE MAKOTO walk pose on uniform pure chroma-green RGB 0,255,0.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the controlling body-pose authority. Copy its hip, knee, ankle, support-foot, swing-foot, torso, and opposing-arm arrangement exactly while replacing the mannequin identity.\r\n2. Reference 2 is the exact Makoto identity authority. Preserve exactly one exact tall athletic adult woman with warm medium skin; sharp composed face; huge high looped black braided crest with saffron bands; short asymmetrical vermilion pavilion mantle; fitted deep-indigo wrap top with warm-ivory diagonal chest panel; charcoal kick trousers; long split indigo pavilion panels; plum hand wraps; warm-ivory shin guards with vermilion chevrons; ivory split-sole shoes; and one bronze crescent token at the right hip. Keep her face, braid geometry, female proportions, asymmetrical costume, crescent token, palette, lighting, and right-facing three-quarter camera.\r\n3. Reference 3 is a FAILED choreography sheet used only for Makoto rendering scale and material continuity. Do not copy its repeated phases, raised-knee guards, or same-leg lead.\r\n4. Reference 4 supplies only approved Pavilion material grammar. Do not copy the Striker\u0027s face, hair, body, pose, or costume.\r\n5 and 6 supply only canonical Project Mannequin rendering finish.\r\n\r\nB-PASSING: B plants nearly vertical under the hips while bent A passes forward with visible toe clearance. Compact gait, not a knee strike.\r\n\r\nLEG OWNERSHIP IS ABSOLUTE. Keep camera-near physical leg A one clear cel-value band lighter than camera-far physical leg B from hip through shoe. Do not swap that shading at the knee. Preserve all costume asymmetry on its original body side; never mirror Makoto. Natural relaxed grounded walk with opposite arm swing. Exactly one figure, two arms, two legs, two feet, and all identity anchors. Complete figure centered with generous green clearance. Same runtime-ready scale and baseline as reference 3.\r\n\r\nNo idle, guard, march, run, jump, attack, knee strike, floor, shadow, scenery, text, labels, grid, border, motion effect, extra figure, extra limb, missing limb, merged legs, or crop. PROJECT MANNEQUIN STYLE LOCK: controlled dark contours, broad two-to-four-step cel shading, clean graphic highlights, arcade-readable fighting-game anatomy, and polished modern 2.5D anime finish. No photorealism, PBR, grit, painterly blur, flat vector art, or pixel art. 2K square image.",
+                   "quality":  "high",
+                   "reference_elements":  [
+
+                                          ],
+                   "resolution":  "2k",
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260722_043318_e79c3a53-017a-4e17-bd36-2c2df68dbc13.png",
+    "status":  "completed"
+}

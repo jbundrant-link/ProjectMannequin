@@ -14,6 +14,7 @@ public sealed class WorldLadderSmokeScenario
 {
     private const int EnemyCaptureMinimumWarmupFrames = 30;
     private const int EnemyCaptureOverlayTimeoutFrames = 300;
+    private const int PickupCollectionSettleFrames = 6;
 
     private readonly GameSimulation _simulation;
     private readonly MvpHud? _hud;
@@ -43,7 +44,14 @@ public sealed class WorldLadderSmokeScenario
     private int _cacheObservedTick = -1;
     private int _cacheCaptureSavedTick = -1;
     private bool _pickupCaptureSaved;
+    private bool _pickupCollectionCaptureSaved;
     private int _pickupObservedTick = -1;
+    private int _pickupCollectionObservedTick = -1;
+    private int _pickupCollectionArmedTick = -1;
+    private int _pickupCollectionHealthBefore = -1;
+    private int _pickupCollectionMeterBefore = -1;
+    private int _pickupCollectionScoreBefore = -1;
+    private string _pickupCaptureFormId = "";
     private string _pickupCaptureActorId = "";
     private Vector3 _pickupCapturePosition;
     private string _raiderCaptureActorId = "";
@@ -54,6 +62,7 @@ public sealed class WorldLadderSmokeScenario
     private bool _raiderOriginalAiEnabled;
     private bool _raiderOriginalVulnerable;
     private readonly HashSet<string> _raiderHiddenActorIds = new();
+    private readonly HashSet<string> _propCaptureHiddenActorIds = new();
     private readonly HashSet<string> _stageCaptureHiddenActorIds = new();
     private long _presentationEventCursor;
     private readonly List<CombatPresentationEvent> _presentationEventBuffer = new();
@@ -66,6 +75,8 @@ public sealed class WorldLadderSmokeScenario
         _hud = simulation.GetNodeOrNull<MvpHud>("../MvpHud");
         PrepareEnemyCaptureOutput(EnemyIdleCaptureVariable());
         PrepareEnemyCaptureOutput(EnemyAttackCaptureVariable());
+        PrepareEnemyCaptureOutput(
+            "PROJECT_MANNEQUIN_LADDER_PICKUP_COLLECTION_CAPTURE");
         OS.SetEnvironment(EnemyActorIdVariable(), "");
         GD.Print("[LadderSmoke] Driver active.");
     }
@@ -142,6 +153,19 @@ public sealed class WorldLadderSmokeScenario
             _encounterActiveStartedTick = tick;
         }
 
+        var needsBoundedArenaCaptureHold =
+            director.Mission.ArenaPresentation is not null
+            && director.Mission.PresentationMode
+                is StagePresentationMode.BoundedArena
+                or StagePresentationMode.FullFramePlates
+            && !string.IsNullOrWhiteSpace(
+                OS.GetEnvironment("PROJECT_MANNEQUIN_STAGE_CAPTURE_PATH"))
+            && tick - _encounterActiveStartedTick < 600;
+        if (needsBoundedArenaCaptureHold)
+        {
+            return;
+        }
+
         StageAuthoredCaptureActors(director);
 
         if (TryDriveRaiderCapture(tick, director, player))
@@ -149,12 +173,10 @@ public sealed class WorldLadderSmokeScenario
             return;
         }
 
-        var wantsStyledPropCapture = director.Mission.WorldId == "archive_nexus"
-            && !string.IsNullOrWhiteSpace(
-                OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CACHE_CAPTURE"));
-        var wantsStyledPickupCapture = director.Mission.WorldId == "archive_nexus"
-            && !string.IsNullOrWhiteSpace(
-                OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_PICKUP_CAPTURE"));
+        var wantsStyledPropCapture = !string.IsNullOrWhiteSpace(
+            OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CACHE_CAPTURE"));
+        var wantsStyledPickupCapture = !string.IsNullOrWhiteSpace(
+            OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_PICKUP_CAPTURE"));
         var wantsExplosionCapture = director.Mission.WorldId == "archive_nexus"
             && !string.IsNullOrWhiteSpace(
                 OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_EXPLOSION_CAPTURE"));
@@ -176,11 +198,7 @@ public sealed class WorldLadderSmokeScenario
                 }
                 else
                 {
-                    player.SimPosition = new Vector3(
-                        liveStyledCache.SimPosition.X,
-                        player.SimPosition.Y,
-                        liveStyledCache.SimPosition.Z);
-                    player.Velocity = Vector3.Zero;
+                    StagePropCaptureActors(director, liveStyledCache, player);
                 }
                 if (tick <= _cacheObservedTick + 24)
                 {
@@ -199,6 +217,21 @@ public sealed class WorldLadderSmokeScenario
             {
                 if (_pickupObservedTick < 0)
                 {
+                    _pickupCaptureFormId = liveStyledPickup.CurrentForm.Id;
+                    if (_pickupCaptureFormId == "pickup_health")
+                    {
+                        player.ApplyArmorChip(
+                            Mathf.Max(1, player.CurrentForm.MaxHealth / 2),
+                            tick);
+                    }
+                    else if (_pickupCaptureFormId == "pickup_meter")
+                    {
+                        player.HydrateRunResources(player.Health, 0);
+                    }
+                    _pickupCollectionHealthBefore = player.Health;
+                    _pickupCollectionMeterBefore = player.Meter;
+                    _pickupCollectionScoreBefore = ProjectMannequin.Progression
+                        .RunSessionManager.Instance.ScoreManager.RunScore;
                     _pickupObservedTick = tick;
                     _pickupCaptureActorId = liveStyledPickup.ActorId;
                     _pickupCapturePosition = liveStyledPickup.SimPosition
@@ -222,6 +255,35 @@ public sealed class WorldLadderSmokeScenario
 
         if (AuthoredStageCapturePending(director))
         {
+            return;
+        }
+
+        if (_pickupCaptureSaved
+            && !_pickupCollectionCaptureSaved
+            && !string.IsNullOrWhiteSpace(OS.GetEnvironment(
+                "PROJECT_MANNEQUIN_LADDER_PICKUP_COLLECTION_CAPTURE")))
+        {
+            var pendingPickup = _simulation.Actors.FirstOrDefault(actor =>
+                actor.ActorId == _pickupCaptureActorId
+                && !actor.IsDead);
+            if (pendingPickup is not null)
+            {
+                _pickupCollectionArmedTick = _pickupCollectionArmedTick < 0
+                    ? tick
+                    : _pickupCollectionArmedTick;
+                var readyToCollect = tick - _pickupCollectionArmedTick
+                    >= PickupCollectionSettleFrames;
+                if (_pickupCaptureFormId == "pickup_score" && readyToCollect)
+                {
+                    _pickupCollectionScoreBefore = ProjectMannequin.Progression
+                        .RunSessionManager.Instance.ScoreManager.RunScore;
+                }
+                player.SimPosition = readyToCollect
+                    ? pendingPickup.SimPosition
+                    : pendingPickup.SimPosition + new Vector3(2.8f, 0.0f, 0.0f);
+                player.Velocity = Vector3.Zero;
+                pendingPickup.Velocity = Vector3.Zero;
+            }
             return;
         }
 
@@ -331,6 +393,7 @@ public sealed class WorldLadderSmokeScenario
         }
 
         StageRaiderCaptureActors(director, raider, player);
+        _hud?.SetEnemyCapturePresentationSuppressed(true);
         raider.IsAiEnabled = false;
         raider.IsVulnerable = false;
         raider.FacingRight = true;
@@ -368,6 +431,8 @@ public sealed class WorldLadderSmokeScenario
             GD.PushError(
                 $"[LadderSmoke] Timed out waiting for "
                 + $"{raider.CurrentForm.DisplayName} idle capture '{idleCapturePath}'.");
+            FinishRaiderCapture(tick, raider);
+            return false;
         }
 
         var attack = raider.CurrentForm.FindMove(CapturedEnemyMoveId());
@@ -459,6 +524,7 @@ public sealed class WorldLadderSmokeScenario
 
     private void FinishRaiderCapture(int tick, CombatActor raider)
     {
+        _hud?.SetEnemyCapturePresentationSuppressed(false);
         raider.IsAiEnabled = _raiderOriginalAiEnabled;
         raider.IsVulnerable = _raiderOriginalVulnerable;
         foreach (var actor in _simulation.Actors.Where(actor =>
@@ -540,6 +606,7 @@ public sealed class WorldLadderSmokeScenario
         CaptureAuthoredStageFrameIfRequested(director);
         CaptureStyledCacheFrameIfRequested(director);
         CapturePickupFrameIfRequested(director);
+        CapturePickupCollectionFrameIfRequested(director);
 
         if (!_summaryPrinted && tick % 300 == 0)
         {
@@ -583,6 +650,12 @@ public sealed class WorldLadderSmokeScenario
             "PROJECT_MANNEQUIN_LADDER_AFTERMATH_CAPTURE");
         var aftermathCapturePassed = string.IsNullOrWhiteSpace(aftermathCapturePath)
             || CaptureFileExists(aftermathCapturePath);
+        var pickupCollectionCapturePath = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_PICKUP_COLLECTION_CAPTURE");
+        var pickupCollectionPassed = string.IsNullOrWhiteSpace(
+                pickupCollectionCapturePath)
+            || (_pickupCollectionCaptureSaved
+                && CaptureFileExists(pickupCollectionCapturePath));
         var nonFinalPassed = director.Mission.StageNumber is >= 1 and <= 3
             && !director.Mission.IsFinalStage
             && _hordesCleared == 2
@@ -601,6 +674,7 @@ public sealed class WorldLadderSmokeScenario
             && _sawEliteLifeBar
             && enemyCapturePassed
             && aftermathCapturePassed
+            && pickupCollectionPassed
             && !_sawFormUnlock
             && !_sawAwaitingFormSwap;
         var player = _simulation.Actors.FirstOrDefault(actor => actor.IsPlayerControlled);
@@ -631,6 +705,7 @@ public sealed class WorldLadderSmokeScenario
             + $"lanes={_sawNarrowVaultLane}/{_sawWideVaultLane}/{_sawNarrowLaneClamp} "
             + $"enemyCapture={enemyCapturePassed} "
             + $"aftermathCapture={aftermathCapturePassed} "
+            + $"pickupCollection={pickupCollectionPassed} "
             + $"awaitSwap={_sawAwaitingFormSwap} tick={tick}");
         if (!passed)
         {
@@ -676,10 +751,13 @@ public sealed class WorldLadderSmokeScenario
             "index_warden_veyra" => 1,
             "archive_scout" => 1,
             "world_warrior_rookie" => 1,
+            "world_warrior_dojo_prodigy_kenzo" => 1,
             "cipher_captain_rhune" => 2,
+            "world_warrior_pavilion_ace_makoto" => 2,
             "overseer_basalt" => 3,
             "archive_bruiser" => 3,
             "world_warrior_grappler" => 3,
+            "world_warrior_grand_grappler_tetsu" => 3,
             "archive_knight_boss" => 4,
             _ => 2,
         };
@@ -697,6 +775,9 @@ public sealed class WorldLadderSmokeScenario
         {
             "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_IDLE_CAPTURE",
             "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_IDLE_CAPTURE",
+            "world_warrior_dojo_prodigy_kenzo" => "PROJECT_MANNEQUIN_LADDER_KENZO_IDLE_CAPTURE",
+            "world_warrior_pavilion_ace_makoto" => "PROJECT_MANNEQUIN_LADDER_MAKOTO_IDLE_CAPTURE",
+            "world_warrior_grand_grappler_tetsu" => "PROJECT_MANNEQUIN_LADDER_TETSU_IDLE_CAPTURE",
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_IDLE_CAPTURE",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_IDLE_CAPTURE",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_IDLE_CAPTURE",
@@ -711,6 +792,9 @@ public sealed class WorldLadderSmokeScenario
         {
             "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ATTACK_CAPTURE",
             "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ATTACK_CAPTURE",
+            "world_warrior_dojo_prodigy_kenzo" => "PROJECT_MANNEQUIN_LADDER_KENZO_ATTACK_CAPTURE",
+            "world_warrior_pavilion_ace_makoto" => "PROJECT_MANNEQUIN_LADDER_MAKOTO_ATTACK_CAPTURE",
+            "world_warrior_grand_grappler_tetsu" => "PROJECT_MANNEQUIN_LADDER_TETSU_ATTACK_CAPTURE",
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ATTACK_CAPTURE",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ATTACK_CAPTURE",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ATTACK_CAPTURE",
@@ -725,6 +809,9 @@ public sealed class WorldLadderSmokeScenario
         {
             "index_warden_veyra" => "PROJECT_MANNEQUIN_LADDER_VEYRA_ACTOR_ID",
             "archive_scout" => "PROJECT_MANNEQUIN_LADDER_SCOUT_ACTOR_ID",
+            "world_warrior_dojo_prodigy_kenzo" => "PROJECT_MANNEQUIN_LADDER_KENZO_ACTOR_ID",
+            "world_warrior_pavilion_ace_makoto" => "PROJECT_MANNEQUIN_LADDER_MAKOTO_ACTOR_ID",
+            "world_warrior_grand_grappler_tetsu" => "PROJECT_MANNEQUIN_LADDER_TETSU_ACTOR_ID",
             "cipher_captain_rhune" => "PROJECT_MANNEQUIN_LADDER_RHUNE_ACTOR_ID",
             "overseer_basalt" => "PROJECT_MANNEQUIN_LADDER_BASALT_ACTOR_ID",
             "archive_bruiser" => "PROJECT_MANNEQUIN_LADDER_BRUISER_ACTOR_ID",
@@ -899,7 +986,6 @@ public sealed class WorldLadderSmokeScenario
         var path = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_PICKUP_CAPTURE");
         if (_pickupCaptureSaved
             || string.IsNullOrWhiteSpace(path)
-            || director.Mission.WorldId != "archive_nexus"
             || _pickupObservedTick < 0
             || _simulation.CurrentTick < _pickupObservedTick + 12
             || !_simulation.Actors.Any(actor =>
@@ -926,7 +1012,104 @@ public sealed class WorldLadderSmokeScenario
         }
 
         _pickupCaptureSaved = true;
+        var player = _simulation.Actors.FirstOrDefault(actor =>
+            actor.IsPlayerControlled
+            && !actor.IsDead);
+        var pickup = _simulation.Actors.FirstOrDefault(actor =>
+            actor.ActorId == _pickupCaptureActorId
+            && !actor.IsDead);
+        if (player is not null && pickup is not null)
+        {
+            if (_pickupCaptureFormId == "pickup_score")
+            {
+                _pickupCollectionScoreBefore = ProjectMannequin.Progression
+                    .RunSessionManager.Instance.ScoreManager.RunScore;
+            }
+            player.SimPosition = pickup.SimPosition;
+            player.Velocity = Vector3.Zero;
+        }
         GD.Print($"[LadderSmoke] Styled pickup capture saved: {path}");
+    }
+
+    private void CapturePickupCollectionFrameIfRequested(
+        ArcadeEncounterDirector director)
+    {
+        var path = OS.GetEnvironment(
+            "PROJECT_MANNEQUIN_LADDER_PICKUP_COLLECTION_CAPTURE");
+        if (_pickupCollectionCaptureSaved
+            || string.IsNullOrWhiteSpace(path)
+            || !_pickupCaptureSaved
+            || _pickupCollectionHealthBefore < 0
+            || _pickupCollectionMeterBefore < 0
+            || _pickupCollectionScoreBefore < 0)
+        {
+            return;
+        }
+
+        var player = _simulation.Actors.FirstOrDefault(actor =>
+            actor.IsPlayerControlled
+            && !actor.IsDead);
+        var pickupConsumed = !_simulation.Actors.Any(actor =>
+            actor.ActorId == _pickupCaptureActorId
+            && !actor.IsDead);
+        var resourceIncreased = _pickupCaptureFormId switch
+        {
+            "pickup_meter" => player is not null
+                && player.Meter > _pickupCollectionMeterBefore,
+            "pickup_health" => player is not null
+                && player.Health > _pickupCollectionHealthBefore,
+            "pickup_score" => ProjectMannequin.Progression.RunSessionManager
+                .Instance.ScoreManager.RunScore > _pickupCollectionScoreBefore,
+            _ => player is not null,
+        };
+        if (player is null || !pickupConsumed || !resourceIncreased)
+        {
+            return;
+        }
+
+        _pickupCollectionObservedTick = _pickupCollectionObservedTick < 0
+            ? _simulation.CurrentTick
+            : _pickupCollectionObservedTick;
+        if (_simulation.CurrentTick < _pickupCollectionObservedTick + 3)
+        {
+            return;
+        }
+
+        var encounter = director.CurrentEncounter;
+        player.SimPosition = new Vector3(
+            (encounter.ArenaMinX + encounter.ArenaMaxX) * 0.5f,
+            0.0f,
+            Mathf.Clamp(0.0f, director.CurrentLaneMinZ, director.CurrentLaneMaxZ));
+        player.Velocity = Vector3.Zero;
+        player.UpdatePresentationTransform();
+
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrWhiteSpace(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var error = _simulation.GetViewport().GetTexture().GetImage().SavePng(path);
+        if (error != Error.Ok)
+        {
+            GD.PushError(
+                $"[LadderSmoke] Could not save pickup collection capture '{path}' ({error}).");
+            return;
+        }
+
+        _pickupCollectionCaptureSaved = true;
+        RestorePropCaptureActors();
+        var resourceTransition = _pickupCaptureFormId switch
+        {
+            "pickup_meter" => $"meter={_pickupCollectionMeterBefore}->{player.Meter}",
+            "pickup_score" => $"score={_pickupCollectionScoreBefore}->"
+                + ProjectMannequin.Progression.RunSessionManager.Instance
+                    .ScoreManager.RunScore,
+            _ => $"health={_pickupCollectionHealthBefore}->{player.Health}",
+        };
+        GD.Print(
+            $"[LadderSmoke] Pickup collection capture saved: {path} "
+            + resourceTransition);
     }
 
     private void CaptureStyledCacheFrameIfRequested(ArcadeEncounterDirector director)
@@ -934,7 +1117,6 @@ public sealed class WorldLadderSmokeScenario
         var path = OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_CACHE_CAPTURE");
         if (_cacheCaptureSaved
             || string.IsNullOrWhiteSpace(path)
-            || director.Mission.WorldId != "archive_nexus"
             || _cacheObservedTick < 0
             || _simulation.CurrentTick < _cacheObservedTick + 24
             || !_simulation.Actors.Any(actor =>
@@ -961,7 +1143,49 @@ public sealed class WorldLadderSmokeScenario
 
         _cacheCaptureSaved = true;
         _cacheCaptureSavedTick = _simulation.CurrentTick;
+        if (string.IsNullOrWhiteSpace(
+                OS.GetEnvironment("PROJECT_MANNEQUIN_LADDER_PICKUP_CAPTURE")))
+        {
+            RestorePropCaptureActors();
+        }
         GD.Print($"[LadderSmoke] Styled cache capture saved: {path}");
+    }
+
+    private void StagePropCaptureActors(
+        ArcadeEncounterDirector director,
+        CombatActor prop,
+        CombatActor player)
+    {
+        var encounter = director.CurrentEncounter;
+        var center = new Vector3(
+            (encounter.ArenaMinX + encounter.ArenaMaxX) * 0.5f,
+            0.0f,
+            Mathf.Clamp(0.0f, director.CurrentLaneMinZ, director.CurrentLaneMaxZ));
+        prop.SimPosition = center;
+        prop.Velocity = Vector3.Zero;
+        player.SimPosition = center + new Vector3(-2.8f, 0.0f, 0.0f);
+        player.Velocity = Vector3.Zero;
+        player.FacingRight = true;
+
+        foreach (var actor in _simulation.Actors.Where(actor =>
+            actor != prop
+            && actor != player
+            && actor.Visible))
+        {
+            actor.Visible = false;
+            _propCaptureHiddenActorIds.Add(actor.ActorId);
+        }
+    }
+
+    private void RestorePropCaptureActors()
+    {
+        foreach (var actor in _simulation.Actors.Where(actor =>
+                     _propCaptureHiddenActorIds.Contains(actor.ActorId)
+                     && !actor.IsDead))
+        {
+            actor.Visible = true;
+        }
+        _propCaptureHiddenActorIds.Clear();
     }
 
     private static string ResolvePropCaptureSuffix()

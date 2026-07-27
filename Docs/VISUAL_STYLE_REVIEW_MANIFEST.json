@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-17",
+  "updated": "2026-07-25",
   "visualBible": "Docs/VISUAL_STYLE_BIBLE.md",
   "minimumPassingScore": 14,
   "maximumScore": 16,
@@ -590,8 +590,340 @@
       ],
       "reviewer": "GitHub Copilot",
       "notes": "Dojo Approach now uses five independent selected textures across four depth layers: a 3168x1344 opaque seamless dusk backdrop, 2048x2048 packed-earth floor, 2048x868 real-alpha three-landmark midground, and separate 474x700/455x593 real-alpha shallow edge remnants. Parallax factors 0.72/0.90/1.12 preserve ordered depth; foreground opacity is 0.68. Backdrop V1 was rejected for black triptych bars and centered stairs; V2 for stitched one-third exposure transitions. Floor V1 used continuous masonry courses/edge bars, V2 a perimeter frame/grid, and V3 a perimeter outline with symmetric edge markers; accepted packed-earth V4 has 0.04 percent light occupancy and no seam network or edge treatment. Midground V1 generated four Goku figures in its lower band; V2 deterministically replaces only that contamination with source gray, and the cutout keeps exactly three major components. Foreground V1's right lantern was too tall; accepted V2 keeps both pieces shallow. Exact calm/live 720p and 1080p captures prove no masonry repetition, no projected rails/platforms, strong fighter separation, ordered parallax, four visual roots, four panels, sharp sampling, full horde/horde/elite/results progression at tick 820, and zero errors. One point is withheld because the fixed combat camera/HUD leaves the decorative landmark strip near the upper visibility limit. Runtime hashes: backdrop 23838fa2696d53d758f1a8d608690b7d4c1323f1e96db54cfe6094724a504075; floor 9592fd1fac79f7e529f4adc035811d9365b7c888aa07e60c102d1d2d1fadbd5d; midground 0463035b570e15c54f6d54843ddc7961ffe7850899a1b17b78bf01cdd1bee116; foreground left 0a68ffd52bbc5e5198cb1b7637367092ebac50b15d5649457291f7b0fd73e11f; foreground right af08fcbed73db5b65fb647abb4710bffbc21e8f23287dd5afcfe261d62432d6d.",
-      "nextAction": "Retain as the approved Dojo Approach environment; explicitly review the World Warrior Rookie/Striker/Grappler runtime atlases next, then produce Pavilion Circuit layers.",
+      "nextAction": "Retain as the approved Dojo Approach environment; use Pavilion Circuit as the distinct Stage 2 environment and proceed to Grand Tournament Floor.",
       "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_pavilion_circuit_style_v1",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_floor_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_midground_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_foreground_left_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_foreground_right_style_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_midground_source_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_foreground_source_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_foreground_cutout_v1.png",
+        "Scripts/Tools/generate_world_warrior_pavilion_sources.ps1",
+        "Scripts/Tools/split_stage_edge_cutout.py",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "processingModels": [
+        "image_background_remover"
+      ],
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_pavilion_backdrop_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_floor_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_floor_rejected_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_floor_rejected_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_floor_rejected_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_floor_rejected_v4_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_midground_source_v1_job.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_midground_cutout_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_foreground_source_v1_job.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_foreground_cutout_v1_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_floor_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+      ],
+      "rejectedSources": [
+        "Artifacts/StyleCalibration/world_warrior_pavilion_floor_rejected_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_floor_rejected_v2.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_floor_rejected_v3.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_floor_rejected_v4_runtime.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_floor_generated_v4_source.png"
+      ],
+      "sourceHashes": {
+        "backdropPilot": "017cb0c13e9ac6acd610d7b256b464ae06f0757bf5c239c5fcbfa27e4ff83758",
+        "backdrop": "017cb0c13e9ac6acd610d7b256b464ae06f0757bf5c239c5fcbfa27e4ff83758",
+        "floor": "2dad58c746fc579ca310440017c858c0f8cc512e021f33bd1da4079f08fccff5",
+        "midground": "3dcf18de0675a51944c7b8dcc05b5fa6ef5fefa8f6cfebeaf989fc9d8d485e8b",
+        "foregroundLeft": "b637e81855f71d20e9c90fedb5f31deeb60003bce3b3e40d197f5c3aa7898ba4",
+        "foregroundRight": "fc6f512677d5b69be186694920542b5ddfa22ef59fcd217627e0869cd00eb507"
+      },
+      "score": 14,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 1,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_pavilion_stage_visual_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_layers_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_stage_visual_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_layers_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_pavilion_style_v1_import.log",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_style_v1_validation.log",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_style_v1_final_tests.log",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_stage_visual_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_stage_visual_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_layers_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Pavilion Circuit replaces the reused Tournament District/Dojo fallback with five independent Stage 2 production textures: a seamless 3168x1344 plum-twilight lantern-pavilion backdrop, a 2048x2048 broad lacquered-deck floor, a 2048x868 real-alpha judges/lantern/practice-post midground, and separate 545x408/555x576 real-alpha knee-height edge remnants. The approved backdrop pilot is people-free, text-free, visually distinct from Dojo and the rejected tournament composite, and uses the World Warrior vermilion/indigo/saffron/ivory material hierarchy. Three early floor attempts were rejected for concentric rings or radial wreaths; a smooth fourth source was rejected after runtime projection became flat/noisy. The accepted deck uses broad horizontal cel-painted board bands with no board-end seams, dominant row variation (18.1 luma standard deviation versus 0.3 across columns), and near-continuous side edges. Runtime-specific vertical compression keeps the backdrop and midground inside the fixed combat camera while preserving 0.72/0.90/1.12 ordered parallax and 0.68 edge-foreground opacity. Exact 720p and 1080p stage-visual and dense combat captures show clean fighter separation, grounded feet, distinct Pavilion architecture, and no visual overlap failures. Stage visual smoke passes roots=4, panels=4, floor/parallax/lighting/sharp=true; complete Stage 2 ladders pass at tick 927. Focused world tests pass 150/150 and aggregate world/hazard tests pass 187/187 with zero runtime errors.",
+      "nextAction": "Retain as the approved World Warrior Stage 2 environment; use Grand Tournament Floor as the distinct Stage 3 environment, then return for Pavilion-specific hazards/props and Pavilion Ace Makoto.",
+      "reviewDate": "2026-07-19"
+    },
+    {
+      "id": "world_warrior_grand_tournament_floor_style_v1",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_backdrop_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_floor_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_midground_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_foreground_left_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_foreground_right_style_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_midground_source_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_foreground_source_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_foreground_cutout_v1.png",
+        "Scripts/Tools/generate_world_warrior_grand_tournament_sources.ps1",
+        "Scripts/Tools/split_stage_edge_cutout.py",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "processingModels": [
+        "image_background_remover"
+      ],
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_grand_tournament_backdrop_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_tournament_floor_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_tournament_midground_source_v1_job.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_midground_cutout_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_tournament_foreground_source_v1_job.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_foreground_cutout_v1_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+      ],
+      "sourceHashes": {
+        "backdropPilot": "8f9510492d66f12754a0a95781af308489b6298cd97068a608c9d23cafa1ffb4",
+        "backdrop": "8f9510492d66f12754a0a95781af308489b6298cd97068a608c9d23cafa1ffb4",
+        "floor": "89e42da0505b70066d83e3af015cdab62374492e87fbf5d37fbe3e0b95309045",
+        "midground": "f1bf71c7126496fbf59000c016acee6f2571e697c0374a255105a1bec9c37e2d",
+        "foregroundLeft": "d5025cfd96d8cb6341f97ffc884950f9f74d1d6c54ea02dd4576a69544a12a16",
+        "foregroundRight": "227612e262b00f937384fa2d1aee2543e3131c602ca9bff2f5e0f66352eea561"
+      },
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 1,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_stage_visual_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_layers_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_stage_visual_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_layers_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_style_v1_import.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_style_v1_validation.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_stage_visual_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_layers_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_stage_visual_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_layers_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Grand Tournament Floor replaces the shared tournament-composite fallback with five independent Stage 3 textures: a seamless 3168x1344 empty championship-arena backdrop, a 2048x2048 giant-slab tournament floor, a 2048x868 real-alpha trophy/judges/empty-gallery midground, and separate 695x410/688x414 real-alpha knee-height crowd-barrier/rope remnants. The people-free pilot keeps monumental arena masses in the middle half of the image so the fixed combat camera reveals empty terraces, trophy/judges architecture, saffron torch rhythm, and indigo mountain sky without turning the arena into a giant close-up. The floor uses seven broad horizontal courses with sparse staggered slab joints rather than dense tiling; 24-unit mirror tiling preserves heavyweight scale and keeps fighter feet legible. Runtime-specific 0.40 backdrop and 0.26 midground vertical multipliers preserve the same camera-safe 0.72/0.90/1.12 depth order proven by Pavilion. Exact stage-visual and dense combat captures at 720p and 1080p show grounded fighters, championship scale, clear identity separation from Dojo/Pavilion, and empty gallery surfaces ready for later crowd-reaction overlays. Stage visual smoke passes roots=4, panels=4, floor/parallax/lighting/sharp=true; complete Stage 3 ladders pass at tick 1024. Focused world tests pass 152/152 and aggregate world/hazard tests pass 189/189 with zero runtime errors.",
+      "nextAction": "Retain as the approved World Warrior Stage 3 environment; use Champion's Courtyard as the distinct final stage, then return for spectators, risky score caches, ring-side hazard art, and Grand Grappler Tetsu.",
+      "reviewDate": "2026-07-19"
+    },
+    {
+      "id": "world_warrior_champions_courtyard_style_v1",
+      "category": "stage",
+      "status": "revision_superseded",
+      "assets": [
+        "Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_full_frame_plate_style_v1.png",
+        "Scripts/Tools/prepare_full_frame_plate.py",
+        "Scripts/Tools/audit_stage_plate_fidelity.py",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Data/WorldMissionData.cs",
+        "Scripts/Presentation/PrototypeStageView.cs",
+        "Scripts/Stage/StageMissionValidator.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "processingModels": [],
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_champions_courtyard_arena_backdrop_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_champions_courtyard_arena_backdrop_pilot_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_champions_courtyard_arena_backdrop_pilot_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_champions_courtyard_arena_floor_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_champions_courtyard_arena_floor_pilot_v2_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_backdrop_style_v1.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_backdrop_style_v1.png"
+      ],
+      "sourceHashes": {
+        "fullFramePlate": "d7c98df3d9f9b76b6b9ae38d01768af12a81b286c6599fd56ea321e52304ee62"
+      },
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 1,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": false,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_full_frame_plate_clean_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_full_frame_plate_clean_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_full_frame_gameplay_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/stage_plate_fidelity_report.json"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Champion's Courtyard renders one complete exact-16:9 plate (3840x2160) fitted to the camera. The previous bounded-arena build drew an opaque 3D floor mesh that occluded roughly the lower third of the backdrop, which is why the runtime frame did not match the source painting; that floor is gone and the painted courtyard stone in the plate is now the visible floor, with gameplay collision on an invisible plane. Clean stage-only captures match the source pixel-for-pixel at 720p and 1080p: worst MAE 1.4251, lowest correlation 0.99807301. The floor band specifically reproduces the source (region MAE 1.006), confirming no occlusion. Stage 4 ladder passes at tick 1262 with roots=4, panels=1/1, floor/aspect/fidelity=true. SUPERSEDED 2026-07-25. This plate was a backdrop stacked on a floor tile: audit_stage_plate_sources.py finds a flat blue-grey strip 4.07 percent of image height at rows 0.630 to 0.670, and its pavement scale contradicts the architecture. Replaced by world_warrior_champions_courtyard_full_frame_plate_style_v2.",
+      "nextAction": "Reuse the full-frame plate profile for remaining boss arenas; never reintroduce an opaque floor mesh over an authored backdrop.",
+      "reviewDate": "2026-07-24"
+    },
+    {
+      "id": "astral_battlefront_interim_scene_plates",
+      "category": "stage",
+      "status": "runtime_fidelity_approved",
+      "assets": [
+        "Assets/Stages/AstralBattlefront/astral_skyfall_breach_full_frame_plate_01.png",
+        "Assets/Stages/AstralBattlefront/astral_capsule_causeway_full_frame_plate_01.png",
+        "Assets/Stages/AstralBattlefront/astral_energy_rail_full_frame_plate_01.png",
+        "Assets/Stages/AstralBattlefront/astral_tournament_summit_full_frame_plate_01.png",
+        "Scripts/Tools/prepare_full_frame_plate.py",
+        "Scripts/Tools/audit_stage_plate_fidelity.py",
+        "Scripts/Tools/audit_stage_plate_sources.py",
+        "Scripts/Stage/StageGroundProjection.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Data/WorldMissionData.cs",
+        "Scripts/Presentation/PrototypeStageView.cs",
+        "Scripts/Stage/StageMissionValidator.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "processingModels": [],
+      "jobMetadata": [
+        "Artifacts/style_calibration_astral_energy_rail_backdrop_overscan_pilot_v1_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_backdrop_overscan_pilot_v2_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_backdrop_overscan_pilot_v3_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_backdrop_overscan_pilot_v4_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_approach_backdrop_pilot_v1_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_approach_backdrop_pilot_v2_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_summit_backdrop_pilot_v1_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_summit_backdrop_pilot_v2_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_summit_backdrop_pilot_v3_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_floor_pilot_v1_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_floor_pilot_v2_job.json",
+        "Artifacts/style_calibration_astral_energy_rail_floor_pilot_v3_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/ArchiveDistrict/archive_district_stage_higgsfield_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_tournament_district_higgsfield_v2.png"
+      ],
+      "structureOnlyReferences": [
+        "Assets/Stages/AstralBattlefront/astral_route_02_capsule_causeway_higgsfield_v2.png",
+        "Assets/Stages/AstralBattlefront/astral_route_03_energy_rail_higgsfield_v2.png",
+        "Assets/Stages/AstralBattlefront/astral_route_04_tournament_summit_higgsfield_v2.png"
+      ],
+      "sourceHashes": {
+        "fullFramePlate01": "d98279f3002b1c7373aa6dcc537947209319dd5c0d5a78b42121c0f607e487a7",
+        "fullFramePlate02": "5189ad45e00cf2bc8ad465d172bbf032b544c07cb7513fa6bb361a81933b2844",
+        "fullFramePlate03": "af4eeca12a2d9054fe0eee65e65af32097b3cf1b60c7bd1ffeb38050665348a4"
+      },
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 1,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/astral_energy_rail_full_frame_plate_01_clean_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/astral_energy_rail_full_frame_plate_01_clean_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/astral_energy_rail_full_frame_gameplay_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/stage_plate_fidelity_report.json"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "INTERIM, NOT STYLE-FINAL. Astral stage art has not had its art-style pass yet: replacement order step 8 applies the approved grammar to World Warrior, then Astral, and the style bible still lists Astral stages as pending. These plates are pre-restyle astral_route_*_higgsfield_v2 masters padded to exact 16:9 by prepare_full_frame_plate.py with no cropping or rescaling, so the status stays runtime_fidelity_approved rather than runtime_approved. All four Astral stages now render one complete scene plate each. The previous Energy Rail set was three plates, but plate 02 and plate 03 were byte-identical to the Skyfall and Tournament Summit masters, so Stage 3 was displaying Stage 1 and Stage 4 scenery; each stage now uses only its own painting. Plates declare their painted walkable band and StageGroundProjection solves the resting camera look height against it, because aspect and pixel-fidelity checks cannot detect fighters hovering above the painted floor; before the fix only 28 percent of the Energy Rail belt depth sat on painted stone. No visible replacement floor is drawn: the painted floor in each plate is the floor the player sees, and gameplay collision uses an invisible plane. When the Astral restyle lands, these plates must be regenerated in-style and re-reviewed for runtime_approved.",
+      "nextAction": "Keep every new traversal stage on complete exact-16:9 plates and require a passing audit_stage_plate_fidelity.py report before approval.",
+      "reviewDate": "2026-07-24"
     },
     {
       "id": "world_warrior_base_enemy_family_legacy_v1",
@@ -610,7 +942,8 @@
       "finalApproval": false,
       "partialSupersession": {
         "Assets/Sprites/Enemies/world_warrior_rookie_higgsfield_v1.png": "world_warrior_rookie_style_v2",
-        "Assets/Sprites/Enemies/world_warrior_striker_higgsfield_v1.png": "world_warrior_striker_style_v2"
+        "Assets/Sprites/Enemies/world_warrior_striker_higgsfield_v1.png": "world_warrior_striker_style_v2",
+        "Assets/Sprites/Enemies/world_warrior_grappler_higgsfield_v1.png": "world_warrior_grappler_style_v2"
       },
       "failureReasons": [
         "Rookie is recognizable Ryu-derivative art: white torn gi, red headband, bare feet, shoto proportions, and matching stance fail the original-character requirement",
@@ -634,8 +967,8 @@
         "Artifacts/StyleCalibration/world_warrior_grappler_legacy_runtime_1280x720.log"
       ],
       "reviewer": "GitHub Copilot",
-      "notes": "All three 2560x2304 real-alpha atlases are imported, content-distinct, and mechanically valid. Exact staged idle/active captures pass their complete Stage 1, Stage 2, and Stage 3 ladders at ticks 1058, 1231, and 1363 respectively. Source hashes: Rookie afa845c13c66cd0d9bc9ca085f84f3703e471864bb67d25ea1f3211c49e54b62; Striker ebd998033c2f6b4cd7a21e9c47c2d13c0ab9847bc52d0ccceaf85197aac1da6a; Grappler 49c87fb78fc902ac880eae578257edde3e4b81fe653aad1b16dc80c7aafb1b4f. Technical atlas validity does not satisfy originality, family cohesion, role readability, or canonical-style provenance. Rookie and Striker are now superseded at runtime by approved style-v2 atlases; only Grappler remains a rejected legacy base-enemy asset.",
-      "nextAction": "Replace Grappler with an original non-military tournament-wrestling design whose signature move reads as a real throw or shoulder drive.",
+      "notes": "All three legacy 2560x2304 real-alpha atlases are imported, content-distinct, and mechanically valid, but technical validity does not satisfy originality, family cohesion, role readability, or canonical-style provenance. Exact staged idle/active captures passed their original Stage 1, Stage 2, and Stage 3 ladders at ticks 1058, 1231, and 1363 respectively. Source hashes: Rookie afa845c13c66cd0d9bc9ca085f84f3703e471864bb67d25ea1f3211c49e54b62; Striker ebd998033c2f6b4cd7a21e9c47c2d13c0ab9847bc52d0ccceaf85197aac1da6a; Grappler 49c87fb78fc902ac880eae578257edde3e4b81fe653aad1b16dc80c7aafb1b4f. All three are now superseded at runtime by approved original style-v2 atlases and remain only as rejected provenance.",
+      "nextAction": "Retain the legacy family only as rejected provenance; use the approved Rookie, Striker, and Grappler style-v2 atlases as World Warrior roster anchors.",
       "reviewDate": "2026-07-17"
     },
     {
@@ -806,6 +1139,899 @@
       "notes": "One original tall kick specialist replaces the generic tracksuit Striker with rust-auburn swept hair, a muted-vermilion pavilion jacket, indigo collar/calf wraps, saffron piping, charcoal trousers, ivory shoes, plum wrist wraps, and a lacquer hip token. The pilot and seven 2048x2048 contact sheets preserve a distinct long-legged silhouette. Idle generated a black quadrant cross plus a floating shoe, and Turning Kick startup generated one detached shoe; deterministic composition uses an 80000-pixel component floor that selects exactly 4/8/6/4/5/5/8 complete intended figures and excludes only those contaminants. The resulting 2560x2304 real-alpha 10x9 atlas has 60 populated frames, zero residual green pixels, and no clipped cell bounds. Turning Kick durations 4/4/4/4/5/4/5/5/6/7 exactly total 16 startup, 5 active, and 27 recovery frames; runtime move frame 18 resolves to a fully extended horizontal kick. Exact idle/active 720p and 1080p captures pass complete Stage 2 ladders at tick 1231 with elite/results and zero errors. Focused world tests pass 146/146 and aggregate world/hazard tests pass 183/183. Atlas SHA-256: 9ad1845759bf235ab8ad1036c59928f28b639f84d2495449a0b3544b27f89bb2.",
       "nextAction": "Retain as the approved World Warrior kick-focused anchor; replace Grappler next with a broad tournament-wrestling silhouette and a genuinely readable signature drive or throw.",
       "reviewDate": "2026-07-17"
+    },
+    {
+      "id": "world_warrior_grappler_style_v2",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_idle_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_walk_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_dash_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_jump_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_attack_startup_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_attack_recovery_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_misc_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_animation_sources_v2.json",
+        "Assets/Sprites/Enemies/world_warrior_grappler_style_v2.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_atlas_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_atlas_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grappler_shoulder_drive_active_pose_reference_v2a.png",
+        "Scripts/Tools/generate_world_warrior_grappler_sources.ps1",
+        "Scripts/Tools/generate_world_warrior_grappler_attack_v2.ps1",
+        "Scripts/Tools/compose_enemy_sheet.py",
+        "Scripts/Tools/audit_enemy_atlas.py",
+        "Scripts/Data/TestRosterFactory.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_grappler_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_idle_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_walk_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_dash_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_jump_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_misc_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_attack_startup_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_attack_recovery_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_attack_startup_sheet_rejected_v2a_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_attack_recovery_sheet_rejected_v2a_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_attack_startup_sheet_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_grappler_attack_recovery_sheet_v2_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png"
+      ],
+      "choreographyReferences": [
+        "Assets/Sprites/Mannequin/higgsfield_idle_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_walk_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_dash_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_jump_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_attacks_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_misc_sheet_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_shoulder_drive_active_pose_reference_v2a.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Enemies/world_warrior_grappler_higgsfield_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_attack_startup_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_attack_recovery_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_attack_startup_sheet_style_rejected_v2a.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_attack_recovery_sheet_style_rejected_v2a.png"
+      ],
+      "sourceHashes": {
+        "pilot": "8df7ea78bd0641f0bcb9d8d3ce932dbafd058d88ce024641e3527850fc057611",
+        "idleV1": "ae1fbafa2e02c8f4b139296d6fa0d269f44b4d1f2965b55ff50a31ef4b50a9f6",
+        "walkV1": "7a1069a7d28a30365c45ca98aa962aeca1f48cb69c5ce83031b8c0ef6293fa9d",
+        "dashV1": "37bd45d92a3d98fc722c2d9ed8919baf097d3d7750a9bd8ba428ac96703fbb39",
+        "jumpV1": "c4a162318c926e9699cf0582697bd5a620ef890cc53a7b036ed9436f2774d5a1",
+        "miscV1": "f9431a406c5d6beb79864dba1d92dc0afabd783b5097f553c9561ebeac54b251",
+        "attackStartupRejectedV1": "b34ca5f225e82de668f7b67382892266536d8aca6205bfe15ac0447119b33e62",
+        "attackRecoveryRejectedV1": "62ba3860c4be52923638bfb6f13f065ada1194bcba903137a1484abff1d0fab7",
+        "attackStartupRejectedV2a": "c9b5ebeda0c67408a4658fccd676ec61819cfb8b47059b930d9fe16760f397d8",
+        "attackRecoveryRejectedV2a": "8074436719d07c3834de02c5bf0560b41c413bc89088d13b38c995b36a0f926c",
+        "attackStartupV2": "6afc6355e1992285f711de4afe92925f3aabd3402b67909a5047c911f7af5ef5",
+        "attackRecoveryV2": "1ced3263b6141f131e2f1ed858792472d3b8398054ee3a377e7416183c2fc1c8",
+        "atlas": "598f2024faa6c12a0134e826adacd62e9f8fdbeefc2d01d896ef2dc14176175e"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_shoulder_drive_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_shoulder_drive_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_import.log",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_validation.log",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_grappler_style_v2_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "One original massive tournament wrestler replaces the legacy military Grappler with a broad trapezoid torso, short black curls and silver forelock, deep-plum wrap tunic, indigo diagonal panel, saffron woven belt, brick-red wrestling trousers, charcoal wraps, ivory shoes, and vermilion lacquer token. The 15/16 identity pilot and accepted v1 idle/walk/dash/jump/misc sheets preserve exact 4/8/6/4/8 pose counts. Both v1 attack sheets were retained as rejected reaching/clasping provenance. The first v2 attack attempt produced the required active silhouette but turned away during startup and reset recovery too early; it is retained as rejected v2a provenance, and its isolated active pose became choreography reference only. The accepted v2 sheets contain five coherent startup/active and five recovery poses. Deterministic composition selects exactly 4/8/6/4/10/8 intended components at one scale per row into a 2560x2304 real-alpha 10x9 atlas with 60 populated frames, 30 transparent reserve frames, baseline 248, six-pixel cell padding, zero visible green spill, and 215-232 pixel prone widths. Shoulder Drive durations 5/5/5/5/5/6/7/7/7/7 exactly total 20 startup, 5 active, and 34 recovery frames; runtime move frame 22 is an unmistakable low shoulder-first body-lock entry. Exact idle/active 720p and 1080p captures pass complete Stage 3 ladders at tick 1363 with elite/results and no runtime errors. Focused world tests pass 148/148 and aggregate world/hazard tests pass 185/185.",
+      "nextAction": "Retain as the approved World Warrior heavyweight anchor; use the approved Pavilion Circuit environment and proceed to Grand Tournament Floor.",
+      "reviewDate": "2026-07-19"
+    },
+    {
+      "id": "world_warrior_dojo_prodigy_kenzo_style_v1",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_idle_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_walk_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_dash_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_jump_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_style_v3.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_recovery_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_misc_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_animation_sources_v1.json",
+        "Assets/Sprites/Enemies/world_warrior_dojo_prodigy_kenzo_style_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_kenzo_master_palm_active_pose_reference_v3.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_atlas_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_atlas_audit.json",
+        "Scripts/Tools/generate_world_warrior_dojo_prodigy_kenzo_sources.ps1",
+        "Scripts/Tools/generate_world_warrior_kenzo_attack_v2.ps1",
+        "Scripts/Tools/generate_world_warrior_kenzo_attack_v3.ps1",
+        "Scripts/Tools/compose_enemy_sheet.py",
+        "Scripts/Tools/audit_enemy_atlas.py",
+        "Scripts/Data/TestRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_idle_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_walk_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_dash_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_jump_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_attack_recovery_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_misc_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_v3_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png"
+      ],
+      "choreographyReferences": [
+        "Assets/Sprites/Mannequin/higgsfield_idle_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_walk_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_dash_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_jump_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_attacks_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_misc_sheet_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_rookie_attack_startup_sheet_style_v1.png",
+        "Artifacts/StyleCalibration/world_warrior_kenzo_master_palm_active_pose_reference_v3.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_attack_startup_sheet_style_v2.png"
+      ],
+      "sourceHashes": {
+        "pilot": "3ac082816736da30c46e7db772272965591ab43bad1edaaf1a989a57c290bc58",
+        "idleV1": "8e4c82dce8fe3b18557df0fb3fda9173273912545492a13fecfbf71de8a65027",
+        "walkV1": "2c5e624de99a227b15dff8ebfa034505710f501498fc4667d4a1baf57cac836a",
+        "dashV1": "067220815d9facc75c9af13fd06e0063ac339bd3780c10579f37fd4a8b3e0603",
+        "jumpV1": "8cee8a4c918025fe1901f0bf4775cbb47bba0544a7b7309708299540f54de18c",
+        "miscV1": "f626c844e6473949f8934fedbb457a25fb799e252055a2f00f0e3253d7db992e",
+        "attackStartupRejectedV1": "935c11be208b7a153040e6e819d53da84815d227475ebd541041e28e127d3ea0",
+        "attackStartupRejectedV2": "c21e1408cf1a5349e00eb164df9b49c728c112f2ef0b59823252332262057e82",
+        "attackStartupV3": "f4f7685ac3efff07836015910b350e96e794c0d9d0e19a02d88b016119673ac2",
+        "attackRecoveryV1": "a986136d25c25a9464ed103cc621662295b7e78b1dee95563c234730d13a6bd8",
+        "atlas": "dc2dfe3de8e43f54b5b68b8cadfaaa6a57fdf08f9e5ada5b6ae9e6955e99d81f"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_master_palm_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_master_palm_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_v1_atlas_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_runtime_1920x1080.log",
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_validation.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Dojo Prodigy Kenzo is a distinct upright open-palm named elite rather than a tinted Dojo Rookie: swept-back black hair with saffron circlet, deep-indigo gold-trimmed ceremonial vest, warm-ivory underwrap and guards, bronze chest medallion, charcoal pleated hakama trousers, ivory split-sole shoes, and a long vermilion half-sash. The pilot and accepted source families preserve exact 4/8/6/4/5/5/8 pose counts. Startup v1 closed its active hand into a punch and remains rejected provenance; startup v2 corrected the hand but rotated its strongest frames to a back-facing view and also remains rejected. An isolated accepted Kenzo recovery pose became choreography reference only for v3, which preserves a front three-quarter camera and open lead hands. Deterministic composition orders the strongest flat palm into frames 43-44 and selects 4/8/6/4/10/8 poses at one scale per row. The final 2560x2304 real-alpha 10x9 atlas has 60 populated frames, 30 transparent reserves, baseline 248, six-pixel padding, and zero green spill. Master Palm durations 3/3/3/3/5/4/4/4/4/7 exactly preserve the Rookie kit's 12 startup, 5 active, and 23 recovery frames while using unique art; runtime move frame 12 is the held active palm. The dedicated 720p and 1080p Stage 1 capture runs pass at tick 881 with named-elite HUD, elite intro/results, and no errors or warnings in those capture logs. The current combined deterministic validation passes 166/166 world plus 43/43 hazard assertions, then emits the known three-ObjectDB-instance shutdown warning after both summaries.",
+      "nextAction": "Retain as the approved World Warrior named-elite pilot/template; generate and approve one distinct Pavilion Ace Makoto identity pilot next before producing any Makoto or Tetsu animation batch.",
+      "reviewDate": "2026-07-20"
+    },
+    {
+      "id": "world_warrior_pavilion_ace_makoto_style_v1",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_idle_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_sheet_style_v4.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_sheet_style_v4_keyed.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_dash_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_jump_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_attack_startup_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_attack_recovery_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_misc_sheet_style_v1.png",
+        "Assets/Sprites/Enemies/world_warrior_pavilion_ace_makoto_style_v1.png"
+      ],
+      "artifacts": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_animation_sources_v1.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_pilot_v1_comparison.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v1_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v2_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v3_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v4_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v4_runtime_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_style_v1_atlas_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_style_v1_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_style_v1_atlas_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v1_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v2_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v3_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v4_audit.json",
+        "Scripts/Tools/generate_world_warrior_pavilion_ace_makoto_sources.ps1",
+        "Scripts/Tools/generate_world_warrior_makoto_walk_v3.ps1",
+        "Scripts/Tools/generate_world_warrior_makoto_walk_v4.ps1",
+        "Scripts/Tools/compose_enemy_sheet.py",
+        "Scripts/Tools/audit_enemy_atlas.py",
+        "Scripts/Data/TestRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_idle_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_sheet_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_a_contact_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_a_down_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_a_passing_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_a_up_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_b_contact_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_b_down_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_b_passing_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_b_up_pose_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_walk_sheet_v4_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_dash_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_jump_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_attack_startup_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_attack_recovery_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_pavilion_ace_makoto_misc_sheet_v1_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_striker_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_style_pilot_v1.png"
+      ],
+      "choreographyReferences": [
+        "Assets/Sprites/Mannequin/higgsfield_idle_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_walk_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_dash_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_jump_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_attacks_sheet_v1.png",
+        "Assets/Sprites/Mannequin/higgsfield_misc_sheet_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_sheet_style_v3.png"
+      ],
+      "sourceHashes": {
+        "pilot": "8bf1395627870d298276479f75bd8acbc45f90ebe218feac4e1d8c654cc5b8ac",
+        "idleV1": "b4110f138039ba16ffffa4359a444506f7044d5b2620bee7f1c65042f73cf079",
+        "walkRejectedV1": "0cd5db34cbe5dcc08a5e1241b7609bf5184aae94cfe3c5f12eed7639c3f8efb4",
+        "walkRejectedV2": "3afc212471815ad2b6f04bf203528f9c1e2b1d9bdf1949b422867fd052355471",
+        "walkRejectedV3": "52debc3ae4f5dce12e542cfe5ef8f1141b88af2f0c90e5ea2cfd0e5ca25a7200",
+        "walkV4Raw": "5a5eb0ee167ca49d37eff0d696545b64807b31bc9e1b8c9b172136dba8c60f55",
+        "walkV4Keyed": "f6fe20041238bdf14ea45d7386f204649b06da9bf68d3dff49f39ce40ce38516",
+        "dashV1": "9dcacfee8ff0a920d91ff395c2373505d3fab4e286d0249f8b92ffba5acce0f6",
+        "jumpV1": "4cbc8f891ec5e5d0202eb48569d1e74b3806d7b45c2ffd54a5fb28974d4709db",
+        "attackStartupV1": "a3a867b5da5344b84fd376623875cfd2042dd7e64eff923d34a67c4dfab4c7dd",
+        "attackRecoveryV1": "5602487829bdfc9dbcc3b93686c4349331418fd459714c8af86754e490c70169",
+        "miscV1": "02768ae3aebd458446f0354f8e50a48f00fc5224dae81b419d8f837074185d01",
+        "atlas": "f853cbd5dfe13f2fe1254f3a3de1c7ad4f83bc64462cb55ba780c65b362744e8"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_crescent_heel_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_crescent_heel_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_style_v1_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_style_v1_atlas_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v1_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v2_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v3_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_ace_makoto_walk_v4_audit.json"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Pavilion Ace Makoto is a distinct precision-kick named elite rather than a tinted Pavilion Striker: a high braided crest, asymmetrical vermilion shoulder mantle, split indigo pavilion panels, ivory chevron shin guards, bronze crescent token, and a tall narrow stance keep her readable beside Striker and Kenzo at gameplay scale. The pilot-first source family preserves exact 4/8/6/4/5+5/8 source pose counts. Walk v1 and v2 collapse into idle and raised-knee repetition; v3 preserves identity but still reads as a shuffle. All three remain rejected provenance. Accepted v4 supplies alternating contact, down, passing, and up silhouettes and passes the six-distinct-pose audit. Deterministic composition selects 4/8/6/4/10/8 poses at one scale per row. The final 2560x2304 real-alpha 10x9 atlas has 60 populated frames, 30 transparent reserves, baseline 248, six-pixel padding, and zero green spill. Crescent Heel uses unique frames while preserving the Striker kit's exact 16 startup, 5 active, and 27 recovery frames. Dedicated idle and active Stage 2 captures pass at 1280x720 and 1920x1080. The current deterministic validation passes 172/172 world plus 43/43 hazard assertions; the known three-ObjectDB-instance shutdown warning remains outside both passing summaries.",
+      "nextAction": "Retain Makoto as the approved second World Warrior named-elite path and generate one distinct Grand Grappler Tetsu identity pilot before any Tetsu animation batch.",
+      "reviewDate": "2026-07-22"
+    },
+    {
+      "id": "world_warrior_grand_grappler_tetsu_style_v1",
+      "category": "enemy",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_pilot_v3_normalized.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_idle_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_walk_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_dash_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_jump_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_attack_startup_sheet_style_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_attack_startup_sheet_style_v2_contained.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_attack_recovery_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_misc_sheet_style_v2.png",
+        "Assets/Sprites/Enemies/world_warrior_grand_grappler_tetsu_style_v1.png"
+      ],
+      "artifacts": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_pilot_v3.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_pilot_v3_comparison.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_pilot_v3_normalization.json",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_source_audit_spec.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_source_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_source_contact_sheet.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_attack_startup_v2_containment.json",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_animation_sources_v1.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_v1_atlas_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_v1_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_v1_atlas_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_walk_v1_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_walk_v1_preview.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_iron_gate_clinch_preview.png",
+        "Scripts/Tools/generate_world_warrior_grand_grappler_tetsu_pilot.ps1",
+        "Scripts/Tools/generate_world_warrior_grand_grappler_tetsu_sources.ps1",
+        "Scripts/Tools/generate_world_warrior_tetsu_attack_startup_v2.ps1",
+        "Scripts/Tools/generate_world_warrior_tetsu_misc_v2.ps1",
+        "Scripts/Tools/generate_walk_cycle_repair.ps1",
+        "Scripts/Tools/normalize_identity_pilot.py",
+        "Scripts/Tools/contain_enemy_source_sheet.py",
+        "Scripts/Tools/create_tetsu_pilot_comparison.py",
+        "Scripts/Tools/audit_enemy_source_batch.py",
+        "Scripts/Tools/build_enemy_composition_manifest.py",
+        "Scripts/Tools/compose_enemy_sheet.py",
+        "Scripts/Tools/audit_enemy_atlas.py",
+        "Scripts/Tools/audit_walk_cycle.py",
+        "Scripts/Tools/build_world_warrior_grand_grappler_tetsu_atlas.ps1",
+        "Scripts/Tools/capture_world_warrior_tetsu_runtime.ps1",
+        "Scripts/Data/TestRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_pilot_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_pilot_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_pilot_v3_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_idle_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_walk_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_walk_sheet_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_dash_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_jump_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_attack_startup_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_attack_startup_sheet_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_attack_recovery_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_misc_sheet_v1_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_grappler_tetsu_misc_sheet_v2_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grappler_style_pilot_v1.png"
+      ],
+      "comparisonReferences": [
+        "Assets/Sprites/Enemies/world_warrior_grappler_style_v3.png",
+        "Assets/Sprites/Enemies/world_warrior_pavilion_ace_makoto_style_v1.png"
+      ],
+      "rejectedSources": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_pilot_v2.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_walk_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_attack_startup_sheet_style_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_grappler_tetsu_misc_sheet_style_v1.png"
+      ],
+      "sourceHashes": {
+        "pilotRejectedV1": "7de765c949bdfeb2c0a4119b45a5d2a8140cceec6b081263c1d681c592cf96ec",
+        "pilotRejectedV2": "137ee81c64b97d7da2cc43082866719b9a9762d630ca20fae5d6be91204bc171",
+        "pilotRawV3": "e5563ffcb1800bf6a926c8e38060bc6c054f2def447d2f84de2e2abf7f95feb0",
+        "pilotNormalizedV3": "a6ad3b8bbd296b3d4788fb2ecad2981e3dd621890f1de4006f709a1609037631",
+        "idleV1": "a5a0013d52a426fc57e231e47c521b2d02e6a7a18b41eed3b9fcfb6663238c19",
+        "walkRejectedV1": "76b929baeb4528d4bb7c5116aa0dbef6bdb5caead263b3debcb5d9015257adc0",
+        "walkV2": "0c6c0030845ac40034ab516ac75c7731886988f728f04ee36db9dccf5394c6c2",
+        "dashV1": "3aea8b6dc2b6975a4408ee1e7f10c756a79de5bee5834f7d832786fd411bc84b",
+        "jumpV1": "892ef927f887fedb19bc91ffddaea5df6f7cbe5e5774360e50b4fe611c23ed01",
+        "startupRejectedV1": "6ba2f239fc3805f724b0ca85a11740a42d5f198843d6560db8390f177669ab34",
+        "startupV2Raw": "2898605be03b34c863cdb55c5e7963d7531d329c425a0e19a9a9907967f6975a",
+        "startupV2Contained": "0e8cbb026c8247690f4e99cc2103094bb197b6e3cc45270e0b1f62513e27b543",
+        "recoveryV1": "a99322d2a4eaf23464649b931351fdd389085a3f0186d3090c6879192ab76c71",
+        "miscRejectedV1": "ae055f2ce8e21ef5bcd3263a4e7fd2c2382e54102c326893f16a66489776d1af",
+        "miscV2": "c5b959760a213949b772cf850d82a108714462e8921938971d785b6e30f78e76",
+        "atlas": "dab2d5b9de4efd5f0ab1cf04bca2a8d7a785a7bb65ed0b0966bd8af369fe6168",
+        "idle720": "4fcb02d09df6efdca2c1520945c77fc60f4d91e633ec499968228b2625e6537d",
+        "attack720": "2d0a2ebb80568c45c883c67a4039d5e6ca39fc4b40274c1e79556d144d54a657",
+        "idle1080": "4b970c050391af77472feb5ad8c84cb1c052535b19e94c374120d95bebac6371",
+        "attack1080": "5c47ea390eee4c1ae1dafd47a03213f0770429b09e0fccfb2750ee65ad4b0012"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_idle_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_iron_gate_clinch_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_idle_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_iron_gate_clinch_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_source_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_v1_composition_report.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_style_v1_atlas_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_walk_v1_audit.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "Grand Grappler Tetsu is a distinct upright veteran clinch champion rather than a tint or age edit of Tournament Grappler. His smooth bald crown, two blunt square beard braids, monolithic rectangular torso, boxy vermilion high-collar vest, warm-ivory side pillars and toe caps, plum forearm wraps, charcoal pillar shorts, and off-center square bronze seal remain readable beside Grappler, Makoto, and the player at gameplay scale. Raw pilots v1-v2 remain rejected framing/background provenance; normalized v3 is the identity authority. Walk v1 collapsed to two keyed lower-body silhouettes and remains rejected; guide-driven v2 passes eight distinct poses. Startup v1 clipped a wide-arm pose; v2 restores all five poses and deterministic 0.989731 containment removes three boundary antialias pixels without redrawing. Misc v1 produced seven figures; v2 restores exact 4/8/6/4/5+5/8 family counts. The final 2560x2304 real-alpha 10x9 atlas has 60 populated frames, 30 transparent reserves, baseline 248, six-pixel padding, zero green spill, 237-244px prone widths, and SHA-256 dab2d5b9de4efd5f0ab1cf04bca2a8d7a785a7bb65ed0b0966bd8af369fe6168. Iron Gate Clinch uses unique upright two-arm frames while preserving the Grappler kit's exact 20 startup, 5 active, and 34 recovery frames. Dedicated Stage 3 idle and active captures pass at 1280x720 and 1920x1080 at deterministic tick 1093 with matching HUD identity, clean grounding, no overlap or clipping, and zero errors or warnings. Deterministic validation passes 176/176 world plus 43/43 hazard assertions.",
+      "nextAction": "Retain Tetsu as the approved third World Warrior named-elite path; begin one pilot-first World Warrior training prop or pickup family before hazard and spectator expansion.",
+      "reviewDate": "2026-07-22"
+    },
+    {
+      "id": "world_warrior_training_dummy_style_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_training_dummy_style_pilot_v1.png",
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_training_dummy_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_training_dummy_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_training_dummy_pilot_review.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_training_dummy_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/WorldLadderSmokeScenario.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_training_dummy_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png"
+      ],
+      "comparisonReferences": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_prodigy_kenzo_idle_runtime_1280x720.png"
+      ],
+      "sourceHashes": {
+        "pilot": "a217ec6ebc5c90100b90192f448cba718d22c74ba5672fba229701129370cc73",
+        "stageScaleProxy": "16ac89ae41b0d252a48d91a65e9b9967ae6a093ffef31daac75afa6211ec5770",
+        "readabilityStrip": "90a429234f011e70ae340bbe5a56c0538599fe94468f0ff9d83da29a31e5cebf",
+        "production": "60822927ea9ba4d525219975bd057391bd93ef9167d16dc211bba6ffa205edc2",
+        "intact720": "4c61f29f105d5666412afbaca5023057b06a904f409e79dd45789ffbc4dff23d",
+        "breakDrop720": "9abb72f17f6d64e6f4cbf55fb0b230e1a57923db8f4aaed408c9c5c9684a6378",
+        "intact1080": "62a9f92658d190e332fc81c870153f646b78d8fcf15078ce97b76b6bf3019024",
+        "breakDrop1080": "eaa7065aee98876e694dd6790fc817ebea5c34ab03b613422cba30da42234baf"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_intact_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_break_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_intact_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_break_drop_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The first World Warrior prop is a nonhumanoid freestanding martial-arts striking post rather than a fighter, pickup, explosive, or recolored Archive cache. A charcoal segmented timber spine, saffron upper target, warm-ivory torso pad with vermilion diamond patch, two indigo-capped side bars, bronze pegs, bold break seams, and a broad indigo/vermilion weighted base preserve the approved Dojo/Pavilion material hierarchy. The source remains complete on pure green with 475/91/518/56-pixel clearance and all practice/break cues remain legible at 128, 160, and 192 pixels. Exact green-key processing preserves the 2048x2048 canvas and 475/91/1530/1992 alpha bounds, produces 3,045,247 transparent pixels, zero green spill, and calibrated 0.00147291/968 metrics for a 2.8-unit prop. Dojo Approach authors exactly one 90-HP, nonthrowable training dummy with a guaranteed Vitality Gourd drop. Clean intact and gourd-drop runs pass Stage 1 at tick 817 at 1280x720 and 1920x1080 with correct grounding, fighter-relative scale, no clipping or overlap, and zero errors or warnings. Real overlap collection consumes the gourd immediately and restores health from 120 to 180. Deterministic validation passes 181/181 world plus 43/43 hazard assertions.",
+      "nextAction": "Retain the training dummy as the approved World Warrior practice-prop anchor and its guaranteed Vitality Gourd recovery pocket; generate one independent meter-pickup pilot next.",
+      "reviewDate": "2026-07-23"
+    },
+    {
+      "id": "world_warrior_health_pickup_style_v1",
+      "category": "pickup",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Pickups/WorldWarrior/world_warrior_health_pickup_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_health_pickup_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_health_pickup_pilot_review.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_training_dummy_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/StageHazardTests.cs",
+        "Scripts/Debug/WorldLadderSmokeScenario.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_health_pickup_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_training_dummy_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png"
+      ],
+      "comparisonReferences": [
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_intact_runtime_1280x720.png"
+      ],
+      "sourceHashes": {
+        "pilot": "7ebe862749c65e7d256f5e05a7e76c4e34b5d8f508234bc34810beb9b5adc519",
+        "stageScaleProxy": "69f174d37d965cb55278bf83bdf2d7a73fe49af9ae22fd54efe83f8ab7752b2a",
+        "readabilityStrip": "bf52e483464e8846571a0ad3c06dea36c3e6e75be7c7207f6416084e5741eda2",
+        "production": "204364b7088c2cd315c4e6cb6e38a8425c357b12dc471adad9b035f53b3299fc",
+        "drop720": "9abb72f17f6d64e6f4cbf55fb0b230e1a57923db8f4aaed408c9c5c9684a6378",
+        "collection720": "9e4cd5613d287f375be8183231ebdbb6f9396b0cac3098e19d63c84236b48b7b",
+        "drop1080": "eaa7065aee98876e694dd6790fc817ebea5c34ab03b613422cba30da42234baf",
+        "collection1080": "a58158ed0ee797266825121c376b8c3ba0446aa53afbb6536c2bee7a3a663630"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_break_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_collection_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_break_drop_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_collection_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The Vitality Gourd is a grounded martial-arts provision rather than a medical icon, Archive crystal, floating orb, generic potion, or product-render package. Its double-lobed warm-ivory calabash body, saffron cork, three broad jade medicinal leaves, vermilion braided waist cord, jade leaf inlay, and deep-indigo three-petal cradle inherit the approved World Warrior prop hierarchy without copying the training dummy's silhouette. The complete source retains 321/55/270/52-pixel clearance and remains readable at 64, 80, and 96 pixels. Exact green-key processing preserves the 2048x2048 canvas and 321/55/1778/1996 alpha bounds, produces 2,631,000 transparent pixels, zero green spill, and calibrated 0.00038125/972 metrics for a 0.74-unit pickup. The Dojo training dummy guarantees this health drop. Clean drop and post-overlap collection captures pass at 1280x720 and 1920x1080 at tick 817 with zero errors/warnings; the gourd disappears immediately and health rises from 120 to 180, exactly 25 percent of the mannequin's 240 max health. Deterministic validation passes 181/181 world plus 43/43 hazard assertions.",
+      "nextAction": "Retain the Vitality Gourd as the approved World Warrior health-function anchor; generate and review one independent meter-pickup pilot before score variants, crates, or hazards.",
+      "reviewDate": "2026-07-23"
+    },
+    {
+      "id": "world_warrior_meter_pickup_style_v1",
+      "category": "pickup",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_meter_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Pickups/WorldWarrior/world_warrior_meter_pickup_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_meter_pickup_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_meter_pickup_pilot_review.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_meter_pickup_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Combat/CombatActor.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/StageHazardTests.cs",
+        "Scripts/Debug/WorldLadderSmokeScenario.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_meter_pickup_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_training_dummy_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png"
+      ],
+      "comparisonReferences": [
+        "Artifacts/StyleCalibration/world_warrior_training_dummy_intact_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_health_pickup_pilot_v1_readability_strip.png",
+        "Assets/Sprites/Pickups/Archive/archive_meter_pickup_style_v2.png"
+      ],
+      "sourceHashes": {
+        "pilot": "3982c6ea640ef4d4f2886ae93b55b333bde36368b4ef47b8d60a50cabd27d709",
+        "stageScaleProxy": "0616b759c9ef86e5b39df543b24a7f9aa833ff59357378606a5f327220b6480d",
+        "readabilityStrip": "240d33541c08d8fd88360ad780308c24823075603d05e5f91bcc74df94cd941e",
+        "production": "e6013811cb32c6464647349b5c1dbc7b60ab85c976672e4bd6fd048b84ed494c",
+        "dummy720": "8856bc96ddcd181b393482177129d999292d42fb73260757ff96b4bfc5a62d7f",
+        "drop720": "b6062abda89848507137f3cde73fce8f6284a04bea6093bdd591448516822760",
+        "collection720": "013cf973c69cdbf59043bae530ce4b9d2a6e098509773dd7f5e16224ff82c8aa",
+        "dummy1080": "156c55d3a083ae6dde68e0167c3649ce898377991cd5a6296fc3d90a8d59ea91",
+        "drop1080": "c99425683ac0489d5223ccb73e827fdc761262ed7374e8c28e4c6d9538d2c222",
+        "collection1080": "f585091c85b7486eaa00ac19287c92ec9b921c42518c5e39182ceda392f30328"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_collection_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_drop_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_collection_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_meter_pickup_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The World Warrior Focus Drum is an independent meter pickup rather than an Archive shard, lightning icon, generic potion, coin, or health cue. Its squat hourglass silhouette, paired warm-ivory drumheads, thick saffron resonance rings, deep-indigo lacquer waist, plum grip, vermilion X-cords, saffron tuning beads, and attached short streamer preserve the approved World Warrior material hierarchy without copying the Vitality Gourd or training dummy. The complete 2048x2048 source contains one edge-clear connected object and remains legible at 64, 80, and 96 pixels. Exact green-key processing preserves alpha bounds 158/325/1890/1724, produces 2,361,677 transparent pixels and zero green spill, and calibrates 0.00052895/700 metrics for a 0.74-unit pickup. Pavilion Circuit adds one 105-HP nonthrowable approved training dummy with a guaranteed Focus Drum drop while Dojo's health dummy and Vitality Gourd remain unchanged. The drum is content-distinct from both the Gourd and Archive Meter Shard. Clean drop and post-overlap collection captures pass at 1280x720 and 1920x1080 at tick 926 with zero errors/warnings; the drum disappears immediately and meter rises from 0 to the mannequin form cap of 100 through the existing 200-meter grant. Deterministic validation passes 184/184 world plus 44/44 hazard assertions.",
+      "nextAction": "Retain the Focus Drum as the approved World Warrior meter-function anchor; generate and review one independent score-pickup pilot before crates, rolling logs, falling props, crowds, or destruction.",
+      "reviewDate": "2026-07-23"
+    },
+    {
+      "id": "world_warrior_score_pickup_style_v1",
+      "category": "pickup",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_score_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Pickups/WorldWarrior/world_warrior_score_pickup_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_score_pickup_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_score_pickup_pilot_review.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_score_pickup_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Combat/CombatActor.cs",
+        "Scripts/Progression/RunScoreManager.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/StageHazardTests.cs",
+        "Scripts/Debug/RunScoreTests.cs",
+        "Scripts/Debug/WorldLadderSmokeScenario.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_score_pickup_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_meter_pickup_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_backdrop_style_v1.png"
+      ],
+      "comparisonReferences": [
+        "Artifacts/StyleCalibration/world_warrior_grand_grappler_tetsu_idle_runtime_1280x720.png",
+        "Assets/Sprites/Pickups/Archive/archive_data_pickup_style_v2.png"
+      ],
+      "sourceHashes": {
+        "pilot": "1af31fbfdb440eff010f4ec4a77c2d1d165dde770915b95c4bb25ea1badf287f",
+        "stageScaleProxy": "2756d389e0f07c314eb175346e52ec16532b0b2c99196eba4dca4baaab0d1789",
+        "readabilityStrip": "9f2ccdfacf2378fed1c01a03f4ddf3f879fe0c2cbe4d2b2932add9910740b561",
+        "production": "34f5208ce705cc0f7844b29a92a6e9ca50c494444bf15befb42765e60b7302c9",
+        "dummy720": "6fe86b442c49c3ac86264a87f3ae65754b0d13de21167ac62d85998149b85622",
+        "drop720": "c02b4a507596a318d149294236030838028d33f819d8bfe34afa1992edae7285",
+        "collection720": "44f60ed827ac857c282c098bb1ba28252b6df28aa9345066aa5f1ed22dd955ba",
+        "dummy1080": "b709f4f4bb9a52e672e683e09cd7f191b91b11857af84150f9d59d0fa7e70f37",
+        "drop1080": "c2be9ea822557b9534181b1de820ea4476098200f4ae18c75907551aba30b35d",
+        "collection1080": "35d033cd6f17aa2c6d89695caef1c870a6ece643f213b7de90e40e2e835d6d8f"
+      },
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_collection_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_drop_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_collection_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_score_pickup_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The World Warrior Judge's Laurel Fan is an independent score pickup rather than an Archive data prism, currency symbol, generic coin, medal, trophy, crown, or score text. Its broad blunt vermilion display-fan arc, warm-ivory ribs, three blank stepped judge tabs, attached saffron laurel branches, deep-indigo U-shaped rest, round pivot, and plum tassel communicate tournament judgment and earned honor without becoming a weapon. The complete 2048x2048 source contains one edge-clear connected object and remains legible at 64, 80, and 96 pixels. Exact green-key processing preserves alpha bounds 110/144/1931/1878, produces 2,384,077 transparent pixels and zero green spill, and calibrates 0.00042676/854 metrics for a 0.74-unit pickup. Grand Tournament adds one 120-HP nonthrowable approved training dummy with a guaranteed fan drop while Dojo health and Pavilion meter paths remain unchanged. The fan is content-distinct from the Gourd, Focus Drum, and Archive Data. Pickup actors are now excluded from enemy-defeat scoring, preventing an erroneous extra 750 points and enemy-defeat count. Clean drop and post-overlap collection captures pass at 1280x720 and 1920x1080 at tick 1021 with zero errors/warnings; the fan disappears immediately and score rises by exactly 1000. Deterministic validation passes 187/187 world, 45/45 hazard, and 11/11 RunScore assertions.",
+      "nextAction": "Retain the Judge's Laurel Fan as the approved World Warrior score-function anchor; begin one pilot-first remaining training-crate family before rolling logs, falling props, crowds, or destruction.",
+      "reviewDate": "2026-07-23"
+    },
+    {
+      "id": "world_warrior_supply_crate_style_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_supply_crate_style_pilot_v1.png",
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_supply_crate_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_pilot_v1_review_sheet.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_runtime_review_sheet.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_supply_crate_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_supply_crate_pilot_review.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_supply_crate_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/StageHazardTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_supply_crate_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_training_dummy_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_meter_pickup_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_dojo_backdrop_style_v1.png"
+      ],
+      "comparisonReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_health_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_score_pickup_style_pilot_v1.png",
+        "Assets/Sprites/Enemies/world_warrior_grand_grappler_tetsu_style_v1.png",
+        "Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png"
+      ],
+      "sourceHashes": {
+        "pilot": "908e995f0bf0e9373d5fe69fbba13638a8af6d54f77c6eb20f501bcf5d4e9673",
+        "stageScaleProxy": "779050e5c26ebfdc265e9c251f8b3aefe12d6fed0035dc5d90639711577b519b",
+        "readabilityStrip": "f9273377103f5208202ba734172c1cab1f4a19fe19fc270dbed2c47b89ff1955",
+        "production": "4a1fa9c2bea5364ba15b0292b6d165dab93b299b417bdd3884b9d0d58f7a2787",
+        "intact720": "acc43e6516b741078f763b6e1ff637d21001f85664d640e6a614122a48aba70b",
+        "drop720": "ee56c8ce63e7be0d7e8fdad91bb3cf3a6d7343eb9bc031984ff4b6161ac3de06",
+        "collection720": "269e11c8dd40ccbf3153ce815ce5865cb50b06341f5e9bf69dca4ef8d44b3c28",
+        "intact1080": "223bd62011d14c86edf8b38ce4034b868b34ccfb98c86810aef74b7dac3ca8d6",
+        "drop1080": "1c78f50297bcd4fe82b4a5017a0681352d85c8f77d73ad383aefa730956a3261",
+        "collection1080": "72e596b277aa49c0c1eceb2aec51699297a656b5fb07b85ef94b1512f3112765"
+      },
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_intact_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_collection_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_intact_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_drop_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_collection_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_supply_crate_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The World Warrior Sparring Supply Crate is the first independent World Warrior breakable-crate identity and reuses Archive crate mechanics only, never Archive cache visual identity, tint, crystal, or sci-fi motifs. Its low wide timber body, overhanging flat lid, three plank slats, deep-indigo lacquered corner brackets with bronze studs, vermilion cargo strap knot, saffron rope handle, split seam, chipped corner, and lid-mounted ivory wrap bundle with folded indigo mitt read as breakable tournament supplies rather than a padded training post, treasure chest, barrel, or pickup. The 2048x2048 source holds one edge-clear connected object and stays legible at 96, 128, and 160 pixels. Exact green-key processing preserves alpha bounds 110/227/1937/1872, yields 1,881,678 transparent pixels with zero green spill, and calibrates 0.00079027/848 metrics for a 1.30-unit prop. Detail density scored 1 because plank grain plus rivet studs add mild clutter next to the cleaner pickups; cohesion, gameplay readability, and runtime fitness each scored 2. Dojo Approach now adds one 70-HP supply crate to its second encounter with a guaranteed Focus Drum drop while the three approved dummy props and all pickup paths remain unchanged. Crate content is distinct from the training dummy and Archive caches. Intact, break-drop, and post-collection captures pass at 1280x720 and 1920x1080 at tick 833 with zero errors/warnings, and meter rises 0->100. Deterministic validation passes 190/190 world, 47/47 hazard, and 11/11 RunScore assertions.",
+      "nextAction": "Retain the Sparring Supply Crate as the approved World Warrior breakable-crate anchor; expand to remaining crate variants using this proven path before rolling logs, falling practice props, crowds, or arena destruction.",
+      "reviewDate": "2026-07-24"
     },
     {
       "id": "archive_enemy_family_legacy_and_pending",
@@ -2262,6 +3488,109 @@
       ],
       "notes": "Authored sprite is pooled and presentation-only; missing texture falls back to the existing procedural strike renderer.",
       "reviewDate": "2026-07-14"
+    },
+    {
+      "id": "layered_stage_camera_recalibration_v1",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Scripts/Stage/StageGroundProjection.cs",
+        "Scripts/Presentation/PrototypeStageView.cs",
+        "Scripts/Data/WorldMissionData.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Tools/audit_stage_floor_materials.py",
+        "Scripts/Tools/capture_layered_stage_review.ps1",
+        "Artifacts/stage_floor_material_audit.json",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_floor_style_v2.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_floor_style_v2.png",
+        "Scripts/Tools/generate_isotropic_stage_floor_pilot.ps1",
+        "Scripts/Tools/audit_stage_backdrop_ground_line.py",
+        "Scripts/Tools/capture_layered_stage_only_frames.ps1"
+      ],
+      "model": "none",
+      "processingModels": [],
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_pavilion_floor_style_v2_job.json",
+        "Artifacts/style_calibration_world_warrior_grand_tournament_floor_style_v2_job.json"
+      ],
+      "canonicalReferencesUsed": [],
+      "familyReferences": [],
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 1
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_dojo_approach_layered_calibrated_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_circuit_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_circuit_layered_calibrated_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_layered_calibrated_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_intake_boulevard_layered_calibrated_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_index_vaults_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_index_vaults_layered_calibrated_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_corruption_repository_layered_calibrated_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layered_calibrated_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/archive_knights_reliquary_layered_calibrated_runtime_1920x1080.png"
+      ],
+      "notes": "Presentation-only pass on already style-approved layered art; no stage art was replaced. Previously every layered stage solved its belt to frame row 0.62 with a floor plane running from LaneMinZ-12, so the ground mesh took about two thirds of the frame and the restyled backdrop was reduced to a cropped strip. All seven layered stages now declare GroundLineCenterFraction 0.775, the same belt row the scene-plate stages solve to, and the far layer is grown until it covers the widest camera envelope so the clear colour can no longer show at the top. Floor repeat was halved so paving reads near fighter scale. audit_stage_floor_materials.py measures how directional each floor material is: world_warrior_pavilion_floor_style_v1 scores 0.0703, world_warrior_grand_tournament_floor_style_v1 scores 0.3584 and archive_index_vaults_floor_higgsfield_v1 scores 0.3735 against a 0.55 floor, meaning their detail runs in courses that collapse into screen-wide stripes. Those three are turned a quarter so the courses recede instead of banding, which is a mitigation, not a fix: all three need regenerating as isotropic top-down materials before this pass can reach runtime_approved. The other four floors pass between 0.9767 and 1.0495. Suites 192/192 and 47/47. RESOLVED. The two failing wired floors were regenerated as isotropic paving: pavilion 0.0703 to 0.9629 and grand tournament 0.3584 to 0.9392. All seven wired floors now score between 0.9392 and 1.0947, the quarter-turn mitigation and its FloorTextureQuarterTurns knob are removed, and WorldRunTests measures the material each stage actually wires so a superseded file can no longer be audited by mistake. archive_index_vaults_floor_higgsfield_v1 was a false positive: Index Vaults wires archive_index_vaults_floor_style_v2, which already scored 1.0947. Backdrops also declare GroundLineFraction so their painted ground-contact shadow sits below the gameplay floor instead of banding across frame; all seven stage-only captures report zero dark bands and zero uncovered rows. Suites 199/199 and 47/47.",
+      "reviewDate": "2026-07-25"
+    },
+    {
+      "id": "world_warrior_champions_courtyard_plate_style_v2",
+      "category": "stage",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_full_frame_plate_style_v2.png",
+        "Scripts/Tools/generate_champions_courtyard_plate_pilot.ps1",
+        "Scripts/Tools/prepare_full_frame_plate.py",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Debug/WorldRunTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "processingModels": [],
+      "jobMetadata": [
+        "Artifacts/style_calibration_world_warrior_champions_courtyard_full_frame_plate_style_v2_job.json"
+      ],
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_master_higgsfield_v1_transparent.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "familyReferences": [
+        "Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_backdrop_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_full_frame_plate_style_v1.png"
+      ],
+      "score": 16,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 2,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_courtyard_v2_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_courtyard_v2_runtime_1920x1080.png"
+      ],
+      "notes": "One continuous dusk courtyard painted in a single perspective, replacing a stacked backdrop-over-floor composite. Generated at 5504x3072 and padded to exact 5504x3096 by prepare_full_frame_plate.py with no cropping or rescaling. audit_stage_plate_sources.py reports no interior flat band, so the 4.07 percent grey strip in v1 is gone. The paving runs unbroken from the building bases to the bottom edge at roughly one stride per slab with irregular joints, so its scale agrees with the architecture. Declared walkable band 0.715 to 0.985 contains the projected belt 0.772 to 0.928 with margin on both sides, and WorldRunTests enforces that containment. Suites 199/199 and 47/47.",
+      "reviewDate": "2026-07-25"
     }
   ]
 }

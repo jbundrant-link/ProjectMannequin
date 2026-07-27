@@ -574,7 +574,7 @@ public static class TestRosterFactory
             damage: 9,
             pushbackX: 1.7f);
         raider.SpriteSheetPath =
-            "res://Assets/Sprites/Enemies/archive_raider_style_v2.png";
+            "res://Assets/Sprites/Enemies/archive_raider_style_v3.png";
         raider.SpriteSheetColumns = 10;
         raider.SpriteSheetRows = 9;
         raider.SpritePixelSize = 0.018f;
@@ -659,7 +659,7 @@ public static class TestRosterFactory
             damage: 14,
             pushbackX: 2.8f);
         bruiser.SpriteSheetPath =
-            "res://Assets/Sprites/Enemies/archive_bruiser_style_v2.png";
+            "res://Assets/Sprites/Enemies/archive_bruiser_style_v3.png";
         bruiser.SpriteSheetColumns = 10;
         bruiser.SpriteSheetRows = 9;
         bruiser.SpritePixelSize = 0.0205f;
@@ -688,7 +688,7 @@ public static class TestRosterFactory
         basalt.Id = "overseer_basalt";
         basalt.DisplayName = "Overseer Basalt";
         basalt.SpriteSheetPath =
-            "res://Assets/Sprites/Enemies/overseer_basalt_style_v1.png";
+            "res://Assets/Sprites/Enemies/overseer_basalt_style_v2.png";
         basalt.SpriteSheetColumns = 10;
         basalt.SpriteSheetRows = 9;
         basalt.SpritePixelSize = 0.0205f;
@@ -722,7 +722,7 @@ public static class TestRosterFactory
             GuardRecoveryDelayFrames = 90,
             GuardRecoveryPerSecond = 20.0f,
             SpriteSheetPath =
-                "res://Assets/Sprites/Enemies/archive_knight_style_v1.png",
+                "res://Assets/Sprites/Enemies/archive_knight_style_v2.png",
             SpriteSheetColumns = 10,
             SpriteSheetRows = 9,
             SpritePixelSize = 0.018f,
@@ -2738,7 +2738,7 @@ public static class TestRosterFactory
             damage: 8,
             pushbackX: 1.4f);
         rookie.SpriteSheetPath =
-            "res://Assets/Sprites/Enemies/world_warrior_rookie_style_v2.png";
+            "res://Assets/Sprites/Enemies/world_warrior_rookie_style_v3.png";
 
         var attack = rookie.FindMove("world_warrior_rookie_attack");
         if (attack is not null)
@@ -2756,6 +2756,31 @@ public static class TestRosterFactory
         return rookie;
     }
 
+    public static CharacterData CreateWorldWarriorDojoProdigyKenzo()
+    {
+        var kenzo = CreateWorldWarriorRookie();
+        kenzo.Id = "world_warrior_dojo_prodigy_kenzo";
+        kenzo.DisplayName = "Dojo Prodigy Kenzo";
+        kenzo.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/world_warrior_dojo_prodigy_kenzo_style_v2.png";
+        kenzo.SpritePixelSize = 0.0190f;
+        if (kenzo.ArcadeEnemyProfile is not null)
+        {
+            kenzo.ArcadeEnemyProfile.Id =
+                "world_warrior_dojo_prodigy_kenzo_arcade_ai";
+        }
+        kenzo.RoleTags.Add("named_elite");
+
+        var attack = kenzo.FindMove("world_warrior_rookie_attack");
+        if (attack is not null)
+        {
+            attack.Id = "world_warrior_dojo_prodigy_kenzo_attack";
+            attack.DisplayName = "Master Palm";
+        }
+
+        return kenzo;
+    }
+
     public static CharacterData CreateWorldWarriorStriker()
     {
         var striker = CreateWorldWarriorMinion(
@@ -2770,7 +2795,7 @@ public static class TestRosterFactory
             damage: 11,
             pushbackX: 2.0f);
         striker.SpriteSheetPath =
-            "res://Assets/Sprites/Enemies/world_warrior_striker_style_v2.png";
+            "res://Assets/Sprites/Enemies/world_warrior_striker_style_v3.png";
 
         var attack = striker.FindMove("world_warrior_striker_attack");
         if (attack is not null)
@@ -2788,19 +2813,85 @@ public static class TestRosterFactory
         return striker;
     }
 
+    public static CharacterData CreateWorldWarriorPavilionAceMakoto()
+    {
+        var makoto = CreateWorldWarriorStriker();
+        makoto.Id = "world_warrior_pavilion_ace_makoto";
+        makoto.DisplayName = "Pavilion Ace Makoto";
+        makoto.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/world_warrior_pavilion_ace_makoto_style_v1.png";
+        makoto.SpritePixelSize = 0.0190f;
+        if (makoto.ArcadeEnemyProfile is not null)
+        {
+            makoto.ArcadeEnemyProfile.Id =
+                "world_warrior_pavilion_ace_makoto_arcade_ai";
+        }
+        makoto.RoleTags.Add("named_elite");
+
+        var attack = makoto.FindMove("world_warrior_striker_attack");
+        if (attack is not null)
+        {
+            attack.Id = "world_warrior_pavilion_ace_makoto_attack";
+            attack.DisplayName = "Crescent Heel";
+        }
+
+        return makoto;
+    }
+
     public static CharacterData CreateWorldWarriorGrappler()
     {
-        return CreateWorldWarriorMinion(
+        var grappler = CreateWorldWarriorMinion(
             "world_warrior_grappler",
             "Tournament Grappler",
             CharacterRole.Grappler,
             maxHealth: 122,
             walkSpeed: 2.3f,
-            attackName: "Shoulder Throw",
+            attackName: "Shoulder Drive",
             startupFrames: 20,
             recoveryFrames: 34,
             damage: 15,
             pushbackX: 2.8f);
+        grappler.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/world_warrior_grappler_style_v3.png";
+
+        var attack = grappler.FindMove("world_warrior_grappler_attack");
+        if (attack is not null)
+        {
+            attack.AnimationFrameSequence = new List<int>
+            {
+                40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+            };
+            attack.AnimationFrameDurations = new List<int>
+            {
+                5, 5, 5, 5, 5, 6, 7, 7, 7, 7,
+            };
+        }
+
+        return grappler;
+    }
+
+    public static CharacterData CreateWorldWarriorGrandGrapplerTetsu()
+    {
+        var tetsu = CreateWorldWarriorGrappler();
+        tetsu.Id = "world_warrior_grand_grappler_tetsu";
+        tetsu.DisplayName = "Grand Grappler Tetsu";
+        tetsu.SpriteSheetPath =
+            "res://Assets/Sprites/Enemies/world_warrior_grand_grappler_tetsu_style_v1.png";
+        if (tetsu.ArcadeEnemyProfile is not null)
+        {
+            tetsu.ArcadeEnemyProfile.Id =
+                "world_warrior_grand_grappler_tetsu_arcade_ai";
+        }
+        tetsu.RoleTags.Add("named_elite");
+
+        var attack = tetsu.FindMove("world_warrior_grappler_attack");
+        if (attack is not null)
+        {
+            attack.Id = "world_warrior_grand_grappler_tetsu_attack";
+            attack.DisplayName = "Iron Gate Clinch";
+        }
+
+        return tetsu;
     }
 
     private static CharacterData CreateWorldWarriorMinion(

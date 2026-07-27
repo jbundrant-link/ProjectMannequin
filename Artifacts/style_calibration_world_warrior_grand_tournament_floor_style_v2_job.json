@@ -1,0 +1,42 @@
+﻿{
+    "created_at":  "2026-07-25T16:31:03.021647Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "0fae58b5-a5de-4feb-9851-a2c769148ed8",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260725_163103_0fae58b5-a5de-4feb-9851-a2c769148ed8_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "d96c95f1-5d07-4373-b3f5-5adeffd4ca16",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/d96c95f1-5d07-4373-b3f5-5adeffd4ca16.png"
+                                        },
+                                        {
+                                            "id":  "e4ce0adc-ea39-49f8-946c-337d5c08c1e5",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e4ce0adc-ea39-49f8-946c-337d5c08c1e5.png"
+                                        },
+                                        {
+                                            "id":  "68c52fe9-b8f2-4504-a424-f3a595a98586",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/68c52fe9-b8f2-4504-a424-f3a595a98586.png"
+                                        },
+                                        {
+                                            "id":  "44762881-dead-4c81-8909-1fea54b2ac17",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/44762881-dead-4c81-8909-1fea54b2ac17.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the supplied mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, stylized dimensional forms, saturated controlled accents, and polished anime fighting-game finish. High fidelity comes from shape design, value structure, and finish, not PBR texture noise or photographic grain. Do not include characters. No photorealism, realistic PBR, microtexture noise, painterly blur, flat vector art, pixel art, generated text, symbols, logos, or UI.\r\nSUBJECT: the arena paving of World Warrior\u0027s Grand Tournament Floor. Irregular interlocking pale limestone flags in ivory and warm grey with cool slate joints, faint indigo mineral veining, sparse chipped edges, and scattered fine dust. Keep the palette bright, cool-leaning, and low contrast.\r\n\r\nThe first supplied image is the REJECTED V1 floor. Reuse only its ivory, warm grey, slate, and indigo palette and its clean contour language. V1 fails because its slabs form broad parallel bands that read as stripes; do not reproduce its layout, banding, rows, or any part of its structure.\r\nSTRICT TOP-DOWN GAMEPLAY FLOOR MATERIAL. Produce a perfectly flat orthographic top-down 1:1 texture photographed straight down at ninety degrees. This is a tiling ground material, not a scene.\r\n\r\nISOTROPY IS THE HARD REQUIREMENT. The previous version of this floor failed because its detail ran in regular horizontal courses; under the stage camera those courses collapsed into screen-wide stripes and the ground read as a striped wall. The replacement must look equally plausible when rotated ninety degrees. Use an irregular interlocking layout with paving joints running in several different directions. Absolutely no continuous straight joint may cross the full width or full height. No brick courses, no running bond, no rows, no ranks, no planks, no parallel banding, no stripes, no concentric rings, no radial burst, no single dominant direction, no centred motif, no medallion, no border, no frame, no vignette, no corner ornament.\r\n\r\nEVEN LIGHTING. Flat ambient illumination with no light source, no cast shadow direction, no gradient from any edge or corner, and no hotspot. Brightness must be uniform across the whole square so tiles do not reveal their boundaries.\r\n\r\nSEAMLESS. The texture must tile edge to edge in both directions: content crossing the left edge continues exactly at the right edge, and content crossing the top edge continues exactly at the bottom edge.\r\n\r\nCONTRAST BUDGET. Keep value range narrow and detail quiet so fighters, feet, pickups, and telegraphs dominate. Wear, grime, and cracks should be sparse, irregular, and scattered rather than patterned.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260725_163103_0fae58b5-a5de-4feb-9851-a2c769148ed8.png",
+    "status":  "completed"
+}

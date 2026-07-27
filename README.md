@@ -40,18 +40,17 @@ This first skeleton focuses on the MVP combat foundation:
 
 ## Run
 
-From PowerShell:
+From PowerShell, run from the repository root. `$env:GODOT4` is a user
+environment variable set to the local Godot 4.7 .NET/Mono executable.
 
 ```powershell
-cd "C:\Users\Joseph Bundrant\Code Projects\SideScroller"
-& "C:\Users\Joseph Bundrant\Downloads\Godot_v4.7-stable_mono_win64\Godot_v4.7-stable_mono_win64\Godot_v4.7-stable_mono_win64.exe" --path .
+& $env:GODOT4 --path .
 ```
 
 Open the editor:
 
 ```powershell
-cd "C:\Users\Joseph Bundrant\Code Projects\SideScroller"
-& "C:\Users\Joseph Bundrant\Downloads\Godot_v4.7-stable_mono_win64\Godot_v4.7-stable_mono_win64\Godot_v4.7-stable_mono_win64.exe" --editor --path .
+& $env:GODOT4 --editor --path .
 ```
 
 The configured main scene is `res://Scenes/UI/MainMenu.tscn`. Choose Archive District, Tournament District, or Shattered Skyway from the Archive Map. In the editor, press `F6` to run the open scene or `F5` to run the configured project.

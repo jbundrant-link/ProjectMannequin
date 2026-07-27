@@ -1,0 +1,62 @@
+﻿{
+    "created_at":  "2026-07-20T07:12:22.643681Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "8bc38a48-9416-407e-a0d1-6988b72a04ba",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_071222_8bc38a48-9416-407e-a0d1-6988b72a04ba_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "21:9",
+                   "batch_size":  1,
+                   "height":  1344,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "1766b020-08c0-474d-a914-79fd7b97aa0e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1766b020-08c0-474d-a914-79fd7b97aa0e_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "9e0635ae-5b10-4c09-81b0-12a8b2bd2287",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/9e0635ae-5b10-4c09-81b0-12a8b2bd2287.png"
+                                        },
+                                        {
+                                            "id":  "c3e3e4cd-795d-4e36-b0e9-6ac4fcd83b2d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c3e3e4cd-795d-4e36-b0e9-6ac4fcd83b2d.png"
+                                        },
+                                        {
+                                            "id":  "1b8dd601-4aa0-4fc0-be88-b1a42101344c",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/1b8dd601-4aa0-4fc0-be88-b1a42101344c.png"
+                                        },
+                                        {
+                                            "id":  "bd65e1b2-a2c7-4d48-b252-6b1384741b3b",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bd65e1b2-a2c7-4d48-b252-6b1384741b3b.png"
+                                        },
+                                        {
+                                            "id":  "471aff2e-2ded-4e75-acb7-38870662946d",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/471aff2e-2ded-4e75-acb7-38870662946d.png"
+                                        },
+                                        {
+                                            "id":  "04692ff8-ff76-4dcc-b4b3-777f8671aa7a",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/04692ff8-ff76-4dcc-b4b3-777f8671aa7a.png"
+                                        },
+                                        {
+                                            "id":  "a31d50b6-cd34-4802-87f7-34280872092e",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a31d50b6-cd34-4802-87f7-34280872092e.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Match the approved Grand Tournament pilot, World Warrior roster anchors, mannequin, Ryu, and Goku references as one cohesive modern 2.5D fighting-game production: confident dark ink contours, broad two-to-four-step cel shading, clean graphic highlights, simplified stylized materials, saturated controlled accents, strong arcade-readable silhouettes, and polished anime fighting-game presentation. Characters define rendering grammar and world palette only; do not include characters. High fidelity comes from composition, lighting, and finish, not PBR texture noise. No photorealism, PBR, gritty military sci-fi, dense kit-bash detail, microtexture noise, painterly blur, flat vector art, pixel art, people, fighters, text, letters, numbers, symbols, calligraphy, signs, logos, or UI.\r\nCreate one WIDE MIDGROUND LANDMARK SOURCE for Grand Tournament Floor on a perfectly uniform neutral medium-gray background. Place exactly THREE separated, non-overlapping, fully visible side-on championship landmarks across the 21:9 canvas with generous empty gray gaps. LEFT: a low champion trophy plinth with one large blank cup silhouette, folded vermilion and indigo ribbons, and two compact saffron torch bowls. CENTER: a broad but low empty judges\u0027 table under a shallow dark-indigo canopy, with three empty high-backed seats and warm-ivory stone base; no people. RIGHT: a compact front-row spectator gallery fragment with two empty stepped seating bands, one tournament gong, and a short vermilion rail. All three share one scale, one lateral fighting-stage perspective, monumental ivory/charcoal stone, controlled vermilion cloth, and sparse saffron lights. Keep the entire lower 28 percent empty uniform gray so fighters, feet, pickups, and hazards remain unobstructed. Entire silhouettes visible with no cropping.\r\n\r\nNo connected wall, floor, full backdrop, people, spectators, crowd silhouettes, enemies, active hazards, loose weapons, crates, words, signs, glyphs, warning marks, checkerboard, transparency grid, gradient, or cast shadows on the gray background. The background must be one flat solid gray color for clean removal.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  3168
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260720_071222_8bc38a48-9416-407e-a0d1-6988b72a04ba.png",
+    "status":  "completed"
+}

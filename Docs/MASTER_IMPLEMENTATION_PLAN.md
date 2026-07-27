@@ -39,20 +39,141 @@ Precedence rules:
    until Archive Nexus, World Warrior Sector, and Astral Battlefront all reach
    console-demo quality.
 
-## Current Execution Focus - 2026-07-18
+## Execution Sequencing Change - 2026-07-25
 
-- The active master-plan phase is **Phase 5**.
-- Archive Nexus and its shared UI quality bar are complete. The current slice is
-  Tournament Grappler's original non-military style-v2 atlas, followed by
-  Pavilion Circuit and the remaining World Warrior art-completeness pass.
-- Grappler's approved identity plus idle/walk/dash/jump/misc sources survived the
-  interrupted session. Its first attack pair remains rejected for weak
-  shoulder-drive readability and requires a targeted choreography revision
-  before composition. The exact continuation state lives in
+Phase 6 items 1-4 are pulled ahead of the remaining Phase 5 content art. Phase
+numbering, scope, and every completion gate are unchanged; only the order in
+which the remaining work is executed changes.
+
+**What moves ahead.** `SettingsStore` and the options surface, the
+accessibility contract, input glyph switching and reconnect, and save-schema
+robustness now run before the remaining Astral art pass, spectator/crowd
+layers, tournament destruction states, and stage set pieces. Phase 6 items 5
+and 6, ArchiveHub meta surfacing and difficulty/assist hooks, stay in their
+original position after Phase 5 content.
+
+**Why.** The graybox-first principle was already honoured: combat, hazards,
+encounters, scoring, and scene flow were built and tested against procedural
+placeholder art through Phases 0-4, and are covered by the deterministic
+suites. The risk now is the opposite one. Phase 6 items 1-4 are pure code with
+no art dependency, they are deterministically testable, and they gate whether
+the game is playable by anyone other than its developer: there is currently no
+volume control, no control rebinding, and no reduced-flash or shake setting.
+That work was sitting behind an open-ended content-art queue whose largest
+remaining item is a complete Astral art pass. Systems that decide
+playability must not queue behind content that decides presentation.
+
+**Parameters before art.** Stage art must not be authored before the
+presentation parameters it has to satisfy are locked and gated. Authoring stage
+art ahead of the camera contract already cost rework: fighters projected over
+painted sky because no ground line was declared, two floor materials collapsed
+into screen stripes under the stage camera, and the Champion's Courtyard plate
+had to be rebuilt. The belt ground line, painted walkable band, floor material
+isotropy, and backdrop ground line are now declared in data and enforced by
+`WorldRunTests`; new stage art is authored against those numbers, not
+calibrated after the fact.
+
+**What does not change.** Every mandatory art-completion gate still applies,
+including gate 11: art for a slice that is being implemented ships with that
+slice and is not deferred to a final polish phase. This reorders unstarted
+content, never the art of content already in progress. Already-approved assets
+keep their approvals, and no fourth world enters production before Archive
+Nexus, World Warrior Sector, and Astral Battlefront reach console-demo quality.
+
+## Stage Rendering And Depth Separation Pass - 2026-07-25
+
+A new slice is inserted **after Phase 6 item 4 and before the remaining Phase 5
+content art**. Phase numbering, scope, and every completion gate are unchanged;
+this adds a presentation-systems block alongside the Phase 6 playability block,
+under the same `Parameters before art` rule.
+
+**Trigger.** External art review: the base art reads as fine, but the frame is
+not rendered - it needs shadows and differentiated lighting to separate
+foreground from background and give the image depth.
+
+**This is a code gap, not an art gap.** Verified in the renderer, not inferred:
+
+- `PrototypeStageView` builds a `DirectionalLight3D` with `ShadowEnabled = true`
+  and an `OmniLight3D` fill.
+- `CharacterVisualComponent` sets `_sprite.Shaded = true`, so fighters are lit.
+- The floor material is `ShadingMode.Unshaded`, so it **cannot receive a
+  shadow**. On the five `FullFramePlates` stages the gameplay floor is
+  deliberately invisible, so there is no receiving surface at all.
+- Every backdrop and prop `Sprite3D` is `Shaded = false`, and the layer meshes
+  set `CastShadow = Off`.
+- There is **no per-actor ground shadow anywhere in the codebase**. The only
+  authored occlusion is `CreateBackdropContactShadow`, measured as effective
+  only on bright floors (pavilion -42.2, grand tournament -34.9) and negligible
+  or inverted on dark Archive floors (reliquary -0.6, intake +15.4).
+
+The project is therefore paying for a shadow-mapping sun that nothing visibly
+receives, and drawing every element at flat full brightness regardless of depth.
+No amount of repainting fixes that, because the defect is in how the scene is
+lit and composited, not in the source paintings.
+
+**Why not Phase 7.** Phase 7 is explicitly limited to cross-project consistency,
+final replacement/revision, and optimization. This slice introduces a rendering
+contract, which is new system work, and Phase 7 item 1 audits stage art for
+visual consistency - an audit that is meaningless while the lighting model it
+should be judged against does not exist.
+
+**Why it precedes the remaining art.** Lighting direction, shadow contract, and
+depth ramp are presentation parameters, and the remaining Phase 5 art queue
+includes the Pavilion and Grand Tournament backdrop repaints and the complete
+Astral restyle. Authoring stage art ahead of the camera contract already cost
+rework once. Authoring it ahead of the lighting contract would cost the same
+rework on a larger queue.
+
+1. Add a per-actor grounding shadow: a soft contact ellipse under every fighter and relevant prop that scales and fades with height off the ground. This is art-independent, works on full-frame plate stages where there is no visible floor, and is the single change that stops fighters reading as pasted onto the background.
+2. Add a depth ramp across `StageVisualLayerKind` (`Far`, `Midground`, `Gameplay`, `Foreground`): per-layer luminance, saturation, and cool-shift falloff so distance is carried by aerial perspective rather than by scale alone. The layer architecture already exists, so this is a parameter pass, not a restructure.
+3. Decide and lock the floor lighting contract: either promote the floor material off `Unshaded` so real shadows land on it, or keep it unshaded and treat item 1 as the sole grounding channel. Whichever is chosen, rebalance against the existing `FloorMaterialIsIsotropic` gate, which was tuned on unshaded materials.
+4. Add key/rim separation on the fighter sprite, which already responds to the sun, and a per-stage key direction declared in data so painted lighting and runtime lighting agree instead of contradicting.
+5. Use the already-constructed `Godot.Environment` for far-layer softening and vignette. It currently sets only background colour and ambient energy.
+6. Gate it. Add a measurable foreground/background separation assertion to `WorldRunTests` in the same shape as the belt-grounding and floor-isotropy gates, plus before/after captures per stage. Without a numeric gate this regresses exactly as the floor materials did.
+7. Profile the result against the Phase 7 budget before it is accepted. Enabling real shadow receiving has a frame cost, and the target is steady frame time below 16.7 ms at 1080p/60.
+
+**Dependency this creates.** Once the key direction in item 4 is locked, the
+Pavilion and Grand Tournament backdrop repaints and the Astral restyle are
+authored against it. Any stage art produced before that lock is provisional.
+
+## Current Execution Focus - 2026-07-25
+
+- The active master-plan phase is **Phase 5**, with the Phase 6 playability
+  systems block and then the stage rendering pass executing first under the
+  sequencing changes above.
+- The Phase 6 items 1-4 playability block is **complete**: options surface,
+  accessibility contract, input glyph switching and reconnect, and save-schema
+  robustness are all landed and gated. The immediate slice is now the
+  `Stage Rendering And Depth Separation Pass`. Remaining Phase 5 content art
+  resumes after that pass, and the backdrop repaints plus the Astral restyle are
+  authored against the key direction it locks.
+- The stage presentation pass is closed and gated: belt grounding, backdrop
+  ground lines, floor materials, the backdrop contact shadow, and the
+  Champion's Courtyard plate rebuild are complete. The one stage item
+  deliberately left open is repainting the Pavilion and Grand Tournament
+  backdrops with a painted ground line, parked with the World Warrior stage
+  work.
+- Archive Nexus and its shared UI quality bar are complete. Tournament Grappler,
+  Pavilion Circuit, Grand Tournament Floor, and Champion's Courtyard are now
+  runtime approved; Dojo Prodigy Kenzo and Pavilion Ace Makoto are now 16/16
+  runtime approved. Grand Grappler Tetsu is now 16/16 runtime approved, closing
+  the three named World Warrior elite replacements. The first World Warrior
+  training dummy, Vitality Gourd health pickup, Focus Drum meter pickup, and
+  Judge's Laurel Fan score pickup are now 16/16 runtime approved, and the
+  Sparring Supply Crate is 15/16 runtime approved; the current slice is the
+  remaining pilot-first training-crate variants.
+- Grappler uses a 16/16 original heavyweight atlas and an unmistakable
+  20/5/34-frame Shoulder Drive. Pavilion Circuit uses a 14/16 independent
+  lantern-pavilion/deck family; Grand Tournament uses a 15/16 empty
+  championship-arena/giant-slab family. The exact continuation state lives in
   [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md).
-- The verified starting baseline is 146/146 world-run assertions plus 37/37
-  stage-hazard assertions (183/183 aggregate). Dojo Approach, Dojo Rookie, and
-  Pavilion Striker already have dual-resolution runtime approval.
+- The verified starting baseline is 199/199 world-run assertions plus 47/47
+  stage-hazard assertions (246/246 aggregate). The deterministic input suite
+  passes 24/24. Dojo Approach, Pavilion Circuit,
+  Grand Tournament Floor, Champion's Courtyard, Dojo Rookie, Pavilion Striker,
+  Tournament Grappler, Dojo Prodigy Kenzo, Pavilion Ace Makoto, and Grand
+  Grappler Tetsu have
+  dual-resolution runtime approval.
 - Gamepad QA, combat spectacle correctness, and Hollow Archive remain required
   tactical tracks in [NEXT_IMPLEMENTATION_PLAN.md](NEXT_IMPLEMENTATION_PLAN.md).
   Their priority does not cancel or bypass the active Phase 5 completion gates.
@@ -97,7 +218,19 @@ be checked against the linked completion-gate documents and live validation.
 - Phase 4 gameplay HUD and shared screens complete (2026-07-17): the rejected glossy lifebar frame is superseded by a 16/16 real-alpha Living Archive broadcast frame with warm porcelain plates, dark-plum joints, cyan player hierarchy, restrained coral boss hierarchy, blank native-control seats, and a compact center keystone. HUD portraits resolve the active form; bars and telemetry remain bounded. Archive Map, results, pause, and form-select each use distinct approved compositions from the same material grammar. Responsive, lifecycle, transactional, split-screen, and `177/177` aggregate gates pass with zero errors.
 - World Warrior Dojo Approach environment complete (2026-07-17): the rejected shared tournament composite is superseded in Stage 1 by a 15/16 layered dusk-dojo family with a seamless side-on compound backdrop, quiet packed-earth floor, three real-alpha practice landmarks, and split shallow edge remnants at `0.72/0.90/1.12` parallax. Backdrop triptych/seam revisions, three failed floor geometries, generated-character midground contamination, and a tall foreground lantern were rejected before promotion. Exact calm/live 720p and 1080p ladders pass horde/horde/elite/results at tick 820 with four visual roots, four panels, sharp sampling, and zero errors. Current aggregate is 142 world plus 37 hazard assertions (179/179). Explicit Rookie/Striker/Grappler review and Pavilion Circuit are next.
 - World Warrior Dojo Rookie complete (2026-07-17): runtime review rejected all three legacy base-enemy atlases despite mechanical validity. Rookie copied Ryu's white gi/red headband identity, Striker drifted into a generic tracksuit anime style, and Grappler used prohibited olive tactical kit while its named throw rendered as a punch. Rookie is now superseded by a 16/16 original indigo/saffron rushdown identity. Seven exact-count source sheets compose into a 60-frame real-alpha 10x9 atlas; Quick Palm maps all ten attack columns across exact 12/5/23 phase timing. Idle and active frame 14 pass complete Stage 1 ladders at 720p/1080p, focused world tests pass 144/144, and the aggregate passes 181/181. Original Striker is next, followed by Grappler and Pavilion Circuit.
-- World Warrior Pavilion Striker complete (2026-07-17): the generic navy tracksuit atlas is superseded by a 16/16 original tall kick specialist in a vermilion pavilion jacket, indigo collar/calf wraps, saffron piping, charcoal trousers, and ivory shoes. Seven source sheets compose into a 60-frame real-alpha 10x9 atlas after an authored 80000-pixel component threshold excludes one black quadrant divider and two detached shoe artifacts. Turning Kick maps all ten attack columns across exact 16/5/27 phase timing; runtime frame 18 is a full horizontal kick. Idle/active Stage 2 ladders pass at 720p/1080p, focused world tests pass 146/146, and the aggregate passes 183/183. Original Grappler is next, followed by Pavilion Circuit.
+- World Warrior Pavilion Striker complete (2026-07-17): the generic navy tracksuit atlas is superseded by a 16/16 original tall kick specialist in a vermilion pavilion jacket, indigo collar/calf wraps, saffron piping, charcoal trousers, and ivory shoes. Seven source sheets compose into a 60-frame real-alpha 10x9 atlas after an authored 80000-pixel component threshold excludes one black quadrant divider and two detached shoe artifacts. Turning Kick maps all ten attack columns across exact 16/5/27 phase timing; runtime frame 18 is a full horizontal kick. Idle/active Stage 2 ladders pass at 720p/1080p, focused world tests pass 146/146, and the aggregate passes 183/183. Grappler and Pavilion were completed in the subsequent 2026-07-19 slices below.
+- World Warrior Tournament Grappler complete (2026-07-19): the rejected olive tactical enemy and weak standing-reach attack are superseded by a 16/16 original heavyweight tournament wrestler. Accepted v1 locomotion/misc sources plus targeted v2 Shoulder Drive sources compose into a 60-frame real-alpha atlas; exact `5/5/5/5/5/6/7/7/7/7` durations match 20 startup, 5 active, and 34 recovery frames. Frame 22 is a low shoulder-first body-lock entry at 720p/1080p. Focused world tests pass 148/148 and the aggregate passes 185/185.
+- World Warrior Pavilion Circuit environment complete (2026-07-19): Stage 2 now uses a 14/16 independent lantern-pavilion backdrop, broad lacquered-deck floor, real-alpha judges/practice midground, and split shallow edge remnants at ordered parallax. Four rejected floor iterations remain provenance; runtime review selected the broad horizontal deck only after smooth/noisy variants failed projection. Stage visual smoke and complete 720p/1080p ladders pass; focused world tests pass 150/150 and the aggregate passes 187/187. Grand Tournament Floor is next.
+- World Warrior Grand Tournament Floor environment complete (2026-07-19): Stage 3 now uses a 15/16 independent empty championship arena, giant warm-ivory/cool-blue slab floor, real-alpha trophy/judges/gallery midground, and split shallow arena-edge remnants. Camera-safe compression preserves championship architecture and empty terraces for later crowd overlays. Stage visual smoke and complete 720p/1080p ladders pass; focused world tests pass 152/152 and the aggregate passes 189/189.
+- World Warrior Champion's Courtyard environment complete (2026-07-19): Stage 4 now uses a 15/16 storm-dark final-duel backdrop, weathered rain-dark flagstone floor, real-alpha broken-wall/shrine/arcade midground, and split shallow wall/threshold remnants. Exact final-duel captures pass at 720p/1080p, the stage retains zero external hazard zones during the Ryu duel, focused world tests pass 154/154, and the aggregate passes 191/191.
+- World Warrior Dojo Prodigy Kenzo complete (2026-07-20): Stage 1 now resolves a distinct 16/16 named-elite archetype and unique 10x9 real-alpha atlas instead of displaying Kenzo's name over the Rookie sheet. Rejected fist-bearing v1 and back-facing v2 Master Palm startups remain provenance; accepted v3 plus v1 recovery produce a readable open-palm signature sequence. Exact clean idle/active Stage 1 captures pass at 720p/1080p, focused world tests passed 158/158 at completion, and the world/hazard aggregate passed 209/209 after subsequent walk and PushZone coverage. Pavilion Ace Makoto followed in the slice recorded below.
+- World Warrior Pavilion Ace Makoto complete (2026-07-22): Stage 2 now resolves a distinct 16/16 named-elite archetype and unique 10x9 real-alpha atlas instead of displaying Makoto's name over the Striker sheet. A pilot-first seven-family source set preserves a high braided crest, asymmetrical vermilion mantle, split indigo pavilion panels, ivory chevron shin guards, and bronze crescent token. Three rejected walk revisions remain provenance; accepted v4 passes six-distinct-pose audit with alternating leg ownership. Crescent Heel uses unique frames across the inherited `16/5/27` Striker timing. Exact clean idle/active Stage 2 captures pass at 720p/1080p, the atlas passes 60-populated/30-transparent, padding, baseline, alpha, and chroma audits, and the aggregate at Makoto completion passed 172/172 world plus 43/43 hazard assertions. Grand Grappler Tetsu followed in the slice below.
+- World Warrior Grand Grappler Tetsu complete (2026-07-22): Stage 3 now resolves a distinct 16/16 named-elite archetype and unique 10x9 real-alpha atlas instead of displaying Tetsu's name over the Tournament Grappler sheet. The bald twin-beard veteran identity, vermilion box vest, ivory side pillars, and square left-hip seal remain distinct at gameplay scale. Rejected tight pilot revisions, two-pose walk v1, clipped startup v1, and seven-figure misc v1 remain provenance. Guide-driven walk v2 passes eight distinct silhouettes; contained startup v2 and misc v2 restore exact source counts. Iron Gate Clinch uses unique upright two-arm frames across inherited `20/5/34` Grappler timing. The atlas passes 60-populated/30-transparent, padding, baseline, zero-chroma, prone-width, and walk audits. Exact clean Stage 3 idle/active captures pass at 720p/1080p at tick 1093; deterministic validation passes 176/176 world plus 43/43 hazard assertions. World Warrior training props/pickups are next.
+- World Warrior training dummy complete (2026-07-23): Dojo Approach now authors one original 16/16 nonhumanoid breakable practice post instead of reusing an Archive cache. The segmented timber spine, padded saffron/ivory/vermilion strike zones, indigo side caps/base, bronze pegs, and broad break seams remain readable at 128 pixels and beside fighters in real Stage 1. Exact green-key processing produces a 2048x2048 real-alpha sprite with zero green spill and calibrated `0.00147291/968` metrics for a 2.8-unit prop. The runtime instance is nonthrowable, has 90 HP, and guarantees a Vitality Gourd health drop. Clean intact and gourd-drop captures pass at 720p/1080p at tick 817 with zero errors/warnings; deterministic validation passes 181/181 world plus 43/43 hazard assertions.
+- World Warrior Vitality Gourd complete (2026-07-23): the training dummy now guarantees one original 16/16 health pickup instead of reusing the Archive Vital. The double-lobed ivory calabash, saffron cork, three medicinal jade leaves, vermilion cord, leaf inlay, and indigo cradle remain readable at 64 pixels without cross/heart/crystal shorthand. Exact green-key processing produces a 2048x2048 real-alpha sprite with zero green spill and calibrated `0.00038125/972` metrics for a 0.74-unit pickup. Clean drop and post-collection captures pass at 720p/1080p at tick 817; normal overlap consumes the gourd and restores health from 120 to 180, exactly 25 percent max health. Deterministic validation passes 181/181 world plus 43/43 hazard assertions. One independent World Warrior meter-pickup pilot is next.
+- World Warrior Focus Drum complete (2026-07-23): Pavilion Circuit now adds one approved training dummy with a guaranteed original 16/16 meter pickup instead of reusing the Archive Meter Shard. The squat hourglass drum, paired ivory heads, saffron resonance rings/beads, indigo waist, plum grip, vermilion X-cords, and attached streamer remain readable at 64 pixels without crystal/lightning/potion/coin shorthand. Exact green-key processing produces a 2048x2048 real-alpha sprite with zero green spill and calibrated `0.00052895/700` metrics for a 0.74-unit pickup. Clean drop and post-collection captures pass at 720p/1080p at tick 926; normal overlap consumes the drum and applies the existing 200-meter grant, clamped from 0 to the mannequin's 100 cap. Deterministic validation passes 184/184 world plus 44/44 hazard assertions. One independent World Warrior score-pickup pilot is next.
+- World Warrior Judge's Laurel Fan complete (2026-07-23): Grand Tournament now adds one approved training dummy with a guaranteed original 16/16 score pickup instead of reusing Archive Data. The blunt vermilion fan arc, ivory ribs, three blank judge tabs, attached saffron laurels, indigo display rest, and plum tassel remain readable at 64 pixels without prism/currency/coin/medal/trophy/text shorthand. Exact green-key processing produces a 2048x2048 real-alpha sprite with zero green spill and calibrated `0.00042676/854` metrics for a 0.74-unit pickup. Pickup actors are excluded from enemy-defeat scoring, removing the erroneous extra 750 while preserving the intended 1000-point award. Clean drop and post-collection captures pass at 720p/1080p at tick 1021; deterministic validation passes 187/187 world, 45/45 hazard, and 11/11 RunScore assertions. One independent World Warrior training-crate pilot is next.
+- World Warrior Sparring Supply Crate complete (2026-07-24): Dojo Approach's second encounter now authors an original 15/16 breakable supply crate instead of falling back to the Archive data cache. Archive crate mechanics were reused as a template only; the low wide timber body, overhanging lid, three plank slats, indigo corner brackets with bronze studs, vermilion cargo-strap knot, saffron rope handle, split seam, chipped corner, and lid-mounted ivory wrap bundle with folded indigo mitt carry no Archive tint, crystal, or sci-fi motif and stay readable at 96/128/160 pixels. Exact green-key processing produces a 2048x2048 real-alpha sprite with zero green spill and calibrated `0.00079027/848` metrics for a 1.30-unit prop. The runtime instance has 70 HP and guarantees a Focus Drum drop while the three approved dummy props and every pickup path stay unchanged. Detail density scored 1 for mild plank-grain and rivet clutter; cohesion, readability, and runtime fitness each scored 2. Clean intact, break-drop, and post-collection captures pass at 720p/1080p at tick 833 with meter rising 0 to 100; deterministic validation passes 190/190 world, 47/47 hazard, and 11/11 RunScore assertions. The remaining World Warrior training-crate variants are next.
 
 ## Canonical Visual-Style Lock Across All Remaining Phases
 
@@ -127,6 +260,7 @@ A stage or phase cannot be marked complete until all applicable gates pass:
 9. Imported assets are visually inspected beside accepted characters for alpha, grounding, scale, seams, contour/value cohesion, detail density, contrast, and occlusion.
 10. Calm and combat-dense captures pass at 1280x720 and 1920x1080; HUD/map/results also pass fighting-game visual-hierarchy review.
 11. Art direction, pilot generation, approval, import, wiring, automated audit, and rendered capture are part of the same implementation slice - not deferred wholesale to a final polish phase.
+12. Stage and backdrop art agrees with the per-stage key direction locked by the `Stage Rendering And Depth Separation Pass`. Painted lighting that contradicts the runtime key is a failure, not a style preference; art authored before that lock is provisional and is re-reviewed against it.
 
 ## Locked Decisions
 
@@ -182,10 +316,12 @@ the reasoning behind the plan.
 3. **DONE:** Fix `ArchiveHubScene`'s back action to load `Scenes/UI/MainMenu.tscn`.
 4. **DONE:** Remove release-facing prototype text: Local 2.5D Fighting Sandbox Prototype, MVP Combat Foundation, P1 Blank Mannequin, Restart Prototype, and Prototype failed; replace with Archive language and actual form names.
 5. **DONE:** Persistent selectable P1 keyboard/gamepad, first-connected fallback, reconnect recovery, duplicate-device prevention, and replay/smoke isolation.
-6. **MOSTLY DONE:** Complete joypad combat verbs (including previously missing Jump), assigned-device UI router, pause/accept/cancel/navigation/reward actions. Dynamic platform glyph service remains with Phase 4/6 UI theming.
+6. **DONE for the software contract:** Complete joypad combat verbs (including previously missing Jump), assigned-device UI router, pause/accept/cancel/navigation/reward actions, dead-zoned edge-triggered left-stick menu navigation, and a pure assignment/preference policy with 24/24 deterministic input coverage. Real-controller acceptance remains a hardware QA sign-off; dynamic platform glyphs remain Phase 6 presentation work.
 7. **DONE for current screens:** Main menu, hub, pause, form select, reward choice, route choice, and end panels accept keyboard/gamepad; P1 Start pauses; submenus/dialogs restore focus. Future results/confirmations inherit this router.
 
-Phase 0 blocks every later phase.
+The automated Phase 0 development gate is satisfied. The real-controller matrix
+remains required before final QA sign-off but does not invalidate later content
+already built on the deterministic input contract.
 
 ## Phase 1 - Combat Fluidity, Impact VFX, Audio, And Runtime Budgets
 
@@ -238,10 +374,14 @@ Can run in parallel: VFX pooling, authored SFX/music scaffolding, and animation 
 
 ## Phase 5 - Authored Stage Layouts, Hazards, And Archive District Vertical Slice
 
+Remaining content art in this phase resumes after the Phase 6 playability
+systems block; see `Execution Sequencing Change - 2026-07-25`. Slices already in
+progress finish with their art attached, as gate 11 requires.
+
 1. Make Archive District the quality bar from title screen through Stage 4 results. Implement the stage/map design standard above before copying content to the other worlds.
 2. Extend `StageEncounterData` with optional arena lane bounds (inside the mission-wide Z limits) and transition duration. Use these to alternate wide crowd-control spaces, narrow pressure corridors, asymmetric prop pockets, and roomy elite arenas while preserving forward X progression.
 3. Expand `StageHazardZoneData` into immutable authored definitions plus per-encounter runtime state. Data must cover hazard family, activation delay/window, repeat cadence, movement start/end/pattern, team mask (`Players`, `Enemies`, `All`), damage, hitstun/stun, knockback, warning frames, telegraph VFX/audio/light IDs, and score attribution. Do not mutate authored bounds every frame.
-4. Implement five reusable hazard behaviors: pulsing floor, moving lane sweeper, telegraphed falling strike, conveyor/wind push zone, and explosive-prop AoE. Use the existing projectile system for falling strikes where it gives better collision/impact behavior than a zone.
+4. **IMPLEMENTED at the reusable runtime level:** pulsing floor, moving lane sweeper, telegraphed falling strike, conveyor/wind/energy-current `PushZone`, and explosive-prop AoE. Push zones use deterministic per-tick displacement, authored team masks/bounds/timing, arena/lane clamping, validator enforcement, and focused tests. A production-authored push-zone stage remains Astral content work rather than an engine gap. Use the existing projectile system for falling strikes where it gives better collision/impact behavior than a zone.
 5. Build an in-world hazard-telegraph layer: floor decals/stripes, edge headlights/shadows, projected landing circles, charging light, particles, and spatial audio. HUD warning text is secondary. Telegraphs must remain visible under foreground art and reduced-flash mode.
 6. Let neutral hazards affect enemies and award environmental-KO/style score. Author first exposure safely, then remix it with waves; never combine a new hazard with maximum crowd pressure on first appearance.
 7. Formalize `StagePropData`: honor `SpawnsPickupOnBreak`, drop type/chance, on-break effect, explosion team mask/radius/knockback, destroyed visual, and optional stage-destruction trigger. Support health, meter, score/archive-data, and tightly scoped temporary buffs; stop unconditional meter drops.
@@ -273,10 +413,17 @@ Can run in parallel: VFX pooling, authored SFX/music scaffolding, and animation 
 
 ## Phase 6 - Options, Accessibility, Save Robustness, And Meta Surfacing
 
-1. Add `SettingsStore` separate from progression/run saves. Include Master/Music/SFX/UI volume, fullscreen/windowed, resolution/render scale, VSync, HUD scale/safe-area, shake intensity, reduced flash, high-contrast telegraphs, hold/toggle block, and control rebinding/reset.
-2. Ensure visual cues never rely on color alone: icons/text/patterns accompany health, guard, hazard, parry, weak-point, and rank feedback. Reduced-flash/shake settings must affect Phase 1 effects globally.
-3. Add input glyph switching based on active P1 device and graceful reconnect/fallback. Keep co-op device APIs compatible but do not expose public co-op modes in this pass.
-4. Extend permanent-save robustness: schema version, migration, atomic writes, backup recovery, reset-data confirmation, and a brief save indicator after stage commits/unlocks.
+Items 1-4 are the playability systems block and execute **before** the
+remaining Phase 5 content art, per `Execution Sequencing Change - 2026-07-25`.
+They carry the same verification contract as any other slice: deterministic
+assertions in the headless suites, and no reliance on manual inspection for
+anything that can be asserted. Items 5 and 6 keep their original position after
+Phase 5 content.
+
+1. Add `SettingsStore` separate from progression/run saves. Include Master/Music/SFX/UI volume, fullscreen/windowed, resolution/render scale, VSync, HUD scale/safe-area, shake intensity, reduced flash, high-contrast telegraphs, hold/toggle block, and control rebinding/reset. **Landed 2026-07-25** except the rebinding surface: `ActionBindings` is modelled and persisted but no rebinding UI exists yet, and `HudScale`, `HudSafeAreaInset`, `RenderScale`, and `HoldToBlock` are editable but not yet consumed by their systems.
+2. Ensure visual cues never rely on color alone: icons/text/patterns accompany health, guard, hazard, parry, weak-point, and rank feedback. Reduced-flash/shake settings must affect Phase 1 effects globally. **Landed 2026-07-25.** `AccessibilityRuntime` holds the policy as pure functions; hazard telegraph phase is carried by non-overlapping opacity bands and a contracting countdown marker rather than amber-vs-red hue; every strobe and oscillation honours `ReducedFlash`. Scene-wide depth and lighting separation is a different problem and lives in the `Stage Rendering And Depth Separation Pass`.
+3. Add input glyph switching based on active P1 device and graceful reconnect/fallback. Keep co-op device APIs compatible but do not expose public co-op modes in this pass. **Landed 2026-07-25.** `GamepadBindings` is the single source of truth read by both the input poll and the glyph formatter, so a label cannot claim a binding the pad lacks. That table also exposed and fixed a functional defect: Jump had been bound to `JoyButton.Misc1`, which does not exist on Xbox One pads, DualShock 4, or most third-party controllers, so jumping was impossible on them. Jump now uses `Back` and the optional Assist action takes `Misc1`. Up could not be used instead because this is a belt-scroller and Up is lane movement.
+4. Extend permanent-save robustness: schema version, migration, atomic writes, backup recovery, reset-data confirmation, and a brief save indicator after stage commits/unlocks. **Landed 2026-07-25.** `SaveSchema` classifies Current/Migrated/FutureVersion/Unsupported and makes a newer save strictly read-only, replacing a blind restamp in the progression store and an outright discard in the run store. `SaveDataReset` erases every save plus its backup behind a two-press confirmation.
 5. Upgrade ArchiveHub to surface world ladder completion, best ranks/scores/times, unlocked forms/lore, active Continue Run, training access, and replay stage selection after world completion.
 6. Add difficulty/assist hooks without requiring a full new mode: enemy damage/health presets, optional guard/parry timing assist, and tutorial recommendations. Full localization, screen-reader support, online play, and broad narrative expansion remain out of scope.
 
@@ -286,6 +433,12 @@ Art production is no longer deferred to this phase. Every Phase 5 content slice
 must satisfy the mandatory art-completion gates as it is implemented. Phase 7
 only performs cross-project consistency, final replacement/revision, and
 optimization.
+
+The lighting, shadow, and depth-separation contract is **not** Phase 7 work. It
+is new system work and it gates the art this phase audits, so it runs in the
+`Stage Rendering And Depth Separation Pass` before the remaining Phase 5 art.
+Item 1 below audits stage art against that locked contract; it cannot audit
+against a contract that does not exist yet.
 
 1. Audit the already-authored Archive/World Warrior/Astral stage bands, props, foregrounds, title/map art, elite variants, telegraph poses, and boss spectacle for visual consistency; revise failures rather than first creating required runtime art here. Personal-use Ryu/Goku art remains.
 2. Run animation contact-sheet and 60-fps capture QA for player, nine enemy archetypes, three elites/world, and three final bosses: grounding, scale, walk cycles, attack recovery, get-up, block/parry, KO, and intro timing.

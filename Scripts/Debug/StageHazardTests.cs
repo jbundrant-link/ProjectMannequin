@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Godot;
 using ProjectMannequin.Combat;
+using ProjectMannequin.Core;
 using ProjectMannequin.Data;
 using ProjectMannequin.Progression;
 using ProjectMannequin.Stage;
@@ -65,6 +66,29 @@ public static class StageHazardTests
         Check(zone.Targets.HasFlag(StageHazardTargetMask.Players)
               && zone.Targets.HasFlag(StageHazardTargetMask.Enemies),
             "neutral hazard targets both teams");
+        var pushZone = new StageHazardZoneData
+        {
+            Id = "test_energy_current",
+            Behavior = StageHazardBehavior.PushZone,
+            Targets = StageHazardTargetMask.All,
+            MinX = 10.0f,
+            MaxX = 14.0f,
+            MinZ = -1.0f,
+            MaxZ = 1.0f,
+            WarningLeadFrames = 60,
+            ActiveFrames = 120,
+            RepeatIntervalFrames = 240,
+            DamagePerSecond = 0.0f,
+            PushSpeedX = 3.0f,
+            PushSpeedZ = -1.5f,
+        };
+        var pushStep = StageHazardRuntime.ResolvePushStep(pushZone);
+        Check(System.Math.Abs(pushStep.X * GameConstants.TickRate - 3.0f) < 0.001f
+              && System.Math.Abs(pushStep.Z * GameConstants.TickRate + 1.5f) < 0.001f,
+            "push zone resolves deterministic per-tick displacement");
+        var nonPushStep = StageHazardRuntime.ResolvePushStep(zone);
+        Check(nonPushStep == Vector3.Zero,
+            "non-push hazards resolve no continuous displacement");
 
         var archiveStage = WorldRunCatalog.CreateRun("archive_nexus").Stages[0];
         var tram = archiveStage.Encounters
@@ -85,6 +109,128 @@ public static class StageHazardTests
             "intake tram leaves near/far safe lanes");
         Check(StageMissionValidator.Validate(archiveStage).Count == 0,
             "authored stage passes hazard safety validation");
+        archiveStage.Encounters[0].HazardZones.Add(pushZone);
+        Check(StageMissionValidator.Validate(archiveStage).Count == 0,
+            "authored push zone passes mission validation");
+        pushZone.PushSpeedX = 0.0f;
+        pushZone.PushSpeedZ = 0.0f;
+        Check(StageMissionValidator.Validate(archiveStage).Any(error =>
+                error.Contains("needs a non-zero push speed")),
+            "mission validation rejects zero-force push zones");
+        archiveStage.Encounters[0].HazardZones.Remove(pushZone);
+
+        pushZone.PushSpeedX = 120.0f;
+        pushZone.PushSpeedZ = 120.0f;
+        pushZone.ActivationDelayFrames = 0;
+        pushZone.WarningLeadFrames = 30;
+        pushZone.ActiveFrames = 120;
+        pushZone.RepeatIntervalFrames = 0;
+        pushZone.Targets = StageHazardTargetMask.Players;
+        archiveStage.StageIntroFrames = 0;
+        archiveStage.CameraViewportWidth = archiveStage.StageMaxX - archiveStage.StageMinX;
+        archiveStage.PlayerLeftScreenMargin = 0.0f;
+        archiveStage.PlayerRightScreenMargin = 0.0f;
+        var pushEncounter = archiveStage.Encounters[0];
+        pushZone.MinX = pushEncounter.ArenaMinX;
+        pushZone.MaxX = pushEncounter.ArenaMaxX;
+        pushZone.MinZ = archiveStage.LaneMinZ;
+        pushZone.MaxZ = archiveStage.LaneMaxZ;
+        pushEncounter.HazardZones.Add(pushZone);
+
+        var pushSimulation = new GameSimulation();
+        var pushActorRoot = new Node3D();
+        var pushedPlayer = new CombatActor
+        {
+            ActorId = "push_zone_player",
+            IsPlayerControlled = true,
+            PlayerId = 1,
+            TeamId = 1,
+        };
+        pushedPlayer.Initialize(TestRosterFactory.CreateBlankMannequin());
+        var maskedEnemy = new CombatActor
+        {
+            ActorId = "push_zone_enemy",
+            TeamId = 2,
+        };
+        maskedEnemy.Initialize(TestRosterFactory.CreateWorldWarriorRookie());
+        pushSimulation.RegisterActor(pushedPlayer);
+        pushSimulation.RegisterActor(maskedEnemy);
+        var pushDirector = new ArcadeEncounterDirector(
+            pushSimulation,
+            pushActorRoot,
+            archiveStage);
+        var pushEvents = new List<CombatPresentationEvent>();
+        pushedPlayer.SimPosition = new Vector3(
+            pushEncounter.TriggerX,
+            0.0f,
+            0.0f);
+        pushDirector.UpdateBeforeSimulation(0, pushEvents);
+
+        pushedPlayer.SimPosition = new Vector3(
+            pushEncounter.ArenaMaxX - 0.01f,
+            0.0f,
+            archiveStage.LaneMaxZ - 0.01f);
+        maskedEnemy.SimPosition = new Vector3(
+            pushEncounter.ArenaMinX + 1.0f,
+            0.0f,
+            0.0f);
+        var maskedEnemyStart = maskedEnemy.SimPosition;
+        pushDirector.UpdateAfterSimulation(30, pushEvents);
+        var playerPushPassed =
+            System.Math.Abs(pushedPlayer.SimPosition.X - pushEncounter.ArenaMaxX) < 0.001f
+            && System.Math.Abs(pushedPlayer.SimPosition.Z - archiveStage.LaneMaxZ) < 0.001f
+            && maskedEnemy.SimPosition.IsEqualApprox(maskedEnemyStart);
+        Check(playerPushPassed,
+            "director applies player-targeted push zones and clamps arena lane bounds");
+        if (!playerPushPassed)
+        {
+            log.Append("    player=").Append(pushedPlayer.SimPosition)
+                .Append(" enemy=").Append(maskedEnemy.SimPosition)
+                .Append(" enemyStart=").Append(maskedEnemyStart)
+                .Append(" arena=").Append(pushEncounter.ArenaMinX)
+                .Append("..").Append(pushEncounter.ArenaMaxX)
+                .Append(" lane=").Append(pushDirector.CurrentLaneMinZ)
+                .Append("..").Append(pushDirector.CurrentLaneMaxZ).Append('\n');
+        }
+
+        pushZone.Targets = StageHazardTargetMask.Enemies;
+        pushZone.PushSpeedX = -120.0f;
+        pushZone.PushSpeedZ = -120.0f;
+        pushedPlayer.SimPosition = new Vector3(
+            pushEncounter.ArenaMinX + 1.0f,
+            0.0f,
+            0.0f);
+        maskedEnemy.SimPosition = new Vector3(
+            pushEncounter.ArenaMinX + 0.01f,
+            0.0f,
+            archiveStage.LaneMinZ + 0.01f);
+        var maskedPlayerStart = pushedPlayer.SimPosition;
+        pushDirector.UpdateAfterSimulation(31, pushEvents);
+        var enemyPushPassed =
+            System.Math.Abs(maskedEnemy.SimPosition.X - pushEncounter.ArenaMinX) < 0.001f
+            && System.Math.Abs(maskedEnemy.SimPosition.Z - archiveStage.LaneMinZ) < 0.001f
+            && pushedPlayer.SimPosition.IsEqualApprox(maskedPlayerStart);
+        Check(enemyPushPassed,
+            "director applies enemy-targeted push zones without moving masked players");
+        if (!enemyPushPassed)
+        {
+            log.Append("    enemy=").Append(maskedEnemy.SimPosition)
+                .Append(" player=").Append(pushedPlayer.SimPosition)
+                .Append(" playerStart=").Append(maskedPlayerStart)
+                .Append(" arena=").Append(pushEncounter.ArenaMinX)
+                .Append("..").Append(pushEncounter.ArenaMaxX)
+                .Append(" lane=").Append(pushDirector.CurrentLaneMinZ)
+                .Append("..").Append(pushDirector.CurrentLaneMaxZ).Append('\n');
+        }
+
+        pushEncounter.HazardZones.Remove(pushZone);
+        foreach (var actor in pushSimulation.Actors.ToArray())
+        {
+            pushSimulation.UnregisterActor(actor);
+            actor.Free();
+        }
+        pushActorRoot.Free();
+        pushSimulation.Free();
         var authoredProps = archiveStage.Encounters.SelectMany(encounter => encounter.Props).ToArray();
         Check(authoredProps.Any(prop => prop.DropType == StagePickupType.Health)
               && authoredProps.Any(prop => prop.DropType == StagePickupType.Score),
@@ -292,15 +438,57 @@ public static class StageHazardTests
             TeamId = 1,
         };
         player.Initialize(TestRosterFactory.CreateBlankMannequin());
-        player.ApplyHazardDamage(40, tick: 1);
+        player.ApplyHazardDamage(100, tick: 1);
         var damagedHealth = player.Health;
         var healthPickup = new CombatActor { ActorId = "health_pickup" };
-        healthPickup.Initialize(HazardRosterFactory.CreateHealthPickup());
+        healthPickup.Initialize(HazardRosterFactory.CreateWorldWarriorHealthPickup());
         player.CollectPickup(healthPickup);
-        Check(player.Health > damagedHealth && healthPickup.IsDead,
-            "health pickup restores player and consumes itself");
+        Check(player.Health == damagedHealth + player.CurrentForm.MaxHealth / 4
+              && healthPickup.IsDead,
+            "World Warrior health pickup restores exactly 25 percent max health and consumes itself");
+        var meterBefore = player.Meter;
+        var meterPickup = new CombatActor { ActorId = "meter_pickup" };
+        meterPickup.Initialize(HazardRosterFactory.CreateWorldWarriorMeterPickup());
+        player.CollectPickup(meterPickup);
+        Check(player.Meter == System.Math.Min(
+                  meterBefore + 200,
+                  player.CurrentForm.MaxMeter)
+              && meterPickup.IsDead,
+            "World Warrior meter pickup restores 200 meter up to the form cap and consumes itself");
+
+        var dojoApproach = WorldRunCatalog.CreateRun("world_warrior_sector").Stages[0];
+        var dojoCrateProp = dojoApproach.Encounters[1].Props
+            .Single(prop => prop.ArchetypeId == "world_warrior_supply_crate");
+        var supplyCrate = new CombatActor { ActorId = "world_warrior_supply_crate" };
+        var supplyCrateForm = HazardRosterFactory.CreateWorldWarriorSupplyCrate();
+        supplyCrateForm.MaxHealth = dojoCrateProp.Health;
+        supplyCrate.Initialize(supplyCrateForm);
+        supplyCrate.ApplyHazardDamage(dojoCrateProp.Health - 10, tick: 2);
+        var crateSurvivedPartialBreak = !supplyCrate.IsDead;
+        supplyCrate.ApplyHazardDamage(10, tick: 3);
+        Check(crateSurvivedPartialBreak
+              && supplyCrate.IsDead
+              && dojoCrateProp.SpawnsPickupOnBreak
+              && dojoCrateProp.DropType == StagePickupType.Meter
+              && supplyCrate.CurrentForm.RoleTags.Contains("breakable"),
+            "Dojo Approach supply crate survives partial damage then breaks into a meter drop");
+        Check(StageMissionValidator.Validate(dojoApproach).Count == 0,
+            "Dojo Approach passes hazard prop lane and spawn validation with the supply crate");
 
         var session = RunSessionManager.Instance;
+        session.StartNewRun("world_warrior_sector");
+        var worldWarriorScorePickup = new CombatActor
+        {
+            ActorId = "world_warrior_score_pickup",
+        };
+        worldWarriorScorePickup.Initialize(
+            HazardRosterFactory.CreateWorldWarriorScorePickup());
+        player.CollectPickup(worldWarriorScorePickup);
+        Check(session.ScoreManager.RunScore == 1000
+              && worldWarriorScorePickup.IsDead,
+            "World Warrior score pickup adds exactly 1000 points and consumes itself");
+        session.CompleteRun();
+
         session.StartNewRun("archive_nexus");
         var scorePickup = new CombatActor { ActorId = "score_pickup" };
         scorePickup.Initialize(HazardRosterFactory.CreateScorePickup());

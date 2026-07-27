@@ -1,0 +1,52 @@
+﻿{
+    "created_at":  "2026-07-25T03:29:01.241601Z",
+    "display_name":  "Nano Banana Pro",
+    "id":  "fa35110c-af39-4888-9deb-0961d0b12816",
+    "job_type":  "nano_banana_pro",
+    "min_result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260725_032901_fa35110c-af39-4888-9deb-0961d0b12816_min.webp",
+    "params":  {
+                   "application":  null,
+                   "aspect_ratio":  "1:1",
+                   "batch_size":  1,
+                   "height":  2048,
+                   "input_image":  null,
+                   "input_images":  [
+                                        {
+                                            "id":  "13102265-c0f9-48e4-aa96-b98a7919a696",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/13102265-c0f9-48e4-aa96-b98a7919a696.png"
+                                        },
+                                        {
+                                            "id":  "984c97ec-b203-4e80-aa7a-a1404dcdeac9",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/984c97ec-b203-4e80-aa7a-a1404dcdeac9.png"
+                                        },
+                                        {
+                                            "id":  "a65afbb5-bc15-4ed4-a9f7-0f0ab046cb85",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a65afbb5-bc15-4ed4-a9f7-0f0ab046cb85_resize.jpg"
+                                        },
+                                        {
+                                            "id":  "bbd45ae4-8946-4a0e-8955-adfe4355dfbd",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/bbd45ae4-8946-4a0e-8955-adfe4355dfbd.png"
+                                        },
+                                        {
+                                            "id":  "a88f4e07-4402-4362-bd6a-8f24ae0a1fdb",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/a88f4e07-4402-4362-bd6a-8f24ae0a1fdb.png"
+                                        },
+                                        {
+                                            "id":  "fdb74732-44c8-4bc8-b6e0-e2569d8a5a14",
+                                            "type":  "media_input",
+                                            "url":  "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/fdb74732-44c8-4bc8-b6e0-e2569d8a5a14.png"
+                                        }
+                                    ],
+                   "prompt":  "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-object IDENTITY / FUNCTION PILOT of the WORLD WARRIOR SPARRING SUPPLY CRATE, an original breakable stage prop viewed in a clean right-facing three-quarter angle, centered and fully visible.\r\n\r\nThe prop must read instantly as a sturdy, breakable wooden tournament supply crate at gameplay size, clearly a low storage box for sparring equipment and NOT a padded training post, barrel, chest, treasure box, sci-fi container, or pickup item. Build one squat timber crate with this exact large-form hierarchy:\r\n- one broad low rectangular crate body, clearly WIDER THAN TALL, with a heavy flat lid overhanging the front edge;\r\n- three thick horizontal warm-timber plank slats across the visible front face, separated by deep carved shadow grooves, with simplified visible wood grain and no fine speckled detail;\r\n- four chunky deep-indigo lacquered corner brackets capping the vertical edges, each with three large bronze rivet studs;\r\n- one thick vermilion cloth strap running across the lid and down the front face, tied in one bold square knot with two short blunt tails;\r\n- one broad saffron rope handle loop mounted on the right side panel;\r\n- clear BREAK-READY structure: one thick diagonal split seam across the middle front slat, one chipped corner on the lower left, and two short pale splinter notches along the lid edge, all cut into the wood rather than floating;\r\n- one rolled warm-ivory hand-wrap bundle and one folded deep-indigo practice mitt resting on top of the lid, tucked under the strap and attached to the crate.\r\n\r\nFunction must come from unmistakable breakable-supply-crate cues: heavy planks, banded corners, cargo strap, rope handle, and pre-scored break seams. Use only a few large components with thick contours. It must remain legible when reduced to roughly 96, 128, and 160 pixels tall. The wide plank body, indigo corner brackets, vermilion strap knot, saffron rope loop, and diagonal break seam must survive at that size. Keep the crate grounded, solid, and bottom-weighted, sitting flat as if resting on a dojo floor.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the approved World Warrior training dummy. Use only its breakable-prop contour weight, large-form simplification, grounded stage-prop presentation, and warm-timber/ivory/vermilion/deep-indigo/saffron hierarchy. Do not copy its tall vertical padded post, segmented spine, round strike pads, cross-arm shape, base disc, or silhouette.\r\n2. Reference 2 is the approved World Warrior Focus Drum. Use only its bold tournament-equipment finish, thick ivory contours, indigo lacquer, vermilion tension accents, saffron trim, and clean collectible material treatment. Do not copy its hourglass body, drumheads, resonance rings, cords, beads, tassel, pickup scale, or silhouette.\r\n3. Reference 3 is the approved Dojo Approach environment. Use only its warm dusk dojo mood, training-hall material language, timber/paper/lacquer palette, and ordered value hierarchy. Do not reproduce architecture, walls, screens, floors, banners, lanterns, mountains, or scene.\r\n4-6. References 4-6 are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, clean designed highlights, simplified materials, saturated controlled accents, and arcade-readable 2.5D fighting-game volume. Do not copy any character\u0027s face, body, costume, anatomy, or identity.\r\n\r\nOne complete centered prop on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side, including above the lid bundle and mitt, outside the rope handle and strap tails, and below the full crate base. No training dummy, padded post, barrel, treasure chest, gold, coins, gems, lock, hinge padlock, keyhole, Archive crystal, shard, cube, chip, data cache, sci-fi panel, glowing seam, lantern, potion, gourd, drum, fan, weapon, blade, letters, numbers, kanji, logo, label text, star icon, face, eyes, person, creature, floating orb, aura, detached ring, rays, sparks, detached planks, debris cloud, floor, cast shadow, scenery, room, architecture, border, grid, duplicate object, photorealism, PBR, painterly blur, flat vector art, pixel art, or crop. 2K square stage-prop pilot.",
+                   "resolution":  "2k",
+                   "surface":  null,
+                   "width":  2048
+               },
+    "result_url":  "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260725_032901_fa35110c-af39-4888-9deb-0961d0b12816.png",
+    "status":  "completed"
+}

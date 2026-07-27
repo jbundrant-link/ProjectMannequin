@@ -29,9 +29,9 @@ public static class WorldRunCatalog
         },
         ["world_warrior_sector"] = new[]
         {
-            new StageBlueprint("Dojo Approach", "The opening qualifier", "world_warrior_rookie", "Dojo Prodigy Kenzo", 210.0f),
-            new StageBlueprint("Pavilion Circuit", "Challengers fill the lantern court", "world_warrior_striker", "Pavilion Ace Makoto", 225.0f),
-            new StageBlueprint("Grand Tournament Floor", "Only the strongest remain", "world_warrior_grappler", "Grand Grappler Tetsu", 240.0f),
+            new StageBlueprint("Dojo Approach", "The opening qualifier", "world_warrior_dojo_prodigy_kenzo", "Dojo Prodigy Kenzo", 210.0f),
+            new StageBlueprint("Pavilion Circuit", "Challengers fill the lantern court", "world_warrior_pavilion_ace_makoto", "Pavilion Ace Makoto", 225.0f),
+            new StageBlueprint("Grand Tournament Floor", "Only the strongest remain", "world_warrior_grand_grappler_tetsu", "Grand Grappler Tetsu", 240.0f),
             new StageBlueprint("Champion's Courtyard", "Final challenge: Ryu", "", "", 360.0f),
         },
         ["astral_battlefront"] = new[]
@@ -121,6 +121,14 @@ public static class WorldRunCatalog
             isFinal: true);
         finalStage.BossFormId = source.BossFormId;
         finalStage.Encounters = new List<StageEncounterData> { finalEncounter };
+        if (finalStage.ArenaPresentation is not null)
+        {
+            finalStage.ArenaPresentation.CenterX = finalEncounter.CameraLockX;
+            if (finalStage.FullFramePlates.Count == 1)
+            {
+                finalStage.FullFramePlates[0].CenterX = finalEncounter.CameraLockX;
+            }
+        }
         stages.Add(finalStage);
 
         return new WorldRunData
@@ -169,18 +177,71 @@ public static class WorldRunCatalog
                 return clone;
             })
             .ToList();
+        stage.CompositeSegments = source.CompositeSegments
+            .Where(segment =>
+                segment.MaxX >= sourceStartX
+                && segment.MinX <= sourceEndX)
+            .Select(segment =>
+            {
+                var clone = Clone(segment);
+                clone.MinX -= sourceStartX;
+                clone.MaxX -= sourceStartX;
+                return clone;
+            })
+            .ToList();
         ApplyBespokeStageArt(stage);
         stage.Encounters.Clear();
         return stage;
     }
 
+    /// <summary>
+    /// Frame row the belt centre sits on for layered stages. Matches the row the
+    /// scene-plate stages solve to, so fighters stand at the same height across
+    /// the game and the restyled backdrops keep the upper frame.
+    /// </summary>
+    private const float LayeredGroundLineFraction = 0.775f;
+
     private static void ApplyBespokeStageArt(StageMissionData stage)
     {
+        if (stage.WorldId == "astral_battlefront")
+        {
+            if (stage.StageNumber == 1)
+            {
+                ApplySkyfallBreachTraversalProductionArt(stage);
+            }
+            else if (stage.StageNumber == 2)
+            {
+                ApplyCapsuleCausewayTraversalProductionArt(stage);
+            }
+            else if (stage.StageNumber == 3)
+            {
+                ApplyEnergyRailTraversalProductionArt(stage);
+            }
+            else if (stage.StageNumber == 4)
+            {
+                ApplyTournamentSummitProductionArt(stage);
+            }
+
+            return;
+        }
+
         if (stage.WorldId == "world_warrior_sector")
         {
             if (stage.StageNumber == 1)
             {
                 ApplyDojoApproachProductionArt(stage);
+            }
+            else if (stage.StageNumber == 2)
+            {
+                ApplyPavilionCircuitProductionArt(stage);
+            }
+            else if (stage.StageNumber == 3)
+            {
+                ApplyGrandTournamentFloorProductionArt(stage);
+            }
+            else if (stage.StageNumber == 4)
+            {
+                ApplyChampionsCourtyardProductionArt(stage);
             }
 
             return;
@@ -247,10 +308,11 @@ public static class WorldRunCatalog
 
     private static void ApplyDojoApproachProductionArt(StageMissionData stage)
     {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
         stage.StageTexturePath = WorldWarriorDojoBackdropTexture;
         stage.FloorTexturePath = WorldWarriorDojoFloorTexture;
         stage.FloorTextureTopFraction = 0.0f;
-        stage.FloorTextureTileWidth = 18.0f;
+        stage.FloorTextureTileWidth = 9.0f;
         stage.BackgroundPanels = new List<StageBackgroundPanelData>
         {
             new()
@@ -259,10 +321,13 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Far,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 4.9f,
+                PositionY = 0.0f,
                 PositionZ = -6.0f,
                 ParallaxFactorX = 0.72f,
-                ScaleYMultiplier = 0.62f,
+                ScaleYMultiplier = 0.40f,
+                GroundLineFraction = 0.748f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -270,11 +335,15 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Midground,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 2.35f,
+                PositionY = 0.0f,
                 PositionZ = -4.8f,
                 ParallaxFactorX = 0.90f,
                 Opacity = 0.94f,
                 ScaleYMultiplier = 0.52f,
+                CropTopFraction = 0.044f,
+                CropBottomFraction = 0.404f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -303,12 +372,187 @@ public static class WorldRunCatalog
         };
     }
 
+    private static void ApplyPavilionCircuitProductionArt(StageMissionData stage)
+    {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
+        stage.StageTexturePath = WorldWarriorPavilionBackdropTexture;
+        stage.FloorTexturePath = WorldWarriorPavilionFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 9.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = WorldWarriorPavilionBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.0f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.40f,
+                GroundLineFraction = 0.954f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorPavilionMidgroundTexture,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.0f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 1.0f,
+                // The painted props carry mid-range alpha across their stone
+                // plinths and drum emblems, so the deck wall showed through
+                // them even at full panel opacity.
+                AlphaSolidify = 0.65f,
+                ScaleYMultiplier = 0.26f,
+                CropTopFraction = 0.130f,
+                CropBottomFraction = 0.308f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorPavilionForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 4.6f,
+                PositionY = 0.85f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.32f,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorPavilionForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 4.6f,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.85f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.32f,
+            },
+        };
+    }
+
+    private static void ApplyGrandTournamentFloorProductionArt(StageMissionData stage)
+    {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
+        stage.StageTexturePath = WorldWarriorGrandTournamentBackdropTexture;
+        stage.FloorTexturePath = WorldWarriorGrandTournamentFloorTexture;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.FloorTextureTileWidth = 12.0f;
+        stage.BackgroundPanels = new List<StageBackgroundPanelData>
+        {
+            new()
+            {
+                TexturePath = WorldWarriorGrandTournamentBackdropTexture,
+                Layer = StageVisualLayerKind.Far,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.0f,
+                PositionZ = -6.0f,
+                ParallaxFactorX = 0.72f,
+                ScaleYMultiplier = 0.40f,
+                GroundLineFraction = 0.977f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorGrandTournamentMidgroundTexture,
+                Layer = StageVisualLayerKind.Midground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.0f,
+                PositionZ = -4.8f,
+                ParallaxFactorX = 0.90f,
+                Opacity = 1.0f,
+                ScaleYMultiplier = 0.26f,
+                CropTopFraction = 0.108f,
+                CropBottomFraction = 0.300f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorGrandTournamentForegroundLeftTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMinX,
+                MaxX = stage.StageMinX + 4.8f,
+                PositionY = 0.85f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.32f,
+            },
+            new()
+            {
+                TexturePath = WorldWarriorGrandTournamentForegroundRightTexture,
+                Layer = StageVisualLayerKind.Foreground,
+                MinX = stage.StageMaxX - 4.8f,
+                MaxX = stage.StageMaxX,
+                PositionY = 0.85f,
+                PositionZ = 4.2f,
+                ParallaxFactorX = 1.12f,
+                Opacity = 0.68f,
+                ScaleYMultiplier = 0.32f,
+            },
+        };
+    }
+
+    private static void ApplyChampionsCourtyardProductionArt(StageMissionData stage)
+    {
+        stage.PresentationMode = StagePresentationMode.FullFramePlates;
+        stage.StageTexturePath = WorldWarriorChampionsCourtyardFullFramePlate;
+        stage.FloorTexturePath = WorldWarriorChampionsCourtyardFullFramePlate;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.CameraBaseSize = 9.0f;
+        stage.CameraMaxSize = 9.0f;
+        stage.CameraCinematicSize = 7.6f;
+        stage.BackgroundPanels.Clear();
+        stage.CompositeSegments.Clear();
+        stage.FullFramePlateTransitionWidth = 2.0f;
+        stage.FullFramePlates = new List<StageFullFramePlateData>
+        {
+            new()
+            {
+                TexturePath = WorldWarriorChampionsCourtyardFullFramePlate,
+                CenterX = 0.0f,
+                PositionZ = -6.0f,
+                GroundFarFraction = 0.715f,
+                GroundNearFraction = 0.985f,
+            },
+        };
+        stage.ArenaPresentation = new StageArenaPresentationData
+        {
+            BackdropTexturePath = WorldWarriorChampionsCourtyardFullFramePlate,
+            FloorTexturePath = WorldWarriorChampionsCourtyardFullFramePlate,
+            BackdropWorldWidth = 16.0f,
+            BackdropPositionZ = -6.0f,
+            FloorWorldSize = 22.0f,
+            FloorNearZ = 6.0f,
+            CameraLookHeight = 3.0f,
+            CameraSize = 9.0f,
+            CameraMaxSize = 9.0f,
+            CinematicCameraSize = 7.6f,
+        };
+    }
+
     private static void ApplyIntakeBoulevardProductionArt(StageMissionData stage)
     {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
         stage.StageTexturePath = ArchiveIntakeBoulevardBackdropTexture;
         stage.FloorTexturePath = ArchiveIntakeBoulevardFloorTexture;
         stage.FloorTextureTopFraction = 0.0f;
-        stage.FloorTextureTileWidth = 18.0f;
+        stage.FloorTextureTileWidth = 9.0f;
         stage.BackgroundPanels = new List<StageBackgroundPanelData>
         {
             new()
@@ -317,10 +561,13 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Far,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 4.9f,
+                PositionY = 0.0f,
                 PositionZ = -6.0f,
                 ParallaxFactorX = 0.72f,
-                ScaleYMultiplier = 0.62f,
+                ScaleYMultiplier = 0.40f,
+                CropBottomFraction = 0.041f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -328,11 +575,15 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Midground,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 2.5f,
+                PositionY = 0.0f,
                 PositionZ = -4.8f,
                 ParallaxFactorX = 0.90f,
                 Opacity = 0.95f,
                 ScaleYMultiplier = 0.58f,
+                CropTopFraction = 0.077f,
+                CropBottomFraction = 0.200f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -363,10 +614,11 @@ public static class WorldRunCatalog
 
     private static void ApplyIndexVaultsProductionArt(StageMissionData stage)
     {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
         stage.StageTexturePath = ArchiveIndexVaultsBackdropTexture;
         stage.FloorTexturePath = ArchiveIndexVaultsFloorTexture;
         stage.FloorTextureTopFraction = 0.0f;
-        stage.FloorTextureTileWidth = 18.0f;
+        stage.FloorTextureTileWidth = 9.0f;
         stage.BackgroundPanels = new List<StageBackgroundPanelData>
         {
             new()
@@ -375,10 +627,12 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Far,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 4.9f,
+                PositionY = 0.0f,
                 PositionZ = -6.0f,
                 ParallaxFactorX = 0.72f,
-                ScaleYMultiplier = 0.62f,
+                ScaleYMultiplier = 0.40f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -386,11 +640,15 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Midground,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 2.6f,
+                PositionY = 0.0f,
                 PositionZ = -4.8f,
                 ParallaxFactorX = 0.90f,
                 Opacity = 0.95f,
                 ScaleYMultiplier = 0.56f,
+                CropTopFraction = 0.008f,
+                CropBottomFraction = 0.264f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -421,10 +679,11 @@ public static class WorldRunCatalog
 
     private static void ApplyCorruptionRepositoryProductionArt(StageMissionData stage)
     {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
         stage.StageTexturePath = ArchiveCorruptionRepositoryBackdropTexture;
         stage.FloorTexturePath = ArchiveCorruptionRepositoryFloorTexture;
         stage.FloorTextureTopFraction = 0.0f;
-        stage.FloorTextureTileWidth = 18.0f;
+        stage.FloorTextureTileWidth = 9.0f;
         stage.BackgroundPanels = new List<StageBackgroundPanelData>
         {
             new()
@@ -433,10 +692,12 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Far,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 4.9f,
+                PositionY = 0.0f,
                 PositionZ = -6.0f,
                 ParallaxFactorX = 0.72f,
-                ScaleYMultiplier = 0.62f,
+                ScaleYMultiplier = 0.40f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -444,11 +705,15 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Midground,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 2.5f,
+                PositionY = 0.0f,
                 PositionZ = -4.8f,
                 ParallaxFactorX = 0.90f,
                 Opacity = 0.95f,
                 ScaleYMultiplier = 0.58f,
+                CropTopFraction = 0.054f,
+                CropBottomFraction = 0.273f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -479,10 +744,11 @@ public static class WorldRunCatalog
 
     private static void ApplyKnightsReliquaryProductionArt(StageMissionData stage)
     {
+        stage.GroundLineCenterFraction = LayeredGroundLineFraction;
         stage.StageTexturePath = ArchiveKnightsReliquaryBackdropTexture;
         stage.FloorTexturePath = ArchiveKnightsReliquaryFloorTexture;
         stage.FloorTextureTopFraction = 0.0f;
-        stage.FloorTextureTileWidth = 18.0f;
+        stage.FloorTextureTileWidth = 9.0f;
         stage.BackgroundPanels = new List<StageBackgroundPanelData>
         {
             new()
@@ -491,10 +757,12 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Far,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 4.9f,
+                PositionY = 0.0f,
                 PositionZ = -6.0f,
                 ParallaxFactorX = 0.72f,
-                ScaleYMultiplier = 0.62f,
+                ScaleYMultiplier = 0.40f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -519,11 +787,15 @@ public static class WorldRunCatalog
                 Layer = StageVisualLayerKind.Midground,
                 MinX = stage.StageMinX,
                 MaxX = stage.StageMaxX,
-                PositionY = 2.35f,
+                PositionY = 0.0f,
                 PositionZ = -4.8f,
                 ParallaxFactorX = 0.90f,
                 Opacity = 0.95f,
                 ScaleYMultiplier = 0.52f,
+                CropTopFraction = 0.031f,
+                CropBottomFraction = 0.320f,
+                AlignBottomToFloor = true,
+                RepeatHorizontally = true,
             },
             new()
             {
@@ -615,6 +887,76 @@ public static class WorldRunCatalog
         }
     }
 
+    private static void ApplySkyfallBreachTraversalProductionArt(
+        StageMissionData stage)
+    {
+        ApplyAstralScenePlate(stage, AstralSkyfallBreachFullFramePlate01);
+    }
+
+    private static void ApplyTournamentSummitProductionArt(
+        StageMissionData stage)
+    {
+        ApplyAstralScenePlate(stage, AstralTournamentSummitFullFramePlate01);
+    }
+
+    private static void ApplyCapsuleCausewayTraversalProductionArt(
+        StageMissionData stage)
+    {
+        ApplyAstralScenePlate(stage, AstralCapsuleCausewayFullFramePlate01);
+    }
+
+    /// <summary>
+    /// Points an Astral stage at the one complete scene painting authored for
+    /// it. The declared band is the paved plaza every Astral route master
+    /// shares, measured from the plate's lower half.
+    /// </summary>
+    private static void ApplyAstralScenePlate(
+        StageMissionData stage,
+        string platePath)
+    {
+        stage.PresentationMode = StagePresentationMode.FullFramePlates;
+        stage.StageTexturePath = platePath;
+        stage.FloorTexturePath = platePath;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.BackgroundPanels.Clear();
+        stage.CompositeSegments.Clear();
+        stage.FullFramePlateTransitionWidth = 2.0f;
+        stage.FullFramePlates = new List<StageFullFramePlateData>
+        {
+            new()
+            {
+                TexturePath = platePath,
+                CenterX = (stage.StageMinX + stage.StageMaxX) * 0.5f,
+                PositionZ = -6.0f,
+                GroundFarFraction = 0.695f,
+                GroundNearFraction = 0.855f,
+            },
+        };
+    }
+
+    private static void ApplyEnergyRailTraversalProductionArt(
+        StageMissionData stage)
+    {
+        stage.PresentationMode = StagePresentationMode.FullFramePlates;
+        stage.StageTexturePath = AstralEnergyRailFullFramePlate01;
+        stage.FloorTexturePath = AstralEnergyRailFullFramePlate01;
+        stage.FloorTextureTopFraction = 0.0f;
+        stage.BackgroundPanels.Clear();
+        stage.CompositeSegments.Clear();
+        stage.FullFramePlateTransitionWidth = 2.0f;
+        stage.FullFramePlates = new List<StageFullFramePlateData>
+        {
+            new()
+            {
+                TexturePath = AstralEnergyRailFullFramePlate01,
+                CenterX = (stage.StageMinX + stage.StageMaxX) * 0.5f,
+                PositionZ = -6.0f,
+                GroundFarFraction = 0.695f,
+                GroundNearFraction = 0.855f,
+            },
+        };
+    }
+
     private static void AuthorStageSetPiece(
         string worldId,
         int stageIndex,
@@ -622,6 +964,25 @@ public static class WorldRunCatalog
         StageEncounterData secondEncounter,
         StageEncounterData eliteEncounter)
     {
+        if (worldId == "world_warrior_sector")
+        {
+            if (stageIndex == 0)
+            {
+                AuthorDojoApproachTrainingProp(firstEncounter);
+                AuthorDojoApproachSupplyCrate(secondEncounter);
+            }
+            else if (stageIndex == 1)
+            {
+                AuthorPavilionCircuitTrainingProp(firstEncounter);
+            }
+            else if (stageIndex == 2)
+            {
+                AuthorGrandTournamentTrainingProp(firstEncounter);
+            }
+
+            return;
+        }
+
         if (worldId != "archive_nexus")
         {
             return;
@@ -700,6 +1061,86 @@ public static class WorldRunCatalog
             KnockbackX = 9.0f,
             HitstunFrames = 18,
             ActiveDuringBoss = false,
+        });
+    }
+
+    private static void AuthorDojoApproachTrainingProp(
+        StageEncounterData firstEncounter)
+    {
+        firstEncounter.Props.Add(new StagePropData
+        {
+            Id = "dojo_approach_training_dummy",
+            ArchetypeId = "world_warrior_training_dummy",
+            PositionX = firstEncounter.ArenaMinX + 2.2f,
+            PositionZ = 2.15f,
+            Health = 90,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Health,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorTrainingDummySprite,
+            SpritePixelSize = WorldWarriorTrainingDummyPixelSize,
+            SpriteGroundOffsetPixels = 968.0f,
+        });
+    }
+
+    private static void AuthorDojoApproachSupplyCrate(
+        StageEncounterData secondEncounter)
+    {
+        secondEncounter.Props.Add(new StagePropData
+        {
+            Id = "dojo_approach_supply_crate",
+            ArchetypeId = "world_warrior_supply_crate",
+            PositionX = secondEncounter.ArenaMinX + 2.6f,
+            PositionZ = -1.85f,
+            Health = 70,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Meter,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorSupplyCrateSprite,
+            SpritePixelSize = WorldWarriorSupplyCratePixelSize,
+            SpriteGroundOffsetPixels = 848.0f,
+        });
+    }
+
+    private static void AuthorPavilionCircuitTrainingProp(
+        StageEncounterData firstEncounter)
+    {
+        firstEncounter.Props.Add(new StagePropData
+        {
+            Id = "pavilion_circuit_focus_dummy",
+            ArchetypeId = "world_warrior_training_dummy",
+            PositionX = firstEncounter.ArenaMinX + 2.2f,
+            PositionZ = -2.15f,
+            Health = 105,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Meter,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorTrainingDummySprite,
+            SpritePixelSize = WorldWarriorTrainingDummyPixelSize,
+            SpriteGroundOffsetPixels = 968.0f,
+        });
+    }
+
+    private static void AuthorGrandTournamentTrainingProp(
+        StageEncounterData firstEncounter)
+    {
+        firstEncounter.Props.Add(new StagePropData
+        {
+            Id = "grand_tournament_honor_dummy",
+            ArchetypeId = "world_warrior_training_dummy",
+            PositionX = firstEncounter.ArenaMinX + 2.2f,
+            PositionZ = 2.15f,
+            Health = 120,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Score,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorTrainingDummySprite,
+            SpritePixelSize = WorldWarriorTrainingDummyPixelSize,
+            SpriteGroundOffsetPixels = 968.0f,
         });
     }
 
@@ -1044,6 +1485,12 @@ public static class WorldRunCatalog
 
     private const string ArchiveHealthCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_health_cache_style_v2.png";
+    private const string WorldWarriorTrainingDummySprite =
+        "res://Assets/Sprites/Props/WorldWarrior/world_warrior_training_dummy_style_v1.png";
+    private const float WorldWarriorTrainingDummyPixelSize = 0.00147291f;
+    private const string WorldWarriorSupplyCrateSprite =
+        "res://Assets/Sprites/Props/WorldWarrior/world_warrior_supply_crate_style_v1.png";
+    private const float WorldWarriorSupplyCratePixelSize = 0.00079027f;
     private const string ArchiveMeterCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png";
     private const string ArchiveDataCacheSprite =
@@ -1066,6 +1513,22 @@ public static class WorldRunCatalog
         "res://Assets/Sprites/Hazards/Archive/archive_repository_explosion_decal_style_v1.png";
     private const string ArchiveRepositoryImpactFragmentsSprite =
         "res://Assets/Sprites/Hazards/Archive/archive_repository_impact_fragments_style_v1.png";
+    private const string AstralEnergyRailTraversalBackdropChunk01 =
+        "res://Assets/Stages/AstralBattlefront/astral_energy_rail_traversal_backdrop_style_v1_01.png";
+    private const string AstralEnergyRailTraversalBackdropChunk02 =
+        "res://Assets/Stages/AstralBattlefront/astral_energy_rail_traversal_backdrop_style_v1_02.png";
+    private const string AstralEnergyRailTraversalBackdropChunk03 =
+        "res://Assets/Stages/AstralBattlefront/astral_energy_rail_traversal_backdrop_style_v1_03.png";
+    private const string AstralEnergyRailFloorTexture =
+        "res://Assets/Stages/AstralBattlefront/astral_energy_rail_floor_style_v1.png";
+    private const string AstralSkyfallBreachFullFramePlate01 =
+        "res://Assets/Stages/AstralBattlefront/astral_skyfall_breach_full_frame_plate_01.png";
+    private const string AstralTournamentSummitFullFramePlate01 =
+        "res://Assets/Stages/AstralBattlefront/astral_tournament_summit_full_frame_plate_01.png";
+    private const string AstralCapsuleCausewayFullFramePlate01 =
+        "res://Assets/Stages/AstralBattlefront/astral_capsule_causeway_full_frame_plate_01.png";
+    private const string AstralEnergyRailFullFramePlate01 =
+        "res://Assets/Stages/AstralBattlefront/astral_energy_rail_full_frame_plate_01.png";
     private const string ArchiveIndexVaultsBackdropTexture =
         "res://Assets/Stages/ArchiveDistrict/archive_index_vaults_backdrop_style_v2.png";
     private const string ArchiveIndexVaultsFloorTexture =
@@ -1124,6 +1587,32 @@ public static class WorldRunCatalog
         "res://Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_left_style_v1.png";
     private const string WorldWarriorDojoForegroundRightTexture =
         "res://Assets/Stages/WorldWarrior/world_warrior_dojo_foreground_right_style_v1.png";
+    private const string WorldWarriorPavilionBackdropTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png";
+    private const string WorldWarriorPavilionFloorTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_pavilion_floor_style_v2.png";
+    private const string WorldWarriorPavilionMidgroundTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_pavilion_midground_style_v1.png";
+    private const string WorldWarriorPavilionForegroundLeftTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_pavilion_foreground_left_style_v1.png";
+    private const string WorldWarriorPavilionForegroundRightTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_pavilion_foreground_right_style_v1.png";
+    private const string WorldWarriorGrandTournamentBackdropTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_grand_tournament_backdrop_style_v1.png";
+    private const string WorldWarriorGrandTournamentFloorTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_grand_tournament_floor_style_v2.png";
+    private const string WorldWarriorGrandTournamentMidgroundTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_grand_tournament_midground_style_v1.png";
+    private const string WorldWarriorGrandTournamentForegroundLeftTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_grand_tournament_foreground_left_style_v1.png";
+    private const string WorldWarriorGrandTournamentForegroundRightTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_grand_tournament_foreground_right_style_v1.png";
+    private const string WorldWarriorChampionsCourtyardArenaBackdropTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_arena_backdrop_style_v1.png";
+    private const string WorldWarriorChampionsCourtyardArenaFloorTexture =
+        "res://Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_arena_floor_style_v1.png";
+    private const string WorldWarriorChampionsCourtyardFullFramePlate =
+        "res://Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_full_frame_plate_style_v2.png";
     private const float ArchiveHealthCachePixelSize = 0.00114f;
     private const float ArchiveMeterCachePixelSize = 0.00103f;
     private const float ArchiveDataCachePixelSize = 0.00136f;
