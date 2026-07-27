@@ -634,7 +634,21 @@ the same pilot, runtime, and dual-resolution gates.
   Midground stayed visible on all 7 stages and the junction audit is still 0 gap
   pixels. `WorldRunTests` is `227`. Item 6 is folded into
   `Scripts/Tools/run_stage_layer_visibility_audit.ps1`.
-21. **Resume here.** The vignette half of item 5 is an OPEN DESIGN CALL, not a
+21. CHECK-IN STATE. Commit `680bb74` on `main` holds Phase 6 items 1-4 and stage
+  rendering pass items 1-5 plus all tooling: 296 files, 3.13 MB, no binaries,
+  build 0/0, suites 34/34/227/11/47. It is LOCAL ONLY and has NOT been pushed.
+  The commit boundary is deliberate: `Scripts/`, `Docs/`, `.github/`, root
+  config and `Artifacts/*.json` are in; everything under `Assets/` is not.
+  *** ART CHECK-IN IS STILL OPEN AND NEEDS A DECISION. 415 untracked PNGs under
+  `Assets/` total 1.48 GB and only 179 are covered by `.gitattributes`, so
+  committing them as-is would put roughly 1.16 GB into history as raw
+  undeltifiable blobs. `.git` is ALREADY 2,491 MB because the 204 Artifacts
+  PNGs already in history went in that way - only 112 files in the whole repo
+  use LFS. Extend `.gitattributes` to cover every new asset path BEFORE any art
+  commit. The 216 Artifacts capture PNGs (320 MB) were deliberately excluded as
+  regenerable output of the now-committed capture scripts, and 110 of them are
+  not referenced by any doc or by the review manifest at all.
+22. **Resume here.** The vignette half of item 5 is an OPEN DESIGN CALL, not a
   coding task. Godot 4's `Environment` has no vignette, so it needs a screen
   overlay or post shader, and a conventional radial vignette darkens the LEFT
   AND RIGHT edges - which in a belt-scroller is exactly where a cornered player
@@ -662,12 +676,12 @@ the same pilot, runtime, and dual-resolution gates.
   the `StageVisualLayerKind` depth ramp, then the floor lighting decision, the
   per-stage key direction, far-layer softening, a numeric separation gate in
   `WorldRunTests`, and a frame-time check against the 16.7 ms budget.
-22. Only then return to the Phase 5 art queue, starting with the training-crate
+23. Only then return to the Phase 5 art queue, starting with the training-crate
   variants. The Pavilion and Grand Tournament backdrop repaints and the Astral
   restyle must be authored against the key direction locked by item 15; any
   stage art produced before that lock is provisional. Nothing in that queue is
   cancelled and no completion gate is waived; only the order changed.
-23. Run every deterministic suite with
+24. Run every deterministic suite with
   `Scripts/Tools/run_all_deterministic_suites.ps1`, which covers input grammar,
   settings, world run, run score, and stage hazards in one headless pass.
 
