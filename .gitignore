@@ -123,6 +123,18 @@ Thumbs.db
 /Assets/Sprites/Concepts/**/*.zip
 /Assets/Sprites/Concepts/**/*.import
 
+# Same rule for the other two concept folders. Neither is referenced by any
+# runtime script or scene, and together they are already 171 MB of history
+# (Assets/Stages/Concepts 156.5 MB, Assets/UI/Concepts 14.9 MB per
+# Scripts/Tools/audit_git_history_weight.py). They are not currently growing;
+# these rules exist so a future art pass cannot silently start feeding them.
+/Assets/Stages/Concepts/**/*.png
+/Assets/Stages/Concepts/**/*.jpg
+/Assets/Stages/Concepts/**/*.import
+/Assets/UI/Concepts/**/*.png
+/Assets/UI/Concepts/**/*.jpg
+/Assets/UI/Concepts/**/*.import
+
 # Superseded stage pilots. Each has a shipped successor and the asset usage
 # audit finds no reference from code, scenes, or the review manifest.
 /Assets/Stages/AstralBattlefront/astral_energy_rail_backdrop_overscan_pilot_v1.png
