@@ -2215,6 +2215,97 @@
       "reviewDate": "2026-07-27"
     },
     {
+      "id": "world_warrior_champions_courtyard_lantern_urn_style_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_style_pilot_v1.png",
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_champions_courtyard_lantern_urn_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_pilot_v1_silhouette_comparison.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_champions_courtyard_lantern_urn_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_champions_courtyard_lantern_urn_pilot_review.py",
+        "Scripts/Tools/measure_true_sprite_world_height.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_champions_courtyard_lantern_urn_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/StageHazardTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_champions_courtyard_lantern_urn_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_supply_crate_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_rack_chest_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_champions_courtyard_full_frame_plate_style_v2.png"
+      ],
+      "comparisonReferences": [
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_training_dummy_style_v1.png",
+        "Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png"
+      ],
+      "sourceHashes": {
+        "pilot": "fd839c928b26f016075f515206b17965980ec46350f955f26d5c6a8e7e774fd0",
+        "stageScaleProxy": "605b8eae7f1a0958512c72bca9ff0f1ae5bfd9a73eceffcee7d9aff867ff3bd1",
+        "readabilityStrip": "9b7b54da57de5f3b69c2a41ffff6f6d05b49cf82d9f4fbf4108e40f51c3bb4f7",
+        "production": "968e8248e5bf3dd545a8e46f4f184a6d88c2fb6a76cc78e9175c3ea3b94fadf1",
+        "intact720": "0b03376ddc04a4372d92a8d5f3ff8ae7da46311acfba9a0c07989e671f64cc6f",
+        "drop720": "8ae833f63e5e504ace4ae5471c022178cffc93c9236a6c0a1814f4337a406640",
+        "collection720": "b0704ddc3e357924bb98aef787983e37fd654355cd035a5401b2e6f05192be2e",
+        "intact1080": "e7e67e2bd3b6c4b6515777a2a3da5f92c9a96ed5244070ccc6dffe23de867af0",
+        "drop1080": "c3fe0005dc1cc1dc6a3435da47509fc561efbe821e639c9c6937dafac3e5ee18",
+        "collection1080": "99dd85250ede19321a1b5c51579feec97f31ecd6113acf83d4fc4781fc7827e6"
+      },
+      "measuredProportion": {
+        "method": "alpha_content_bbox_height_px * SpritePixelSize, via Scripts/Tools/measure_true_sprite_world_height.py, chosen BEFORE processing per VISUAL_STYLE_BIBLE.md > Proportion and scale calibration",
+        "trueWorldHeight": 2.45,
+        "referenceAsset": "mannequin_sheet_higgsfield_v1.png idle frame (row 0, col 0)",
+        "referenceTrueHeight": 4.104,
+        "ratio": 0.597
+      },
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_intact_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_collection_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_intact_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_drop_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_collection_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_champions_courtyard_lantern_urn_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The World Warrior Champion's Lantern Urn is the fourth and final independent World Warrior breakable-crate identity, a round ceremonial lantern-topped urn deliberately distinct in silhouette from all three approved crates (the low wide Sparring Supply Crate, the tall standing Pavilion Rack Chest, and the wide-based stepped Grand Tournament Trophy Podium), verified against all three in a four-way silhouette comparison -- box, cabinet, stepped pyramid, and round urn share no silhouette. Motifs are drawn directly from the Champion's Courtyard finale-arena plate: hanging lanterns and braziers, vermilion banners, warm timber/pale plaster tones, and the deep indigo tiled-roof color, expressed as a round barrel body, an indigo lantern-dome cap with a brass finial, a vermilion banner sash, and two unlit brazier-bowl side handles. The 2048x2048 source holds one edge-clear connected object, zero green spill, and stays legible at 96, 128, and 160 pixels tall (round silhouette, dome cap, and banner sash all survive at the smallest size). This pilot applied the corrected process from the start: target_world_height (2.45 units) was chosen against the canonical mannequin's true rendered height (4.104 units) BEFORE processing, landing at 59.7 percent -- inside the 55-75 percent standing-furniture/apparatus band, between the Trophy Podium's 56.0 percent and the Rack Chest's 63.4 percent -- and confirmed correct in the post-wiring runtime capture with no adjustment needed. Detail density scored 1 for the same reason as the other three crates; all other criteria scored 2 for a 15/16 total. Champion's Courtyard is structurally different from the other three World Warrior stages: it is the final boss stage with a single boss encounter rather than a first/second horde pair, so this is the first prop ever authored onto a boss encounter. AuthorStageSetPiece does not cover the final stage, so a new guarded call was added directly in the ladder-building path (`if (worldId == \"world_warrior_sector\") { AuthorChampionsCourtyardLanternUrn(finalEncounter); }`), reusing the same StagePropData/SpawnProps machinery that already runs for every encounter kind, including Boss, unchanged. With the three-stage cyclic pickup pattern already complete (Dojo: health + meter, Pavilion: meter + score, Grand Tournament: score + health), this crate's drop type was a free choice per the Immediate Continuation Order; Meter was chosen to give the player a resource boost heading into the final fight. The urn is a 105-HP prop, continuing the escalating HP trend across the four crates (70, 85, 95, 105). Intact, break-drop, and post-collection captures pass at 1280x720 and 1920x1080 at tick 813 with zero errors and zero warnings (the transient ObjectDB-leak warning seen on other crate captures did not reproduce here), and meter rises exactly 0->100. Deterministic validation passes 244/244 world, 53/53 hazard, and 11/11 RunScore assertions. This completes all four World Warrior training-crate variants.",
+      "nextAction": "All four World Warrior breakable-crate variants (Supply Crate, Rack Chest, Trophy Podium, Lantern Urn) are now runtime approved. Per the Immediate Continuation Order, expand to rolling logs, falling practice props, spectator/crowd layers, and arena destruction next -- but first run the full cross-world Proportion Sizing Sweep scheduled in PROJECT_HANDOFF.md, which remains open and includes the still-unaudited Sparring Supply Crate (measured 31.7% of true mannequin height) plus several confirmed-too-small Archive assets.",
+      "reviewDate": "2026-07-27"
+    },
+    {
       "id": "archive_enemy_family_legacy_and_pending",
       "category": "enemy",
       "status": "partial_replacement_required",

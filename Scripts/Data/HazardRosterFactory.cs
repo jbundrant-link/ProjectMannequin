@@ -136,6 +136,20 @@ public static class HazardRosterFactory
         return crate;
     }
 
+    public static CharacterData CreateWorldWarriorChampionsCourtyardLanternUrn()
+    {
+        var crate = CreateBreakableCrate();
+        crate.Id = "world_warrior_champions_courtyard_lantern_urn";
+        crate.DisplayName = "Champion's Lantern Urn";
+        crate.SpriteSheetPath =
+            "res://Assets/Sprites/Props/WorldWarrior/world_warrior_champions_courtyard_lantern_urn_style_v1.png";
+        crate.SpritePixelSize = 0.0013432f;
+        crate.SpriteGroundOffsetPixels = 909.0f;
+        crate.RoleTags.Add("world_warrior");
+        crate.RoleTags.Add("supply_prop");
+        return crate;
+    }
+
     public static CharacterData CreateMeterPickup()
     {
         return CreatePickup(

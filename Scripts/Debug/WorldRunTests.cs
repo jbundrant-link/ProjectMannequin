@@ -1110,6 +1110,61 @@ public static class WorldRunTests
                       && championsCourtyard.CameraCinematicSize
                           < championsCourtyard.CameraBaseSize,
                     "Champion's Courtyard preserves fixed normal framing without external hazards");
+                var championsCourtyardLanternUrnProp = championsCourtyard.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.ArchetypeId
+                        == "world_warrior_champions_courtyard_lantern_urn");
+                Check(championsCourtyardLanternUrnProp.Id
+                          == "champions_courtyard_lantern_urn"
+                      && championsCourtyardLanternUrnProp.Health == 105
+                      && !championsCourtyardLanternUrnProp.IsThrowable
+                      && championsCourtyardLanternUrnProp.SpawnsPickupOnBreak
+                      && championsCourtyardLanternUrnProp.DropType
+                          == StagePickupType.Meter
+                      && Mathf.IsEqualApprox(
+                          championsCourtyardLanternUrnProp.DropChance,
+                          1.0f)
+                      && championsCourtyardLanternUrnProp.SpritePath.EndsWith(
+                          "world_warrior_champions_courtyard_lantern_urn_style_v1.png")
+                      && Mathf.IsEqualApprox(
+                          championsCourtyardLanternUrnProp.SpritePixelSize,
+                          0.0013432f)
+                      && Mathf.IsEqualApprox(
+                          championsCourtyardLanternUrnProp.SpriteGroundOffsetPixels,
+                          909.0f),
+                    "Champion's Courtyard authors one lantern urn with a guaranteed meter drop");
+                Check(championsCourtyard.Encounters[0].Props.Any(
+                        prop => prop.ArchetypeId
+                            == "world_warrior_champions_courtyard_lantern_urn"),
+                    "Champion's Courtyard lantern urn is placed in the boss encounter");
+                var championsCourtyardLanternUrn = HazardRosterFactory
+                    .CreateWorldWarriorChampionsCourtyardLanternUrn();
+                var championsCourtyardLanternUrnTexture = ResourceLoader.Exists(
+                        championsCourtyardLanternUrn.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(championsCourtyardLanternUrn.SpriteSheetPath)
+                    : null;
+                Check(championsCourtyardLanternUrn.Id
+                          == "world_warrior_champions_courtyard_lantern_urn"
+                      && championsCourtyardLanternUrn.DisplayName
+                          == "Champion's Lantern Urn"
+                      && championsCourtyardLanternUrnTexture is not null
+                      && championsCourtyardLanternUrnTexture.GetWidth() == 2048
+                      && championsCourtyardLanternUrnTexture.GetHeight() == 2048
+                      && !championsCourtyardLanternUrn.TintSpriteSheet
+                      && championsCourtyardLanternUrn.RoleTags.Contains("breakable")
+                      && championsCourtyardLanternUrn.RoleTags.Contains("world_warrior")
+                      && championsCourtyardLanternUrn.RoleTags.Contains("supply_prop"),
+                    "World Warrior Champion's Lantern Urn uses a calibrated unique 2K sprite");
+                Check(HaveDistinctContent(new[]
+                    {
+                        championsCourtyardLanternUrn.SpriteSheetPath,
+                        grandTournamentTrophyPodium.SpriteSheetPath,
+                        supplyCrate.SpriteSheetPath,
+                        pavilionRackChest.SpriteSheetPath,
+                        trainingDummy.SpriteSheetPath,
+                        "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
+                    }),
+                    "Lantern Urn content is distinct from all three other crates, the training dummy, and the Archive cache");
                 var rookie = TestRosterFactory.CreateWorldWarriorRookie();
                 var rookieTexture = ResourceLoader.Exists(rookie.SpriteSheetPath)
                     ? GD.Load<Texture2D>(rookie.SpriteSheetPath)

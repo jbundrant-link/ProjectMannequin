@@ -60,11 +60,11 @@ and score-pickup PNG must resolve to Git LFS.
 Current automated baseline:
 
 - Settings assertions: `34/34`
-- World-run assertions: `240/240`
-- Stage-hazard assertions: `51/51`
+- World-run assertions: `244/244`
+- Stage-hazard assertions: `53/53`
 - Input grammar/assignment assertions: `34/34`
 - Run-score assertions: `11/11`
-- World/hazard aggregate: `291/291`
+- World/hazard aggregate: `297/297`
 - Clean runtime evidence exists for approved World Warrior slices at both
   `1280x720` and `1920x1080`.
 
@@ -100,6 +100,9 @@ Completed quality bar:
   worktree, subject to the clone-durability gate above.
 - World Warrior Champion's Trophy Podium is `15/16` runtime approved in the
   live worktree, subject to the clone-durability gate above.
+- World Warrior Champion's Lantern Urn is `15/16` runtime approved in the
+  live worktree, subject to the clone-durability gate above. This is the
+  fourth and final World Warrior breakable-crate variant.
 
 The immediate unfinished slice is **Phase 6 item 1, `SettingsStore` and the
 options surface**, under the master plan's
@@ -109,10 +112,11 @@ deterministically testable, and they decide whether anyone other than the
 developer can play the build: there is currently no volume control, no control
 rebinding, and no reduced-flash or shake setting.
 
-The **remaining World Warrior training-crate variants** are next after that
-block, built on the proven Sparring Supply Crate path. Do not batch rolling
-logs, falling practice props, crowds, or destruction until those variants pass
-the same pilot, runtime, and dual-resolution gates.
+All four **World Warrior training-crate variants** (Supply Crate, Rack Chest,
+Trophy Podium, Lantern Urn) are now complete on the proven pilot/runtime path.
+The full **Proportion Sizing Sweep** (see the dedicated section below) is
+scheduled next, before batching rolling logs, falling practice props, crowds,
+or destruction.
 
 ## Completed Since Previous Handoff
 
@@ -435,19 +439,71 @@ the same pilot, runtime, and dual-resolution gates.
   regression. Current validation passes `240/240` world, `51/51` hazard, and
   `11/11` RunScore assertions.
 
+### World Warrior Champion's Lantern Urn
+
+- One `15/16` breakable lantern urn is the fourth and final World Warrior
+  crate identity: a round ceremonial urn with an indigo lantern-dome cap,
+  deliberately a fourth distinct silhouette from the low wide Sparring Supply
+  Crate, the tall standing Pavilion Rack Chest, and the wide-based stepped
+  Champion's Trophy Podium (round-bodied rather than a box, a cabinet, or a
+  stepped stack), verified in a four-way silhouette comparison — box,
+  cabinet, stepped pyramid, and round urn share no silhouette. Motifs are
+  drawn from the Champion's Courtyard finale-arena plate itself: hanging
+  lanterns and braziers, vermilion banners, warm timber/pale plaster tones,
+  and the deep indigo tiled-roof color, expressed as a round barrel body, a
+  lantern-dome cap with a brass finial, a vermilion banner sash, and two
+  unlit brazier-bowl side handles.
+- Detail density scored `1` for the same reason as the other three crates;
+  every other criterion scored `2`.
+- This pilot again applied the corrected process from the start:
+  `target_world_height` (`2.45` units) was chosen against the canonical
+  mannequin's true rendered height (`4.104` units) *before* processing,
+  landing at **59.7%** — inside the `55-75%` standing-furniture/apparatus
+  band, between the Trophy Podium's `56.0%` and the Rack Chest's `63.4%` —
+  and confirmed correct in the post-wiring runtime capture with no adjustment
+  needed. Exact green-key processing preserves `326/109/1702/1933` alpha
+  bounds and zero green spill, calibrating `0.0013432/909`.
+- The urn stays readable at `96/128/160` pixels and is content-distinct from
+  all three other crates, the training dummy, and the Archive data cache.
+- **Champion's Courtyard is structurally different from the other three World
+  Warrior stages**: it is the final boss stage with a single boss encounter,
+  not a first/second horde pair, so it never had a `AuthorStageSetPiece` call
+  at all. This is the first prop ever authored onto a boss encounter. A new
+  guarded call was added directly in the ladder-building path
+  (`if (worldId == "world_warrior_sector") { AuthorChampionsCourtyardLanternUrn(finalEncounter); }`
+  right after `finalEncounter.RouteChoices.Clear()`), reusing the same
+  `StagePropData`/`SpawnProps` machinery that already runs unconditionally for
+  every encounter kind including `Boss` — no engine changes were needed, and
+  `StageMissionValidator.Validate` passed against the boss encounter with no
+  special-casing.
+- With the three-stage cyclic pickup pattern already complete (Dojo: health +
+  meter, Pavilion: meter + score, Grand Tournament: score + health), this
+  crate's drop type was a free choice; **Meter** was picked to give the player
+  a resource boost heading into the final fight. The urn is a `105`-HP prop,
+  continuing the escalating HP trend across all four crates (`70, 85, 95,
+  105`).
+- Intact, break-drop, and post-collection captures pass at both resolutions
+  at tick `813` with **zero errors and zero warnings** (the transient
+  "N ObjectDB instances leaked at exit" warning seen on other crate captures
+  did not reproduce here), and meter rises exactly `0 -> 100`. Current
+  validation passes `244/244` world, `53/53` hazard, and `11/11` RunScore
+  assertions. **This completes all four World Warrior training-crate
+  variants.**
+
 ## Immediate Continuation Order
 
 1. Do not restore or search an older Copilot session. Start from this checkpoint
    and the live files only.
 2. Do not regenerate or revise Tetsu, the training dummy, Vitality Gourd, Focus
   Drum, Judge's Laurel Fan, the Sparring Supply Crate, the Pavilion Rack
-  Chest, or the Champion's Trophy Podium; retain their final assets,
-  evidence, and hashes. The Pavilion Rack Chest's `SpritePixelSize` (only) was
-  corrected post-approval from `1.85` to `2.60` world units after a
-  measured-proportion review found the original pilot calibration far too
-  small next to the player character; that corrected value is now final. The
-  Trophy Podium applied the measured-proportion method from the start
-  (`2.30` units, `56.0%` of true mannequin height) and needed no correction.
+  Chest, the Champion's Trophy Podium, or the Champion's Lantern Urn; retain
+  their final assets, evidence, and hashes. The Pavilion Rack Chest's
+  `SpritePixelSize` (only) was corrected post-approval from `1.85` to `2.60`
+  world units after a measured-proportion review found the original pilot
+  calibration far too small next to the player character; that corrected
+  value is now final. The Trophy Podium (`2.30` units, `56.0%`) and the
+  Lantern Urn (`2.45` units, `59.7%`) both applied the measured-proportion
+  method from the start and needed no correction.
 3. Do not fix proportion sizing piecemeal. The user confirmed the smallness
   issue is systemic ("the issue is in every stage... the train [Archive
   Intake Tram] is ridiculously small") and asked for one full sweep at the end
@@ -456,45 +512,40 @@ the same pilot, runtime, and dual-resolution gates.
   condition, confirmed offenders (including the Sparring Supply Crate at
   `31.7%`), already-checked assets, and full scope — read it before touching
   any more prop/character scale.
-4. Reuse the proven Sparring Supply Crate path — generator, review proxies,
-  green-key processing, additive authoring, deterministic contracts, and the
-  dual-resolution capture wrapper — for every remaining crate variant. Add the
-  **Proportion and scale calibration** gate from `VISUAL_STYLE_BIBLE.md` to
-  that path from the start: measure true rendered height with
-  `Scripts/Tools/measure_true_sprite_world_height.py` against the canonical
-  mannequin/Ryu/Goku true height (~`4.10` units), not a flat 2D proxy alone,
-  before calling any pilot's scale final.
-5. Define and generate one independent pilot for the last remaining crate
-  variant, the Champion's Courtyard crate, using accepted World Warrior
-  props/stages for motif and mannequin/Ryu/Goku for rendering finish. It must
-  read as breakable tournament supplies at gameplay size with clear seams and
-  function, distinct from the training dummy, the Sparring Supply Crate, the
-  Pavilion Rack Chest, and the Grand Tournament Champion's Trophy Podium. With
-  the three-stage cyclic pickup coverage already complete (Dojo: health +
-  meter, Pavilion: meter + score, Grand Tournament: score + health), this
-  fourth crate's drop type is a free choice — Champion's Courtyard has no
-  existing prop of its own yet to react against, so pick whichever pickup type
-  best fits its final-duel framing.
-6. Review the raw variant beside the approved training dummy, the Sparring
-  Supply Crate, the Pavilion Rack Chest, the Trophy Podium, all three
-  pickups, World Warrior fighters, and stage art. Require at least `14/16`,
-  no zero criterion, and no automatic failure before any further variant or
-  hazard batch.
-7. After each pilot approval, wire one real break/drop interaction and capture it
-  at both target resolutions; preserve rejected generations as provenance.
-8. Expand to rolling logs, falling practice props, crowds, and destruction only
-  after the crate variants are complete.
-9. Do not start Astral art. Astral stages are on interim pre-restyle plates and
+4. **All four World Warrior training-crate variants are now complete**:
+  Sparring Supply Crate, Pavilion Rack Chest, Champion's Trophy Podium, and
+  Champion's Lantern Urn. The Lantern Urn also proved out a new pattern:
+  Champion's Courtyard is the final boss stage with a single boss encounter
+  rather than a first/second horde pair, so it needed its own guarded
+  `AuthorChampionsCourtyardLanternUrn` call in the ladder-building path
+  instead of going through `AuthorStageSetPiece`. Reuse this same proven
+  pilot/review/process/wire/test/capture path — including the **Proportion
+  and scale calibration** gate measured from the start with
+  `Scripts/Tools/measure_true_sprite_world_height.py` — for every future
+  World Warrior prop, not just crates.
+5. Move to the rest of the `Remaining Phase 5 > World Warrior` queue: rolling
+  training-log and falling-practice-prop hazard art, spectator/crowd layers
+  and reactions, and localized tournament-arena destruction states. Apply the
+  same pilot-first, runtime, dual-resolution, and proportion-sizing gates to
+  each.
+6. Only after that queue is complete, run the **Full Proportion Sizing
+  Sweep** (see the dedicated section below) — this was the user's explicit
+  instruction: one full cross-world audit at the end of the phase, not
+  piecemeal fixes. It covers the still-unaudited Sparring Supply Crate
+  (`31.7%`) plus the confirmed-too-small Archive assets, and every
+  character/prop/hazard not yet measured. Do not mark Phase 5 complete or
+  start Astral art before this sweep closes out.
+7. Do not start Astral art. Astral stages are on interim pre-restyle plates and
   are deliberately deferred; read `Remaining Phase 5 > Astral Battlefront` before
   touching them, and honour the hard gates listed there.
-10. Treat `Open Stage Defects` as a known, measured backlog. Do not re-approve any
+8. Treat `Open Stage Defects` as a known, measured backlog. Do not re-approve any
   stage listed there without first re-running the audit that failed it.
-11. The stage presentation pass is finished and is not the current slice. Belt
+9. The stage presentation pass is finished and is not the current slice. Belt
   grounding, backdrop ground lines, floor materials, the contact shadow, and the
   Champion's Courtyard plate are all done and gated. The one piece deliberately
   left open is repainting the Pavilion and Grand Tournament backdrops with a
   ground line, which is parked as item 6 of `Remaining Phase 5 > World Warrior`.
-12. Phase 6 item 1 is partly landed. `Scripts/Settings/SettingsData.cs` and
+10. Phase 6 item 1 is partly landed. `Scripts/Settings/SettingsData.cs` and
   `Scripts/Settings/SettingsStore.cs` hold the full settings model with range
   clamping, atomic writes plus backup recovery, and tolerant parsing that
   degrades a malformed file to usable defaults instead of blocking startup.
@@ -504,7 +555,7 @@ the same pilot, runtime, and dual-resolution gates.
   are created at startup if the project has not defined them, which also fixes
   players that referenced a non-existent `SFX` bus. Camera shake now scales by
   `ShakeIntensity` at the point of use, so zero is exactly zero.
-13. Phase 6 item 1 is now closed. The options surface is split into
+11. Phase 6 item 1 is now closed. The options surface is split into
   `Scripts/Settings/OptionsModel.cs`, which is engine-free and holds every row
   definition, navigation, clamping, cycling, and value formatting, and
   `Scripts/UI/OptionsMenu.cs`, a thin `CanvasLayer` that renders rows and
@@ -525,7 +576,7 @@ the same pilot, runtime, and dual-resolution gates.
   `Scripts/Debug/OptionsMenuSmokeScenario.cs` plus
   `Scripts/Tools/capture_options_menu_review.ps1` re-run that check on demand
   under `PROJECT_MANNEQUIN_OPTIONS_UI_SMOKE_TEST=1`.
-14. Phase 6 item 2, the accessibility contract, is landed.
+12. Phase 6 item 2, the accessibility contract, is landed.
   `Scripts/Settings/AccessibilityRuntime.cs` holds the whole policy as pure
   functions that take the setting as an argument, so the deterministic suite
   asserts it without a scene tree. Settings suite is now `25/25`.
@@ -563,7 +614,7 @@ the same pilot, runtime, and dual-resolution gates.
   via `-HighContrast` and `-ReducedFlash`. Capture-only overrides live in
   `SettingsStore.ApplyCaptureOverrides` and are gated on
   `IsPersistenceDisabled`, so they can never apply in a player session.
-15. Phase 6 item 3, input glyph switching and reconnect, is landed.
+13. Phase 6 item 3, input glyph switching and reconnect, is landed.
   `Scripts/Input/GamepadBindings.cs` is now the SINGLE source of truth for which
   pad button drives which action: `LocalInputManager.PollJoypad` reads it to
   build the input mask and `Scripts/Input/InputGlyphs.cs` reads the same table
@@ -600,7 +651,7 @@ the same pilot, runtime, and dual-resolution gates.
   asserts every core action sits on a universally present button.
   Grab and Block remain analog triggers rather than buttons, which is fine
   because triggers exist on every modern pad.
-16. Phase 6 item 4, save robustness, is landed, which closes the whole
+14. Phase 6 item 4, save robustness, is landed, which closes the whole
   Phase 6 items 1-4 playability block. `Scripts/Progression/SaveSchema.cs` holds
   the version policy as pure functions. Settings suite is now `33/33`.
   The two stores previously handled a version mismatch in opposite and equally
@@ -627,7 +678,7 @@ the same pilot, runtime, and dual-resolution gates.
   replay. Its predicate has a pure overload so the suite drives the clock, and
   it explicitly survives a backwards clock rather than wrapping the unsigned
   subtraction and pinning the indicator on forever.
-17. `Stage Rendering And Depth Separation Pass` item 1, the per-actor grounding
+15. `Stage Rendering And Depth Separation Pass` item 1, the per-actor grounding
   shadow, is landed. `CharacterVisualComponent` builds one soft radial quad per
   fighter, scaled by the node's boss/presentation scale, shrinking and fading
   with height off the ground so a jump reads as leaving the floor.
@@ -664,7 +715,7 @@ the same pilot, runtime, and dual-resolution gates.
   The only real observation is a content one: projectiles still use the default
   `MoveData.VisualColor` untextured sphere, so they are placeholder art, which
   belongs to the Phase 5 art queue rather than to rendering.
-18. `Stage Rendering And Depth Separation Pass` item 2, the layer depth ramp,
+16. `Stage Rendering And Depth Separation Pass` item 2, the layer depth ramp,
   is landed. `PrototypeStageView.ResolveLayerDepthTint` applies aerial
   perspective per `StageVisualLayerKind`: Far (0.74, 0.80, 0.93), Midground
   (0.88, 0.91, 0.98), Gameplay untouched, Foreground (0.82, 0.85, 0.92), on the
@@ -686,7 +737,7 @@ the same pilot, runtime, and dual-resolution gates.
   foreground, so `audit_stage_layer_visibility.py` now REPORTS luminance
   separation and colour temperature as context for a human and gates only on
   midground visibility, which is objective.
-19. `Stage Rendering And Depth Separation Pass` item 3, the floor lighting
+17. `Stage Rendering And Depth Separation Pass` item 3, the floor lighting
   decision, is settled: **the floor stays `Unshaded`, and the per-actor contact
   shadow remains the sole grounding channel.** This was measured rather than
   assumed. Promoting the floor material to `PerPixel` does produce real
@@ -703,7 +754,7 @@ the same pilot, runtime, and dual-resolution gates.
   original render exactly, 0 changed pixels.
   Note `WorldRunTests.FloorMaterialIsIsotropic` reads the floor TEXTURE file
   rather than the render, so it is unaffected by this decision either way.
-20. `Stage Rendering And Depth Separation Pass` item 4, the key light contract,
+18. `Stage Rendering And Depth Separation Pass` item 4, the key light contract,
   is landed. `StageMissionData.KeyLightPitchDegrees` and `KeyLightYawDegrees`
   declare the direction each stage is authored against; the sun consumes them
   instead of a hardcoded `(-48, -30, 0)`; and `Scripts/Stage/StageKeyLight.cs`
@@ -722,7 +773,7 @@ the same pilot, runtime, and dual-resolution gates.
   Pavilion and Grand Tournament repaints and the Astral restyle are waiting on,
   so it should be done deliberately with the art in front of you rather than
   guessed from a heuristic.
-21. `Stage Rendering And Depth Separation Pass` item 5 is HALF landed: far-layer
+19. `Stage Rendering And Depth Separation Pass` item 5 is HALF landed: far-layer
   softening is in, the vignette is NOT and needs a design call (see item 21).
   `PrototypeStageView.ApplyFarLayerHaze` enables depth fog on the stage
   `Environment`, coloured with the stage's own far colour. The layer depth tint
@@ -739,7 +790,7 @@ the same pilot, runtime, and dual-resolution gates.
   Midground stayed visible on all 7 stages and the junction audit is still 0 gap
   pixels. `WorldRunTests` is `227`. Item 6 is folded into
   `Scripts/Tools/run_stage_layer_visibility_audit.ps1`.
-22. CHECK-IN STATE. Commit `680bb74` on `main` holds Phase 6 items 1-4 and stage
+20. CHECK-IN STATE. Commit `680bb74` on `main` holds Phase 6 items 1-4 and stage
   rendering pass items 1-5 plus all tooling: 296 files, 3.13 MB, no binaries,
   build 0/0, suites 34/34/227/11/47. It is LOCAL ONLY and has NOT been pushed.
   The commit boundary is deliberate: `Scripts/`, `Docs/`, `.github/`, root
@@ -784,7 +835,7 @@ the same pilot, runtime, and dual-resolution gates.
   routed through LFS, which is the exact mistake that built the oversized
   history. Run it before committing, or install it as a pre-commit hook. It is
   verified to block a raw binary and to pass an LFS-covered one.
-23. `Stage Rendering And Depth Separation Pass` item 7, the frame-time check,
+21. `Stage Rendering And Depth Separation Pass` item 7, the frame-time check,
   is DONE and PASSES with very large headroom. `Scripts/Debug/FrameTimeProbe.cs`
   attaches only when `PROJECT_MANNEQUIN_FRAME_TIME_PROBE=1` and persistence is
   disabled; `Scripts/Tools/run_stage_frame_time_audit.ps1` sweeps 10 stages.
@@ -805,7 +856,7 @@ the same pilot, runtime, and dual-resolution gates.
   GPU load. Scaling is sublinear, so these stages are draw-call bound, not
   pixel bound. Numbers are machine-specific and from a Debug build; treat them
   as a budget check, not a portable benchmark.
-24. `Stage Rendering And Depth Separation Pass` is COMPLETE. The vignette
+22. `Stage Rendering And Depth Separation Pass` is COMPLETE. The vignette
   landed as `Scripts/Presentation/StageVignette.cs`, a `CanvasLayer` on layer 0
   holding a generated vertical alpha gradient. The user chose TOP AND BOTTOM
   FALLOFF ONLY over a conventional radial vignette, because this is a
@@ -850,22 +901,23 @@ the same pilot, runtime, and dual-resolution gates.
   the `StageVisualLayerKind` depth ramp, then the floor lighting decision, the
   per-stage key direction, far-layer softening, a numeric separation gate in
   `WorldRunTests`, and a frame-time check against the 16.7 ms budget.
-25. Only then return to the Phase 5 art queue, starting with the training-crate
+23. Only then return to the Phase 5 art queue, starting with the training-crate
   variants. The Pavilion and Grand Tournament backdrop repaints and the Astral
   restyle must be authored against the key direction locked by item 15; any
   stage art produced before that lock is provisional. Nothing in that queue is
   cancelled and no completion gate is waived; only the order changed.
-26. Run every deterministic suite with
+24. Run every deterministic suite with
   `Scripts/Tools/run_all_deterministic_suites.ps1`, which covers input grammar,
   settings, world run, run score, and stage hazards in one headless pass.
 
 ## Full Proportion Sizing Sweep
 
-**Scheduled trigger: run this at the end of the current phase** — after the
-remaining World Warrior crate variants (Grand Tournament, Champion's
-Courtyard) and the rest of the `Remaining Phase 5 > World Warrior` queue
-(rolling logs, falling practice props, crowds, destruction) are done, and
-before Phase 5 is marked complete or Astral restyle begins. Do not fix these
+**Scheduled trigger: run this at the end of the current phase** — all four
+World Warrior training-crate variants are now complete (Supply Crate, Rack
+Chest, Trophy Podium, Lantern Urn); what remains before this sweep is the
+rest of the `Remaining Phase 5 > World Warrior` queue (rolling logs, falling
+practice props, crowds, destruction), and this sweep runs after that, before
+Phase 5 is marked complete or Astral restyle begins. Do not fix these
 piecemeal between now and then unless a specific asset blocks other work —
 batch it into one pass with one deterministic re-run and one round of fresh
 captures, the same way the Rack Chest fix on 2026-07-27 was done.
@@ -891,7 +943,11 @@ here:
 - **Measured and look correct already, no action expected unless the sweep's
   full pass finds otherwise:** Archive Volatile Canister (59.4%), Archive
   Repository Data Debris (65.0%), World Warrior Training Dummy (68.2%),
-  Pavilion Rack Chest (63.4%, corrected).
+  Pavilion Rack Chest (63.4%, corrected), Champion's Trophy Podium (56.0%,
+  calibrated correctly from the start), Champion's Lantern Urn (59.7%,
+  calibrated correctly from the start). The last two confirm the corrected
+  from-the-start methodology reliably produces the right scale without a
+  post-hoc fix.
 - **Needs case-by-case judgment, not the standing-furniture band:** Archive
   Repository Security Sweep (20.3%) is a low floor-level hazard by design and
   may be correct at that scale — do not blanket-resize hazards without
@@ -946,7 +1002,8 @@ here:
 Complete these stage-by-stage with the same pilot, provenance, runtime, and
 dual-resolution gates:
 
-1. Remaining training crates
+1. **DONE:** All four training-crate variants (Supply Crate, Rack Chest,
+   Trophy Podium, Lantern Urn).
 2. Rolling training-log and falling-practice-prop hazard art
 3. Spectator/crowd layers and reactions
 4. Localized tournament-arena destruction states

@@ -110,6 +110,10 @@ public static class WorldRunCatalog
         var finalEncounter = Clone(finalBoss);
         ShiftEncounter(finalEncounter, -finalSourceStartX);
         finalEncounter.RouteChoices.Clear();
+        if (worldId == "world_warrior_sector")
+        {
+            AuthorChampionsCourtyardLanternUrn(finalEncounter);
+        }
         var finalStageMaxX = MathF.Max(26.0f, finalEncounter.ArenaMaxX + 3.0f);
         var finalStage = CreateStageShell(
             source,
@@ -1186,6 +1190,26 @@ public static class WorldRunCatalog
         });
     }
 
+    private static void AuthorChampionsCourtyardLanternUrn(
+        StageEncounterData finalEncounter)
+    {
+        finalEncounter.Props.Add(new StagePropData
+        {
+            Id = "champions_courtyard_lantern_urn",
+            ArchetypeId = "world_warrior_champions_courtyard_lantern_urn",
+            PositionX = finalEncounter.ArenaMinX + 2.6f,
+            PositionZ = -1.85f,
+            Health = 105,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Meter,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorChampionsCourtyardLanternUrnSprite,
+            SpritePixelSize = WorldWarriorChampionsCourtyardLanternUrnPixelSize,
+            SpriteGroundOffsetPixels = 909.0f,
+        });
+    }
+
     private static void AuthorIndexVaults(
         StageEncounterData firstEncounter,
         StageEncounterData secondEncounter,
@@ -1539,6 +1563,9 @@ public static class WorldRunCatalog
     private const string WorldWarriorGrandTournamentTrophyPodiumSprite =
         "res://Assets/Sprites/Props/WorldWarrior/world_warrior_grand_tournament_trophy_podium_style_v1.png";
     private const float WorldWarriorGrandTournamentTrophyPodiumPixelSize = 0.00133721f;
+    private const string WorldWarriorChampionsCourtyardLanternUrnSprite =
+        "res://Assets/Sprites/Props/WorldWarrior/world_warrior_champions_courtyard_lantern_urn_style_v1.png";
+    private const float WorldWarriorChampionsCourtyardLanternUrnPixelSize = 0.0013432f;
     private const string ArchiveMeterCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png";
     private const string ArchiveDataCacheSprite =

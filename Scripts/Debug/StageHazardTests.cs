@@ -519,6 +519,31 @@ public static class StageHazardTests
         Check(StageMissionValidator.Validate(grandTournamentFloor).Count == 0,
             "Grand Tournament Floor passes hazard prop lane and spawn validation with the trophy podium");
 
+        var championsCourtyard = WorldRunCatalog.CreateRun("world_warrior_sector").Stages[3];
+        var championsCourtyardLanternUrnProp = championsCourtyard.Encounters[0].Props
+            .Single(prop => prop.ArchetypeId
+                == "world_warrior_champions_courtyard_lantern_urn");
+        var championsCourtyardLanternUrn = new CombatActor
+        {
+            ActorId = "world_warrior_champions_courtyard_lantern_urn",
+        };
+        var championsCourtyardLanternUrnForm = HazardRosterFactory
+            .CreateWorldWarriorChampionsCourtyardLanternUrn();
+        championsCourtyardLanternUrnForm.MaxHealth = championsCourtyardLanternUrnProp.Health;
+        championsCourtyardLanternUrn.Initialize(championsCourtyardLanternUrnForm);
+        championsCourtyardLanternUrn.ApplyHazardDamage(
+            championsCourtyardLanternUrnProp.Health - 10, tick: 2);
+        var lanternUrnSurvivedPartialBreak = !championsCourtyardLanternUrn.IsDead;
+        championsCourtyardLanternUrn.ApplyHazardDamage(10, tick: 3);
+        Check(lanternUrnSurvivedPartialBreak
+              && championsCourtyardLanternUrn.IsDead
+              && championsCourtyardLanternUrnProp.SpawnsPickupOnBreak
+              && championsCourtyardLanternUrnProp.DropType == StagePickupType.Meter
+              && championsCourtyardLanternUrn.CurrentForm.RoleTags.Contains("breakable"),
+            "Champion's Courtyard lantern urn survives partial damage then breaks into a meter drop");
+        Check(StageMissionValidator.Validate(championsCourtyard).Count == 0,
+            "Champion's Courtyard passes hazard prop lane and spawn validation with the lantern urn");
+
         var session = RunSessionManager.Instance;
         session.StartNewRun("world_warrior_sector");
         var worldWarriorScorePickup = new CombatActor
