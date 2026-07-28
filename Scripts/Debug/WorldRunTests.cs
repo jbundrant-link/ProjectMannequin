@@ -947,6 +947,60 @@ public static class WorldRunTests
                       && grandTournamentHonorProp.SpritePath.EndsWith(
                           "world_warrior_training_dummy_style_v1.png"),
                     "Grand Tournament authors one training dummy with a guaranteed score drop");
+                var grandTournamentTrophyPodiumProp = grandTournament.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.ArchetypeId
+                        == "world_warrior_grand_tournament_trophy_podium");
+                Check(grandTournamentTrophyPodiumProp.Id
+                          == "grand_tournament_trophy_podium"
+                      && grandTournamentTrophyPodiumProp.Health == 95
+                      && !grandTournamentTrophyPodiumProp.IsThrowable
+                      && grandTournamentTrophyPodiumProp.SpawnsPickupOnBreak
+                      && grandTournamentTrophyPodiumProp.DropType
+                          == StagePickupType.Health
+                      && Mathf.IsEqualApprox(
+                          grandTournamentTrophyPodiumProp.DropChance,
+                          1.0f)
+                      && grandTournamentTrophyPodiumProp.SpritePath.EndsWith(
+                          "world_warrior_grand_tournament_trophy_podium_style_v1.png")
+                      && Mathf.IsEqualApprox(
+                          grandTournamentTrophyPodiumProp.SpritePixelSize,
+                          0.00133721f)
+                      && Mathf.IsEqualApprox(
+                          grandTournamentTrophyPodiumProp.SpriteGroundOffsetPixels,
+                          887.0f),
+                    "Grand Tournament authors one trophy podium with a guaranteed health drop");
+                Check(grandTournament.Encounters[1].Props.Any(
+                        prop => prop.ArchetypeId
+                            == "world_warrior_grand_tournament_trophy_podium"),
+                    "Grand Tournament trophy podium is placed in the second encounter");
+                var grandTournamentTrophyPodium = HazardRosterFactory
+                    .CreateWorldWarriorGrandTournamentTrophyPodium();
+                var grandTournamentTrophyPodiumTexture = ResourceLoader.Exists(
+                        grandTournamentTrophyPodium.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(grandTournamentTrophyPodium.SpriteSheetPath)
+                    : null;
+                Check(grandTournamentTrophyPodium.Id
+                          == "world_warrior_grand_tournament_trophy_podium"
+                      && grandTournamentTrophyPodium.DisplayName
+                          == "Champion's Trophy Podium"
+                      && grandTournamentTrophyPodiumTexture is not null
+                      && grandTournamentTrophyPodiumTexture.GetWidth() == 2048
+                      && grandTournamentTrophyPodiumTexture.GetHeight() == 2048
+                      && !grandTournamentTrophyPodium.TintSpriteSheet
+                      && grandTournamentTrophyPodium.RoleTags.Contains("breakable")
+                      && grandTournamentTrophyPodium.RoleTags.Contains("world_warrior")
+                      && grandTournamentTrophyPodium.RoleTags.Contains("supply_prop"),
+                    "World Warrior Champion's Trophy Podium uses a calibrated unique 2K sprite");
+                Check(HaveDistinctContent(new[]
+                    {
+                        grandTournamentTrophyPodium.SpriteSheetPath,
+                        supplyCrate.SpriteSheetPath,
+                        pavilionRackChest.SpriteSheetPath,
+                        trainingDummy.SpriteSheetPath,
+                        "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
+                    }),
+                    "Trophy Podium content is distinct from both approved crates, the training dummy, and the Archive cache");
                 var worldWarriorScorePickup = HazardRosterFactory
                     .CreateWorldWarriorScorePickup();
                 var worldWarriorScoreTexture = ResourceLoader.Exists(

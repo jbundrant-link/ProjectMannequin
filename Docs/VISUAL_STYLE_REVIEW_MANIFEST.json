@@ -2124,6 +2124,97 @@
       "reviewDate": "2026-07-27"
     },
     {
+      "id": "world_warrior_grand_tournament_trophy_podium_style_v1",
+      "category": "prop",
+      "status": "runtime_approved",
+      "assets": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_style_pilot_v1.png",
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_grand_tournament_trophy_podium_style_v1.png"
+      ],
+      "artifacts": [
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_pilot_v1_silhouette_comparison.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_style_v1_processing.json",
+        "Scripts/Tools/generate_world_warrior_grand_tournament_trophy_podium_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_grand_tournament_trophy_podium_pilot_review.py",
+        "Scripts/Tools/measure_true_sprite_world_height.py",
+        "Scripts/Tools/process_single_green_sprite.py",
+        "Scripts/Tools/capture_world_warrior_grand_tournament_trophy_podium_runtime.ps1",
+        "Scripts/Data/HazardRosterFactory.cs",
+        "Scripts/Data/WorldRunCatalog.cs",
+        "Scripts/Stage/ArcadeEncounterDirector.cs",
+        "Scripts/Debug/WorldRunTests.cs",
+        "Scripts/Debug/StageHazardTests.cs"
+      ],
+      "model": "nano_banana_pro",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_grand_tournament_trophy_podium_pilot_v1_job.json",
+      "canonicalReferencesUsed": [
+        "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
+        "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
+        "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
+      ],
+      "worldReferences": [
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_supply_crate_style_pilot_v1.png",
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_rack_chest_style_pilot_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_grand_tournament_midground_style_v1.png"
+      ],
+      "comparisonReferences": [
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_training_dummy_style_v1.png",
+        "Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png"
+      ],
+      "sourceHashes": {
+        "pilot": "68797dce44af576d6015a619793264a782cd910f51ae9071148c3d8f0cc56a49",
+        "stageScaleProxy": "c69f57a736a6a2f85782b69c960222e84433bf7f3ba1dd0dd035750727ffd729",
+        "readabilityStrip": "ca67ba5086a045ebf41108614c2f473637e29602c80073d7b9376793ca8dfe7d",
+        "silhouetteComparison": "4d0100f013a10aa1bad2e2facaf76e814b473d7833c471d9cfd247b44cc3b8f1",
+        "production": "a663b22b835627f76dc3af6493c83f84ce74f22e35a754713afe0a809c124a9f",
+        "intact720": "a883cb61708faaf413669f818c8de7587cfb4f8e21b286dd1d81481f4290edcd",
+        "drop720": "f7224534b656829fc33706049fa37d7582f8629e39efe7e48a8de0f78d9a24be",
+        "collection720": "83bc73b94965a8dc65fdec3bb57070e8c8ba6776ec8ce140528f255496de4ad9",
+        "intact1080": "ff509a0e761679fb63a0a1d4d4b442ac941489e7fa73abb1d93ed55465889cdd",
+        "drop1080": "9f18007bcf4c13d22b8fe1e9c53333075b92f388d8f872add805d20c78533a5d",
+        "collection1080": "ac115fb910088c562f623205f9da90375ae06856784f3bbee8a47dec3d5f864e"
+      },
+      "measuredProportion": {
+        "method": "alpha_content_bbox_height_px * SpritePixelSize, via Scripts/Tools/measure_true_sprite_world_height.py, chosen BEFORE processing per VISUAL_STYLE_BIBLE.md > Proportion and scale calibration",
+        "trueWorldHeight": 2.3,
+        "referenceAsset": "mannequin_sheet_higgsfield_v1.png idle frame (row 0, col 0)",
+        "referenceTrueHeight": 4.104,
+        "ratio": 0.56
+      },
+      "score": 15,
+      "scoreBreakdown": {
+        "cohesion": 2,
+        "contour": 2,
+        "celValueStructure": 2,
+        "silhouette": 2,
+        "detailDensity": 1,
+        "materialLighting": 2,
+        "colorHierarchy": 2,
+        "runtimeFitness": 2
+      },
+      "automaticFailure": false,
+      "finalApproval": true,
+      "runtimeCaptures": [
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_intact_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_drop_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_collection_runtime_1280x720.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_intact_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_drop_runtime_1920x1080.png",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_collection_runtime_1920x1080.png"
+      ],
+      "runtimeValidation": [
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_style_v1_processing.json",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_runtime_1280x720.log",
+        "Artifacts/StyleCalibration/world_warrior_grand_tournament_trophy_podium_runtime_1920x1080.log"
+      ],
+      "reviewer": "GitHub Copilot",
+      "notes": "The World Warrior Champion's Trophy Podium is the third independent World Warrior breakable-crate identity, a stepped three-tier stone podium deliberately distinct in silhouette from both the low wide Sparring Supply Crate and the tall standing Pavilion Rack Chest (wide-based and stepped rather than a flat box or a vertical cabinet), verified against both in a three-way silhouette comparison. Motifs are drawn directly from the Grand Tournament Floor midground art: the dark charcoal-black stepped stone trophy plinth, warm-ivory stone tiers, deep-indigo-and-vermilion ribbon sash, pewter-silver trophy-cup shape (used here as a fixed lid ornament), and small gold brazier-bowl accents. The 2048x2048 source holds one edge-clear connected object, zero green spill, and stays legible at 96, 128, and 160 pixels tall (stepped tiers, sash, and trophy-cup lid all survive at the smallest size). This pilot applied the corrected process from the start: target_world_height (2.30 units) was chosen against the canonical mannequin's true rendered height (4.104 units, measured by alpha-content bounding box, not the gameplay hurtbox) BEFORE processing, landing at 56.0 percent -- inside the 55-75 percent standing-furniture/apparatus band from VISUAL_STYLE_BIBLE.md > Proportion and scale calibration, and confirmed correct in the post-wiring runtime capture with no adjustment needed. Detail density scored 1 for the same reason as the other two crates (repeated stone-block and crack linework across three tiers adds mild clutter next to the cleaner pickups); all other criteria scored 2 for a 15/16 total. Grand Tournament Floor's second encounter now adds one 95-HP trophy podium with a guaranteed health drop, alongside the existing approved honor dummy (score drop) in its first encounter, completing the three-stage cyclic pickup-type pattern across World Warrior's non-boss stages (Dojo: health + meter, Pavilion: meter + score, Grand Tournament: score + health). Trophy Podium content is distinct from both approved crates, the training dummy, and the Archive data cache. Intact, break-drop, and post-collection captures pass at 1280x720 and 1920x1080 at tick 1052 with correct capture dimensions; health rises 120->180 (the established 25-percent-of-max Vitality Gourd grant). The same transient 'N ObjectDB instances leaked at exit' shutdown warning already documented as a pre-existing environmental artifact reproduces here too and is not a regression. Deterministic validation passes 240/240 world, 51/51 hazard, and 11/11 RunScore assertions.",
+      "nextAction": "Retain the Champion's Trophy Podium as the third approved World Warrior breakable-crate variant; the Champion's Courtyard crate is the last remaining variant on this proven path. The Sparring Supply Crate proportion audit and the full cross-world Proportion Sizing Sweep in PROJECT_HANDOFF.md remain open and scheduled for the end of the phase.",
+      "reviewDate": "2026-07-27"
+    },
+    {
       "id": "archive_enemy_family_legacy_and_pending",
       "category": "enemy",
       "status": "partial_replacement_required",

@@ -979,6 +979,7 @@ public static class WorldRunCatalog
             else if (stageIndex == 2)
             {
                 AuthorGrandTournamentTrainingProp(firstEncounter);
+                AuthorGrandTournamentTrophyPodium(secondEncounter);
             }
 
             return;
@@ -1162,6 +1163,26 @@ public static class WorldRunCatalog
             SpritePath = WorldWarriorTrainingDummySprite,
             SpritePixelSize = WorldWarriorTrainingDummyPixelSize,
             SpriteGroundOffsetPixels = 968.0f,
+        });
+    }
+
+    private static void AuthorGrandTournamentTrophyPodium(
+        StageEncounterData secondEncounter)
+    {
+        secondEncounter.Props.Add(new StagePropData
+        {
+            Id = "grand_tournament_trophy_podium",
+            ArchetypeId = "world_warrior_grand_tournament_trophy_podium",
+            PositionX = secondEncounter.ArenaMinX + 2.6f,
+            PositionZ = -1.85f,
+            Health = 95,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Health,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorGrandTournamentTrophyPodiumSprite,
+            SpritePixelSize = WorldWarriorGrandTournamentTrophyPodiumPixelSize,
+            SpriteGroundOffsetPixels = 887.0f,
         });
     }
 
@@ -1515,6 +1536,9 @@ public static class WorldRunCatalog
     private const string WorldWarriorPavilionRackChestSprite =
         "res://Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png";
     private const float WorldWarriorPavilionRackChestPixelSize = 0.00132653f;
+    private const string WorldWarriorGrandTournamentTrophyPodiumSprite =
+        "res://Assets/Sprites/Props/WorldWarrior/world_warrior_grand_tournament_trophy_podium_style_v1.png";
+    private const float WorldWarriorGrandTournamentTrophyPodiumPixelSize = 0.00133721f;
     private const string ArchiveMeterCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png";
     private const string ArchiveDataCacheSprite =

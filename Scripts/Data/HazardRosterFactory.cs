@@ -122,6 +122,20 @@ public static class HazardRosterFactory
         return crate;
     }
 
+    public static CharacterData CreateWorldWarriorGrandTournamentTrophyPodium()
+    {
+        var crate = CreateBreakableCrate();
+        crate.Id = "world_warrior_grand_tournament_trophy_podium";
+        crate.DisplayName = "Champion's Trophy Podium";
+        crate.SpriteSheetPath =
+            "res://Assets/Sprites/Props/WorldWarrior/world_warrior_grand_tournament_trophy_podium_style_v1.png";
+        crate.SpritePixelSize = 0.00133721f;
+        crate.SpriteGroundOffsetPixels = 887.0f;
+        crate.RoleTags.Add("world_warrior");
+        crate.RoleTags.Add("supply_prop");
+        return crate;
+    }
+
     public static CharacterData CreateMeterPickup()
     {
         return CreatePickup(

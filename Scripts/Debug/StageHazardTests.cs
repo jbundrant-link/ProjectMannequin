@@ -494,6 +494,31 @@ public static class StageHazardTests
         Check(StageMissionValidator.Validate(pavilionCircuit).Count == 0,
             "Pavilion Circuit passes hazard prop lane and spawn validation with the rack chest");
 
+        var grandTournamentFloor = WorldRunCatalog.CreateRun("world_warrior_sector").Stages[2];
+        var grandTournamentTrophyPodiumProp = grandTournamentFloor.Encounters[1].Props
+            .Single(prop => prop.ArchetypeId
+                == "world_warrior_grand_tournament_trophy_podium");
+        var grandTournamentTrophyPodium = new CombatActor
+        {
+            ActorId = "world_warrior_grand_tournament_trophy_podium",
+        };
+        var grandTournamentTrophyPodiumForm = HazardRosterFactory
+            .CreateWorldWarriorGrandTournamentTrophyPodium();
+        grandTournamentTrophyPodiumForm.MaxHealth = grandTournamentTrophyPodiumProp.Health;
+        grandTournamentTrophyPodium.Initialize(grandTournamentTrophyPodiumForm);
+        grandTournamentTrophyPodium.ApplyHazardDamage(
+            grandTournamentTrophyPodiumProp.Health - 10, tick: 2);
+        var trophyPodiumSurvivedPartialBreak = !grandTournamentTrophyPodium.IsDead;
+        grandTournamentTrophyPodium.ApplyHazardDamage(10, tick: 3);
+        Check(trophyPodiumSurvivedPartialBreak
+              && grandTournamentTrophyPodium.IsDead
+              && grandTournamentTrophyPodiumProp.SpawnsPickupOnBreak
+              && grandTournamentTrophyPodiumProp.DropType == StagePickupType.Health
+              && grandTournamentTrophyPodium.CurrentForm.RoleTags.Contains("breakable"),
+            "Grand Tournament trophy podium survives partial damage then breaks into a health drop");
+        Check(StageMissionValidator.Validate(grandTournamentFloor).Count == 0,
+            "Grand Tournament Floor passes hazard prop lane and spawn validation with the trophy podium");
+
         var session = RunSessionManager.Instance;
         session.StartNewRun("world_warrior_sector");
         var worldWarriorScorePickup = new CombatActor

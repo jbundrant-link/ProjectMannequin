@@ -60,11 +60,11 @@ and score-pickup PNG must resolve to Git LFS.
 Current automated baseline:
 
 - Settings assertions: `34/34`
-- World-run assertions: `236/236`
-- Stage-hazard assertions: `49/49`
+- World-run assertions: `240/240`
+- Stage-hazard assertions: `51/51`
 - Input grammar/assignment assertions: `34/34`
 - Run-score assertions: `11/11`
-- World/hazard aggregate: `285/285`
+- World/hazard aggregate: `291/291`
 - Clean runtime evidence exists for approved World Warrior slices at both
   `1280x720` and `1920x1080`.
 
@@ -98,6 +98,8 @@ Completed quality bar:
   worktree, subject to the clone-durability gate above.
 - World Warrior Pavilion Rack Chest is `15/16` runtime approved in the live
   worktree, subject to the clone-durability gate above.
+- World Warrior Champion's Trophy Podium is `15/16` runtime approved in the
+  live worktree, subject to the clone-durability gate above.
 
 The immediate unfinished slice is **Phase 6 item 1, `SettingsStore` and the
 options surface**, under the master plan's
@@ -396,17 +398,56 @@ the same pilot, runtime, and dual-resolution gates.
   validation passes `236/236` world, `49/49` hazard, and `11/11` RunScore
   assertions.
 
+### World Warrior Champion's Trophy Podium
+
+- One `15/16` breakable trophy podium is the third World Warrior crate
+  identity: a stepped three-tier stone podium, deliberately a third distinct
+  silhouette from both the low wide Sparring Supply Crate and the tall
+  standing Pavilion Rack Chest (wide-based and stepped rather than a flat box
+  or a vertical cabinet), verified in a three-way silhouette comparison.
+  Motifs are drawn from the Grand Tournament Floor midground art itself: the
+  dark charcoal-black stepped stone trophy plinth, warm-ivory stone tiers, a
+  deep-indigo-and-vermilion ribbon sash, the pewter-silver trophy-cup shape
+  (used as a fixed lid ornament), and small gold brazier-bowl accents.
+- Detail density scored `1` for the same reason as the other two crates; every
+  other criterion scored `2`.
+- This pilot applied the corrected process **from the start**, per
+  `Immediate Continuation Order` item 4: `target_world_height` (`2.30` units)
+  was chosen against the canonical mannequin's true rendered height (`4.10`
+  units) *before* processing, landing at **56.0%** — inside the `55-75%`
+  standing-furniture/apparatus band from `VISUAL_STYLE_BIBLE.md > Proportion
+  and scale calibration` — and confirmed correct in the post-wiring runtime
+  capture with no adjustment needed, unlike the Rack Chest's post-hoc fix.
+  Exact green-key processing preserves `23/191/1943/1911` alpha bounds and
+  zero green spill, calibrating `0.00133721/887`.
+- The podium stays readable at `96/128/160` pixels and is content-distinct
+  from both approved crates, the training dummy, and the Archive data cache.
+- Grand Tournament Floor adds one additive `95`-HP trophy podium to its second
+  encounter with a guaranteed health drop, alongside the existing approved
+  honor dummy (score drop) in its first encounter. This completes the
+  three-stage cyclic pickup-type pattern across World Warrior's non-boss
+  stages (Dojo: health + meter, Pavilion: meter + score, Grand Tournament:
+  score + health). Intact, break-drop, and post-collection captures pass at
+  both resolutions at tick `1052` with health rising `120 -> 180` (the
+  established 25%-of-max Vitality Gourd grant). The same transient "N ObjectDB
+  instances leaked at exit" shutdown warning already documented as a
+  pre-existing environmental artifact reproduces here too and is not a
+  regression. Current validation passes `240/240` world, `51/51` hazard, and
+  `11/11` RunScore assertions.
+
 ## Immediate Continuation Order
 
 1. Do not restore or search an older Copilot session. Start from this checkpoint
    and the live files only.
 2. Do not regenerate or revise Tetsu, the training dummy, Vitality Gourd, Focus
-  Drum, Judge's Laurel Fan, the Sparring Supply Crate, or the Pavilion Rack
-  Chest; retain their final assets, evidence, and hashes. The Pavilion Rack
-  Chest's `SpritePixelSize` (only) was corrected post-approval from `1.85` to
-  `2.60` world units after a measured-proportion review found the original
-  pilot calibration far too small next to the player character; that corrected
-  value is now final.
+  Drum, Judge's Laurel Fan, the Sparring Supply Crate, the Pavilion Rack
+  Chest, or the Champion's Trophy Podium; retain their final assets,
+  evidence, and hashes. The Pavilion Rack Chest's `SpritePixelSize` (only) was
+  corrected post-approval from `1.85` to `2.60` world units after a
+  measured-proportion review found the original pilot calibration far too
+  small next to the player character; that corrected value is now final. The
+  Trophy Podium applied the measured-proportion method from the start
+  (`2.30` units, `56.0%` of true mannequin height) and needed no correction.
 3. Do not fix proportion sizing piecemeal. The user confirmed the smallness
   issue is systemic ("the issue is in every stage... the train [Archive
   Intake Tram] is ridiculously small") and asked for one full sweep at the end
@@ -423,18 +464,22 @@ the same pilot, runtime, and dual-resolution gates.
   `Scripts/Tools/measure_true_sprite_world_height.py` against the canonical
   mannequin/Ryu/Goku true height (~`4.10` units), not a flat 2D proxy alone,
   before calling any pilot's scale final.
-5. Define and generate one independent pilot per remaining crate variant (Grand
-  Tournament and Champion's Courtyard), using accepted World Warrior
-  props/stages for motif and mannequin/Ryu/Goku for rendering finish. Each must
+5. Define and generate one independent pilot for the last remaining crate
+  variant, the Champion's Courtyard crate, using accepted World Warrior
+  props/stages for motif and mannequin/Ryu/Goku for rendering finish. It must
   read as breakable tournament supplies at gameplay size with clear seams and
-  function, distinct from the training dummy, the Sparring Supply Crate, and
-  the Pavilion Rack Chest. The Grand Tournament crate should target a Health
-  drop to complete the three-stage cyclic pickup coverage (Dojo: health +
-  meter, Pavilion: meter + score, Grand Tournament: score + health).
-6. Review each raw variant beside the approved training dummy, the Sparring
-  Supply Crate, the Pavilion Rack Chest, all three pickups, World Warrior
-  fighters, and stage art. Require at least `14/16`, no zero criterion, and no
-  automatic failure before any further variant or hazard batch.
+  function, distinct from the training dummy, the Sparring Supply Crate, the
+  Pavilion Rack Chest, and the Grand Tournament Champion's Trophy Podium. With
+  the three-stage cyclic pickup coverage already complete (Dojo: health +
+  meter, Pavilion: meter + score, Grand Tournament: score + health), this
+  fourth crate's drop type is a free choice — Champion's Courtyard has no
+  existing prop of its own yet to react against, so pick whichever pickup type
+  best fits its final-duel framing.
+6. Review the raw variant beside the approved training dummy, the Sparring
+  Supply Crate, the Pavilion Rack Chest, the Trophy Podium, all three
+  pickups, World Warrior fighters, and stage art. Require at least `14/16`,
+  no zero criterion, and no automatic failure before any further variant or
+  hazard batch.
 7. After each pilot approval, wire one real break/drop interaction and capture it
   at both target resolutions; preserve rejected generations as provenance.
 8. Expand to rolling logs, falling practice props, crowds, and destruction only

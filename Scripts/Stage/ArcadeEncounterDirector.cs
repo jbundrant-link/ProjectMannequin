@@ -901,6 +901,7 @@ public sealed class ArcadeEncounterDirector
                 "world_warrior_training_dummy" => HazardRosterFactory.CreateWorldWarriorTrainingDummy(),
                 "world_warrior_supply_crate" => HazardRosterFactory.CreateWorldWarriorSupplyCrate(),
                 "world_warrior_pavilion_rack_chest" => HazardRosterFactory.CreateWorldWarriorPavilionRackChest(),
+                "world_warrior_grand_tournament_trophy_podium" => HazardRosterFactory.CreateWorldWarriorGrandTournamentTrophyPodium(),
                 _ => HazardRosterFactory.CreateBreakableCrate(),
             };
             var tint = Colors.White;
