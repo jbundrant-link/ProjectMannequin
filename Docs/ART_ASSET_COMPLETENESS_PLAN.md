@@ -40,7 +40,7 @@ A stage or phase is complete only when every applicable requirement passes:
 8. **Canonical style references** — every generated-art job uses approved mannequin/Ryu/Goku anchors; an off-style asset is never the sole reference for another asset.
 9. **Style rubric** — every asset passes the visual bible at 14/16 or better, with no automatic-fail condition and explicit review metadata.
 10. **Runtime cohesion QA** — inspect beside approved characters at 1280×720 and 1920×1080 for style cohesion, seams, scale, contrast, occlusion, telegraph readability, and detail noise.
-11. **Proportion sizing** — every character, enemy, prop, and pickup has its true rendered world height measured with `Scripts/Tools/measure_true_sprite_world_height.py` (alpha-content bounding box × pixel size, never the gameplay hurtbox or an assumed frame size) and compared against the canonical mannequin/Ryu/Goku true height. The result must land in the target ratio band from `VISUAL_STYLE_BIBLE.md > Proportion and scale calibration`, and every roster member of a comparable weight class must land within a similar band of each other. A flat 2D proxy comparison alone does not satisfy this gate — an actual runtime capture confirmation is required.
+11. **Proportion sizing** — every character, enemy, prop, and pickup has its true rendered world height measured with `Scripts/Tools/measure_true_sprite_world_height.py` (alpha-content bounding box × pixel size, never the gameplay hurtbox or an assumed frame size) and compared against the canonical mannequin/Ryu/Goku true height. The result must land in the target ratio band from `VISUAL_STYLE_BIBLE.md > Proportion and scale calibration`, and every roster member of a comparable weight class must land within a similar band of each other. A flat 2D proxy comparison alone does not satisfy this gate — an actual runtime capture confirmation is required. **Retroactive:** assets already marked `runtime_approved` below (including the whole Archive quality bar) were approved before this gate existed and are not exempt — see `Docs/PROJECT_HANDOFF.md > Full Proportion Sizing Sweep` for the scheduled cross-world audit and its confirmed findings so far (several Archive caches and the Intake Tram already measure too small).
 12. **Lighting contract** — stage and backdrop art authored after the `Stage Rendering And Depth Separation Pass` must agree with the per-stage key direction locked by that pass. Painted lighting that contradicts the runtime key is a failure, not a style preference. Art produced before that lock is provisional and is re-reviewed against it.
 13. **Performance** — new art stays within texture-memory and draw-call budgets and does not introduce recurring frame hitches.
 
@@ -175,6 +175,15 @@ Current cross-world verification after the World Warrior Sparring Supply Crate, 
 ## Production order
 
 ### Archive quality bar
+
+**Proportion-sizing debt (2026-07-27):** every item below was approved before
+the `Proportion sizing` gate (item 11 above) existed. Measured audits already
+confirm the Archive Health/Meter/Data Cache and the Archive Intake Tram render
+noticeably too small next to the player character (~40-44% of true mannequin
+height instead of a believable ~55%+ for standing objects). Do not re-open
+this list item by item — it is in scope for the single scheduled
+`Docs/PROJECT_HANDOFF.md > Full Proportion Sizing Sweep` and should be
+corrected there in one batch pass, not piecemeal.
 
 1. **DONE:** Produce and approve the cross-category style calibration pilots beside mannequin/Ryu/Goku: Raider, health cache, health pickup, Index Vaults lateral set, HUD kit, and strike VFX.
 2. **DONE:** Complete the first runtime calibration set with the strike VFX and all seven Archive caches, pickups, and canister assets at both target resolutions.

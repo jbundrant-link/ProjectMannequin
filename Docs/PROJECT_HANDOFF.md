@@ -407,12 +407,14 @@ the same pilot, runtime, and dual-resolution gates.
   `2.60` world units after a measured-proportion review found the original
   pilot calibration far too small next to the player character; that corrected
   value is now final.
-3. The Sparring Supply Crate is flagged for a proportion-sizing audit: it
-  measures `31.7%` of the canonical mannequin's true rendered height (versus
-  the training dummy's `68.2%` and the corrected Rack Chest's `63.4%`). It may
-  be intentionally low/wide, or it may need the same correction the Rack Chest
-  received — review it against `VISUAL_STYLE_BIBLE.md > Proportion and scale
-  calibration` and decide before its next revision, not silently.
+3. Do not fix proportion sizing piecemeal. The user confirmed the smallness
+  issue is systemic ("the issue is in every stage... the train [Archive
+  Intake Tram] is ridiculously small") and asked for one full sweep at the end
+  of the current phase rather than scattered single-asset corrections. See
+  the new `Full Proportion Sizing Sweep` section below for the trigger
+  condition, confirmed offenders (including the Sparring Supply Crate at
+  `31.7%`), already-checked assets, and full scope — read it before touching
+  any more prop/character scale.
 4. Reuse the proven Sparring Supply Crate path — generator, review proxies,
   green-key processing, additive authoring, deterministic contracts, and the
   dual-resolution capture wrapper — for every remaining crate variant. Add the
@@ -811,6 +813,86 @@ the same pilot, runtime, and dual-resolution gates.
 26. Run every deterministic suite with
   `Scripts/Tools/run_all_deterministic_suites.ps1`, which covers input grammar,
   settings, world run, run score, and stage hazards in one headless pass.
+
+## Full Proportion Sizing Sweep
+
+**Scheduled trigger: run this at the end of the current phase** — after the
+remaining World Warrior crate variants (Grand Tournament, Champion's
+Courtyard) and the rest of the `Remaining Phase 5 > World Warrior` queue
+(rolling logs, falling practice props, crowds, destruction) are done, and
+before Phase 5 is marked complete or Astral restyle begins. Do not fix these
+piecemeal between now and then unless a specific asset blocks other work —
+batch it into one pass with one deterministic re-run and one round of fresh
+captures, the same way the Rack Chest fix on 2026-07-27 was done.
+
+**Why this exists:** the Pavilion Rack Chest pilot was calibrated with a flat
+2D proxy method that is not reliable evidence of true in-game size (Godot's
+`Sprite3D.PixelSize` scales the full per-frame texture, not visible content,
+and a character's gameplay hurtbox is intentionally smaller than its
+rendered sprite). It shipped 44% too small next to the player character and
+was corrected same-day (see `World Warrior Pavilion Rack Chest` above). The
+user then reported the same kind of smallness in Archive stages ("the train
+is ridiculously small") and asked for a full sweep at the end of the phase,
+not spot fixes. Measuring confirmed it is systemic, not isolated to one
+asset — see `/memories/repo/setup.md` for the full session log, summarized
+here:
+
+- **Confirmed too small (~40-44% of the mannequin's true rendered height,
+  the same pattern the Rack Chest had before its fix)** — prioritize these
+  first: Archive Health Cache (43.9%), Archive Meter Cache (44.1%), Archive
+  Data Cache (44.0%), Archive Intake Tram (44.3%), Archive Repository Falling
+  Shelf (40.7%), World Warrior Sparring Supply Crate (31.7%, already flagged
+  above).
+- **Measured and look correct already, no action expected unless the sweep's
+  full pass finds otherwise:** Archive Volatile Canister (59.4%), Archive
+  Repository Data Debris (65.0%), World Warrior Training Dummy (68.2%),
+  Pavilion Rack Chest (63.4%, corrected).
+- **Needs case-by-case judgment, not the standing-furniture band:** Archive
+  Repository Security Sweep (20.3%) is a low floor-level hazard by design and
+  may be correct at that scale — do not blanket-resize hazards without
+  checking their gameplay function first.
+- **Sampled and looked like intentional design, not a bug:** the Archive
+  enemy roster's weight-class height progression (Scout 90.2%, Raider 98.7%,
+  Bruiser 114.4% of mannequin height) reads as a believable
+  lightweight/medium/heavyweight spread. Re-verify during the sweep but do
+  not assume this needs correction without new evidence.
+- **Not sampled at all yet:** the full Astral roster and prop/hazard set, and
+  every Archive/World Warrior enemy, elite, and boss beyond the three sampled
+  above.
+
+**Sweep scope (full enumeration required, not a sample):**
+
+1. Every player-usable form, every standard enemy, every named elite, and
+   every boss across Archive Nexus, World Warrior, and Astral.
+2. Every prop, cache, canister, obstacle, pickup, and hazard/set-piece
+   sprite across all three worlds, including ones already marked
+   `runtime_approved` — approval predates this gate for most of them.
+3. For each: measure true rendered height with
+   `Scripts/Tools/measure_true_sprite_world_height.py` (alpha-content bbox
+   height × `SpritePixelSize`, using an idle/neutral frame for animated
+   sheets) and record the ratio against the canonical mannequin true height
+   (~4.10 units).
+4. Compare against the target bands in
+   `VISUAL_STYLE_BIBLE.md > Proportion and scale calibration`: 55-75% for
+   tall standing furniture/apparatus, 25-45% for low/squat floor-level
+   objects, 12-20% for pickups. Judge hazards against their authored gameplay
+   geometry and function, not a blanket band.
+5. Produce one consolidated audit report (a single JSON or markdown table
+   listing every asset, its measured ratio, and pass/fail) rather than ad hoc
+   notes, so the sweep is auditable and repeatable. Consider extending
+   `measure_true_sprite_world_height.py` with a batch/manifest mode driven by
+   a generated list of `{path, pixel_size, hframes, vframes}` entries pulled
+   from the roster/catalog factories, rather than invoking it one asset at a
+   time by hand.
+6. Apply corrections in one batch: for single-frame props/hazards, only
+   `SpritePixelSize` needs to change (`SpriteGroundOffsetPixels` is fixed
+   pixel-space and does not depend on world scale, confirmed during the Rack
+   Chest fix) — no art regeneration required unless an asset's alpha content
+   itself needs to change. Rebuild, re-run the full deterministic suite, and
+   recapture runtime evidence for every asset whose `SpritePixelSize` moved.
+7. Update `Docs/VISUAL_STYLE_REVIEW_MANIFEST.json` entries and this file with
+   the corrected numbers, and close out this section once every category in
+   the scope list has been measured and any real outliers corrected.
 
 ## Remaining Phase 5
 
