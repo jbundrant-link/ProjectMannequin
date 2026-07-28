@@ -700,17 +700,32 @@ the same pilot, runtime, and dual-resolution gates.
   GPU load. Scaling is sublinear, so these stages are draw-call bound, not
   pixel bound. Numbers are machine-specific and from a Debug build; treat them
   as a budget check, not a portable benchmark.
-23. **Resume here.** The vignette half of item 5 is the ONLY thing left in the
-  pass, and it is an OPEN DESIGN CALL rather than a coding task. Godot 4's
-  `Environment` has no vignette, so it needs a screen overlay or post shader,
-  and a conventional radial vignette darkens the LEFT AND RIGHT edges - which
-  in a belt-scroller is exactly where a cornered player is fighting for their
-  life. It would also shift every capture, including the plate fidelity
-  comparison that approves the 5 plate stages. Options are: skip it, or
-  restrict the falloff to the top and bottom edges so framing improves without
-  dimming a cornered fighter. ASK BEFORE BUILDING EITHER - it was asked once
-  and not yet answered. Frame budget is not a constraint here: the pass uses
-  about 5 per cent of it.
+23. `Stage Rendering And Depth Separation Pass` is COMPLETE. The vignette
+  landed as `Scripts/Presentation/StageVignette.cs`, a `CanvasLayer` on layer 0
+  holding a generated vertical alpha gradient. The user chose TOP AND BOTTOM
+  FALLOFF ONLY over a conventional radial vignette, because this is a
+  belt-scroller and a radial falloff dims the left and right edges - exactly
+  where a cornered player is fighting. The profile is a function of HEIGHT
+  alone, so full width stays at full brightness by construction.
+  Bands are placed from a measured frame, not by eye: fighters occupy about
+  0.45-0.80 of frame height, so the top band fades out by 0.24 and the bottom
+  band only starts at 0.88, over what is purely bright floor.
+  MEASURED: fighter band -0.01 luma, left edge -0.01, right edge +0.02 at
+  fighter height, so the action is untouched. Bottom edge -27.78, top edge
+  -17.41. Implied per-row alpha matches the designed profile within 0.003.
+  `WorldRunTests` is `232` and gates that alpha is zero across the whole
+  fighter band, non-zero at both edges, monotonic inward, never above the
+  declared strength, and clamped outside 0..1.
+  *** THE TOP BAND IS MOSTLY INVISIBLE IN GAMEPLAY and that is CORRECT, not a
+  bug. The vignette sits BELOW the HUD (layer 1) so the HUD is never dimmed,
+  and the HUD panel covers about 95 per cent of the width at 0.14 height -
+  verified, 1214 of 1280 columns unchanged. The bottom band does the visible
+  work. If `HudScale` is ever wired up and the HUD shrinks, the top band will
+  start to matter.
+  It is excluded from `HideNonStagePresentation`, so clean plate captures are
+  unaffected and the plate fidelity comparison against source art still holds.
+  COST: +1 draw call and about +0.5 ms at p95 (worst p95 1.35 ms), so the whole
+  pass now uses roughly 8 per cent of the 16.7 ms budget.
   The pass was added
   to the master plan on 2026-07-25 from external art review: the base art is
   fine, but the frame is not rendered, so foreground does not separate from

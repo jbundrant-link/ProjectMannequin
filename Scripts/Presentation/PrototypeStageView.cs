@@ -89,6 +89,18 @@ public partial class PrototypeStageView : Node3D
         // the refresh interval and hide a real budget overrun.
         ProjectMannequin.Debugging.FrameTimeProbe.AttachIfRequested(
             this, _mission.Id);
+
+        // Vertical-only framing overlay. Added to the parent rather than to
+        // this node so HideNonStagePresentation can find it by name.
+        var parent = GetParent();
+        if (parent is not null
+            && parent.GetNodeOrNull(
+                ProjectMannequin.Presentation.StageVignette.NodeName) is null)
+        {
+            parent.CallDeferred(
+                Node.MethodName.AddChild,
+                ProjectMannequin.Presentation.StageVignette.Create());
+        }
         _cameraSmokeEnabled =
             OS.GetEnvironment("PROJECT_MANNEQUIN_CAMERA_SMOKE_TEST") == "1";
         _stageVisualSmokeEnabled =
@@ -395,6 +407,9 @@ public partial class PrototypeStageView : Node3D
             "DebugOverlay",
             "PauseMenu",
             "FormSelectOverlay",
+            // A clean plate capture is compared pixel-for-pixel against the
+            // source painting, so any framing overlay has to be absent.
+            ProjectMannequin.Presentation.StageVignette.NodeName,
         })
         {
             var node = root.GetNodeOrNull(nodeName);

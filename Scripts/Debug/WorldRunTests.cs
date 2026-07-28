@@ -1346,6 +1346,59 @@ public static class WorldRunTests
               - hazeReferenceStage.LaneMinZ,
             "negative haze clearance cannot pull haze onto the fighters");
 
+        // --- Vignette shape -----------------------------------------------
+
+        // THE reason this vignette is vertical rather than radial. A cornered
+        // fighter is pinned to the left or right edge, so any horizontal
+        // falloff dims the character who can least afford it. The profile is
+        // a function of HEIGHT only, so width is untouched by construction;
+        // what has to be gated is that it stays clear of the fighter band.
+        var vignetteClear = true;
+        for (var step = 0; step <= 40; step++)
+        {
+            var fraction = ProjectMannequin.Presentation.StageVignette.FighterBandTop
+                + (ProjectMannequin.Presentation.StageVignette.FighterBandBottom
+                   - ProjectMannequin.Presentation.StageVignette.FighterBandTop)
+                  * (step / 40.0f);
+            vignetteClear &= Mathf.IsZeroApprox(
+                ProjectMannequin.Presentation.StageVignette.AlphaAt(fraction));
+        }
+        Check(vignetteClear,
+            "the vignette never darkens any part of the fighter band");
+
+        Check(ProjectMannequin.Presentation.StageVignette.AlphaAt(0.0f) > 0.0f
+              && ProjectMannequin.Presentation.StageVignette.AlphaAt(1.0f) > 0.0f,
+            "the vignette darkens both the top and the bottom edge");
+
+        // Strongest at the very edge and fading inward, or it reads as a bar
+        // rather than a falloff.
+        var topFalls = true;
+        for (var step = 0; step < 12; step++)
+        {
+            var near = ProjectMannequin.Presentation.StageVignette.AlphaAt(
+                step / 12.0f * ProjectMannequin.Presentation.StageVignette.TopBandEnd);
+            var far = ProjectMannequin.Presentation.StageVignette.AlphaAt(
+                (step + 1) / 12.0f * ProjectMannequin.Presentation.StageVignette.TopBandEnd);
+            topFalls &= near >= far;
+        }
+        Check(topFalls, "the vignette fades monotonically inward from the top edge");
+
+        Check(ProjectMannequin.Presentation.StageVignette.AlphaAt(0.0f)
+              <= ProjectMannequin.Presentation.StageVignette.TopStrength + 0.0001f
+              && ProjectMannequin.Presentation.StageVignette.AlphaAt(1.0f)
+                 <= ProjectMannequin.Presentation.StageVignette.BottomStrength + 0.0001f,
+            "the vignette never exceeds its declared strength");
+
+        // Out-of-range input must clamp rather than extrapolate into a fully
+        // black frame.
+        Check(Mathf.IsEqualApprox(
+                  ProjectMannequin.Presentation.StageVignette.AlphaAt(-3.0f),
+                  ProjectMannequin.Presentation.StageVignette.AlphaAt(0.0f))
+              && Mathf.IsEqualApprox(
+                  ProjectMannequin.Presentation.StageVignette.AlphaAt(4.0f),
+                  ProjectMannequin.Presentation.StageVignette.AlphaAt(1.0f)),
+            "an out-of-range vignette height clamps instead of extrapolating");
+
         log.Append($"=== {passed} passed, {failed} failed ===");
         return log.ToString();
     }
