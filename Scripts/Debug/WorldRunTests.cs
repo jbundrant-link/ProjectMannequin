@@ -782,49 +782,6 @@ public static class WorldRunTests
                         "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
                     }),
                     "World Warrior supply crate content is distinct from the training dummy and Archive caches");
-                var dojoRollingLog = dojoApproach.Encounters
-                    .SelectMany(encounter => encounter.HazardZones)
-                    .Single(hazard => hazard.Id == "dojo_approach_rolling_log");
-                Check(dojoRollingLog.Behavior == StageHazardBehavior.LinearSweep
-                      && dojoRollingLog.Targets == StageHazardTargetMask.All
-                      && dojoRollingLog.SpritePath.EndsWith(
-                          "world_warrior_dojo_rolling_log_style_v1.png")
-                      && ResourceLoader.Exists(dojoRollingLog.SpritePath)
-                      && Mathf.IsEqualApprox(
-                          dojoRollingLog.SpritePixelSize,
-                          0.00090498f)
-                      && Mathf.IsEqualApprox(
-                          dojoRollingLog.SpriteGroundOffsetPixels,
-                          553.0f)
-                      && dojoApproach.Encounters[0].HazardZones.Any(hazard =>
-                          hazard.Id == "dojo_approach_rolling_log"),
-                    "Dojo Approach authors a calibrated rolling training log sweeping the first encounter");
-                var dojoFallingWeight = dojoApproach.Encounters
-                    .SelectMany(encounter => encounter.HazardZones)
-                    .Single(hazard => hazard.Id == "dojo_approach_falling_weight");
-                Check(dojoFallingWeight.Behavior == StageHazardBehavior.FallingStrike
-                      && dojoFallingWeight.Targets == StageHazardTargetMask.All
-                      && dojoFallingWeight.SpritePath.EndsWith(
-                          "world_warrior_dojo_falling_weight_style_v1.png")
-                      && ResourceLoader.Exists(dojoFallingWeight.SpritePath)
-                      && Mathf.IsEqualApprox(
-                          dojoFallingWeight.SpritePixelSize,
-                          0.00062080f)
-                      && Mathf.IsEqualApprox(
-                          dojoFallingWeight.SpriteGroundOffsetPixels,
-                          909.0f)
-                      && dojoFallingWeight.ActiveFrames > 0
-                      && dojoApproach.Encounters[1].HazardZones.Any(hazard =>
-                          hazard.Id == "dojo_approach_falling_weight"),
-                    "Dojo Approach authors a calibrated falling training weight striking the second encounter");
-                Check(HaveDistinctContent(new[]
-                    {
-                        dojoRollingLog.SpritePath,
-                        dojoFallingWeight.SpritePath,
-                        supplyCrate.SpriteSheetPath,
-                        trainingDummy.SpriteSheetPath,
-                    }),
-                    "Dojo Approach's two new hazards are content-distinct from each other and from its existing props");
                 var worldWarriorHealthPickup = HazardRosterFactory
                     .CreateWorldWarriorHealthPickup();
                 var worldWarriorHealthTexture = ResourceLoader.Exists(
@@ -911,6 +868,50 @@ public static class WorldRunTests
                         "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
                     }),
                     "Pavilion Rack Chest content is distinct from the supply crate, training dummy, and Archive cache");
+                var pavilionRollingLog = pavilionCircuit.Encounters
+                    .SelectMany(encounter => encounter.HazardZones)
+                    .Single(hazard => hazard.Id == "pavilion_circuit_rolling_log");
+                Check(pavilionRollingLog.Behavior == StageHazardBehavior.LinearSweep
+                      && pavilionRollingLog.Targets == StageHazardTargetMask.All
+                      && pavilionRollingLog.SpritePath.EndsWith(
+                          "world_warrior_pavilion_rolling_log_style_v1.png")
+                      && ResourceLoader.Exists(pavilionRollingLog.SpritePath)
+                      && Mathf.IsEqualApprox(
+                          pavilionRollingLog.SpritePixelSize,
+                          0.00099701f)
+                      && Mathf.IsEqualApprox(
+                          pavilionRollingLog.SpriteGroundOffsetPixels,
+                          553.0f)
+                      && pavilionCircuit.Encounters[0].HazardZones.Any(hazard =>
+                          hazard.Id == "pavilion_circuit_rolling_log"),
+                    "Pavilion Circuit authors a calibrated rolling training log sweeping the first encounter");
+                var pavilionFallingWeight = pavilionCircuit.Encounters
+                    .SelectMany(encounter => encounter.HazardZones)
+                    .Single(hazard => hazard.Id == "pavilion_circuit_falling_weight");
+                Check(pavilionFallingWeight.Behavior == StageHazardBehavior.FallingStrike
+                      && pavilionFallingWeight.Targets == StageHazardTargetMask.All
+                      && pavilionFallingWeight.SpritePath.EndsWith(
+                          "world_warrior_pavilion_falling_weight_style_v1.png")
+                      && ResourceLoader.Exists(pavilionFallingWeight.SpritePath)
+                      && Mathf.IsEqualApprox(
+                          pavilionFallingWeight.SpritePixelSize,
+                          0.00065253f)
+                      && Mathf.IsEqualApprox(
+                          pavilionFallingWeight.SpriteGroundOffsetPixels,
+                          919.0f)
+                      && pavilionFallingWeight.ActiveFrames > 0
+                      && pavilionCircuit.Encounters[1].HazardZones.Any(hazard =>
+                          hazard.Id == "pavilion_circuit_falling_weight"),
+                    "Pavilion Circuit authors a calibrated falling training weight striking the second encounter");
+                Check(HaveDistinctContent(new[]
+                    {
+                        pavilionRollingLog.SpritePath,
+                        pavilionFallingWeight.SpritePath,
+                        pavilionRackChest.SpriteSheetPath,
+                        supplyCrate.SpriteSheetPath,
+                        trainingDummy.SpriteSheetPath,
+                    }),
+                    "Pavilion Circuit's two hazards are content-distinct from each other and from its existing props");
                 var worldWarriorMeterPickup = HazardRosterFactory
                     .CreateWorldWarriorMeterPickup();
                 var worldWarriorMeterTexture = ResourceLoader.Exists(

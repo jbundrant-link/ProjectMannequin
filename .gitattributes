@@ -296,5 +296,5 @@ Assets/Stages/WorldWarrior/world_warrior_pavilion_midground_style_v1.png filter=
 Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png filter=lfs diff=lfs merge=lfs -text
 Assets/Sprites/Props/WorldWarrior/world_warrior_grand_tournament_trophy_podium_style_v1.png filter=lfs diff=lfs merge=lfs -text
 Assets/Sprites/Props/WorldWarrior/world_warrior_champions_courtyard_lantern_urn_style_v1.png filter=lfs diff=lfs merge=lfs -text
-Assets/Sprites/Hazards/WorldWarrior/world_warrior_dojo_falling_weight_style_v1.png filter=lfs diff=lfs merge=lfs -text
-Assets/Sprites/Hazards/WorldWarrior/world_warrior_dojo_rolling_log_style_v1.png filter=lfs diff=lfs merge=lfs -text
+Assets/Sprites/Hazards/WorldWarrior/world_warrior_pavilion_falling_weight_style_v1.png filter=lfs diff=lfs merge=lfs -text
+Assets/Sprites/Hazards/WorldWarrior/world_warrior_pavilion_rolling_log_style_v1.png filter=lfs diff=lfs merge=lfs -text

@@ -1,29 +1,23 @@
 #!/usr/bin/env python3
-"""Create gameplay-scale review proxies for the two Dojo Approach hazard pilots.
+"""Create gameplay-scale review proxies for the two Pavilion Circuit hazard pilots.
 
-These are World Warrior's FIRST hazard zones (StageHazardZoneData), not
-breakable props. Per VISUAL_STYLE_BIBLE.md > "Proportion and scale
-calibration", hazard emitters/set pieces scale to the stage's authored
-geometry and function rather than a fixed character-height band; the
-reasoning is recorded here and in the review notes rather than derived from
-a fixed percentage range.
+CORRECTED PLACEMENT: these are World Warrior's first hazard zones
+(StageHazardZoneData), belonging to Pavilion Circuit (Stage 2) per
+MASTER_IMPLEMENTATION_PLAN.md > Phase 5 > item 16, not Dojo Approach where an
+earlier session mistakenly wired them. See
+generate_world_warrior_pavilion_rolling_log_pilot.ps1 for the full
+correction rationale.
 
-- Rolling Training Log (LinearSweep): target_world_height 1.00 unit
-  (diameter, lying on its side) -- reasoned as a thick, unmistakably
-  substantial obstacle log, roughly a quarter of the mannequin's true
-  rendered height (4.104 units), large enough to read as a genuine sweep
-  hazard a fighter must jump or dash past.
-- Falling Training Weight (FallingStrike): target_world_height 1.20 units
-  -- reasoned slightly larger than the log since it needs clear "incoming
-  danger" readability while hanging/falling from above, comparable to a
-  large heavy training bag.
+Per VISUAL_STYLE_BIBLE.md > "Proportion and scale calibration", hazard
+emitters/set pieces scale to the stage's authored geometry and function
+rather than a fixed character-height band; the reasoning (unchanged from the
+original Dojo-placed design, since it was based on hazard function, not
+stage identity) is recorded here and in the review notes:
 
-Per the same gate, both were chosen analytically before green-key
-processing; process_single_green_sprite.py's pixel_size = target_world_height
-/ visible_height_px guarantees each production sprite renders at exactly
-that true world height by construction. The proxy below is a rough
-pre-visualization aid only; final confirmation is the post-wiring runtime
-capture.
+- Rolling Log (LinearSweep): target_world_height 1.00 unit (diameter, lying
+  on its side) -- a thick, unmistakably substantial obstacle log.
+- Falling Weight (FallingStrike): target_world_height 1.20 units -- slightly
+  larger for clear incoming-danger readability while hanging/falling.
 """
 
 from __future__ import annotations
@@ -36,15 +30,15 @@ from compose_enemy_sheet import load_source_rgba
 
 ROLLING_LOG_PILOT = Path(
     "Assets/Sprites/Concepts/StyleCalibration/"
-    "world_warrior_dojo_rolling_log_style_pilot_v1.png"
+    "world_warrior_pavilion_rolling_log_style_pilot_v1.png"
 )
 FALLING_WEIGHT_PILOT = Path(
     "Assets/Sprites/Concepts/StyleCalibration/"
-    "world_warrior_dojo_falling_weight_style_pilot_v1.png"
+    "world_warrior_pavilion_falling_weight_style_pilot_v1.png"
 )
-SUPPLY_CRATE_PILOT = Path(
-    "Assets/Sprites/Concepts/StyleCalibration/"
-    "world_warrior_supply_crate_style_pilot_v1.png"
+RACK_CHEST_SOURCE = Path(
+    "Assets/Sprites/Props/WorldWarrior/"
+    "world_warrior_pavilion_rack_chest_style_v1.png"
 )
 TRAINING_DUMMY_SOURCE = Path(
     "Assets/Sprites/Props/WorldWarrior/"
@@ -52,23 +46,23 @@ TRAINING_DUMMY_SOURCE = Path(
 )
 STAGE_CAPTURE = Path(
     "Artifacts/StyleCalibration/"
-    "world_warrior_dojo_approach_stage_only_1280x720.png"
+    "world_warrior_pavilion_circuit_stage_only_1280x720.png"
 )
 STAGE_PROXY = Path(
     "Artifacts/StyleCalibration/"
-    "world_warrior_dojo_hazards_pilot_v1_stage_scale_proxy.png"
+    "world_warrior_pavilion_hazards_pilot_v1_stage_scale_proxy.png"
 )
 ROLLING_LOG_READABILITY_STRIP = Path(
     "Artifacts/StyleCalibration/"
-    "world_warrior_dojo_rolling_log_pilot_v1_readability_strip.png"
+    "world_warrior_pavilion_rolling_log_pilot_v1_readability_strip.png"
 )
 FALLING_WEIGHT_READABILITY_STRIP = Path(
     "Artifacts/StyleCalibration/"
-    "world_warrior_dojo_falling_weight_pilot_v1_readability_strip.png"
+    "world_warrior_pavilion_falling_weight_pilot_v1_readability_strip.png"
 )
 SILHOUETTE_COMPARISON = Path(
     "Artifacts/StyleCalibration/"
-    "world_warrior_dojo_hazards_pilot_v1_silhouette_comparison.png"
+    "world_warrior_pavilion_hazards_pilot_v1_silhouette_comparison.png"
 )
 
 MANNEQUIN_TRUE_WORLD_HEIGHT = 4.104
@@ -77,7 +71,7 @@ ASSUMED_MANNEQUIN_ONSCREEN_HEIGHT_PX = 300
 ROLLING_LOG_TARGET_WORLD_HEIGHT = 1.00
 FALLING_WEIGHT_TARGET_WORLD_HEIGHT = 1.20
 # Already-approved reference heights, for the review notes / manifest only.
-SUPPLY_CRATE_WORLD_HEIGHT = 1.30
+RACK_CHEST_WORLD_HEIGHT = 2.60
 TRAINING_DUMMY_WORLD_HEIGHT = 2.80
 
 
@@ -130,18 +124,18 @@ def main() -> int:
     if not ROLLING_LOG_PILOT.is_file() or not FALLING_WEIGHT_PILOT.is_file():
         raise FileNotFoundError("a hazard pilot is missing")
     if not STAGE_CAPTURE.is_file():
-        raise FileNotFoundError("Dojo Approach stage-only capture is missing")
-    for reference in (SUPPLY_CRATE_PILOT, TRAINING_DUMMY_SOURCE):
+        raise FileNotFoundError("Pavilion Circuit stage-only capture is missing")
+    for reference in (RACK_CHEST_SOURCE, TRAINING_DUMMY_SOURCE):
         if not reference.is_file():
             raise FileNotFoundError(f"a comparison reference is missing: {reference}")
 
     rolling_log = load_figure(ROLLING_LOG_PILOT)
     falling_weight = load_figure(FALLING_WEIGHT_PILOT)
-    supply_crate = load_figure(SUPPLY_CRATE_PILOT)
+    rack_chest = load_figure(RACK_CHEST_SOURCE, bg="alpha")
     training_dummy = load_figure(TRAINING_DUMMY_SOURCE, bg="alpha")
 
-    # Stage scale proxy: both hazards composited onto the real Dojo Approach
-    # at heights derived from the mannequin true-height ratio.
+    # Stage scale proxy: both hazards composited onto the real Pavilion
+    # Circuit at heights derived from the mannequin true-height ratio.
     stage = Image.open(STAGE_CAPTURE).convert("RGBA")
     log_onscreen_height = round(
         ASSUMED_MANNEQUIN_ONSCREEN_HEIGHT_PX
@@ -155,8 +149,6 @@ def main() -> int:
     log_figure = resize_to_height(rolling_log, log_onscreen_height)
     stage.alpha_composite(log_figure, (420, ground_y - log_figure.height))
     weight_figure = resize_to_height(falling_weight, weight_onscreen_height)
-    # Hang the weight above the ground, roughly a fighter's head height up,
-    # since it drops rather than resting on the floor.
     stage.alpha_composite(weight_figure, (760, ground_y - 340 - weight_figure.height))
     stage_draw = ImageDraw.Draw(stage)
     stage_draw.rectangle((60, 20, 700, 48), fill=(18, 19, 24, 205))
@@ -173,14 +165,12 @@ def main() -> int:
     readability_strip(falling_weight, FALLING_WEIGHT_READABILITY_STRIP)
 
     # Silhouette comparison: both new hazards beside the approved training
-    # dummy and supply crate at a common height, proving none share a
-    # silhouette -- the log is a long horizontal cylinder, the weight is a
-    # compact rope-hung mass, distinct from the standing dummy and the low
-    # box crate.
+    # dummy and rack chest at a common height, proving none share a
+    # silhouette.
     common_height = 220
     figures = [
         (training_dummy, "Training Dummy (approved)"),
-        (supply_crate, "Supply Crate (approved)"),
+        (rack_chest, "Rack Chest (approved)"),
         (rolling_log, "Rolling Log (pilot)"),
         (falling_weight, "Falling Weight (pilot)"),
     ]

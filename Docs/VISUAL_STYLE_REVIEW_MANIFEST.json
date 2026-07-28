@@ -2306,20 +2306,19 @@
       "reviewDate": "2026-07-27"
     },
     {
-      "id": "world_warrior_dojo_rolling_log_style_v1",
+      "id": "world_warrior_pavilion_rolling_log_style_v1",
       "category": "hazard",
       "status": "runtime_approved",
       "assets": [
-        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_rolling_log_style_pilot_v1.png",
-        "Assets/Sprites/Hazards/WorldWarrior/world_warrior_dojo_rolling_log_style_v1.png"
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_rolling_log_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/WorldWarrior/world_warrior_pavilion_rolling_log_style_v1.png"
       ],
       "artifacts": [
-        "Artifacts/StyleCalibration/world_warrior_dojo_hazards_pilot_v1_stage_scale_proxy.png",
-        "Artifacts/StyleCalibration/world_warrior_dojo_rolling_log_pilot_v1_readability_strip.png",
-        "Artifacts/StyleCalibration/world_warrior_dojo_hazards_pilot_v1_silhouette_comparison.png",
-        "Artifacts/StyleCalibration/world_warrior_dojo_rolling_log_style_v1_processing.json",
-        "Scripts/Tools/generate_world_warrior_dojo_rolling_log_pilot.ps1",
-        "Scripts/Tools/create_world_warrior_dojo_hazards_pilot_review.py",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_hazards_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_rolling_log_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_hazards_pilot_v1_silhouette_comparison.png",
+        "Scripts/Tools/generate_world_warrior_pavilion_rolling_log_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_pavilion_hazards_pilot_review.py",
         "Scripts/Tools/measure_true_sprite_world_height.py",
         "Scripts/Tools/process_single_green_sprite.py",
         "Scripts/Tools/capture_hazard_telegraph_review.ps1",
@@ -2328,27 +2327,28 @@
         "Scripts/Debug/StageHazardTests.cs"
       ],
       "model": "nano_banana_pro",
-      "jobMetadata": "Artifacts/style_calibration_world_warrior_dojo_rolling_log_pilot_v1_job.json",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_pavilion_rolling_log_pilot_v1_job.json",
       "canonicalReferencesUsed": [
         "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
         "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
         "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
       ],
       "worldReferences": [
-        "Assets/Stages/WorldWarrior/world_warrior_dojo_midground_style_v1.png"
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png"
       ],
       "comparisonReferences": [
         "Assets/Sprites/Hazards/Archive/archive_intake_tram_style_v1.png",
         "Assets/Sprites/Props/WorldWarrior/world_warrior_training_dummy_style_v1.png",
-        "Assets/Sprites/Props/WorldWarrior/world_warrior_supply_crate_style_v1.png"
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png"
       ],
       "sourceHashes": {
-        "pilot": "5786d2b869fe933bb770fe8b462b73842569dec842b1582e2a295179f160c1f4",
-        "stageScaleProxy": "07b5dcba7b248ea8b4c1d2cf86cc232087d98484e013dcf07f5e548a6a762c36",
-        "readabilityStrip": "34f1ec94fe553dfa30c8bab95ed7f9aff2e8301dc9d943d5443c62b48c90b9aa",
-        "silhouetteComparison": "c4104769d774c3b65b87e57b9624e08a38679e5d22c42c9b7b2af2cf75704b30",
-        "production": "60692ad53bbed02a1bfe9df030ffa158bcb2870c138639a2a921bda2d08112ed",
-        "telegraphCapture720": "ce689e06301989f743949ade2ccc8ddb2b5535e523384c9a32ce2e3d81de768b"
+        "pilot": "6a986c6ef6dce9632c2f791eefddb5c90c9d7636b793f1dd68c9789614769b9e",
+        "stageScaleProxy": "51ba04c2d35365237ad0b9e1b17528bb045897a9233244203e06b7fbe8ad595e",
+        "readabilityStrip": "754379dec052b72124d6c946a078ebff1de20061111ff13cbf8b5fe119f60877",
+        "silhouetteComparison": "df84e5ea30be4558415633fcd327db0392653a72db04ba46dad145c66c4c67dc",
+        "production": "e71d3314a8b61ce14760e42675edc4ca00f3045c58d03d6efde9b91dbf48391e",
+        "telegraphCapture720": "a3b506f3584c52033bfcdfa40258d765a53e741693319e0e8f648e7ff41d00d6"
       },
       "measuredProportion": {
         "method": "alpha_content_bbox_height_px * SpritePixelSize, via Scripts/Tools/measure_true_sprite_world_height.py; hazards scale to authored stage geometry and function rather than the character-height bands, per VISUAL_STYLE_BIBLE.md > Proportion and scale calibration",
@@ -2372,31 +2372,28 @@
       "automaticFailure": false,
       "finalApproval": true,
       "runtimeCaptures": [
-        "Artifacts/StyleCalibration/world_warrior_dojo_hazards_telegraph_1280x720.png"
+        "Artifacts/StyleCalibration/world_warrior_pavilion_hazards_telegraph_1280x720.png"
       ],
-      "runtimeValidation": [
-        "Artifacts/StyleCalibration/world_warrior_dojo_rolling_log_style_v1_processing.json"
-      ],
+      "runtimeValidation": [],
       "reviewer": "GitHub Copilot",
-      "notes": "The World Warrior Dojo Rolling Log is World Warrior's first HAZARD zone identity (StageHazardZoneData, not a breakable prop) -- World Warrior had zero hazard zones before this session, only static breakable props. Paired with the Falling Training Weight, it gives Dojo Approach its own obstacle-course identity via LinearSweep behavior. Motifs are drawn directly from the Dojo Approach midground art itself: the aged warm-brown timber and rope-binding material language from its two training posts, reimagined as a large rope-bound log lying on its side, ready to roll. The 2048x2048 source holds one edge-clear connected object, zero green spill, and stays legible at 96, 128, and 160 pixels tall (rope bindings and the round log silhouette both survive at the smallest size). Detail density scored 1 for the same reason as the World Warrior crates (rope-wrap repetition and wood-grain rings add mild clutter next to the cleaner pickups); every other criterion scored 2 for a 15/16 total. Verified distinct in silhouette from the Falling Training Weight (a compact hanging mass vs. a long horizontal cylinder), the training dummy, and the supply crate in a four-way comparison. Wired into Dojo Approach's first encounter (paired with the existing training dummy), sweeping the center lane with the same authored timing envelope as the approved Archive Intake Tram (24-frame delay, 72-frame warning, 96-frame active window, 264-frame repeat interval), at a gentler 70 DPS appropriate for World Warrior's opening stage. A real runtime capture confirms the authored WarningText (\"ROLLING LOG \u2014 CLEAR THE CENTER LANE\") renders correctly in-engine during the warning phase, alongside the existing training dummy and fighters. StageHazardRuntime.Resolve is exercised across the full dormant/warning/active/cooldown/repeat cycle deterministically. Deterministic validation passes 247/247 world, 60/60 hazard, and 11/11 RunScore assertions.",
-      "nextAction": "Retain the Rolling Log as World Warrior's first hazard identity; continue with the paired Falling Training Weight (below), then spectator/crowd layers and arena destruction per the Remaining Phase 5 queue, before the scheduled Full Proportion Sizing Sweep.",
+      "notes": "The World Warrior Pavilion Rolling Log is World Warrior's first HAZARD zone identity (StageHazardZoneData, not a breakable prop) -- World Warrior had zero hazard zones before this session, only static breakable props. Paired with the Falling Weight, it gives Pavilion Circuit its own lane-funnel obstacle identity via LinearSweep behavior, matching MASTER_IMPLEMENTATION_PLAN.md's Phase 5 World Warrior concept brief, which assigns telegraphed rolling training-log and falling practice-prop hazards to Pavilion Circuit (Stage 2), not Dojo Approach (Stage 1, authored as \"minimal hazard pressure, breakable training props\"). This entry corrects an earlier placement error: the hazards were originally built with Dojo Approach's rope/timber motifs and wired into Dojo Approach's encounters; after checking the authoritative per-stage concept list, both pilots were regenerated with Pavilion Circuit's own established motifs instead. Motifs are drawn directly from the approved Pavilion Rack Chest and Pavilion Circuit backdrop: the vermilion lacquer, indigo and saffron banner cloth, and red medallion fastenings, reimagined as a large lacquered log bound in indigo rope wraps with a saffron accent band, ready to roll down the lane. The 2048x2048 source holds one edge-clear connected object, zero green spill, and stays legible at 96, 128, and 160 pixels tall. Detail density scored 1 for the same reason as the other World Warrior hazards/crates (rope-wrap repetition and lacquer grain add mild clutter next to the cleaner pickups); every other criterion scored 2 for a 15/16 total. Verified distinct in silhouette from the Falling Weight, the training dummy, and the rack chest in a four-way comparison, and cohesive with Pavilion Circuit's palette. Wired into Pavilion Circuit's first encounter (paired with the existing training dummy), sweeping the center lane with the same authored timing envelope as the approved Archive Intake Tram (24-frame delay, 72-frame warning, 96-frame active window, 264-frame repeat interval), at 70 DPS. A real runtime capture confirms the authored WarningText (\"ROLLING LOG \u2014 CLEAR THE CENTER LANE\") renders correctly in-engine against the Pavilion Circuit backdrop during the warning phase, alongside the training dummy and fighters. StageHazardRuntime.Resolve is exercised across the full dormant/warning/active/cooldown/repeat cycle deterministically. Deterministic validation passes 247/247 world, 60/60 hazard, and 11/11 RunScore assertions after the relocation.",
+      "nextAction": "Retain the Rolling Log as World Warrior's first hazard identity, now correctly placed in Pavilion Circuit. Continue with the paired Falling Weight (below), then Grand Tournament Floor spectator/crowd layers and arena destruction per the Remaining Phase 5 queue, before the scheduled Full Proportion Sizing Sweep.",
       "reviewDate": "2026-07-27"
     },
     {
-      "id": "world_warrior_dojo_falling_weight_style_v1",
+      "id": "world_warrior_pavilion_falling_weight_style_v1",
       "category": "hazard",
       "status": "runtime_approved",
       "assets": [
-        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_falling_weight_style_pilot_v1.png",
-        "Assets/Sprites/Hazards/WorldWarrior/world_warrior_dojo_falling_weight_style_v1.png"
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_falling_weight_style_pilot_v1.png",
+        "Assets/Sprites/Hazards/WorldWarrior/world_warrior_pavilion_falling_weight_style_v1.png"
       ],
       "artifacts": [
-        "Artifacts/StyleCalibration/world_warrior_dojo_hazards_pilot_v1_stage_scale_proxy.png",
-        "Artifacts/StyleCalibration/world_warrior_dojo_falling_weight_pilot_v1_readability_strip.png",
-        "Artifacts/StyleCalibration/world_warrior_dojo_hazards_pilot_v1_silhouette_comparison.png",
-        "Artifacts/StyleCalibration/world_warrior_dojo_falling_weight_style_v1_processing.json",
-        "Scripts/Tools/generate_world_warrior_dojo_falling_weight_pilot.ps1",
-        "Scripts/Tools/create_world_warrior_dojo_hazards_pilot_review.py",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_hazards_pilot_v1_stage_scale_proxy.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_falling_weight_pilot_v1_readability_strip.png",
+        "Artifacts/StyleCalibration/world_warrior_pavilion_hazards_pilot_v1_silhouette_comparison.png",
+        "Scripts/Tools/generate_world_warrior_pavilion_falling_weight_pilot.ps1",
+        "Scripts/Tools/create_world_warrior_pavilion_hazards_pilot_review.py",
         "Scripts/Tools/measure_true_sprite_world_height.py",
         "Scripts/Tools/process_single_green_sprite.py",
         "Scripts/Tools/capture_hazard_telegraph_review.ps1",
@@ -2405,25 +2402,26 @@
         "Scripts/Debug/StageHazardTests.cs"
       ],
       "model": "nano_banana_pro",
-      "jobMetadata": "Artifacts/style_calibration_world_warrior_dojo_falling_weight_pilot_v1_job.json",
+      "jobMetadata": "Artifacts/style_calibration_world_warrior_pavilion_falling_weight_pilot_v1_job.json",
       "canonicalReferencesUsed": [
         "Assets/Sprites/Mannequin/mannequin_intro_higgsfield_v1.png",
         "Assets/Sprites/Ryu/ryu_intro_higgsfield_v1.png",
         "Assets/Sprites/Goku/goku_intro_higgsfield_v1.png"
       ],
       "worldReferences": [
-        "Assets/Stages/WorldWarrior/world_warrior_dojo_midground_style_v1.png"
+        "Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png",
+        "Assets/Stages/WorldWarrior/world_warrior_pavilion_backdrop_style_v1.png"
       ],
       "comparisonReferences": [
         "Assets/Sprites/Hazards/Archive/archive_repository_falling_shelf_style_v1.png",
-        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_dojo_rolling_log_style_pilot_v1.png"
+        "Assets/Sprites/Concepts/StyleCalibration/world_warrior_pavilion_rolling_log_style_pilot_v1.png"
       ],
       "sourceHashes": {
-        "pilot": "8be48361338dde97dceb119afb701f4f4c11fe15e4f2b04942dc65213ac68f04",
-        "stageScaleProxy": "07b5dcba7b248ea8b4c1d2cf86cc232087d98484e013dcf07f5e548a6a762c36",
-        "readabilityStrip": "2f69d64e78f47f6d70cac86ab4df9f7db9c023b72bdee4b221387c8478f3247c",
-        "silhouetteComparison": "c4104769d774c3b65b87e57b9624e08a38679e5d22c42c9b7b2af2cf75704b30",
-        "production": "909926a4aebc0abd355b09397b5a5c1c7f0f35d443377d0a5884864700ec89f9"
+        "pilot": "e6cdec66b984334ff62f7a8c09d356a06dc30e8f6bf036cf350eff44956144da",
+        "stageScaleProxy": "51ba04c2d35365237ad0b9e1b17528bb045897a9233244203e06b7fbe8ad595e",
+        "readabilityStrip": "004abc49746644cd4f2d99ce516abe06a406ca163a72d1b9e336bbec480acee6",
+        "silhouetteComparison": "df84e5ea30be4558415633fcd327db0392653a72db04ba46dad145c66c4c67dc",
+        "production": "78bdb9ada6c06736decc52a2ce398407a48b55d3990bc28126d7fbf04b5565a5"
       },
       "measuredProportion": {
         "method": "alpha_content_bbox_height_px * SpritePixelSize, via Scripts/Tools/measure_true_sprite_world_height.py; hazards scale to authored stage geometry and function rather than the character-height bands, per VISUAL_STYLE_BIBLE.md > Proportion and scale calibration",
@@ -2447,12 +2445,10 @@
       "automaticFailure": false,
       "finalApproval": true,
       "runtimeCaptures": [],
-      "runtimeValidation": [
-        "Artifacts/StyleCalibration/world_warrior_dojo_falling_weight_style_v1_processing.json"
-      ],
+      "runtimeValidation": [],
       "reviewer": "GitHub Copilot",
-      "notes": "The World Warrior Dojo Falling Training Weight is World Warrior's second HAZARD zone identity, paired with the Rolling Log to give Dojo Approach its own obstacle-course identity via FallingStrike behavior (the same behavior family as the approved Archive Repository Falling Shelf, reimagined with dojo training equipment). Motifs are drawn directly from the Dojo Approach midground art itself: the aged stone material from its lantern base and the aged cream-rope material from its training posts and hanging bell cord, expressed as a rounded dark-granite training weight bound in a crisscrossing rope harness with a worn practice strike-target mark on its face and a frayed rope end above. The 2048x2048 source holds one edge-clear connected object, zero green spill, and stays legible at 96, 128, and 160 pixels tall (rope harness and strike-target mark both survive at the smallest size). Detail density scored 1 for the same reason as the other World Warrior hazards/crates; every other criterion scored 2 for a 15/16 total. Verified distinct in silhouette from the Rolling Log (a compact hanging mass vs. a long horizontal cylinder), the training dummy, and the supply crate in a four-way comparison. Wired into Dojo Approach's second encounter (paired with the existing supply crate), dropping from above at a point offset from the crate to avoid overlap, with a 130 DPS finite impact window matching the ActiveFrames > 0 FallingStrike validation contract. StageMissionValidator.Validate confirms Dojo Approach still passes hazard prop lane and spawn validation with both new hazards present. A dedicated runtime telegraph capture of this specific hazard's warning phase was not produced this session (the shared capture_hazard_telegraph_review.ps1 tool captures only the first hazard encountered per run, which is the Rolling Log in the first encounter); this hazard's behavior is instead fully verified through StageHazardRuntime.Resolve's deterministic dormant/warning/active-window/finite-impact assertions in StageHazardTests.cs. Deterministic validation passes 247/247 world, 60/60 hazard, and 11/11 RunScore assertions.",
-      "nextAction": "Retain the Falling Training Weight as World Warrior's second hazard identity. Consider extending the shared telegraph capture tool to support capturing a specific hazard by ID or sprite suffix (mirroring PROJECT_MANNEQUIN_LADDER_PROP_SPRITE_SUFFIX for props) so future multi-hazard stages get individual runtime evidence rather than only the first hazard encountered. Continue with spectator/crowd layers and arena destruction per the Remaining Phase 5 queue, before the scheduled Full Proportion Sizing Sweep.",
+      "notes": "The World Warrior Pavilion Falling Weight is World Warrior's second HAZARD zone identity, paired with the Rolling Log to give Pavilion Circuit its own lane-funnel obstacle identity via FallingStrike behavior (the same behavior family as the approved Archive Repository Falling Shelf, reimagined with Pavilion training equipment). This entry corrects an earlier placement error: the hazard was originally built with Dojo Approach's stone/rope motifs and wired into Dojo Approach's second encounter; after checking MASTER_IMPLEMENTATION_PLAN.md's authoritative Phase 5 World Warrior concept brief (which assigns falling practice-prop hazards to Pavilion Circuit, Stage 2, not Dojo Approach, Stage 1), the pilot was regenerated with Pavilion Circuit's own established motifs instead. Motifs are drawn directly from the approved Pavilion Rack Chest and Pavilion Circuit backdrop: the vermilion lacquer, indigo and saffron banner cloth, and red medallion fastenings, expressed as a rounded vermilion-lacquered training weight bound in an indigo rope harness with a saffron accent band and a red medallion strike-target mark on its face. The 2048x2048 source holds one edge-clear connected object, zero green spill, and stays legible at 96, 128, and 160 pixels tall. Detail density scored 1 for the same reason as the other World Warrior hazards/crates; every other criterion scored 2 for a 15/16 total. Verified distinct in silhouette from the Rolling Log, the training dummy, and the rack chest in a four-way comparison, and cohesive with Pavilion Circuit's palette. Wired into Pavilion Circuit's second encounter (paired with the existing rack chest), dropping from above at a point offset from the chest to avoid overlap, with a 130 DPS finite impact window matching the ActiveFrames > 0 FallingStrike validation contract. StageMissionValidator.Validate confirms Pavilion Circuit still passes hazard prop lane and spawn validation with both relocated hazards present. A dedicated runtime telegraph capture of this specific hazard's warning phase was not produced this session (the shared capture_hazard_telegraph_review.ps1 tool captures only the first hazard encountered per run, which is the Rolling Log in the first encounter); this hazard's behavior is instead fully verified through StageHazardRuntime.Resolve's deterministic dormant/warning/active/cooldown/repeat cycle. Deterministic validation passes 247/247 world, 60/60 hazard, and 11/11 RunScore assertions after the relocation.",
+      "nextAction": "Retain the Falling Weight as World Warrior's second hazard identity, now correctly placed in Pavilion Circuit. Consider extending the shared telegraph capture tool to support capturing a specific hazard by ID or sprite suffix (mirroring PROJECT_MANNEQUIN_LADDER_PROP_SPRITE_SUFFIX for props) so future multi-hazard stages get individual runtime evidence rather than only the first hazard encountered. Continue with Grand Tournament Floor spectator/crowd layers and arena destruction per the Remaining Phase 5 queue, before the scheduled Full Proportion Sizing Sweep.",
       "reviewDate": "2026-07-27"
     },
     {

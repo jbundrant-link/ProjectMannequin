@@ -974,13 +974,13 @@ public static class WorldRunCatalog
             {
                 AuthorDojoApproachTrainingProp(firstEncounter);
                 AuthorDojoApproachSupplyCrate(secondEncounter);
-                AuthorDojoApproachRollingLog(firstEncounter);
-                AuthorDojoApproachFallingWeight(secondEncounter);
             }
             else if (stageIndex == 1)
             {
                 AuthorPavilionCircuitTrainingProp(firstEncounter);
                 AuthorPavilionCircuitRackChest(secondEncounter);
+                AuthorPavilionCircuitRollingLog(firstEncounter);
+                AuthorPavilionCircuitFallingWeight(secondEncounter);
             }
             else if (stageIndex == 2)
             {
@@ -1112,16 +1112,16 @@ public static class WorldRunCatalog
         });
     }
 
-    private static void AuthorDojoApproachRollingLog(
+    private static void AuthorPavilionCircuitRollingLog(
         StageEncounterData firstEncounter)
     {
         firstEncounter.HazardZones.Add(new StageHazardZoneData
         {
-            Id = "dojo_approach_rolling_log",
+            Id = "pavilion_circuit_rolling_log",
             Behavior = StageHazardBehavior.LinearSweep,
             Targets = StageHazardTargetMask.All,
-            SpritePath = WorldWarriorDojoRollingLogSprite,
-            SpritePixelSize = WorldWarriorDojoRollingLogPixelSize,
+            SpritePath = WorldWarriorPavilionRollingLogSprite,
+            SpritePixelSize = WorldWarriorPavilionRollingLogPixelSize,
             SpriteGroundOffsetPixels = 553.0f,
             MinX = firstEncounter.ArenaMinX + 0.6f,
             MaxX = firstEncounter.ArenaMinX + 4.6f,
@@ -1140,19 +1140,19 @@ public static class WorldRunCatalog
         });
     }
 
-    private static void AuthorDojoApproachFallingWeight(
+    private static void AuthorPavilionCircuitFallingWeight(
         StageEncounterData secondEncounter)
     {
         var centerX = secondEncounter.ArenaMinX + 2.0f;
         var centerZ = 0.6f;
         secondEncounter.HazardZones.Add(new StageHazardZoneData
         {
-            Id = "dojo_approach_falling_weight",
+            Id = "pavilion_circuit_falling_weight",
             Behavior = StageHazardBehavior.FallingStrike,
             Targets = StageHazardTargetMask.All,
-            SpritePath = WorldWarriorDojoFallingWeightSprite,
-            SpritePixelSize = WorldWarriorDojoFallingWeightPixelSize,
-            SpriteGroundOffsetPixels = 909.0f,
+            SpritePath = WorldWarriorPavilionFallingWeightSprite,
+            SpritePixelSize = WorldWarriorPavilionFallingWeightPixelSize,
+            SpriteGroundOffsetPixels = 919.0f,
             SpriteTravelHeight = 4.0f,
             MinX = centerX - 1.2f,
             MaxX = centerX + 1.2f,
@@ -1162,7 +1162,7 @@ public static class WorldRunCatalog
             WarningLeadFrames = 45,
             ActiveFrames = 20,
             RepeatIntervalFrames = 270,
-            WarningText = "FALLING WEIGHT — MOVE FROM BENEATH THE RAFTERS",
+            WarningText = "FALLING WEIGHT — CLEAR THE DROP ZONE",
             DamagePerSecond = 130.0f,
             KnockbackX = 5.0f,
             HitstunFrames = 22,
@@ -1626,10 +1626,10 @@ public static class WorldRunCatalog
     private const string WorldWarriorChampionsCourtyardLanternUrnSprite =
         "res://Assets/Sprites/Props/WorldWarrior/world_warrior_champions_courtyard_lantern_urn_style_v1.png";
     private const float WorldWarriorChampionsCourtyardLanternUrnPixelSize = 0.0013432f;
-    private const string WorldWarriorDojoRollingLogSprite =
-        "res://Assets/Sprites/Hazards/WorldWarrior/world_warrior_dojo_rolling_log_style_v1.png";
-    private const string WorldWarriorDojoFallingWeightSprite =
-        "res://Assets/Sprites/Hazards/WorldWarrior/world_warrior_dojo_falling_weight_style_v1.png";
+    private const string WorldWarriorPavilionRollingLogSprite =
+        "res://Assets/Sprites/Hazards/WorldWarrior/world_warrior_pavilion_rolling_log_style_v1.png";
+    private const string WorldWarriorPavilionFallingWeightSprite =
+        "res://Assets/Sprites/Hazards/WorldWarrior/world_warrior_pavilion_falling_weight_style_v1.png";
     private const string ArchiveMeterCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png";
     private const string ArchiveDataCacheSprite =
@@ -1757,8 +1757,8 @@ public static class WorldRunCatalog
     private const float ArchiveDataCachePixelSize = 0.00136f;
     private const float ArchiveVolatileCanisterPixelSize = 0.00143f;
     private const float ArchiveIntakeTramPixelSize = 0.00220f;
-    private const float WorldWarriorDojoRollingLogPixelSize = 0.00090498f;
-    private const float WorldWarriorDojoFallingWeightPixelSize = 0.00062080f;
+    private const float WorldWarriorPavilionRollingLogPixelSize = 0.00099701f;
+    private const float WorldWarriorPavilionFallingWeightPixelSize = 0.00065253f;
     private const float ArchiveIndexScanEmitterPixelSize = 0.00090f;
     private const float ArchiveRepositoryFallingShelfPixelSize = 0.00150f;
     private const float ArchiveRepositoryDataDebrisPixelSize = 0.00170f;

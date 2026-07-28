@@ -475,32 +475,6 @@ public static class StageHazardTests
         Check(StageMissionValidator.Validate(dojoApproach).Count == 0,
             "Dojo Approach passes hazard prop lane and spawn validation with the supply crate");
 
-        var dojoRollingLog = dojoApproach.Encounters[0].HazardZones
-            .Single(hazard => hazard.Id == "dojo_approach_rolling_log");
-        Check(dojoRollingLog is { Behavior: StageHazardBehavior.LinearSweep, Targets: StageHazardTargetMask.All },
-            "Dojo rolling log is a neutral moving sweeper");
-        Check(dojoRollingLog.SpritePath.EndsWith("world_warrior_dojo_rolling_log_style_v1.png")
-              && ResourceLoader.Exists(dojoRollingLog.SpritePath)
-              && System.Math.Abs(dojoRollingLog.SpritePixelSize - 0.00090498f) < 0.00001f
-              && System.Math.Abs(dojoRollingLog.SpriteGroundOffsetPixels - 553.0f) < 0.01f,
-            "Dojo rolling log uses its calibrated authored hazard sprite");
-        var logWarning = StageHazardRuntime.Resolve(dojoRollingLog, dojoRollingLog.ActivationDelayFrames + 1);
-        Check(logWarning.IsWarning, "Dojo rolling log telegraphs a warning before sweeping");
-
-        var dojoFallingWeight = dojoApproach.Encounters[1].HazardZones
-            .Single(hazard => hazard.Id == "dojo_approach_falling_weight");
-        Check(dojoFallingWeight is { Behavior: StageHazardBehavior.FallingStrike, Targets: StageHazardTargetMask.All },
-            "Dojo falling weight is a neutral falling strike");
-        Check(dojoFallingWeight.SpritePath.EndsWith("world_warrior_dojo_falling_weight_style_v1.png")
-              && ResourceLoader.Exists(dojoFallingWeight.SpritePath)
-              && System.Math.Abs(dojoFallingWeight.SpritePixelSize - 0.00062080f) < 0.00001f
-              && System.Math.Abs(dojoFallingWeight.SpriteGroundOffsetPixels - 909.0f) < 0.01f,
-            "Dojo falling weight uses its calibrated authored hazard sprite");
-        Check(dojoFallingWeight.ActiveFrames > 0,
-            "Dojo falling weight declares a finite impact window");
-        Check(StageMissionValidator.Validate(dojoApproach).Count == 0,
-            "Dojo Approach passes hazard prop lane and spawn validation with the rolling log and falling weight");
-
         var pavilionCircuit = WorldRunCatalog.CreateRun("world_warrior_sector").Stages[1];
         var pavilionRackChestProp = pavilionCircuit.Encounters[1].Props
             .Single(prop => prop.ArchetypeId == "world_warrior_pavilion_rack_chest");
@@ -519,6 +493,32 @@ public static class StageHazardTests
             "Pavilion Circuit rack chest survives partial damage then breaks into a score drop");
         Check(StageMissionValidator.Validate(pavilionCircuit).Count == 0,
             "Pavilion Circuit passes hazard prop lane and spawn validation with the rack chest");
+
+        var pavilionRollingLog = pavilionCircuit.Encounters[0].HazardZones
+            .Single(hazard => hazard.Id == "pavilion_circuit_rolling_log");
+        Check(pavilionRollingLog is { Behavior: StageHazardBehavior.LinearSweep, Targets: StageHazardTargetMask.All },
+            "Pavilion rolling log is a neutral moving sweeper");
+        Check(pavilionRollingLog.SpritePath.EndsWith("world_warrior_pavilion_rolling_log_style_v1.png")
+              && ResourceLoader.Exists(pavilionRollingLog.SpritePath)
+              && System.Math.Abs(pavilionRollingLog.SpritePixelSize - 0.00099701f) < 0.00001f
+              && System.Math.Abs(pavilionRollingLog.SpriteGroundOffsetPixels - 553.0f) < 0.01f,
+            "Pavilion rolling log uses its calibrated authored hazard sprite");
+        var logWarning = StageHazardRuntime.Resolve(pavilionRollingLog, pavilionRollingLog.ActivationDelayFrames + 1);
+        Check(logWarning.IsWarning, "Pavilion rolling log telegraphs a warning before sweeping");
+
+        var pavilionFallingWeight = pavilionCircuit.Encounters[1].HazardZones
+            .Single(hazard => hazard.Id == "pavilion_circuit_falling_weight");
+        Check(pavilionFallingWeight is { Behavior: StageHazardBehavior.FallingStrike, Targets: StageHazardTargetMask.All },
+            "Pavilion falling weight is a neutral falling strike");
+        Check(pavilionFallingWeight.SpritePath.EndsWith("world_warrior_pavilion_falling_weight_style_v1.png")
+              && ResourceLoader.Exists(pavilionFallingWeight.SpritePath)
+              && System.Math.Abs(pavilionFallingWeight.SpritePixelSize - 0.00065253f) < 0.00001f
+              && System.Math.Abs(pavilionFallingWeight.SpriteGroundOffsetPixels - 919.0f) < 0.01f,
+            "Pavilion falling weight uses its calibrated authored hazard sprite");
+        Check(pavilionFallingWeight.ActiveFrames > 0,
+            "Pavilion falling weight declares a finite impact window");
+        Check(StageMissionValidator.Validate(pavilionCircuit).Count == 0,
+            "Pavilion Circuit passes hazard prop lane and spawn validation with the rolling log and falling weight");
 
         var grandTournamentFloor = WorldRunCatalog.CreateRun("world_warrior_sector").Stages[2];
         var grandTournamentTrophyPodiumProp = grandTournamentFloor.Encounters[1].Props
