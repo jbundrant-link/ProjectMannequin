@@ -1,6 +1,6 @@
 # Project Mannequin Machine Handoff
 
-Last verified: 2026-07-22
+Last verified: 2026-07-27
 
 This is the current execution checkpoint for continuing Project Mannequin on
 another machine or in a fresh agent session. It does not replace the roadmap or
@@ -28,7 +28,7 @@ documents above remain authoritative.
 The last verified pre-handoff checkpoint was:
 
 - Branch: `main`
-- Commit: `f485e4c2f0c663e25158dbcb76a55de965225e3a`
+- Commit: `2620b4c51e0f6c68a1cc3c4fcda577a2a2259e08`
 - Remote: `origin` -> `https://github.com/jbundrant-link/ProjectMannequin.git`
 - Remote divergence at verification: `0` behind, `0` ahead
 - The current Phase 5 World Warrior worktree may contain intentional uncommitted
