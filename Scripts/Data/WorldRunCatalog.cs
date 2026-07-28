@@ -974,6 +974,7 @@ public static class WorldRunCatalog
             else if (stageIndex == 1)
             {
                 AuthorPavilionCircuitTrainingProp(firstEncounter);
+                AuthorPavilionCircuitRackChest(secondEncounter);
             }
             else if (stageIndex == 2)
             {
@@ -1121,6 +1122,26 @@ public static class WorldRunCatalog
             SpritePath = WorldWarriorTrainingDummySprite,
             SpritePixelSize = WorldWarriorTrainingDummyPixelSize,
             SpriteGroundOffsetPixels = 968.0f,
+        });
+    }
+
+    private static void AuthorPavilionCircuitRackChest(
+        StageEncounterData secondEncounter)
+    {
+        secondEncounter.Props.Add(new StagePropData
+        {
+            Id = "pavilion_circuit_rack_chest",
+            ArchetypeId = "world_warrior_pavilion_rack_chest",
+            PositionX = secondEncounter.ArenaMinX + 2.6f,
+            PositionZ = -1.85f,
+            Health = 85,
+            IsThrowable = false,
+            SpawnsPickupOnBreak = true,
+            DropType = StagePickupType.Score,
+            DropChance = 1.0f,
+            SpritePath = WorldWarriorPavilionRackChestSprite,
+            SpritePixelSize = WorldWarriorPavilionRackChestPixelSize,
+            SpriteGroundOffsetPixels = 985.0f,
         });
     }
 
@@ -1491,6 +1512,9 @@ public static class WorldRunCatalog
     private const string WorldWarriorSupplyCrateSprite =
         "res://Assets/Sprites/Props/WorldWarrior/world_warrior_supply_crate_style_v1.png";
     private const float WorldWarriorSupplyCratePixelSize = 0.00079027f;
+    private const string WorldWarriorPavilionRackChestSprite =
+        "res://Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png";
+    private const float WorldWarriorPavilionRackChestPixelSize = 0.00094388f;
     private const string ArchiveMeterCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png";
     private const string ArchiveDataCacheSprite =

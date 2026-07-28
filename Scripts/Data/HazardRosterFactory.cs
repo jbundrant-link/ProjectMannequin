@@ -108,6 +108,20 @@ public static class HazardRosterFactory
         return crate;
     }
 
+    public static CharacterData CreateWorldWarriorPavilionRackChest()
+    {
+        var crate = CreateBreakableCrate();
+        crate.Id = "world_warrior_pavilion_rack_chest";
+        crate.DisplayName = "Pavilion Rack Chest";
+        crate.SpriteSheetPath =
+            "res://Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png";
+        crate.SpritePixelSize = 0.00094388f;
+        crate.SpriteGroundOffsetPixels = 985.0f;
+        crate.RoleTags.Add("world_warrior");
+        crate.RoleTags.Add("supply_prop");
+        return crate;
+    }
+
     public static CharacterData CreateMeterPickup()
     {
         return CreatePickup(

@@ -823,6 +823,51 @@ public static class WorldRunTests
                       && pavilionFocusProp.SpritePath.EndsWith(
                           "world_warrior_training_dummy_style_v1.png"),
                     "Pavilion Circuit authors one training dummy with a guaranteed meter drop");
+                var pavilionRackChestProp = pavilionCircuit.Encounters
+                    .SelectMany(encounter => encounter.Props)
+                    .Single(prop => prop.ArchetypeId == "world_warrior_pavilion_rack_chest");
+                Check(pavilionRackChestProp.Id == "pavilion_circuit_rack_chest"
+                      && pavilionRackChestProp.Health == 85
+                      && !pavilionRackChestProp.IsThrowable
+                      && pavilionRackChestProp.SpawnsPickupOnBreak
+                      && pavilionRackChestProp.DropType == StagePickupType.Score
+                      && Mathf.IsEqualApprox(pavilionRackChestProp.DropChance, 1.0f)
+                      && pavilionRackChestProp.SpritePath.EndsWith(
+                          "world_warrior_pavilion_rack_chest_style_v1.png")
+                      && Mathf.IsEqualApprox(
+                          pavilionRackChestProp.SpritePixelSize,
+                          0.00094388f)
+                      && Mathf.IsEqualApprox(
+                          pavilionRackChestProp.SpriteGroundOffsetPixels,
+                          985.0f),
+                    "Pavilion Circuit authors one rack chest with a guaranteed score drop");
+                Check(pavilionCircuit.Encounters[1].Props.Any(
+                        prop => prop.ArchetypeId == "world_warrior_pavilion_rack_chest"),
+                    "Pavilion Circuit rack chest is placed in the second encounter");
+                var pavilionRackChest = HazardRosterFactory
+                    .CreateWorldWarriorPavilionRackChest();
+                var pavilionRackChestTexture = ResourceLoader.Exists(
+                        pavilionRackChest.SpriteSheetPath)
+                    ? GD.Load<Texture2D>(pavilionRackChest.SpriteSheetPath)
+                    : null;
+                Check(pavilionRackChest.Id == "world_warrior_pavilion_rack_chest"
+                      && pavilionRackChest.DisplayName == "Pavilion Rack Chest"
+                      && pavilionRackChestTexture is not null
+                      && pavilionRackChestTexture.GetWidth() == 2048
+                      && pavilionRackChestTexture.GetHeight() == 2048
+                      && !pavilionRackChest.TintSpriteSheet
+                      && pavilionRackChest.RoleTags.Contains("breakable")
+                      && pavilionRackChest.RoleTags.Contains("world_warrior")
+                      && pavilionRackChest.RoleTags.Contains("supply_prop"),
+                    "World Warrior Pavilion Rack Chest uses a calibrated unique 2K sprite");
+                Check(HaveDistinctContent(new[]
+                    {
+                        pavilionRackChest.SpriteSheetPath,
+                        supplyCrate.SpriteSheetPath,
+                        trainingDummy.SpriteSheetPath,
+                        "res://Assets/Sprites/Props/Archive/archive_data_cache_style_v2.png",
+                    }),
+                    "Pavilion Rack Chest content is distinct from the supply crate, training dummy, and Archive cache");
                 var worldWarriorMeterPickup = HazardRosterFactory
                     .CreateWorldWarriorMeterPickup();
                 var worldWarriorMeterTexture = ResourceLoader.Exists(

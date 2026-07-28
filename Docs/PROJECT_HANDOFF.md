@@ -59,12 +59,12 @@ and score-pickup PNG must resolve to Git LFS.
 
 Current automated baseline:
 
-- Settings assertions: `9/9`
-- World-run assertions: `199/199`
-- Stage-hazard assertions: `47/47`
-- Input grammar/assignment assertions: `24/24`
+- Settings assertions: `34/34`
+- World-run assertions: `236/236`
+- Stage-hazard assertions: `49/49`
+- Input grammar/assignment assertions: `34/34`
 - Run-score assertions: `11/11`
-- World/hazard aggregate: `246/246`
+- World/hazard aggregate: `285/285`
 - Clean runtime evidence exists for approved World Warrior slices at both
   `1280x720` and `1920x1080`.
 
@@ -95,6 +95,8 @@ Completed quality bar:
 - World Warrior Judge's Laurel Fan score pickup is `16/16` runtime approved in
   the live worktree, subject to the clone-durability gate above.
 - World Warrior Sparring Supply Crate is `15/16` runtime approved in the live
+  worktree, subject to the clone-durability gate above.
+- World Warrior Pavilion Rack Chest is `15/16` runtime approved in the live
   worktree, subject to the clone-durability gate above.
 
 The immediate unfinished slice is **Phase 6 item 1, `SettingsStore` and the
@@ -356,25 +358,55 @@ the same pilot, runtime, and dual-resolution gates.
   validation passes `190/190` world, `47/47` hazard, and `11/11` RunScore
   assertions.
 
+### World Warrior Pavilion Rack Chest
+
+- One `15/16` breakable rack chest is the second World Warrior crate identity,
+  deliberately built as the opposite silhouette to the Sparring Supply Crate
+  (measured content aspect `0.72` upright vs `1.11` squat) so the two crates
+  cannot read as the same prop recoloured. Motifs are drawn from the Pavilion
+  Circuit stage art itself: vermilion lacquered posts, a slate tiled pent roof,
+  an indigo banner with a saffron stripe, the stage's repeating red medallion,
+  and its practice weapon racks.
+- Detail density scored `1` for the same reason as the Supply Crate; every
+  other criterion scored `2`.
+- Exact green-key processing preserves `314/49/1735/2009` alpha bounds, zero
+  green spill, and calibrated `0.00094388/985` metrics for a `1.85`-unit prop.
+- The chest stays readable at `96/128/160` pixels and is content-distinct from
+  the Supply Crate, the Pavilion training dummy, and the Archive data cache.
+- Pavilion Circuit adds one additive `85`-HP rack chest to its second encounter
+  with a guaranteed Judge's Laurel Fan-style score drop, alongside the existing
+  approved training dummy (meter drop) in its first encounter. This completes a
+  cyclic pickup-type pattern across World Warrior's non-boss stages so far
+  (Dojo: health + meter, Pavilion: meter + score). Intact, break-drop, and
+  post-collection captures pass at both resolutions at tick `955` with score
+  rising `6000 -> 7000`. A transient "N ObjectDB instances leaked at exit"
+  shutdown warning reproduces on the already-approved Supply Crate script too
+  and is a pre-existing environmental artifact, not a regression. Current
+  validation passes `236/236` world, `49/49` hazard, and `11/11` RunScore
+  assertions.
+
 ## Immediate Continuation Order
 
 1. Do not restore or search an older Copilot session. Start from this checkpoint
    and the live files only.
 2. Do not regenerate or revise Tetsu, the training dummy, Vitality Gourd, Focus
-  Drum, Judge's Laurel Fan, or the Sparring Supply Crate; retain their final
-  assets, evidence, and hashes.
+  Drum, Judge's Laurel Fan, the Sparring Supply Crate, or the Pavilion Rack
+  Chest; retain their final assets, evidence, and hashes.
 3. Reuse the proven Sparring Supply Crate path — generator, review proxies,
   green-key processing, additive authoring, deterministic contracts, and the
   dual-resolution capture wrapper — for every remaining crate variant.
-4. Define and generate one independent pilot per remaining crate variant, using
-  accepted World Warrior props/stages for motif and mannequin/Ryu/Goku for
-  rendering finish. Each must read as breakable tournament supplies at gameplay
-  size with clear seams and function, distinct from the training dummy and from
-  the approved Sparring Supply Crate.
+4. Define and generate one independent pilot per remaining crate variant (Grand
+  Tournament and Champion's Courtyard), using accepted World Warrior
+  props/stages for motif and mannequin/Ryu/Goku for rendering finish. Each must
+  read as breakable tournament supplies at gameplay size with clear seams and
+  function, distinct from the training dummy, the Sparring Supply Crate, and
+  the Pavilion Rack Chest. The Grand Tournament crate should target a Health
+  drop to complete the three-stage cyclic pickup coverage (Dojo: health +
+  meter, Pavilion: meter + score, Grand Tournament: score + health).
 5. Review each raw variant beside the approved training dummy, the Sparring
-  Supply Crate, all three pickups, World Warrior fighters, and stage art.
-  Require at least `14/16`, no zero criterion, and no automatic failure before
-  any further variant or hazard batch.
+  Supply Crate, the Pavilion Rack Chest, all three pickups, World Warrior
+  fighters, and stage art. Require at least `14/16`, no zero criterion, and no
+  automatic failure before any further variant or hazard batch.
 6. After each pilot approval, wire one real break/drop interaction and capture it
   at both target resolutions; preserve rejected generations as provenance.
 7. Expand to rolling logs, falling practice props, crowds, and destruction only

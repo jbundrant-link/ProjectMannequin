@@ -293,3 +293,4 @@ Assets/Stages/WorldWarrior/world_warrior_pavilion_floor_style_v2.png filter=lfs 
 Assets/Stages/WorldWarrior/world_warrior_pavilion_foreground_left_style_v1.png filter=lfs diff=lfs merge=lfs -text
 Assets/Stages/WorldWarrior/world_warrior_pavilion_foreground_right_style_v1.png filter=lfs diff=lfs merge=lfs -text
 Assets/Stages/WorldWarrior/world_warrior_pavilion_midground_style_v1.png filter=lfs diff=lfs merge=lfs -text
+Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png filter=lfs diff=lfs merge=lfs -text

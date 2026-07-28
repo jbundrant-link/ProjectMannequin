@@ -475,6 +475,25 @@ public static class StageHazardTests
         Check(StageMissionValidator.Validate(dojoApproach).Count == 0,
             "Dojo Approach passes hazard prop lane and spawn validation with the supply crate");
 
+        var pavilionCircuit = WorldRunCatalog.CreateRun("world_warrior_sector").Stages[1];
+        var pavilionRackChestProp = pavilionCircuit.Encounters[1].Props
+            .Single(prop => prop.ArchetypeId == "world_warrior_pavilion_rack_chest");
+        var pavilionRackChest = new CombatActor { ActorId = "world_warrior_pavilion_rack_chest" };
+        var pavilionRackChestForm = HazardRosterFactory.CreateWorldWarriorPavilionRackChest();
+        pavilionRackChestForm.MaxHealth = pavilionRackChestProp.Health;
+        pavilionRackChest.Initialize(pavilionRackChestForm);
+        pavilionRackChest.ApplyHazardDamage(pavilionRackChestProp.Health - 10, tick: 2);
+        var rackChestSurvivedPartialBreak = !pavilionRackChest.IsDead;
+        pavilionRackChest.ApplyHazardDamage(10, tick: 3);
+        Check(rackChestSurvivedPartialBreak
+              && pavilionRackChest.IsDead
+              && pavilionRackChestProp.SpawnsPickupOnBreak
+              && pavilionRackChestProp.DropType == StagePickupType.Score
+              && pavilionRackChest.CurrentForm.RoleTags.Contains("breakable"),
+            "Pavilion Circuit rack chest survives partial damage then breaks into a score drop");
+        Check(StageMissionValidator.Validate(pavilionCircuit).Count == 0,
+            "Pavilion Circuit passes hazard prop lane and spawn validation with the rack chest");
+
         var session = RunSessionManager.Instance;
         session.StartNewRun("world_warrior_sector");
         var worldWarriorScorePickup = new CombatActor
