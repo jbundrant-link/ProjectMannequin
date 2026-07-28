@@ -60,11 +60,11 @@ and score-pickup PNG must resolve to Git LFS.
 Current automated baseline:
 
 - Settings assertions: `34/34`
-- World-run assertions: `244/244`
-- Stage-hazard assertions: `53/53`
+- World-run assertions: `247/247`
+- Stage-hazard assertions: `60/60`
 - Input grammar/assignment assertions: `34/34`
 - Run-score assertions: `11/11`
-- World/hazard aggregate: `297/297`
+- World/hazard aggregate: `307/307`
 - Clean runtime evidence exists for approved World Warrior slices at both
   `1280x720` and `1920x1080`.
 
@@ -103,6 +103,10 @@ Completed quality bar:
 - World Warrior Champion's Lantern Urn is `15/16` runtime approved in the
   live worktree, subject to the clone-durability gate above. This is the
   fourth and final World Warrior breakable-crate variant.
+- World Warrior Dojo Rolling Log and Falling Training Weight hazards are
+  each `15/16` runtime approved in the live worktree, subject to the
+  clone-durability gate above. These are World Warrior's first hazard zones
+  of any kind.
 
 The immediate unfinished slice is **Phase 6 item 1, `SettingsStore` and the
 options surface**, under the master plan's
@@ -490,20 +494,77 @@ or destruction.
   assertions. **This completes all four World Warrior training-crate
   variants.**
 
+### World Warrior Dojo Rolling Log and Falling Training Weight
+
+- World Warrior's **first hazard zones of any kind** (`StageHazardZoneData`,
+  not breakable props — every World Warrior stage before this had zero
+  hazard zones). Two `15/16` hazards give Dojo Approach its own
+  obstacle-course identity: the **Rolling Log** (`LinearSweep`, reusing the
+  Archive Intake Tram's exact timing envelope — 24-frame delay, 72-frame
+  warning, 96-frame active window, 264-frame repeat — at a gentler 70 DPS)
+  and the **Falling Training Weight** (`FallingStrike`, the same behavior
+  family as the Archive Repository Falling Shelf, 130 DPS, a finite
+  20-frame impact window).
+- Motifs are drawn directly from the Dojo Approach midground art itself: the
+  aged warm-brown timber and rope-binding language from its two training
+  posts becomes the log's rope wraps and brass end-caps; the aged stone and
+  rope-cord language from its lantern base and hanging bell becomes the
+  weight's rope-harnessed granite training weight with a worn strike-target
+  mark. Detail density scored `1` for both, consistent with every other
+  World Warrior prop/hazard; every other criterion scored `2`.
+- Both applied the **Proportion and scale calibration** gate from the start,
+  reasoned against authored stage geometry and function rather than the
+  character-height bands (which apply to standing furniture, not hazards):
+  Rolling Log `1.00` world-unit diameter (`24.4%` of the `4.104`-unit true
+  mannequin height) reasoned as a thick, unmistakably substantial obstacle;
+  Falling Weight `1.20` units (`29.2%`) reasoned slightly larger for clear
+  incoming-danger readability. Both stay legible at `96/128/160` pixels and
+  are verified content-distinct from each other and from the training dummy
+  and supply crate in a four-way silhouette comparison.
+- **Two tooling fixes found by building these**, documented in
+  `/memories/repo/setup.md`:
+  1. A Higgsfield `--prompt` body containing a literal quoted phrase (for
+     example `readable "moving danger" presentation`) fails CLI argument
+     parsing with `Error: Too many positional args`, even though the whole
+     prompt is one PowerShell string. Isolated by binary search down to a
+     158-character fragment. Fix: never use literal double-quoted emphasis
+     inside a prompt body; use hyphenated-word emphasis instead. A stray
+     em-dash (`--`) inside prompt text was also tested and is **not** the
+     cause.
+  2. `AuthorStageSetPiece` never runs for the final boss stage (confirmed
+     again here, first found during the Lantern Urn); not relevant to Dojo
+     Approach directly, but the same lesson: always re-verify the actual
+     dispatch path before assuming a helper covers every stage shape.
+- Wired additively: Rolling Log into Dojo Approach's first encounter
+  (alongside the existing training dummy), Falling Weight into the second
+  encounter (alongside the existing supply crate, offset in `Z` to avoid
+  overlap). `StageMissionValidator.Validate` passes with both present.
+  `StageHazardRuntime.Resolve` is exercised across the full
+  dormant/warning/active/cooldown/repeat cycle for both, deterministically.
+  A real runtime capture confirms the Rolling Log's authored warning text
+  ("ROLLING LOG — CLEAR THE CENTER LANE") renders correctly in-engine
+  alongside the dojo scene and fighters. The shared telegraph capture tool
+  only captures the first hazard encountered per run, so the Falling
+  Weight does not yet have its own dedicated screenshot — see `nextAction`
+  in the manifest for a proposed tool extension. Deterministic validation
+  passes `247/247` world, `60/60` hazard, and `11/11` RunScore assertions.
+
 ## Immediate Continuation Order
 
 1. Do not restore or search an older Copilot session. Start from this checkpoint
    and the live files only.
 2. Do not regenerate or revise Tetsu, the training dummy, Vitality Gourd, Focus
   Drum, Judge's Laurel Fan, the Sparring Supply Crate, the Pavilion Rack
-  Chest, the Champion's Trophy Podium, or the Champion's Lantern Urn; retain
-  their final assets, evidence, and hashes. The Pavilion Rack Chest's
-  `SpritePixelSize` (only) was corrected post-approval from `1.85` to `2.60`
-  world units after a measured-proportion review found the original pilot
-  calibration far too small next to the player character; that corrected
-  value is now final. The Trophy Podium (`2.30` units, `56.0%`) and the
-  Lantern Urn (`2.45` units, `59.7%`) both applied the measured-proportion
-  method from the start and needed no correction.
+  Chest, the Champion's Trophy Podium, the Champion's Lantern Urn, the Dojo
+  Rolling Log, or the Dojo Falling Training Weight; retain their final
+  assets, evidence, and hashes. The Pavilion Rack Chest's `SpritePixelSize`
+  (only) was corrected post-approval from `1.85` to `2.60` world units after
+  a measured-proportion review found the original pilot calibration far too
+  small next to the player character; that corrected value is now final. The
+  Trophy Podium (`2.30` units, `56.0%`), the Lantern Urn (`2.45` units,
+  `59.7%`), the Rolling Log (`1.00` unit diameter, `24.4%`), and the Falling
+  Weight (`1.20` units, `29.2%`) all applied the measured-proportion method
+  from the start and needed no correction.
 3. Do not fix proportion sizing piecemeal. The user confirmed the smallness
   issue is systemic ("the issue is in every stage... the train [Archive
   Intake Tram] is ridiculously small") and asked for one full sweep at the end
@@ -523,11 +584,17 @@ or destruction.
   and scale calibration** gate measured from the start with
   `Scripts/Tools/measure_true_sprite_world_height.py` — for every future
   World Warrior prop, not just crates.
-5. Move to the rest of the `Remaining Phase 5 > World Warrior` queue: rolling
-  training-log and falling-practice-prop hazard art, spectator/crowd layers
-  and reactions, and localized tournament-arena destruction states. Apply the
+5. **Dojo Approach's Rolling Log and Falling Training Weight are done** —
+  World Warrior's first hazard zones of any kind. Move to the rest of the
+  `Remaining Phase 5 > World Warrior` queue: spectator/crowd layers and
+  reactions, and localized tournament-arena destruction states. Apply the
   same pilot-first, runtime, dual-resolution, and proportion-sizing gates to
-  each.
+  each. Consider extending `capture_hazard_telegraph_review.ps1` to target a
+  specific hazard by ID or sprite suffix (mirroring
+  `PROJECT_MANNEQUIN_LADDER_PROP_SPRITE_SUFFIX` for props) — it currently
+  only captures the first hazard encountered per run, so Dojo Approach's
+  Falling Weight has no dedicated telegraph screenshot yet, only its full
+  deterministic `StageHazardRuntime.Resolve` coverage.
 6. Only after that queue is complete, run the **Full Proportion Sizing
   Sweep** (see the dedicated section below) — this was the user's explicit
   instruction: one full cross-world audit at the end of the phase, not
@@ -1004,7 +1071,9 @@ dual-resolution gates:
 
 1. **DONE:** All four training-crate variants (Supply Crate, Rack Chest,
    Trophy Podium, Lantern Urn).
-2. Rolling training-log and falling-practice-prop hazard art
+2. **DONE:** Rolling training-log and falling-practice-prop hazard art
+   (Dojo Approach Rolling Log + Falling Training Weight, World Warrior's
+   first hazard zones of any kind).
 3. Spectator/crowd layers and reactions
 4. Localized tournament-arena destruction states
 5. Stage-specific entrances, landmarks, lane rhythm, recovery pockets, GO
