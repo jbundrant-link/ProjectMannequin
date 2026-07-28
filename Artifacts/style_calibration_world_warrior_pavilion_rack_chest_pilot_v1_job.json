@@ -1,0 +1,55 @@
+[
+  {
+    "created_at": "2026-07-28T04:56:14.358496Z",
+    "display_name": "Nano Banana Pro",
+    "id": "14d0e36c-3c7a-4e72-b931-050b89339a1e",
+    "job_type": "nano_banana_pro",
+    "min_result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260728_045614_14d0e36c-3c7a-4e72-b931-050b89339a1e_min.webp",
+    "params": {
+      "application": null,
+      "aspect_ratio": "1:1",
+      "batch_size": 1,
+      "height": 2048,
+      "input_image": null,
+      "input_images": [
+        {
+          "id": "871c2b6e-09a7-48cd-9463-5e42f6ac2521",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/871c2b6e-09a7-48cd-9463-5e42f6ac2521.png"
+        },
+        {
+          "id": "c26e877f-bed4-4413-9fb9-7c2f018ed285",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/c26e877f-bed4-4413-9fb9-7c2f018ed285.png"
+        },
+        {
+          "id": "e7a500b7-e37c-41fc-acaf-d2356a5a993a",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/e7a500b7-e37c-41fc-acaf-d2356a5a993a_resize.jpg"
+        },
+        {
+          "id": "993db64b-3ba0-42a6-a57e-2ec20aa64b58",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/993db64b-3ba0-42a6-a57e-2ec20aa64b58.png"
+        },
+        {
+          "id": "ea49e266-f799-40ff-bf27-c8bd67a7eb49",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/ea49e266-f799-40ff-bf27-c8bd67a7eb49.png"
+        },
+        {
+          "id": "f7951796-28e9-4446-b89a-1878d007f7ab",
+          "type": "media_input",
+          "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/f7951796-28e9-4446-b89a-1878d007f7ab.png"
+        }
+      ],
+      "prompt": "PROJECT MANNEQUIN STYLE LOCK. Produce ONE approved-quality full-object IDENTITY / FUNCTION PILOT of the WORLD WARRIOR PAVILION RACK CHEST, an original breakable stage prop viewed in a clean right-facing three-quarter angle, centered and fully visible.\r\n\r\nThe prop must read instantly as a sturdy, breakable upright pavilion equipment chest at gameplay size, clearly a standing rack cabinet that stores practice weapons for a tournament pavilion, and NOT a padded training post, barrel, treasure chest, wardrobe, sci-fi locker, shrine, or pickup item. Build one tall standing chest with this exact large-form hierarchy:\r\n- one upright rectangular chest body, clearly TALLER THAN WIDE, standing on two short blocky timber feet that lift it just off the deck;\r\n- one narrow slate-grey tiled pent roof capping the top, overhanging the front and both sides, with four thick tile courses and a simplified upturned front edge;\r\n- two tall vertical vermilion lacquered corner posts framing the front face, each with three large bronze rivet studs;\r\n- one broad warm-ivory plaster front panel between the posts, carrying one bold red circular medallion emblem at chest height with a simple four-spoke ring inside;\r\n- one thick indigo cloth banner hanging from under the roof across the upper front, with two short blunt weighted tails and one bold horizontal saffron stripe;\r\n- three blunt pale practice staves standing upright in an open saffron-lined slot along the right side panel, their rounded tops rising just above the roof line and attached to the chest;\r\n- clear BREAK-READY structure: one thick diagonal split seam across the ivory front panel, one cracked and displaced tile at the left roof edge, and two short pale splinter notches along the lower right post, all cut into the material rather than floating.\r\n\r\nFunction must come from unmistakable breakable-equipment-chest cues: standing rack body, tiled cap, banded lacquer posts, exposed staves, and pre-scored break seams. Use only a few large components with thick contours. It must remain legible when reduced to roughly 96, 128, and 160 pixels tall. The tall upright body, tiled pent roof, vermilion posts, red medallion, indigo banner, and exposed staves must survive at that size. Keep the chest grounded, solid, and bottom-weighted, standing flat as if resting on a pavilion deck.\r\n\r\nREFERENCE ROLES ARE STRICT:\r\n1. Reference 1 is the approved World Warrior Sparring Supply Crate. Use ONLY its breakable-prop contour weight, large-form simplification, carved break-seam treatment, grounded stage-prop presentation, and warm-timber/ivory/vermilion/deep-indigo/saffron hierarchy. DO NOT copy its low wide box silhouette, overhanging flat lid, three horizontal plank slats, corner brackets, cargo strap knot, rope handle loop, hand-wrap bundle, or practice mitt. This new prop must be immediately distinguishable from it in silhouette.\r\n2. Reference 2 is the approved World Warrior Judge's Laurel Fan. Use only its bold ceremonial tournament finish, thick ivory contours, vermilion lacquer, saffron trim, and clean designed material treatment. Do not copy its fan shape, ribs, pleats, handle, tassel, pickup scale, or silhouette.\r\n3. Reference 3 is the approved Pavilion Circuit environment. Use only its warm dusk pavilion mood, lacquered post and tiled roof material language, paper-lantern warmth, indigo banner cloth, red medallion motif, and ordered value hierarchy. Do not reproduce architecture, buildings, decks, railings, lanterns, banners in place, mountains, or scene.\r\n4-6. References 4-6 are the canonical mannequin, Ryu, and Goku rendering-finish anchors. Match their confident dark contours, broad two-to-four-band cel shading, clean designed highlights, simplified materials, saturated controlled accents, and arcade-readable 2.5D fighting-game volume. Do not copy any character's face, body, costume, anatomy, or identity.\r\n\r\nOne complete centered prop on uniform pure chroma-green RGB 0,255,0 with generous uninterrupted green margin on every side, including above the roof and stave tops, outside the banner tails, and below the full chest feet. No training dummy, padded post, barrel, low wide crate, treasure chest, gold, coins, gems, lock, hinge padlock, keyhole, Archive crystal, shard, cube, chip, data cache, sci-fi panel, glowing seam, hanging lantern, potion, gourd, drum, fan, blade, spear tip, letters, numbers, kanji, logo, label text, star icon, face, eyes, person, creature, floating orb, aura, detached ring, rays, sparks, detached tiles, debris cloud, floor, cast shadow, scenery, room, architecture, border, grid, duplicate object, photorealism, PBR, painterly blur, flat vector art, pixel art, or crop. 2K square stage-prop pilot.",
+      "resolution": "2k",
+      "surface": null,
+      "width": 2048
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FrYOtkTM6XEt7QUfhm0X2eWEf2/hf_20260728_045614_14d0e36c-3c7a-4e72-b931-050b89339a1e.png",
+    "status": "completed"
+  }
+]
+
