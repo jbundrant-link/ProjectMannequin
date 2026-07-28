@@ -239,15 +239,70 @@ Before generating a family or batch:
 
 A batch derived from an unapproved pilot is invalid even if every file imports successfully.
 
+### Proportion and scale calibration
+
+A flat 2D proxy (a cutout composited over a stage screenshot at an assumed
+scale) is not sufficient evidence that a new asset is correctly sized. It has
+produced real defects: the World Warrior Sparring Supply Crate and the
+original Pavilion Rack Chest pilot were both calibrated this way and rendered
+noticeably smaller in real gameplay than intended once measured against the
+player character.
+
+Godot's `Sprite3D.PixelSize` scales the full per-frame texture (texture size
+divided by `Hframes`/`Vframes`), not just the visible alpha content inside
+that frame, and a character's gameplay hurtbox is intentionally smaller than
+its sprite. Neither the frame's raw pixel dimensions nor the hurtbox size is
+a valid proxy for "how tall this actually renders on screen." Use this
+measured method instead:
+
+1. **Measure true rendered height, not assumed height.** True world height =
+   `alpha_content_bbox_height_px * SpritePixelSize`, using the asset's actual
+   alpha bounding box (the whole image for a single-frame prop/pickup; one
+   representative idle frame — never an outstretched action pose — for a
+   character sheet). Use `Scripts/Tools/measure_true_sprite_world_height.py`
+   to compute this instead of hand-deriving it.
+2. **Anchor every ratio to the canonical mannequin/Ryu/Goku true height**
+   (~4.10 world units for the default mannequin rig at `SpritePixelSize =
+   0.018`, an idle frame, 10x9 sheet — recompute per-anchor if any of those
+   change), not to gameplay hurtbox/pushbox sizes and not to another prop's
+   assumed scale.
+3. **Target ratio bands** (true prop/character height ÷ true mannequin
+   height), measured, not assumed:
+   - Tall standing apparatus or furniture a fighter interacts with at chest
+     height (training posts, standing chests/racks): **55-75%**.
+   - Low, floor-level, or squat objects (wide crates, ground caches): **25-45%**,
+     and must still read as a real physical object a fighter could crouch
+     over or kick, not a footstool.
+   - Pickups/collectibles: **12-20%** — small and graphic on purpose.
+   - Hazard emitters and set pieces: scale to the stage's authored geometry
+     (door frames, tram width, etc.); state the reference explicitly in the
+     review notes.
+4. **Every new humanoid character/enemy** must also have its true height
+   measured the same way and compared against the mannequin/Ryu/Goku anchors
+   and against other roster members of the same weight class. Named elites,
+   bosses, and standard enemies of comparable build should land within a
+   similar band of each other; unexplained per-enemy height/width drift is a
+   review failure even if the individual asset looks fine in isolation.
+5. **Confirm with an actual runtime capture**, not only the flat proxy. The
+   proxy may still inform initial art direction, but final approval requires
+   seeing the asset standing next to the player character in a real
+   `res://Scenes/Main.tscn` capture at gameplay zoom.
+6. Record the measured true height, the reference height it was compared
+   against, and the resulting ratio in the review notes and in
+   [VISUAL_STYLE_REVIEW_MANIFEST.json](VISUAL_STYLE_REVIEW_MANIFEST.json).
+
 ### Review sequence
 
 1. Review raw output beside approved anchors before background removal, slicing, or wiring.
 2. Reject immediately if it reads as a different game.
 3. Validate silhouette at gameplay size and grayscale hierarchy.
 4. Validate alpha, import, frame metrics, scale, and grounding.
-5. Render in-game at 1280×720 and 1920×1080.
-6. Capture calm composition and representative maximum combat density.
-7. Record model, prompt, references, score, reviewer, and approval in [VISUAL_STYLE_REVIEW_MANIFEST.json](VISUAL_STYLE_REVIEW_MANIFEST.json).
+5. Measure true rendered height per **Proportion and scale calibration** above
+   and confirm it lands in the target ratio band before proceeding.
+6. Render in-game at 1280×720 and 1920×1080.
+7. Capture calm composition and representative maximum combat density.
+8. Record model, prompt, references, score, reviewer, measured proportion
+   ratio, and approval in [VISUAL_STYLE_REVIEW_MANIFEST.json](VISUAL_STYLE_REVIEW_MANIFEST.json).
 
 ## Style acceptance rubric
 

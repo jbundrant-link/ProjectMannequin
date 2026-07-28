@@ -115,7 +115,7 @@ public static class HazardRosterFactory
         crate.DisplayName = "Pavilion Rack Chest";
         crate.SpriteSheetPath =
             "res://Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png";
-        crate.SpritePixelSize = 0.00094388f;
+        crate.SpritePixelSize = 0.00132653f;
         crate.SpriteGroundOffsetPixels = 985.0f;
         crate.RoleTags.Add("world_warrior");
         crate.RoleTags.Add("supply_prop");

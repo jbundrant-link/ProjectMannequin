@@ -1514,7 +1514,7 @@ public static class WorldRunCatalog
     private const float WorldWarriorSupplyCratePixelSize = 0.00079027f;
     private const string WorldWarriorPavilionRackChestSprite =
         "res://Assets/Sprites/Props/WorldWarrior/world_warrior_pavilion_rack_chest_style_v1.png";
-    private const float WorldWarriorPavilionRackChestPixelSize = 0.00094388f;
+    private const float WorldWarriorPavilionRackChestPixelSize = 0.00132653f;
     private const string ArchiveMeterCacheSprite =
         "res://Assets/Sprites/Props/Archive/archive_meter_cache_style_v2.png";
     private const string ArchiveDataCacheSprite =

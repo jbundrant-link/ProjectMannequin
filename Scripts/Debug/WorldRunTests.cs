@@ -836,7 +836,7 @@ public static class WorldRunTests
                           "world_warrior_pavilion_rack_chest_style_v1.png")
                       && Mathf.IsEqualApprox(
                           pavilionRackChestProp.SpritePixelSize,
-                          0.00094388f)
+                          0.00132653f)
                       && Mathf.IsEqualApprox(
                           pavilionRackChestProp.SpriteGroundOffsetPixels,
                           985.0f),

@@ -369,8 +369,19 @@ the same pilot, runtime, and dual-resolution gates.
   and its practice weapon racks.
 - Detail density scored `1` for the same reason as the Supply Crate; every
   other criterion scored `2`.
-- Exact green-key processing preserves `314/49/1735/2009` alpha bounds, zero
-  green spill, and calibrated `0.00094388/985` metrics for a `1.85`-unit prop.
+- Exact green-key processing preserves `314/49/1735/2009` alpha bounds and zero
+  green spill. The initial pilot calibration (`0.00094388/985` for a
+  `1.85`-unit prop) was found post-wiring to render far too small next to the
+  player character once measured properly: `1.85` units is only **44.4%** of
+  the mannequin's true rendered height (`~4.10` units, measured by alpha-content
+  bounding box, not the smaller gameplay hurtbox). It was corrected to
+  `0.00132653/985` for a `2.60`-unit prop, **63.4%** of true mannequin height,
+  in the same band as the approved training dummy's `68.2%` and consistent
+  with reading as standing furniture rather than a footstool. Ground offset
+  pixels are unchanged; only `SpritePixelSize` moved, so no art was
+  regenerated. `Scripts/Tools/measure_true_sprite_world_height.py` is the new
+  reusable tool for this measurement, and `VISUAL_STYLE_BIBLE.md > Proportion
+  and scale calibration` is the new mandatory gate.
 - The chest stays readable at `96/128/160` pixels and is content-distinct from
   the Supply Crate, the Pavilion training dummy, and the Archive data cache.
 - Pavilion Circuit adds one additive `85`-HP rack chest to its second encounter
@@ -391,11 +402,26 @@ the same pilot, runtime, and dual-resolution gates.
    and the live files only.
 2. Do not regenerate or revise Tetsu, the training dummy, Vitality Gourd, Focus
   Drum, Judge's Laurel Fan, the Sparring Supply Crate, or the Pavilion Rack
-  Chest; retain their final assets, evidence, and hashes.
-3. Reuse the proven Sparring Supply Crate path — generator, review proxies,
+  Chest; retain their final assets, evidence, and hashes. The Pavilion Rack
+  Chest's `SpritePixelSize` (only) was corrected post-approval from `1.85` to
+  `2.60` world units after a measured-proportion review found the original
+  pilot calibration far too small next to the player character; that corrected
+  value is now final.
+3. The Sparring Supply Crate is flagged for a proportion-sizing audit: it
+  measures `31.7%` of the canonical mannequin's true rendered height (versus
+  the training dummy's `68.2%` and the corrected Rack Chest's `63.4%`). It may
+  be intentionally low/wide, or it may need the same correction the Rack Chest
+  received — review it against `VISUAL_STYLE_BIBLE.md > Proportion and scale
+  calibration` and decide before its next revision, not silently.
+4. Reuse the proven Sparring Supply Crate path — generator, review proxies,
   green-key processing, additive authoring, deterministic contracts, and the
-  dual-resolution capture wrapper — for every remaining crate variant.
-4. Define and generate one independent pilot per remaining crate variant (Grand
+  dual-resolution capture wrapper — for every remaining crate variant. Add the
+  **Proportion and scale calibration** gate from `VISUAL_STYLE_BIBLE.md` to
+  that path from the start: measure true rendered height with
+  `Scripts/Tools/measure_true_sprite_world_height.py` against the canonical
+  mannequin/Ryu/Goku true height (~`4.10` units), not a flat 2D proxy alone,
+  before calling any pilot's scale final.
+5. Define and generate one independent pilot per remaining crate variant (Grand
   Tournament and Champion's Courtyard), using accepted World Warrior
   props/stages for motif and mannequin/Ryu/Goku for rendering finish. Each must
   read as breakable tournament supplies at gameplay size with clear seams and
@@ -403,25 +429,25 @@ the same pilot, runtime, and dual-resolution gates.
   the Pavilion Rack Chest. The Grand Tournament crate should target a Health
   drop to complete the three-stage cyclic pickup coverage (Dojo: health +
   meter, Pavilion: meter + score, Grand Tournament: score + health).
-5. Review each raw variant beside the approved training dummy, the Sparring
+6. Review each raw variant beside the approved training dummy, the Sparring
   Supply Crate, the Pavilion Rack Chest, all three pickups, World Warrior
   fighters, and stage art. Require at least `14/16`, no zero criterion, and no
   automatic failure before any further variant or hazard batch.
-6. After each pilot approval, wire one real break/drop interaction and capture it
+7. After each pilot approval, wire one real break/drop interaction and capture it
   at both target resolutions; preserve rejected generations as provenance.
-7. Expand to rolling logs, falling practice props, crowds, and destruction only
+8. Expand to rolling logs, falling practice props, crowds, and destruction only
   after the crate variants are complete.
-8. Do not start Astral art. Astral stages are on interim pre-restyle plates and
+9. Do not start Astral art. Astral stages are on interim pre-restyle plates and
   are deliberately deferred; read `Remaining Phase 5 > Astral Battlefront` before
   touching them, and honour the hard gates listed there.
-9. Treat `Open Stage Defects` as a known, measured backlog. Do not re-approve any
+10. Treat `Open Stage Defects` as a known, measured backlog. Do not re-approve any
   stage listed there without first re-running the audit that failed it.
-10. The stage presentation pass is finished and is not the current slice. Belt
+11. The stage presentation pass is finished and is not the current slice. Belt
   grounding, backdrop ground lines, floor materials, the contact shadow, and the
   Champion's Courtyard plate are all done and gated. The one piece deliberately
   left open is repainting the Pavilion and Grand Tournament backdrops with a
   ground line, which is parked as item 6 of `Remaining Phase 5 > World Warrior`.
-11. Phase 6 item 1 is partly landed. `Scripts/Settings/SettingsData.cs` and
+12. Phase 6 item 1 is partly landed. `Scripts/Settings/SettingsData.cs` and
   `Scripts/Settings/SettingsStore.cs` hold the full settings model with range
   clamping, atomic writes plus backup recovery, and tolerant parsing that
   degrades a malformed file to usable defaults instead of blocking startup.
@@ -431,7 +457,7 @@ the same pilot, runtime, and dual-resolution gates.
   are created at startup if the project has not defined them, which also fixes
   players that referenced a non-existent `SFX` bus. Camera shake now scales by
   `ShakeIntensity` at the point of use, so zero is exactly zero.
-12. Phase 6 item 1 is now closed. The options surface is split into
+13. Phase 6 item 1 is now closed. The options surface is split into
   `Scripts/Settings/OptionsModel.cs`, which is engine-free and holds every row
   definition, navigation, clamping, cycling, and value formatting, and
   `Scripts/UI/OptionsMenu.cs`, a thin `CanvasLayer` that renders rows and
@@ -452,7 +478,7 @@ the same pilot, runtime, and dual-resolution gates.
   `Scripts/Debug/OptionsMenuSmokeScenario.cs` plus
   `Scripts/Tools/capture_options_menu_review.ps1` re-run that check on demand
   under `PROJECT_MANNEQUIN_OPTIONS_UI_SMOKE_TEST=1`.
-13. Phase 6 item 2, the accessibility contract, is landed.
+14. Phase 6 item 2, the accessibility contract, is landed.
   `Scripts/Settings/AccessibilityRuntime.cs` holds the whole policy as pure
   functions that take the setting as an argument, so the deterministic suite
   asserts it without a scene tree. Settings suite is now `25/25`.
@@ -490,7 +516,7 @@ the same pilot, runtime, and dual-resolution gates.
   via `-HighContrast` and `-ReducedFlash`. Capture-only overrides live in
   `SettingsStore.ApplyCaptureOverrides` and are gated on
   `IsPersistenceDisabled`, so they can never apply in a player session.
-14. Phase 6 item 3, input glyph switching and reconnect, is landed.
+15. Phase 6 item 3, input glyph switching and reconnect, is landed.
   `Scripts/Input/GamepadBindings.cs` is now the SINGLE source of truth for which
   pad button drives which action: `LocalInputManager.PollJoypad` reads it to
   build the input mask and `Scripts/Input/InputGlyphs.cs` reads the same table
@@ -527,7 +553,7 @@ the same pilot, runtime, and dual-resolution gates.
   asserts every core action sits on a universally present button.
   Grab and Block remain analog triggers rather than buttons, which is fine
   because triggers exist on every modern pad.
-15. Phase 6 item 4, save robustness, is landed, which closes the whole
+16. Phase 6 item 4, save robustness, is landed, which closes the whole
   Phase 6 items 1-4 playability block. `Scripts/Progression/SaveSchema.cs` holds
   the version policy as pure functions. Settings suite is now `33/33`.
   The two stores previously handled a version mismatch in opposite and equally
@@ -554,7 +580,7 @@ the same pilot, runtime, and dual-resolution gates.
   replay. Its predicate has a pure overload so the suite drives the clock, and
   it explicitly survives a backwards clock rather than wrapping the unsigned
   subtraction and pinning the indicator on forever.
-16. `Stage Rendering And Depth Separation Pass` item 1, the per-actor grounding
+17. `Stage Rendering And Depth Separation Pass` item 1, the per-actor grounding
   shadow, is landed. `CharacterVisualComponent` builds one soft radial quad per
   fighter, scaled by the node's boss/presentation scale, shrinking and fading
   with height off the ground so a jump reads as leaving the floor.
@@ -591,7 +617,7 @@ the same pilot, runtime, and dual-resolution gates.
   The only real observation is a content one: projectiles still use the default
   `MoveData.VisualColor` untextured sphere, so they are placeholder art, which
   belongs to the Phase 5 art queue rather than to rendering.
-17. `Stage Rendering And Depth Separation Pass` item 2, the layer depth ramp,
+18. `Stage Rendering And Depth Separation Pass` item 2, the layer depth ramp,
   is landed. `PrototypeStageView.ResolveLayerDepthTint` applies aerial
   perspective per `StageVisualLayerKind`: Far (0.74, 0.80, 0.93), Midground
   (0.88, 0.91, 0.98), Gameplay untouched, Foreground (0.82, 0.85, 0.92), on the
@@ -613,7 +639,7 @@ the same pilot, runtime, and dual-resolution gates.
   foreground, so `audit_stage_layer_visibility.py` now REPORTS luminance
   separation and colour temperature as context for a human and gates only on
   midground visibility, which is objective.
-18. `Stage Rendering And Depth Separation Pass` item 3, the floor lighting
+19. `Stage Rendering And Depth Separation Pass` item 3, the floor lighting
   decision, is settled: **the floor stays `Unshaded`, and the per-actor contact
   shadow remains the sole grounding channel.** This was measured rather than
   assumed. Promoting the floor material to `PerPixel` does produce real
@@ -630,7 +656,7 @@ the same pilot, runtime, and dual-resolution gates.
   original render exactly, 0 changed pixels.
   Note `WorldRunTests.FloorMaterialIsIsotropic` reads the floor TEXTURE file
   rather than the render, so it is unaffected by this decision either way.
-19. `Stage Rendering And Depth Separation Pass` item 4, the key light contract,
+20. `Stage Rendering And Depth Separation Pass` item 4, the key light contract,
   is landed. `StageMissionData.KeyLightPitchDegrees` and `KeyLightYawDegrees`
   declare the direction each stage is authored against; the sun consumes them
   instead of a hardcoded `(-48, -30, 0)`; and `Scripts/Stage/StageKeyLight.cs`
@@ -649,7 +675,7 @@ the same pilot, runtime, and dual-resolution gates.
   Pavilion and Grand Tournament repaints and the Astral restyle are waiting on,
   so it should be done deliberately with the art in front of you rather than
   guessed from a heuristic.
-20. `Stage Rendering And Depth Separation Pass` item 5 is HALF landed: far-layer
+21. `Stage Rendering And Depth Separation Pass` item 5 is HALF landed: far-layer
   softening is in, the vignette is NOT and needs a design call (see item 21).
   `PrototypeStageView.ApplyFarLayerHaze` enables depth fog on the stage
   `Environment`, coloured with the stage's own far colour. The layer depth tint
@@ -666,7 +692,7 @@ the same pilot, runtime, and dual-resolution gates.
   Midground stayed visible on all 7 stages and the junction audit is still 0 gap
   pixels. `WorldRunTests` is `227`. Item 6 is folded into
   `Scripts/Tools/run_stage_layer_visibility_audit.ps1`.
-21. CHECK-IN STATE. Commit `680bb74` on `main` holds Phase 6 items 1-4 and stage
+22. CHECK-IN STATE. Commit `680bb74` on `main` holds Phase 6 items 1-4 and stage
   rendering pass items 1-5 plus all tooling: 296 files, 3.13 MB, no binaries,
   build 0/0, suites 34/34/227/11/47. It is LOCAL ONLY and has NOT been pushed.
   The commit boundary is deliberate: `Scripts/`, `Docs/`, `.github/`, root
@@ -711,7 +737,7 @@ the same pilot, runtime, and dual-resolution gates.
   routed through LFS, which is the exact mistake that built the oversized
   history. Run it before committing, or install it as a pre-commit hook. It is
   verified to block a raw binary and to pass an LFS-covered one.
-22. `Stage Rendering And Depth Separation Pass` item 7, the frame-time check,
+23. `Stage Rendering And Depth Separation Pass` item 7, the frame-time check,
   is DONE and PASSES with very large headroom. `Scripts/Debug/FrameTimeProbe.cs`
   attaches only when `PROJECT_MANNEQUIN_FRAME_TIME_PROBE=1` and persistence is
   disabled; `Scripts/Tools/run_stage_frame_time_audit.ps1` sweeps 10 stages.
@@ -732,7 +758,7 @@ the same pilot, runtime, and dual-resolution gates.
   GPU load. Scaling is sublinear, so these stages are draw-call bound, not
   pixel bound. Numbers are machine-specific and from a Debug build; treat them
   as a budget check, not a portable benchmark.
-23. `Stage Rendering And Depth Separation Pass` is COMPLETE. The vignette
+24. `Stage Rendering And Depth Separation Pass` is COMPLETE. The vignette
   landed as `Scripts/Presentation/StageVignette.cs`, a `CanvasLayer` on layer 0
   holding a generated vertical alpha gradient. The user chose TOP AND BOTTOM
   FALLOFF ONLY over a conventional radial vignette, because this is a
@@ -777,12 +803,12 @@ the same pilot, runtime, and dual-resolution gates.
   the `StageVisualLayerKind` depth ramp, then the floor lighting decision, the
   per-stage key direction, far-layer softening, a numeric separation gate in
   `WorldRunTests`, and a frame-time check against the 16.7 ms budget.
-24. Only then return to the Phase 5 art queue, starting with the training-crate
+25. Only then return to the Phase 5 art queue, starting with the training-crate
   variants. The Pavilion and Grand Tournament backdrop repaints and the Astral
   restyle must be authored against the key direction locked by item 15; any
   stage art produced before that lock is provisional. Nothing in that queue is
   cancelled and no completion gate is waived; only the order changed.
-25. Run every deterministic suite with
+26. Run every deterministic suite with
   `Scripts/Tools/run_all_deterministic_suites.ps1`, which covers input grammar,
   settings, world run, run score, and stage hazards in one headless pass.
 
